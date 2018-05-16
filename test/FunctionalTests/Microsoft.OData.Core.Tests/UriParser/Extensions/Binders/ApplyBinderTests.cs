@@ -92,6 +92,39 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
         }
 
         [Fact]
+        public void BindApplyWithFilterNonExistingPropertyShouldThrowPropertyException()
+        {
+            var tokens = _parser.ParseApply("filter(IDx eq 0)");
+            var metadataBiner = new MetadataBinder(_bindingState);
+
+            var binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
+            Action bind = () => binder.BindApply(tokens);
+            bind.ShouldThrow<ODataErrorException>().Where(e => e.Error.ErrorCode == ErrorCodes.PropertyNotFoundInType);
+        }
+
+        [Fact]
+        public void BindApplyWithAggregateFilterOnNonExistingOpenPropertyShouldThrowOpenPropertyException()
+        {
+            var tokens = _parser.ParseApply("aggregate($count as Ct)/filter(Cxt eq 0)");
+
+            var metadataBiner = new MetadataBinder(_bindingState);
+            var binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
+            Action bind = () => binder.BindApply(tokens);
+            bind.ShouldThrow<ODataErrorException>().Where(e => e.Error.ErrorCode == ErrorCodes.OpenPropertyNotFoundInType);
+        }
+
+        [Fact]
+        public void BindApplyWithGroupByFilterOnNonExistingOpenPropertyShouldThrowOpenPropertyException()
+        {
+            var tokens = _parser.ParseApply("groupby((ID))/filter(Cxt eq 0)");
+
+            var metadataBiner = new MetadataBinder(_bindingState);
+            var binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
+            Action bind = () => binder.BindApply(tokens);
+            bind.ShouldThrow<ODataErrorException>().Where(e => e.Error.ErrorCode == ErrorCodes.OpenPropertyNotFoundInType);
+        }
+
+        [Fact]
         public void BindApplyWithAggregateAndFilterShouldReturnApplyClause()
         {
             var tokens = _parser.ParseApply("aggregate(StockQuantity with sum as TotalPrice)/filter(TotalPrice eq 100)");

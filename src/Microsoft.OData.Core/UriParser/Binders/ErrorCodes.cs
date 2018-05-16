@@ -9,5 +9,6 @@ namespace Microsoft.OData.UriParser
     internal static class ErrorCodes
     {
         public const string PropertyNotFoundInType = "10001";
+        public const string OpenPropertyNotFoundInType = "10002";
     }
 }

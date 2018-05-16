@@ -70,23 +70,27 @@ namespace Microsoft.OData.UriParser
         /// </summary>
         /// <param name="propertyName">The propertyName which was not found in the type.</param>
         /// <param name="typeName">The typeName of the type in which the property was not found.</param>
-        internal static ODataErrorException CreatePropertyNotFoundException(string propertyName, string typeName)
+        internal static ODataErrorException CreatePropertyNotFoundException(string propertyName, string typeName , bool isOpenProperty = false)
         {
-            ODataError odataError = new ODataError
-            {
-                ErrorCode = ErrorCodes.PropertyNotFoundInType,
-                Target = propertyName,
-                Details = new List<ODataErrorDetail>
-                    {
-                        new ODataErrorDetail {
-                            ErrorCode = ErrorCodes.PropertyNotFoundInType,
-                            Target = typeName
-                        }
-                    }
-            };
+            ODataError odataError = GenerateODataError(propertyName, typeName, isOpenProperty? ErrorCodes.OpenPropertyNotFoundInType: ErrorCodes.PropertyNotFoundInType);
 
             return new ODataErrorException(ODataErrorStrings.MetadataBinder_PropertyNotDeclared(typeName, propertyName), odataError);
         }
 
+        private static ODataError GenerateODataError(string propertyName, string typeName, string errorCode)
+        {
+            return new ODataError
+            {
+                ErrorCode = errorCode,
+                Target = propertyName,
+                Details = new List<ODataErrorDetail>
+                    {
+                        new ODataErrorDetail {
+                            ErrorCode = errorCode,
+                            Target = typeName
+                        }
+                    }
+            };
+        }
     }
 }

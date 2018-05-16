@@ -45,10 +45,12 @@ namespace Microsoft.OData.UriParser.Aggregation
                         transformations.Add(aggregate);
                         aggregateExpressionsCache = aggregate.Expressions;
                         state.AggregatedPropertyNames = aggregate.Expressions.Select(statement => statement.Alias).ToList();
+                        state.IsCollapsed = true;
                         break;
                     case QueryTokenKind.AggregateGroupBy:
                         GroupByTransformationNode groupBy = BindGroupByToken((GroupByToken)(token));
                         transformations.Add(groupBy);
+                        state.IsCollapsed = true;
                         break;
                     case QueryTokenKind.Compute:
                         ComputeClause computeClause = this.computeBinder.BindCompute((ComputeToken)token);
