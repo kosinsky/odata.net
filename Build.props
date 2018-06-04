@@ -74,7 +74,7 @@
     <SolutionDir>$(EnlistmentRoot)\sln</SolutionDir>
     <NugetPack>$(SolutionDir)\packages</NugetPack>
     <NuGetToolsPath>$(SolutionDir)\.nuget</NuGetToolsPath>
-    <NuGetExePath>$(NuGetToolsPath)\..\..\..\odata.net\sln\.nuget\NuGet.exe</NuGetExePath>
+    <NuGetExePath>$(NuGetToolsPath)\NuGet.exe</NuGetExePath>
     <PackagesConfig>$(NuGetToolsPath)\packages.config</PackagesConfig>
   </PropertyGroup>
 
