@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <title>Microsoft.Spatial</title>
-    <id>Microsoft.Spatial</id>
+    <title>Microsoft.TeamFoundation.Spatial</title>
+    <id>Microsoft.TeamFoundation.Spatial</id>
     <tags>wcf data services odata odatalib edmlib spatial ado.net ef entity framework open protocol wcfds wcfdataservices dataservices</tags>
     <version>$VersionNuGetSemantic$</version>
     <authors>Microsoft Corporation</authors>
