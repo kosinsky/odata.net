@@ -17,8 +17,8 @@ OData .NET library is open source at http://github.com/OData/odata.net</descript
     <releaseNotes>http://odata.github.io/odata.net/v7/#ODL-$VersionFullSemantic$</releaseNotes>
     <copyright>© Microsoft Corporation.  All rights reserved.</copyright>
     <dependencies>
-      <dependency id="Microsoft.Spatial" version="[$VersionNuGetSemantic$]" />
-      <dependency id="Microsoft.OData.Edm" version="[$VersionNuGetSemantic$]" />
+      <dependency id="Mseng.Spatial" version="[$VersionNuGetSemantic$]" />
+      <dependency id="Mseng.OData.Edm" version="[$VersionNuGetSemantic$]" />
     </dependencies>
   </metadata>
   <files>
