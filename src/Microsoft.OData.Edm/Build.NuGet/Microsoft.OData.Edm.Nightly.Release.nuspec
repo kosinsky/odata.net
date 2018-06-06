@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <title>EdmLib</title>
-    <id>Microsoft.TeamFoundation.OData.Edm</id>
+    <id>Mseng.OData.Edm</id>
     <tags>wcf data services odata odatalib edmlib spatial ado.net ef entity framework open protocol wcfds wcfdataservices dataservices</tags>
     <version>$VersionFullSemantic$-Nightly$NightlyBuildVersion$</version>
     <authors>Microsoft Corporation</authors>
