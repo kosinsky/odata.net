@@ -32,10 +32,12 @@ elseif ($args[0] -match 'E2E')
 elseif ($args[0] -match 'DisableSkipStrongName')
 {
     $TestType = "DisableSkipStrongName"
+    $Configuration = 'Release'
 }
 elseif ($args[0] -match 'EnableSkipStrongName')
 {
     $TestType = "EnableSkipStrongName"
+    $Configuration = 'Release'
 }
 elseif ($args[0] -match 'SkipStrongName')
 {
