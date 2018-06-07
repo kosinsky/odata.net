@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <title>OData Client for .NET</title>
-    <id>Microsoft.OData.Client</id>
+    <id>Mseng.OData.Client</id>
     <tags>wcf data services odata odatalib edmlib spatial ado.net ef entity framework open protocol wcfds wcfdataservices dataservices</tags>
     <version>$VersionFullSemantic$-Nightly$NightlyBuildVersion$</version>
     <authors>Microsoft Corporation</authors>
@@ -16,7 +16,7 @@
 OData .NET library is open source at http://github.com/OData/odata.net</description>
     <copyright>© Microsoft Corporation.  All rights reserved.</copyright>
     <dependencies>
-      <dependency id="Microsoft.OData.Core" version="[$VersionFullSemantic$-Nightly$NightlyBuildVersion$]" />
+      <dependency id="Mseng.OData.Core" version="[$VersionFullSemantic$-Nightly$NightlyBuildVersion$]" />
     </dependencies>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Windows" targetFramework="sl4" />
@@ -27,9 +27,9 @@ OData .NET library is open source at http://github.com/OData/odata.net</descript
     <file src="$ProductRoot$\Desktop\Microsoft.OData.Client.dll" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.OData.Client.xml" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.OData.Client.pdb" target="lib\net45" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.dll" target="lib\netstandard1.1" />
+    <!-- <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.dll" target="lib\netstandard1.1" />
     <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.pdb" target="lib\netstandard1.1" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.xml" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.xml" target="lib\netstandard1.1" /> -->
     <file src="$SourcesRoot$\src\Microsoft.OData.Client\**\*.cs" target="src\Microsoft.OData.Client" />
     <!-- files imported from EdmLib -->
     <file src="$SourcesRoot$\src\Microsoft.OData.Edm\Csdl\EdmValueParser.cs" target="src\Microsoft.OData.Edm\Csdl\EdmValueParser.cs" />
