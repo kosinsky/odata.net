@@ -118,7 +118,7 @@ $XUNITADAPTER = "/TestAdapterPath:" + $NUGETPACK + "\xunit.runner.visualstudio.2
 
 $NugetRestoreSolutions = "OData.NetStandard.sln"
 
-$ProductDlls = "Microsoft.OData.Client.dll",
+$ProductDlls = "Microsoft.TeamFoundation.OData.Client.dll",
     "Microsoft.TeamFoundation.OData.Core.dll",
     "Microsoft.TeamFoundation.OData.Edm.dll",
     "Microsoft.OData.Service.Design.T4.dll",
