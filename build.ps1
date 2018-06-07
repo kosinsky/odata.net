@@ -249,12 +249,12 @@ Function SkipStrongName
     $dlls = GetDlls
     ForEach ($dll in $dlls)
     {
-        & $SN /Vr $dll #| Out-File $SnLog -Append
+        & $SN /Vr $dll | Out-File $SnLog -Append
     }
 
     ForEach ($dll in $dlls)
     {
-        & $SNx64 /Vr $dll #| Out-File $SnLog -Append
+        & $SNx64 /Vr $dll | Out-File $SnLog -Append
     }
 
     & $SN /Vl
