@@ -640,17 +640,17 @@ if (! (Test-Path $LOGDIR))
 
 if ($TestType -eq 'EnableSkipStrongName')
 {
-    CleanBeforeScorch
-    NugetRestoreSolution
-    BuildProcess
+    #CleanBeforeScorch
+    #NugetRestoreSolution
+    #BuildProcess
     SkipStrongName
     Exit
 }
 elseif ($TestType -eq 'DisableSkipStrongName')
 {
-    CleanBeforeScorch
-    NugetRestoreSolution
-    BuildProcess
+    #CleanBeforeScorch
+    #NugetRestoreSolution
+    #BuildProcess
     DisableSkipStrongName
     Exit
 }
