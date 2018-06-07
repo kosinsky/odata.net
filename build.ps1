@@ -100,8 +100,8 @@ if ([System.IO.File]::Exists($DOTNETDIR + "dotnet.exe"))
 $VSTEST = $VSBASE + "\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
 $FXCOPDIR = $VSBASE + "\Team Tools\Static Analysis Tools\FxCop"
 
-$SN = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\sn.exe"
-$SNx64 = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64\sn.exe"
+$SN = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\sn.exe"
+$SNx64 = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\sn.exe"
 
 # Other variables
 $FXCOP = $FXCOPDIR + "\FxCopCmd.exe"
