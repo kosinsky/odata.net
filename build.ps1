@@ -117,10 +117,10 @@ $XUNITADAPTER = "/TestAdapterPath:" + $NUGETPACK + "\xunit.runner.visualstudio.2
 $NugetRestoreSolutions = "OData.NetStandard.sln"
 
 $ProductDlls = "Microsoft.OData.Client.dll",
-    "Microsoft.OData.Core.dll",
-    "Microsoft.OData.Edm.dll",
+    "Microsoft.TeamFoundation.OData.Core.dll",
+    "Microsoft.TeamFoundation.OData.Edm.dll",
     "Microsoft.OData.Service.Design.T4.dll",
-    "Microsoft.Spatial.dll"
+    "Microsoft.TeamFoundation.Spatial.dll"
 
 $XUnitTestDlls = "Microsoft.OData.Core.Tests.dll",
     "Microsoft.OData.Edm.Tests.dll",
@@ -256,6 +256,9 @@ Function SkipStrongName
     {
         & $SNx64 /Vr $dll | Out-File $SnLog -Append
     }
+
+    & $SN /Vl
+    & $SNx64 /Vl
 
     Write-Host "SkipStrongName Done" -ForegroundColor $Success
 }
