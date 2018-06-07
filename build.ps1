@@ -234,6 +234,8 @@ Function GetDlls
         $dlls += $TESTDIR + "\" + $dll
     }
 
+    write-host $dlls
+
     return $dlls
 }
 
