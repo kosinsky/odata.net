@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="de-DE" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="CustomName1" Val="Custom 1" />
+    <Str Name="CustomName2" Val="Custom 2" />
+    <Str Name="CustomName3" Val="Custom 3" />
+    <Str Name="CustomName4" Val="Custom 4" />
+    <Str Name="CustomName5" Val="Custom 5" />
+    <Str Name="CustomName6" Val="IQA" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Note" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@SettingsPath@\default.lss" Type="LSS" />
+  <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T06:54:24Z" />
+  </Item>
+  <Item ItemId=";Microsoft.Spatial.resources" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T06:54:24Z" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
+      <Disp Icon="Str" LocTbl="false" />
+      <Modified By="naoto.matsuzaki" DateTime="2011-11-21T06:54:24Z" />
+      <Item ItemId=";GeoJsonReader_ExpectedArray" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element where an array was expected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige GeoJSON. In einem Arrayelement wurde ein primitiver Wert gefunden, stattdessen wurde ein Array erwartet.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element instead of the expected array.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_ExpectedNumeric" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element where a numeric value was expected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige GeoJSON. In einem Arrayelement wurde ein nicht numerischer Wert gefunden; stattdessen wurde ein numerischer Wert erwartet.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element instead of the expected numeric value.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidCrsName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a recognized CRS name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige GeoJSON. Der Wert "{0}" ist kein bekannter CRS-Name.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T16:56:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidCrsType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a recognized CRS type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige GeoJSON. Der Wert "{0}" ist kein bekannter CRS-Typ.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T16:56:13Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidNullElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A null value was found in an array element where nulls are not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige GeoJSON. Ein NULL-Wert wurde in einem Arrayelement gefunden, in dem NULL-Werte nicht zulässig sind.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidPosition" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A position must contain at least two and no more than four elements.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige GeoJSON. Eine Position muss mindestens zwei und nicht mehr als vier Elemente enthalten.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid GeoJSON. A position must contain at least 2 and no more than 4 elements.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidTypeName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a valid value for the 'type' member.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige GeoJSON. Der Wert "{0}" ist kein gültiger Wert für das type-Element.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_MissingRequiredMember" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The '{0}' member is required, but was not found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige GeoJSON. Das Element "{0}" ist erforderlich, wurde aber nicht gefunden.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T15:42:03Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_EmptyRingsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a LinearRing element must not be empty.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Falsches GML-Format: Ein LinearRing-Element darf nicht leer sein.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "LinearRing" element must not be empty.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_ExpectReaderAtElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: the XmlReader instance is expected to be at the start of a GML element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Falsches GML-Format: Die XmlReader-Instanz wird am Anfang eines GML-Elements erwartet.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";GmlReader_InvalidAttribute" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' on element '{1}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Das Attribut "{0}" für das Element "{1}" wird nicht unterstützt.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_InvalidSpatialType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: unknown spatial type tag "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Falsches GML-Format: Unbekanntes Tag "{0}" für räumlichen Typ.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_InvalidSrsName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a srsName attribute must begin with the namespace "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Falsches GML-Format: Ein srsName-Attribut muss mit dem Namespace '{0}' beginnen.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "srsName" attribute must begin with the namespace "{0}".]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_PosListNeedsEvenCount" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a posList element must contain an even number of coordinates.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Falsches GML-Format: Ein posList-Element muss eine gerade Anzahl an Koordinaten enthalten.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "posList" element must contain even number of coordinates.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_PosNeedTwoNumbers" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a pos element must contain at least two coordinates.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Falsches GML-Format: Ein pos-Element muss mindestens zwei Koordinaten enthalten.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "pos" element must contain at least two coordinates.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_UnexpectedElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: The XmlReader instance encountered an unexpected element "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Falsches GML-Format: Von der XmlReader-Instanz wurde das unerwartete Element '{0}' gefunden.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";InvalidPointCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Der Wert '{0}' ist für die Koordinate '{1}' ungültig.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}']]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";JsonReaderExtensions_CannotReadPropertyValueAsString" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Der Wert "{0}" für die Eigenschaft "{1}" kann nicht als JSON-Zeichenfolgenwert in Anführungszeichen gelesen werden.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";JsonReaderExtensions_CannotReadValueAsJsonObject" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot read the value '{0}' as a JSON object.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Den Wert "{0}" kann nicht als JSON-Objekt gelesen werden.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";PlatformHelper_DateTimeOffsetMustContainTimeZone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Im DateTimeOffset-Wert '{0}' fehlen die Zeitzoneninformationen. Ein DateTimeOffset-Wert muss Zeitzoneninformationen enthalten.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="dagna.kaminska" DateTime="2014-01-14T09:14:19Z" />
+        <Cmts>
+          <Cmt Name="LcxAdmin"><![CDATA[{StrContains="DateTimeOffset"}]]></Cmt>
+        </Cmts>
+      </Item>
+      <Item ItemId=";Point_AccessCoordinateWhenEmpty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Access to the coordinate properties of an empty point is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Der Zugriff auf die Koordinateneigenschaften eines leeren Punkts wird nicht unterstützt.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Accessing the coordinate properties of an empty point is not supported.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";SpatialBuilder_CannotCreateBeforeDrawn" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The builder cannot create an instance until all pipeline calls are completed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Der Generator kann erst eine Instanz erstellen, nachdem alle Pipeline-Aufrufe abgeschlossen sind.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The builder cannot create an instance before all pipeline calls are completed.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";SpatialImplementation_NoRegisteredOperations" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No operations are registered. Please provide operations using SpatialImplementation.CurrentImplementation.Operations property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Es sind keine Vorgänge registriert. Geben Sie Vorgänge mithilfe der SpatialImplementation.CurrentImplementation.Operations-Eigenschaft an.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_FullGlobeCannotHaveElements" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot contain figures.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Der räumliche FullGlobe-Typ darf keine Zahlen enthalten.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot contain any figures.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_FullGlobeInCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot be part of a collection type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige räumliche Daten: Der räumliche Typ "FullGlobe" kann nicht Teil eines Auflistungstyps sein.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidLatitudeCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid latitude coordinate {0}. A latitude coordinate must be a value between -90.0 and +90.0 degrees.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige Breitenkoordinate {0}. Eine Breitenkoordinate muss einem Wert zwischen -90,0 und +90,0 Grad entsprechen.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid latitude coordinate {0}. A latitude coordinate can only be defined from -90.0 to +90.0 degrees]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidLongitudeCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid longitude coordinate {0}. A longitude coordinate must be a value between -15069.0 and +15069.0 degrees]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige Längenkoordinate {0}. Eine Längenkoordinate muss einem Wert zwischen -15069,0 und +15069,0 Grad entsprechen.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid longitude coordinate {0}, A longitude coordinate can only be defined from -15069.0 to +15069.0 degrees]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidPointCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the coordinates ({0} {1} {2} {3}) are not valid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Die Koordinaten ({0} {1} {2} {3}) sind ungültig.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: the coordinates ({0} {1} {2} {3}) is not valid.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_InvalidPolygonPoints" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: A polygon ring must contain at least four points, and the last point must be equal to the first point.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Ein Polygonring muss mindestens vier Punkte enthalten, wobei der letzte Punkt gleich dem ersten Punkt sein muss.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: A polygon ring must contain at least four points, with the last point equal to the first point.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: Invalid spatial type "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Ungültiger räumlicher Typ '{0}'.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: invalid spatial type "{0}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_LineStringNeedsTwoPoints" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the spatial type "LineString" must contain at least two points.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige räumliche Daten: Der räumliche Typ "LineString" muss mindestens zwei Punkte enthalten.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";Validator_NestingOverflow" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: only {0} levels of nesting are supported in collection types.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Ungültige räumliche Daten: In Auflistungstypen werden nur {0} Ebenen der Verschachtelung unterstützt.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      </Item>
+      <Item ItemId=";Validator_SridMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: An instance of spatial type can have only one unique CoordinateSystem for all of its coordinates.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Eine Instanz des räumlichen Typs kann nur ein eindeutiges CoordinateSystem für alle zugehörigen Koordinaten aufweisen.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: An instance of spatial type can only have one unique CoordinateSystem for all of its coordinates.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";Validator_UnexpectedCall" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got call to "{1}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Ein Aufruf von '{0}' wurde erwartet, aber ein Aufruf von '{1}' übergeben.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got "{1}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_UnexpectedCall2" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got call to "{2}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Ungültige räumliche Daten: Ein Aufruf von '{0}' oder '{1}' wurde erwartet, aber ein Aufruf von '{2}' übergeben.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got "{2}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_UnexpectedGeography" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A geography operation was called while processing a geometric shape.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Beim Verarbeiten einer geometrischen Form wurde ein Geografievorgang aufgerufen.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_UnexpectedGeometry" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A geometry operation was called while processing a geographic shape.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Beim Verarbeiten einer geografischen Form wurde ein Geometrievorgang aufgerufen.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";WellKnownText_TooManyDimensions" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The WellKnownTextReader is configured to allow only two dimensions, and a third dimension was encountered.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Der WellKnownTextReader ist so konfiguriert, dass er nur zwei Dimensionen zulässt, es wurde aber eine dritte Dimension gefunden.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The WellKnownTextReader is configured to only allow two dimensions, and a 3rd dimension was encountered.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+      </Item>
+      <Item ItemId=";WellKnownText_UnexpectedCharacter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected character '{0}' found in text.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Im Text wurde das unerwartete Zeichen "{0}" gefunden.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 1" />
+        </Props>
+      </Item>
+      <Item ItemId=";WellKnownText_UnexpectedToken" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Erwartet wird der Tokentyp '{0}' mit dem Text '{1}', gefunden wurde aber '{2}'.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="michal.wroniak" DateTime="2012-02-17T15:43:09Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";WellKnownText_UnknownTaggedText" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unknown Tagged Text "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Unbekannter markierter Text "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 1" />
+        </Props>
+      </Item>
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T06:54:24Z" />
+    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[6.10.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="a.loerke" DateTime="2014-08-22T12:36:31Z" />
+    </Item>
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="dagna.kaminska" DateTime="2014-01-14T09:14:19Z" />
+    </Item>
+    <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft Corporation]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft Corporation]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[Microsoft.Spatial.SL.dll]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="dagna.kaminska" DateTime="2014-01-14T09:14:19Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[6.10.0.62115]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="a.loerke" DateTime="2014-08-22T12:36:31Z" />
+    </Item>
+    <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="a.loerke" DateTime="2014-08-22T12:36:31Z" />
+    </Item>
+    <Item ItemId=";LegalCopyright" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Copyright (c) Microsoft Corporation. All rights reserved.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Copied">
+          <Val><![CDATA[Copyright (c) Microsoft Corporation. Alle Rechte vorbehalten.]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[© Microsoft Corporation.  All rights reserved.]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="TLX_IS" DateTime="2014-03-21T10:00:31Z" />
+      <Props>
+        <Str Name="Custom4" Val="140321_LIOX_TXT_UPD" />
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";LegalTrademarks" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft und Windows sind eingetragene Marken oder Marken der Microsoft Corporation in den USA und/oder anderen Ländern.]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="TLX_IS" DateTime="2014-03-21T10:00:12Z" />
+      <Props>
+        <Str Name="Custom4" Val="140321_LIOX_TXT_NEW" />
+      </Props>
+    </Item>
+    <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="a.loerke" DateTime="2014-08-22T12:36:31Z" />
+    </Item>
+    <Item ItemId=";ProductName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="tln" DateTime="2011-11-30T13:59:44Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[6.10.0.62115]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="a.loerke" DateTime="2014-08-22T12:36:31Z" />
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="8" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T06:54:24Z" />
+  </Item>
+</LCX>

@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-CN" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="CustomName1" Val="Custom 1" />
+    <Str Name="CustomName2" Val="Custom 2" />
+    <Str Name="CustomName3" Val="Custom 3" />
+    <Str Name="CustomName4" Val="Custom 4" />
+    <Str Name="CustomName5" Val="Custom 5" />
+    <Str Name="CustomName6" Val="IQA" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Note" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@SettingsPath@\default.lss" Type="LSS" />
+  <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+  </Item>
+  <Item ItemId=";Microsoft.Spatial.resources" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
+      <Disp Icon="Str" LocTbl="false" />
+      <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+      <Item ItemId=";GeoJsonReader_ExpectedArray" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element where an array was expected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GeoJSON 无效。在需要数组的数组元素中找到了基元值。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element instead of the expected array.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_ExpectedNumeric" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element where a numeric value was expected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GeoJSON 无效。在需要数字值的数组元素找到了非数字值。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element instead of the expected numeric value.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidCrsName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a recognized CRS name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GeoJSON 无效。值“{0}”不是已识别的 CRS 名称。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidCrsType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a recognized CRS type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GeoJSON 无效。值“{0}”不是已识别的 CRS 类型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidNullElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A null value was found in an array element where nulls are not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GeoJSON 无效。在不允许 Null 的数组元素中找到了 Null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidPosition" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. A position must contain at least two and no more than four elements.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GeoJSON 无效。位置必须至少包含两个元素，但不能超过四个元素。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid GeoJSON. A position must contain at least 2 and no more than 4 elements.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_InvalidTypeName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a valid value for the 'type' member.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GeoJSON 无效。值“{0}”对于“type”成员不是有效的值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";GeoJsonReader_MissingRequiredMember" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid GeoJSON. The '{0}' member is required, but was not found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GeoJSON 无效。“{0}”成员是必需的，但找不到。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_EmptyRingsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a LinearRing element must not be empty.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GML 格式不正确: LinearRing 元素不能为空。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "LinearRing" element must not be empty.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_ExpectReaderAtElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: the XmlReader instance is expected to be at the start of a GML element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GML 格式不正确: XmlReader 实例应位于 GML 元素的开头。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";GmlReader_InvalidAttribute" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' on element '{1}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[不支持元素“{1}”上的特性“{0}”。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_InvalidSpatialType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: unknown spatial type tag "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[GML 格式不正确: 未知的空间类型标记“{0}”。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_InvalidSrsName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a srsName attribute must begin with the namespace "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GML 格式不正确: srsName 特性必须以命名空间“{0}”开头。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "srsName" attribute must begin with the namespace "{0}".]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_PosListNeedsEvenCount" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a posList element must contain an even number of coordinates.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GML 格式不正确: posList 元素必须包含偶数个坐标。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "posList" element must contain even number of coordinates.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_PosNeedTwoNumbers" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: a pos element must contain at least two coordinates.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[GML 格式不正确: pos 元素必须包含至少两个坐标。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Incorrect GML Format: a "pos" element must contain at least two coordinates.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";GmlReader_UnexpectedElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incorrect GML Format: The XmlReader instance encountered an unexpected element "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[GML 格式不正确: XmlReader 实例遇到意外的元素“{0}”。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";InvalidPointCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[值“{0}”对于坐标“{1}”无效。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}']]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";JsonReaderExtensions_CannotReadPropertyValueAsString" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[无法读取属性“{1}”的值“{0}”作为带引号的 JSON 字符串值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";JsonReaderExtensions_CannotReadValueAsJsonObject" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot read the value '{0}' as a JSON object.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[无法读取值“{0}”作为 JSON 对象。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";PlatformHelper_DateTimeOffsetMustContainTimeZone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[在 DateTimeOffset 值“{0}”上缺少时区信息。DateTimeOffset 值必须包含时区信息。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="ju.lei" DateTime="2014-01-14T08:09:19Z" />
+        <Cmts>
+          <Cmt Name="LcxAdmin"><![CDATA[{StrContains="DateTimeOffset"}]]></Cmt>
+        </Cmts>
+      </Item>
+      <Item ItemId=";Point_AccessCoordinateWhenEmpty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Access to the coordinate properties of an empty point is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[不支持访问空点的坐标属性。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Accessing the coordinate properties of an empty point is not supported.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";SpatialBuilder_CannotCreateBeforeDrawn" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The builder cannot create an instance until all pipeline calls are completed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[在完成所有管道调用之前，生成器无法创建实例。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The builder cannot create an instance before all pipeline calls are completed.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";SpatialImplementation_NoRegisteredOperations" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No operations are registered. Please provide operations using SpatialImplementation.CurrentImplementation.Operations property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[未注册任何操作。请使用 SpatialImplementation.CurrentImplementation.Operations 属性提供操作。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_FullGlobeCannotHaveElements" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot contain figures.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 空间类型“FullGlobe”不能包含任何图表。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot contain any figures.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_FullGlobeInCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot be part of a collection type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[空间数据无效: 空间类型“FullGlobe”不能是集合类型的一部分。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidLatitudeCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid latitude coordinate {0}. A latitude coordinate must be a value between -90.0 and +90.0 degrees.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[纬度坐标 {0} 无效。纬度坐标必须是 -90.0 到 +90.0 度之间的值。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid latitude coordinate {0}. A latitude coordinate can only be defined from -90.0 to +90.0 degrees]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidLongitudeCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid longitude coordinate {0}. A longitude coordinate must be a value between -15069.0 and +15069.0 degrees]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[经度坐标 {0} 无效。经度坐标必须是 -15069.0 到 +15069.0 度之间的值]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid longitude coordinate {0}, A longitude coordinate can only be defined from -15069.0 to +15069.0 degrees]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidPointCoordinate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the coordinates ({0} {1} {2} {3}) are not valid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 坐标({0} {1} {2} {3})无效。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: the coordinates ({0} {1} {2} {3}) is not valid.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_InvalidPolygonPoints" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: A polygon ring must contain at least four points, and the last point must be equal to the first point.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 多边形环必须至少包含四个点，且最后一个点必须等于第一个点。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: A polygon ring must contain at least four points, with the last point equal to the first point.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";Validator_InvalidType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: Invalid spatial type "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 空间类型“{0}”无效。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: invalid spatial type "{0}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_LineStringNeedsTwoPoints" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: the spatial type "LineString" must contain at least two points.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[空间数据无效: 空间类型“LineString”必须包含至少两个点。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";Validator_NestingOverflow" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: only {0} levels of nesting are supported in collection types.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[空间数据无效: 在集合类型中只支持 {0} 级嵌套。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      </Item>
+      <Item ItemId=";Validator_SridMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: An instance of spatial type can have only one unique CoordinateSystem for all of its coordinates.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 空间类型的实例只能有一个唯一的 CoordinateSystem 表示其所有坐标。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: An instance of spatial type can only have one unique CoordinateSystem for all of its coordinates.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";Validator_UnexpectedCall" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got call to "{1}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 应为对“{0}”的调用，但获得了对“{1}”的调用。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got "{1}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_UnexpectedCall2" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got call to "{2}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[空间数据无效: 应为对“{0}”或“{1}”的调用，但获得了对“{2}”的调用。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got "{2}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_UnexpectedGeography" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A geography operation was called while processing a geometric shape.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[处理几何形状时调用了地理操作。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";Validator_UnexpectedGeometry" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A geometry operation was called while processing a geographic shape.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[处理地理形状时调用了几何图形操作。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";WellKnownText_TooManyDimensions" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The WellKnownTextReader is configured to allow only two dimensions, and a third dimension was encountered.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[WellKnownTextReader 配置为仅允许两个维度，但遇到了第三个维度。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The WellKnownTextReader is configured to only allow two dimensions, and a 3rd dimension was encountered.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+      </Item>
+      <Item ItemId=";WellKnownText_UnexpectedCharacter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected character '{0}' found in text.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[在文本中找到了意外的字符“{0}”。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 1" />
+        </Props>
+      </Item>
+      <Item ItemId=";WellKnownText_UnexpectedToken" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[需要标记类型“{0}”以及文本“{1}”，但找到了“{2}”。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}"]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 2" />
+        </Props>
+      </Item>
+      <Item ItemId=";WellKnownText_UnknownTaggedText" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unknown Tagged Text "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[未知的标记文本“{0}”。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+        <Props>
+          <Str Name="Custom5" Val="MT bucket 1" />
+        </Props>
+      </Item>
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[6.10.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
+    </Item>
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-01-14T08:09:19Z" />
+    </Item>
+    <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft Corporation]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft Corporation]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[Microsoft.Spatial.SL.dll]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-01-14T08:09:19Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[6.10.0.62115]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
+    </Item>
+    <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
+    </Item>
+    <Item ItemId=";LegalCopyright" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Copyright (c) Microsoft Corporation. All rights reserved.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[版权所有 (C) Microsoft Corporation。保留所有权利。]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[© Microsoft Corporation.  All rights reserved.]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-03-21T00:55:28Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";LegalTrademarks" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft 和 Windows 是 Microsoft Corporation 在美国和/或其他国家/地区的注册商标或商标。]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="svenx" DateTime="2016-03-11T07:29:13Z" />
+      <Notes>
+        <Note Name="Loc" Order="0"><![CDATA[Poli fix]]></Note>
+      </Notes>
+    </Item>
+    <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
+    </Item>
+    <Item ItemId=";ProductName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
+      <Props>
+        <Str Name="Custom5" Val="MT bucket 1" />
+      </Props>
+    </Item>
+    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[6.10.0.62115]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="8" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+  </Item>
+</LCX>

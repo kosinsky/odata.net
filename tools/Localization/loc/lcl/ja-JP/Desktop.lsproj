@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LocProject SchemaVersion="6.0" Name="Desktop.lsproj" Desc="" xmlns="http://schemas.microsoft.com/locstudio/2006/6/LocProject">
+  <Files>
+    <File Name="Desktop.custom" Type="CustomColumns" />
+    <File Name="Desktop\Microsoft.OData.Client.dll.lcl" Type="Lcx" />
+  </Files>
+</LocProject>

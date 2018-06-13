@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE _locDefinition SYSTEM "locXML.dtd">
+<!-- This file is required to localize TFS process templates, specifically the tokens.xml file.
+     It is referred to by the locxml_Token.lss file, but has to be present in the same directory as LSBuild in order to work -->
+<_locDefinition>
+  <_locTag _loc="locNone">file</_locTag>
+</_locDefinition>
