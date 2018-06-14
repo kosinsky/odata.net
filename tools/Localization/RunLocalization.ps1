@@ -14,7 +14,7 @@ $LSSPATH = "$RootFolder\tools\Localization\loc\lss\default.lss"
 
 $BinariesPath = "$ProductBinPath\$Flavor"
 
-$ProductDlls = "Microsoft.OData.Client.dll",
+$ProductDlls = # "Microsoft.TeamFoundation.OData.Client.dll", We aren't localizing Client. it used only for E2E test
     "Microsoft.TeamFoundation.OData.Core.dll",
     "Microsoft.TeamFoundation.OData.Edm.dll",
     "Microsoft.TeamFoundation.Spatial.dll"
