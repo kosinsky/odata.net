@@ -4,17 +4,13 @@
     <AssemblyName>Microsoft.TeamFoundation.Spatial</AssemblyName>
     <OutputType>Library</OutputType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
     <TransparentAssembly>true</TransparentAssembly>
     <SecurityMigration>false</SecurityMigration>
     <RootNamespace>Microsoft.Spatial</RootNamespace>
     <ProjectGuid>{5D921888-FE03-4C3F-40FE-2F624505461D}</ProjectGuid>
     <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <DefineConstants>$(DefineConstants);SPATIAL;PORTABLELIB;SUPPRESS_PORTABLELIB_TARGETFRAMEWORK_ATTRIBUTE</DefineConstants>
+    <DefineConstants>$(DefineConstants);SPATIAL</DefineConstants>
     <EnableLocalization>true</EnableLocalization>
   </PropertyGroup>
   <!-- References -->
@@ -172,5 +168,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <Import Project="$(BuildExtensionsPath)\Portable.targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
