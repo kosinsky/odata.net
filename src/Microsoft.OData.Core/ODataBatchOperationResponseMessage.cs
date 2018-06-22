@@ -99,7 +99,7 @@ namespace Microsoft.OData
         /// <summary>
         /// The id of the group or change set that this response message is part of.
         /// </summary>
-        public string GroupId { get; }
+        public string GroupId { get; private set;}
 
         /// <summary>
         /// Returns the actual operation message which is being wrapped.

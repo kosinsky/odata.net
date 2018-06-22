@@ -94,7 +94,7 @@ namespace Microsoft.OData
         /// <summary>
         /// OData Version being read.
         /// </summary>
-        internal ODataVersion? Version { get; }
+        internal ODataVersion? Version { get; private set; }
 
         /// <summary>
         /// Returns the current item as <see cref="ODataResourceSet"/>. Must only be called if the item actually is a resource set.

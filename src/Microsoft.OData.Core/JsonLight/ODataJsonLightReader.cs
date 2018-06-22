@@ -2550,7 +2550,7 @@ namespace Microsoft.OData.JsonLight
             }
 
             /// <summary>Whether the payload is an OData 4.0 deleted resource.</summary>
-            internal bool Is40DeletedResource { get; }
+            internal bool Is40DeletedResource { get; private set; }
         }
 
         /// <summary>

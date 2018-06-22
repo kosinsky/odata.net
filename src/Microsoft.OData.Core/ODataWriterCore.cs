@@ -139,7 +139,7 @@ namespace Microsoft.OData
         /// <summary>
         /// OData Version being written.
         /// </summary>
-        internal ODataVersion? Version { get; }
+        internal ODataVersion? Version { get; private set; }
 
         /// <summary>
         /// The current scope for the writer.
