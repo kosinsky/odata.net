@@ -424,15 +424,6 @@
           <Cmt Name="LcxAdmin"><![CDATA[{StrContains="Media Link Entry"}]]></Cmt>
         </Cmts>
       </Item>
-      <Item ItemId=";Context_ExecuteExpectedVoidResponse" ItemType="0" PsrId="211" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Execute overload for void service operations and actions received a non-void response from the server.]]></Val>
-        </Str>
-        <Disp Icon="Str" />
-        <Cmts>
-          <Cmt Name="LcxAdmin"><![CDATA[{StrContains="Execute"}]]></Cmt>
-        </Cmts>
-      </Item>
       <Item ItemId=";Context_ExecuteExpectsGetOrPostOrDelete" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The HttpMethod must be GET, POST or DELETE.]]></Val>

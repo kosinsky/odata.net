@@ -8,7 +8,7 @@ Param
 $ErrorActionPreference='Stop'
 
 $LSBuild = "$RootFolder\tools\Localization\LSBuild\lsbuild.exe"
-$Flavor = ".NETPortable\v4.5"
+$Flavor = "Desktop"
 $LCIPath = "$RootFolder\tools\Localization\loc\lci\$Flavor"
 $LSSPATH = "$RootFolder\tools\Localization\loc\lss\default.lss"
 
