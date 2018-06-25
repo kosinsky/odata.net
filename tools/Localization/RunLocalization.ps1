@@ -41,7 +41,7 @@ ForEach($dll in $ProductDlls)
     {
         $loc = $Locales[$key]
         
-        & $LSBuild generate /d $key /s $LSSPATH /t "$RootFolder\tools\Localization\loc\lcl\$loc\$Flavor\$originalDll.lcl" /ol $BinariesPath\$loc\$dll.lct  /o $BinariesPath\$loc\$resourceDll $BinariesPath\$dll
+        & $LSBuild generate /d $key /s $LSSPATH /t "$RootFolder\tools\Localization\loc\lcl\$loc\$Flavor\$originalDll.lcl" /ol $BinariesPath\$loc\$dll.lcl  /o $BinariesPath\$loc\$resourceDll $BinariesPath\$dll
     }
 }
 
