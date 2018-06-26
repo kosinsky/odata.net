@@ -5,7 +5,9 @@ rem set toolsets next to where we are
 call :SetupToolsDir %BUILDDIR%\sln\packages
 
 rem set MSBuildFrameworkToolsPath
-set MSBuildFrameworkToolsPath=%windir%\Microsoft.Net\Framework\v4.0.30319
+rem set MSBuildFrameworkToolsPath=%windir%\Microsoft.Net\Framework\v4.0.30319
+set MSBuildFrameworkToolsPath=%TOOLSDIR%\Msbuild.Corext.15.5.27130\v15.0\sdk
+
 
 rem add it to the PATH, too
 set PATH=%MSBuildFrameworkToolsPath%;%PATH%
