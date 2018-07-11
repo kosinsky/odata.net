@@ -13188,6 +13188,428 @@
             <param name="parsedSegments">The list of segments in Uri path.</param>
             <returns>True if the path of navigation property in current scope is matching the <paramref name="bindingPath"/>.</returns>
         </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode">
+            <summary>
+            Node representing a Compute transformation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.#ctor(Microsoft.OData.UriParser.ComputeClause)">
+            <summary>
+            Create a ComputeTransformationNode.
+            </summary>
+            <param name="ComputeClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause">
+            <summary>
+            Gets the <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.Kind">
+            <summary>
+            Gets the kind of the transformation node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode">
+            <summary>
+            Node representing a filter transformation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.#ctor(Microsoft.OData.UriParser.FilterClause)">
+            <summary>
+            Create a FilterTransformationNode.
+            </summary>
+            <param name="filterClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.FilterClause"/> representing the metadata bound filter expression.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.FilterClause">
+            <summary>
+            Gets the <see cref="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.FilterClause"/> representing the metadata bound filter expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.Kind">
+            <summary>
+            Gets the kind of the transformation node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.TransformationNode">
+            <summary>
+            Base class for all transformation nodes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.TransformationNode.Kind">
+            <summary>
+            Gets kind of transformation: groupby, aggregate, filter etc.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode">
+            <summary>
+            Node representing a aggregate transformation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpression})">
+            <summary>
+            Create a AggregateTransformationNode.
+            </summary>
+            <param name="expressions">A list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.Expressions">
+            <summary>
+            Gets the list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.Kind">
+            <summary>
+            Gets the kind of the transformation node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression">
+            <summary>
+            A aggregate expression representing a aggregation transformation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Create a AggregateExpression.
+            </summary>
+            <param name="expression">The aggregation expression.</param>
+            <param name="method">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.</param>
+            <param name="alias">The aggregation alias.</param>
+            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Create a AggregateExpression.
+            </summary>
+            <param name="expression">The aggregation expression.</param>
+            <param name="methodDefinition">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.</param>
+            <param name="alias">The aggregation alias.</param>
+            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Expression">
+            <summary>
+            Gets the aggregation expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Method">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.MethodDefinition">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Alias">
+            <summary>
+            Gets the aggregation alias.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.TypeReference">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyClause">
+            <summary>
+            Represents the set of transformations to perform as part of $apply.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.ApplyClause.#ctor(System.Collections.Generic.IList{Microsoft.OData.UriParser.Aggregation.TransformationNode})">
+            <summary>
+            Create a ApplyClause.
+            </summary>
+            <param name="transformations">The <see cref="T:Microsoft.OData.UriParser.Aggregation.TransformationNode"/>s.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.ApplyClause.Transformations">
+            <summary>
+            The collection of transformations to perform.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode">
+            <summary>
+            Node representing a groupBy transformation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.#ctor(System.Collections.Generic.IList{Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode},Microsoft.OData.UriParser.Aggregation.TransformationNode,Microsoft.OData.UriParser.CollectionNode)">
+            <summary>
+            Create a GroupByTransformationNode.
+            </summary>
+            <param name="groupingProperties">A list of <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>.</param>
+            <param name="childTransformations">The child <see cref="T:Microsoft.OData.UriParser.Aggregation.TransformationNode"/>.</param>
+            <param name="source">The <see cref="T:Microsoft.OData.UriParser.CollectionNode"/> representing the source.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.GroupingProperties">
+            <summary>
+            Gets the list of <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.ChildTransformations">
+            <summary>
+            Gets the child <see cref="T:Microsoft.OData.UriParser.Aggregation.TransformationNode"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.Source">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.UriParser.CollectionNode"/> representing the source.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.Kind">
+            <summary>
+            Gets the kind of the transformation node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode">
+            <summary>
+            A node representing a grouping property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.#ctor(System.String,Microsoft.OData.UriParser.SingleValueNode)">
+            <summary>
+            Create a GroupByPropertyNode.
+            </summary>
+            <param name="name">The name of this node.</param>
+            <param name="expression">The <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> of this node.</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.#ctor(System.String,Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Create a GroupByPropertyNode.
+            </summary>
+            <param name="name">The name of this node.</param>
+            <param name="expression">The <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> of this node.</param>
+            <param name="type">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this node.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.Name">
+            <summary>
+            Gets the name of this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.Expression">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> of this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.TypeReference">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.ChildTransformations">
+            <summary>
+            Gets or sets the child transformations <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>s of this node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateToken">
+            <summary>
+            Query token representing an Aggregate token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken})">
+            <summary>
+            Create an AggregateToken.
+            </summary>
+            <param name="expressions">The list of AggregateExpressionToken.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Expressions">
+            <summary>
+            Gets the list of AggregateExpressionToken.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken">
+            <summary>
+            Query token representing an Aggregate expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.#ctor(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String)">
+            <summary>
+            Create an AggregateExpressionToken.
+            </summary>
+            <param name="expression">The aggregate expression.</param>
+            <param name="method">The aggregation method.</param>
+            <param name="alias">The alias for this query token.</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.#ctor(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String)">
+            <summary>
+            Create an AggregateExpressionToken.
+            </summary>
+            <param name="expression">The aggregate expression.</param>
+            <param name="methodDefinition">The aggregate method definition.</param>
+            <param name="alias">The alias for this query token.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Method">
+            <summary>
+            Gets the AggregationMethod of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.MethodDefinition">
+            <summary>
+            Gets the aggregate method definition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Expression">
+            <summary>
+            Gets the expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Alias">
+            <summary>
+            Gets the alias.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyTransformationToken">
+            <summary>
+            Base class for Apply transformation tokens
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByToken">
+            <summary>
+            Query token representing a GroupBy token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.EndPathToken},Microsoft.OData.UriParser.Aggregation.ApplyTransformationToken)">
+            <summary>
+            Create a GroupByToken.
+            </summary>
+            <param name="properties">The list of group by properties.</param>
+            <param name="child">The child of this token.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByToken.Properties">
+            <summary>
+            Gets the list of group by properties.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByToken.Child">
+            <summary>
+            Gets the child of this token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod">
+            <summary>
+            Enumeration of methods used in the aggregation clause
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Sum">
+            <summary>The aggregation method Sum.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Min">
+            <summary>The aggregation method Min.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Max">
+            <summary>The aggregation method Max.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Average">
+            <summary>The aggregation method Average.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.CountDistinct">
+            <summary>The aggregation method CountDistinct.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.VirtualPropertyCount">
+            <summary>The aggregation method Count. Used only internally to represent the virtual property $count.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Custom">
+            <summary>A custom aggregation method.</summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition">
+            <summary>
+            Class that encapsulates all the information needed to define a aggregation method.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Sum">
+            <summary>Returns a definition for the sum aggregation method.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Min">
+            <summary>Returns a definition for the min aggregation method.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Max">
+            <summary>Returns a definition for the max aggregation method.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Average">
+            <summary>Returns a definition for the average aggregation method.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.CountDistinct">
+            <summary>Returns a definition for the countdistinct aggregation method.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.VirtualPropertyCount">
+            <summary>Returns a definition for the aggregation method used to calculate $count.</summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.#ctor(Microsoft.OData.UriParser.Aggregation.AggregationMethod)">
+            <summary>Private constructor. Instances should be aquired via static fields of via Custom method.</summary>
+            <param name="aggregationMethodType">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/> of this method definition.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.MethodKind">
+            <summary>Returns the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/> of this method definition.</summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.MethodLabel">
+            <summary>Returns the label of this method definition.</summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Custom(System.String)">
+            <summary>Creates a custom method definition from it's label.</summary>
+            <param name="customMethodLabel">The label to call the custom method definition.</param>
+            <returns>The custom method created.</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind">
+            <summary>
+            Enumeration of kinds of transformation nodes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.Aggregate">
+            <summary>
+            Aggregations of values
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.GroupBy">
+            <summary>
+            A grouping of values by properties
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.Filter">
+            <summary>
+            A filter clause
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.Compute">
+            <summary>
+            A compute clause
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.UriParser.CollectionComplexNode">
             <summary>
             Node represents a collection complex property.
@@ -14006,6 +14428,11 @@
         <member name="P:Microsoft.OData.UriParser.BindingState.AggregatedPropertyNames">
             <summary>
             Collection of aggregated property names after applying an aggregate transformation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.BindingState.IsCollapsed">
+            <summary>
+            The property set when group by or aggregation is done and properties are collapsed out of scope
             </summary>
         </member>
         <member name="P:Microsoft.OData.UriParser.BindingState.ParsedSegments">
@@ -15437,7 +15864,7 @@
             <param name="secondType">Second type, which should be related to the first type.</param>
             <param name="segmentName">The segment that is checking this.</param>
         </member>
-        <member name="M:Microsoft.OData.UriParser.ExceptionUtil.CreatePropertyNotFoundException(System.String,System.String)">
+        <member name="M:Microsoft.OData.UriParser.ExceptionUtil.CreatePropertyNotFoundException(System.String,System.String,System.Boolean)">
             <summary>
             Exception for property not being found in the given type.
             </summary>
@@ -27067,402 +27494,6 @@
             </summary>
             <param name="tokenIn">The ComputeExpressionToken to bind</param>
             <returns>A user defined value</returns>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode">
-            <summary>
-            Node representing a filter transformation.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.#ctor(Microsoft.OData.UriParser.FilterClause)">
-            <summary>
-            Create a FilterTransformationNode.
-            </summary>
-            <param name="filterClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.FilterClause"/> representing the metadata bound filter expression.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.FilterClause">
-            <summary>
-            Gets the <see cref="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.FilterClause"/> representing the metadata bound filter expression.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode.Kind">
-            <summary>
-            Gets the kind of the transformation node.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.TransformationNode">
-            <summary>
-            Base class for all transformation nodes.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.TransformationNode.Kind">
-            <summary>
-            Gets kind of transformation: groupby, aggregate, filter etc.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode">
-            <summary>
-            Node representing a aggregate transformation.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpression})">
-            <summary>
-            Create a AggregateTransformationNode.
-            </summary>
-            <param name="expressions">A list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.Expressions">
-            <summary>
-            Gets the list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.Kind">
-            <summary>
-            Gets the kind of the transformation node.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression">
-            <summary>
-            A aggregate expression representing a aggregation transformation.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
-            <summary>
-            Create a AggregateExpression.
-            </summary>
-            <param name="expression">The aggregation expression.</param>
-            <param name="method">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.</param>
-            <param name="alias">The aggregation alias.</param>
-            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
-            <summary>
-            Create a AggregateExpression.
-            </summary>
-            <param name="expression">The aggregation expression.</param>
-            <param name="methodDefinition">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.</param>
-            <param name="alias">The aggregation alias.</param>
-            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Expression">
-            <summary>
-            Gets the aggregation expression.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Method">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.MethodDefinition">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Alias">
-            <summary>
-            Gets the aggregation alias.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.TypeReference">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyClause">
-            <summary>
-            Represents the set of transformations to perform as part of $apply.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.ApplyClause.#ctor(System.Collections.Generic.IList{Microsoft.OData.UriParser.Aggregation.TransformationNode})">
-            <summary>
-            Create a ApplyClause.
-            </summary>
-            <param name="transformations">The <see cref="T:Microsoft.OData.UriParser.Aggregation.TransformationNode"/>s.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.ApplyClause.Transformations">
-            <summary>
-            The collection of transformations to perform.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode">
-            <summary>
-            Node representing a groupBy transformation.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.#ctor(System.Collections.Generic.IList{Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode},Microsoft.OData.UriParser.Aggregation.TransformationNode,Microsoft.OData.UriParser.CollectionNode)">
-            <summary>
-            Create a GroupByTransformationNode.
-            </summary>
-            <param name="groupingProperties">A list of <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>.</param>
-            <param name="childTransformations">The child <see cref="T:Microsoft.OData.UriParser.Aggregation.TransformationNode"/>.</param>
-            <param name="source">The <see cref="T:Microsoft.OData.UriParser.CollectionNode"/> representing the source.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.GroupingProperties">
-            <summary>
-            Gets the list of <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.ChildTransformations">
-            <summary>
-            Gets the child <see cref="T:Microsoft.OData.UriParser.Aggregation.TransformationNode"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.Source">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.UriParser.CollectionNode"/> representing the source.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByTransformationNode.Kind">
-            <summary>
-            Gets the kind of the transformation node.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode">
-            <summary>
-            A node representing a grouping property.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.#ctor(System.String,Microsoft.OData.UriParser.SingleValueNode)">
-            <summary>
-            Create a GroupByPropertyNode.
-            </summary>
-            <param name="name">The name of this node.</param>
-            <param name="expression">The <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> of this node.</param>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.#ctor(System.String,Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.Edm.IEdmTypeReference)">
-            <summary>
-            Create a GroupByPropertyNode.
-            </summary>
-            <param name="name">The name of this node.</param>
-            <param name="expression">The <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> of this node.</param>
-            <param name="type">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this node.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.Name">
-            <summary>
-            Gets the name of this node.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.Expression">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> of this node.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.TypeReference">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this node.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode.ChildTransformations">
-            <summary>
-            Gets or sets the child transformations <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>s of this node.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateToken">
-            <summary>
-            Query token representing an Aggregate token.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken})">
-            <summary>
-            Create an AggregateToken.
-            </summary>
-            <param name="expressions">The list of AggregateExpressionToken.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Kind">
-            <summary>
-            Gets the kind of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Expressions">
-            <summary>
-            Gets the list of AggregateExpressionToken.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
-            <summary>
-            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
-            </summary>
-            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
-            <param name="visitor">An implementation of the visitor interface.</param>
-            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken">
-            <summary>
-            Query token representing an Aggregate expression.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.#ctor(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String)">
-            <summary>
-            Create an AggregateExpressionToken.
-            </summary>
-            <param name="expression">The aggregate expression.</param>
-            <param name="method">The aggregation method.</param>
-            <param name="alias">The alias for this query token.</param>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.#ctor(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String)">
-            <summary>
-            Create an AggregateExpressionToken.
-            </summary>
-            <param name="expression">The aggregate expression.</param>
-            <param name="methodDefinition">The aggregate method definition.</param>
-            <param name="alias">The alias for this query token.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Kind">
-            <summary>
-            Gets the kind of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Method">
-            <summary>
-            Gets the AggregationMethod of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.MethodDefinition">
-            <summary>
-            Gets the aggregate method definition.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Expression">
-            <summary>
-            Gets the expression.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Alias">
-            <summary>
-            Gets the alias.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
-            <summary>
-            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
-            </summary>
-            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
-            <param name="visitor">An implementation of the visitor interface.</param>
-            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyTransformationToken">
-            <summary>
-            Base class for Apply transformation tokens
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByToken">
-            <summary>
-            Query token representing a GroupBy token.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.EndPathToken},Microsoft.OData.UriParser.Aggregation.ApplyTransformationToken)">
-            <summary>
-            Create a GroupByToken.
-            </summary>
-            <param name="properties">The list of group by properties.</param>
-            <param name="child">The child of this token.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByToken.Kind">
-            <summary>
-            Gets the kind of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByToken.Properties">
-            <summary>
-            Gets the list of group by properties.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.GroupByToken.Child">
-            <summary>
-            Gets the child of this token.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.GroupByToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
-            <summary>
-            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
-            </summary>
-            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
-            <param name="visitor">An implementation of the visitor interface.</param>
-            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod">
-            <summary>
-            Enumeration of methods used in the aggregation clause
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Sum">
-            <summary>The aggregation method Sum.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Min">
-            <summary>The aggregation method Min.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Max">
-            <summary>The aggregation method Max.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Average">
-            <summary>The aggregation method Average.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.CountDistinct">
-            <summary>The aggregation method CountDistinct.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.VirtualPropertyCount">
-            <summary>The aggregation method Count. Used only internally to represent the virtual property $count.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethod.Custom">
-            <summary>A custom aggregation method.</summary>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition">
-            <summary>
-            Class that encapsulates all the information needed to define a aggregation method.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Sum">
-            <summary>Returns a definition for the sum aggregation method.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Min">
-            <summary>Returns a definition for the min aggregation method.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Max">
-            <summary>Returns a definition for the max aggregation method.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Average">
-            <summary>Returns a definition for the average aggregation method.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.CountDistinct">
-            <summary>Returns a definition for the countdistinct aggregation method.</summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.VirtualPropertyCount">
-            <summary>Returns a definition for the aggregation method used to calculate $count.</summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.#ctor(Microsoft.OData.UriParser.Aggregation.AggregationMethod)">
-            <summary>Private constructor. Instances should be aquired via static fields of via Custom method.</summary>
-            <param name="aggregationMethodType">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/> of this method definition.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.MethodKind">
-            <summary>Returns the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/> of this method definition.</summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.MethodLabel">
-            <summary>Returns the label of this method definition.</summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition.Custom(System.String)">
-            <summary>Creates a custom method definition from it's label.</summary>
-            <param name="customMethodLabel">The label to call the custom method definition.</param>
-            <returns>The custom method created.</returns>
-        </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind">
-            <summary>
-            Enumeration of kinds of transformation nodes.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.Aggregate">
-            <summary>
-            Aggregations of values
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.GroupBy">
-            <summary>
-            A grouping of values by properties
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.Filter">
-            <summary>
-            A filter clause
-            </summary>
         </member>
         <member name="T:Microsoft.OData.ValidationKinds">
             <summary>
@@ -46196,6 +46227,9 @@
         </member>
         <member name="F:Microsoft.OData.ExpressionConstants.KeywordFilter">
             <summary>"filter" keyword for $apply.</summary>
+        </member>
+        <member name="F:Microsoft.OData.ExpressionConstants.KeywordCompute">
+            <summary>"compute" keyword for $apply.</summary>
         </member>
         <member name="F:Microsoft.OData.ExpressionConstants.KeywordGroupBy">
             <summary>"groupby" keyword for $apply.</summary>

@@ -1,3 +1,7 @@
+###############################
+# VARIABLE DECLARATIONS
+###############################
+
 # Default to Debug
 $Configuration = 'Debug'
 
@@ -28,10 +32,12 @@ elseif ($args[0] -match 'E2E')
 elseif ($args[0] -match 'DisableSkipStrongName')
 {
     $TestType = "DisableSkipStrongName"
+    $Configuration = 'Release'
 }
 elseif ($args[0] -match 'EnableSkipStrongName')
 {
     $TestType = "EnableSkipStrongName"
+    $Configuration = 'Release'
 }
 elseif ($args[0] -match 'SkipStrongName')
 {
@@ -55,34 +61,49 @@ $env:ENLISTMENT_ROOT = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $ENLISTMENT_ROOT = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $LOGDIR = $ENLISTMENT_ROOT + "\bin"
 
-# Default to use Visual Studio 2015
-$VS14MSBUILD=$PROGRAMFILESX86 + "\MSBuild\14.0\Bin\MSBuild.exe"
-$VSTEST = $PROGRAMFILESX86 + "\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
-$FXCOPDIR = $PROGRAMFILESX86 + "\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop"
-$SN = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\sn.exe"
-$SNx64 = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64\sn.exe"
-
 # Use Visual Studio 2017 compiler for .NET Core and .NET Standard. Because VS2017 has different paths for different
 # versions, we have to check for each version. Meanwhile, the dotnet CLI is required to run the .NET Core unit tests in this script.
 $VS15VERSIONS = "Enterprise",
     "Professional",
     "Community"
-$VS15MSBUILD = $null
+$VSBASE = $null
 ForEach ($version in $VS15VERSIONS)
 {
-    $tempMSBuildPath = ($PROGRAMFILESX86 + "\Microsoft Visual Studio\2017\{0}\MSBuild\15.0\Bin\MSBuild.exe") -f $version
-    if([System.IO.File]::Exists($tempMSBuildPath))
+    $tempVSBasePath = ($PROGRAMFILESX86 + "\Microsoft Visual Studio\2017\{0}") -f $version
+    if(Test-Path $tempVSBasePath)
     {
-        $VS15MSBUILD = $tempMSBuildPath
+        $VSBASE = $tempVSBasePath
         break
     }
 }
+
+$MSBUILD = $null
+$IsVS15 = $true
+if ($VSBASE -eq $null)
+{
+    Write-Host 'Warning : No versions of Visual Studio 2017 found. Falling back to Visual Studio 2015.' -ForegroundColor $Warning
+    $VSBASE = $PROGRAMFILESX86 + "\Microsoft Visual Studio 14.0"
+    $MSBUILD = $PROGRAMFILESX86 + "\MSBuild\14.0\Bin\MSBuild.exe"
+    $IsVS15 = $false
+}
+else
+{
+    $MSBUILD = $VSBASE + "\MSBuild\15.0\Bin\MSBuild.exe"
+}
+
 $DOTNETDIR = "C:\Program Files\dotnet\"
 $DOTNETTEST = $null
 if ([System.IO.File]::Exists($DOTNETDIR + "dotnet.exe"))
 {
     $DOTNETTEST = $DOTNETDIR + "dotnet.exe"
 }
+
+# Tools
+$VSTEST = $VSBASE + "\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
+$FXCOPDIR = $VSBASE + "\Team Tools\Static Analysis Tools\FxCop"
+
+$SN = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\sn.exe"
+$SNx64 = $PROGRAMFILESX86 + "\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\sn.exe"
 
 # Other variables
 $FXCOP = $FXCOPDIR + "\FxCopCmd.exe"
@@ -97,11 +118,11 @@ $XUNITADAPTER = "/TestAdapterPath:" + $NUGETPACK + "\xunit.runner.visualstudio.2
 
 $NugetRestoreSolutions = "OData.NetStandard.sln"
 
-$ProductDlls = "Microsoft.OData.Client.dll",
-    "Microsoft.OData.Core.dll",
-    "Microsoft.OData.Edm.dll",
+$ProductDlls = "Microsoft.TeamFoundation.OData.Client.dll",
+    "Microsoft.TeamFoundation.OData.Core.dll",
+    "Microsoft.TeamFoundation.OData.Edm.dll",
     "Microsoft.OData.Service.Design.T4.dll",
-    "Microsoft.Spatial.dll"
+    "Microsoft.TeamFoundation.Spatial.dll"
 
 $XUnitTestDlls = "Microsoft.OData.Core.Tests.dll",
     "Microsoft.OData.Edm.Tests.dll",
@@ -177,6 +198,10 @@ $FxCopRulesOptions = "/rule:$FxCopDir\Rules\DesignRules.dll",
     "/ruleid:-Microsoft.Performance#CA1814"
 $DataWebRulesOption = "/rule:$TESTDIR\DataWebRules.dll"
 
+###############################
+# FUNCTION DEFINITIONS
+###############################
+
 Function GetDlls
 {
     $dlls = @()
@@ -231,6 +256,9 @@ Function SkipStrongName
     {
         & $SNx64 /Vr $dll | Out-File $SnLog -Append
     }
+
+    & $SN /Vl
+    & $SNx64 /Vl
 
     Write-Host "SkipStrongName Done" -ForegroundColor $Success
 }
@@ -295,20 +323,12 @@ Function CleanBeforeScorch
 }
 
 # Incremental build and rebuild
-Function RunBuild ($sln, $vsToolVersion)
+Function RunBuild ($sln)
 {
     Write-Host "*** Building $sln ***"
     $slnpath = $ENLISTMENT_ROOT + "\sln\$sln"
     $Conf = "/p:Configuration=" + "$Configuration"
 
-    # Default to VS2015
-    $MSBUILD = $VS14MSBUILD
-    
-    if($vsToolVersion -eq '15.0')
-    {
-        $MSBUILD=$VS15MSBUILD
-    }
-    
     & $MSBUILD $slnpath /t:$Build /m /nr:false /fl "/p:Platform=Any CPU" $Conf /p:Desktop=true `
         /flp:LogFile=$LOGDIR/msbuild.log /flp:Verbosity=Normal 1>$null 2>$null
     if($LASTEXITCODE -eq 0)
@@ -491,22 +511,28 @@ Function TestSummary
 Function RunTest($title, $testdir, $framework)
 {
     Write-Host "**********Running $title***********"
-    if ($framework -eq 'dotnet')
+
+    foreach($testProj in $testdir)
     {
-        foreach($testProj in $testdir)
+        Write-Host "Launching $testProj..."
+        
+        if ($framework -eq 'dotnet')
         {
-            Write-Host "Launching $testProj..."
             & $DOTNETTEST "test" ($ENLISTMENT_ROOT + $testProj) "--no-build" >> $TESTLOG
         }
+        else
+        {
+            & $VSTEST $testProj $XUNITADAPTER >> $TESTLOG
+        }
     }
-    else
-    {
-        & $VSTEST $testdir $XUNITADAPTER >> $TESTLOG
-    }
-
+    
     if($LASTEXITCODE -ne 0)
     {
         Write-Host "Run $title FAILED" -ForegroundColor $Err
+    }
+    else
+    {
+        Write-Host "**********Finished $title***********"
     }
 }
 
@@ -529,26 +555,22 @@ Function BuildProcess
         rm $BUILDLOG
     }
 
-    RunBuild ('OData.Net45.sln')
-
-    if ($TestType -ne 'Quick')
+    if ($TestType -eq 'Quick')
     {
+        RunBuild ('OData.Net45.sln')
+    }
+    else
+    {
+        RunBuild ('OData.Net35.sln')
+        
         # OData.Tests.E2E.sln contains the product code for Net45 framework and a comprehensive list of test projects
         RunBuild ('OData.Tests.E2E.sln')
-        RunBuild ('OData.Net35.sln')
-        # Solutions that contain .NET Core projects require VS2017 for full support. VS2015 supports only .NET Standard.
-        if($VS15MSBUILD)
+        if ($IsVS15 -eq $true)
         {
-            Write-Host "Found VS2017 version: $VS15MSBUILD"
-            RunBuild ('OData.Tests.E2E.NetCore.VS2017.sln') -vsToolVersion '15.0'
+            RunBuild ('OData.Tests.E2E.NetCore.sln')
+            RunBuild ('OData.CodeGen.sln')
         }
-        else
-        {
-            Write-Host ('Warning! Skipping build for .NET Core tests because no versions of VS2017 found. ' + `
-            'Building only product in .NET Standard.') -ForegroundColor $Warning
-            RunBuild ('OData.NetStandard.sln')
-        }
-        RunBuild ('OData.CodeGen.sln')
+        
         RunBuild ('OData.Tests.WindowsApps.sln')
     }
 
@@ -612,7 +634,9 @@ Function FxCopProcess
     Write-Host "FxCop Done" -ForegroundColor $Success
 }
 
-# Main Process
+###############################
+# MAIN PROCESS
+###############################
 
 if (! (Test-Path $LOGDIR))
 {
@@ -621,17 +645,17 @@ if (! (Test-Path $LOGDIR))
 
 if ($TestType -eq 'EnableSkipStrongName')
 {
-    CleanBeforeScorch
-    NugetRestoreSolution
-    BuildProcess
+    #CleanBeforeScorch
+    #NugetRestoreSolution
+    #BuildProcess
     SkipStrongName
     Exit
 }
 elseif ($TestType -eq 'DisableSkipStrongName')
 {
-    CleanBeforeScorch
-    NugetRestoreSolution
-    BuildProcess
+    #CleanBeforeScorch
+    #NugetRestoreSolution
+    #BuildProcess
     DisableSkipStrongName
     Exit
 }

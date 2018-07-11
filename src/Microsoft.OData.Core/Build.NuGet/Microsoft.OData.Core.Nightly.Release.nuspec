@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <title>ODataLib</title>
-    <id>Microsoft.OData.Core</id>
+    <id>Mseng.OData.Core</id>
     <tags>wcf data services odata odatalib edmlib spatial ado.net ef entity framework open protocol wcfds wcfdataservices dataservices</tags>
     <version>$VersionFullSemantic$-Nightly$NightlyBuildVersion$</version>
     <authors>Microsoft Corporation</authors>
@@ -16,17 +16,18 @@
 OData .NET library is open source at http://github.com/OData/odata.net</description>
     <copyright>© Microsoft Corporation.  All rights reserved.</copyright>
     <dependencies>
-      <dependency id="Microsoft.Spatial" version="[$VersionFullSemantic$-Nightly$NightlyBuildVersion$]" />
-      <dependency id="Microsoft.OData.Edm" version="[$VersionFullSemantic$-Nightly$NightlyBuildVersion$]" />
+      <dependency id="Mseng.Spatial" version="[$VersionFullSemantic$-Nightly$NightlyBuildVersion$]" />
+      <dependency id="Mseng.OData.Edm" version="[$VersionFullSemantic$-Nightly$NightlyBuildVersion$]" />
     </dependencies>
   </metadata>
   <files>
-    <file src="$ProductRoot$\.NETPortable\v4.5\Microsoft.OData.Core.dll" target="lib\portable-net45+win8+wpa81" />
-    <file src="$ProductRoot$\.NETPortable\v4.5\Microsoft.OData.Core.pdb" target="lib\portable-net45+win8+wpa81" />
-    <file src="$ProductRoot$\.NETPortable\v4.5\Microsoft.OData.Core.xml" target="lib\portable-net45+win8+wpa81" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Core.dll" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Core.dll" target="lib\net45" />
+    <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Core.pdb" target="lib\net45" />
+    <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Core.xml" target="lib\net45" />
+    <file src="$ProductRoot$\Desktop\**\Microsoft.TeamFoundation.OData.Core.resources.dll" target="lib\net45" />    
+    <!-- <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Core.dll" target="lib\netstandard1.1" />
     <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Core.pdb" target="lib\netstandard1.1" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Core.xml" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Core.xml" target="lib\netstandard1.1" /> -->
     <file src="$SourcesRoot$\src\Microsoft.OData.Core\**\*.cs" target="src\Microsoft.OData.Core" />
     <file src="$SourcesRoot$\src\Microsoft.OData.Edm\Csdl\EdmValueParser.cs" target="src\Microsoft.OData.Edm\Csdl\EdmValueParser.cs" />
     <file src="$SourcesRoot$\src\Microsoft.OData.Edm\Csdl\EdmValueWriter.cs" target="src\Microsoft.OData.Edm\Csdl\EdmValueWriter.cs" />

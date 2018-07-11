@@ -31,12 +31,12 @@
         </member>
         <member name="F:Microsoft.Spatial.PlatformHelper.UriSchemeHttp">
             <summary>
-            Replacement for Uri.UriSchemeHttp, which does not exist on.
+            Use this instead of Uri.UriSchemeHttp.
             </summary>
         </member>
         <member name="F:Microsoft.Spatial.PlatformHelper.UriSchemeHttps">
             <summary>
-            Replacement for Uri.UriSchemeHttps, which does not exist on.
+            Use this instead of Uri.UriSchemeHttps.
             </summary>
         </member>
         <member name="M:Microsoft.Spatial.PlatformHelper.GetAssembly(System.Type)">
@@ -281,195 +281,6 @@
             </summary>
             <param name="type">Type on which to call this helper method.</param>
             <returns>All types nested in the current type</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.CheckTypeArgs(System.Reflection.ConstructorInfo,System.Type[])">
-            <summary>
-            Checks if the specified constructor takes arguments of the specified types.
-            </summary>
-            <param name="constructorInfo">ConstructorInfo on which to call this helper method.</param>
-            <param name="types">Array of type arguments to check against the constructor parameters.</param>
-            <returns>True if the constructor takes arguments of the specified types, otherwise false.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.IsAssignableFrom(System.Type,System.Type)">
-            <summary>
-            Replacement for Type.IsAssignableFrom(Type)
-            </summary>
-            <param name="thisType">Type on which to call this helper method.</param>
-            <param name="otherType">Type to test for assignability.</param>
-            <returns>See documentation for method being accessed in the body of the method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.IsSubclassOf(System.Type,System.Type)">
-            <summary>
-            Replacement for Type.IsSubclassOf(Type).
-            </summary>
-            <param name="thisType">Type on which to call this helper method.</param>
-            <param name="otherType">Type to test if typeType is a subclass.</param>
-            <returns>True if thisType is a subclass of otherType, otherwise false.</returns>
-            <remarks>
-            TODO: Add this back to TypeInfo. This method will still be needed since it works on Type, but the
-                  implementation should just be able to call the TypeInfo version directly instead of the full implementation here.
-            </remarks>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetMethod(System.Type,System.String)">
-            <summary>
-            Replacement for GetMethod(string).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="name">Method to find on the specified type.</param>
-            <returns>MethodInfo if one was found for the specified type, otherwise false.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetMethod(System.Type,System.String,System.Type[])">
-            <summary>
-            Replacement for Type.GetMethod(string, Type[]).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="name">Name of method to find on the specified type.</param>
-            <param name="types">Array of arguments to the method.</param>
-            <returns>MethodInfo if one was found for the specified type, otherwise false.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetMethodWithGenericArgs(System.Type,System.String,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Gets a MethodInfo from the specified type. Replaces uses of Type.GetMember.
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="name">Name of the method to find.</param>
-            <param name="isPublic">True if the method is public, false otherwise.</param>
-            <param name="isStatic">True if the method is static, false otherwise.</param>
-            <param name="genericArgCount">Number of generics arguments the method has.</param>
-            <returns>MethodInfo for the method that was found.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetProperty(System.Type,System.String,System.Type)">
-            <summary>
-            Replacement for Type.GetProperty(string, Type).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="name">Name of public property to find on the specified type.</param>
-            <param name="returnType">Return type for the property.</param>
-            <returns>PropertyInfo if a property was found on the type with the specified name and return type, otherwise null.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetProperty(System.Type,System.String)">
-            <summary>
-            Replacement for Type.GetProperty(string).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="name">Name of public property to find on the specified type.</param>
-            <returns>PropertyInfo if a property was found on the type with the specified name and return type, otherwise null.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetGetMethod(System.Reflection.PropertyInfo)">
-            <summary>
-            Replacement for PropertyInfo.GetGetMethod().
-            </summary>
-            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
-            <returns>MethodInfo for the public get accessor of the specified PropertyInfo, or null if there is no get accessor or it is non-public.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetSetMethod(System.Reflection.PropertyInfo)">
-            <summary>
-            Replacement for PropertyInfo.GetSetMethod().
-            </summary>
-            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
-            <returns>MethodInfo for the public set accessor of the specified PropertyInfo, or null if there is no set accessor or it is non-public.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetBaseDefinition(System.Reflection.MethodInfo)">
-            <summary>
-            Replacement for MethodInfo.GetBaseDefinition().
-            </summary>
-            <param name="methodInfo">MethodInfo on which to call this helper method.</param>
-            <returns>See documentation for method being accessed in the body of the method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetProperties(System.Type)">
-            <summary>
-            Replacement for Type.GetProperties().
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <returns>Enumerable of all instance and static public properties on the type.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetFields(System.Type)">
-            <summary>
-            Replacement for Type.GetFields(string).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <returns>Enumerable of all public instance fields for the specified type.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetCustomAttributes(System.Type,System.Type,System.Boolean)">
-            <summary>
-            Replacement for Type.GetCustomAttributes(Type, bool).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="attributeType">Attribute type to find on the specified type.</param>
-            <param name="inherit">True if the base types should be searched, false otherwise.</param>
-            <returns>See documentation for method being accessed in the body of the method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetCustomAttributes(System.Type,System.Boolean)">
-            <summary>
-            Replacement for Type.GetCustomAttributes(bool).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="inherit">True if the base types should be searched, false otherwise.</param>
-            <returns>See documentation for method being accessed in the body of the method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetGenericArguments(System.Type)">
-            <summary>
-            Replacement for Type.GetGenericArguments().
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <returns>Array of Type objects that represent the type arguments of a generic type or the type parameters of a generic type definition.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetInterfaces(System.Type)">
-            <summary>
-            Replacement for Type.GetInterfaces().
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <returns>See documentation for property being accessed in the body of the method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.IsInstanceOfType(System.Type,System.Object)">
-            <summary>
-            Replacement for Type.IsInstanceOfType(object).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="obj">Object to test to see if it's an instance of the specified type.</param>
-            <returns>See documentation for method being accessed in the body of the method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetType(System.Reflection.Assembly,System.String,System.Boolean)">
-            <summary>
-            Replacement for Assembly.GetType(string, bool).
-            </summary>
-            <param name="assembly">Assembly on which to call this helper method.</param>
-            <param name="typeName">Name of the type to get from the assembly.</param>
-            <param name="throwOnError">True if an exception should be thrown if the type cannot be found, otherwise false.</param>
-            <returns>Type instance if the type could be found in the assembly, otherwise null.</returns>
-            <remarks>
-            TODO: Add a new method called Assembly.GetDefinedType(string) that returns a TypeInfo and will throw like Assembly.GetType(string, true) used to.
-                  This helper method will still be needed but should be updated to use the new implementation once it exists.
-            </remarks>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetTypes(System.Reflection.Assembly)">
-            <summary>
-            Replacement for Assembly.GetTypes().
-            </summary>
-            <param name="assembly">Assembly on which to call this helper method.</param>
-            <returns>Enumerable of the types in the assembly.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.GetField(System.Type,System.String)">
-            <summary>
-            Replacement for GetField(string).
-            </summary>
-            <param name="type">Type on which to call this helper method.</param>
-            <param name="name">Method to find on the specified type.</param>
-            <returns>FieldInfo if one was found for the specified type, otherwise false.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.IsInstance(System.Reflection.PropertyInfo)">
-            <summary>
-            Checks if the specified PropertyInfo is an instance property.
-            </summary>
-            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
-            <returns>True if either the GetMethod or SetMethod for the property is an instance method.</returns>
-        </member>
-        <member name="M:Microsoft.Spatial.PlatformHelper.IsPublic(System.Reflection.PropertyInfo)">
-            <summary>
-            Checks if the specified PropertyInfo is a public property.
-            </summary>
-            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
-            <returns>True if either the GetMethod or SetMethod for the property is public.</returns>
         </member>
         <member name="M:Microsoft.Spatial.PlatformHelper.CreateCompiled(System.String,System.Text.RegularExpressions.RegexOptions)">
             <summary>
@@ -6859,6 +6670,15 @@
             Util class
             </summary>
         </member>
+        <member name="F:Microsoft.Spatial.Util.StackOverflowType">
+            <summary>StackOverFlow exception type</summary>
+        </member>
+        <member name="F:Microsoft.Spatial.Util.ThreadAbortType">
+            <summary>ThreadAbortException exception type</summary>
+        </member>
+        <member name="F:Microsoft.Spatial.Util.AccessViolationType">
+            <summary>AccessViolationException exception type</summary>
+        </member>
         <member name="F:Microsoft.Spatial.Util.OutOfMemoryType">
             <summary>OutOfMemoryException exception type</summary>
         </member>
@@ -6899,6 +6719,22 @@
             <summary>
             Namespace for xmlns
             </summary>
+        </member>
+        <member name="M:Microsoft.Spatial.TextResDescriptionAttribute.#ctor(System.String)">
+            <summary>
+                Constructs a new sys description.
+            </summary>
+            <param name='description'>
+                description text.
+            </param>
+        </member>
+        <member name="P:Microsoft.Spatial.TextResDescriptionAttribute.Description">
+            <summary>
+                Retrieves the description text.
+            </summary>
+            <returns>
+                description
+            </returns>
         </member>
         <member name="T:Microsoft.Spatial.TextRes">
              <summary>
