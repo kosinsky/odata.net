@@ -14,7 +14,7 @@
     <Cmt Name="Note" />
     <Cmt Name="Rccx" />
   </OwnedComments>
-  <Settings Name="@SettingsPath@\default.lss" Type="LSS" />
+  <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
     <Modified By="naoto.matsuzaki" DateTime="2011-11-21T06:54:24Z" />

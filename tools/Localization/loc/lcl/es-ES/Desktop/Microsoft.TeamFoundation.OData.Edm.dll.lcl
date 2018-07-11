@@ -24,7 +24,7 @@
     <Cmt Name="UTSUI" />
     <Cmt Name="zLocLevel" />
   </OwnedComments>
-  <Settings Name="@SettingsPath@\default.lss" Type="LSS" />
+  <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
   </Item>
