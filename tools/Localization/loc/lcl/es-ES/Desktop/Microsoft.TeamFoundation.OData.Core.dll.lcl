@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Core.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="es-ES" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -20,9 +20,9 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
   </Item>
   <Item ItemId=";Microsoft.OData.Core.resources" ItemType="0" PsrId="211" Leaf="false">
-    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
     <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
-      <Disp Icon="Str" LocTbl="false" />
+      <Disp Icon="Str" Disp="true" LocTbl="false" />
       <Item ItemId=";AnnotationFilterPattern_InvalidPatternEmptySegment" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a valid pattern to match an annotation. It must not contain a namespace or name segment that is empty.]]></Val>
@@ -178,10 +178,13 @@
       </Item>
       <Item ItemId=";BadRequest_ResourceCanBeCrossReferencedOnlyForBindOperation" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Error processing request stream. In batch mode, a resource can be cross-referenced only for bind/unbind operations. ]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[Error processing request stream. In batch mode, a resource can be cross-referenced only for bind/unbind operations.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
             <Val><![CDATA[Error al procesar la secuencia de solicitud. En modo por lotes, se pueden establecer referencias cruzadas en un recurso solo para operaciones de enlace y desenlace. ]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Error processing request stream. In batch mode, a resource can be cross-referenced only for bind/unbind operations. ]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -691,10 +694,13 @@
       </Item>
       <Item ItemId=";FunctionCallBinder_UriFunctionMustHaveHaveNullParent" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Found a Uri function '{0}' with a parent token. Uri functions cannot have parent tokens. ]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[Found a Uri function '{0}' with a parent token. Uri functions cannot have parent tokens.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha encontrado una función de URI '{0}' con un token principal. Las funciones de URI no pueden tener ningún token principal.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Found a Uri function '{0}' with a parent token. Uri functions cannot have parent tokens. ]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -1519,10 +1525,13 @@
       </Item>
       <Item ItemId=";MetadataBinder_QueryOptionNotApplicable" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[The '{0}' option cannot be applied to the query path. '{0}' can only be applied to a collection of entities. ]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[The '{0}' option cannot be applied to the query path. '{0}' can only be applied to a collection of entities.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
             <Val><![CDATA[La opción '{0}' no se puede aplicar a la ruta de acceso de consulta. '{0}' solo se puede aplicar a una colección de entidades. ]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The '{0}' option cannot be applied to the query path. '{0}' can only be applied to a collection of entities. ]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2105,6 +2114,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataBatchReader_AbsoluteURINotMatchingBaseUri" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Absolute URI {0} is not start with the base URI [{1}]5D; specified by the operation message.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataBatchReader_AsyncCallOnSyncReader" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous batch reader. Calls on a batch reader instance must be either all synchronous or all asynchronous.]]></Val>
@@ -2150,14 +2165,32 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataBatchReader_DependsOnIdNotFound" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The dependsOn Id: [{0}]5D; in request [{1}]5D; is not matching any of the request Id and atomic group Id seen so far. Forward reference is not allowed.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_DependsOnRequestIdIsPartOfAtomicityGroupNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The dependsOn request Id [{0}]5D; is part of atomic group [{1}]5D;. Therefore dependsOn property should refer to atomic group Id [{1}]5D; instead.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_DuplicateAtomicityGroupIDsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The atomicityGroup ID [{0}]5D; was found duplicated in the batch request. AtomicityGroup IDs have to be adjacent, otherwise would be detected as duplicated.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataBatchReader_DuplicateContentIDsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+          <Val><![CDATA[The content ID '{0}' was found more than once in the same change set or same batch request. Content IDs have to be unique across all operations of a change set for OData V4.0 and have to be unique across all operations in the whole batch request for OData V4.01.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
             <Val><![CDATA[El id. de contenido '{0}' se encontró más de una vez en el mismo conjunto de cambios. Los id. de contenido tienen que ser únicos en todas las operaciones de un conjunto de cambios.]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[The content ID '{0}' was found more than once in the same changeset. Content IDs have to be unique across all operations of a changeset.]]></Val>
+            <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
@@ -2186,6 +2219,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataBatchReader_JsonBatchTopLevelPropertyMissing" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[JsonLight batch format requires top level property name 'requests' or 'response' but it is missing.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataBatchReader_MaxBatchSizeExceeded" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The current batch message contains too many parts. A maximum number of '{0}' query operations and change sets are allowed in a batch message.]]></Val>
@@ -2207,6 +2246,12 @@
           <Prev Cat="Text">
             <Val><![CDATA[The current changeset contains too many operations. Only changesets with a maximum number of '{0}' operations are allowed.]]></Val>
           </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_MessageIdPositionedIncorrectly" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Message with id [{0}]5D; is positioned incorrectly: all messages of same groupId [{1}]5D; must be adjacent.]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2252,6 +2297,42 @@
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
             <Val><![CDATA[Se llamó a ODataBatchReader.ReadAsync o a ODataBatchReader.Read en un estado no válido. No se pueden realizar más llamadas al lector en el estado '{0}'.]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_ReaderModeNotInitilized" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Reader mode is not setup correctly.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_ReaderStreamChangesetBoundaryCannotBeNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Changeset boundary must have been set by now.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_ReferenceIdNotIncludedInDependsOn" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Request Id reference [{0}]5D; in Uri [{1}]5D; is not found in effective depends-on-Ids [{2}]5D; of the request.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_RequestPropertyMissing" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Request property [{0}]5D; is required but is missing.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_SameRequestIdAsAtomicityGroupIdNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The dependsOn request Id [{0}]5D; is same as atomicityGroup property value [{1}]5D;, and is not allowed.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatchReader_SelfReferenceDependsOnRequestIdNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The dependsOn request Id [{0}]5D; is same as id property value [{1}]5D;, and it is not allowed.]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2353,12 +2434,12 @@
       </Item>
       <Item ItemId=";ODataBatchWriter_DuplicateContentIDsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+          <Val><![CDATA[The content ID '{0}' was found more than once in the same change set or same batch request. Content IDs have to be unique across all operations of a change set for OData V4.0 and have to be unique across all operations in the whole batch request for OData V4.01.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
             <Val><![CDATA[El id. de contenido '{0}' se encontró más de una vez en el mismo conjunto de cambios. Los id. de contenido tienen que ser únicos en todas las operaciones de un conjunto de cambios.]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[The content ID '{0}' was found more than once in the same changeset. Content IDs have to be unique across all operations of a changeset.]]></Val>
+            <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
@@ -2474,6 +2555,12 @@
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
             <Val><![CDATA[Se llamó a una operación sincrónica en un sistema de escritura por lotes asincrónico. Todas las llamadas en una instancia de sistema de escritura por lotes deben ser sincrónicas o asincrónicas.]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataBatch_GroupIdOrChangeSetIdCannotBeNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Group id or changeset GUID cannot be null.]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -3221,6 +3308,18 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataJsonLightPropertyAndValueDeserializer_CollectionTypeExpected" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A non-collection type of '{0}' was specified for a collection value.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataJsonLightPropertyAndValueDeserializer_CollectionTypeNotExpected" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection type of '{0}' was specified for a non-collection value.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataJsonLightPropertyAndValueDeserializer_ComplexTypeAnnotationNotFirst" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The 'odata.type' instance annotation in a complex object is not the first property of the object. In OData, the 'odata.type' instance annotation must be the first property of the complex object.]]></Val>
@@ -3467,6 +3566,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataJsonLightResourceDeserializer_DeltaRemovedAnnotationMustBeObject" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid primitive value '{0}' for @removed annotation. @removed annotation must be a JSON object, optionally containing a 'reason' property.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataJsonLightResourceDeserializer_DuplicateNestedResourceSetAnnotation" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Multiple property annotations '{0}' were found when reading the nested resource '{1}'. Only a single property annotation '{0}' can be specified for a nested resource.]]></Val>
@@ -3496,10 +3601,13 @@
       </Item>
       <Item ItemId=";ODataJsonLightResourceDeserializer_InvalidNodeTypeForItemsInResourceSet" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the entries of a resource set; however, a node of type 'StartObject' or 'EndArray' was expected.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the entries of a typed resource set; however, a node of type 'StartObject' or 'EndArray', or a null value, was expected.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha leído un nodo de tipo '{0}' del lector JSON al intentar leer las entradas de un conjunto de recursos; sin embargo, se esperaba un nodo de tipo 'StartObject' o 'EndArray'.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the entries of a resource set; however, a node of type 'StartObject' or 'EndArray' was expected.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -3910,10 +4018,13 @@
       </Item>
       <Item ItemId=";ODataJsonOperationsDeserializerUtils_OperationsPropertyMustHaveObjectValue" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Found a node of type '{1}' when starting to read the '{0}' operations value, however a node of type 'StartObject' was expected. The '{0}' operations value must have an object value. ]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[Found a node of type '{1}' when starting to read the '{0}' operations value, however a node of type 'StartObject' was expected. The '{0}' operations value must have an object value.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
             <Val><![CDATA[Se encontró un nodo de tipo '{1}' al empezar a leer el valor de operaciones '{0}'; sin embargo, se esperaba un nodo de tipo 'StartObject'. El valor de operaciones '{0}' debe tener un valor de objeto. ]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Found a node of type '{1}' when starting to read the '{0}' operations value, however a node of type 'StartObject' was expected. The '{0}' operations value must have an object value. ]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -4453,10 +4564,13 @@
       </Item>
       <Item ItemId=";ODataMetadataBuilder_UnknownEntitySet" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[The Id cannot be computed, since the navigation source '{0}' cannot be resolved to a known entity set from model. ]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[The Id cannot be computed, since the navigation source '{0}' cannot be resolved to a known entity set from model.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[El identificador no puede calcularse ya que el origen de navegación '{0}' no se puede resolver en un conjunto conocido de entidades del modelo.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The Id cannot be computed, since the navigation source '{0}' cannot be resolved to a known entity set from model. ]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -4933,10 +5047,13 @@
       </Item>
       <Item ItemId=";ODataResourceTypeContext_ODataResourceTypeNameMissing" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[When writing a JSON response in full metadata mode with ODataMessageWriterSettings.AutoComputePayloadMetadata set to true, a user model must be specified and the entity set and entity type must be passed to the ODataMessageWriter.CreateODataResourceWriter method or the ODataResource.TypeName must be set.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[When writing a JSON response in full metadata mode, a user model must be specified and the entity set and entity type must be passed to the ODataMessageWriter.CreateODataResourceWriter method or the ODataResource.TypeName must be set.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Al escribir una respuesta JSON en el modo de metadatos completo con ODataMessageWriterSettings.AutoComputePayloadMetadata establecido en True, debe especificarse un modelo de usuario y el conjunto de entidades y el tipo de entidad debe pasarse al método ODataMessageWriter.CreateODataResourceWriter u ODataResource.TypeName debe establecerse.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[When writing a JSON response in full metadata mode with ODataMessageWriterSettings.AutoComputePayloadMetadata set to true, a user model must be specified and the entity set and entity type must be passed to the ODataMessageWriter.CreateODataResourceWriter method or the ODataResource.TypeName must be set.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5093,6 +5210,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataUtils_MaxProtocolVersionExceeded" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An OData version of {0} was specified and the maximum supported OData version is {1}.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataUtils_ModelDoesNotHaveContainer" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The provided model does not contain an entity container.]]></Val>
@@ -5104,12 +5227,12 @@
       </Item>
       <Item ItemId=";ODataUtils_UnsupportedVersionHeader" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[The value '{0}' of the OData-Version HTTP header is invalid. Only '4.0' is supported as values for the OData-Version header.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[The value '{0}' of the OData-Version HTTP header is invalid. Only '4.0' and '4.01' are supported as values for the OData-Version header.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[El valor '{0}' del encabezado HTTP OData-Version no es válido. Solo se admiten los valores '4.0' para el encabezado OData-Version.]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[The value '{0}' of the DataServiceVersion HTTP header is invalid. Only '1.0', '2.0' and '3.0' are supported as values for the DataServiceVersion header.]]></Val>
+            <Val><![CDATA[The value '{0}' of the OData-Version HTTP header is invalid. Only '4.0' is supported as values for the OData-Version header.]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
@@ -5132,6 +5255,12 @@
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
             <Val><![CDATA[Se llamó a una operación asincrónica en un sistema de escritura sincrónico. Todas las llamadas en una instancia de sistema de escritura deben ser sincrónicas o asincrónicas.]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataWriterCore_CannotWriteDeltaWithResourceSetWriter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot write a delta deleted resource, link, or deleted link using ODataResourceSetWriter. Please use an ODataDeltaResourceSetWriter.]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5174,6 +5303,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ODataWriterCore_DeltaResourceWithoutIdOrKeyProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No Id or key properties were found. A resource in a delta response requires an ID or key properties be specified.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";ODataWriterCore_EntityReferenceLinkInResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[An entity reference link was written into a response. The WriteEntityReferenceLink or WriteEntityReferenceLinkAsync methods can only be used when writing a request.]]></Val>
@@ -5201,6 +5336,12 @@
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
             <Val><![CDATA[Se detectó una transición de estado no válida en un sistema de escritura OData. No se puede pasar del estado '{0}' al estado '{1}'.]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataWriterCore_InvalidTransitionFrom40DeletedResource" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot transition from state '{0}' to state '{1}' when writing an OData 4.0 payload. To write content to a deleted resource, please specify ODataVersion 4.01 or greater in MessageWriterSettings.]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5279,6 +5420,12 @@
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Se ha escrito más de un elemento en el contenido de un recurso anidado. En OData, un recurso anidado solo puede contener más de un elemento en su contenido cuando ODataNestedResourceInfo.IsCollection se establece en True y el sistema de escritura está escribiendo una solicitud.]]></Val>
           </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataWriterCore_NestedContentNotAllowedIn40DeletedEntry" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Nested content is not allowed in an OData 4.0 deleted entry. For content in deleted entries, please specify OData 4.01 or greater.]]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5557,10 +5704,13 @@
       </Item>
       <Item ItemId=";ReaderValidationUtils_ResourceWithoutType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[An resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha encontrado un recurso sin un nombre de tipo, pero no se ha especificado ningún tipo esperado. Para permitir entradas sin información de tipo, el tipo esperado también debe especificarse al especificar el modelo.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5785,10 +5935,13 @@
       </Item>
       <Item ItemId=";ResourceSetWithoutExpectedTypeValidator_IncompatibleTypes" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[An resource of type '{0}' was found in a resource set that otherwise has entries of type '{1}'. In OData, all entries in a resource set must have a common base type.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A resource of type '{0}' was found in a resource set that otherwise has entries of type '{1}'. In OData, all entries in a resource set must have a common base type.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha encontrado un recurso de tipo '{0}' en un conjunto de recursos que tiene entradas de tipo '{1}'. En OData, todas las entradas de un conjunto de recursos deben tener un tipo de base común.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An resource of type '{0}' was found in a resource set that otherwise has entries of type '{1}'. In OData, all entries in a resource set must have a common base type.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -6263,12 +6416,9 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";UriQueryExpressionParser_UnrecognizedWithVerb" ItemType="0" PsrId="211" Leaf="true">
+      <Item ItemId=";UriQueryExpressionParser_UnrecognizedWithMethod" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Unrecognized with '{0}' at '{1}' in '{2}'.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[No reconocido con '{0}' en '{1}' en '{2}'.]]></Val>
-          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -6688,28 +6838,37 @@
       </Item>
       <Item ItemId=";ValidationUtils_ResourceTypeNotAssignableToExpectedType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[An resource with type '{0}' was found, but it is not assignable to the expected type '{1}'. The type specified in the resource must be equal to either the expected type or a derived type.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A resource with type '{0}' was found, but it is not assignable to the expected type '{1}'. The type specified in the resource must be equal to either the expected type or a derived type.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha encontrado un recurso de tipo '{0}', pero no se puede asignar al tipo '{1}' esperado. El tipo que se ha especificado en el recurso debe ser igual al tipo esperado o a un tipo derivado.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An resource with type '{0}' was found, but it is not assignable to the expected type '{1}'. The type specified in the resource must be equal to either the expected type or a derived type.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ValidationUtils_ResourceWithMediaResourceAndNonMLEType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[An resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha encontrado un recurso de tipo '{0}' con un recurso multimedia, pero este tipo de entidad no es un recurso de vínculo multimedia (MLE). Cuando el tipo no es una entidad MLE, el recurso no puede tener un recurso multimedia.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ValidationUtils_ResourceWithoutMediaResourceAndMLEType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[An resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha encontrado un recurso de tipo '{0}' sin un recurso multimedia, pero este tipo de entidad es un recurso de vínculo multimedia (MLE). Cuando el tipo es una entidad MLE, el recurso debe tener un recurso multimedia.]]></Val>
           </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
+          </Prev>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -6844,12 +7003,12 @@
       </Item>
       <Item ItemId=";WriterValidationUtils_EntriesMustHaveNonEmptyId" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[An resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
+          <Val><![CDATA[A resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>
+          <Tgt Cat="Text" Stat="Update" Orig="New">
             <Val><![CDATA[Se ha detectado un recurso con un valor ID vacío. En OData, un recurso debe tener un valor de id. no vacío o ningún valor de id.]]></Val>
           </Tgt>
           <Prev Cat="Text">
-            <Val><![CDATA[An entry with an empty ID value was detected. In OData, an entry must either a non-empty ID value or no ID value.]]></Val>
+            <Val><![CDATA[An resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>
           </Prev>
         </Str>
         <Disp Icon="Str" />
@@ -7110,51 +7269,27 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
-    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[7.0.0.0]]></Val>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
-    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text">
-        <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Orig="New">
-          <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
-        </Tgt>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text">
+      <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Orig="New">
-          <Val><![CDATA[Microsoft Corporation]]></Val>
-        </Tgt>
       </Str>
       <Disp Icon="Str" />
     </Item>
     <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
-        <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Orig="New">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
+        <Tgt Cat="Text" Stat="Update" Orig="New">
           <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
         </Tgt>
         <Prev Cat="Text">
-          <Val><![CDATA[Microsoft.OData.Core.SL.dll]]></Val>
+          <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
         </Prev>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
-    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[7.0.0.0]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>
     <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>
@@ -7181,7 +7316,7 @@
     </Item>
     <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[Microsoft.OData.Core.dll]]></Val>
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>
@@ -7191,12 +7326,6 @@
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
           <Val><![CDATA[Microsoft® .NET Framework]]></Val>
         </Tgt>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
-    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[7.0.0.0]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>

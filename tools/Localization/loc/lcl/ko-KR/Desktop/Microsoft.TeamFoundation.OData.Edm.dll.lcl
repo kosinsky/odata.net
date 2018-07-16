@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ko-KR" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -19,9 +19,9 @@
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
   </Item>
   <Item ItemId=";Microsoft.OData.Edm.resources" ItemType="0" PsrId="211" Leaf="false">
-    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
     <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
-      <Disp Icon="Str" LocTbl="false" />
+      <Disp Icon="Str" Disp="true" LocTbl="false" />
       <Item ItemId=";Annotations_DocumentationPun" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Annotations in the 'Documentation' namespace must implement 'IEdmDocumentation', but '{0}' does not.]]></Val>
@@ -844,6 +844,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ExpressionEnumKindNotValidForAssertedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The enum expression is not compatible with the asserted type.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";EdmModel_Validator_Semantic_ExpressionNotValidForTheAssertedType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The type of the expression is incompatible with the asserted type.]]></Val>
@@ -1594,6 +1600,12 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_RequiredParametersMustPrecedeOptional" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Required Parameter '{0}' must not follow an optional parameter.]]></Val>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";EdmModel_Validator_Semantic_SameRoleReferredInReferentialConstraint" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[In relationship '{0}', the principal and dependent role of the referential constraint refers to the same role in the relationship type.]]></Val>
@@ -2251,12 +2263,9 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";UnknownEnumVal_EdmxTarget" ItemType="0" PsrId="211" Leaf="true">
+      <Item ItemId=";UnknownEnumVal_CsdlTarget" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Invalid edmx target: '{0}']]></Val>
-          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[잘못된 edmx 대상: '{0}']]></Val>
-          </Tgt>
+          <Val><![CDATA[Invalid CSDL target: '{0}']]></Val>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2588,51 +2597,27 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
-    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[7.0.0.0]]></Val>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
-    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text">
-        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
-        </Tgt>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text">
+      <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Microsoft Corporation]]></Val>
-        </Tgt>
       </Str>
       <Disp Icon="Str" />
     </Item>
     <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
-        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+        <Tgt Cat="Text" Stat="Update" Orig="New">
           <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
         </Tgt>
         <Prev Cat="Text">
-          <Val><![CDATA[Microsoft.OData.Edm.SL.dll]]></Val>
+          <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
         </Prev>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
-    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[7.0.0.0]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>
     <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>
@@ -2659,7 +2644,7 @@
     </Item>
     <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>
@@ -2669,12 +2654,6 @@
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
           <Val><![CDATA[Microsoft® .NET Framework]]></Val>
         </Tgt>
-      </Str>
-      <Disp Icon="Str" />
-    </Item>
-    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[7.0.0.0]]></Val>
       </Str>
       <Disp Icon="Str" />
     </Item>

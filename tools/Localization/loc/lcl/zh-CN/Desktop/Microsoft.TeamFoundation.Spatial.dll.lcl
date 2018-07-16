@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-CN" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -17,14 +17,11 @@
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
-    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
   </Item>
   <Item ItemId=";Microsoft.Spatial.resources" ItemType="0" PsrId="211" Leaf="false">
-    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
-    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
     <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
-      <Disp Icon="Str" LocTbl="false" />
-      <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
+      <Disp Icon="Str" Disp="true" LocTbl="false" />
       <Item ItemId=";GeoJsonReader_ExpectedArray" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element where an array was expected.]]></Val>
@@ -36,7 +33,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";GeoJsonReader_ExpectedNumeric" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -49,7 +45,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";GeoJsonReader_InvalidCrsName" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -59,10 +54,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GeoJsonReader_InvalidCrsType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -72,10 +63,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GeoJsonReader_InvalidNullElement" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -85,7 +72,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";GeoJsonReader_InvalidPosition" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -98,7 +84,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";GeoJsonReader_InvalidTypeName" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -108,7 +93,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";GeoJsonReader_MissingRequiredMember" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -118,10 +102,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_EmptyRingsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -134,10 +114,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_ExpectReaderAtElement" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -147,7 +123,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";GmlReader_InvalidAttribute" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -157,10 +132,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_InvalidSpatialType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -170,10 +141,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_InvalidSrsName" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -186,10 +153,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_PosListNeedsEvenCount" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -202,10 +165,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_PosNeedTwoNumbers" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -218,10 +177,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";GmlReader_UnexpectedElement" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -231,7 +186,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";InvalidPointCoordinate" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -244,10 +198,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";JsonReaderExtensions_CannotReadPropertyValueAsString" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -257,7 +207,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";JsonReaderExtensions_CannotReadValueAsJsonObject" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -267,10 +216,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";PlatformHelper_DateTimeOffsetMustContainTimeZone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
@@ -280,10 +225,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="ju.lei" DateTime="2014-01-14T08:09:19Z" />
-        <Cmts>
-          <Cmt Name="LcxAdmin"><![CDATA[{StrContains="DateTimeOffset"}]]></Cmt>
-        </Cmts>
       </Item>
       <Item ItemId=";Point_AccessCoordinateWhenEmpty" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -296,10 +237,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";SpatialBuilder_CannotCreateBeforeDrawn" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -312,10 +249,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";SpatialImplementation_NoRegisteredOperations" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -325,10 +258,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_FullGlobeCannotHaveElements" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -341,10 +270,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_FullGlobeInCollection" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -354,7 +279,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";Validator_InvalidLatitudeCoordinate" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -367,7 +291,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";Validator_InvalidLongitudeCoordinate" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -380,7 +303,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";Validator_InvalidPointCoordinate" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -393,10 +315,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_InvalidPolygonPoints" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -409,7 +327,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";Validator_InvalidType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -422,10 +339,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_LineStringNeedsTwoPoints" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -435,7 +348,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";Validator_NestingOverflow" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -445,7 +357,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
       </Item>
       <Item ItemId=";Validator_SridMismatch" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -458,7 +369,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";Validator_UnexpectedCall" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -471,10 +381,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_UnexpectedCall2" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -487,10 +393,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_UnexpectedGeography" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -500,10 +402,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";Validator_UnexpectedGeometry" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -513,10 +411,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";WellKnownText_TooManyDimensions" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -529,7 +423,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
       </Item>
       <Item ItemId=";WellKnownText_UnexpectedCharacter" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -539,10 +432,6 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 1" />
-        </Props>
       </Item>
       <Item ItemId=";WellKnownText_UnexpectedToken" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -555,10 +444,6 @@
           </Prev>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2012-02-20T02:12:30Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 2" />
-        </Props>
       </Item>
       <Item ItemId=";WellKnownText_UnknownTaggedText" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
@@ -568,75 +453,34 @@
           </Tgt>
         </Str>
         <Disp Icon="Str" />
-        <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-        <Props>
-          <Str Name="Custom5" Val="MT bucket 1" />
-        </Props>
       </Item>
     </Item>
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
-    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
-    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[6.10.0.0]]></Val>
-      </Str>
-      <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
-    </Item>
-    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text">
-        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
-        </Tgt>
-      </Str>
-      <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-01-14T08:09:19Z" />
-    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text">
+      <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Microsoft Corporation]]></Val>
-        </Tgt>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-      <Props>
-        <Str Name="Custom5" Val="MT bucket 1" />
-      </Props>
     </Item>
     <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
-        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
-        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
+        <Tgt Cat="Text" Stat="Update" Orig="New">
           <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
         </Tgt>
         <Prev Cat="Text">
-          <Val><![CDATA[Microsoft.Spatial.SL.dll]]></Val>
+          <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
         </Prev>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-01-14T08:09:19Z" />
-      <Props>
-        <Str Name="Custom5" Val="MT bucket 1" />
-      </Props>
-    </Item>
-    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[6.10.0.62115]]></Val>
-      </Str>
-      <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
     </Item>
     <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
     </Item>
     <Item ItemId=";LegalCopyright" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
@@ -649,10 +493,6 @@
         </Prev>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-03-21T00:55:28Z" />
-      <Props>
-        <Str Name="Custom5" Val="MT bucket 1" />
-      </Props>
     </Item>
     <Item ItemId=";LegalTrademarks" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
@@ -662,17 +502,15 @@
         </Tgt>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="svenx" DateTime="2016-03-11T07:29:13Z" />
       <Notes>
         <Note Name="Loc" Order="0"><![CDATA[Poli fix]]></Note>
       </Notes>
     </Item>
     <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[Microsoft.Spatial.dll]]></Val>
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
     </Item>
     <Item ItemId=";ProductName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
@@ -682,21 +520,9 @@
         </Tgt>
       </Str>
       <Disp Icon="Str" />
-      <Modified By="songfang.jiang" DateTime="2011-12-05T08:30:42Z" />
-      <Props>
-        <Str Name="Custom5" Val="MT bucket 1" />
-      </Props>
-    </Item>
-    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
-      <Str Cat="Text" DevLk="true">
-        <Val><![CDATA[6.10.0.62115]]></Val>
-      </Str>
-      <Disp Icon="Str" />
-      <Modified By="ju.lei" DateTime="2014-04-15T08:06:57Z" />
     </Item>
   </Item>
   <Item ItemId=";Version" ItemType="8" PsrId="211" Leaf="true">
     <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
-    <Modified By="naoto.matsuzaki" DateTime="2011-11-21T08:32:30Z" />
   </Item>
 </LCX>
