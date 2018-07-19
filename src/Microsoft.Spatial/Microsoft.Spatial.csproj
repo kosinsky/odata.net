@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props" Condition="Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props')" />
   <PropertyGroup>
     <AssemblyName>Microsoft.TeamFoundation.Spatial</AssemblyName>
     <OutputType>Library</OutputType>
@@ -12,6 +13,8 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <DefineConstants>$(DefineConstants);SPATIAL</DefineConstants>
     <EnableLocalization>true</EnableLocalization>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <!-- References -->
   <Import Project="..\Build.props" />
@@ -25,6 +28,12 @@
       <GenerateResource>true</GenerateResource>
       <FullClassName>Microsoft.Spatial.TextRes</FullClassName>
     </TextStringResource>
+  </ItemGroup>
+  <ItemGroup>
+      <FilesToSign Include="$(OutDir)\Microsoft.TeamFoundation.Spatial.dll">
+      <Authenticode>Microsoft</Authenticode>
+      <StrongName>StrongName</StrongName>
+    </FilesToSign>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\PlatformHelper.cs" />
@@ -154,6 +163,7 @@
       <DependentUpon>Microsoft.Spatial.tt</DependentUpon>
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Parameterized.Microsoft.Spatial.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Parameterized.Microsoft.Spatial.cs</LastGenOutput>
@@ -173,4 +183,12 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props'))" />
+    <Error Condition="!Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets'))" />
+  </Target>
+  <Import Project="..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets" Condition="Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets')" />
 </Project>
