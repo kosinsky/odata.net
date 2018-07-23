@@ -8,7 +8,7 @@
   <PropertyGroup>
     <StrongNamePublicKeysPath>$(BuildToolsetRoot)\StrongNamePublicKeys</StrongNamePublicKeysPath>
     <CustomStrongNamePublicKeysPath>$(EnlistmentRoot)\tools\StrongNamePublicKeys</CustomStrongNamePublicKeysPath>
-    <StrongNameKeyFile Condition="'$(StrongNameKeyFile)' == ''">35MSSharedLib1024.snk</StrongNameKeyFile>
+    <StrongNameKeyFile Condition="'$(StrongNameKeyFile)' == ''">FinalPublicKey.snk</StrongNameKeyFile>
     <TestStrongNameKeyFile Condition="'$(TestStrongNameKeyFile)' == ''">testkey.snk</TestStrongNameKeyFile>
     <SigningType Condition="'$(SigningType)' == ''">None</SigningType>
     <SigningScenarioForRelease Condition="'$(SigningScenarioForRelease)' == ''">Delay</SigningScenarioForRelease>
