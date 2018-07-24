@@ -4,10 +4,10 @@
 // </copyright>
 //---------------------------------------------------------------------
 
-using Microsoft.OData.Metadata;
-using Microsoft.OData.Edm;
-using ODataErrorStrings = Microsoft.OData.Strings;
 using System.Collections.Generic;
+using Microsoft.OData.Edm;
+using Microsoft.OData.Metadata;
+using ODataErrorStrings = Microsoft.OData.Strings;
 
 namespace Microsoft.OData.UriParser
 {

@@ -34,6 +34,7 @@ namespace Microsoft.OData.UriParser
         /// </summary>
         /// <param name="selectedItems">The selected properties and operations. This list should include any expanded navigation properties.</param>
         /// <param name="allSelected">Flag indicating if all items have been selected at this level.</param>
+        /// <param name="allAutoSelected">Flag indicating if all auto items have been selected at this level.</param>
         public SelectExpandClause(IEnumerable<SelectItem> selectedItems, bool allSelected, bool allAutoSelected = false)
         {
             this.selectedItems = selectedItems != null ? new ReadOnlyCollection<SelectItem>(selectedItems.ToList()) : new ReadOnlyCollection<SelectItem>(new List<SelectItem>());
@@ -77,6 +78,15 @@ namespace Microsoft.OData.UriParser
         public bool AllAutoSelected { get; set; }
 
         /// <summary>
+        /// Sets all the value of AllSelected
+        /// </summary>
+        /// <param name="newValue">the new value to set</param>
+        public void SetAllSelected(bool newValue)
+        {
+            this.allSelected = newValue;
+        }
+
+        /// <summary>
         /// Add a select item to the current list of selection items
         /// </summary>
         /// <param name="itemToAdd">The item to add</param>
@@ -111,17 +121,6 @@ namespace Microsoft.OData.UriParser
             newSelectedItems.Add(itemToAdd);
             this.selectedItems = new ReadOnlyCollection<SelectItem>(newSelectedItems);
         }
-
-
-        /// <summary>
-        /// Sets all the value of AllSelected
-        /// </summary>
-        /// <param name="newValue">the new value to set</param>
-        public void SetAllSelected(bool newValue)
-        {
-            this.allSelected = newValue;
-        }
-
 
         /// <summary>
         /// is this selection item a structural or navigation property selection item.

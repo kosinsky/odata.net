@@ -13210,7 +13210,7 @@
             <summary>
             Create a ComputeTransformationNode.
             </summary>
-            <param name="ComputeClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.</param>
+            <param name="computeClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause">
             <summary>
@@ -15883,6 +15883,8 @@
             </summary>
             <param name="propertyName">The propertyName which was not found in the type.</param>
             <param name="typeName">The typeName of the type in which the property was not found.</param>
+            <param name="isOpenProperty">Indicates that property is open.</param>
+            <returns>Returns prepared ODataErrorException.</returns>
         </member>
         <member name="T:Microsoft.OData.UriParser.ExpressionLexer">
              <summary>Use this class to parse an expression in the OData URI format.</summary>
@@ -22865,6 +22867,7 @@
             </summary>
             <param name="selectedItems">The selected properties and operations. This list should include any expanded navigation properties.</param>
             <param name="allSelected">Flag indicating if all items have been selected at this level.</param>
+            <param name="allAutoSelected">Flag indicating if all auto items have been selected at this level.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.SelectExpandClause.SelectedItems">
             <summary>
@@ -22888,17 +22891,17 @@
             In that case SelectedItems will contain a lot of records (all properties for the type), but we should ignore these properties when writing @odata.context
             </remarks>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClause.AddToSelectedItems(Microsoft.OData.UriParser.SelectItem)">
-            <summary>
-            Add a select item to the current list of selection items
-            </summary>
-            <param name="itemToAdd">The item to add</param>
-        </member>
         <member name="M:Microsoft.OData.UriParser.SelectExpandClause.SetAllSelected(System.Boolean)">
             <summary>
             Sets all the value of AllSelected
             </summary>
             <param name="newValue">the new value to set</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClause.AddToSelectedItems(Microsoft.OData.UriParser.SelectItem)">
+            <summary>
+            Add a select item to the current list of selection items
+            </summary>
+            <param name="itemToAdd">The item to add</param>
         </member>
         <member name="M:Microsoft.OData.UriParser.SelectExpandClause.IsStructuralOrNavigationPropertySelectionItem(Microsoft.OData.UriParser.SelectItem)">
             <summary>
@@ -39349,6 +39352,14 @@
             <summary>Gets or sets the OData protocol version to be used for writing payloads. </summary>
             <returns>The OData protocol version to be used for writing payloads.</returns>
         </member>
+        <member name="P:Microsoft.OData.ODataMessageWriterSettings.IgnoreNullValues">
+            <summary>
+            Don't serialize null values
+            </summary>
+            <remarks>
+            Default valus is false, that means serialize null values.
+            </remarks>
+        </member>
         <member name="P:Microsoft.OData.ODataMessageWriterSettings.Validator">
             <summary>
             Gets the validator corresponding to the validation settings.
@@ -39363,14 +39374,6 @@
             <summary>
             Returns whether ThrowOnDuplicatePropertyNames validation setting is enabled.
             </summary>
-        </member>
-        <member name="P:Microsoft.OData.ODataMessageWriterSettings.IgnoreNullValues">
-            <summary>
-            Don't serialize null values
-            </summary>
-            <remarks>
-            Default valus is false, that means serialize null values.
-            </remarks>
         </member>
         <member name="P:Microsoft.OData.ODataMessageWriterSettings.ThrowOnUndeclaredPropertyForNonOpenType">
             <summary>

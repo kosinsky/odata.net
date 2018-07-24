@@ -89,10 +89,12 @@ namespace Microsoft.OData.UriParser.Aggregation
             {
                 result.AddRange(lastAggregateExpressions.Select(statement => statement.Alias));
             }
+
             if (lastComputeExpressions != null)
             {
                 result.AddRange(lastComputeExpressions.Select(statement => statement.Alias));
             }
+
             return result;
         }
 

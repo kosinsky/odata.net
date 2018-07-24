@@ -18,7 +18,7 @@ namespace Microsoft.OData.UriParser.Aggregation
         /// <summary>
         /// Create a ComputeTransformationNode.
         /// </summary>
-        /// <param name="ComputeClause">A <see cref="ComputeClause"/> representing the metadata bound Compute expression.</param>
+        /// <param name="computeClause">A <see cref="ComputeClause"/> representing the metadata bound Compute expression.</param>
         public ComputeTransformationNode(ComputeClause computeClause)
         {
             ExceptionUtils.CheckArgumentNotNull(computeClause, "computeClause");
