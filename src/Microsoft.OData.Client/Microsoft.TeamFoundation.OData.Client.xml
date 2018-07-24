@@ -4374,12 +4374,13 @@
             <param name="statusCode">status code of the response.</param>
             <param name="headers">response headers.</param>
         </member>
-        <member name="M:Microsoft.OData.Client.BaseSaveResult.HandleOperationResponse(Microsoft.OData.Client.Descriptor,Microsoft.OData.Client.HeaderCollection)">
+        <member name="M:Microsoft.OData.Client.BaseSaveResult.HandleOperationResponse(Microsoft.OData.Client.Descriptor,Microsoft.OData.Client.HeaderCollection,System.Net.HttpStatusCode)">
             <summary>
             Handle operation response
             </summary>
             <param name="descriptor">descriptor whose response is getting processed.</param>
             <param name="contentHeaders">content headers as returned in the response.</param>
+            <param name="statusCode">status code.</param>
         </member>
         <member name="M:Microsoft.OData.Client.BaseSaveResult.GetMaterializer(Microsoft.OData.Client.EntityDescriptor,Microsoft.OData.Client.ResponseInfo)">
             <summary>
@@ -8983,6 +8984,9 @@
         <member name="F:Microsoft.OData.Client.DataServiceQueryContinuation.plan">
             <summary>Projection plan for results of next page.</summary>
         </member>
+        <member name="F:Microsoft.OData.Client.DataServiceQueryContinuation.deserializing">
+            <summary> True,if this instance is being deserialized via DataContractSerialization, false otherwise </summary>
+        </member>
         <member name="M:Microsoft.OData.Client.DataServiceQueryContinuation.#ctor(System.Uri,Microsoft.OData.Client.ProjectionPlan)">
             <summary>Initializes a new <see cref="T:Microsoft.OData.Client.DataServiceQueryContinuation"/> instance.</summary>
             <param name="nextLinkUri">URI to next page of data.</param>
@@ -9051,6 +9055,9 @@
         </member>
         <member name="F:Microsoft.OData.Client.DataServiceSaveStream.close">
             <summary>Set to true if the stream should be closed once we're done with it.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.DataServiceSaveStream.deserializing">
+            <summary> True,if this instance is being deserialized via DataContractSerialization, false otherwise </summary>
         </member>
         <member name="M:Microsoft.OData.Client.DataServiceSaveStream.#ctor(System.IO.Stream,System.Boolean,Microsoft.OData.Client.DataServiceRequestArgs)">
             <summary>
@@ -9859,6 +9866,19 @@
         <member name="F:Microsoft.OData.Client.ODataRequestMessageWrapper.requestInfo">
             <summary>RequestInfo instance.</summary>
         </member>
+        <member name="F:Microsoft.OData.Client.ODataRequestMessageWrapper.fireSendingRequest2MethodCalled">
+            <summary>
+            Keeps track whether FireSendingRequest2 method has been called or not. In debug bits,
+            we need to make sure that no header is set after this method is called.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ODataRequestMessageWrapper.cachedRequestHeaders">
+            <summary>
+            List of headers that were set on the request message when SendingRequest event was fired.
+            This variable is used to track the headers before SendingRequest event is called,
+            and to verify no headers is added/modified/remove after sending request event is called.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Client.ODataRequestMessageWrapper.#ctor(Microsoft.OData.Client.DataServiceClientRequestMessage,Microsoft.OData.Client.RequestInfo,Microsoft.OData.Client.Descriptor)">
             <summary>
             Creates a new instance of ODataRequestMessage. This constructor is used for top level requests.
@@ -9887,6 +9907,11 @@
             Returns true if the message is part of the batch request, otherwise return false;
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Client.ODataRequestMessageWrapper.Headers">
+            <summary>
+            Returns the collection of request headers.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Client.ODataRequestMessageWrapper.CreateBatchPartRequestMessage(Microsoft.OData.ODataBatchWriter,Microsoft.OData.Client.BuildingRequestEventArgs,Microsoft.OData.Client.RequestInfo,System.String)">
             <summary>
             Create a request message for a batch part from the batch writer. This method copies request headers
@@ -9906,6 +9931,13 @@
             <param name="requestMessageArgs">RequestMessageArgs for the request.</param>
             <param name="requestInfo">RequestInfo instance.</param>
             <returns>an instance of ODataRequestMessageWrapper.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ODataRequestMessageWrapper.GetHeader(System.String)">
+            <summary>
+            Returns the value of the header with the given name.
+            </summary>
+            <param name="headerName">Name of the header.</param>
+            <returns>Returns the value of the header with the given name.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.ODataRequestMessageWrapper.CreateWriter(Microsoft.OData.ODataMessageWriterSettings,System.Boolean)">
             <summary>
@@ -9987,6 +10019,21 @@
             FireSendingRequest2 event.
             </summary>
             <param name="descriptor">Descriptor for which this request is getting generated.</param>
+        </member>
+        <member name="M:Microsoft.OData.Client.ODataRequestMessageWrapper.GetHeaderValues(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},Microsoft.OData.Client.HeaderCollection)">
+            <summary>
+            The reason for adding this method is that we have seen a couple of asserts that we were not able to figure out why they are getting fired.
+            So added this method which returns the current headers as well as cached headers as string and we display that in the assert message.
+            </summary>
+            <param name="currentHeaders">current header values.</param>
+            <param name="cachedHeaders">cached header values.</param>
+            <returns>returns a string which contains both current and cached header names.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ODataRequestMessageWrapper.ValidateHeaders">
+            <summary>
+            This method validates that headers values are identical to what they originally were when the request was configured.
+            DataServiceContext.CachedRequestHeaders is populated in the DataServiceContext.CreateGetRequest method.
+            </summary>
         </member>
         <member name="T:Microsoft.OData.Client.ODataRequestMessageWrapper.RequestMessageWithCachedStream">
             <summary>
@@ -10366,6 +10413,12 @@
         <member name="T:Microsoft.OData.Client.ProjectionPlan">
             <summary>Use this class to store a materialization plan used with projections.</summary>
         </member>
+        <member name="P:Microsoft.OData.Client.ProjectionPlan.SourceProjection">
+            <summary>Source projection for this plan.</summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ProjectionPlan.TargetProjection">
+            <summary>Target projection for this plan.</summary>
+        </member>
         <member name="P:Microsoft.OData.Client.ProjectionPlan.LastSegmentType">
             <summary>Last segment type for query.</summary>
             <remarks>This typically matches the expected element type at runtime.</remarks>
@@ -10375,6 +10428,10 @@
         </member>
         <member name="P:Microsoft.OData.Client.ProjectionPlan.ProjectedType">
             <summary>Expected type to project.</summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ProjectionPlan.ToString">
+            <summary>Returns a string representation for this object.</summary>
+            <returns>A string representation for this object, suitable for debugging.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.ProjectionPlan.Run(Microsoft.OData.Client.Materialization.ODataEntityMaterializer,Microsoft.OData.ODataResource,System.Type)">
             <summary>Runs this plan.</summary>
@@ -10718,6 +10775,11 @@
             Gets the names of all the headers in the collection.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Client.HeaderCollection.Count">
+            <summary>
+            Gets the number of headers in the collection.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Client.HeaderCollection.SetDefaultHeaders">
             <summary>
             Adds default system headers
@@ -10745,6 +10807,13 @@
             </summary>
             <param name="headerName">The header name to set.</param>
             <param name="headerValue">The new value of the header.</param>
+        </member>
+        <member name="M:Microsoft.OData.Client.HeaderCollection.HasHeader(System.String)">
+            <summary>
+            Returns whether or not the collection contains the given header.
+            </summary>
+            <param name="headerName">The header name to look for.</param>
+            <returns>Whether the collection contains the header.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.HeaderCollection.SetHeaders(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
             <summary>
@@ -11000,6 +11069,13 @@
             <param name="httpStack">HttpStack to use.</param>
             <param name="descriptor">Descriptor for the request, if there is one.</param>
             <returns>A new RequestMessageArgs object for building the request message.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.RequestInfo.GetRequestVersion(System.Net.WebHeaderCollection)">
+            <summary>
+            Return the request DSV header value for this request.
+            </summary>
+            <param name="headers">Web headers.</param>
+            <returns>The request DSV header value for this request as Version instance.</returns>
         </member>
         <member name="T:Microsoft.OData.Client.ResponseInfo">
             <summary>
@@ -11304,6 +11380,9 @@
         <member name="F:Microsoft.OData.Client.HttpWebRequestMessage.inSendingRequest2Event">
             <summary>True if SendingRequest2Event is currently invoked, otherwise false.</summary>
         </member>
+        <member name="F:Microsoft.OData.Client.HttpWebRequestMessage.sendingRequest2Fired">
+            <summary>True if the sendingRequest2 event is already fired.</summary>
+        </member>
         <member name="M:Microsoft.OData.Client.HttpWebRequestMessage.#ctor(Microsoft.OData.Client.DataServiceClientRequestMessageArgs)">
             <summary>
             Creates a new instance of HttpWebRequestMessage.
@@ -11481,6 +11560,9 @@
         </member>
         <member name="F:Microsoft.OData.Client.HttpWebResponseMessage.httpWebResponse">
             <summary>HttpWebResponse instance.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.HttpWebResponseMessage.streamReturned">
+            <summary>set to true once the GetStream was called.</summary>
         </member>
         <member name="M:Microsoft.OData.Client.HttpWebResponseMessage.#ctor(System.Collections.Generic.IDictionary{System.String,System.String},System.Int32,System.Func{System.IO.Stream})">
             <summary>
@@ -16757,6 +16839,11 @@
             <param name="source">Source item</param>
             <param name="relation">Label for relation</param>
         </member>
+        <member name="M:Microsoft.OData.Client.BindingGraph.IsTracking(System.Object)">
+            <summary>Checks to see if an object is being tracked by the graph</summary>
+            <param name="item">Object being checked</param>
+            <returns>true if the object exists in the graph, false otherwise</returns>
+        </member>
         <member name="M:Microsoft.OData.Client.BindingGraph.RemoveNonTrackedEntities">
             <summary>Remove all non-tracked entities from the graph</summary>
         </member>
@@ -17233,12 +17320,13 @@
             <param name="collectionType">Input collection type</param>
             <returns>Generic type argument for the collection</returns>
         </member>
-        <member name="M:Microsoft.OData.Client.BindingUtils.VerifyObserverNotPresent``1(System.Object,System.String,System.Type)">
+        <member name="M:Microsoft.OData.Client.BindingUtils.VerifyObserverNotPresent``1(System.Object,System.String,System.Type,Microsoft.OData.Client.ClientEdmModel)">
             <summary>Verifies the absence of observer for an DataServiceCollection</summary>
             <typeparam name="T">Type of DataServiceCollection</typeparam>
             <param name="oec">Non-typed collection object</param>
             <param name="sourceProperty">Collection property of the source object which is being assigned to</param>
             <param name="sourceType">Type of the source object</param>
+            <param name="model">The client model.</param>
         </member>
         <member name="T:Microsoft.OData.Client.SaveChangesEventArgs">
             <summary>
@@ -20392,12 +20480,13 @@
             <param name="relatedLinks">The links related to the entity</param>
             <param name="odataWriter">The ODataWriter used to write the navigation link.</param>
         </member>
-        <member name="M:Microsoft.OData.Client.Serializer.WriteEntityReferenceLink(Microsoft.OData.Client.LinkDescriptor,Microsoft.OData.Client.ODataRequestMessageWrapper)">
+        <member name="M:Microsoft.OData.Client.Serializer.WriteEntityReferenceLink(Microsoft.OData.Client.LinkDescriptor,Microsoft.OData.Client.ODataRequestMessageWrapper,System.Boolean)">
             <summary>
             Writes an entity reference link.
             </summary>
             <param name="binding">The link descriptor.</param>
             <param name="requestMessage">The request message used for writing the payload.</param>
+            <param name="isBatch">True if batch, false otherwise.</param>
         </member>
         <member name="M:Microsoft.OData.Client.Serializer.WriteUriOperationParametersToUri(System.Uri,System.Collections.Generic.List{Microsoft.OData.Client.UriOperationParameter})">
             <summary>
@@ -20986,6 +21075,11 @@
         <member name="F:Microsoft.OData.Client.Util.whitespaceForTracing">
             <summary>
             static char[] for indenting whitespace when tracing xml
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.Util.DebugFaultInjector">
+            <summary>
+            DebugFaultInjector is a test hook to inject faults in specific locations. The string is the ID for the location
             </summary>
         </member>
         <member name="M:Microsoft.OData.Client.Util.GetVersionFromMaxProtocolVersion(Microsoft.OData.Client.ODataProtocolVersion)">

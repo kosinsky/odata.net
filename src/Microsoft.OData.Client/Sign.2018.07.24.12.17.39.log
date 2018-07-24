@@ -1,0 +1,20 @@
+12> 24.12.17.39 Running: D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\x86\managed\v2.0\sn.exe -TS "D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\Microsoft.TeamFoundation.OData.Client.dll" "D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\devdiv\TestKey.snk"
+14> 24.12.17.39 Running: D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\x86\managed\v2.0\sn.exe -TS "D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Client.resources.dll" "D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\devdiv\TestKey.snk"
+20> 24.12.17.39 Microsoft (R) .NET Framework Strong Name Utility  Version 3.5.21022.5
+20> 24.12.17.39 Copyright (c) Microsoft Corporation.  All rights reserved.
+13> 24.12.17.39 Microsoft (R) .NET Framework Strong Name Utility  Version 3.5.21022.5
+13> 24.12.17.39 Copyright (c) Microsoft Corporation.  All rights reserved.
+20> 24.12.17.39 Assembly 'D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\Microsoft.TeamFoundation.OData.Client.dll' successfully re-signed
+12> 24.12.17.39 Running: D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\x86\Win10.0\signtool.exe sign /f "D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\testdlab.cer" /p "DevDivRocks!" "D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\Microsoft.TeamFoundation.OData.Client.dll"
+13> 24.12.17.40 Assembly 'D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Client.resources.dll' successfully re-signed
+14> 24.12.17.40 Running: D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\x86\Win10.0\signtool.exe sign /f "D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\testdlab.cer" /p "DevDivRocks!" "D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Client.resources.dll"
+7> 24.12.17.40 Done Adding Additional Store
+13> 24.12.17.40 Done Adding Additional Store
+3> 24.12.17.40 Successfully signed: D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Client.resources.dll
+14> 24.12.17.40 Running: D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\x86\Win10.0\signtool.exe sign /as /f "D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\testdlabsha2.pfx" /p "DevDivRocks!" /fd SHA256 "D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Client.resources.dll"
+9> 24.12.17.40 Successfully signed: D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\Microsoft.TeamFoundation.OData.Client.dll
+12> 24.12.17.40 Running: D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\x86\Win10.0\signtool.exe sign /as /f "D:\SRc\ODataAgg\OData.ODL\sln\packages\MicroBuild.Plugins.Signing.1.0.610\build\tools\testdlabsha2.pfx" /p "DevDivRocks!" /fd SHA256 "D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\Microsoft.TeamFoundation.OData.Client.dll"
+4> 24.12.17.41 Done Adding Additional Store
+7> 24.12.17.41 Done Adding Additional Store
+4> 24.12.17.41 Successfully signed: D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Client.resources.dll
+7> 24.12.17.41 Successfully signed: D:\Src\ODataAgg\OData.ODL\bin\AnyCPU\Debug\Product\Desktop\Microsoft.TeamFoundation.OData.Client.dll

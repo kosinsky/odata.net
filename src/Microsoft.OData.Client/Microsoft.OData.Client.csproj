@@ -41,11 +41,32 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-      <FilesToSign Include="$(OutDir)\Microsoft.TeamFoundation.OData.Client.dll">
-      <Authenticode>Microsoft</Authenticode>
-      <StrongName>StrongName</StrongName>
-    </FilesToSign>
+    <FilesToLocalize Include="$(OutDir)\$(AssemblyName).dll">
+        <TranslationFile>$(MSBuildThisFileDirectory)..\..\tools\Localization\loc\lcl\{Lang}\Desktop\$(AssemblyName).dll.lcl</TranslationFile>
+        <LciCommentFile>$(MSBuildThisFileDirectory)..\..\tools\Localization\loc\lci\Desktop\$(AssemblyName).dll.lci</LciCommentFile>
+        <SettingsFile>  <!-- Optional: settings listed here  to specify extra settings files --> 
+            $(MSBuildThisFileDirectory)..\..\tools\Localization\loc\lss\default.lss  <!--uses an LSS for excluding Baml file from MCP sub-parsing--> 
+        </SettingsFile>         
+    </FilesToLocalize>
   </ItemGroup>
+  <ItemGroup>
+    <FilesToSign Include="$(OutDir)$(AssemblyName).dll">
+        <Authenticode>Microsoft</Authenticode>
+        <StrongName>StrongName</StrongName>
+    </FilesToSign>
+    <SignFilesDependsOn Include="GatherLocalizedOutputsForSigning"> 
+      <!-- Do not have this show up in Solution Explorer in VS --> 
+      <InProject>false</InProject> 
+    </SignFilesDependsOn>
+  </ItemGroup>
+  <Target Name="GatherLocalizedOutputsForSigning" Condition="'$(LocalizationEnabled)' == 'true'"> 
+    <ItemGroup> 
+      <FilesToSign Include="$(OutDir)\localize\**\$(AssemblyName).resources.dll"> 
+        <Authenticode>Microsoft</Authenticode> 
+        <StrongName>StrongName</StrongName> 
+      </FilesToSign> 
+    </ItemGroup> 
+  </Target>   
   <!-- Generated files -->
   <ItemGroup>
     <TextStringResource Include="Microsoft.OData.Client.txt">

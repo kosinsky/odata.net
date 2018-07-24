@@ -69,7 +69,7 @@ $VS15VERSIONS = "Enterprise",
 $VSBASE = $null
 ForEach ($version in $VS15VERSIONS)
 {
-    $tempVSBasePath = ($PROGRAMFILESX86 + "\Microsoft Visual Studio\2017\{0}") -f $version
+    $tempVSBasePath = ($PROGRAMFILESX86 + "\Microsoft Visual Studio\Preview\{0}") -f $version
     if(Test-Path $tempVSBasePath)
     {
         $VSBASE = $tempVSBasePath
