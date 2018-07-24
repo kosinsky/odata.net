@@ -21,7 +21,7 @@ OData .NET library is open source at http://github.com/OData/odata.net</descript
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Edm.dll" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Edm.pdb" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Edm.xml" target="lib\net45" />
-    <file src="$ProductRoot$\Desktop\**\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45" />
+    <file src="$ProductRoot$\Desktop\localize\**\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45" />
     <!-- <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Edm.dll" target="lib\netstandard1.1" />
     <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Edm.pdb" target="lib\netstandard1.1" />
     <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Edm.xml" target="lib\netstandard1.1" /> -->
