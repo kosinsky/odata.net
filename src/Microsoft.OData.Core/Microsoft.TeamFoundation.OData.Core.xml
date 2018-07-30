@@ -4617,6 +4617,12 @@
         <member name="F:Microsoft.OData.JsonLight.ODataJsonLightDeserializer.isODataUriRead">
             <summary>True if the odata uri is calculated, false otherwise.</summary>
         </member>
+        <member name="F:Microsoft.OData.JsonLight.ODataJsonLightDeserializer.contextUriParseResultReady">
+            <summary>
+            Set to true when ReadPayloadStart has been called and we would have read odata.context if it's on the payload.
+            This is a debug check to make sure we don't access contextUriParseResult until after ReadPayloadStart is called.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.JsonLight.ODataJsonLightDeserializer.#ctor(Microsoft.OData.JsonLight.ODataJsonLightInputContext)">
             <summary>
             Constructor.
@@ -11291,6 +11297,13 @@
             Removes the head node from the buffer.
             </summary>
         </member>
+        <member name="M:Microsoft.OData.Json.BufferingJsonReader.NodeExistsInCurrentBuffer(Microsoft.OData.Json.BufferingJsonReader.BufferedNode)">
+            <summary>
+            Determines whether the given node exists in the current buffer.
+            </summary>
+            <param name="nodeToCheck">The node to test.</param>
+            <returns>true if the given node was found in the buffer; false otherwise.</returns>
+        </member>
         <member name="T:Microsoft.OData.Json.BufferingJsonReader.BufferedNode">
             <summary>
             Private class used to buffer nodes when reading in buffering mode.
@@ -13197,7 +13210,7 @@
             <summary>
             Create a ComputeTransformationNode.
             </summary>
-            <param name="ComputeClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.</param>
+            <param name="computeClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause">
             <summary>
@@ -15870,6 +15883,8 @@
             </summary>
             <param name="propertyName">The propertyName which was not found in the type.</param>
             <param name="typeName">The typeName of the type in which the property was not found.</param>
+            <param name="isOpenProperty">Indicates that property is open.</param>
+            <returns>Returns prepared ODataErrorException.</returns>
         </member>
         <member name="T:Microsoft.OData.UriParser.ExpressionLexer">
              <summary>Use this class to parse an expression in the OData URI format.</summary>
@@ -17934,6 +17949,13 @@
             <param name="text">String text to convert.</param>
             <param name="result">After invocation, converted value.</param>
             <returns>true if the value was converted; false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.LiteralParser.IsSpatial(System.Type)">
+            <summary>
+            Test if the type is an ISpatial derived type
+            </summary>
+            <param name="type">the type to be tested</param>
+            <returns>true if the type implements the ISpatial interface, false otherwise.</returns>
         </member>
         <member name="T:Microsoft.OData.UriParser.LiteralParser.DefaultLiteralParser">
             <summary>
@@ -22057,6 +22079,9 @@
             <param name="other">the other segment to check</param>
             <returns>true if the segments are equal.</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.ODataPathSegment.AssertValid">
+            <summary>In DEBUG builds, ensures that invariants for the class hold.</summary>
+        </member>
         <member name="M:Microsoft.OData.UriParser.ODataPathSegment.CopyValuesFrom(Microsoft.OData.UriParser.ODataPathSegment)">
             <summary>
             Copies over all the values of the internal-only properties from one segment to another.
@@ -22842,6 +22867,7 @@
             </summary>
             <param name="selectedItems">The selected properties and operations. This list should include any expanded navigation properties.</param>
             <param name="allSelected">Flag indicating if all items have been selected at this level.</param>
+            <param name="allAutoSelected">Flag indicating if all auto items have been selected at this level.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.SelectExpandClause.SelectedItems">
             <summary>
@@ -22865,17 +22891,17 @@
             In that case SelectedItems will contain a lot of records (all properties for the type), but we should ignore these properties when writing @odata.context
             </remarks>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClause.AddToSelectedItems(Microsoft.OData.UriParser.SelectItem)">
-            <summary>
-            Add a select item to the current list of selection items
-            </summary>
-            <param name="itemToAdd">The item to add</param>
-        </member>
         <member name="M:Microsoft.OData.UriParser.SelectExpandClause.SetAllSelected(System.Boolean)">
             <summary>
             Sets all the value of AllSelected
             </summary>
             <param name="newValue">the new value to set</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClause.AddToSelectedItems(Microsoft.OData.UriParser.SelectItem)">
+            <summary>
+            Add a select item to the current list of selection items
+            </summary>
+            <param name="itemToAdd">The item to add</param>
         </member>
         <member name="M:Microsoft.OData.UriParser.SelectExpandClause.IsStructuralOrNavigationPropertySelectionItem(Microsoft.OData.UriParser.SelectItem)">
             <summary>
@@ -27977,6 +28003,11 @@
             Flag to control whether in-stream errors should be detected when reading.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Metadata.BufferingXmlReader.IsBuffering">
+            <summary>
+            Flag indicating whether buffering is on or off; debug-only for use in asserts.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Metadata.BufferingXmlReader.Read">
             <summary>
             Reads the next node from the input.
@@ -30549,6 +30580,18 @@
             <param name="stringBuilder">The string builder to append to.</param>
             <param name="name">The name to append.</param>
             <param name="value">The value to append.</param>
+        </member>
+        <member name="M:Microsoft.OData.HttpHeaderValueElement.AssertToken(System.String)">
+            <summary>
+            Asserts the given value is a token.
+            </summary>
+            <param name="value">value in question.</param>
+        </member>
+        <member name="M:Microsoft.OData.HttpHeaderValueElement.AssertTokenOrQuotedString(System.String)">
+            <summary>
+            Asserts the given value is a token or a quoted-string.
+            </summary>
+            <param name="value">value in question.</param>
         </member>
         <member name="T:Microsoft.OData.HttpHeaderValueLexer">
             <summary>
@@ -39309,6 +39352,14 @@
             <summary>Gets or sets the OData protocol version to be used for writing payloads. </summary>
             <returns>The OData protocol version to be used for writing payloads.</returns>
         </member>
+        <member name="P:Microsoft.OData.ODataMessageWriterSettings.IgnoreNullValues">
+            <summary>
+            Don't serialize null values
+            </summary>
+            <remarks>
+            Default valus is false, that means serialize null values.
+            </remarks>
+        </member>
         <member name="P:Microsoft.OData.ODataMessageWriterSettings.Validator">
             <summary>
             Gets the validator corresponding to the validation settings.
@@ -39323,14 +39374,6 @@
             <summary>
             Returns whether ThrowOnDuplicatePropertyNames validation setting is enabled.
             </summary>
-        </member>
-        <member name="P:Microsoft.OData.ODataMessageWriterSettings.IgnoreNullValues">
-            <summary>
-            Don't serialize null values
-            </summary>
-            <remarks>
-            Default valus is false, that means serialize null values.
-            </remarks>
         </member>
         <member name="P:Microsoft.OData.ODataMessageWriterSettings.ThrowOnUndeclaredPropertyForNonOpenType">
             <summary>

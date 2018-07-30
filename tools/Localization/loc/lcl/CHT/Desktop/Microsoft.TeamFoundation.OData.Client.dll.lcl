@@ -1,0 +1,2391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="D:\dd\DMG_DataSvc\binaries\x86ret\Microsoft.OData.Client.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-TW" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="CustomName1" Val="Custom 1" />
+    <Str Name="CustomName2" Val="Custom 2" />
+    <Str Name="CustomName3" Val="Custom 3" />
+    <Str Name="CustomName4" Val="Custom 4" />
+    <Str Name="CustomName5" Val="Custom 5" />
+    <Str Name="CustomName6" Val="IQA" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Note" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
+  <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+  </Item>
+  <Item ItemId=";Microsoft.OData.Client.resources" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
+      <Disp Icon="Str" LocTbl="false" />
+      <Item ItemId=";ALinq_AnyAllNotSupportedInOrderBy" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The method '{0}' is not supported by the 'orderby' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA['orderby' 查詢選項不支援方法 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_BinaryNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The binary operator '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援二元運算子 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CanOnlyApplyOneKeyPredicate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple key predicates cannot be specified for the same entity set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法為同一個實體集指定多個索引鍵述詞。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CanOnlyProjectTheLeaf" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can only project the last entity type in the query being translated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[只能投影要轉譯之查詢中的最後實體類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotAddCountOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot add count option to the resource set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法將計數選項加入資源集。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotAddCountOptionConflict" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot add count option to the resource set because it would conflict with existing count options.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法將計數選項加入資源集，因為它會與現有的計數選項衝突。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotConstructKnownEntityTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Construction of entity type instances must use object initializer with default constructor.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[實體類型執行個體的建構必須使用含有預設建構函式的物件初始設定式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotCreateConstantEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Referencing of local entity type instances not supported when projecting results.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[當投影結果時，不支援參考本機實體類型執行個體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotProjectWithExplicitExpansion" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot create projection while there is an explicit expansion specified on the same query.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法在相同查詢上已指定明確展開時建立投影。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotUseTypeFiltersMultipleTimes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Non-redundant type filters (OfType<T>, C# 'as' and VB 'TryCast') can only be used once per resource set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[每個資源集只能使用非多餘的類型篩選 (OfType<T>、C# 'as' 和 VB 'TryCast') 一次。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddAstoriaQueryOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't add query option '{0}' because it would conflict with the query options from the translated Linq expression.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法加入查詢選項 '{0}'，因為它會與根據 LINQ 運算式轉譯的查詢選項相衝突。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddDuplicateQueryOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't add duplicate query option '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法加入重複的查詢選項 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddQueryOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Custom query option not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不允許自訂查詢選項。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddQueryOptionStartingWithDollarSign" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't add query option '{0}' because it begins with reserved character '$'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法加入查詢選項 '{0}'，因為它以保留字元 '$' 開頭。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantCastToUnsupportedPrimitive" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't cast to unsupported type '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法轉型成不支援的型別 '{0}']]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantExpand" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand query option not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不允許展開查詢選項。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantNavigateWithoutKeyPredicate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Individual properties can only be selected from a single resource or as part of a type. Specify a key predicate to restrict the entity set to a single instance or project the property into a named or anonymous type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[個別屬性只能從單一資源中選取，或是做為類型的一部分。請指定索引鍵述詞將實體集限制為單一執行個體，或將屬性投影至命名或匿名類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantReferToPublicField" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Referencing public field '{0}' not supported in query option expression.  Use public property instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援在查詢選項運算式中參考公用欄位 '{0}'。請改用公用屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantTranslateExpression" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression {0} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援運算式 {0}。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CollectionMemberAccessNotSupportedInNavigation" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Navigation to members of the collection property '{0}' in a 'select' query expression is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[不支援巡覽至 'select' 查詢運算式中集合屬性 '{0}' 的成員。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CollectionPropertyNotSupportedInOrderBy" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The collection property '{0}' cannot be used in an 'orderby' query expression. Collection properties are not supported by the 'orderby' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[集合屬性 '{0}' 不能在 'orderby' 查詢運算式中使用。'orderby' 查詢選項不支援集合屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CollectionPropertyNotSupportedInWhere" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The collection property '{0}' cannot be used in a 'where' query expression. Collection properties are only supported as the source of 'any' or 'all' methods in a 'where' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[集合屬性 '{0}' 不能在 'where' 查詢運算式中使用。只支援將集合屬性做為 'where' 查詢選項中 'any' 或 'all' 方法的來源。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ConditionalNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The conditional expression is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援條件運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ConstantNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The constant for '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援 '{0}' 的常數。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CouldNotConvert" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Could not convert constant {0} expression to string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法將常數 {0} 運算式轉換成字串。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ExpressionCannotEndWithTypeAs" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unsupported expression '{0}' in '{1}' method. Expression cannot end with TypeAs.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA['{1}' 方法包含不支援的運算式 '{0}'。運算式不能以 TypeAs 做為結尾。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ExpressionNotSupportedInProjection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Constructing or initializing instances of the type {0} with the expression {1} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援使用運算式 {1} 建構或初始化類型 {0} 的執行個體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ExpressionNotSupportedInProjectionToEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Initializing instances of the entity type {0} with the expression {1} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援使用運算式 {1} 初始化實體類型 {0} 的執行個體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_FormatQueryOptionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The '$format' query option is not supported. Use the DataServiceContext.Format property to set the desired format.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[不支援 '$format' 查詢選項。請使用 DataServiceContext.Format 屬性來設定所要的格式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_IllegalPathStructure" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Found a projection as a non-leaf segment in an expand path. Please rephrase your query. The projected property was : '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[在展開路徑中找到做為 non-leaf segment 的投影。請改變查詢的字詞。投影的屬性是: '{0}']]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_IllegalSystemQueryOption" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Found the following illegal system token while building a projection or expansion path: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[建立投影或展開路徑時找到下列不合法的 system token: '{0}']]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_InvalidExpressionInNavigationPath" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression '{0}' is not a valid expression for navigation path. The only supported operations inside the lambda expression body are MemberAccess and TypeAs. The expression must contain at least one MemberAccess and it cannot end with TypeAs.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[運算式 '{0}' 不是導覽路徑的有效運算式。Lambda 運算式主體內唯一支援的作業為 MemberAccess 和 TypeAs。運算式必須至少包含一個 MemberAccess，並且不能以 TypeAs 做為結尾。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_InvalidSourceForAnyAll" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The source parameter for the '{0}' method has to be either a navigation or a collection property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA['{0}' 方法的來源參數必須是導覽或集合屬性。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The source parameter for the '{0}' method has to be either a navigation or a MultiValue property.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_InvocationNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invocation Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援引動過程運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_LambdaNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Lambda Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援 Lambda 運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_LinkPropertyNotSupportedInExpression" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' of type 'DataServiceStreamLink' cannot be used in 'where' or 'orderby' query expressions. Properties of type 'DataServiceStreamLink' are not supported by these query options.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[類型 'DataServiceStreamLink' 的屬性 '{0}' 不能在 'where' 或 'orderby' 查詢運算式中使用。這些查詢選項不支援類型 'DataServiceStreamLink' 的屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ListInitNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[List Init Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援清單 Init 運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_MemberAccessNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The member access of '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援 '{0}' 的成員存取。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_MemberInitNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Member Init Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援成員 Init 運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_MethodNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The method '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援方法 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_NewArrayNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[New Array Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援新增陣列運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_NewNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[New Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援新增運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_OfTypeArgumentNotAvailable" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The target type for an OfType filter could not be determined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法判斷 OfType 篩選的目標類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ParameterNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The parameter expression is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援參數運算式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ProjectionCanOnlyHaveOneProjection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot translate multiple Linq Select operations in a single 'select' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法轉譯單一 'select' 查詢選項中的多個 Linq Select 作業。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ProjectionMemberAssignmentMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot initialize an instance of entity type '{0}' because '{1}' and '{2}' do not refer to the same source entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法初始化實體類型 '{0}' 的執行個體，因為 '{1}' 和 '{2}' 未參考相同來源實體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ProjectionOnlyAllowedOnLeafNodes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can only specify 'select' query option after last navigation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[在最後導覽之後只能指定 'select' 查詢選項。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_PropertyNamesMustMatchInProjections" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot assign the value from the {0} property to the {1} property.  When projecting results into a entity type, the property names of the source type and the target type must match for the properties being projected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法將值從 {0} 屬性指定至 {1} 屬性。在將結果投影至實體類型時，對於所要投影的屬性，其來源類型和目標類型的屬性名稱必須相符。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_QueryOptionOutOfOrder" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The {0} query option cannot be specified after the {1} query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[在 {1} 查詢選項後不能指定 {0} 查詢選項。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_QueryOptionsOnlyAllowedOnLeafNodes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can only specify query options (orderby, where, take, skip) after last navigation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[在最後導覽之後只能指定查詢選項 (orderby、where、take、skip)。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_QueryOptionsOnlyAllowedOnSingletons" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot specify query options (orderby, where, take, skip, count) on single resource.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法在單一資源上指定查詢選項 (orderby、where、take、skip、count)。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TranslationError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error translating Linq expression to URI: {0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[將 LINQ 運算式轉換成 URI 時發生錯誤: {0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeAsArgumentNotEntityType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' is not an entity type. The target type for a TypeAs operator must be an entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[類型 '{0}' 不是實體類型。TypeAs 運算子的目標類型必須是實體類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeAsNotSupportedForMaxDataServiceVersionLessThan3" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression 'TypeAs' is not supported when MaxProtocolVersion is less than '3.0'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[當 MaxProtocolVersion 小於 '3.0' 時，不支援運算式 'TypeAs'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeBinaryNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An operation between an expression and a type is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援運算式與型別之間的運算。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeTokenWithNoTrailingNavProp" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Found an illegal type token '{0}' without a trailing navigation property. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[找到沒有尾端導覽屬性的不合法類型語彙基元 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[MILSCHK EH: 找到沒有尾端導覽屬性的不合法類型語彙基元 '{0}'。]D;]A;]D;]A;(Comment: "type token" is translated in TRES.)]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";ALinq_UnaryNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The unary operator '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援一元運算子 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_UnsupportedExpression" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression type {0} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援運算式型別 {0}。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_CannotAssignNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The null value from property '{0}' cannot be assigned to a type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法將屬性 '{0}' 中的 null 值指定給類型 '{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_CollectionExpectedCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Materialization of top level collection expected ICollection<>, but actual type was {0}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[最上層集合的具體化需要 ICollection<>，但實際類型為 {0}。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_DataServiceCollectionNotSupportedForNonEntities" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A DataServiceCollection can only contain entity types. Primitive and complex types cannot be contained by this kind of collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[DataServiceCollection 只能包含實體類型。基本類型和複雜類型不可由這種集合所包含。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_EntryIntoCollectionMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entry of type '{0}' cannot be added to a collection that contains instances of type '{1}'. This may occur when an existing entry of a different type has the same identity value or when the same entity is projected into two different types in a single query.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法將類型 '{0}' 的項目加入包含類型 '{1}' 之執行個體的集合。當不同類型的現有項目具有相同的識別值，或者相同實體投影到單一查詢的兩個不同類型時，就可能發生這個問題。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_EntryToAccessIsNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entry returned by the navigation property '{0}' is null and cannot be initialized. You should check for a null value before accessing this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[導覽屬性 '{0}' 傳回的項目為 null，因此無法初始化。您應該在存取這個屬性之前檢查是否有 null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_EntryToInitializeIsNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entry that contains the data required to create an instance of type '{0}' is null and cannot be initialized. You should check for a null value before accessing this entry.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[包含建立 '{0}' 類型之執行個體之資料的項目為 null，因此無法初始化。您應該在存取這個屬性之前檢查是否有 null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidCollectionItem" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The element '{0}' is not a valid collection item. The name of the collection item element must be 'element' and must belong to the 'http://docs.oasis-open.org/odata/ns/data' namespace.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[元素 '{0}' 不是有效的集合項目。集合項目元素的名稱必須是 'element'，而且必須屬於 'http://docs.oasis-open.org/odata/ns/data' 命名空間。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The element '{0}' is not a valid collection item. The name of the collection item element must be 'element' and must belong to the 'http://schemas.microsoft.com/ado/2007/08/dataservices' namespace.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidContentTypeEncountered" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response content type '{0}' is not currently supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[目前不支援回應內容類型 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is a type mismatch between the client and the service. Type '{0}' is an entity type, but the type in the response payload does not represent an entity type. Please ensure that types defined on the client match the data model of the service, or update the service reference on the client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[用戶端與服務之間的類型不符。類型 '{0}' 是實體類型，但是回應裝載中的類型不代表實體類型。請確定用戶端上定義的類型符合服務的資料模型，或是更新用戶端上的服務參考。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidNonEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is a type mismatch between the client and the service. Type '{0}' is not an entity type, but the type in the response payload represents an entity type. Please ensure that types defined on the client match the data model of the service, or update the service reference on the client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[用戶端與服務之間的類型不符。類型 '{0}' 不是實體類型，但是回應裝載中的類型代表實體類型。請確定用戶端上定義的類型符合服務的資料模型，或是更新用戶端上的服務參考。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidResponsePayload" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response payload is a not a valid response payload. Please make sure that the top level element is a valid Atom or JSON element or belongs to '{0}' namespace.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[回應裝載不是有效的回應裝載。請確定最上層元素是有效的 Atom 或 JSON 元素，或屬於 '{0}' 命名空間。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The response payload is a not a valid response payload. Please make sure that the top level element is a valid Atom element or belongs to '{0}' namespace.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_MaterializationTypeError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot materialize the results into a collection type '{0}' because it does not have a parameterless constructor.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法將結果具體化為集合類型 '{0}'，因為它沒有無參數的建構函式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_NoParameterlessCtorForCollectionProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collection property '{0}' cannot be created because the type '{1}' does not have a public parameterless constructor.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法建立集合屬性 '{0}'，因為類型 '{1}' 沒有公用無參數的建構函式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_ProjectEntityTypeMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entity of type '{0}' cannot be projected because there is already an instance of type '{1}' for '{2}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法投影類型 '{0}' 的實體，因為 '{2}' 已經有類型 '{1}' 的執行個體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_PropertyMissing" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expected property '{0}' could not be found while processing an entry. Check for null before accessing this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[處理項目時，找不到需要的屬性 '{0}'。請在存取這個屬性之前，先檢查是否有 null。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The expected property '{0}' could not be found while processing the Atom entry '{1}'. Check for null before accessing this property.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_PropertyNotExpectedEntry" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Property '{0}' is not an entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[屬性 '{0}' 不是實體。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Property '{0}' of entity '{1}' is not an entity.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_ResetAfterEnumeratorCreationError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Reset should never be called for collection reader in an internal enumerable.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[絕不能在內部可列舉的集合讀取器中呼叫重設。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_TypeShouldBeCollectionError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot materialize a collection of a primitives or complex without the type '{0}' being a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[沒有類型 '{0}' 的集合，就無法具體化基本或複雜集合。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomParser_SingleEntry_ExpectedFeedOrEntry" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected an Atom feed or entry in the response from the server, but found an unexpected element instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[伺服器的回應中必須是 Atom 摘要或輸入，但卻找到非預期的項目。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomParser_SingleEntry_MultipleFound" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected exactly one Atom entry in the response from the server, but more than one was found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[伺服器的回應中必須只有一個 Atom 輸入，但找到不止一個。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomParser_SingleEntry_NoneFound" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected exactly one Atom entry in the response from the server, but none was found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[伺服器的回應中必須只有一個 Atom 輸入，但一個也找不到。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_ExpectedContentType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expected content type for a batch requests is "multipart/mixed;boundary=batch" not "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[批次要求需要的內容類型是 "multipart/mixed;boundary=batch"，不是 "{0}"。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_ExpectedResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The POST request expected a response with content. ID={0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[POST 要求需要包含內容的回應。ID={0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_IncompleteResponseCount" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Not all requests in the batch had a response.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不是批次中的所有要求都有回應。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_UnexpectedContent" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The web response contained unexpected sections. ID={0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Web 回應包含了非預期的區段。ID={0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientTypeCache_NonEntityTypeCannotContainEntityProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' is of entity type and it cannot be a property of the type '{1}', which is not of entity type.  Only entity types can contain navigation properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[屬性 '{0}' 是實體類型，並且不可以是非實體類型之類型 '{1}' 的屬性。只有實體類型可以包含導覽屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_Ambiguous" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Resolving type from '{0}' that inherits from '{1}' is ambiguous.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[對繼承自 '{1}' 的 '{0}' 其中的類型進行解析，會導致模稜兩可。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_CollectionOfCollectionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collection properties of a collection type are not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[不支援集合類型的集合屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_KeysMustBeSimpleTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The key property '{0}' on for type '{1}' is of type '{2}', which is not a simple type. Only properties of simple type can be key properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[類型 '{1}' 的索引鍵屬性 '{0}' 為類型 '{2}'，但這不是簡單類型。只有簡單類型的屬性才可以做為索引鍵屬性。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[{0} has key properties declared on a non-simple type.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[MILSCHK EH: 才可以是索引鍵屬性 => 才可以做為索引鍵屬性]D;]A;]D;]A;(Comment: Suggestion)]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";ClientType_KeysOnDifferentDeclaredType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0} has key properties declared at different levels within its type hierarchy.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[{0} 在其類型階層架構的不同層級宣告索引鍵屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingMediaEntryProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' has a MediaEntry attribute that references a property called '{1}'. However, this type does not have a property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[類型 '{0}' 具有參考稱為 '{1}' 之屬性 (Property) 的 MediaEntry 屬性 (Attribute)。不過，這個類型沒有屬性 '{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingMimeTypeDataProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' has a MimeTypeProperty attribute that references the data property '{1}'. However, this type does not have a property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[類型 '{0}' 具有參考資料屬性 (Property) '{1}' 的 MimeTypeProperty 屬性 (Attribute)。不過，這個類型沒有屬性 '{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingMimeTypeProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' has a MimeTypeProperty attribute that references the MIME type property '{1}'. However, this type does not have a property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[類型 '{0}' 具有參考 MIME 類型屬性 (Property) '{1}' 的 MimeTypeProperty 屬性 (Attribute)。不過，這個類型沒有屬性 '{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingOpenProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The open object property '{0}:{1}' is not defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[未定義開啟物件屬性 '{0}:{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The closed type {0} does not have a corresponding {1} settable property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[封閉類型 {0} 沒有對應的 {1} 可設定屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MultipleImplementationNotSupported" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple implementations of ICollection<T> is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援多個 ICollection<T> 實作。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MultipleTypesWithSameName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple types were found with the same name '{0}'. Type names must be unique.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[找到多個具有相同名稱 '{0}' 的類型。類型名稱必須是唯一的。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_NoSettableFields" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' has no settable properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[複雜類型 '{0}' 沒有可設定的屬性。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The type '{0}' has no settable properties.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_NullOpenProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The open type property '{0}' returned a null instance.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[開啟類型屬性 '{0}' 傳回 Null 執行個體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_UnsupportedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' is not supported by the client library.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[用戶端程式庫不支援類型 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Clienttype_MultipleOpenProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0} has multiple definitions for OpenObjectAttribute.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[{0} 有多個 OpenObjectAttribute 的定義。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_CollectionTypesInCollectionOfPrimitiveTypesNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection property of primitive types cannot contain an item of a collection type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[基本類型類型的集合屬性不得包含集合類型的項目。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullCollectionItemsNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An item in the collection property has a null value. Collection properties that contain items with null values are not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[集合屬性中的項目具有 null 值。不支援包含具有 null 值的集合屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullCollectionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the property '{0}' is null. Properties that are a collection type of primitive or complex types cannot be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[屬性 '{0}' 的值為 null。屬於基本或複雜類型之集合類型的屬性不可以是 null。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullCollectionReference" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0}.{1} must return a non-null open property collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[{0}.{1} 必須傳回非 null 的開啟屬性集合。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullNonPropertyCollectionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the collection of item type '{0}' is null. A collection cannot have a null value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[項目類型 '{0}' 的集合值為 null。集合不能有 null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_PrimitiveTypesInCollectionOfComplexTypesNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection property of complex types cannot contain an item of a primitive type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[複雜類型的集合屬性不可以包含基本類型的項目。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Content_EntityIsNotEntityType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation requires the entity to be of an Entity Type, either mark its key properties, or attribute the class with DataServiceEntityAttribute]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[這個作業需要實體必須是實體類型，請標示它的索引鍵屬性，或者使用 DataServiceEntityAttribute 設定類別的屬性]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Content_EntityWithoutKey" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation requires the entity be of an Entity Type, and has at least one key property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[這個作業需要實體必須是實體類型，並且具有至少一個索引鍵屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AddLinkCollectionOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[AddLink and DeleteLink methods only work when the sourceProperty is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[AddLink 及 DeleteLink 方法只適用於 sourceProperty 為集合的情況。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AddRelatedObjectCollectionOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[AddRelatedObject method only works when the sourceProperty is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[AddRelatedObject 方法只適用於當 sourceProperty 為集合時。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AddRelatedObjectSourceDeleted" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[AddRelatedObject method only works if the source entity is in a non-deleted state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[只有當來源實體未被刪除時，才適用 AddRelatedObject 方法。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AsyncAlreadyDone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The asynchronous result has already been completed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[非同步結果已經完成。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BaseUri" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected an absolute, well formed http URL without a query or fragment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[需要不含查詢或片段的絕對、格式正確 http URL。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BaseUriRequired" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[You must set the BaseUri property before you perform this operation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[您必須先設定 BaseUri 屬性，然後再執行這項作業。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BatchExecuteError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An error occurred for this query during batch execution.  See the inner exception for details.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[批次執行期間，這個查詢發生錯誤。如需詳細資訊，請參閱內部例外狀況。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BatchNotSupportedForMediaLink" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Saving entities with the [MediaEntry]5D; attribute is not currently supported in batch mode. Use non-batched mode instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[目前不支援在批次模式中儲存具有 [MediaEntry]5D; 屬性的實體。請改用非批次模式。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BatchNotSupportedForNamedStreams" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Changes cannot be saved as a batch when an entity has one or more streams associated with it. Retry the SaveChanges operation without enabling the SaveChangesOptions.BatchWithSingleChangeset and the SaveChangesOptions.BatchWithIndependentOperations options.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[當實體具有一個或多個相關聯的資料流時，無法以批次儲存變更。請重試 SaveChanges 作業，但不啟用 SaveChangesOptions.BatchWithSingleChangeset 和 SaveChangesOptions.BatchWithIndependentOperations 選項。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Changes cannot be saved as a batch when an entity has one or more streams associated with it. Retry the SaveChanges operation without enabling the SaveChangesOptions.Batch and the SaveChangesOptions.BatchWithIndependentOperations options.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BodyOperationParametersNotAllowedWithGet" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[OperationParameter of type BodyOperationParameter cannot be specified when the HttpMethod is set to GET.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[當 HttpMethod 設定為 GET 時，無法指定類型 BodyOperationParameter 的 OperationParameter。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BothLocationAndIdMustBeSpecified" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response should have both 'Location' and 'OData-EntityId' headers or the response should not have any of these headers.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[回應應同時具有 'Location' 和 'OData-EntityId' 標頭，或者不可以有任一標頭。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The response should have both 'Location' and 'DataServiceId' headers or the response should not have any of these headers.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotChangeStateIfAdded" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entity in the 'Added' state cannot be changed to '{0}', it can only be changed to 'Detached'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法將處於 'Added' 狀態的實體變更為 '{0}'，它只能變更為 'Detached'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotChangeStateToAdded" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ChangeState method does not support the 'Added' state because additional information is needed for inserts. Use either AddObject or AddRelatedObject instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[ChangeState 方法不支援 'Added' 狀態，因為插入需要其他資訊。請改用 AddObject 或 AddRelatedObject。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotChangeStateToModifiedIfNotUnchanged" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity's state can only be changed to 'Modified' if it is currently 'Unchanged'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[如果實體的狀態目前為 'Unchanged'，則只能變更為 'Modified'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotConvertKey" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unable to convert value '{0}' into a key string for a URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法將值 '{0}' 轉換為 URI 的金鑰字串。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ChildResourceExists" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Attempt to delete a link between two objects failed because the identity of the target object of the link depends on the source object of the link.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[嘗試刪除兩個物件間的連結失敗，因為連結的目標物件的識別是以連結的來源物件決定。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ContentTypeRequiredForNamedStream" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ContentType value for a named stream cannot be null or an empty string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[具名資料流的 ContentType 值不可以是 null 或空字串。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DidNotOriginateAsync" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The current object did not originate the async result.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[目前的物件不是來自非同步結果。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DifferentEntityAlreadyContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is already tracking a different entity with the same resource Uri.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[內容已經在追蹤使用相同資源 URI 的不同實體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DuplicateBodyOperationParameterName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple body operation parameters were found with the same name. Body operation parameter names must be unique.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[找到多個具有相同名稱的主體作業參數。主體作業參數名稱必須是唯一的。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DuplicateUriOperationParameterName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple uri operation parameters were found with the same name. Uri operation parameter names must be unique.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[找到多個具有相同名稱的 URI 作業參數。URI 作業參數名稱必須是唯一的。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EndExecuteExpectedVoidResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[EndExecute overload for void service operations and actions received a non-void response from the server.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[void 服務作業和動作的 EndExecute 多載收到來自伺服器的非 void 回應。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityAlreadyContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is already tracking the entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[內容已經在追蹤實體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityDoesNotContainNamedStream" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity does not have a stream named '{0}'. Make sure that the name of the stream is correct.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[實體沒有名稱為 '{0}' 的資料流。請確定資料流的名稱正確無誤。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityMetadataBuilderIsRequired" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An implementation of ODataEntityMetadataBuilder is required, but a null value was returned from GetEntityMetadataBuilder.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[必須實作 ODataEntityMetadataBuilder，但是從 GetEntityMetadataBuilder 傳回 null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityNotContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is not currently tracking the entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[內容目前不在追蹤實體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityNotMediaLinkEntry" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation requires that the specified entity be a Media Link Entry and that the ReadStreamUri be available. However, the specified entity either is not a Media Link Entry or does not have a valid ReadStreamUri value. If the entity is a Media Link Entry, re-query the data service for this entity to obtain a valid ReadStreamUri value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[這個作業要求指定的實體必須是 Media Link Entry，並且 ReadStreamUri 必須可供使用。不過，指定的實體不是 Media Link Entry 或沒有有效的 ReadStreamUri 值。如果實體是 Media Link Entry，請重新查詢這個實體的資料服務，以取得有效的 ReadStreamUri 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntitySetName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected a relative URL path without query or fragment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[必須是不具查詢或片段的相對 URL。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ExecuteExpectedVoidResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Execute overload for void service operations and actions received a non-void response from the server.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[void 服務作業和動作的 Execute 多載收到來自伺服器的非 void 回應。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ExecuteExpectsGetOrPostOrDelete" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The HttpMethod must be GET, POST or DELETE.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[HttpMethod 必須為 GET、POST 或 DELETE。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_InternalError" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Microsoft.OData.Client internal error {0}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Microsoft.OData.Client 內部錯誤 {0}。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_LinkResourceInsertFailure" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[One of the link's resources failed to insert.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法插入連結的其中一個資源。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_LocationHeaderExpectsAbsoluteUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The 'Location' header value specified in the response must be an absolute URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[回應中指定的 'Location' 標頭值必須是絕對 URI。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MLEWithoutSaveStream" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity type {0} is marked with MediaEntry attribute but no save stream was set for the entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[實體類型 {0} 標記了 MediaEntry 屬性，但實體未設定儲存資料流。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MissingOperationParameterName" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Name property of an OperationParameter must be set to a non-null, non-empty string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[OperationParameter 的 Name 屬性必須設定為非 Null、非空白的字串。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MissingSelfAndEditLinkForNamedStream" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is no self-link or edit-media link for the stream named '{0}'. Make sure that either the self-link or edit-media link is specified for this stream.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[名稱為 '{0}' 的資料流沒有自我 link 或編輯媒體 link。請確定已為這個資料流指定自我 link 或編輯媒體 link。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[LIOX: following up the locver, kept the "link" unlocalized.]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";Context_MustBeUsedWith" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA['{0}' must be used with '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA['{0}' 必須與 '{1}' 一起使用。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoContentTypeForMediaLink" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media link object of type '{0}' is configured to use the MIME type specified in the property '{1}'. However, that property's value is null or empty.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[類型 '{0}' 的媒體連結物件設定為使用屬性 '{1}' 中指定的 MIME 類型。但該屬性的值是 null 或空白。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoLoadWithInsertEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context can not load the related collection or reference for objects in the added state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[內容無法在已加入狀態下載入物件的相關集合或參考。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoRelationWithDeleteEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[One or both of the ends of the relationship is in the deleted state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[關聯性的一端或兩端處於已刪除狀態。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoRelationWithInsertEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[One or both of the ends of the relationship is in the added state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[關聯性的一端或兩端處於已加入狀態。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NullElementInOperationParameterArray" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameters array contains a null element which is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[作業參數陣列包含不允許的 null 元素。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NullKeysAreNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The serialized resource has a null value in key member '{0}'. Null values are not supported in key members.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[索引鍵成員 '{0}' 中的序列化資源具有 null 值。索引鍵成員不支援 Null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_OnMessageCreatingReturningNull" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[DataServiceContext.Configurations.RequestPipeline.OnMessageCreating property must not return a null value. Please return a non-null value for this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[DataServiceContext.Configurations.RequestPipeline.OnMessageCreating 不可以傳回 null 值。請傳回這個屬性的非 null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_OperationCanceled" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation has been canceled.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[作業已取消。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_PropertyNotSupportedForMaxDataServiceVersionGreaterThanX" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' is not supported when MaxProtocolVersion is greater than '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[當 MaxProtocolVersion 大於 '{1}' 時，不支援屬性 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RelationAlreadyContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is already tracking the relationship.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[內容已經在追蹤關聯性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RelationNotRefOrCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The sourceProperty is not a reference or collection of the target's object type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[sourceProperty 不是目標的物件類型參考或集合。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RequestUriIsRelativeBaseUriRequired" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Because the requestUri is a relative Uri, you must set the BaseUri property on the DataServiceContext.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[因為 requestUri 是相對 URI，所以您必須在 DataServiceContext 上設定 BaseUri 屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RequestVersionIsBiggerThanProtocolVersion" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The request requires that version {0} of the protocol be used, but the MaxProtocolVersion of the data service context is set to {1}. Set the MaxProtocolVersion to the higher version, and then retry the operation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[要求需要使用版本 {0} 的通訊協定，但是資料服務內容的 MaxProtocolVersion 設定為 {1}。請將 MaxProtocolVersion 設定為更新版本，然後重試作業。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ResolveEntitySetOrBaseUriRequired" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ResolveEntitySet function must return a non-null Uri for the EntitySet '{0}', otherwise you must set the BaseUri property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[EntitySet '{0}' 的 ResolveEntitySet 函數傳回非 null 的 URI，或者您必須設定 BaseUri 屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ResolveReturnedInvalidUri" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Uri that is returned by the ResolveEntitySet function must be an absolute, well-formed URL with an "http" or "https" scheme name and without any query strings or fragment identifiers.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[ResolveEntitySet 函數傳回的 URI 必須是具有 "http" 或 "https" 配置名稱或沒有任何查詢字串或片段識別碼且格式正確的絕對 URL。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ResponseVersionIsBiggerThanProtocolVersion" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response version is {0}, but the MaxProtocolVersion of the data service context is set to {1}. Set the MaxProtocolVersion to the version required by the response, and then retry the request. If the client does not support the required protocol version, then upgrade the client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[回應版本是 {0}，但是資料服務內容的 MaxProtocolVersion 設定為 {1}。請將 MaxProtocolVersion 設定為回應所需的版本，然後重試要求。如果用戶端不支援所需的通訊協定版本，則升級用戶端。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SendingRequestEventArgsNotHttp" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only instances of HttpWebRequest are currently allowed for this property. Other subtypes of WebRequest are not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[目前這個屬性只允許 HttpWebRequest 的執行個體，不支援 WebRequest 的其他子類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SendingRequest_InvalidWhenUsingOnMessageCreating" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[SendingRequest cannot be used in combination with the DataServiceContext.Configurations.RequestPipeline.OnMessageCreating property. Please use SendingRequest2 with DataServiceContext.Configurations.RequestPipeline.OnMessageCreating property instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[SendingRequest 不可與 DataServiceContext.Configurations.RequestPipeline.OnMessageCreating 屬性一起使用。請改為搭配 DataServiceContext.Configurations.RequestPipeline.OnMessageCreating 屬性使用 SendingRequest2。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetLinkReferenceOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[SetLink method only works when the sourceProperty is not a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[SetLink 方法只適用於 sourceProperty 不是集合的情況。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamOnInvalidEntityState" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Calling SetSaveStream on an entity with state '{0}' is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[不允許在狀態為 '{0}' 的實體上呼叫 SetSaveStream。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamOnMediaEntryProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't use SetSaveStream on entity with type {0} which has a media entry property defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法在已定義媒體項目屬性之類型 {0} 的實體上使用 SetSaveStream。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamWithoutEditMediaLink" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is no edit-media link for the entity's media stream. Make sure that the edit-media link is specified for this stream.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[實體的媒體資料流沒有編輯媒體連結。請確定已為這個資料流指定編輯媒體連結。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamWithoutNamedStreamEditLink" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The stream named '{0}' cannot be modified because it does not have an edit-media link. Make sure that the stream name is correct and that an edit-media link for this stream is included in the entry element in the response.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法修改名稱為 '{0}' 的資料流，因為它沒有編輯媒體 link。請確定資料流名稱正確無誤，以及這個資料流的編輯媒體 link 已包含在回應的輸入項目中。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[LIOX: following up the locver, kept the "link" unlocalized.]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";Context_TrackingExpectsAbsoluteUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The identity value specified by either the Atom id element or the OData-EntityId header must be an absolute URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[Atom id 元素或 OData-EntityId 標頭所指定的識別值必須是絕對 URI。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The identity value specified by either the Atom id element or the DataServiceId header must be an absolute URI.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_UnexpectedZeroRawRead" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected result (<= 0) from stream.Read() while reading raw data for this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[讀取這個屬性的未經處理資料時，stream.Read() 傳回非預期的結果 (<= 0)。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_UpdateRelatedObjectNonCollectionOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[UpdateRelatedObject method only works when the sourceProperty is not collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[UpdateRelatedObject 方法只適用於 sourceProperty 不是集合的情況。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_VersionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Response version '{0}' is not supported. The only supported versions are: {1}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援回應版本 '{0}'。支援的唯一版本是: {1}。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DSKAttribute_MustSpecifyAtleastOnePropertyName" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[DataServiceKey attribute must specify at least one property name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[DataServiceKey 屬性 (Attribute) 必須至少指定一個屬性 (Property) 名稱。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_BindingOperation_ArrayItemNotEntity" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A value provided during '{0}' operation on DataServiceCollection is not of an entity type with key.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[在 DataServiceCollection 上的 '{0}' 作業期間提供的值不是具有索引鍵的實體類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_BindingOperation_ArrayItemNull" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Null values are disallowed during '{0}' operations on DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[在 DataServiceCollection 上的 '{0}' 作業期間不允許 Null 值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_BindingOperation_DetachedSource" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add/Update/Delete operation cannot be performed on a child entity, if the parent entity is already detached.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[如果父實體已卸離，則無法在子實體上執行新增/更新/刪除作業。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[MOR Bug: 3994]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";DataBinding_CollectionAssociatedWithMultipleEntities" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track a collection object of type '{0}' failed because the collection object is already being tracked.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[嘗試追蹤類型 '{0}' 的集合物件失敗，因為集合物件已在追蹤中。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_CollectionChangedUnknownActionCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected action '{0}' on the OnCollectionChanged event raised by a collection object of type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[由類型 '{1}' 的集合物件引發的 OnCollectionChanged 事件上有未預期的動作 '{0}'。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Unexpected action '{0}' on the OnCollectionChanged event raised by DataServiceCollection.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_CollectionPropertySetterValueHasObserver" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Setting an instance of DataServiceCollection to an entity property is disallowed if the instance is already being tracked. Error occurred on property '{0}' for entity type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[DataServiceCollection 的執行個體如果已經受到追蹤，就不允許將此執行個體設定成實體屬性。實體類型 '{1}' 的屬性 '{0}' 上發生錯誤。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_ComplexObjectAssociatedWithMultipleEntities" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track a complex object of type '{0}' failed because the complex object is already being tracked.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[嘗試追蹤類型 '{0}' 的複雜物件失敗，因為複雜物件已在追蹤中。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_DataServiceCollectionArgumentMustHaveEntityType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The DataServiceCollection to be tracked must contain entity typed elements with at least one key property. The element type '{0}' does not have any key property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[要追蹤的 DataServiceCollection 必須包含實體類型的項目，並且至少要有一個索引鍵屬性。項目類型 '{0}' 沒有任何索引鍵屬性。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_DataServiceCollectionChangedUnknownActionCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected action '{0}' on the OnCollectionChanged event raised by DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[由 DataServiceCollection 引發的 OnCollectionChanged 事件上有未預期的動作 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_EntityAlreadyInCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt was made to add entity of type '{0}' to a collection in which the same entity already exists.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[嘗試在集合中加入類型 '{0}' 的實體，但同樣的實體已存在這個集合中。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_NotifyCollectionChangedNotImpl" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track an entity or complex type failed because the entity or complex type contains a collection property of type '{0}' that does not implement the INotifyCollectionChanged interface.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[嘗試追蹤實體或複雜類型失敗，因為此實體或複雜類型包含未實作 INotifyCollectionChanged 介面之類型 '{0}' 的集合屬性。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An attempt to track an entity or complex type failed because the entity or complex type contains a MultiValue property of type '{0}' that does not implement the INotifyCollectionChanged interface.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_NotifyPropertyChangedNotImpl" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track an entity or complex type failed because the entity or complex type '{0}' does not implement the INotifyPropertyChanged interface.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[嘗試追蹤實體或複雜類型失敗，因為此實體或複雜類型 '{0}' 並未實作 INotifyPropertyChanged 介面。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_Util_UnknownEntitySetName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Entity set name has not been provided for an entity of type '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[未對類型 '{0}' 的實體提供實體集名稱。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceClientFormat_LoadServiceModelRequired" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[When you call the UseJson method without a parameter, you must use the LoadServiceModel property to provide a valid IEdmModel instance.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[當您呼叫沒有參數的 UseJson 方法時，必須使用 LoadServiceModel 屬性，以提供有效的 IEdmModel 執行個體。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceClientFormat_ValidServiceModelRequiredForJson" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[To use the JSON format, you must first call DataServiceContext.Format.UseJson() and supply a valid service model.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[若要使用 JSON 格式，您必須先呼叫 DataServiceContext.Format.UseJson() 並提供有效的服務模型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_CannotDetermineContextFromItems" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The DataServiceContext to which the DataServiceCollection instance belongs could not be determined. The DataServiceContext must either be supplied in the DataServiceCollection constructor or be used to create the DataServiceQuery or QueryOperationResponse object that is the source of the items in the DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法判斷 DataServiceCollection 執行個體屬於哪個DataServiceContext。此 DataServiceContext 必須由 DataServiceCollection 建構函式提供，或是用來建立 DataServiceCollection 中項目之來源的 DataServiceQuery 或 QueryOperationResponse 物件。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_CannotStopTrackingChildCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The tracking of DataServiceCollection can not be stopped for child collections.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[DataServiceCollection 的追蹤不會因為子集合而停止。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_InsertIntoTrackedButNotLoadedCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An item could not be added to the collection. When items in a DataServiceCollection are tracked by the DataServiceContext, new items cannot be added before items have been loaded into the collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[項目無法加入至集合。如果 DataServiceCollection 中的項目是由 DataServiceContext 進行追蹤，則新項目必須先載入到集合中才可加入。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_LoadAsyncNoParamsWithoutParentEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The LoadAsync method cannot be called when the DataServiceCollection is not a child collection of a related entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[當 DataServiceCollection 不是相關實體的子集合時，無法呼叫 LoadAsync 方法。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_LoadAsyncRequiresDataServiceQuery" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only a typed DataServiceQuery object can be supplied when calling the LoadAsync method on DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[呼叫 DataServiceCollection 上的 LoadAsync 方法時，只能提供具類型的 DataServiceQuery 物件。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_LoadRequiresTargetCollectionObserved" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Target collection for the Load operation must have an associated DataServiceContext.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Load 作業的目標集合必須有相關聯的 DataServiceContext。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_MultipleLoadAsyncOperationsAtTheSameTime" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A previous LoadAsync operation has not yet completed. You cannot call the LoadAsync method on the DataServiceCollection again until the previous operation has completed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[先前的 LoadAsync 作業尚未完成。在先前的作業完成之前，您無法再次針對 DataServiceCollection 呼叫 LoadAsync 方法。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_OperationForTrackedOnly" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation is only supported on collections that are being tracked.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[只有在要追蹤的集合上才支援這個作業。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceException_GeneralError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An error occurred while processing this request.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理這個要求時發生錯誤。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceQuery_EnumerationNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This target framework does not enable you to directly enumerate over a data service query. This is because enumeration automatically sends a synchronous request to the data service. Because this framework only supports asynchronous operations, you must instead call the BeginExecute and EndExecute methods to obtain a query result that supports enumeration.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[此目標 Framework 無法讓您直接列舉資料服務查詢。這是因為自動列舉會傳送同步化要求至資料服務。因為此 Framework 只支援非同步的作業，您必須改為呼叫 BeginExecute 及 EndExecute 方法以取得支援列舉的查詢結果。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceRequest_FailGetCount" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Failed to get the count value from the server.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[無法從伺服器取得計數值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_Current" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The current value '{1}' type is not compatible with the expected '{0}' type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[目前值 '{1}' 類型與需要的 '{0}' 類型不相容。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_ExpectingSimpleValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. The XML element contains mixed content.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。XML 項目包含混合內容。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_GetEnumerator" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only a single enumeration is supported by this IEnumerable.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[這個 IEnumerable 只支援單一列舉。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MismatchAtomLinkEntryPropertyIsCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Atom payload has an entry and the property '{0}' is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。Atom 裝載有輸入，而且屬性 '{0}' 是集合。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MismatchAtomLinkFeedPropertyNotCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Atom payload has a feed and the property '{0}' is not a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。Atom 裝載有摘要，而且屬性 '{0}' 不是集合。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MismatchAtomLinkLocalSimple" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Atom payload has a link, local object has a simple value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。Atom 裝載有連結，而本機物件有簡單值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MissingIdElement" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Missing id element in the response.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。回應中缺少 id 項目。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MixedTextWithComment" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Element value interspersed with a comment is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。不支援項目值與註解位置顛倒。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_NoLocationHeader" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response to this POST request did not contain a 'location' header. That is not supported by this client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[這個 POST 要求的回應不包含 'location' 標頭。這個用戶端不支援這種用法。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_ServerException" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Server failed with following message:]D;]A;{0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[處理回應資料流時發生錯誤。伺服器失敗，發生下列訊息:]D;]A;{0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_CannotConvertTypeToClrValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A value with primitive kind '{0}' cannot be converted into a primitive object value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[無法將具有基本種類 '{0}' 的值轉換為基本物件值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_IncorrectPrimitiveTypeKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incompatible primitive type kinds were found. The type '{0}' was found to be of kind '{2}' instead of the expected kind '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[發現不相容的基本類型種類。發現的類型 '{0}' 屬於種類 '{2}'，而不是需要的種類 '{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_IncorrectPrimitiveTypeKindNoTypeName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incompatible primitive type kinds were found. Found type kind '{0}' instead of the expected kind '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[發現不相容的基本類型種類。發現類型種類 '{0}'，而不是需要的種類 '{1}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_UnsupportedPrimitiveType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' was found for a primitive value. In OData, the type '{0}' is not a supported primitive type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[找到基本值的類型 '{0}'。在 OData 中，類型 '{0}' 不是支援的基本類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EntityDescriptor_MissingSelfEditLink" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity with identity '{0}' does not have a self-link or an edit-link associated with it. Please make sure that the entity has either a self-link or an edit-link associated with it.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[識別為 '{0}' 的實體沒有相關聯的自我連結或編輯連結。請確定實體具有相關聯的自我連結或編輯連結。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";General_InternalError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An internal error '{0}' occurred.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[發生內部錯誤 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_ClosingQuoteNotFound" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value for MIME type parameter '{0}' is incorrect because the closing quote character could not be found while the parameter value started with a quote character.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[MIME 類型參數 '{0}' 的值不正確，因為找不到右引號字元，但此參數值是以引號字元開頭。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_ContentTypeMissing" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Content-Type header value missing.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[遺漏 Content-Type 標頭值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_EncodingNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Character set '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[不支援字元集 '{0}'。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_EscapeCharAtEnd" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value for MIME type parameter '{0}' is incorrect because it terminated with escape character. Escape characters must always be followed by a character in a parameter value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[MIME 類型參數 '{0}' 的值不正確，因為它的結尾是逸出字元。參數值中的逸出字元後面一定要有其他字元。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_EscapeCharWithoutQuotes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value for MIME type parameter '{0}' is incorrect because it contained escape characters even though it was not quoted.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[MIME 類型參數 '{0}' 的值不正確，因為它含有逸出字元，即使未加引號也一樣。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeMissingValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type is missing a parameter value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[媒體類型遺漏參數值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeRequiresSemicolonBeforeParameter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type requires a ';' character before a parameter definition.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[媒體類型在參數定義前需要 ';' 字元。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeRequiresSlash" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type requires a '/' character.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[媒體類型需要 '/' 字元。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeRequiresSubType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type requires a subtype definition.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[媒體類型需要子類型定義。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeUnspecified" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type is unspecified.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[未指定媒體類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_CollectionKeyNotPresentInLinkTable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The collection is not part of the current entry]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[集合不是目前項目的一部分]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_CountNotPresent" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Count value is not part of the response stream.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Count 值不是回應資料流的一部分。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_GetNestLinkForFlatCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This response does not contain any nested collections. Use null as Key instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[這個回應未包含任何巢狀集合。請改用 null 當做 Key。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_TopLevelLinkNotAvailable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The top level link is only available after the response has been enumerated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[只有在列舉回應之後才可以使用最上層連結。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataMetadataBuilder_MissingEntityInstanceUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Neither the 'OData.EntityInstanceUri' nor the 'OData.EntitySetUriSuffix' annotation was found for entity set '{0}'. One of these annotations is required.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[找不到實體集 '{0}' 的 'OData.EntityInstanceUri' 或 'OData.EntitySetUriSuffix' 註釋。需要兩者註釋之一。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataMetadataBuilder_MissingEntitySetUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' doesn't have the 'OData.EntitySetUri' annotation. This annotation is required.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[實體集 '{0}' 沒有 'OData.EntitySetUri' 註釋。需要這個註釋。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataMetadataBuilder_MissingSegmentForEntitySetUriSuffix" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' has a URI '{1}' which has no path segments. An entity set URI suffix cannot be appended to a URI without path segments.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[實體集 '{0}' 的 URI '{1}' 沒有路徑區段。實體集 URI 後置詞無法附加到沒有路徑區段的 URI。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataRequestMessage_GetStreamMethodNotSupported" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[GetStream method is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[不支援 GetStream 方法。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";PlatformHelper_DateTimeOffsetMustContainTimeZone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[DateTimeOffset 值 '{0}' 遺漏時區資訊。DateTimeOffset 值必須包含時區資訊。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_InvalidCollectionParamterItemType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameter named '{0}' has a collection item of Edm type kind '{1}'. A collection item must be either a primitive type or a complex Edm type kind.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[名稱為 '{0}' 的作業參數具有 Edm 類型種類的收集項目 '{1}'。收集項目必須是基本類型或複雜 Edm 類型種類。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_InvalidEnumMemberValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The enum type '{0}' has no member named '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[列舉類型 '{0}' 沒有名為 '{1}' 的成員。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_InvalidParameterType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameter named '{0}' was of Edm type kind '{1}'. An operation parameter must be either a primitive type, a complex type or a collection of primitive or complex types.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[名稱為 '{0}' 的作業參數屬於 Edm 類型種類 '{1}'。作業參數必須是基本類型、複雜類型或是基本或複雜類型的集合。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_LoopsNotAllowedInComplexTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A circular loop was detected while serializing the property '{0}'. You must make sure that loops are not present in properties that return a collection or complex type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[序列化屬性 '{0}' 時偵測到循環迴圈。您必須確定傳回集合或複雜類型的屬性中沒有迴圈。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[A circular loop was detected while serializing the property '{0}'. You must make sure that loops are not present in properties that return a MultiValue or complex type.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_LoopsNotAllowedInNonPropertyComplexTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A circular loop was detected while serializing the complex type '{0}'. You must make sure that loops are not present in a collection or a complex type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[序列化複雜類型 '{0}' 時偵測到循環迴圈。您必須確定集合或複雜類型中沒有迴圈。]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[A circular loop was detected while serializing the complex type '{0}'. You must make sure that loops are not present in a MultiValue or a complex type.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_NullCollectionParamterItemValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameter named '{0}' has a null collection item. The items of a collection must not be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[名稱為 '{0}' 的作業參數具有 null 收集項目。集合的項目不可為 null。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_UriDoesNotContainParameterAlias" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The parameter alias '{0}' was not present in the request URI. All parameters passed as alias must be present in the request URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[要求 URI 中沒有參數別名 '{0}'。所有傳遞做為別名的參數都必須出現在要求 URI 中。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Util_EmptyArray" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Empty array.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[空陣列。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Util_EmptyString" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Empty string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[空字串。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Util_NullArrayElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Array contains a null element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[陣列包含 null 項目。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDuration" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid duration value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[值 '{0}' 不是有效的持續期間值。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";WebUtil_TypeMismatchInCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An item in the collection property '{0}' is not of the correct type. All items in the collection property must be of the collection item type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[集合屬性 '{0}' 中的項目不是正確的類型。集合屬性中的所有項目必須都是集合項目類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";WebUtil_TypeMismatchInNonPropertyCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection of item type '{0}' has an item which is not of the correct type. All items in the collection must be of the collection item type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[項目類型 '{0}' 的集合具有不是正確類型的項目。集合中的所有項目必須都是集合項目類型。]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft Corporation]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[Microsoft Corporation]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";LegalCopyright" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Copyright (c) Microsoft Corporation. All rights reserved.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[Copyright (c) Microsoft Corporation. 著作權所有，並保留一切權利。]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[© Microsoft Corporation.  All rights reserved.]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";LegalTrademarks" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft 和 Windows 是 Microsoft Corporation 在美國及/或其他國家/地區的註冊商標或商標。]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";ProductName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[Microsoft(R) .NET Framework]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="8" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+  </Item>
+</LCX>

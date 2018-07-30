@@ -6,8 +6,8 @@
 
 namespace Microsoft.OData.UriParser
 {
-    using Microsoft.OData.Edm;
     using System.Collections.Generic;
+    using Microsoft.OData.Edm;
     using ODataErrorStrings = Microsoft.OData.Strings;
 
     /// <summary>
@@ -70,9 +70,11 @@ namespace Microsoft.OData.UriParser
         /// </summary>
         /// <param name="propertyName">The propertyName which was not found in the type.</param>
         /// <param name="typeName">The typeName of the type in which the property was not found.</param>
-        internal static ODataErrorException CreatePropertyNotFoundException(string propertyName, string typeName , bool isOpenProperty = false)
+        /// <param name="isOpenProperty">Indicates that property is open.</param>
+        /// <returns>Returns prepared ODataErrorException.</returns>
+        internal static ODataErrorException CreatePropertyNotFoundException(string propertyName, string typeName, bool isOpenProperty = false)
         {
-            ODataError odataError = GenerateODataError(propertyName, typeName, isOpenProperty? ErrorCodes.OpenPropertyNotFoundInType: ErrorCodes.PropertyNotFoundInType);
+            ODataError odataError = GenerateODataError(propertyName, typeName, isOpenProperty ? ErrorCodes.OpenPropertyNotFoundInType : ErrorCodes.PropertyNotFoundInType);
 
             return new ODataErrorException(ODataErrorStrings.MetadataBinder_PropertyNotDeclared(typeName, propertyName), odataError);
         }
@@ -85,7 +87,8 @@ namespace Microsoft.OData.UriParser
                 Target = propertyName,
                 Details = new List<ODataErrorDetail>
                     {
-                        new ODataErrorDetail {
+                        new ODataErrorDetail
+                        {
                             ErrorCode = errorCode,
                             Target = typeName
                         }

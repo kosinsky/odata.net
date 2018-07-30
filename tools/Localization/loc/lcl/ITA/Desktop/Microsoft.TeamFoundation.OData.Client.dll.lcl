@@ -1,0 +1,2382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="D:\dd\DMG_DataSvc\binaries\x86ret\Microsoft.OData.Client.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="it-IT" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="CustomName1" Val="Custom 1" />
+    <Str Name="CustomName2" Val="Custom 2" />
+    <Str Name="CustomName3" Val="Custom 3" />
+    <Str Name="CustomName4" Val="Custom 4" />
+    <Str Name="CustomName5" Val="Custom 5" />
+    <Str Name="CustomName6" Val="IQA" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Note" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
+  <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+  </Item>
+  <Item ItemId=";Microsoft.OData.Client.resources" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
+      <Disp Icon="Str" LocTbl="false" />
+      <Item ItemId=";ALinq_AnyAllNotSupportedInOrderBy" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The method '{0}' is not supported by the 'orderby' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il metodo '{0}' non è supportato dall'opzione query 'orderby'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_BinaryNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The binary operator '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Operatore binario '{0}' non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CanOnlyApplyOneKeyPredicate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple key predicates cannot be specified for the same entity set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile specificare più predicati chiave per lo stesso set di entità.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CanOnlyProjectTheLeaf" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can only project the last entity type in the query being translated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[È possibile prevedere solo l'ultimo tipo di entità nella query da convertire.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotAddCountOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot add count option to the resource set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere l'opzione count al set di risorse.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotAddCountOptionConflict" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot add count option to the resource set because it would conflict with existing count options.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere l'opzione count al set di risorse perché entrerebbe in conflitto con le opzioni count esistenti.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotConstructKnownEntityTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Construction of entity type instances must use object initializer with default constructor.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Per la costruzione di istanze di tipi di entità è necessario utilizzare l'inizializzatore di oggetto con il costruttore predefinito.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotCreateConstantEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Referencing of local entity type instances not supported when projecting results.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Riferimenti alle istanze di tipi di entità locali non supportati durante la previsione dei risultati.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotProjectWithExplicitExpansion" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot create projection while there is an explicit expansion specified on the same query.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile creare una proiezione quando nella stessa query è specificata un'espansione esplicita.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CannotUseTypeFiltersMultipleTimes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Non-redundant type filters (OfType<T>, C# 'as' and VB 'TryCast') can only be used once per resource set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[I filtri di tipo non ridondante (OfType<T>, C# 'as' e VB 'TryCast') possono essere utilizzati solo una volta per ciascun set di risorse.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddAstoriaQueryOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't add query option '{0}' because it would conflict with the query options from the translated Linq expression.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere l'opzione query '{0}' perché è in conflitto con le opzioni query dell'espressione LINQ convertita.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddDuplicateQueryOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't add duplicate query option '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere l'opzione query duplicata '{0}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddQueryOption" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Custom query option not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Opzione query personalizzata non consentita.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantAddQueryOptionStartingWithDollarSign" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't add query option '{0}' because it begins with reserved character '$'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere l'opzione query '{0}' perché inizia con il carattere riservato '$'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantCastToUnsupportedPrimitive" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't cast to unsupported type '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile eseguire il cast nel tipo non supportato '{0}']]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantExpand" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expand query option not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Opzione di espansione query non consentita.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantNavigateWithoutKeyPredicate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Individual properties can only be selected from a single resource or as part of a type. Specify a key predicate to restrict the entity set to a single instance or project the property into a named or anonymous type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Le singole proprietà possono essere selezionate solo da una singola risorsa o come parte di un tipo. Specificare un predicato chiave per limitare il set di entità a una singola istanza o prevedere la proprietà in un tipo denominato o anonimo.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantReferToPublicField" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Referencing public field '{0}' not supported in query option expression.  Use public property instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Riferimenti al campo pubblico '{0}' non supportati nell'espressione dell'opzione query. Utilizzare la proprietà pubblica.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CantTranslateExpression" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression {0} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressione {0} non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CollectionMemberAccessNotSupportedInNavigation" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Navigation to members of the collection property '{0}' in a 'select' query expression is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La navigazione in membri della proprietà di raccolta '{0}' in un'espressione di query 'select' non è supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CollectionPropertyNotSupportedInOrderBy" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The collection property '{0}' cannot be used in an 'orderby' query expression. Collection properties are not supported by the 'orderby' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La proprietà di raccolta '{0}' non può essere utilizzata in un'espressione di query 'orderby'. Le proprietà di raccolta non sono supportate dall'opzione di query 'orderby'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CollectionPropertyNotSupportedInWhere" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The collection property '{0}' cannot be used in a 'where' query expression. Collection properties are only supported as the source of 'any' or 'all' methods in a 'where' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La proprietà di raccolta '{0}' non può essere utilizzata in un'espressione di query 'where'. Le proprietà di raccolta sono supportate solo come origine dei metodi 'any' o 'all' in un'opzione di query 'where'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ConditionalNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The conditional expression is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressione condizionale non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ConstantNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The constant for '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Costante per '{0}' non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_CouldNotConvert" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Could not convert constant {0} expression to string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile convertire l'espressione {0} costante in stringa.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ExpressionCannotEndWithTypeAs" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unsupported expression '{0}' in '{1}' method. Expression cannot end with TypeAs.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Espressione '{0}' non supportata nel metodo '{1}'. L'espressione non può terminare con TypeAs.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ExpressionNotSupportedInProjection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Constructing or initializing instances of the type {0} with the expression {1} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Costruzione o l'inizializzazione di istanze di tipo {0} con l'espressione {1} non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ExpressionNotSupportedInProjectionToEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Initializing instances of the entity type {0} with the expression {1} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Inizializzazione di istanze del tipo di entità {0} con l'espressione {1} non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_FormatQueryOptionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The '$format' query option is not supported. Use the DataServiceContext.Format property to set the desired format.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'opzione di query '$format' non è supportata. Utilizzare la proprietà DataServiceContext.Format per impostare il formato desiderato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_IllegalPathStructure" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Found a projection as a non-leaf segment in an expand path. Please rephrase your query. The projected property was : '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovata una proiezione come non-leaf segment in un percorso di espansione. Riformulare la query. Proprietà prevista: '{0}']]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[milschk_gg: non-leaf segment is new unapproved term, enter in TS]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";ALinq_IllegalSystemQueryOption" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Found the following illegal system token while building a projection or expansion path: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovato il seguente system token non valido durante la compilazione di una proiezione o di un percorso di espansione: '{0}']]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+        <Notes>
+          <Note Name="Loc" Order="0"><![CDATA[milschk_gg: system token is new unapproved term, enter in TS]]></Note>
+        </Notes>
+      </Item>
+      <Item ItemId=";ALinq_InvalidExpressionInNavigationPath" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression '{0}' is not a valid expression for navigation path. The only supported operations inside the lambda expression body are MemberAccess and TypeAs. The expression must contain at least one MemberAccess and it cannot end with TypeAs.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA['{0}' non è un'espressione valida per il percorso di navigazione. Le uniche operazioni supportate all'interno del corpo dell'espressione lambda sono MemberAccess e TypeAs. L'espressione deve contenere almeno un'operazione MemberAccess e non può terminare con TypeAs.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_InvalidSourceForAnyAll" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The source parameter for the '{0}' method has to be either a navigation or a collection property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Il parametro di origine per il metodo '{0}' deve essere una proprietà di navigazione o una proprietà di raccolta.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The source parameter for the '{0}' method has to be either a navigation or a MultiValue property.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_InvocationNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invocation Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressioni di chiamata non supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_LambdaNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Lambda Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressioni lambda non supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_LinkPropertyNotSupportedInExpression" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' of type 'DataServiceStreamLink' cannot be used in 'where' or 'orderby' query expressions. Properties of type 'DataServiceStreamLink' are not supported by these query options.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile utilizzare la proprietà '{0}' di tipo 'DataServiceStreamLink' nelle espressioni di query 'where' o 'orderby'. Le proprietà di tipo 'DataServiceStreamLink' non sono supportate da queste opzioni query.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ListInitNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[List Init Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressioni di inizializzazione elenchi non supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_MemberAccessNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The member access of '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Accesso ai membri di '{0}' non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_MemberInitNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Member Init Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressioni di inizializzazione membri non supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_MethodNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The method '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Metodo '{0}' non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_NewArrayNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[New Array Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressioni di creazione nuova matrice non supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_NewNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[New Expressions not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressioni di creazione nuovo oggetto non supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_OfTypeArgumentNotAvailable" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The target type for an OfType filter could not be determined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile determinare il tipo di destinazione per un filtro OfType.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ParameterNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The parameter expression is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Espressione per i parametri non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ProjectionCanOnlyHaveOneProjection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot translate multiple Linq Select operations in a single 'select' query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile convertire più operazioni Linq Select in una singola opzione query 'select'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ProjectionMemberAssignmentMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot initialize an instance of entity type '{0}' because '{1}' and '{2}' do not refer to the same source entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile inizializzare un'istanza del tipo di entità '{0}' perché '{1}' e '{2}' non fanno riferimento alla stessa entità di origine.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_ProjectionOnlyAllowedOnLeafNodes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can only specify 'select' query option after last navigation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[È possibile specificare l'opzione query 'select' solo dopo l'ultima navigazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_PropertyNamesMustMatchInProjections" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot assign the value from the {0} property to the {1} property.  When projecting results into a entity type, the property names of the source type and the target type must match for the properties being projected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile assegnare il valore della proprietà {0} alla proprietà {1}. Durante la previsione dei risultati in un tipo di entità, è necessario che i nomi di proprietà del tipo di origine e del tipo di destinazione siano corrispondenti per le proprietà da prevedere.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_QueryOptionOutOfOrder" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The {0} query option cannot be specified after the {1} query option.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile specificare l'opzione query {0} dopo l'opzione query {1}.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_QueryOptionsOnlyAllowedOnLeafNodes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can only specify query options (orderby, where, take, skip) after last navigation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[È possibile specificare solo opzioni query (orderby, where, take, skip) dopo l'ultima navigazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_QueryOptionsOnlyAllowedOnSingletons" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot specify query options (orderby, where, take, skip, count) on single resource.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile specificare le opzioni query (orderby, where, take, skip, count) in una singola risorsa.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TranslationError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error translating Linq expression to URI: {0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante la conversione dell'espressione LINQ in URI: {0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeAsArgumentNotEntityType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' is not an entity type. The target type for a TypeAs operator must be an entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA['{0}' non è un tipo di entità. Il tipo di destinazione per un operatore TypeAs deve essere un tipo di entità.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeAsNotSupportedForMaxDataServiceVersionLessThan3" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression 'TypeAs' is not supported when MaxProtocolVersion is less than '3.0'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'espressione 'TypeAs' non è supportata quando MaxProtocolVersion è minore di '3.0'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeBinaryNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An operation between an expression and a type is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Operazione tra un'espressione e un tipo non supportata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_TypeTokenWithNoTrailingNavProp" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Found an illegal type token '{0}' without a trailing navigation property. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovato un token di tipo '{0}' non valido senza una proprietà di navigazione finale. ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_UnaryNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The unary operator '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Operatore unario '{0}' non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ALinq_UnsupportedExpression" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression type {0} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Tipo di espressione {0} non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_CannotAssignNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The null value from property '{0}' cannot be assigned to a type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile assegnare il valore Null della proprietà '{0}' a un tipo '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_CollectionExpectedCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Materialization of top level collection expected ICollection<>, but actual type was {0}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La materializzazione della raccolta di livello principale prevede un valore ICollection<>, ma il tipo effettivo è {0}.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_DataServiceCollectionNotSupportedForNonEntities" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A DataServiceCollection can only contain entity types. Primitive and complex types cannot be contained by this kind of collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[DataServiceCollection può contenere solo tipi di entità. I tipi primitivi e complessi non possono essere contenuti in questo genere di raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_EntryIntoCollectionMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entry of type '{0}' cannot be added to a collection that contains instances of type '{1}'. This may occur when an existing entry of a different type has the same identity value or when the same entity is projected into two different types in a single query.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere un elemento entry di tipo '{0}' a una raccolta che contiene istanze di tipo '{1}'. Questo problema può verificarsi quando a un elemento entry esistente di tipo diverso è associato lo stesso valore di identità oppure quando la stessa entità viene prevista in due tipi diversi di una singola query.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_EntryToAccessIsNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entry returned by the navigation property '{0}' is null and cannot be initialized. You should check for a null value before accessing this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'elemento entry restituito dalla proprietà di navigazione '{0}' è Null e non può essere inizializzato. Prima di accedere a questa proprietà, verificare se sono presenti valori Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_EntryToInitializeIsNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entry that contains the data required to create an instance of type '{0}' is null and cannot be initialized. You should check for a null value before accessing this entry.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'elemento entry contenente i dati necessari per creare un'istanza di tipo '{0}' è Null e non può essere inizializzato. Prima di accedere a questo elemento entry, verificare se sono presenti valori Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidCollectionItem" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The element '{0}' is not a valid collection item. The name of the collection item element must be 'element' and must belong to the 'http://docs.oasis-open.org/odata/ns/data' namespace.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[L'elemento '{0}' non è un elemento della raccolta valido. Il nome dell'elemento della raccolta deve essere 'element' e deve appartenere allo spazio dei nomi 'http://docs.oasis-open.org/odata/ns/data'.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The element '{0}' is not a valid collection item. The name of the collection item element must be 'element' and must belong to the 'http://schemas.microsoft.com/ado/2007/08/dataservices' namespace.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidContentTypeEncountered" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response content type '{0}' is not currently supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il tipo di contenuto della risposta '{0}' non è al momento supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is a type mismatch between the client and the service. Type '{0}' is an entity type, but the type in the response payload does not represent an entity type. Please ensure that types defined on the client match the data model of the service, or update the service reference on the client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Tipo non corrispondente tra il client e il servizio. Il tipo '{0}' è un tipo di entità, mentre il tipo nel payload di risposta non rappresenta un tipo di entità. Assicurarsi che i tipi definiti nel client corrispondano al modello dati del servizio o aggiornare il riferimento al servizio nel client.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidNonEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is a type mismatch between the client and the service. Type '{0}' is not an entity type, but the type in the response payload represents an entity type. Please ensure that types defined on the client match the data model of the service, or update the service reference on the client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Tipo non corrispondente tra il client e il servizio. Il tipo '{0}' non è un tipo di entità, mentre il tipo nel payload di risposta rappresenta un tipo di entità. Assicurarsi che i tipi definiti nel client corrispondano al modello dati del servizio o aggiornare il riferimento al servizio nel client.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_InvalidResponsePayload" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response payload is a not a valid response payload. Please make sure that the top level element is a valid Atom or JSON element or belongs to '{0}' namespace.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Il payload di risposta non è valido. Verificare che l'elemento di livello principale sia un elemento Atom o JSON valido o che appartenga allo spazio dei nomi '{0}'.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The response payload is a not a valid response payload. Please make sure that the top level element is a valid Atom element or belongs to '{0}' namespace.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_MaterializationTypeError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot materialize the results into a collection type '{0}' because it does not have a parameterless constructor.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile materializzare i risultati in un tipo di raccolta '{0}' poiché questo non dispone di un costruttore senza parametri.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_NoParameterlessCtorForCollectionProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collection property '{0}' cannot be created because the type '{1}' does not have a public parameterless constructor.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile creare la proprietà di raccolta '{0}' perché il tipo '{1}' non dispone di un costruttore pubblico senza parametri.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_ProjectEntityTypeMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entity of type '{0}' cannot be projected because there is already an instance of type '{1}' for '{2}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile prevedere un entità di tipo '{0}' perché esiste già un'istanza di tipo '{1}' per '{2}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_PropertyMissing" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expected property '{0}' could not be found while processing an entry. Check for null before accessing this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Impossibile trovare la proprietà '{0}' prevista durante l'elaborazione di una voce. Prima di accedere a questa proprietà, verificare se sono presenti valori Null.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The expected property '{0}' could not be found while processing the Atom entry '{1}'. Check for null before accessing this property.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_PropertyNotExpectedEntry" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Property '{0}' is not an entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[La proprietà '{0}' non è un'entità.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Property '{0}' of entity '{1}' is not an entity.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_ResetAfterEnumeratorCreationError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Reset should never be called for collection reader in an internal enumerable.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La reimpostazione non deve mai essere chiamata per un lettore di raccolta in un enumerabile interno.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomMaterializer_TypeShouldBeCollectionError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot materialize a collection of a primitives or complex without the type '{0}' being a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile materializzare una raccolta di primitive o complesse senza che il tipo '{0}' sia una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomParser_SingleEntry_ExpectedFeedOrEntry" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected an Atom feed or entry in the response from the server, but found an unexpected element instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Nella risposta dal server era previsto un elemento entry o un feed Atom, mentre è stato trovato un elemento non previsto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomParser_SingleEntry_MultipleFound" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected exactly one Atom entry in the response from the server, but more than one was found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Nella risposta dal server era previsto un solo elemento entry Atom, mentre ne è stato trovato più di uno.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";AtomParser_SingleEntry_NoneFound" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected exactly one Atom entry in the response from the server, but none was found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Nella risposta dal server era previsto un solo elemento entry Atom, mentre non ne è stato trovato nessuno.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_ExpectedContentType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expected content type for a batch requests is "multipart/mixed;boundary=batch" not "{0}".]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo di contenuto previsto per le richieste in un batch è "multipart/mixed;boundary=batch" non "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_ExpectedResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The POST request expected a response with content. ID={0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Risposta con contenuto prevista per la richiesta POST. ID={0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_IncompleteResponseCount" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Not all requests in the batch had a response.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Non tutte le richieste nel batch hanno una risposta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Batch_UnexpectedContent" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The web response contained unexpected sections. ID={0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Sezioni impreviste contenute nella risposta Web. ID={0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientTypeCache_NonEntityTypeCannotContainEntityProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' is of entity type and it cannot be a property of the type '{1}', which is not of entity type.  Only entity types can contain navigation properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA['{0}' è una proprietà del tipo di entità e non può essere una proprietà del tipo '{1}', che non è un tipo di entità. Solo i tipi di entità possono contenere le proprietà di navigazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_Ambiguous" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Resolving type from '{0}' that inherits from '{1}' is ambiguous.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo di risoluzione da '{0}' che eredita da '{1}' è ambiguo.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_CollectionOfCollectionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Collection properties of a collection type are not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Le proprietà di raccolta di un tipo raccolta non sono supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_KeysMustBeSimpleTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The key property '{0}' on for type '{1}' is of type '{2}', which is not a simple type. Only properties of simple type can be key properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[La proprietà chiave '{0}' del tipo '{1}' è di tipo '{2}', che non è un tipo semplice. Solo le proprietà di tipo semplice possono essere proprietà chiave.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[{0} has key properties declared on a non-simple type.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_KeysOnDifferentDeclaredType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0} has key properties declared at different levels within its type hierarchy.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[{0} contiene proprietà della chiave dichiarate a diversi livelli all'interno della relativa gerarchia dei tipi.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingMediaEntryProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' has a MediaEntry attribute that references a property called '{1}'. However, this type does not have a property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il tipo '{0}' contiene un attributo MediaEntry che fa riferimento a una proprietà chiamata '{1}'. Tuttavia, questo tipo non contiene una proprietà '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingMimeTypeDataProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' has a MimeTypeProperty attribute that references the data property '{1}'. However, this type does not have a property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il tipo '{0}' contiene un attributo MimeTypeProperty che fa riferimento alla proprietà di dati '{1}'. Tuttavia, questo tipo non contiene una proprietà '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingMimeTypeProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' has a MimeTypeProperty attribute that references the MIME type property '{1}'. However, this type does not have a property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il tipo '{0}' contiene un attributo MimeTypeProperty che fa riferimento alla proprietà del tipo MIME '{1}'. Tuttavia, questo tipo non contiene una proprietà '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingOpenProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The open object property '{0}:{1}' is not defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Proprietà '{0}:{1}' dell'oggetto aperto non definita.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MissingProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The closed type {0} does not have a corresponding {1} settable property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo chiuso {0} non dispone di una proprietà impostabile {1} corrispondente.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MultipleImplementationNotSupported" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple implementations of ICollection<T> is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Non sono supportate più implementazioni di ICollection<T>.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_MultipleTypesWithSameName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple types were found with the same name '{0}'. Type names must be unique.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Sono stati trovati più tipi con lo stesso nome '{0}'. I nomi dei tipi devono essere univoci.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_NoSettableFields" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' has no settable properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Il tipo complesso '{0}' non contiene proprietà impostabili.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The type '{0}' has no settable properties.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_NullOpenProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The open type property '{0}' returned a null instance.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La proprietà di tipo open '{0}' ha restituito un'istanza Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ClientType_UnsupportedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' is not supported by the client library.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo '{0}' non è supportato dalla libreria client.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Clienttype_MultipleOpenProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0} has multiple definitions for OpenObjectAttribute.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[{0} contiene più definizioni per OpenObjectAttribute.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_CollectionTypesInCollectionOfPrimitiveTypesNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection property of primitive types cannot contain an item of a collection type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Una proprietà di raccolta di tipi primitivi non può contenere un elemento di tipo raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullCollectionItemsNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An item in the collection property has a null value. Collection properties that contain items with null values are not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il valore di un elemento nella proprietà di raccolta è Null. Le proprietà di raccolta che contengono elementi con valori Null non sono supportate.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullCollectionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the property '{0}' is null. Properties that are a collection type of primitive or complex types cannot be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il valore della proprietà '{0}' è Null. Le proprietà raccolta di tipi primitivi o complessi non possono essere Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullCollectionReference" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0}.{1} must return a non-null open property collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[{0}.{1} deve restituire una raccolta di proprietà open non Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_NullNonPropertyCollectionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the collection of item type '{0}' is null. A collection cannot have a null value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il valore della raccolta del tipo di elementi '{0}' è Null. Il valore di una raccolta non può essere Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Collection_PrimitiveTypesInCollectionOfComplexTypesNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection property of complex types cannot contain an item of a primitive type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Una proprietà di raccolta di tipi complessi non può contenere un elemento di tipo primitivo.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Content_EntityIsNotEntityType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation requires the entity to be of an Entity Type, either mark its key properties, or attribute the class with DataServiceEntityAttribute]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Per questa operazione l'entità deve essere di un tipo di entità. Contrassegnarne le proprietà chiave oppure assegnare alla classe l'attributo DataServiceEntityAttribute]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Content_EntityWithoutKey" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation requires the entity be of an Entity Type, and has at least one key property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Per questa operazione l'entità deve essere di un tipo di entità e deve disporre di almeno una proprietà chiave.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AddLinkCollectionOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[AddLink and DeleteLink methods only work when the sourceProperty is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[I metodi AddLink e DeleteLink possono essere utilizzati solo se sourceProperty è una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AddRelatedObjectCollectionOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[AddRelatedObject method only works when the sourceProperty is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il metodo AddRelatedObject può essere utilizzato solo se sourceProperty è una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AddRelatedObjectSourceDeleted" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[AddRelatedObject method only works if the source entity is in a non-deleted state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il metodo AddRelatedObject può essere utilizzato solo se l'origine dell'entità è in uno stato non eliminato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_AsyncAlreadyDone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The asynchronous result has already been completed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Risultato asincrono già completato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BaseUri" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected an absolute, well formed http URL without a query or fragment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Previsto un URL HTTP assoluto in formato corretto senza una query o un frammento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BaseUriRequired" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[You must set the BaseUri property before you perform this operation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Prima di eseguire questa operazione, è necessario impostare la proprietà BaseUri.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BatchExecuteError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An error occurred for this query during batch execution.  See the inner exception for details.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore relativo alla query durante l'esecuzione batch. Per ulteriori informazioni, vedere l'eccezione interna.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BatchNotSupportedForMediaLink" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Saving entities with the [MediaEntry]5D; attribute is not currently supported in batch mode. Use non-batched mode instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Salvataggio di entità con l'attributo [MediaEntry]5D; attualmente non supportato in modalità batch. Utilizzare la modalità non batch.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BatchNotSupportedForNamedStreams" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Changes cannot be saved as a batch when an entity has one or more streams associated with it. Retry the SaveChanges operation without enabling the SaveChangesOptions.BatchWithSingleChangeset and the SaveChangesOptions.BatchWithIndependentOperations options.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[Impossibile salvare le modifiche in batch quando a un'entità sono associati uno o più flussi. Riprovare l'operazione SaveChanges senza abilitare le opzioni SaveChangesOptions.BatchWithSingleChangeset e SaveChangesOptions.BatchWithIndependentOperations.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Changes cannot be saved as a batch when an entity has one or more streams associated with it. Retry the SaveChanges operation without enabling the SaveChangesOptions.Batch and the SaveChangesOptions.BatchWithIndependentOperations options.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BodyOperationParametersNotAllowedWithGet" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[OperationParameter of type BodyOperationParameter cannot be specified when the HttpMethod is set to GET.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile specificare OperationParameter di tipo BodyOperationParameter quando HttpMethod è impostato su GET.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_BothLocationAndIdMustBeSpecified" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response should have both 'Location' and 'OData-EntityId' headers or the response should not have any of these headers.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[La risposta deve contenere sia l'intestazione 'Location' sia 'OData-EntityId' o nessuna delle due.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The response should have both 'Location' and 'DataServiceId' headers or the response should not have any of these headers.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotChangeStateIfAdded" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entity in the 'Added' state cannot be changed to '{0}', it can only be changed to 'Detached'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile modificare un'entità nello stato 'Added' in '{0}'. Può essere modificata solo in 'Detached'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotChangeStateToAdded" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ChangeState method does not support the 'Added' state because additional information is needed for inserts. Use either AddObject or AddRelatedObject instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il metodo ChangeState non supporta lo stato 'Added' perché sono necessarie ulteriori informazioni per gli inserimenti. Utilizzare AddObject o AddRelatedObject.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotChangeStateToModifiedIfNotUnchanged" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity's state can only be changed to 'Modified' if it is currently 'Unchanged'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Lo stato dell'entità può essere modificato solo in 'Modified' se attualmente è 'Unchanged'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_CannotConvertKey" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unable to convert value '{0}' into a key string for a URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile convertire il valore '{0}' in una stringa chiave per un URI.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ChildResourceExists" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Attempt to delete a link between two objects failed because the identity of the target object of the link depends on the source object of the link.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Tentativo di eliminare un collegamento tra due oggetti non riuscito poiché l'identità dell'oggetto di destinazione del collegamento dipende dal relativo oggetto di origine.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ContentTypeRequiredForNamedStream" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ContentType value for a named stream cannot be null or an empty string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il valore ContentType di un flusso denominato non può essere Null o una stringa vuota.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DidNotOriginateAsync" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The current object did not originate the async result.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[L'oggetto corrente non ha generato il risultato asincrono.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DifferentEntityAlreadyContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is already tracking a different entity with the same resource Uri.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il contesto sta già rilevando un'altra entità con lo stesso URI di risorsa.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DuplicateBodyOperationParameterName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple body operation parameters were found with the same name. Body operation parameter names must be unique.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovati più parametri dell'operazione nel corpo con lo stesso nome. I nomi dei parametri dell'operazione nel corpo devono essere univoci.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_DuplicateUriOperationParameterName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Multiple uri operation parameters were found with the same name. Uri operation parameter names must be unique.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovati più parametri dell'operazione nell'URI con lo stesso nome. I nomi dei parametri dell'operazione nell'URI devono essere univoci.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EndExecuteExpectedVoidResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[EndExecute overload for void service operations and actions received a non-void response from the server.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'overload di EndExecute per le operazioni e le azioni del servizio nulle ha ricevuto una risposta non nulla dal server.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityAlreadyContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is already tracking the entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il contesto sta già rilevando l'entità.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityDoesNotContainNamedStream" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity does not have a stream named '{0}'. Make sure that the name of the stream is correct.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'entità non contiene un flusso denominato '{0}'. Assicurarsi che il nome del flusso sia corretto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityMetadataBuilderIsRequired" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An implementation of ODataEntityMetadataBuilder is required, but a null value was returned from GetEntityMetadataBuilder.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Un'implementazione di ODataEntityMetadataBuilder è richiesta, ma un valore Null è stato restituito da GetEntityMetadataBuilder.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityNotContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is not currently tracking the entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il contesto non sta attualmente rilevando l'entità.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntityNotMediaLinkEntry" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation requires that the specified entity be a Media Link Entry and that the ReadStreamUri be available. However, the specified entity either is not a Media Link Entry or does not have a valid ReadStreamUri value. If the entity is a Media Link Entry, re-query the data service for this entity to obtain a valid ReadStreamUri value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Per questa operazione è necessario che l'entità specificata sia un elemento Media Link Entry e che sia disponibile il valore ReadStreamUri. Tuttavia, l'entità specificata non è un elemento Media Link Entry né contiene un valore ReadStreamUri valido. Se l'entità è un elemento Media Link Entry, rieseguire una query sul servizio dati per questa entità per ottenere un valore ReadStreamUri valido.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_EntitySetName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expected a relative URL path without query or fragment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Previsto un percorso URL relativo senza query o frammento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ExecuteExpectedVoidResponse" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Execute overload for void service operations and actions received a non-void response from the server.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'overload di Execute per le operazioni e le azioni del servizio nulle ha ricevuto una risposta non nulla dal server.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ExecuteExpectsGetOrPostOrDelete" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The HttpMethod must be GET, POST or DELETE.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[HttpMethod deve essere impostato su GET, POST o DELETE.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_InternalError" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Microsoft.OData.Client internal error {0}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore interno di Microsoft.OData.Client {0}.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_LinkResourceInsertFailure" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[One of the link's resources failed to insert.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile inserire una delle risorse del collegamento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_LocationHeaderExpectsAbsoluteUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The 'Location' header value specified in the response must be an absolute URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il valore di intestazione 'Location' specificato nella risposta deve essere un URI assoluto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MLEWithoutSaveStream" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity type {0} is marked with MediaEntry attribute but no save stream was set for the entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo di entità {0} è contrassegnato con l'attributo MediaEntry, tuttavia non è stato impostato alcun flusso di salvataggio per l'entità.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MissingOperationParameterName" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Name property of an OperationParameter must be set to a non-null, non-empty string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La proprietà Name di un OperationParameter deve essere impostata su una stringa non vuota e non Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MissingSelfAndEditLinkForNamedStream" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is no self-link or edit-media link for the stream named '{0}'. Make sure that either the self-link or edit-media link is specified for this stream.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Nessun elemento self-link o edit-media link per il flusso denominato '{0}'. Assicurarsi che per questo flusso sia specificato l'elemento self-link o edit-media link.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_MustBeUsedWith" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA['{0}' must be used with '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[È necessario utilizzare '{0}' con '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoContentTypeForMediaLink" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media link object of type '{0}' is configured to use the MIME type specified in the property '{1}'. However, that property's value is null or empty.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Oggetto di collegamento multimediale di tipo '{0}' configurato per l'utilizzo del tipo MIME specificato nella proprietà '{1}'. Il valore della proprietà è tuttavia Null o vuoto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoLoadWithInsertEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context can not load the related collection or reference for objects in the added state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il contesto non è in grado di caricare la raccolta o il riferimento correlato per gli oggetti nello stato Added.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoRelationWithDeleteEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[One or both of the ends of the relationship is in the deleted state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Lo stato di una o entrambe le entità finali della relazione è Deleted.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NoRelationWithInsertEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[One or both of the ends of the relationship is in the added state.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Lo stato di una o entrambe le entità finali della relazione è Added.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NullElementInOperationParameterArray" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameters array contains a null element which is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La matrice di parametri operazione contiene un elemento Null non consentito.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_NullKeysAreNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The serialized resource has a null value in key member '{0}'. Null values are not supported in key members.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La risorsa serializzata ha un valore Null nel membro chiave '{0}'. Valori Null non supportati nei membri chiave.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_OnMessageCreatingReturningNull" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[DataServiceContext.Configurations.RequestPipeline.OnMessageCreating property must not return a null value. Please return a non-null value for this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La proprietà DataServiceContext.Configurations.RequestPipeline.OnMessageCreating non deve restituire un valore null. Restituire un valore non null per questa proprietà.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_OperationCanceled" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation has been canceled.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Operazione annullata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_PropertyNotSupportedForMaxDataServiceVersionGreaterThanX" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' is not supported when MaxProtocolVersion is greater than '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La proprietà '{0}' non è supportata quando MaxProtocolVersion è maggiore di '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RelationAlreadyContained" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The context is already tracking the relationship.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il contesto sta già rilevando la relazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RelationNotRefOrCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The sourceProperty is not a reference or collection of the target's object type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[sourceProperty non è un riferimento o una raccolta del tipo di oggetto della destinazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RequestUriIsRelativeBaseUriRequired" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Because the requestUri is a relative Uri, you must set the BaseUri property on the DataServiceContext.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Poiché requestUri è un URI relativo, è necessario impostare la proprietà BaseUri in DataServiceContext.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_RequestVersionIsBiggerThanProtocolVersion" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The request requires that version {0} of the protocol be used, but the MaxProtocolVersion of the data service context is set to {1}. Set the MaxProtocolVersion to the higher version, and then retry the operation.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Per la richiesta è necessario utilizzare la versione {0} del protocollo, ma MaxProtocolVersion per il contesto del servizio dati è impostato su {1}. Impostare MaxProtocolVersion su una versione superiore, quindi ripetere l'operazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ResolveEntitySetOrBaseUriRequired" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ResolveEntitySet function must return a non-null Uri for the EntitySet '{0}', otherwise you must set the BaseUri property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La funzione ResolveEntitySet deve restituire un URI non Null per EntitySet '{0}', altrimenti è necessario impostare la proprietà BaseUri.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ResolveReturnedInvalidUri" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Uri that is returned by the ResolveEntitySet function must be an absolute, well-formed URL with an "http" or "https" scheme name and without any query strings or fragment identifiers.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'URI restituito dalla funzione ResolveEntitySet deve essere un URI assoluto corretto con un nome schema "http" o "https" e senza alcuna stringa di query o identificatore di frammento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_ResponseVersionIsBiggerThanProtocolVersion" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response version is {0}, but the MaxProtocolVersion of the data service context is set to {1}. Set the MaxProtocolVersion to the version required by the response, and then retry the request. If the client does not support the required protocol version, then upgrade the client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La versione di risposta è {0}, ma MaxProtocolVersion per il contesto del servizio dati è impostato su {1}. Impostare MaxProtocolVersion sulla versione richiesta dalla risposta, quindi ripetere la richiesta. Se il client non supporta la versione di protocollo richiesta, aggiornare il client.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SendingRequestEventArgsNotHttp" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only instances of HttpWebRequest are currently allowed for this property. Other subtypes of WebRequest are not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Per questa proprietà sono attualmente consentite solo istanze di HttpWebRequest. Altri sottotipi di WebRequest non supportati.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SendingRequest_InvalidWhenUsingOnMessageCreating" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[SendingRequest cannot be used in combination with the DataServiceContext.Configurations.RequestPipeline.OnMessageCreating property. Please use SendingRequest2 with DataServiceContext.Configurations.RequestPipeline.OnMessageCreating property instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Impossibile utilizzare SendingRequest in combinazione con la proprietà DataServiceContext.Configurations.RequestPipeline.OnMessageCreating. Usare SendingRequest2 con la proprietà DataServiceContext.Configurations.RequestPipeline.OnMessageCreating.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetLinkReferenceOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[SetLink method only works when the sourceProperty is not a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il metodo SetLink può essere utilizzato solo se sourceProperty non è una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamOnInvalidEntityState" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Calling SetSaveStream on an entity with state '{0}' is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Chiamata a SetSaveStream in un'entità con stato '{0}' non consentita.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamOnMediaEntryProperty" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Can't use SetSaveStream on entity with type {0} which has a media entry property defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile utilizzare SetSaveStream su entità con tipo {0} per le quali è definita una proprietà media entry.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamWithoutEditMediaLink" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is no edit-media link for the entity's media stream. Make sure that the edit-media link is specified for this stream.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Nessun elemento edit-media link per il flusso multimediale dell'entità. Assicurarsi che per questo flusso sia specificato l'elemento edit-media link.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_SetSaveStreamWithoutNamedStreamEditLink" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The stream named '{0}' cannot be modified because it does not have an edit-media link. Make sure that the stream name is correct and that an edit-media link for this stream is included in the entry element in the response.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile modificare il flusso denominato '{0}' poiché non contiene un elemento edit-media link. Assicurarsi che il nome del flusso sia corretto e che sia incluso un elemento edit-media link per questo flusso nell'elemento entry della risposta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_TrackingExpectsAbsoluteUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The identity value specified by either the Atom id element or the OData-EntityId header must be an absolute URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New">
+            <Val><![CDATA[Il valore Identity specificato dall'elemento Atom id o dall'intestazione OData-EntityId deve essere un URI assoluto.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The identity value specified by either the Atom id element or the DataServiceId header must be an absolute URI.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_UnexpectedZeroRawRead" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected result (<= 0) from stream.Read() while reading raw data for this property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Risultato (<= 0) imprevisto da stream.Read() durante la lettura dei dati non elaborati per la proprietà.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_UpdateRelatedObjectNonCollectionOnly" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[UpdateRelatedObject method only works when the sourceProperty is not collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il metodo UpdateRelatedObject può essere utilizzato solo se sourceProperty non è una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Context_VersionNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Response version '{0}' is not supported. The only supported versions are: {1}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Versione '{0}' della risposta non supportata. La uniche versioni supportate sono: {1}.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DSKAttribute_MustSpecifyAtleastOnePropertyName" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[DataServiceKey attribute must specify at least one property name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[L'attributo DataServiceKey deve specificare almeno un nome di proprietà.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_BindingOperation_ArrayItemNotEntity" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A value provided during '{0}' operation on DataServiceCollection is not of an entity type with key.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Un valore specificato durante l'operazione '{0}' su DataServiceCollection non è di un tipo di entità con chiave.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_BindingOperation_ArrayItemNull" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Null values are disallowed during '{0}' operations on DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Valori Null non consentiti durante le operazioni '{0}' su DataServiceCollection.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_BindingOperation_DetachedSource" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add/Update/Delete operation cannot be performed on a child entity, if the parent entity is already detached.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile eseguire le operazioni di aggiunta, aggiornamento o eliminazione su un'entità figlio se l'entità padre è già disconnessa.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_CollectionAssociatedWithMultipleEntities" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track a collection object of type '{0}' failed because the collection object is already being tracked.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Tentativo di rilevare un oggetto raccolta di tipo '{0}' non riuscito perché l'oggetto è già stato sottoposto a rilevamento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_CollectionChangedUnknownActionCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected action '{0}' on the OnCollectionChanged event raised by a collection object of type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Azione '{0}' imprevista nell'evento OnCollectionChanged generato da un oggetto raccolta di tipo '{1}'.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Unexpected action '{0}' on the OnCollectionChanged event raised by DataServiceCollection.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_CollectionPropertySetterValueHasObserver" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Setting an instance of DataServiceCollection to an entity property is disallowed if the instance is already being tracked. Error occurred on property '{0}' for entity type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[L'impostazione di un'istanza di DataServiceCollection su una proprietà di entità non è consentita se il rilevamento dell'istanza è già attivo. Si è verificato un errore nella proprietà '{0}' del tipo di entità '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_ComplexObjectAssociatedWithMultipleEntities" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track a complex object of type '{0}' failed because the complex object is already being tracked.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Tentativo di rilevare un oggetto complesso di tipo '{0}' non riuscito poiché l'oggetto complesso è già stato sottoposto a rilevamento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_DataServiceCollectionArgumentMustHaveEntityType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The DataServiceCollection to be tracked must contain entity typed elements with at least one key property. The element type '{0}' does not have any key property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[La raccolta DataServiceCollection da sottoporre a rilevamento deve contenere elementi di tipo entità con almeno una proprietà chiave. Nessuna proprietà chiave disponibile per il tipo di elemento '{0}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_DataServiceCollectionChangedUnknownActionCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected action '{0}' on the OnCollectionChanged event raised by DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Azione '{0}' imprevista nell'evento OnCollectionChanged generato da DataServiceCollection.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_EntityAlreadyInCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt was made to add entity of type '{0}' to a collection in which the same entity already exists.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Tentativo di aggiungere un'entità di tipo '{0}' a una raccolta in cui la stessa entità esiste già.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_NotifyCollectionChangedNotImpl" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track an entity or complex type failed because the entity or complex type contains a collection property of type '{0}' that does not implement the INotifyCollectionChanged interface.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Tentativo di rilevare un'entità o un tipo complesso non riuscito poiché l'entità o il tipo complesso contiene una proprietà di raccolta di tipo '{0}' che non implementa l'interfaccia INotifyCollectionChanged.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An attempt to track an entity or complex type failed because the entity or complex type contains a MultiValue property of type '{0}' that does not implement the INotifyCollectionChanged interface.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_NotifyPropertyChangedNotImpl" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An attempt to track an entity or complex type failed because the entity or complex type '{0}' does not implement the INotifyPropertyChanged interface.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Tentativo di rilevare un'entità o un tipo complesso non riuscito. L'entità o il tipo complesso '{0}' non implementa l'interfaccia INotifyPropertyChanged.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataBinding_Util_UnknownEntitySetName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Entity set name has not been provided for an entity of type '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Per un'entità di tipo '{0}' non è stato specificato il nome del set di entità.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceClientFormat_LoadServiceModelRequired" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[When you call the UseJson method without a parameter, you must use the LoadServiceModel property to provide a valid IEdmModel instance.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Quando si chiama il metodo UseJson senza un parametro, è necessario utilizzare la proprietà LoadServiceModel per fornire un'istanza valida di IEdmModel.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceClientFormat_ValidServiceModelRequiredForJson" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[To use the JSON format, you must first call DataServiceContext.Format.UseJson() and supply a valid service model.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Per utilizzare il formato JSON, chiamare prima DataServiceContext.Format.UseJson() e fornire un modello di servizio valido.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_CannotDetermineContextFromItems" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The DataServiceContext to which the DataServiceCollection instance belongs could not be determined. The DataServiceContext must either be supplied in the DataServiceCollection constructor or be used to create the DataServiceQuery or QueryOperationResponse object that is the source of the items in the DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile determinare l'oggetto DataServiceContext a cui appartiene l'istanza di DataServiceCollection. L'oggetto DataServiceContext deve essere specificato nel costruttore DataServiceCollection o essere utilizzato per creare l'oggetto DataServiceQuery o QueryOperationResponse che rappresenta l'origine degli elementi di DataServiceCollection.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_CannotStopTrackingChildCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The tracking of DataServiceCollection can not be stopped for child collections.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile arrestare il rilevamento di DataServiceCollection per le raccolte figlio.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_InsertIntoTrackedButNotLoadedCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An item could not be added to the collection. When items in a DataServiceCollection are tracked by the DataServiceContext, new items cannot be added before items have been loaded into the collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile aggiungere un elemento alla raccolta. Quando gli elementi di una raccolta DataServiceCollection vengono rilevati da DataServiceContext, non è possibile aggiungere nuovi elementi finché questi non vengono caricati nella raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_LoadAsyncNoParamsWithoutParentEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The LoadAsync method cannot be called when the DataServiceCollection is not a child collection of a related entity.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Non è possibile chiamare il metodo LoadAsync se DataServiceCollection non è una raccolta figlio di un'entità correlata.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_LoadAsyncRequiresDataServiceQuery" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only a typed DataServiceQuery object can be supplied when calling the LoadAsync method on DataServiceCollection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Quando si chiama il metodo LoadAsync in DataServiceCollection, è possibile specificare solo un oggetto di tipo DataServiceQuery.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_LoadRequiresTargetCollectionObserved" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Target collection for the Load operation must have an associated DataServiceContext.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Alla raccolta di destinazione per l'operazione Load deve essere associato DataServiceContext.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_MultipleLoadAsyncOperationsAtTheSameTime" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A previous LoadAsync operation has not yet completed. You cannot call the LoadAsync method on the DataServiceCollection again until the previous operation has completed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'operazione LoadAsync precedente non è ancora stata completata. Non è possibile chiamare nuovamente il metodo LoadAsync in DataServiceCollection fino al completamento dell'operazione precedente.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceCollection_OperationForTrackedOnly" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This operation is only supported on collections that are being tracked.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[L'operazione è supportata solo per le raccolte sottoposte a rilevamento.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceException_GeneralError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An error occurred while processing this request.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione della richiesta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceQuery_EnumerationNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This target framework does not enable you to directly enumerate over a data service query. This is because enumeration automatically sends a synchronous request to the data service. Because this framework only supports asynchronous operations, you must instead call the BeginExecute and EndExecute methods to obtain a query result that supports enumeration.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Questo framework di destinazione non consente di eseguire l'enumerazione direttamente su una query del servizio dati, in quanto l'enumerazione invia automaticamente una richiesta sincrona al servizio dati. Poiché questo framework supporta solo operazioni asincrone, è necessario chiamare i metodi BeginExecute ed EndExecute per ottenere un risultato di query che supporti l'enumerazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";DataServiceRequest_FailGetCount" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Failed to get the count value from the server.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Impossibile ottenere il valore count dal server.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_Current" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The current value '{1}' type is not compatible with the expected '{0}' type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo '{1}' del valore corrente non è compatibile con il tipo '{0}' previsto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_ExpectingSimpleValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. The XML element contains mixed content.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione del flusso di risposta. L'elemento XML include contenuto misto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_GetEnumerator" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only a single enumeration is supported by this IEnumerable.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Questa interfaccia IEnumerable supporta solo un'unica enumerazione.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MismatchAtomLinkEntryPropertyIsCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Atom payload has an entry and the property '{0}' is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione del flusso di risposta. Il payload Atom contiene un elemento entry e la proprietà '{0}' è una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MismatchAtomLinkFeedPropertyNotCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Atom payload has a feed and the property '{0}' is not a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione del flusso di risposta. Il payload Atom contiene un elemento feed e la proprietà '{0}' non è una raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MismatchAtomLinkLocalSimple" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Atom payload has a link, local object has a simple value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione del flusso di risposta. Il payload Atom contiene un collegamento e l'oggetto locale contiene un valore semplice.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MissingIdElement" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Missing id element in the response.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione del flusso di risposta. Elemento id mancante nella risposta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_MixedTextWithComment" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Element value interspersed with a comment is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Errore durante l'elaborazione del flusso di risposta. Valore dell'elemento frammisto con commento non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_NoLocationHeader" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The response to this POST request did not contain a 'location' header. That is not supported by this client.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[La risposta a questa richiesta POST non contiene un'intestazione 'location'. Condizione non supportata dal client.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Deserialize_ServerException" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error processing response stream. Server failed with following message:]D;]A;{0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Si è verificato un errore durante l'elaborazione del flusso di risposta. Errore del server. Messaggio:]D;]A;{0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_CannotConvertTypeToClrValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A value with primitive kind '{0}' cannot be converted into a primitive object value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile convertire un valore con genere primitivo '{0}' in un valore di oggetto primitivo.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_IncorrectPrimitiveTypeKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incompatible primitive type kinds were found. The type '{0}' was found to be of kind '{2}' instead of the expected kind '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovati tipi primitivi di generi incompatibili. Il tipo '{0}' è del genere '{2}' anziché del genere previsto '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_IncorrectPrimitiveTypeKindNoTypeName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Incompatible primitive type kinds were found. Found type kind '{0}' instead of the expected kind '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovati tipi primitivi di generi incompatibili. Trovato genere del tipo '{0}' anziché il genere previsto '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmValueUtils_UnsupportedPrimitiveType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' was found for a primitive value. In OData, the type '{0}' is not a supported primitive type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Trovato il tipo '{0}' per un valore primitivo. In OData '{0}' non è un tipo primitivo supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EntityDescriptor_MissingSelfEditLink" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity with identity '{0}' does not have a self-link or an edit-link associated with it. Please make sure that the entity has either a self-link or an edit-link associated with it.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'entità con Identity '{0}' non contiene un elemento self-link o edit-link ad essa associato. Assicurarsi che l'entità contenga un elemento self-link o edit-link ad essa associato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";General_InternalError" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An internal error '{0}' occurred.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Errore interno '{0}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_ClosingQuoteNotFound" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value for MIME type parameter '{0}' is incorrect because the closing quote character could not be found while the parameter value started with a quote character.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il valore del parametro '{0}' del tipo MIME non è corretto. Impossibile trovare le virgolette di chiusura corrispondenti alle virgolette di apertura presenti all'inizio del parametro.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_ContentTypeMissing" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Content-Type header value missing.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Valore intestazione Content-Type mancante.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_EncodingNotSupported" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Character set '{0}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Set di caratteri '{0}' non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_EscapeCharAtEnd" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value for MIME type parameter '{0}' is incorrect because it terminated with escape character. Escape characters must always be followed by a character in a parameter value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il valore del parametro '{0}' del tipo MIME non è corretto perché termina con il carattere di escape. In un valore di parametro i caratteri di escape devono sempre essere seguiti da un carattere.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_EscapeCharWithoutQuotes" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value for MIME type parameter '{0}' is incorrect because it contained escape characters even though it was not quoted.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il valore del parametro '{0}' del tipo MIME non è corretto perché contiene caratteri di escape anche se non è racchiuso tra virgolette.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeMissingValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type is missing a parameter value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Valore di parametro mancante per il tipo di supporto.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeRequiresSemicolonBeforeParameter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type requires a ';' character before a parameter definition.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo di supporto richiede un carattere ';' prima di una definizione di parametro.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeRequiresSlash" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type requires a '/' character.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo di supporto richiede un carattere '/'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeRequiresSubType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type requires a subtype definition.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il tipo di supporto richiede una definizione di sottotipo.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HttpProcessUtility_MediaTypeUnspecified" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Media type is unspecified.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Tipo di supporto non specificato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_CollectionKeyNotPresentInLinkTable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The collection is not part of the current entry]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[La raccolta non fa parte dell'elemento entry corrente]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_CountNotPresent" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Count value is not part of the response stream.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Il valore Count non è incluso nel flusso di risposta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_GetNestLinkForFlatCollection" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[This response does not contain any nested collections. Use null as Key instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[La risposta non contiene raccolte annidate. In sostituzione, utilizzare Null come elemento Key.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";MaterializeFromAtom_TopLevelLinkNotAvailable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The top level link is only available after the response has been enumerated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[L'elemento link di livello principale è disponibile solo dopo l'enumerazione della risposta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataMetadataBuilder_MissingEntityInstanceUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Neither the 'OData.EntityInstanceUri' nor the 'OData.EntitySetUriSuffix' annotation was found for entity set '{0}'. One of these annotations is required.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Impossibile trovare le annotazioni 'OData.EntityInstanceUri' e 'OData.EntitySetUriSuffix' per il set di entità '{0}'. Una di queste annotazioni è richiesta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataMetadataBuilder_MissingEntitySetUri" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' doesn't have the 'OData.EntitySetUri' annotation. This annotation is required.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il set di entità '{0}' non ha l'annotazione 'OData.EntitySetUri'. Questa annotazione è richiesta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataMetadataBuilder_MissingSegmentForEntitySetUriSuffix" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' has a URI '{1}' which has no path segments. An entity set URI suffix cannot be appended to a URI without path segments.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il set di entità '{0}' ha un URI '{1}' senza segmenti di percorso. Impossibile aggiungere un suffisso URI di un set di entità a un URI senza segmenti di percorso.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ODataRequestMessage_GetStreamMethodNotSupported" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[GetStream method is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Metodo GetStream non supportato.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";PlatformHelper_DateTimeOffsetMustContainTimeZone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Informazioni relative al fuso orario mancanti nel valore DateTimeOffset '{0}'. Il valore DateTimeOffset deve contenere le informazioni relative al fuso orario.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_InvalidCollectionParamterItemType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameter named '{0}' has a collection item of Edm type kind '{1}'. A collection item must be either a primitive type or a complex Edm type kind.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il parametro dell'operazione denominato '{0}' contiene un elemento della raccolta di genere del tipo Edm '{1}'. Un elemento della raccolta deve essere un tipo primitivo o un genere del tipo Edm complesso.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_InvalidEnumMemberValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The enum type '{0}' has no member named '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il tipo di enumerazione '{0}' non dispone di alcun membro denominato '{1}'.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_InvalidParameterType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameter named '{0}' was of Edm type kind '{1}'. An operation parameter must be either a primitive type, a complex type or a collection of primitive or complex types.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il parametro dell'operazione denominato '{0}' è di genere del tipo Edm '{1}'. Un parametro dell'operazione deve essere un tipo primitivo, un tipo complesso o una raccolta di tipi primitivi o complessi.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_LoopsNotAllowedInComplexTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A circular loop was detected while serializing the property '{0}'. You must make sure that loops are not present in properties that return a collection or complex type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Rilevato un ciclo circolare durante la serializzazione delle proprietà '{0}'. Assicurarsi che i cicli non siano presenti nelle proprietà che restituiscono una raccolta o un tipo complesso.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[A circular loop was detected while serializing the property '{0}'. You must make sure that loops are not present in properties that return a MultiValue or complex type.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_LoopsNotAllowedInNonPropertyComplexTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A circular loop was detected while serializing the complex type '{0}'. You must make sure that loops are not present in a collection or a complex type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Rilevato un ciclo circolare durante la serializzazione del tipo complesso '{0}'. Assicurarsi che i cicli non siano presenti in una raccolta o in un tipo complesso.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[A circular loop was detected while serializing the complex type '{0}'. You must make sure that loops are not present in a MultiValue or a complex type.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_NullCollectionParamterItemValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation parameter named '{0}' has a null collection item. The items of a collection must not be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il parametro dell'operazione denominato '{0}' contiene un elemento della raccolta Null. Gli elementi di una raccolta non devono essere Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_UriDoesNotContainParameterAlias" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The parameter alias '{0}' was not present in the request URI. All parameters passed as alias must be present in the request URI.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Alias del parametro '{0}' non presente nell'URI della richiesta. Tutti i parametri passati come alias devono essere presenti nell'URI della richiesta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Util_EmptyArray" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Empty array.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Matrice vuota.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Util_EmptyString" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Empty string.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Stringa vuota.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Util_NullArrayElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Array contains a null element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[La matrice contiene un elemento Null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDuration" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid duration value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Il valore '{0}' non è un valore di durata valido.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";WebUtil_TypeMismatchInCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An item in the collection property '{0}' is not of the correct type. All items in the collection property must be of the collection item type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Un elemento della proprietà di raccolta '{0}' non è del tipo corretto. Tutti gli elementi della proprietà di raccolta devono essere del tipo di elemento della raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";WebUtil_TypeMismatchInNonPropertyCollection" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection of item type '{0}' has an item which is not of the correct type. All items in the collection must be of the collection item type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[In una raccolta del tipo di elementi '{0}' è presente un elemento di tipo non corretto. Tutti gli elementi della raccolta devono essere del tipo di elemento della raccolta.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="N/A" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft Corporation]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="N/A" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[Microsoft Corporation]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="N/A" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";LegalCopyright" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Copyright (c) Microsoft Corporation. All rights reserved.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[Copyright (c) Microsoft Corporation. Tutti i diritti sono riservati.]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[© Microsoft Corporation.  All rights reserved.]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";LegalTrademarks" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft e Windows sono marchi o marchi registrati di Microsoft Corporation negli Stati Uniti e/o negli altri paesi.]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.OData.Client.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";ProductName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+          <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="8" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+  </Item>
+</LCX>

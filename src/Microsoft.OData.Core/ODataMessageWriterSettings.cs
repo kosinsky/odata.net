@@ -164,6 +164,14 @@ namespace Microsoft.OData
         public ODataVersion? Version { get; set; }
 
         /// <summary>
+        /// Don't serialize null values
+        /// </summary>
+        /// <remarks>
+        /// Default valus is false, that means serialize null values.
+        /// </remarks>
+        public bool IgnoreNullValues { get; set; }
+
+        /// <summary>
         /// Gets the validator corresponding to the validation settings.
         /// </summary>
         internal IWriterValidator Validator { get; private set; }
@@ -177,14 +185,6 @@ namespace Microsoft.OData
         /// Returns whether ThrowOnDuplicatePropertyNames validation setting is enabled.
         /// </summary>
         internal bool ThrowOnDuplicatePropertyNames { get; private set; }
-
-        /// <summary>
-        /// Don't serialize null values
-        /// </summary>
-        /// <remarks>
-        /// Default valus is false, that means serialize null values.
-        /// </remarks>
-        public bool IgnoreNullValues { get; set; }
 
         /// <summary>
         /// Returns whether ThrowOnUndeclaredPropertyForNonOpenType validation setting is enabled.

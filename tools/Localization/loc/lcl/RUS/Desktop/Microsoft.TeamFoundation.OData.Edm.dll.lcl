@@ -1,0 +1,2661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ru-RU" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
+  <Props>
+    <Str Name="CustomName1" Val="Custom 1" />
+    <Str Name="CustomName2" Val="Custom 2" />
+    <Str Name="CustomName3" Val="Custom 3" />
+    <Str Name="CustomName4" Val="Custom 4" />
+    <Str Name="CustomName5" Val="Custom 5" />
+    <Str Name="CustomName6" Val="IQA" />
+  </Props>
+  <OwnedComments>
+    <Cmt Name="Dev" />
+    <Cmt Name="LcxAdmin" />
+    <Cmt Name="Note" />
+    <Cmt Name="Rccx" />
+  </OwnedComments>
+  <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
+  <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+  </Item>
+  <Item ItemId=";Microsoft.OData.Edm.resources" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Str" Expand="true" Disp="true" LocTbl="false" Path=" \ ;Managed Resources \ 0 \ 0" />
+    <Item ItemId=";Strings" ItemType="0" PsrId="211" Leaf="false">
+      <Disp Icon="Str" LocTbl="false" />
+      <Item ItemId=";Annotations_DocumentationPun" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Annotations in the 'Documentation' namespace must implement 'IEdmDocumentation', but '{0}' does not.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В заметках пространства имен "Documentation" должен быть реализован интерфейс "IEdmDocumentation", но он не реализован в "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Annotations_TypeMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Annotation of type '{0}' cannot be interpreted as '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Заметку типа "{0}" нельзя интерпретировать как "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_AmbiguousElementBinding" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The name '{0}' is ambiguous.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Имя "{0}" неоднозначно.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_AmbiguousOperation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' could not be resolved because more than one operation could be used for this application.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось разрешить операцию "{0}", поскольку для этого приложения могло использоваться несколько операций.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_CyclicComplex" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' is invalid because its base type is cyclic.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Сложный тип "{0}" является недопустимым, поскольку его базовый тип является циклическим.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_CyclicEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity '{0}' is invalid because its base type is cyclic.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Сущность "{0}" является недопустимой, поскольку ее базовый тип является циклическим.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_CyclicEntityContainer" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity container '{0}' is invalid because its extends hierarchy is cyclic.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Контейнер сущностей "{0}" является недопустимым, поскольку его расширенная иерархия является циклической.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_OperationParametersDontMatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' could not be resolved because none of the operations with that name take the correct set of parameters.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось разрешить операцию "{0}", поскольку ни одна операция с таким именем не принимает правильный набор параметров.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedComplexType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Сложный тип "{0}" не найден.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedEntityContainer" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity container '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти контейнер сущностей "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedEntitySet" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти набор сущностей "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity type '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти тип сущности "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedEnumMember" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The enum member '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти элемент перечисления "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedEnumType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The enum type '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип перечисления "{0}" не найден.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedLabeledElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The labeled element '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти элемент с меткой "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedNavigationPropertyPath" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A navigation property could not be found for the path '{0}' starting from the type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти свойство навигации для пути "{0}", начинающегося с типа "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedOperation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Операция "{0}" не найдена.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedParameter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The parameter '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти параметр "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedPrimitiveType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The primitive type '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти тип-примитив "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти свойство "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Bad_UnresolvedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' could not be found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти тип "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Constructable_DependentPropertyCountMustMatchNumberOfPropertiesOnPrincipalType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The number of dependent properties must match the number of key properties on the principal entity type. '{0}' principal properties were provided, but {1} dependent properties were provided.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Количество зависимых свойств должно быть таким же, как количество свойств ключа типа сущности участника. Было указано "{0}" свойств участника, но только {1} зависимых свойств.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Constructable_EntityTypeOrCollectionOfEntityTypeExpected" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entity type or a collection of an entity type is expected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Ожидается тип сущности или коллекция типа сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Constructable_TargetMustBeStock" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Navigation target entity type must be '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Целью навигации по типу сущности должен быть "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Constructable_VocabularyAnnotationMustHaveTarget" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The annotation must have non-null target.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Назначение заметки не может иметь значение NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_CannotSpecifyNullableAttributeForNavigationPropertyWithCollectionType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The 'Nullable' attribute cannot be specified for a navigation property with collection type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "Nullable" нельзя задать для свойства навигации с типом коллекции.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidAlias" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The alias '{0}' is not a valid simple name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Псевдоним "{0}" не является допустимым простым именем.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidCastExpressionIncorrectNumberOfOperands" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Cast expression must contain 1 operand.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Выражение Cast должно содержать 1 операнд.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidDeleteAction" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The delete action '{0}' is not valid. Action must be: 'None', 'Cascade', or 'Restrict'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое действие удаления "{0}". Действие должно иметь значение "None", "Cascade" или "Restrict".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidEndRoleInRelationshipConstraint" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is no Role with name '{0}' defined in relationship '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В связи "{1}" не определена роль с именем "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidEntitySetPath" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA['{0}' is not a valid entity set path.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA["{0}" не является допустимым путем к набору сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidEntitySetPathWithUnboundAction" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The {0} '{1}' is invalid. The entitySetPath value is not allowed when IsBound attribute is false.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[{0} "{1}" недопустим. Значение entitySetPath недопустимо, если атрибут IsBound имеет значение false.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidEnumMemberPath" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA['{0}' is not a valid enum member path.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA["{0}" не является допустимым путем к элементу перечисления.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidIfExpressionIncorrectNumberOfOperands" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[If expression must contain 3 operands, the first being a boolean test, the second being being evaluated if the first is true, and the third being evaluated if the first is false.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Выражение If должно содержать 3 операнда, первый из которых представляет логическое условие, второй вычисляется, если первый имеет значение true, а третий вычисляется, если первый имеет значение false.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidIsTypeExpressionIncorrectNumberOfOperands" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The IsType expression must contain 1 operand.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Выражение IsType должно содержать 1 операнд.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidLabeledElementExpressionIncorrectNumberOfOperands" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The LabeledElement expression must contain 1 operand.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Выражение LabeledElement должно содержать 1 операнд.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidMultiplicity" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The multiplicity '{0}' is not valid. Multiplicity must be: '*', '0..1', or '1'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое количество элементов "{0}". Количество элементов должно иметь значение "*", "0..1" или "1".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidQualifiedName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The qualified name '{0}' is invalid. A qualified name must have a valid namespace or alias, and a valid name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое полное имя "{0}". Полное имя должно содержать допустимое пространство имен или псевдоним и допустимое имя.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_InvalidTypeName" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type name '{0}' is invalid. The type name must be that of a primitive type, a fully qualified name or an inline 'Collection' or 'Ref' type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое имя типа "{0}". Имя типа должно быть именем типа-примитива, полным именем либо встроенным типом "Collection" или "Ref".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_MetadataDocumentCannotHaveMoreThanOneEntityContainer" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Metadata document cannot have more than one entity container.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Документ метаданных не может иметь несколько контейнеров сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_MissingTypeAttributeOrElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An XML attribute or sub-element representing an EDM type is missing.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Отсутствует XML-атрибут или вложенный элемент, представляющий тип модели EDM.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_NoReadersProvided" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A model could not be produced because no XML readers were provided.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось создать модель, поскольку не указаны модули чтения XML.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_NullXmlReader" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A model could not be produced because one of the XML readers was null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось создать модель, поскольку один из модулей чтения XML имеет значение NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_ReferentialConstraintRequiresOneDependent" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Referential constraints requires one dependent role. Multiple dependent roles were specified for this referential constraint.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Для справочных ограничений необходима одна зависимая роль. Для этого справочного ограничения задано несколько зависимых ролей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlParser_ReferentialConstraintRequiresOnePrincipal" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Referential constraints requires one principal role. Multiple principal roles were specified for this referential constraint.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Для справочных ограничений необходима одна основная роль. Для этого справочного ограничения задано несколько основных ролей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlSemantics_DuplicateAlias" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The schema '{0}' contains the alias '{1}' more than once.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[В схему "{0}" псевдоним "{1}" входит более одного раза.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlSemantics_EnumMemberMustHaveValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The enumeration member must have a value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Член перечисления должен иметь значение.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlSemantics_ImpossibleAnnotationsTarget" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The annotation target '{0}' could not be resolved because it cannot refer to an annotatable element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось разрешить назначение заметки "{0}", поскольку невозможна ссылка на элемент, поддерживающий заметки.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";CsdlSemantics_ReferentialConstraintMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There was a mismatch in the principal and dependent ends of the referential constraint.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Возникло несовпадение основного и зависимого концов справочного ограничения.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[There was a mismatch in the principle and dependant ends of the referential constraint.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Date_InvalidAddedOrSubtractedResults" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The added or subtracted value results in an un-representable Date.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Прибавление или вычитание значения приводит к непредставимому значению Date.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Date_InvalidCompareToTarget" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Target object '{0}' is not an instance with type of Date.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Целевой объект "{0}" не является экземпляром с типом Date.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Date_InvalidDateParameters" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Year '{0}', Month '{1}' and Day '{2}' parameters describe an un-representable Date.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Параметры года "{0}", месяца "{1}" и дня "{2}" описывают непредставимую дату.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Date_InvalidParsingString" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[String '{0}' was not recognized as a valid Date.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Строка "{0}" не является допустимым значением Date.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmEntityContainer_CannotUseElementWithTypeNone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An element with type 'None' cannot be used in an entity container.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Элемент типа "None" нельзя использовать в контейнере сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_CannotAddMoreThanOneEntityContainerToOneEdmModel" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot add more than one entity container to an edm model.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[К модели EDM нельзя добавить несколько контейнеров сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_CannotUseElementWithTypeNone" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An element with type 'None' cannot be used in a model.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Элемент типа "None" нельзя использовать в модели.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_AmbiguousType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The named type '{0}' is ambiguous from the model being validated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Именованный тип "{0}" неоднозначен в проверяемой модели.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BadNavigationPropertyCouldNotDetermineType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property type could not be determined from the role '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось определить тип свойства навигации в роли "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BadNavigationPropertyRolesCannotBeTheSame" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property '{0}'is not valid. The from role and to role are the same.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое свойство навигации "{0}". Исходная роль совпадает с конечной.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BadNavigationPropertyUndefinedRole" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property '{0}' is not valid. The role '{1}' is not defined in relationship '{2}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое свойство навигации "{0}". Роль "{1}" не определена в связи "{2}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BaseTypeMustHaveSameTypeKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The base type kind of a structured type must be the same as its derived type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Базовый тип структурированного типа должен совпадать с производным типом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BaseTypeOfOpenTypeMustBeOpen" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The base type of open type '{0}' is not open type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Базовый тип открытого типа "{0}" не является открытым.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BinaryConstantLengthOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the binary constant is '{0}' characters long, but the max length of its type is '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение двоичной константы имеет длину "{0}" символов, однако максимальная длина для ее типа равна "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BoundFunctionOverloadsMustHaveSameReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The bound function overload '{0}' does not have the same return type as other function overloads. Expected type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Перегрузка связанной функции "{0}" имеет тип возвращаемого значения, который отличается от типа других перегрузок функций. Ожидаемый тип: "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_BoundOperationMustHaveParameters" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Bound operation '{0}' must have at least one parameter.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Связанная операция "{0}" должна иметь как минимум один параметр.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_CannotAssertNullableTypeAsNonNullableType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot assert the nullable type '{0}' as a non-nullable type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Невозможно предположить допускающий значение NULL тип "{0}" в качестве типа, не допускающего значений NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_CannotInferEntitySetWithMultipleSetsPerType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The association set '{0}' must specify an entity set for the role '{2}' because there are multiple entity sets for the role type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Набор ассоциаций "{0}" должен определять набор сущностей для роли "{2}", так как для типа роли "{1}" имеется несколько наборов сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_CollectionExpressionNotValidForNonCollectionType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A collection expression is incompatible with a non-collection type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Выражение коллекции несовместимо с типом, который не является типом коллекции.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ComplexTypeMustHaveProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' is invalid. A complex type must contain at least one property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Сложный тип "{0}" недопустим. Сложный тип должен содержать хотя бы одно свойство.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DeclaringTypeMustBeCorrect" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' cannot belong to a type other than its declaring type. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Свойство "{0}" может принадлежать только своему объявляющему типу. ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DependentPropertiesMustBelongToDependentEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The dependent property '{0}' must belong to the dependent entity '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Зависимое свойство "{0}" должно принадлежать зависимой сущности "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicateAnnotation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The annotated element '{0}' has multiple annotations with the term '{1}' and the qualifier '{2}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[У элемента с заметкой "{0}" имеется несколько заметок с термином "{1}" и квалификатором "{2}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicateDependentProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The dependent property '{0}' of navigation property '{1}' is a duplicate.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Повторяющееся зависимое свойство "{0}" свойства навигации "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicateEndName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An end with the name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Элемент с именем "{0}" уже определен.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicateEntityContainerMemberName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Each member name in an EntityContainer must be unique. A member with name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Имя каждого элемента в классе EntityContainer должно быть уникальным. Элемент с именем "{0}" уже определен.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicateEntityContainerName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Each entity container name in a function must be unique. The name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Имя каждого из контейнеров сущностей в функции должно быть уникальным. Имя "{0}" уже определено.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicateNavigationPropertyMapping" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' should have only a single mapping for the property '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[У набора сущностей "{0}" должно быть только одно сопоставление для свойства "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_DuplicatePropertyNameSpecifiedInEntityKey" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The key specified in entity type '{0}' is not valid. Property '{1}' is referenced more than once in the key element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В типе сущности "{0}" указан недопустимый ключ. Ключевой элемент несколько раз ссылается на свойство "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ElementDirectValueAnnotationFullNameMustBeUnique" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An element already has a direct annotation with the namespace '{0}' and name '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[У элемента уже есть прямая аннотация с пространством имен "{0}" и именем "{1}".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[An element already has a direct value annotation with the namespace '{0}' and name '{1}'.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EndNameAlreadyDefinedDuplicate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Each name and plural name in a relationship must be unique. '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Каждое имя и имя во множественном числе в связи должны быть уникальными. "{0}" уже определено.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Each name and plural name in a relationship must be unique. '{0}' was already defined.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EndWithManyMultiplicityCannotHaveOperationsSpecified" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property '{0}' cannot have 'OnDelete' specified since its multiplicity is '*'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В свойстве навигации "{0}" нельзя указывать "OnDelete", поскольку количество элементов равно "*".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EntityContainerElementMustNotHaveKindOfNone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An entity container element without other errors must not have kind of none. The kind of entity container element '{0}' is none.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Элемент контейнера сущностей без других ошибок не должен иметь тип "none". Тип элемента контейнера сущностей "{0}" - "none".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EntityKeyMustBeScalar" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}' in entity type '{1}' is not valid. All properties that are part of the entity key must be of primitive type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое свойство "{0}" в типе сущности "{1}". Все свойства, являющиеся частью ключа сущности, должны иметь тип-примитив.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EntitySetCanOnlyBeContainedByASingleNavigationProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set '{0}' is invalid because it is contained by more than one navigation property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Набор сущностей "{0}" недопустим, так как он содержится более чем в одном свойстве навигации.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EntitySetRecursiveNavigationPropertyMappingsMustPointBackToSourceEntitySet" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Because the navigation property '{0}' is recursive, the mapping from the entity set '{1}' must point back to itself.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Поскольку свойство навигации "{0}" рекурсивно, сопоставление из набора сущностей "{1}" должно указывать само на себя.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EntitySetTypeMustBeCollectionOfEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' of the entity set '{1}' is not valid, it must be collection of entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Тип "{0}" набора сущностей "{1}" является недопустимым; он должен быть коллекцией типа сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EnumMemberNameAlreadyDefined" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Each member name of an enum type must be unique. Enum member name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Имя каждого из элементов типа перечисления должно быть уникальным. Имя элемента Enum "{0}" уже определено.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Each member name of an enum type must be unique. Enum member name '{0}' was already defined.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EnumMemberValueOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of enum member '{0}' exceeds the range of its underlying type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Значение члена перечисления "{0}" выходит за диапазон базового типа.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_EnumMustHaveIntegralUnderlyingType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The underlying type of '{0}' is not valid. The underlying type of an enum type must be an integral type. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Базовый тип для "{0}" недопустим. Базовым типом для типа перечисления должен быть интегральный тип. ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ExpressionNotValidForTheAssertedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type of the expression is incompatible with the asserted type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип выражения несовместим с объявляемым типом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ExpressionPrimitiveKindCannotPromoteToAssertedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot promote the primitive type '{0}' to the specified primitive type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Невозможно повысить уровень примитивного типа "{0}" до указанного примитивного типа "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ExpressionPrimitiveKindNotValidForAssertedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The primitive expression is not compatible with the asserted type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Примитивное выражение несовместимо с объявляемым типом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_FunctionImportWithParameterShouldNotBeIncludedInServiceDocument" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The function import '{0}' should not be included in service document because it has parameter.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт функции "{0}" нельзя включать в документ службы, так как у нее есть параметр.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_FunctionMustHaveReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The function '{0}' must specify a return type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Функция "{0}" должна указывать тип возвращаемого значения.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InaccessibleTarget" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The target '{0}' could not be found from the model being validated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Целевой объект "{0}" не найден в проверяемой модели.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InaccessibleTerm" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The term '{0}' could not be found from the model being validated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Термин "{0}" не найден в проверяемой модели.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InaccessibleType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The named type '{0}' could not be found from the model being validated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось найти именованный тип "{0}" в проверяемой модели.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_IncorrectNumberOfArguments" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The function application provides '{0}' arguments, but the function '{1}' expects '{2}' arguments.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Приложение функции предоставляет "{0}" аргументов, однако число ожидаемых функцией "{1}" аргументов равно "{2}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_IntegerConstantValueOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the integer constant is out of range for the asserted type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение целочисленной константы выходит за границы диапазона утверждаемого типа.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidComplexTypeAbstract" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' is marked as abstract. Abstract complex types are only supported in version 1.1 EDM models.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Сложный тип "{0}" помечен как абстрактный. Абстрактные сложные типы поддерживаются только в моделях EDM версии 1.1.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidComplexTypePolymorphic" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The complex type '{0}' has a base type specified. Complex type inheritance is only supported in version 1.1 EDM models.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В сложном типе "{0}" задан базовый тип. Наследование сложных типов поддерживается только в моделях EDM версии 1.1.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidElementAnnotationMismatchedTerm" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The declared name and namespace of the annotation must match the name and namespace of its xml value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Заявленное название и пространство имен заметки должны совпадать с именем и пространством имен его XML-значения.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The annotation cannot be an element annotation because the element does not match the term of the annotation.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidElementAnnotationNotIEdmStringValue" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of an annotation marked to be serialized as an xml element must be IEdmStringValue.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Значение заметки, отмеченное для сериализации как XML-элемент, должно иметь значение IEdmStringValue.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The annotation cannot be an element annotation because its value is not an IEdmStringValue.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidElementAnnotationNullNamespaceOrName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of an annotation marked to be serialized as an xml element must be a string representing an xml element with non-empty name and namespace.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение заметки, отмеченное для сериализации как XML-элемент, должно быть строкой, содержащей XML-элемент с непустыми именем и пространством имен.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidElementAnnotationValueInvalidXml" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of an annotation marked to be serialized as an xml element must have a well-formed xml value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение заметки, отмеченное для сериализации как XML-элемент, должно иметь значение XML-документа правильного формата.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathInvalidTypeCastSegment" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment that doesn't derive from the entity type '{2}' for type segment '{3}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" имеет недопустимое значение. Путь "{1}" имеет сегмент приведения типа, который не является производным от типа сущности "{2}" для сегмента типа "{3}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathMissingBindingParameterName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' has an invalid value. The path doesn't contain the binding parameter name.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" имеет недопустимое значение. Путь не содержит имени параметра привязки.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathTypeCastSegmentMustBeEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment '{2}' that is not an entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" имеет недопустимое значение. Путь "{1}" имеет сегмент приведения типа "{2}", который не является типом сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathUnknownNavigationProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a navigation property segment '{2}' that is unknown.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" имеет недопустимое значение. Путь "{1}" имеет сегмент свойства навигации "{2}", который является неизвестным.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathUnknownTypeCastSegment" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment '{2}' that cannot be found in the model.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" имеет недопустимое значение. Путь "{1}" имеет сегмент приведения типа "{2}", который отсутствует в модели.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathWithFirstPathParameterNotMatchingFirstParameterName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' is invalid. The first item of the path '{2}' is '{3}' which does not match the first parameter name {3}. The first segment of the entity set path is required to be the name of the first parameter.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" недопустим. Первым элементом пути "{2}" является "{3}", который не соответствует имени первого параметра {3}. Первым сегментом пути набора сущностей должно быть имя первого параметра.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidEntitySetPathWithNonEntityBindingParameter" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a binding parameter that references a type '{2}' that is not an entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Атрибут "{0}" имеет недопустимое значение. Путь "{1}" имеет параметр привязки, ссылающийся на тип "{2}", который не является типом сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidKeyKeyDefinedInBaseClass" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The key usage is not valid. '{0}' cannot define keys because one of its base classes '{1}' defines keys.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое использование ключа. "{0}" не может определять ключи, поскольку их определяет один из его базовых классов "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidKeyNullablePart" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The key part '{0}' for type '{1}' is not valid. All parts of the key must be non nullable.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимая часть ключа "{0}" для типа "{1}". Ни одна часть ключа не может допустить значение null.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidMemberNameMatchesTypeName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The member name '{0}' cannot be used in a type with the same name. Member names cannot be the same as their enclosing type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Имя элемента "{0}" не может использоваться в типе с тем же именем. Имена элементов не могут совпадать с содержащим их типом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidMultiplicityOfDependentEndMustBeMany" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The multiplicity of the dependent end '{0}' is not valid. Because the dependent properties don't represent the dependent end key, the the multiplicity of the dependent end must be '*'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Недопустимая кратность элементов зависимого конца "{0}". Так как зависимые свойства не представляют ключ зависимого конца, количество элементов зависимого конца должно быть кратно "*".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidMultiplicityOfDependentEndMustBeZeroOneOrOne" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The multiplicity of the dependent end '{0}' is not valid. Because the dependent properties represent the dependent end key, the multiplicity of the dependent end must be '0..1' or '1'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Недопустимая кратность элементов зависимого конца "{0}". Так как зависимые свойства представляют ключ зависимого конца, количество элементов зависимого конца должно быть кратно "0..1" или "1".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidMultiplicityOfPrincipalEndDependentPropertiesAllNonnullable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Because all dependent properties of the navigation '{0}' are non-nullable, the multiplicity of the principal end must be '1'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Поскольку все зависимые свойства навигации "{0}" не допускают значения NULL, основной элемент должен иметь кратность "1".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are non-nullable, the multiplicity of the principal end must be '1'.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidMultiplicityOfPrincipalEndDependentPropertiesAllNullable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Because all dependent properties of the navigation '{0}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Поскольку все зависимые свойства навигации "{0}" допускают значения NULL, основной элемент должен иметь кратность "0-1".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidNavigationPropertyType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type of the navigation property '{0}' is invalid. The navigation target type must be an entity type or a collection of entity type. The navigation target entity type must match the declaring type of the partner property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Недопустимый тип свойства навигации "{0}". Тип цели перехода должен быть типом сущности или коллекцией типа сущности. Тип сущности цели перехода должен совпадать с объявляющим типом свойства участника.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The type of the navigation property '{0}' is invalid. Only entity type or a collection of entity type is valid for a navigation property.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidOperationMultipleEndsInAssociation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An on delete action can only be specified on one end of an association.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Действие при удалении можно задавать только в одном элементе ассоциации.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidPropertyInRelationshipConstraintDependentEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[There is no property with name '{0}' defined in the type referred to by role '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В типе, на который ссылается роль "{1}", не определено свойство с именем "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidPropertyInRelationshipConstraintPrimaryEnd" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The principal end properties in the referential constraint of the association '{0}' do not match the key of the type referred to by role '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Свойства основного конца в справочном ограничении ассоциации "{0}" не соответствуют ключу типа, на который ссылается роль "{1}".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[There is no property with name '{0}' referenced in the key of the type referred to by role '{1}'.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_InvalidPropertyType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A property cannot be of type '{0}'. The property type must be a complex, a primitive, an enum or an untyped type, or a collection of complex, primitive, or enum types.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Свойство не может иметь тип "{0}". Свойство должно иметь сложный тип, тип-примитив, тип перечисления, быть нетипизированным либо являться коллекцией сложных типов, типов-примитивов или типов перечисления.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[A property cannot be of type '{0}'. The property type must be a complex, a primitive or an enum type, or a collection of complex, primitive, or enum types.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_IsUnboundedCannotBeTrueWhileMaxLengthIsNotNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The string reference is invalid because if 'IsUnbounded' is true 'MaxLength' must be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Ссылка на строку недопустима, поскольку, если параметр "IsUnbounded" равен true, параметр "MaxLength" должен иметь значение NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_KeyMissingOnEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity type '{0}' has no key defined. Define the key for this entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В типе сущности "{0}" не определен ключ. Определите ключ для этого типа сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_KeyPropertyMustBelongToEntity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The key property '{0}' must belong to the entity '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Свойство ключа "{0}" должно принадлежать сущности "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_MaxLengthOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Max length can range from 1 to 2^31.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Максимальная длина может иметь значение от 1 до 2^31.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_MismatchNumberOfPropertiesinRelationshipConstraint" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The number of properties in the dependent and principal role in a relationship constraint must be exactly identical.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Количества свойств в зависимой и основной роли в ограничении связи должны точно совпадать.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ModelDuplicateBoundActions" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The bound action '{0}' is a duplicate of other bound actions. For bound actions the combination of the namespace, name, and binding parameter type uniquely identifies an bound action.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Связанное действие "{0}" является повторением других связанных действий. Сочетание пространства имен, имени и типа параметра привязки уникальным образом определяет связанное действие.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ModelDuplicateBoundFunctionParameterNames" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and unordered set of parameter names uniquely identifies a bound function.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Связанная функция "{0}" является повторением других связанных функций. Сочетание пространства имен, имени, типа параметра привязки и неупорядоченного набора имен параметров уникальным образом определяет связанную функцию.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ModelDuplicateBoundFunctionParameterTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and ordered set of parameter types uniquely identifies a bound function.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Связанная функция "{0}" является повторением других связанных функций. Сочетание пространства имен, имени, типа параметра привязки и упорядоченного набора типов параметров уникальным образом определяет связанную функцию.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ModelDuplicateUnBoundActions" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The unbound action '{0}' is a duplicate of other unbound actions. For unbound actions the combination of the namespace, and name uniquely identifies an unbound action.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Несвязанное действие "{0}" является повторением других несвязанных действий. Сочетание пространства имен и имени уникальным образом определяет несвязанное действие.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ModelDuplicateUnBoundFunctionsParameterNames" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and unordered set of parameter names uniquely identifies an unbound function.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Несвязанная функция "{0}" является повторением других несвязанных функций. Сочетание пространства имен, имени и неупорядоченного набора имен параметров уникальным образом определяет несвязанную функцию.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ModelDuplicateUnBoundFunctionsParameterTypes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and ordered set of parameter types uniquely identifies an unbound function.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Несвязанная функция "{0}" является повторением других несвязанных функций. Сочетание пространства имен, имени и упорядоченного набора типов параметров уникальным образом определяет несвязанную функцию.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationMappingMustBeBidirectional" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The binding of the entity set or singleton '{0}' on navigation property '{1}' is invalid, the binding of bidirectional navigation property must be bidirectional if specified. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Привязка набора сущностей или одинарного элемента "{0}" к свойству навигации "{1}" недопустима, привязка двустороннего свойства навигации должна быть двусторонней, если это указано. ]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The mapping of the entity set or singleton '{0}' and navigation property '{1}' is invalid because the navigation property mapping must have a mapping with the navigation property's partner that points back to the originating entity set or singleton. ]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyEntityMustNotIndirectlyContainItself" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property '{0}' is invalid because it indirectly contains itself.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Свойство навигации "{0}" является недопустимым, поскольку оно косвенно содержит само себя.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyMappingMustPointToValidTargetForProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set or singleton '{1}' is not a valid destination for the navigation property '{0}' because it cannot hold an element of the target entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Набор сущностей или одинарный элемент "{1}" не является допустимым назначением для свойства навигации "{0}", поскольку не может содержать элемент целевого типа сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyOfCollectionTypeMustNotTargetToSingleton" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property mapping '{0}' is invalid because its type is collection but target to a singleton '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Сопоставление свойства навигации "{0}" является недопустимым, поскольку его тип является коллекцией, но нацелен на одинарный элемент "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyPrincipalEndMultiplicityUpperBoundMustBeOne" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The principal navigation property '{0}' has an invalid multiplicity. Valid values for the multiplicity of a principal end are '0..1' or '1'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Недопустимая кратность элементов в основном свойстве навигации "{0}". Допустимые значения кратности элементов для основного конца: "0..1" и "1".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyWithNonRecursiveContainmentSourceMustBeFromOne" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is not the same as the target entity type, then the property represents a non-recursive containment and the multiplicity of the navigation source must be exactly one.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое исходное количество элементов для свойства навигации "{0}". Если в свойстве навигации параметр "ContainsTarget" имеет значение true, а объявляющий тип сущности свойства не совпадает с целевым типом сущности, то свойство представляет нерекурсивное включение и количество элементов в источнике навигации должно быть равно единице.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyWithRecursiveContainmentSourceMustBeFromZeroOrOne" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and the multiplicity of the navigation source must be zero or one.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое исходное количество элементов для свойства навигации "{0}". Если в свойстве навигации параметр "ContainsTarget" имеет значение true, а объявляющий тип сущности свойства совпадает с целевым типом сущности или наследует его, то свойство представляет рекурсивное включение и количество элементов в источнике навигации должно быть равно нулю или единице.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationPropertyWithRecursiveContainmentTargetMustBeOptional" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The target multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and it must have an optional target represented by a collection or a nullable entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое целевое количество элементов для свойства навигации "{0}". Если в свойстве навигации параметр "ContainsTarget" имеет значение true, а объявляющий тип сущности свойства совпадает с целевым типом сущности или наследует его, то свойство представляет рекурсивное включение и должно содержать дополнительную цель, представляемую коллекцией типов сущности или типом сущности, допускающим значение NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NavigationSourceTypeHasNoKeys" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The entity set or singleton '{0}' is based on type '{1}' that has no keys defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Набор сущностей или одинарный элемент "{0}" основан на типе "{1}", для которого не задано ключей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NoEntitySetsFoundForType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The association set '{0}' cannot assume an entity set for the role '{2}' because there are no entity sets for the role type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Набор ассоциаций "{0}" не может предполагать использование набора сущностей для роли "{2}", так как для типа роли "{1}" отсутствуют наборы сущностей.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_NullCannotBeAssertedToBeANonNullableType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Null value cannot have a non-nullable type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение NULL не может иметь тип, не допускающий значения NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OpenTypesSupportedForEntityTypesOnly" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Only entity types can be open types.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Только типы сущностей могут быть открытыми типами.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationCannotHaveEntitySetPathWithUnBoundOperation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The unbound operation '{0}' has an entity set path defined. Entity set path can only be defined on bound operations.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Несвязанной операции "{0}" задан путь набора сущностей. Путь набора сущностей может задаваться только для связанных операций.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationImportCannotImportBoundOperation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' imports operation '{1}' that is bound. Only an unbound operation can be imported using an operation import.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт операции "{0}" импортирует операцию "{1}", которая связана. Импортировать с помощью импорта операции можно только несвязанные операции.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationImportEntitySetExpressionIsInvalid" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' specifies an entity set expression which is not valid. Operation import entity set expression can be either an entity set reference or a path starting with a operation import parameter and traversing navigation properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт операции "{0}" указывает выражение набора сущностей, которое является недопустимым. Выражение набора сущностей импорта операции может быть либо ссылкой на набор сущностей, либо путем, который начинается с параметра импорта операции и проходит по свойствам навигации.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationImportEntitySetExpressionKindIsInvalid" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' specifies an entity set of kind '{1}' which is not supported in this context. Operation import entity set expression can be either an entity set reference or a path starting with a operation import parameter and traversing navigation properties.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт операции "{0}" задает набор сущностей типа "{1}", неподдерживаемый в этом контексте. Выражение набора сущностей импорта операции может быть либо ссылкой на набор сущностей, либо путем, который начинается с параметра импорта операции и проходит по свойствам навигации.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationImportEntityTypeDoesNotMatchEntitySet" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' returns entities of type '{1}' that cannot exist in the entity set '{2}' specified for the operation import.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт операции "{0}" возвращает сущности типа "{1}", которые не могут присутствовать в наборе сущностей "{2}", указанном для импорта операции.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationImportEntityTypeDoesNotMatchEntitySet2" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' returns entities of type '{1}' that cannot be returned by the entity set path specified for the operation import.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт операции "{0}" возвращает сущности типа "{1}", которые не могут возвращаться путем набора сущностей, указанным для импорта операции.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationImportSpecifiesEntitySetButNotEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' specifies an entity set but does not return entities.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Импорт операции "{0}" задает набор сущностей, но не возвращает сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationWithEntitySetPathAndReturnTypeTypeNotAssignable" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' entity set path determined entity type '{1}' is not assignable to the return type '{2}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Путь набора сущностей операции "{0}", определенный типом сущности "{1}", не может назначаться типу возвращаемого значения "{2}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationWithEntitySetPathResolvesToCollectionEntityTypeMismatchesEntityTypeReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' entity set path was determined to be a reference property but the return type is a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В качестве свойства ссылки был определен путь набора сущностей операции "{0}", но типом возвращаемого значения является коллекция.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationWithEntitySetPathResolvesToEntityTypeMismatchesCollectionEntityTypeReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' entity set path was determined to be a collection but the return type is not a collection.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Путь набора сущностей операции "{0}" был определен в качестве коллекции, но тип возвращаемого значения коллекцией не является.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationWithEntitySetPathReturnTypeInvalid" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation '{0}' has an entity set path and with an invalid return type. The return type is required to be an entity type or a collection of entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Операция "{0}" имеет путь набора сущностей и недопустимый тип возвращаемого значения. Тип возвращаемого значения должен быть типом сущности или коллекцией типа сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_OperationWithUnsupportedReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The return type is not valid in operation '{0}'. The operation has an unsupported type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Тип возвращаемого значения недопустим в операции "{0}". Операция имеет тип, который не поддерживается.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ParameterNameAlreadyDefinedDuplicate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Each parameter name in a operation must be unique. The parameter name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Имя каждого параметра в операции должно быть уникальным. Имя параметра "{0}" уже определено.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Each parameter name in a function must be unique. The parameter name '{0}' is already defined.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_PathIsNotValidForTheGivenContext" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The path cannot be resolved in the given context. The segment '{0}' failed to resolve.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Путь не может быть разрешен в заданном контексте. Не удалось разрешить сегмент "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_PrecisionOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Precision cannot be negative.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Точность не может быть отрицательной.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_PrimitiveConstantExpressionNotValidForNonPrimitiveType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A primitive expression is incompatible with a non-primitive type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Примитивное выражение несовместимо с непримитивным типом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_PrimitiveTypeMustNotHaveKindOfNone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A primitive type without other errors must not have kind of none. The kind of primitive type '{0}' is none.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Примитивный тип без других ошибок не должен иметь тип "none". Тип примитивного типа "{0}" - "none".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_PropertyMustNotHaveKindOfNone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A property without other errors must not have kind of none. The kind of property '{0}' is none.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Свойство без других ошибок не должно иметь тип "none". Тип свойства "{0}" - "none".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_PropertyNameAlreadyDefined" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Each property name in a type must be unique. Property name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Имя каждого свойства в типе должно быть уникальным. Имя свойства "{0}" уже определено.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Each property name in a type must be unique. Property name '{0}' was already defined.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_RecordExpressionHasExtraProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type of the record expression is not open and does not contain a property named '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип выражения записи не открыт и не содержит свойства под именем "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_RecordExpressionMissingProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The record expression does not have a constructor for a property named '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[В выражении записи отсутствует конструктор свойства с именем "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_RecordExpressionNotValidForNonStructuredType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A record expression is incompatible with a non-structured type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Выражение записи несовместимо с неструктурированным типом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_SameRoleReferredInReferentialConstraint" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[In relationship '{0}', the principal and dependent role of the referential constraint refers to the same role in the relationship type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В связи "{0}" основная и зависимая роли справочного ограничения ссылаются на одну и ту же роль в типе связи.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_ScaleOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The scale value can range from 0 through the specified precision value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение масштаба может изменяться от 0 до указанного значения точности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_SchemaElementMustNotHaveKindOfNone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A schema element without other errors must not have kind of none. The kind of schema element '{0}' is none.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Элемент схемы без других ошибок не должен иметь тип "none". Тип элемента схемы "{0}" - "none".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_SchemaElementNameAlreadyDefined" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An element with the name '{0}' is already defined.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Элемент с именем "{0}" уже определен.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_SingletonTypeMustBeEntityType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' of the singleton '{1}' is not valid, it must be entity type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Тип "{0}" одинарного элемента "{1}" является недопустимым, он должен быть типом сущности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_StringConstantLengthOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the string constant is '{0}' characters long, but the max length of its type is '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение строковой константы имеет длину "{0}" символов, однако максимальная длина для ее типа равна "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_StringMaxLengthOutOfRange" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The max length facet specifies the maximum length of an instance of the string type. For unicode equal to 'true', the max length can range from 1 to 2^30, or if 'false', 1 to 2^31.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В аспекте max length задается максимальная длина экземпляра типа string. Если параметр unicode имеет значение "true", то параметр max length может иметь значение от 1 до 2^30, а если параметр unicode имеет значение "false", то от 1 до 2^31.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_SystemNamespaceEncountered" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The namespace '{0}' is a system namespace and cannot be used by non-system types. Please choose a different namespace.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Пространство имен "{0}" является системным и не может использоваться несистемными типами. Выберите другое пространство имен.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_TypeAnnotationHasExtraProperties" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[They type of the type annotation is not open, and does not contain a property named '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип заметки типа не открыт и не содержит свойства с именем "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_TypeAnnotationMissingRequiredProperty" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type annotation is missing a binding for the property '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[В заметке типа отсутствует привязка для свойства "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_TypeMismatchRelationshipConstraint" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The types of all properties in the dependent role of a referential constraint must be the same as the corresponding property types in the principal role. The type of property '{0}' on entity '{1}' does not match the type of property '{2}' on entity '{3}' in the referential constraint '{4}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Типы всех свойств в зависимой роли справочного ограничения должны совпадать с типами соответствующих свойств в основной роли. Тип свойства "{0}" сущности "{1}" не совпадает с типом свойства "{2}" сущности "{3}" справочного ограничения "{4}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_TypeMustNotHaveKindOfNone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A type without other errors must not have kind of none.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[У типа без других ошибок не должен быть тип "none".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Semantic_UnboundFunctionOverloadHasIncorrectReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The function '{0}' has a different return type than other function overloads with the same name. Functions with the same name must have the same return type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Функция "{0}" имеет тип возвращаемого значения, который отличается от других перегрузок функций с таким же именем. Функции с одинаковым именем должны иметь одинаковый тип возвращаемого значения.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_EdmModel_NameIsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The specified name is not allowed: '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Указано недопустимое имя: "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_EdmModel_NameIsTooLong" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The specified name must not be longer than 480 characters: '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Длина указанного имени не может превышать 480 символов: "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_EdmModel_NamespaceNameIsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The specified namespace name is not allowed: '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Указано недопустимое имя пространства имен: "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_EdmModel_NamespaceNameIsTooLong" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The specified name must not be longer than 480 characters: '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Длина указанного имени не может превышать 480 символов: "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_EnumPropertyValueOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The property '{0}.{1}' of type '{2}' has value '{3}' that is not a valid enum member.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Свойство "{0}.{1}" типа "{2}" имеет значение "{3}", которое не является допустимым элементом перечисления.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_EnumerableMustNotHaveNullElements" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the enumeration the property '{0}.{1}' contains a null element. Enumeration properties must not contain null elements.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение свойства перечисления "{0}.{1}" содержит элемент NULL. Свойства перечислений не должны содержать элементы NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_InterfaceCriticalCycleInTypeHierarchy" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The chain of base types of type '{0}' is cyclic.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Цепочка базовых типов типа "{0}" является циклической.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_InterfaceKindValueMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An object with the value '{0}' of the '{1}.{2}' property must implement '{3}' interface.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Объект со значением "{0}" свойства "{1}.{2}" должен реализовать интерфейс "{3}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_InterfaceKindValueUnexpected" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' of the property '{1}.{2}' is not semantically valid. A semantically valid model must not contain elements of kind '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение "{0}" свойства "{1}.{2}" семантически недопустимо. Семантически допустимая модель не должна содержать элементы типа "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_MissingName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The name is missing or not valid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Отсутствующее или недопустимое имя.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_MissingNamespaceName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The namespace name is missing or not valid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Имя пространства имен отсутствует или является недопустимым.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_NavigationPartnerInvalid" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The partner of the navigation property '{0}' must not be the same property, and must point back to the navigation property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Элемент свойства навигации "{0}" не должен быть тем же свойством и должен указывать обратно на свойство навигации.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_PropertyMustNotBeNull" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value of the property '{0}.{1}' must not be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Свойство "{0}.{1}" не должно содержать значение NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmModel_Validator_Syntactic_TypeRefInterfaceTypeKindValueMismatch" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An object implementing '{0}' interface has type definition of kind '{1}'. The type reference interface must match to the kind of the  definition.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[У объекта, реализующего интерфейс "{0}", определение типа имеет тип "{1}". Интерфейс ссылки на тип должен совпадать с типом определения.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmParseException_ErrorsEncounteredInEdmx" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Encountered the following errors when parsing the EDMX document: ]D;]A;{0}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[При анализе документа EDMX обнаружены следующие ошибки: ]D;]A;{0}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmPrimitive_UnexpectedKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected primitive type kind.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Непредвиденный класс типа-примитива.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_CannotConvertEdmCollectionValueToClrType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Conversion of an edm collection value to the CLR type '{0}' is not supported. EDM collection values can be converted to System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> or System.Collections.Generic.ICollection<T>.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Преобразование значения коллекции модели EDM в тип CLR "{0}" не поддерживается. Значения коллекции модели EDM могут преобразовываться в System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> или в System.Collections.Generic.ICollection<T>.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_CannotConvertEdmValueToClrType" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Conversion of an EDM value of the type '{0}' to the CLR type '{1}' is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Преобразование значения модели EDM "{0}" в тип CLR "{1}" не поддерживается.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_IEnumerableOfTPropertyAlreadyHasValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Cannot initialize a property '{0}' on an object of type '{1}'. The property already has a value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удается инициализировать свойство "{0}" в объекте типа "{1}". Свойство уже имеет значение.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_StructuredPropertyDuplicateValue" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An EDM structured value contains multiple values for the property '{0}'. Conversion of an EDM structured value with duplicate property values is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Структурированное значение модели EDM содержит несколько значений для свойства "{0}". Преобразование структурированного значения модели EDM с повторяющимися значениями свойств не поддерживается.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_StructuredValueMappedToNonClass" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Conversion of an EDM structured value is supported only to a CLR class.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Преобразование структурированного значения модели EDM поддерживается только в класс CLR.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_TryCreateObjectInstanceReturnedWrongObject" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' of the object returned by the TryCreateObjectInstance delegate is not assignable to the expected type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип "{0}" объекта, возвращаемого делегатом TryCreateObjectInstance, не может назначаться ожидаемому типу "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmToClr_UnsupportedType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Conversion of EDM values to a CLR type with type {0} is not supported.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Преобразование значений EDM в тип CLR с типом {0} не поддерживается.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmType_UnexpectedEdmType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected Edm type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Неожиданный тип EDM.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmUtil_InvalidAnnotationValue" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An annotation of type string was expected for the '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' annotation, but an annotation of type '{1}' was found.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В качестве "{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}" ожидалась заметка строкового типа, но была обнаружена заметка типа "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmUtil_NullValueForMimeTypeAnnotation" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The MIME type annotation must not have a null value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Заметка типа MIME не может иметь значение NULL.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_FailedTypeAssertion" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value fails to match type '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение не соответствует типу "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_NoContextPath" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A containing object cannot be null when getting value of an annotation with Path in the execution environment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Вмещающий объект не может быть NULL при получении значения заметки с путем в среде выполнения.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_NoTermTypeAnnotationOnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' must have a single type annotation with term type '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип "{0}" должен иметь одну заметку типа с типом термина "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_NoValueAnnotationOnElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Element must have a single annotation with term '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Элемент должен иметь только одну аннотацию с термином "{0}".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Element must have a single value annotation with term '{0}'.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_NoValueAnnotationOnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Type '{0}' must have a single annotation with term '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Тип "{0}" должен иметь только одну аннотацию с термином "{1}".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Type '{0}' must have a single value annotation with term '{1}'.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_TypeCastNeedsEdmModel" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[An edm model must be provided for type cast.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Для приведения типов необходимо предоставить модель EDM.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_UnboundFunction" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Function '{0}' is not present in the execution environment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Функция "{0}" отсутствует в среде выполнения.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_UnboundPath" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Path segment '{0}' has no binding in the execution environment.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[У сегмента пути "{0}" нет привязки в среде выполнения.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Edm_Evaluator_UnrecognizedExpressionKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Expression with kind '{0}' cannot be evaluated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось вычислить выражение с типом "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmxParser_BodyElement" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected {0} element while parsing Edmx. Edmx is expected to have at most one of 'Runtime' or 'DataServices' elements.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В синтаксическом анализе EDMX обнаружен непредвиденный элемент {0}. EDMX должен содержать не более одного элемента "Runtime" или "DataServices".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmxParser_EdmxVersionMismatch" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The EDMX version specified in the 'Version' attribute does not match the version corresponding to the namespace of the 'Edmx' element.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Версия EDMX, указанная в атрибуте "Version", не совпадает с версией, соответствующей пространству имен элемента "Edmx".]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The Edmx version specified in the Version attribute does not match the version corresponding to the namespace of the Edmx element.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmxParser_InvalidReferenceIncorrectNumberOfIncludes" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[edmx:Reference must contain at least one edmx:Includes or edmx:IncludeAnnotations.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Элемент edmx:Reference должен содержать по меньшей мере один элемент edmx:Includes или edmx:IncludeAnnotations.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";EdmxParser_UnresolvedReferenceUriInEdmxReference" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unresolved Uri found in edmx:Reference, getReferencedModelReaderFunc should not return null when the URI is not a well-known schema.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В edmx:Reference обнаружен неразрешенный URI, getReferencedModelReaderFunc не должна возвращать значение null, если URI не относится к известной схеме.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";NavigationPropertyBinding_PathIsNotValid" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The navigation property binding path is not valid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Недопустимый путь привязки свойства навигации.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";PathSegmentMustNotContainSlash" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Path segments must not contain '/' character.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Сегменты пути не должны содержать символ "/".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";PlatformHelper_DateTimeOffsetMustContainTimeZone" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В значении DateTimeOffset "{0}" отсутствуют сведения о часовом поясе. Значение DateTimeOffset должно содержать сведения о часовом поясе.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";RuleSet_DuplicateRulesExistInRuleSet" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The same rule cannot be in the same rule set twice.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Одно правило не может дважды входить в один набор правил.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_NoSchemasProduced" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[No CSDL is written because no schema elements could be produced. This is likely because the model is empty.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Код на языке CSDL не создан, так как не удалось создать ни одного элемента схемы. Вероятно, это вызвано тем, что модель пуста.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_NonInlineOperationImportReturnType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The operation import '{0}' could not be serialized because its return type cannot be represented inline.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось сериализовать импорт операции "{0}", поскольку тип его возвращаемого значения невозможно представить во встроенном виде.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_OutOfLineAnnotationTargetMustHaveValidName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The annotation can not be serialized with an invalid target name. The name '{0}' is invalid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Не удалось сериализовать заметку с недопустимым целевым именем. Имя "{0}" недопустимо.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_ReferencedTypeMustHaveValidName" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[A referenced type can not be serialized with an invalid name. The name '{0}' is invalid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Тип, на который указывает ссылка, невозможно сериализовать с недопустимым именем. Имя "{0}" недопустимо.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_SingleFileExpected" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Single file provided but model cannot be serialized into single file.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Указан один файл, но модель нельзя сериализовать в один файл.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_UnknownEdmVersion" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unknown Edm version.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Неизвестная версия EDM.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";Serializer_UnknownEdmxVersion" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unknown Edmx version.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Неизвестная версия EDMX.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";TimeOfDay_ConvertErrorFromTimeSpan" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The TimeSpan value '{0}' is out of representable TimeOfDay range.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение TimeSpan "{0}" находится за пределами представимого диапазона TimeOfDay.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";TimeOfDay_InvalidCompareToTarget" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Target object '{0}' is not an instance with type of TimeOfDay.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Целевой объект "{0}" не является экземпляром с типом TimeOfDay.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";TimeOfDay_InvalidParsingString" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[String '{0}' was not recognized as a valid TimeOfDay.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Строка "{0}" не является допустимым значением TimeOfDay.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";TimeOfDay_InvalidTimeOfDayParameters" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Hour '{0}', Minute '{1}', Second '{2}' and Millisecond '{3}' parameters describe an un-representable TimeOfDay.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Параметры часа "{0}", минуты "{1}", секунды "{2}" и миллисекунды "{3}" описывают непредставимое значение TimeOfDay.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The Hour '{0}', Minute '{1}', Second '{2}' and FractionalSeconds '{3}' parameters describe an un-representable TimeOfDay.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";TimeOfDay_TicksOutOfRange" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The ticks value '{0}' is out of representable TimeOfDay range.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение тактов "{0}" находится за пределами представимого диапазона TimeOfDay.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";TypeSemantics_CouldNotConvertTypeReference" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The type '{0}' could not be converted to be a '{1}' type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Не удалось преобразовать тип "{0}" в тип "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_ContainerElementKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid container element kind: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимый тип элемента контейнера: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_EdmxTarget" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid edmx target: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое назначение EDMX: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_ExpressionKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid expression kind: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимый тип выражения: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_Multiplicity" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid multiplicity: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимое количество элементов: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_PrimitiveKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid primitive kind: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимый класс типа-примитива: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_PropertyKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid property kind: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимый тип свойства: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_SchemaElementKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid schema element kind: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимый тип элемента схемы: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";UnknownEnumVal_TypeKind" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid type kind: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Недопустимый класс типа: "{0}"]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueHasAlreadyBeenSet" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Value has already been set.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение уже выбрано.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidBinary" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid binary value. The value must be a hexadecimal string and must not be prefixed by '0x'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Значение "{0}" не является допустимым двоичным значением. Значение должно быть шестнадцатеричной строкой без символов "0x" в начале строки.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0}' is not a valid binary value.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidBoolean" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid boolean. The value must be 'true' or 'false'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" недопустимо для типа boolean. Оно должно быть равно "true" или "false".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDate" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid date value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" недопустимо для даты.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDateTime" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid date time value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Значение "{0}" не является допустимым значением даты и времени.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0} is not a valid date time value. ]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDateTimeOffset" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid date time offset value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Значение "{0}" не является допустимым смещением даты и времени.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0} is not a valid date time value. ]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDecimal" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid decimal.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Значение "{0}" не является допустимым десятичным значением.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0}' is not a valid decimal value.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidDuration" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid duration value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" не является допустимым значением продолжительности.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidFloatingPoint" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid floating point value. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Значение "{0}" не является допустимым значением с плавающей запятой. ]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidGuid" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid Guid. ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
+            <Val><![CDATA[Значение "{0}" не является допустимым идентификатором GUID. ]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[The value '{0}' is not a valid GUID.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidInteger" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid integer. The value must be a valid 32 bit integer.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" недопустимо для типа integer. Оно должно быть допустимым 32-разрядным целым числом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidLong" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid integer. The value must be a valid 64 bit integer.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" недопустимо для типа integer. Оно должно быть допустимым 64-разрядным целым числом.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidMaxLength" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid integer. The value must be a valid 32 bit integer or 'Max'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" недопустимо для типа integer. Оно должно быть допустимым 32-разрядным целым числом или равно "Max".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidScale" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid scale. The value must either be a 32 bit integer or 'Variable'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" является недопустимым значением шкалы. Оно должно быть 32-разрядным целым числом или равно "Variable".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidSrid" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid SRID. The value must either be a 32 bit integer or 'Variable'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" является недопустимым идентификатором SRID. Оно должно быть допустимым 32-разрядным целым числом или равно "Variable".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueParser_InvalidTimeOfDay" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value '{0}' is not a valid TimeOfDay value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Значение "{0}" недопустимо для времени суток.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ValueWriter_NonSerializableValue" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The value writer cannot write a value of kind '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Модуль записи значения не может записать значение типа "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_EmptyFile" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[{0} does not contain a schema definition, or the XmlReader provided started at the end of the file.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[{0} не содержит определение схемы, либо указанный модуль XmlReader начал чтение с конца файла.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_EmptySchemaTextReader" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The source XmlReader does not contain a schema definition or started at the end of the file.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Исходный объект XmlReader не содержит определение схемы или начал чтение с конца файла.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_MissingAttribute" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Required schema attribute '{0}' is not present on element '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[В элементе "{1}" отсутствует обязательный атрибут схемы "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_TextNotAllowed" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The current schema element does not support text '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Текущий элемент схемы не поддерживает текст "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnexpectedAttribute" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The attribute '{0}' was not expected in the given context.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Непредвиденный атрибут "{0}" в заданном контексте.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnexpectedElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The schema element '{0}' was not expected in the given context.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Непредвиденный элемент схемы "{0}" в заданном контексте.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnexpectedNodeType" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unexpected XML node type: {0}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+            <Val><![CDATA[Непредвиденный тип узла XML: {0}.]]></Val>
+          </Tgt>
+          <Prev Cat="Text">
+            <Val><![CDATA[Unexpected XmlNode type: {0}.]]></Val>
+          </Prev>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnexpectedRootElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The element '{0}' was unexpected for the root element. The root element should be {1}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Непредвиденный элемент "{0}" в качестве корневого. Корневым элементом должен быть {1}.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnexpectedRootElementNoNamespace" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The root element has no namespace. The root element is expected to belong to one of the following namespaces: '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Корневой элемент не имеет пространства имен. Корневой элемент должен принадлежать одному из следующих пространств имен: "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnexpectedRootElementWrongNamespace" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The namespace '{0}' is invalid. The root element is expected to belong to one of the following namespaces: '{1}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
+            <Val><![CDATA[Недопустимое пространство имен "{0}". Корневой элемент должен принадлежать одному из следующих пространств имен: "{1}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";XmlParser_UnusedElement" ItemType="0" PsrId="211" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Unused schema element: '{0}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+            <Val><![CDATA[Неиспользуемый элемент схемы: "{0}".]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
+    <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";AssemblyVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft Corporation]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Корпорация Майкрософт]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";FileDescription" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[Microsoft.OData.Edm.SL.dll]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";FileVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";InternalName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";LegalCopyright" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Copyright (c) Microsoft Corporation. All rights reserved.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
+          <Val><![CDATA[(c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.]]></Val>
+        </Tgt>
+        <Prev Cat="Text">
+          <Val><![CDATA[© Microsoft Corporation.  All rights reserved.]]></Val>
+        </Prev>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";LegalTrademarks" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft и Windows являются охраняемыми товарными знаками корпорации Майкрософт в США и других странах.]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";OriginalFilename" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[Microsoft.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";ProductName" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
+          <Val><![CDATA[Microsoft® .NET Framework]]></Val>
+        </Tgt>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+    <Item ItemId=";ProductVersion" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text" DevLk="true">
+        <Val><![CDATA[7.0.0.0]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
+  </Item>
+  <Item ItemId=";Version" ItemType="8" PsrId="211" Leaf="true">
+    <Disp Icon="Expand" Expand="true" Disp="true" LocTbl="false" />
+  </Item>
+</LCX>

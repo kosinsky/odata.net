@@ -7,7 +7,7 @@
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <!-- Disable GenerateAssemblyInfo to use the existing AssemblyInfo.cs -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyOriginatorKeyFile>..\..\..\tools\StrongNamePublicKeys\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\..\tools\StrongNamePublicKeys\FinalPublicKey.snk</AssemblyOriginatorKeyFile>
     <DelaySign>True</DelaySign>
     <SignAssembly>True</SignAssembly>
     <DocumentationFile>$(AssemblyName).xml</DocumentationFile>

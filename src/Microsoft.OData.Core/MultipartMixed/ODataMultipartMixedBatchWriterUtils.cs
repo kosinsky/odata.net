@@ -60,11 +60,13 @@ namespace Microsoft.OData.MultipartMixed
             // The changeset boundary can be for either request or response, which are both constructed from templates.
             // Change set id is the remainder after first char of '_'.
             int idx = changesetBoundary.IndexOf('_');
-            //ExceptionUtils.CheckIntegerNotNegative(idx, "idxOfSeparator");
+
+            // ExceptionUtils.CheckIntegerNotNegative(idx, "idxOfSeparator");
             if (idx >= 0)
             {
                 return changesetBoundary.Substring(idx + 1);
             }
+
             return changesetBoundary;
         }
 
