@@ -715,7 +715,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Parameter or entity key names must be unique. There is most likely an error in the model.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[パラメータまたはエンティティ キー名は一意である必要があります。モデル内にエラーがある可能性があります。]]></Val>
+            <Val><![CDATA[パラメーターまたはエンティティ キー名は一意である必要があります。モデル内にエラーがある可能性があります]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
