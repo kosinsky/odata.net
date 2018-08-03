@@ -2594,6 +2594,9 @@
       <Item ItemId=";ODataBatch_GroupIdOrChangeSetIdCannotBeNull" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Group id or changeset GUID cannot be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[群組識別碼或變更集 GUID 不可為 null。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>

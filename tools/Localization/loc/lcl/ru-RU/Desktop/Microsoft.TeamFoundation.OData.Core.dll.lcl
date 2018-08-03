@@ -2345,6 +2345,9 @@
       <Item ItemId=";ODataBatchReader_RequestPropertyMissing" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Request property [{0}]5D; is required but is missing.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Свойство запроса [{0}]5D; является обязательным, но отсутствует.]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
