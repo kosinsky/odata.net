@@ -7070,8 +7070,8 @@
       <Item ItemId=";WriterValidationUtils_EntriesMustHaveNonEmptyId" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Se ha detectado un recurso con un valor ID vacío. En OData, un recurso debe tener un valor de id. no vacío o ningún valor de id.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Se detectó un recurso con un valor de ID vacío. En OData, un recurso debe ser un valor de ID no vacío o un valor sin ID.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>
