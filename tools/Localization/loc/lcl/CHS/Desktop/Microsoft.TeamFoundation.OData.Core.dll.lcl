@@ -189,8 +189,8 @@
       <Item ItemId=";BadRequest_ResourceCanBeCrossReferencedOnlyForBindOperation" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Error processing request stream. In batch mode, a resource can be cross-referenced only for bind/unbind operations.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
-            <Val><![CDATA[处理请求流时出错。在批处理模式下，只能为绑定/取消绑定操作交叉引用资源。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[处理请求流时出错。在批处理模式中，只能为绑定/取消绑定操作交叉引用资源。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Error processing request stream. In batch mode, a resource can be cross-referenced only for bind/unbind operations. ]]></Val>
@@ -702,8 +702,8 @@
       <Item ItemId=";FunctionCallBinder_UriFunctionMustHaveHaveNullParent" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Found a Uri function '{0}' with a parent token. Uri functions cannot have parent tokens.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[找到的 URI 函数“{0}”包含父级标记。URI 函数不得包含父级标记。 ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[找到带有父级标记的 URI 函数 {0}。URI 函数不能包含父级标记。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Found a Uri function '{0}' with a parent token. Uri functions cannot have parent tokens. ]]></Val>
@@ -1533,8 +1533,8 @@
       <Item ItemId=";MetadataBinder_QueryOptionNotApplicable" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' option cannot be applied to the query path. '{0}' can only be applied to a collection of entities.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
-            <Val><![CDATA[“{0}”选项不能应用到查询路径。“{0}”只能应用到实体集合。 ]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[“{0}”选项不能应用于查询路径。“{0}”只能应用于实体集合。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The '{0}' option cannot be applied to the query path. '{0}' can only be applied to a collection of entities. ]]></Val>
@@ -2124,6 +2124,9 @@
       <Item ItemId=";ODataBatchReader_AbsoluteURINotMatchingBaseUri" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Absolute URI {0} is not start with the base URI [{1}]5D; specified by the operation message.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[绝对 URI {0} 不是以操作消息指定的基 URI [{1}]5D; 开始的。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2175,26 +2178,35 @@
       <Item ItemId=";ODataBatchReader_DependsOnIdNotFound" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The dependsOn Id: [{0}]5D; in request [{1}]5D; is not matching any of the request Id and atomic group Id seen so far. Forward reference is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[请求 [{0}]5D; 中的 dependsOn Id: [{1}]5D; 与到目前为止所看到的任何请求 ID 和原子组 ID 都不匹配。不允许前向引用。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_DependsOnRequestIdIsPartOfAtomicityGroupNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The dependsOn request Id [{0}]5D; is part of atomic group [{1}]5D;. Therefore dependsOn property should refer to atomic group Id [{1}]5D; instead.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[dependsOn 请求 ID [{0}]5D; 是原子组 [{1}]5D; 的一部分。因此，dependsOn 属性应引用原子组 ID [{1}]5D;。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_DuplicateAtomicityGroupIDsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The atomicityGroup ID [{0}]5D; was found duplicated in the batch request. AtomicityGroup IDs have to be adjacent, otherwise would be detected as duplicated.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[在批处理请求中发现 atomicityGroup ID [{0}]5D; 重复。AtomicityGroup ID 必须是相邻的，否则将被检测为重复。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_DuplicateContentIDsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The content ID '{0}' was found more than once in the same change set or same batch request. Content IDs have to be unique across all operations of a change set for OData V4.0 and have to be unique across all operations in the whole batch request for OData V4.01.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
-            <Val><![CDATA[在同一个变更集中多次找到了内容 ID“{0}”。内容 ID 在一个变更集的所有操作中必须唯一。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[在同一变更集或同一批处理请求中多次找到内容 ID {0}。内容 ID 在 OData V4.0 变更集的所有操作中必须唯一，并且在 OData V4.01 的整个批处理请求的所有操作中必须唯一。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
@@ -2229,6 +2241,9 @@
       <Item ItemId=";ODataBatchReader_JsonBatchTopLevelPropertyMissing" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[JsonLight batch format requires top level property name 'requests' or 'response' but it is missing.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[JsonLight 批处理格式需要顶级属性名称 "requests" 或 "response"，但未提供。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2259,6 +2274,9 @@
       <Item ItemId=";ODataBatchReader_MessageIdPositionedIncorrectly" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Message with id [{0}]5D; is positioned incorrectly: all messages of same groupId [{1}]5D; must be adjacent.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[ID 为 [{0}]5D; 的消息出现位置错误: 同一 groupId [{1}]5D; 的所有消息必须相邻。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2310,36 +2328,54 @@
       <Item ItemId=";ODataBatchReader_ReaderModeNotInitilized" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Reader mode is not setup correctly.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[读取器模式设置不正确。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_ReaderStreamChangesetBoundaryCannotBeNull" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Changeset boundary must have been set by now.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[必须已设置变更集边界。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_ReferenceIdNotIncludedInDependsOn" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Request Id reference [{0}]5D; in Uri [{1}]5D; is not found in effective depends-on-Ids [{2}]5D; of the request.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[在请求的有效依赖 ID [{2}]5D; 中找不到 URI [{1}]5D; 中的请求 ID 引用 [{0}]5D;。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_RequestPropertyMissing" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Request property [{0}]5D; is required but is missing.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[请求属性 [{0}]5D; 是必需的，但未提供。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_SameRequestIdAsAtomicityGroupIdNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The dependsOn request Id [{0}]5D; is same as atomicityGroup property value [{1}]5D;, and is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[dependsOn 请求 ID [{0}]5D; 与 atomicityGroup 属性值 [{1}]5D; 相同，但不允许相同。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataBatchReader_SelfReferenceDependsOnRequestIdNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The dependsOn request Id [{0}]5D; is same as id property value [{1}]5D;, and it is not allowed.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[dependsOn 请求 ID [{0}]5D; 与 ID 属性值 [{1}]5D; 相同，但不允许相同。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2442,8 +2478,8 @@
       <Item ItemId=";ODataBatchWriter_DuplicateContentIDsNotAllowed" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The content ID '{0}' was found more than once in the same change set or same batch request. Content IDs have to be unique across all operations of a change set for OData V4.0 and have to be unique across all operations in the whole batch request for OData V4.01.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
-            <Val><![CDATA[在同一个变更集中多次找到了内容 ID“{0}”。内容 ID 在一个变更集的所有操作中必须唯一。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[在同一变更集或同一批处理请求中多次找到内容 ID {0}。内容 ID 在 OData V4.0 变更集的所有操作中必须唯一，并且在 OData V4.01 的整个批处理请求的所有操作中必须唯一。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
@@ -2568,6 +2604,9 @@
       <Item ItemId=";ODataBatch_GroupIdOrChangeSetIdCannotBeNull" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Group id or changeset GUID cannot be null.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[组 ID 或变更集 GUID 不能为 null。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -3318,12 +3357,18 @@
       <Item ItemId=";ODataJsonLightPropertyAndValueDeserializer_CollectionTypeExpected" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A non-collection type of '{0}' was specified for a collection value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[为集合值指定了“{0}”的非集合类型。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
       <Item ItemId=";ODataJsonLightPropertyAndValueDeserializer_CollectionTypeNotExpected" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A collection type of '{0}' was specified for a non-collection value.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[为非集合值指定了“{0}”集合类型。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -3576,6 +3621,9 @@
       <Item ItemId=";ODataJsonLightResourceDeserializer_DeltaRemovedAnnotationMustBeObject" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Invalid primitive value '{0}' for @removed annotation. @removed annotation must be a JSON object, optionally containing a 'reason' property.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[@removed 注释的基元值 {0} 无效。@removed 注释必须是 JSON 对象，可选择包含 "reason" 属性。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -4026,8 +4074,8 @@
       <Item ItemId=";ODataJsonOperationsDeserializerUtils_OperationsPropertyMustHaveObjectValue" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Found a node of type '{1}' when starting to read the '{0}' operations value, however a node of type 'StartObject' was expected. The '{0}' operations value must have an object value.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
-            <Val><![CDATA[在开始读取“{0}”操作值时找到了“{1}”类型的节点，但应为 "StartObject" 类型的节点。“{0}”操作值必须具有对象值。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[在开始读取“{0}”操作值时，发现一个类型为 {1} 的节点，但是应为类型为 StartObject 的节点。“{0}”操作值必须有一个对象值。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Found a node of type '{1}' when starting to read the '{0}' operations value, however a node of type 'StartObject' was expected. The '{0}' operations value must have an object value. ]]></Val>
@@ -4572,8 +4620,8 @@
       <Item ItemId=";ODataMetadataBuilder_UnknownEntitySet" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The Id cannot be computed, since the navigation source '{0}' cannot be resolved to a known entity set from model.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[无法计算 ID，因为无法从模型中将导航源“{0}”解析为已知实体集。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[无法计算 ID，因为无法将导航源“{0}”解析为模型中的已知实体集。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The Id cannot be computed, since the navigation source '{0}' cannot be resolved to a known entity set from model. ]]></Val>
@@ -5055,8 +5103,8 @@
       <Item ItemId=";ODataResourceTypeContext_ODataResourceTypeNameMissing" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[When writing a JSON response in full metadata mode, a user model must be specified and the entity set and entity type must be passed to the ODataMessageWriter.CreateODataResourceWriter method or the ODataResource.TypeName must be set.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[在 ODataMessageWriterSettings.AutoComputePayloadMetadata 设置为 true 的完整元数据模式中写入 JSON 响应时，必须指定用户模型且必须将实体集和实体类型传递到 ODataMessageWriter.CreateODataResourceWriter 方法，或者必须设置 ODataResource.TypeName。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[在完整元数据模式中写入 JSON 响应时，必须指定用户模型，并且必须将实体集和实体类型传递给 ODataMessageWriter.CreateODataResourceWriter 方法或必须设置 ODataResource.TypeName。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[When writing a JSON response in full metadata mode with ODataMessageWriterSettings.AutoComputePayloadMetadata set to true, a user model must be specified and the entity set and entity type must be passed to the ODataMessageWriter.CreateODataResourceWriter method or the ODataResource.TypeName must be set.]]></Val>
@@ -5220,6 +5268,9 @@
       <Item ItemId=";ODataUtils_MaxProtocolVersionExceeded" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[An OData version of {0} was specified and the maximum supported OData version is {1}.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[已指定 OData 版本 {0}，支持的 OData 最高版本为 {1}。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5235,8 +5286,8 @@
       <Item ItemId=";ODataUtils_UnsupportedVersionHeader" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' of the OData-Version HTTP header is invalid. Only '4.0' and '4.01' are supported as values for the OData-Version header.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[OData-Version HTTP 标头的值“{0}”无效。对于 OData-Version 标头，仅支持 "4.0" 作为值。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[OData-Version HTTP 标头的值“{0}”无效。仅支持 4.0 和 4.01 作为 OData 版本标头的值。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' of the OData-Version HTTP header is invalid. Only '4.0' is supported as values for the OData-Version header.]]></Val>
@@ -5268,6 +5319,9 @@
       <Item ItemId=";ODataWriterCore_CannotWriteDeltaWithResourceSetWriter" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Cannot write a delta deleted resource, link, or deleted link using ODataResourceSetWriter. Please use an ODataDeltaResourceSetWriter.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[无法使用 ODataResourceSetWriter 写入增量删除的资源、链接或已删除的链接。请使用 ODataDeltaResourceSetWriter。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5313,6 +5367,9 @@
       <Item ItemId=";ODataWriterCore_DeltaResourceWithoutIdOrKeyProperties" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[No Id or key properties were found. A resource in a delta response requires an ID or key properties be specified.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[未找到 ID 或键属性。增量响应中的资源需要指定 ID 或键属性。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5349,6 +5406,9 @@
       <Item ItemId=";ODataWriterCore_InvalidTransitionFrom40DeletedResource" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Cannot transition from state '{0}' to state '{1}' when writing an OData 4.0 payload. To write content to a deleted resource, please specify ODataVersion 4.01 or greater in MessageWriterSettings.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[写入 OData 4.0 有效负载时，无法从状态“{0}”转换到状态“{1}”。若要将内容写入已删除的资源，请在 MessageWriterSettings 中指定 ODataVersion 4.01 或更高版本。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5433,6 +5493,9 @@
       <Item ItemId=";ODataWriterCore_NestedContentNotAllowedIn40DeletedEntry" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Nested content is not allowed in an OData 4.0 deleted entry. For content in deleted entries, please specify OData 4.01 or greater.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[OData 4.0 已删除的条目中不允许嵌套内容。对于已删除的条目中的内容，请指定 OData 4.01 或更高版本。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -5712,8 +5775,8 @@
       <Item ItemId=";ReaderValidationUtils_ResourceWithoutType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[已找到不带类型名称的资源，但没有指定任何预期类型。若要允许出现不带类型信息的条目，还必须在指定模型时指定预期类型。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[找到了无类型名称的资源，但未指定所需类型。若要允许没有类型信息的条目，还必须在指定模型时指定所需类型。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified.]]></Val>
@@ -5943,8 +6006,8 @@
       <Item ItemId=";ResourceSetWithoutExpectedTypeValidator_IncompatibleTypes" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource of type '{0}' was found in a resource set that otherwise has entries of type '{1}'. In OData, all entries in a resource set must have a common base type.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[在本应具有“{1}”类型的条目的资源集中发现“{0}”类型的资源。在 OData 中，资源集中的所有条目必须有公共基类型。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[在资源集中找到了类型为 {0} 的资源，否则该资源集中应具有类型为 {1} 的条目。在 OData 中，资源集中的所有条目必须具有公共基类型。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource of type '{0}' was found in a resource set that otherwise has entries of type '{1}'. In OData, all entries in a resource set must have a common base type.]]></Val>
@@ -6426,6 +6489,9 @@
       <Item ItemId=";UriQueryExpressionParser_UnrecognizedWithMethod" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Unrecognized with '{0}' at '{1}' in '{2}'.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[在“{2}”中的“{1}”无法识别“{0}”。]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -6846,8 +6912,8 @@
       <Item ItemId=";ValidationUtils_ResourceTypeNotAssignableToExpectedType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found, but it is not assignable to the expected type '{1}'. The type specified in the resource must be equal to either the expected type or a derived type.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[已找到类型为“{0}”的资源，但无法向其分配预期类型“{1}”。在该资源中指定的类型必须是预期类型或派生类型。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[找到了类型为 {0} 的资源，但该资源无法分配给所需类型 {1}。资源中指定的类型必须是所需类型或派生类型。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found, but it is not assignable to the expected type '{1}'. The type specified in the resource must be equal to either the expected type or a derived type.]]></Val>
@@ -6858,8 +6924,8 @@
       <Item ItemId=";ValidationUtils_ResourceWithMediaResourceAndNonMLEType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[已找到类型为“{0}”且具有媒体资源的资源，但此实体类型不是媒体链接资源(MLE)。如果该类型不是 MLE 实体，则资源不能具有媒体资源。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[找到了类型为 {0} 的资源并且其中包含媒体资源，但此实体类型不是媒体链接资源(MLE)。如果类型不是 MLE 实体，则该资源不能具有媒体资源。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
@@ -6870,8 +6936,8 @@
       <Item ItemId=";ValidationUtils_ResourceWithoutMediaResourceAndMLEType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[已找到类型为“{0}”且不具有媒体资源的资源，但此实体类型是媒体链接资源(MLE)。如果该类型是 MLE 实体，则资源必须具有媒体资源。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[找到了类型为 {0} 的资源，其中未包含媒体资源，但此实体类型是媒体链接资源(MLE)。如果类型为 MLE 实体，则该资源必须具有媒体资源。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
@@ -7011,8 +7077,8 @@
       <Item ItemId=";WriterValidationUtils_EntriesMustHaveNonEmptyId" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="Auto" Confidence="100">
-            <Val><![CDATA[已检测到具有空 ID 值的资源。在 OData 中，资源必须为非空 ID 值或无 ID 值。]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
+            <Val><![CDATA[检测到 ID 值为空的资源。在 OData 中，资源必须为非空 ID 值或无 ID 值。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with an empty ID value was detected. In OData, a resource must either a non-empty ID value or no ID value.]]></Val>

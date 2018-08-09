@@ -848,6 +848,9 @@
       <Item ItemId=";EdmModel_Validator_Semantic_ExpressionEnumKindNotValidForAssertedType" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The enum expression is not compatible with the asserted type.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[La expresión de enumeración no es compatible con el tipo asertado.]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -1607,6 +1610,9 @@
       <Item ItemId=";EdmModel_Validator_Semantic_RequiredParametersMustPrecedeOptional" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Required Parameter '{0}' must not follow an optional parameter.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[El parámetro obligatorio "{0}" no debe seguir un parámetro opcional.]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
@@ -2255,6 +2261,9 @@
       <Item ItemId=";UnknownEnumVal_CsdlTarget" ItemType="0" PsrId="211" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Invalid CSDL target: '{0}']]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Destino de CSDL no válido: "{0}"]]></Val>
+          </Tgt>
         </Str>
         <Disp Icon="Str" />
       </Item>
