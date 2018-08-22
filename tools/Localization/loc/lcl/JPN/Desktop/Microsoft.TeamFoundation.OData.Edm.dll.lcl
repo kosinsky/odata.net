@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ja-JP" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -18,7 +18,7 @@
     <Cmt Name="ManifestData" />
     <Cmt Name="Mnemonic" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
     <Cmt Name="UIType" />
     <Cmt Name="UTSData" />
     <Cmt Name="UTSUI" />
@@ -36,7 +36,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Annotations in the 'Documentation' namespace must implement 'IEdmDocumentation', but '{0}' does not.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['Documentation' 名前空間の注釈では 'IEdmDocumentation' を実装する必要がありますが、'{0}' は実装しません。]]></Val>
+            <Val><![CDATA['Documentation' 名前空間の注釈では 'IEdmDocumentation' が実装される必要がありますが、'{0}' では実装されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -45,7 +45,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Annotation of type '{0}' cannot be interpreted as '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 '{0}' の注釈は '{1}' として解釈することはできません。]]></Val>
+            <Val><![CDATA[型 '{0}' の注釈を '{1}' として解釈することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -90,7 +90,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity container '{0}' is invalid because its extends hierarchy is cyclic.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[エンティティ コンテナー '{0}' は拡張階層が循環のため無効です。]]></Val>
+            <Val><![CDATA[拡張階層が循環しちるため、エンティティ コンテナー '{0}' は無効です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -99,7 +99,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' could not be resolved because none of the operations with that name take the correct set of parameters.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作 '{0}' を解決できませんでした。その名前の操作は正しいパラメーター セットを受け取りません。]]></Val>
+            <Val><![CDATA[操作 '{0}' を解決できませんでした。その名前の操作はいずれも正しいパラメーター セットを受け取っていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -225,7 +225,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The number of dependent properties must match the number of key properties on the principal entity type. '{0}' principal properties were provided, but {1} dependent properties were provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[依存プロパティの数は、プリンシパル エンティティ型に関するキー プロパティの数と一致している必要があります。プリンシパル プロパティを '{0}' 個指定したのに対し、依存プロパティを {1} 個指定しました。]]></Val>
+            <Val><![CDATA[依存プロパティの数は、プリンシパル エンティティ型に関するキー プロパティの数と一致している必要があります。プリンシパル プロパティを '{0}' 個指定されたのに対し、依存プロパティは {1} 個指定されました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -252,7 +252,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotation must have non-null target.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[注釈には、NULL 以外の対象が必要です。]]></Val>
+            <Val><![CDATA[注釈には、null 値以外のターゲットが必要です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -342,7 +342,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The IsType expression must contain 1 operand.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[IsType 式には 1 つのオペランドを含める必要があります。]]></Val>
+            <Val><![CDATA[IsType 式にはオペランドを 1 つ含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -351,7 +351,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The LabeledElement expression must contain 1 operand.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[LabeledElement 式には 1 つのオペランドを含める必要があります。]]></Val>
+            <Val><![CDATA[LabeledElement 式には オペランドを 1 つ含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -360,7 +360,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The multiplicity '{0}' is not valid. Multiplicity must be: '*', '0..1', or '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[複数要素の接続性 '{0}' が無効です。複数要素の接続性には '*'、'0..1'、または '1' を指定する必要があります。]]></Val>
+            <Val><![CDATA[複数要素の接続性 '{0}' が無効です。複数要素の接続性は '*'、'0..1'、または '1' である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -378,7 +378,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type name '{0}' is invalid. The type name must be that of a primitive type, a fully qualified name or an inline 'Collection' or 'Ref' type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型名 '{0}' が無効です。型名にはプリミティブ型、完全修飾名、またはインライン型の 'Collection' や 'Ref' の名前を指定する必要があります。]]></Val>
+            <Val><![CDATA[型名 '{0}' が無効です。型名はプリミティブ型で完全修飾名、もしくはインラインの 'Collection' または 'Ref' 型である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -414,7 +414,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A model could not be produced because one of the XML readers was null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[XML リーダーの 1 つが NULL だったため、モデルを生成できませんでした。]]></Val>
+            <Val><![CDATA[XML リーダーの 1 つが null 値だったため、モデルを生成できませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -423,7 +423,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Referential constraints requires one dependent role. Multiple dependent roles were specified for this referential constraint.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[参照に関する制約では、依存するロールが 1 つ必要です。この参照に関する制約には、複数の依存するロールが指定されました。]]></Val>
+            <Val><![CDATA[参照に関する制約には、依存ロールが 1 つ必要とされています。この参照に関する制約では、複数の依存ロールが指定されました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -432,7 +432,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Referential constraints requires one principal role. Multiple principal roles were specified for this referential constraint.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[参照に関する制約では、プリンシパル ロールが 1 つ必要です。この参照に関する制約には、複数のプリンシパル ロールが指定されました。]]></Val>
+            <Val><![CDATA[参照に関する制約には、プリンシパル ロールが 1 つ必要とされています。この参照に関する制約では、複数のプリンシパル ロールが指定されました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -450,7 +450,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The enumeration member must have a value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[列挙メンバーには値を指定する必要があります。]]></Val>
+            <Val><![CDATA[列挙型のメンバーには値を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -468,7 +468,7 @@
         <Str Cat="Text">
           <Val><![CDATA[There was a mismatch in the principal and dependent ends of the referential constraint.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[参照に関する制約のプリンシパル End と依存 End が一致しませんでした。]]></Val>
+            <Val><![CDATA[参照に関する制約で、プリンシパル側 と依存側が不一致でした。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[There was a mismatch in the principle and dependant ends of the referential constraint.]]></Val>
@@ -498,7 +498,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The Year '{0}', Month '{1}' and Day '{2}' parameters describe an un-representable Date.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Year '{0}'、Month '{1}'、Day '{2}' パラメーターは、表現できない日付を表しています。]]></Val>
+            <Val><![CDATA[Year '{0}'、Month '{1}'、Day '{2}' パラメーターが、表現できない日付を表しています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -579,7 +579,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The base type kind of a structured type must be the same as its derived type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[構造化型の基本型の種類は、派生型と同じにしなければなりません。]]></Val>
+            <Val><![CDATA[構造化型の基本型の種類は、派生型と同じにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -624,7 +624,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot assert the nullable type '{0}' as a non-nullable type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Null 許容型 '{0}' は null 非許容型としてアサートできません。]]></Val>
+            <Val><![CDATA[null 許容型 '{0}' は null 非許容型としてアサートできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -642,7 +642,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A collection expression is incompatible with a non-collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[コレクション式は非コレクション型と互換性がありません。]]></Val>
+            <Val><![CDATA[コレクション式は非コレクション型との互換性がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -660,7 +660,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' cannot belong to a type other than its declaring type. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[プロパティ '{0}' は、宣言する型以外の型に属することはできません。]]></Val>
+            <Val><![CDATA[プロパティ '{0}' は、自ら宣言している型ではない型に属することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -678,7 +678,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotated element '{0}' has multiple annotations with the term '{1}' and the qualifier '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[注釈付きの要素 '{0}' には、用語 '{1}' と識別子 '{2}' を含む複数の注釈があります。]]></Val>
+            <Val><![CDATA[注釈付きの要素 '{0}' には、語句 '{1}' と修飾子 '{2}' を含む複数の注釈があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -774,7 +774,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An entity container element without other errors must not have kind of none. The kind of entity container element '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[他のエラーを含まないエンティティ コンテナー要素の種類を none にしないでください。エンティティ コンテナー要素 '{0}' の種類が none です。]]></Val>
+            <Val><![CDATA[他のエラーを含まないエンティティ コンテナー要素の種類を none にすることはできません。エンティティ コンテナー要素 '{0}' の種類が none です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -948,7 +948,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The complex type '{0}' is marked as abstract. Abstract complex types are only supported in version 1.1 EDM models.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[複合型 '{0}' は抽象型として設定されています。抽象複合型はバージョン 1.1 の EDM モデルでのみサポートされています。]]></Val>
+            <Val><![CDATA[複合型 '{0}' は抽象として設定されています。抽象複合型はバージョン 1.1 の EDM モデルでのみサポートされています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -957,7 +957,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The complex type '{0}' has a base type specified. Complex type inheritance is only supported in version 1.1 EDM models.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[複合型 '{0}' では基本型が指定されています。複合型の継承はバージョン 1.1 の EDM モデルでのみサポートされています。]]></Val>
+            <Val><![CDATA[複合型 '{0}' に基本型が指定されています。複合型の継承はバージョン 1.1 の EDM モデルでのみサポートされています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -966,7 +966,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The declared name and namespace of the annotation must match the name and namespace of its xml value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[注釈の宣言された名前および名前空間は、注釈の xml 値の名前および名前空間と一致する必要があります。]]></Val>
+            <Val><![CDATA[注釈の宣言された名前および名前空間は、その xml 値の名前および名前空間と一致する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The annotation cannot be an element annotation because the element does not match the term of the annotation.]]></Val>
@@ -990,7 +990,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of an annotation marked to be serialized as an xml element must be a string representing an xml element with non-empty name and namespace.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[xml 要素としてシリアル化するようにマークされている注釈の値は、空でない名前および名前空間で xml 要素を表す文字列である必要があります。]]></Val>
+            <Val><![CDATA[xml 要素としてシリアル化するようにマークされている注釈の値は、空でない名前および名前空間を持つ xml 要素を表す文字列である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1017,7 +1017,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path doesn't contain the binding parameter name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[属性 '{0}' に無効な値があります。パスに、バインド パラメーター名が含まれていません。]]></Val>
+            <Val><![CDATA['{0}' に対して同じバインディング パラメーターを持つ複数のアクション オーバーロードが見つかりました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1026,7 +1026,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment '{2}' that is not an entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[属性 '{0}' に無効な値があります。パス '{1}' に、エンティティ型ではないキャスト セグメント '{2}' が含まれています。]]></Val>
+            <Val><![CDATA[属性 '{0}' に無効な値があります。パス '{1}' に、エンティティ型ではない、型キャストされたセグメント '{2}' が含まれています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1044,7 +1044,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment '{2}' that cannot be found in the model.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[属性 '{0}' に無効な値があります。パス '{1}' に、モデル内で見つからない型キャスト セグメント '{2}' が含まれています。]]></Val>
+            <Val><![CDATA[属性 '{0}' に無効な値があります。パス '{1}' に、モデル内で見つからない、型キャストされたセグメント '{2}' が含まれています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1053,7 +1053,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' is invalid. The first item of the path '{2}' is '{3}' which does not match the first parameter name {3}. The first segment of the entity set path is required to be the name of the first parameter.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[属性 '{0}' が無効です。パス '{2}' 内の最初の項目が、最初のパラメーター名 '{3}' に一致しない '{3}' になっています。エンティティ セット パスの最初のセグメントは、最初のパラメーターの名前であることが必要です。]]></Val>
+            <Val><![CDATA[属性 '{0}' が無効です。パス '{2}' 内の最初の項目が、最初のパラメーター名 '{3}' に一致しない '{3}' になっています。エンティティ セット パスの最初のセグメントは、最初のパラメーターの名前である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1089,7 +1089,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The member name '{0}' cannot be used in a type with the same name. Member names cannot be the same as their enclosing type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[メンバー名 '{0}' は、同じ名前の型では使用できません。メンバー名は、それを囲む型の名前と同じにすることはできません。]]></Val>
+            <Val><![CDATA[メンバー名 '{0}' は、同じ名前の型では使用できません。メンバー名は、外側の型の名前と同じにすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1098,7 +1098,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The multiplicity of the dependent end '{0}' is not valid. Because the dependent properties don't represent the dependent end key, the the multiplicity of the dependent end must be '*'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[依存 End '{0}' の複数要素の接続性が無効です。依存プロパティは依存 End キーを表していないため、依存 End の複数要素の接続性には '*' を指定する必要があります。]]></Val>
+            <Val><![CDATA[依存側の複数要素の接続性 '{0}' が無効です。依存プロパティは依存側の キーを表していないため、依存側の複数要素の接続性は '*' である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1107,7 +1107,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The multiplicity of the dependent end '{0}' is not valid. Because the dependent properties represent the dependent end key, the multiplicity of the dependent end must be '0..1' or '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[依存 End '{0}' の複数要素の接続性が無効です。依存プロパティは依存 End キーを表すため、依存 End の複数要素の接続性には '0..1' または '1' を指定する必要があります。]]></Val>
+            <Val><![CDATA[依存側の複数要素の接続性 '{0}' が無効です。依存プロパティは依存側の キーを表していないため、依存側の複数要素の接続性は  '0..1' または '1' である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1116,7 +1116,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Because all dependent properties of the navigation '{0}' are non-nullable, the multiplicity of the principal end must be '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ナビゲーション '{0}' のすべての依存プロパティは Null 非許容のため、プリンシパル End の複数要素の接続性には '1' を指定する必要があります。]]></Val>
+            <Val><![CDATA[ナビゲーション '{0}' のすべての依存プロパティで Null 非許容であるため、プリンシパル側の複数要素の接続性は '1' である必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are non-nullable, the multiplicity of the principal end must be '1'.]]></Val>
@@ -1128,7 +1128,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Because all dependent properties of the navigation '{0}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ナビゲーション '{0}' のすべての依存プロパティは Null 許容のため、プリンシパル End の複数要素の接続性には '0..1 を指定する必要があります。]]></Val>
+            <Val><![CDATA[ナビゲーション '{0}' のすべての依存プロパティは Null 許容であるため、プリンシパル側の複数要素の接続性は '0..1' である必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
@@ -1152,7 +1152,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An on delete action can only be specified on one end of an association.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[削除アクションを指定できるのは、アソシエーションの一方の End に対してのみです。]]></Val>
+            <Val><![CDATA[削除時アクションを指定できるのは、アソシエーション内の片方のみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1170,7 +1170,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The principal end properties in the referential constraint of the association '{0}' do not match the key of the type referred to by role '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[アソシエーション '{0}' の参照に関する制約にあるプリンシパル End のプロパティは、ロール '{1}' によって参照される型のキーと一致しません。]]></Val>
+            <Val><![CDATA[アソシエーション '{0}' の参照に関する制約にあるプリンシパル側のプロパティは、ロール '{1}' によって参照される型のキーと一致しません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[There is no property with name '{0}' referenced in the key of the type referred to by role '{1}'.]]></Val>
@@ -1182,7 +1182,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property cannot be of type '{0}'. The property type must be a complex, a primitive, an enum or an untyped type, or a collection of complex, primitive, or enum types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[プロパティの型を '{0}' にすることはできません。プロパティの型は、複合型、プリミティブ型、列挙型、型指定のない型、複合型のコレクション、プリミティブ型のコレクション、または列挙型のコレクションにする必要があります。]]></Val>
+            <Val><![CDATA[プロパティの型を '{0}' にすることはできません。プロパティの型は、複合、プリミティブ、列挙、型指定なし、または複合型、プリミティブ型、列挙型のコレクションにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A property cannot be of type '{0}'. The property type must be a complex, a primitive or an enum type, or a collection of complex, primitive, or enum types.]]></Val>
@@ -1194,7 +1194,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The string reference is invalid because if 'IsUnbounded' is true 'MaxLength' must be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['IsUnbounded' が true の場合は 'MaxLength' が NULL である必要があるため、文字列参照は無効です。]]></Val>
+            <Val><![CDATA['IsUnbounded' が true の場合は 'MaxLength' が null 値である必要があるため、文字列参照は無効です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1221,7 +1221,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Max length can range from 1 to 2^31.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[最大長は 1 ～ 2^31 の範囲で指定できます。]]></Val>
+            <Val><![CDATA[最大長は 1 から 2^31 の範囲で指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1230,7 +1230,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The number of properties in the dependent and principal role in a relationship constraint must be exactly identical.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[リレーションシップ制約において依存するロールとプリンシパル ロールのプロパティの数を一致させる必要があります。]]></Val>
+            <Val><![CDATA[リレーションシップ制約では、依存ロールとプリンシパル ロールのプロパティの数は全く同じになる必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1293,7 +1293,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The binding of the entity set or singleton '{0}' on navigation property '{1}' is invalid, the binding of bidirectional navigation property must be bidirectional if specified. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[ナビゲーション プロパティ '{1}' のエンティティ セットまたはシングルトン '{0}' のバインドが無効です。指定された場合、双方向のナビゲーション プロパティのバインドは、双方向である必要があります。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティ '{1}' のエンティティ セットまたは singleton '{0}' のバインドが無効です。指定された場合、双方向のナビゲーション プロパティのバインドは、双方向である必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The mapping of the entity set or singleton '{0}' and navigation property '{1}' is invalid because the navigation property mapping must have a mapping with the navigation property's partner that points back to the originating entity set or singleton. ]]></Val>
@@ -1314,7 +1314,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{1}' is not a valid destination for the navigation property '{0}' because it cannot hold an element of the target entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[エンティティ セットまたはシングルトン '{1}' は、target エンティティ型の要素を格納できないため、ナビゲーション プロパティ '{0}' に対する有効なナビゲーション先ではありません。]]></Val>
+            <Val><![CDATA[エンティティ セットまたは singleton '{1}' は、target エンティティ型の要素を格納できないため、ナビゲーション プロパティ '{0}' に対する有効なナビゲーション先ではありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1323,7 +1323,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property mapping '{0}' is invalid because its type is collection but target to a singleton '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ナビゲーション プロパティ マッピング '{0}' が無効です。その型はコレクションですが、シングルトン '{1}' をターゲットにしているためです。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティ マッピング '{0}' が無効です。その型はコレクションですが、singleton '{1}' をターゲットにしているためです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1332,7 +1332,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The principal navigation property '{0}' has an invalid multiplicity. Valid values for the multiplicity of a principal end are '0..1' or '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プリンシパル ナビゲーション プロパティ '{0}' には、無効な複数要素の接続性が指定されています。プリンシパル End の複数要素の接続性に有効な値は '0..1' または '1' です。]]></Val>
+            <Val><![CDATA[プリンシパル ナビゲーション プロパティ '{0}' には、無効な複数要素の接続性が指定されています。プリンシパル側の複数要素の接続性に対して、有効な値は '0..1' または '1' です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1350,7 +1350,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and the multiplicity of the navigation source must be zero or one.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ナビゲーション プロパティ '{0}' のソースの複数要素の接続性が無効です。ナビゲーション プロパティの 'ContainsTarget' が true に設定されており、プロパティの宣言するエンティティ型が対象のエンティティ型と同一か継承している場合は、プロパティは再帰的なコンテインメントを表すため、ナビゲーション ソースの複数要素の接続性を 0 または 1 にする必要があります。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティ '{0}' のソースの複数要素の接続性が無効です。ナビゲーション プロパティの 'ContainsTarget' が true に設定されており、宣言されているプロパティのエンティティ型がターゲットのエンティティ型と同一か継承している場合は、プロパティで再帰的なコンテインメントを表すため、ナビゲーション ソースの複数要素の接続性を 0 または 1 にする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1359,7 +1359,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The target multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and it must have an optional target represented by a collection or a nullable entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ナビゲーション プロパティ '{0}' のターゲットの複数要素の接続性が無効です。ナビゲーション プロパティの 'ContainsTarget' が true に設定されており、プロパティの宣言するエンティティ型が対象のエンティティ型と同一か継承している場合は、プロパティは再帰的なコンテインメントを表すため、コレクションまたは NULL 値が許容されるエンティティ型で表される任意の対象を含める必要があります。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティ '{0}' のターゲットの複数要素の接続性が無効です。ナビゲーション プロパティの 'ContainsTarget' が true に設定されており、宣言されているプロパティのエンティティ型が対象のエンティティ型と同一か継承している場合は、プロパティで再帰的なコンテインメントを表すため、コレクションまたは null 値が許容されるエンティティ型で表される任意のターゲットを含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1368,7 +1368,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{0}' is based on type '{1}' that has no keys defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[エンティティ セットまたはシングルトン '{0}' が、キーが定義されていない型 '{1}' に基づいています。]]></Val>
+            <Val><![CDATA[エンティティ セットまたは singleton '{0}' が、キーが定義されていない型 '{1}' に基づいています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1386,7 +1386,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Null value cannot have a non-nullable type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Null 値には Null 非許容型を指定できません。]]></Val>
+            <Val><![CDATA[null 値には null 許容型以外を指定できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1404,7 +1404,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound operation '{0}' has an entity set path defined. Entity set path can only be defined on bound operations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[バインドされていない操作 '{0}' に、定義されたエンティティ セットのパスがあります。エンティティ セットのパスを定義できるのは、バインドされた操作を対象にする場合のみです。]]></Val>
+            <Val><![CDATA[バインドされていない操作 '{0}' に、エンティティ セットのパスが定義されています。エンティティ セットのパスは、バインドされた操作についてのみ定義することができます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1413,7 +1413,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' imports operation '{1}' that is bound. Only an unbound operation can be imported using an operation import.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作インポート '{0}' が、バインドされている操作 '{1}' をインポートしようとしています。操作インポートを使用してインポートできるのは、バインドされていない操作のみです。]]></Val>
+            <Val><![CDATA[操作インポート '{0}' において、バインドされている操作 '{1}' がインポートされています。操作インポートを使用したインポートができるのは、バインドされていない操作のみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1422,7 +1422,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' specifies an entity set expression which is not valid. Operation import entity set expression can be either an entity set reference or a path starting with a operation import parameter and traversing navigation properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作インポート '{0}' が、無効なエンティティ セット式を指定しています。操作インポートのエンティティ セット式には、エンティティ セットの参照か、操作インポートのパラメーターで始まり、ナビゲーション プロパティを走査するパスのいずれかを指定できます。]]></Val>
+            <Val><![CDATA[操作インポート '{0}' において、無効なエンティティ セット式が指定されています。操作インポートのエンティティ セット式は、エンティティ セットの参照か、操作インポートのパラメーターで始まり、ナビゲーション プロパティを走査するパスのいずれかを指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1431,7 +1431,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' specifies an entity set of kind '{1}' which is not supported in this context. Operation import entity set expression can be either an entity set reference or a path starting with a operation import parameter and traversing navigation properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作インポート '{0}' が、このコンテキストでサポートされていない種類 '{1}' のエンティティ セット式を指定しています。操作インポートのエンティティ セット式には、エンティティ セットの参照か、操作インポートのパラメーターで始まり、ナビゲーション プロパティを走査するパスのいずれかを指定できます。]]></Val>
+            <Val><![CDATA[操作インポート '{0}' において、このコンテキストでサポートされていない種類 '{1}' のエンティティ セット式が指定されています。操作インポートのエンティティ セット式には、エンティティ セットの参照か、操作インポートのパラメーターで始まり、ナビゲーション プロパティを走査するパスのいずれかを指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1440,7 +1440,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' returns entities of type '{1}' that cannot exist in the entity set '{2}' specified for the operation import.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作インポート '{0}' が、操作インポートに対して指定したエンティティ セット '{2}' 内に存在できない型 '{1}' のエンティティを返しています。]]></Val>
+            <Val><![CDATA[操作インポート '{0}' から、操作インポートに指定されたエンティティ セット '{2}' 内に存在できない型 '{1}' のエンティティを返しています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1449,7 +1449,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' returns entities of type '{1}' that cannot be returned by the entity set path specified for the operation import.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作インポート '{0}' が、操作インポートに対して指定したエンティティ セットのパスから返すことのできない型 '{1}' のエンティティを返そうとしています。]]></Val>
+            <Val><![CDATA[操作インポート '{0}' から、操作インポートに指定されたエンティティ セットのパスから返すことのできない型 '{1}' のエンティティが返されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1458,7 +1458,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' specifies an entity set but does not return entities.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作インポート '{0}' がエンティティ セットを指定していますが、エンティティを返していせん。]]></Val>
+            <Val><![CDATA[操作インポート '{0}' でエンティティ セットが指定されていますが、エンティティを返していません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1467,7 +1467,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path determined entity type '{1}' is not assignable to the return type '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[エンティティ型 '{1}' によって決定した操作 '{0}' のエンティティ セットのパスが、戻り値の型 '{2}' に割り当て可能なものではありません。]]></Val>
+            <Val><![CDATA[エンティティ型 '{1}' を確定した操作 '{0}' のエンティティ セットのパスを、戻り値の型 '{2}' に割り当てることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1476,7 +1476,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path was determined to be a reference property but the return type is a collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作 '{0}' のエンティティ セットのパスが、参照プロパティであると決定されましたが、戻り値の型はコレクションです。]]></Val>
+            <Val><![CDATA[操作 '{0}' のエンティティ セットのパスが、参照プロパティであると確定されましたが、戻り値の型はコレクションです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1485,7 +1485,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path was determined to be a collection but the return type is not a collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[操作 '{0}' のエンティティ セットのパスが、コレクションであると決定されましたが、戻り値の型はコレクションではありません。]]></Val>
+            <Val><![CDATA[操作 '{0}' のエンティティ セットのパスが、コレクションであると確定されましたが、戻り値の型はコレクションではありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1542,7 +1542,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A primitive expression is incompatible with a non-primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プリミティブ式と非プリミティブ型には互換性がありません。]]></Val>
+            <Val><![CDATA[プリミティブ式には非プリミティブ型との互換性がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1551,7 +1551,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A primitive type without other errors must not have kind of none. The kind of primitive type '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[他のエラーを含まないプリミティブ型の種類を none にしないでください。プリミティブ型 '{0}' の種類は none です。]]></Val>
+            <Val><![CDATA[他のエラーを含まないプリミティブ型の種類を none にすることはできません。プリミティブ型 '{0}' の種類が none です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1560,7 +1560,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property without other errors must not have kind of none. The kind of property '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[他のエラーを含まないプロパティの種類を none にしないでください。プロパティ '{0}' の種類は none です。]]></Val>
+            <Val><![CDATA[他のエラーを含まないプロパティの種類を none にすることはできません。プロパティ '{0}' の種類が none です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1599,7 +1599,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A record expression is incompatible with a non-structured type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[レコード式と非構造化型には互換性がありません。]]></Val>
+            <Val><![CDATA[レコード式には、非構造化型との互換性がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1617,7 +1617,7 @@
         <Str Cat="Text">
           <Val><![CDATA[In relationship '{0}', the principal and dependent role of the referential constraint refers to the same role in the relationship type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[リレーションシップ '{0}' で、参照に関する制約のプリンシパル ロールと依存するロールは、リレーションシップの種類で同じロールを参照しています。]]></Val>
+            <Val><![CDATA[リレーションシップ '{0}' で、参照に関する制約のプリンシパル ロールと依存ロールが、リレーションシップの種類で同じロールを参照しています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1635,7 +1635,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A schema element without other errors must not have kind of none. The kind of schema element '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[他のエラーを含まないスキーマ要素の種類を none にしないでください。スキーマ要素 '{0}' の種類は none です。]]></Val>
+            <Val><![CDATA[他のエラーを含まないスキーマ要素の種類を none にすることはできません。スキーマ要素 '{0}' の種類が none です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1653,7 +1653,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the singleton '{1}' is not valid, it must be entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[シングルトン '{1}' の型 '{0}' が無効です。この型は、エンティティ型である必要があります。]]></Val>
+            <Val><![CDATA[singleton '{1}' の型 '{0}' が無効です。エンティティ型である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1671,7 +1671,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The max length facet specifies the maximum length of an instance of the string type. For unicode equal to 'true', the max length can range from 1 to 2^30, or if 'false', 1 to 2^31.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[最大長のファセットで、文字列型のインスタンスの最大長を指定します。Unicode が 'true' の場合、最大長は 1 ～ 2^30 の範囲になります。'false' の場合は 1 ～ 2^31 の範囲になります。]]></Val>
+            <Val><![CDATA[最大長のファセットで、文字列型のインスタンスの最大長を指定します。Unicode が 'true' の場合、最大長は 1 から 2^30 の範囲になります。'false' の場合は 1 から 2^31 の範囲になります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1680,7 +1680,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The namespace '{0}' is a system namespace and cannot be used by non-system types. Please choose a different namespace.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[名前空間 '{0}' はシステム名前空間のため、システム以外の型では使用できません。別の名前空間を選択してください。]]></Val>
+            <Val><![CDATA[名前空間 '{0}' はシステムの名前空間であるため、システム以外の型では使用できません。別の名前空間を選択してください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1689,7 +1689,7 @@
         <Str Cat="Text">
           <Val><![CDATA[They type of the type annotation is not open, and does not contain a property named '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型の注釈の型はオープンではなく、'{0}' という名前のプロパティを含んでいません。]]></Val>
+            <Val><![CDATA[型の注釈はオープン型ではなく、'{0}' という名前のプロパティを含んでいません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1716,7 +1716,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A type without other errors must not have kind of none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[他のエラーを含まない型の種類を none にしないでください。]]></Val>
+            <Val><![CDATA[他のエラーを含まない型の種類を none にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1770,7 +1770,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}.{1}' of type '{2}' has value '{3}' that is not a valid enum member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{2}' のプロパティ '{0}.{1}' には、有効な列挙メンバーではない値 '{3}' が指定されています。]]></Val>
+            <Val><![CDATA[型 '{2}' のプロパティ '{0}.{1}' には、有効な列挙型のメンバーではない値 '{3}' が指定されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1779,7 +1779,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the enumeration the property '{0}.{1}' contains a null element. Enumeration properties must not contain null elements.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[列挙とプロパティの値 '{0}.{1}' には Null 要素が含まれています。列挙のプロパティには、Null 値を含めることができません。]]></Val>
+            <Val><![CDATA[プロパティ '{0}.{1}' の列挙型の値に null 値の要素が含まれています。列挙型のプロパティには、null 値を含めることができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1788,7 +1788,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The chain of base types of type '{0}' is cyclic.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{0}' の基本型のチェーンは循環です。]]></Val>
+            <Val><![CDATA[型 '{0}' の基本型のチェーンが循環しています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1806,7 +1806,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' of the property '{1}.{2}' is not semantically valid. A semantically valid model must not contain elements of kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プロパティ '{1}.{2}' の値 '{0}' は意味的に無効です。意味的に有効なモデルには、種類 '{0}' の要素を含めないでください。]]></Val>
+            <Val><![CDATA[プロパティ '{1}.{2}' の値 '{0}' は意味的に無効です。意味的に有効なモデルには、種類 '{0}' の要素を含めることができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1842,7 +1842,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the property '{0}.{1}' must not be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プロパティ '{0}.{1}' の値を Null にすることはできません。]]></Val>
+            <Val><![CDATA[プロパティ '{0}.{1}' の値を null 値 にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1851,7 +1851,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An object implementing '{0}' interface has type definition of kind '{1}'. The type reference interface must match to the kind of the  definition.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' インターフェイスを実装するオブジェクトには、種類 '{1}' の型定義があります。型参照インターフェイスは、定義の種類に一致する必要があります。]]></Val>
+            <Val><![CDATA['{0}' インターフェイスを実装するオブジェクトには、種類 '{1}' の型定義があります。型参照インターフェイスは、定義の種類に適合する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1950,7 +1950,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An annotation of type string was expected for the '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' annotation, but an annotation of type '{1}' was found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' の注釈として文字列型の注釈が想定されますが、型 '{1}' の注釈が見つかりました。]]></Val>
+            <Val><![CDATA['{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' の注釈として文字列型の注釈が必要とされていましたが、型 '{1}' の注釈が見つかりました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1959,7 +1959,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The MIME type annotation must not have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[MIME の種類の注釈は NULL 値にできません。]]></Val>
+            <Val><![CDATA[MIME の種類の注釈は null 値にできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1968,7 +1968,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Value fails to match type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[値が型 '{0}' と一致しません。]]></Val>
+            <Val><![CDATA[値が型 '{0}' に適合しません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1977,7 +1977,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A containing object cannot be null when getting value of an annotation with Path in the execution environment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[実行環境でパスの注釈の値を取得するときに、親オブジェクトは NULL 以外でなければなりません。]]></Val>
+            <Val><![CDATA[実行環境でパスの注釈の値を取得するとき、包括するオブジェクトを null 値にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1995,7 +1995,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Element must have a single annotation with term '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[要素には、用語 '{0}' を含む単一の注釈が必要です。]]></Val>
+            <Val><![CDATA[要素には、 '{0}' という語を含む単独の注釈が必要です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Element must have a single value annotation with term '{0}'.]]></Val>
@@ -2007,7 +2007,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type '{0}' must have a single annotation with term '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[型 '{0}' には、用語 '{1}' を含む単一の注釈が必要です。]]></Val>
+            <Val><![CDATA[型 '{0}' には、 '{1}' という語を含む単独の注釈が必要です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Type '{0}' must have a single value annotation with term '{1}'.]]></Val>
@@ -2055,7 +2055,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unexpected {0} element while parsing Edmx. Edmx is expected to have at most one of 'Runtime' or 'DataServices' elements.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[EDMX の解析中に予期しない {0} 要素が検出されました。EDMX には 'Runtime' 要素と 'DataServices' 要素のいずれかが必要です。]]></Val>
+            <Val><![CDATA[Edmx の解析中に予期しない {0} 要素が検出されました。Edmx には多くとも 'Runtime' 要素と 'DataServices' 要素のいずれかが必要です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2064,7 +2064,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The EDMX version specified in the 'Version' attribute does not match the version corresponding to the namespace of the 'Edmx' element.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA['Version' 属性に指定された EDMX のバージョンが、'Edmx' 要素の名前空間に対応するバージョンと一致しません。]]></Val>
+            <Val><![CDATA['Version' 属性に指定された EDMX のバージョンが、'Edmx' 要素の名前空間に対応するバージョンに適合しません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The Edmx version specified in the Version attribute does not match the version corresponding to the namespace of the Edmx element.]]></Val>
@@ -2085,7 +2085,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unresolved Uri found in edmx:Reference, getReferencedModelReaderFunc should not return null when the URI is not a well-known schema.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[未解決の URI が edmx:Reference に見つかりました。URI が既知のスキーマでない場合、getReferencedModelReaderFunc が NULL を返してはなりません。]]></Val>
+            <Val><![CDATA[未解決の URI が edmx:Reference に見つかりました。URI が既知のスキーマでない場合、getReferencedModelReaderFunc が null 値を返すことはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2130,7 +2130,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No CSDL is written because no schema elements could be produced. This is likely because the model is empty.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[スキーマ要素を生成できなかったため、CSDL は記述されません。モデルが空であることが原因である可能性があります。]]></Val>
+            <Val><![CDATA[スキーマ要素を生成できなかったため、CSDL は記述されません。モデルが空であることが原因として考えられます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2397,7 +2397,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid duration value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[値 {0} は、継続時間の有効な値ではありません。]]></Val>
+            <Val><![CDATA[値 {0} は、期間の有効な値ではありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2481,7 +2481,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value writer cannot write a value of kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[値ライターは、'{0}' という種類の値を書き込めません。]]></Val>
+            <Val><![CDATA[値ライターは、種類 '{0}' の値を書き込めません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2508,7 +2508,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Required schema attribute '{0}' is not present on element '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[必要なスキーマ属性 '{0}' が要素 '{1}' に存在しません。]]></Val>
+            <Val><![CDATA[必須のスキーマ属性 '{0}' が要素 '{1}' に存在しません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2592,6 +2592,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
@@ -2632,7 +2638,7 @@
       <Str Cat="Text">
         <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Microsoft および Windows は、Microsoft Corporation の米国およびその他の国における登録商標または商標です。]]></Val>
+          <Val><![CDATA[Microsoft および Windows は、米国 Microsoft Corporation の米国およびその他の国における登録商標または商標です。]]></Val>
         </Tgt>
       </Str>
       <Disp Icon="Str" />

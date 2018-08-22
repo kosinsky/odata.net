@@ -2196,7 +2196,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The content ID '{0}' was found more than once in the same change set or same batch request. Content IDs have to be unique across all operations of a change set for OData V4.0 and have to be unique across all operations in the whole batch request for OData V4.01.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[在相同的變更集或相同的批次要求中找到多個內容識別碼 '{0}'。內容識別碼在 OData V4.0 變更集的所有作業都必須是唯一的，在 OData V4.01 整個批次要求中的所有作業也都必須是唯一的。]]></Val>
+            <Val><![CDATA[在相同的變更集或相同的批次要求中找到多個內容識別碼 '{0}'。內容識別碼在 OData V4.0 變更集的所有作業間都必須是唯一的，在 OData V4.01 整個批次要求中的所有作業間也都必須是唯一的。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
@@ -2469,7 +2469,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The content ID '{0}' was found more than once in the same change set or same batch request. Content IDs have to be unique across all operations of a change set for OData V4.0 and have to be unique across all operations in the whole batch request for OData V4.01.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[在相同的變更集或相同的批次要求中找到多個內容識別碼 '{0}'。內容識別碼在 OData V4.0 變更集的所有作業都必須是唯一的，在 OData V4.01 整個批次要求中的所有作業也都必須是唯一的。]]></Val>
+            <Val><![CDATA[在相同的變更集或相同的批次要求中找到多個內容識別碼 '{0}'。內容識別碼在 OData V4.0 變更集的所有作業間都必須是唯一的，在 OData V4.01 整個批次要求中的所有作業間也都必須是唯一的。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The content ID '{0}' was found more than once in the same change set. Content IDs have to be unique across all operations of a change set.]]></Val>
