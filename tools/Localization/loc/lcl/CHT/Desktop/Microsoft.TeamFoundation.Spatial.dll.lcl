@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-TW" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -182,7 +182,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: The XmlReader instance encountered an unexpected element "{0}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[GML 格式不正確: XmlReader 執行個體發現未預期的元素 "{0}"。]]></Val>
+            <Val><![CDATA[GML 格式不正確: XmlReader 執行個體發現非預期的元素 "{0}"。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -428,7 +428,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unexpected character '{0}' found in text.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[在文字中找到未預期的字元 '{0}'。]]></Val>
+            <Val><![CDATA[在文字中找到非預期的字元 '{0}'。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -458,6 +458,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-TW" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -596,7 +596,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function overload '{0}' does not have the same return type as other function overloads. Expected type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[繫結函數多載 '{0}' 沒有與其他函數多載相同的傳回類型。需要類型 '{1}'。]]></Val>
+            <Val><![CDATA[繫結函式多載 '{0}' 沒有與其他函式多載相同的傳回類型。需要類型 '{1}'。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -704,7 +704,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Each entity container name in a function must be unique. The name '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[函數中的每個實體容器名稱都必須是唯一的。名稱 '{0}' 已經定義過了。]]></Val>
+            <Val><![CDATA[函式中的每個實體容器名稱都必須是唯一的。名稱 '{0}' 已經定義過了。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -875,7 +875,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function import '{0}' should not be included in service document because it has parameter.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[函數匯入 '{0}' 不應包含於服務文件中，因為其具有參數。]]></Val>
+            <Val><![CDATA[函式匯入 '{0}' 不應包含於服務文件中，因為其具有參數。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -884,7 +884,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function '{0}' must specify a return type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[函數 '{0}' 必須指定傳回類型。]]></Val>
+            <Val><![CDATA[函式 '{0}' 必須指定傳回類型。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -920,7 +920,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function application provides '{0}' arguments, but the function '{1}' expects '{2}' arguments.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[函數應用程式提供了 '{0}' 個引數，但函數 '{1}' 需要 '{2}' 個引數。]]></Val>
+            <Val><![CDATA[函式應用程式提供了 '{0}' 個引數，但函式 '{1}' 需要 '{2}' 個引數。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1238,7 +1238,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and unordered set of parameter names uniquely identifies a bound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[繫結函數 '{0}' 與其他繫結函數重複。針對繫結函數，命名空間、名稱、繫結參數類型和未排序參數名稱組的組合可唯一識別繫結函數。]]></Val>
+            <Val><![CDATA[繫結函式 '{0}' 與其他繫結函式重複。針對繫結函式，命名空間、名稱、繫結參數類型和未排序參數名稱組的組合可唯一識別繫結函式。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1247,7 +1247,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and ordered set of parameter types uniquely identifies a bound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[繫結函數 '{0}' 與其他繫結函數重複。針對繫結函數，命名空間、名稱、繫結參數類型和已排序參數類型組的組合可唯一識別繫結函數。]]></Val>
+            <Val><![CDATA[繫結函式 '{0}' 與其他繫結函式重複。針對繫結函式，命名空間、名稱、繫結參數類型和已排序參數類型組的組合可唯一識別繫結函式。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1265,7 +1265,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and unordered set of parameter names uniquely identifies an unbound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[未繫結函數 '{0}' 與其他未繫結函數重複。針對未繫結函數，命名空間、名稱和未排序參數名稱組的組合可唯一識別未繫結函數。]]></Val>
+            <Val><![CDATA[未繫結函式 '{0}' 與其他未繫結函式重複。針對未繫結函式，命名空間、名稱和未排序參數名稱組的組合可唯一識別未繫結函式。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1274,7 +1274,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and ordered set of parameter types uniquely identifies an unbound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[未繫結函數 '{0}' 與其他未繫結函數重複。針對未繫結函數，命名空間、名稱和已排序參數類型組的組合可唯一識別未繫結函數。]]></Val>
+            <Val><![CDATA[未繫結函式 '{0}' 與其他未繫結函式重複。針對未繫結函式，命名空間、名稱和已排序參數類型組的組合可唯一識別未繫結函式。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1718,7 +1718,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function '{0}' has a different return type than other function overloads with the same name. Functions with the same name must have the same return type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[函數 '{0}' 的傳回類型與其他同名的函數多載不同。同名函數必須具有相同的傳回類型。]]></Val>
+            <Val><![CDATA[函式 '{0}' 的傳回類型與其他同名的函式多載不同。同名函式必須具有相同的傳回類型。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2021,7 +2021,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Function '{0}' is not present in the execution environment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[函數 '{0}' 不存在執行環境中。]]></Val>
+            <Val><![CDATA[函式 '{0}' 不存在執行環境中。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2537,7 +2537,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unexpected XML node type: {0}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[未預期的 XML 節點類型: {0}。]]></Val>
+            <Val><![CDATA[非預期的 XML 節點類型: {0}。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Unexpected XmlNode type: {0}.]]></Val>
@@ -2585,6 +2585,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
