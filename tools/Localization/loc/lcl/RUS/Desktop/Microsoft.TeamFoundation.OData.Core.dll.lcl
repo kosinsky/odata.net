@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Core.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ru-RU" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -13,7 +13,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -27,7 +27,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a valid pattern to match an annotation. It must not contain a namespace or name segment that is empty.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Шаблон "{0}" не является допустимым для согласования аннотации. Он не должен содержать пространство имен или пустой сегмент имени.]]></Val>
+            <Val><![CDATA[Шаблон "{0}" недопустимый для соответствия заметке. Он не должен содержать пространство имен или пустой сегмент имени.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -36,7 +36,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a valid pattern to match an annotation. It must contain at least one '.' separating the namespace and the name segments of an annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Шаблон "{0}" не является допустимым для согласования аннотации. Он должен содержать по крайней мере один символ ".", отделяющий пространство имен от сегментов имени в аннотации.]]></Val>
+            <Val><![CDATA[Шаблон "{0}" недопустимый для соответствия заметке. Он должен содержать по крайней мере один символ ".", отделяющий пространство имен от сегментов имени в заметке.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -45,7 +45,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a supported pattern to match an annotation. It must not contain '*' as part of a segment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Шаблон "{0}" не является поддерживаемым для согласования аннотации. Он не должен содержать символ "*" как часть сегмента.]]></Val>
+            <Val><![CDATA[Шаблон "{0}" неподдерживаемый для соответствия заметке. Он не должен содержать символ "*" как часть сегмента.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -54,7 +54,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a supported pattern to match an annotation. '*' must be the last segment of the pattern.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Шаблон "{0}" не является поддерживаемым для согласования аннотации. Символ "*" должен быть последним сегментом шаблона.]]></Val>
+            <Val><![CDATA[Шаблон "{0}" неподдерживаемый для соответствия заметке. Символ "*" должен быть последним сегментом шаблона.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -126,7 +126,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered the attribute '{0}' on a non-empty 'annotation' element. If attribute value notation is used to specify the annotation's value, then there can be no body to the element.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Обнаружен атрибут "{0}" в непустом элементе "annotation". Если нотация значения атрибута используется для указания значения аннотации, то в элементе не может быть текста.]]></Val>
+            <Val><![CDATA[Обнаружен атрибут "{0}" в непустом элементе "annotation". Если нотация значения атрибута используется для указания значения заметки, то в элементе не может быть текста.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -162,7 +162,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type '{0}' to the string representation of an Atom primitive value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Не удается преобразовать значение типа "{0}" в строковое представление значения типа-примитива Atom.]]></Val>
+            <Val><![CDATA[Не удается преобразовать значение типа "{0}" в строковое представление значения примитивного типа Atom.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -228,7 +228,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An item of type kind '{0}' was found in a collection that otherwise has items of type kind '{1}'. In OData, all items in a collection must have the same type kind.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Элемент типа "{0}" обнаружен в коллекции, которая также содержит элементы типа "{1}". В коллекции OData все элементы должны относиться к одному типу.]]></Val>
+            <Val><![CDATA[Элемент вида типа "{0}" обнаружен в коллекции, которая также содержит элементы вида типа "{1}". В коллекции OData все элементы должны относиться к одному виду типа.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -246,7 +246,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An invalid item type kind '{0}' was found. Items in a collection can only be of type kind 'Primitive' or 'Complex', but not of type kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Обнаружен недопустимый тип элементов "{0}". Элементы в коллекции могут иметь только тип "Primitive" или "Complex", но не тип "{0}".]]></Val>
+            <Val><![CDATA[Обнаружен недопустимый вид типа элементов "{0}". Элементы в коллекции могут иметь только вид типа "Primitive" или "Complex", но не вид типа "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -363,7 +363,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Value '{0}' was either too large or too small for a '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Значение '{0}' слишком велико или слишком мало для '{1}'.]]></Val>
+            <Val><![CDATA[Значение "{0}" слишком велико или слишком мало для "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -372,7 +372,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A value with primitive kind '{0}' cannot be converted into a primitive object value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Значение с видом типа-примитива "{0}" невозможно преобразовать в значение объекта-примитива.]]></Val>
+            <Val><![CDATA[Значение с примитивным видом "{0}" невозможно преобразовать в значение примитивного объекта.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -381,7 +381,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incompatible primitive type kinds were found. The type '{0}' was found to be of kind '{2}' instead of the expected kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Были найдены несовместимые виды типов-примитивов. Тип "{0}" принадлежит к виду "{2}", а не к виду "{1}", как ожидалось.]]></Val>
+            <Val><![CDATA[Были найдены несовместимые виды примитивных типов. Тип "{0}" принадлежит к виду "{2}", а не к виду "{1}", как ожидалось.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -390,7 +390,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incompatible primitive type kinds were found. Found type kind '{0}' instead of the expected kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Были найдены несовместимые виды типов-примитивов. Обнаружен тип вида "{0}", а не вида "{1}", как ожидалось.]]></Val>
+            <Val><![CDATA[Были найдены несовместимые виды примитивных типов. Обнаружен тип вида "{0}", а не вида "{1}", как ожидалось.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -399,7 +399,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The primitive property '{0}' on type '{1}' has a value which is not a primitive value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Свойство-примитив "{0}" для типа "{1}" имеет значение, не являющееся значением-примитивом.]]></Val>
+            <Val><![CDATA[Примитивное свойство "{0}" для типа "{1}" имеет значение, не являющееся примитивным значением.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -417,7 +417,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' was found for a primitive value. In OData, the type '{0}' is not a supported primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Для значения-примитива был найден тип "{0}". Тип "{0}" не является в OData поддерживаемым типом-примитивом.]]></Val>
+            <Val><![CDATA[Для примитивного значения был найден тип "{0}". Тип "{0}" не является в OData поддерживаемым примитивным типом.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -684,7 +684,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot find a suitable overload for function '{0}' that takes '{1}' arguments.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Не удается найти подходящую перегрузку для функции "{0}", принимающей "{1}" аргументов.]]></Val>
+            <Val><![CDATA[Не удается найти подходящую перегрузку для функции "{0}", принимающей аргументы "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1056,7 +1056,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Не удается считать значение "{0}"для свойства "{1}" как строковое значение JSON в кавычках.]]></Val>
+            <Val><![CDATA[Не удается считать значение "{0}" для свойства "{1}" как строковое значение JSON в кавычках.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1125,7 +1125,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. The value '{0}' is not a valid number.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый JSON. Значение "{0}" является недопустимым числом.]]></Val>
+            <Val><![CDATA[Недопустимый формат JSON. Значение "{0}" является недопустимым числом.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1146,7 +1146,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. A colon character ':' is expected after the property name '{0}', but none was found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый JSON. После имени свойства "{0}" ожидался символ двоеточия ":", но он не был обнаружен.]]></Val>
+            <Val><![CDATA[Недопустимый формат JSON. После имени свойства "{0}" ожидался символ двоеточия ":", но он не был обнаружен.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1191,7 +1191,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. Unexpected end of input reached while processing a JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый JSON. Обнаружен непредвиденный конец входных данных при обработке строкового значения JSON.]]></Val>
+            <Val><![CDATA[Недопустимый формат JSON. Обнаружен непредвиденный конец входных данных при обработке строкового значения JSON.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1200,7 +1200,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. Unexpected token '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый JSON. Непредвиденный токен "{0}".]]></Val>
+            <Val><![CDATA[Недопустимый формат JSON. Непредвиденный токен "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1221,7 +1221,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. A token was not recognized in the JSON content.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый JSON. Неизвестный токен в содержимом JSON.]]></Val>
+            <Val><![CDATA[Недопустимый формат JSON. Неизвестный токен в содержимом JSON.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1458,7 +1458,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The $orderby expression must evaluate to a single value of primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Значением выражения $orderby должно быть одиночное значение типа-примитива.]]></Val>
+            <Val><![CDATA[Значением выражения $orderby должно быть одиночное значение примитивного типа.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1611,7 +1611,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An instance of CollectionFunctionCallNode can only be created with a primitive, complex or enum collection type. For functions returning a collection of entities, use EntityCollectionFunctionCallNode instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Экземпляр CollectionFunctionCallNode можно создать только с типом коллекции - примитивным, сложным или enum. Для функций, возвращающих коллекцию сущностей, используйте EntityCollectionFunctionCallNode.]]></Val>
+            <Val><![CDATA[Экземпляр CollectionFunctionCallNode можно создать только с типом коллекции — примитивным, сложным или enum. Для функций, возвращающих коллекцию сущностей, используйте EntityCollectionFunctionCallNode.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1695,7 +1695,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An instance of SingleValueFunctionCallNode can only be created with a primitive, complex or enum type. For functions returning a single entity, use SingleEntityFunctionCallNode instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Экземпляр SingleValueFunctionCallNode можно создать только с типом - примитивным, сложным или enum. Для функций, возвращающих одну сущность, используйте SingleEntityFunctionCallNode.]]></Val>
+            <Val><![CDATA[Экземпляр SingleValueFunctionCallNode можно создать только с типом — примитивным, сложным или enum. Для функций, возвращающих одну сущность, используйте SingleEntityFunctionCallNode.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1815,7 +1815,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous async writer. Calls on an async writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Для синхронного модуля асинхронного чтения вызвана асинхронная операция. Все вызовы одного экземпляра модуля асинхронного чтения должны одинаково быть либо синхронными, либо асинхронными.]]></Val>
+            <Val><![CDATA[Для синхронного модуля асинхронной записи вызвана асинхронная операция. Все вызовы одного экземпляра модуля асинхронной записи должны одинаково быть либо синхронными, либо асинхронными.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1851,7 +1851,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous async writer. Calls on an async writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Для асинхронного модуля асинхронного чтения вызвана синхронная операция. Все вызовы одного экземпляра модуля асинхронного чтения должны одинаково быть либо синхронными, либо асинхронными.]]></Val>
+            <Val><![CDATA[Для асинхронного модуля асинхронной записи вызвана синхронная операция. Все вызовы одного экземпляра модуля асинхронной записи должны одинаково быть либо синхронными, либо асинхронными.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2565,7 +2565,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The current batch message contains too many parts. Only batch messages with a maximum number of '{0}' query operations and change sets are allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Текущее сообщение пакета содержит слишком много компонентов. Допускаются только сообщения пакета с максимальным числом "{0}" операций запроса и наборов изменений.]]></Val>
+            <Val><![CDATA[Текущее сообщение пакета содержит слишком много компонентов. Допускаются только сообщения пакета, содержащие не более "{0}" операций запроса и наборов изменений.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2772,7 +2772,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Context URL for payload kind '{0}' is not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[URL-адрес контекста для типа полезных данных "{0}" не поддерживается.]]></Val>
+            <Val><![CDATA[URL-адрес контекста для вида полезных данных "{0}" не поддерживается.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2781,7 +2781,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The base type '{0}' of the entity set specified for writing a payload is not assignable from the specified entity type '{1}'. When an entity type is specified it has to be the same or derived from the base type of the entity set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Базовый тип "{0}" набора сущностей, заданный для написания полезных данных, нельзя назначить из указанного типа сущностей "{1}". Если указан тип сущности, он должен иметь тот же базовый тип набора сущностей или быть производным от него.]]></Val>
+            <Val><![CDATA[Базовый тип "{0}" набора сущностей, заданный для записи полезных данных, нельзя назначить из указанного типа сущностей "{1}". Если указан тип сущности, он должен иметь тот же базовый тип набора сущностей или быть производным от него.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2865,7 +2865,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The format '{0}' does not support reading a payload of kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Формат "{0}" не поддерживает считывание полезных данных типа "{1}".]]></Val>
+            <Val><![CDATA[Формат "{0}" не поддерживает считывание полезных данных вида "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2967,7 +2967,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' is not valid for the expected payload kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[URI контекста "{0}" недопустим для ожидаемого типа полезных данных "{1}".]]></Val>
+            <Val><![CDATA[URI контекста "{0}" недопустим для ожидаемого вида полезных данных "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3033,7 +3033,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The top level context URL '{0}' should be an absolute Uri.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Контекстная URL-ссылка верхнего уровня '{0}' должна представлять собой абсолютный URI.]]></Val>
+            <Val><![CDATA[Контекстная URL-ссылка верхнего уровня "{0}" должна представлять собой абсолютный URI.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3069,7 +3069,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotation '{0}' is found targeting the instance annotation '{1}'. However the value for the instance annotation '{1}' is not found immediately after. In JSON Light, an annotation targeting an instance annotation must be immediately followed by the value of the targeted instance annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Целью заметки "{0}" является заметка экземпляра "{1}". Однако значение заметки экземпляра "{1}" не обнаружено сразу же после. В JSON Light после заметки, целью которой заметка экземпляра "{1}", должно сразу следовать значение целевой заметки экземпляра.]]></Val>
+            <Val><![CDATA[Цель заметки "{0}" — заметка экземпляра "{1}". Однако значение заметки экземпляра "{1}" не обнаружено сразу же после нее. В JSON Light после заметки, цель которой — заметка экземпляра "{1}", должно сразу следовать значение целевой заметки экземпляра.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3087,7 +3087,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotation '{0}' was targeting the instance annotation '{1}'. Only the '{2}' annotation is allowed to target an instance annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Целью заметки "{0}" была заметка экземпляра "{1}". Только целью заметки "{2}" может быть заметка экземпляра.]]></Val>
+            <Val><![CDATA[Целью заметки "{0}" была заметка экземпляра "{1}". Только заметка "{2}" может быть целью заметки экземпляра.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3252,7 +3252,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An attempt to read a collection request payload without specifying a collection item type was detected. When reading collection payloads in requests, an expected item type has to be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Обнаружена попытка считывания полезной нагрузки запроса к коллекции без указания типа элемента сбора. При считывании полезной нагрузки коллекции в запросах должен быть указан ожидаемый тип элемента.]]></Val>
+            <Val><![CDATA[Обнаружена попытка считывания полезных данных запроса к коллекции без указания типа элемента сбора. При считывании полезных данных коллекции в запросах должен быть указан ожидаемый тип элемента.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3429,7 +3429,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An '{0}' annotation was read inside a JSON object representing a primitive value; type annotations for primitive values have to be property annotations of the owning property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Заметка "{0}" была считана внутри объекта JSON, представляющего значение-примитив; заметки типов для значений-примитивов должны быть заметками свойства для свойства-владельца.]]></Val>
+            <Val><![CDATA[Заметка "{0}" была считана внутри объекта JSON, представляющего примитивное значение; заметки типов для примитивных значений должны быть заметками свойства для свойства-владельца.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3474,7 +3474,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' has a property annotation '{1}'. Primitive, complex, collection or open properties can only have an 'odata.type' property annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Свойство "{0}" имеет заметку свойства "{1}". Свойства-примитивы, сложные свойства, свойства коллекции или открытые свойства могут иметь только заметки "odata.type".]]></Val>
+            <Val><![CDATA[Свойство "{0}" имеет заметку свойства "{1}". Cвойства коллекции, примитивные, сложные или открытые свойства могут иметь только заметки "odata.type".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3558,7 +3558,7 @@
         <Str Cat="Text">
           <Val><![CDATA[If a primitive value is representing a resource, the resource must be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Если значение-примитив представляет ресурс, ресурс должен быть null.]]></Val>
+            <Val><![CDATA[Если примитивное значение представляет ресурс, такой ресурс должен иметь значение null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3621,7 +3621,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple property annotations '{0}' were found when reading the nested resource '{1}'. Only a single property annotation '{0}' can be specified for a nested resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[При чтении вложенного ресурса "{1}" было обнаружено несколько аннотаций свойства "{0}". Для вложенного ресурса можно указать только одну аннотацию свойства "{0}".]]></Val>
+            <Val><![CDATA[При чтении вложенного ресурса "{1}" было обнаружено несколько заметок свойства "{0}". Для вложенного ресурса можно указать только одну заметку свойства "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3660,7 +3660,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property annotation for a property with name '{0}' was found when reading a top-level resource set. No property annotations, only instance annotations are allowed when reading top-level resource sets.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[При чтении набора ресурсов верхнего уровня была обнаружена аннотация свойства для свойства с именем "{0}". При чтении наборов ресурсов верхнего уровня допускаются только аннотации экземпляров, но не аннотации свойств.]]></Val>
+            <Val><![CDATA[При чтении набора ресурсов верхнего уровня была обнаружена аннотация свойства для свойства с именем "{0}". При чтении наборов ресурсов верхнего уровня допускаются только заметки экземпляров, но не заметки свойств.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3750,7 +3750,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' instance annotation in a resource object is preceded by a property or property annotation. In OData, the '{0}' instance annotation must be before any property or property annotation in a resource object.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Перед аннотацией экземпляра "{0}" в объекте ресурса находится свойство или аннотация свойства. В OData аннотация экземпляра "{0}" должна находиться перед свойством или аннотацией свойства в объекте ресурса.]]></Val>
+            <Val><![CDATA[Перед заметкой экземпляра "{0}" в объекте ресурса находится свойство или заметка свойства. В OData заметка экземпляра "{0}" должна находиться перед свойством или заметкой свойства в объекте ресурса.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3759,7 +3759,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'odata.type' instance annotation in a resource object is preceded by an invalid property. In OData, the 'odata.type' instance annotation must be either the first property in the JSON object or the second if the 'odata.context' instance annotation is present.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Перед аннотацией экземпляра odata.type в объекте ресурса находится недопустимое свойство. В OData аннотация экземпляра odata.type должна быть либо первым свойством в объекте JSON, либо вторым, если имеется аннотация экземпляра odata.context.]]></Val>
+            <Val><![CDATA[Перед заметкой экземпляра odata.type в объекте ресурса находится недопустимое свойство. В OData заметка экземпляра odata.type должна быть либо первым свойством в объекте JSON, либо вторым, если имеется заметка экземпляра odata.context.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3804,7 +3804,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' has a property annotation '{1}'. The complex collection property can only have the 'odata.count', 'odata.type' and 'odata.nextLink' property annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Свойство "{0}" имеет аннотацию свойства "{1}". Сложное свойство коллекции может иметь только аннотации свойства odata.count, odata.type и odata.nextLink.]]></Val>
+            <Val><![CDATA[Свойство "{0}" имеет заметку свойства "{1}". Сложное свойство коллекции может иметь только заметки свойств odata.count, odata.type и odata.nextLink.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3822,7 +3822,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' has a property annotation '{1}'. Expanded resource set navigation links can only have the 'odata.context', 'odata.navigationLink', 'odata.associationLink' and 'odata.nextLink' property annotations]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Свойство навигации "{0}" имеет аннотацию свойства "{1}". Ссылки навигации расширенного набора ресурсов могут иметь только аннотации свойств odata.context, odata.navigationLink, odata.associationLink и odata.nextLink]]></Val>
+            <Val><![CDATA[Свойство навигации "{0}" имеет заметку свойства "{1}". Ссылки навигации расширенного набора ресурсов могут иметь только заметки свойств odata.context, odata.navigationLink, odata.associationLink и odata.nextLink]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3831,7 +3831,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' has a property annotation '{1}'. Expanded resource navigation links can only have the 'odata.context', 'odata.navigationLink' and 'odata.associationLink' property annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Свойство навигации "{0}" имеет аннотацию свойства "{1}". Ссылки навигации расширенного ресурса могут иметь только аннотации свойств odata.context, odata.navigationLink и odata.associationLink.]]></Val>
+            <Val><![CDATA[Свойство навигации "{0}" имеет заметку свойства "{1}". Ссылки навигации расширенного ресурса могут иметь только заметки свойств odata.context, odata.navigationLink и odata.associationLink.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3858,7 +3858,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The stream property '{0}' has a property annotation '{1}'. Stream property can only have the 'odata.mediaEditLink', 'odata.mediaReadLink', 'odata.mediaEtag' and 'odata.mediaContentType' property annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Свойство потока "{0}" имеет заметку свойства "{1}". Свойство потока может иметь только заметки свойства "odata.mediaEditLink", "'odata.mediaReadLink", "odata.mediaEtag" и "odata.mediaContentType".]]></Val>
+            <Val><![CDATA[Свойство потока "{0}" имеет заметку свойства "{1}". Свойство потока может иметь только заметки свойства "odata.mediaEditLink", "odata.mediaReadLink", "odata.mediaEtag" и "odata.mediaContentType".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4047,7 +4047,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataResourceSet.InstanceAnnotations collection must be empty for expanded resource sets. Custom instance annotations are not supported on expanded resource sets.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Коллекция ODataResourceSet.InstanceAnnotations должна быть пустой для расширенных наборов ресурсов. Пользовательские аннотации экземпляров не поддерживаются в расширенных наборах ресурсов.]]></Val>
+            <Val><![CDATA[Коллекция ODataResourceSet.InstanceAnnotations должна быть пустой для расширенных наборов ресурсов. Пользовательские заметки экземпляров не поддерживаются в расширенных наборах ресурсов.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4215,7 +4215,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for a collection reader is of kind '{0}'. Only types of Primitive or ComplexType kind can be specified as the expected type for a collection reader.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Для модуля чтения коллекций ожидается тип "{0}". Для модуля чтения коллекций можно задавать только ожидаемые типы Primitive и ComplexType.]]></Val>
+            <Val><![CDATA[Для модуля чтения коллекций ожидается вид "{0}". Для модуля чтения коллекций можно задавать только ожидаемые типы видов Primitive и ComplexType.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4224,7 +4224,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for property reading is of entity collection kind. Top-level properties can only be of primitive, complex, primitive collection or complex collection kind.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ожидаемый тип для чтения свойства представляет собой тип коллекции сущности. Свойства верхнего уровня могут иметь только виды: Primitive, Complex, Primitive Collection или Complex Collection.]]></Val>
+            <Val><![CDATA[Ожидаемый тип для чтения свойства представляет собой вид коллекции сущности. Свойства верхнего уровня могут иметь только виды Primitive, Complex, Primitive Collection или Complex Collection.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4368,7 +4368,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' with singleton cardinality on type '{1}' was specified for reading a collection of entity reference links. A navigation property with collection cardinality has to be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Для чтения коллекции ссылок на сущности было указано свойство навигации "{0}" с количеством единственных элементов для типа "{1}". Должно быть предоставлено свойство навигации с количеством элементов коллекции.]]></Val>
+            <Val><![CDATA[Для чтения коллекции ссылок на сущности было указано свойство навигации "{0}" с количеством элементов singleton для типа "{1}". Должно быть предоставлено свойство навигации с количеством элементов коллекции.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4527,7 +4527,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' specified as the collection's item type is not primitive, enum or complex. An ODataCollectionWriter can only write collections of primitive, enum or complex values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Тип "{0}", указанный в качестве типа элемента коллекции, не является примитивным, сложным или enum. Модуль записи ODataCollectionWriter может записывать только коллекции значений - примитивных, сложных или enum.]]></Val>
+            <Val><![CDATA[Тип "{0}", указанный в качестве типа элемента коллекции, не является примитивным, сложным или enum. Модуль записи ODataCollectionWriter может записывать только коллекции значений — примитивных, сложных или enum.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The type '{0}' specified as the collection's item type is not primitive or complex. An ODataCollectionWriter can only write collections of primitive or complex values.]]></Val>
@@ -4566,7 +4566,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An attempt was made to modify the message. The message cannot be modified.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Была предпринята попытка изменить сообщение. Сообщение не может быть изменено.]]></Val>
+            <Val><![CDATA[Предпринята попытка изменить сообщение. Сообщение не может быть изменено.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4800,7 +4800,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is of Edm type kind '{1}'. You cannot call CreateResourceSetWriter on a parameter that is not of Edm type kind 'Collection(Entity)' or 'Collection(Complex)'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Параметр "{0}" имеет тип Edm вида "{1}". Метод CreateResourceSetWriter нельзя вызывать применительно к параметру, который имеет тип Edm вида, отличного от Collection(Entity) или Collection(Complex).]]></Val>
+            <Val><![CDATA[Параметр "{0}" имеет тип Edm вида "{1}". Метод CreateResourceSetWriter нельзя вызывать для параметра, который имеет тип Edm вида, отличного от Collection(Entity) или Collection(Complex).]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4809,7 +4809,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is of Edm type kind '{1}'. You cannot call CreateResourceWriter on a parameter that is not of Edm type kind 'Entity' or 'Complex'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Параметр "{0}" имеет тип Edm вида "{1}". Метод CreateResourceWriter нельзя вызывать применительно к параметру, который имеет тип Edm вида, отличного от Entity или Complex.]]></Val>
+            <Val><![CDATA[Параметр "{0}" имеет тип Edm вида "{1}". Метод CreateResourceWriter нельзя вызывать для параметра, который имеет тип Edm вида, отличного от Entity или Complex.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4866,7 +4866,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value for parameter '{0}' is of type '{1}'. WriteValue can only write null, ODataEnumValue and primitive types that are not Stream type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Значение параметра "{0}" имеет тип "{1}". Метод WriteValue может записывать только значения null, ODataEnumValue и значения типов-примитивов, отличных от Stream.]]></Val>
+            <Val><![CDATA[Значение параметра "{0}" имеет тип "{1}". Метод WriteValue может записывать только значения null, ODataEnumValue и значения примитивных типов, отличных от Stream.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value for parameter '{0}' is of type '{1}'. WriteValue can only write null, ODataComplexValue, ODataEnumValue and primitive types that are not Stream type.]]></Val>
@@ -4968,7 +4968,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataPrimitiveValue was instantiated with a value of type '{0}'. ODataPrimitiveValue can only wrap values which can be represented as primitive EDM types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Был создан экземпляр ODataPrimitiveValue со значением типа "{0}". ODataPrimitiveValue может служить программой-оболочкой только для значений, которые могут быть представлены как типы-примитивы модели EDM.]]></Val>
+            <Val><![CDATA[Был создан экземпляр ODataPrimitiveValue со значением типа "{0}". ODataPrimitiveValue может служить программой-оболочкой только для значений, которые могут быть представлены как примитивные типы модели EDM.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5988,7 +5988,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The segment '{1}' in the request URI is not valid. The segment '{0}' refers to a primitive property, function, or service operation, so the only supported value from the next segment is '$value'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Сегмент "{1}" в URI запроса является недопустимым. Сегмент "{0}" указывает на свойство-примитив, функцию или операцию службы, поэтому единственным поддерживаемым значением для следующего сегмента является "$value".]]></Val>
+            <Val><![CDATA[Сегмент "{1}" в URI запроса является недопустимым. Сегмент "{0}" указывает на примитивное свойство, функцию или операцию службы, поэтому единственным поддерживаемым значением для следующего сегмента является "$value".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6030,7 +6030,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Trying to follow type segments on a segment that isn't a type. Segment was '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Попытка следовать сегментам типов в сегменте, который не является типом. Сегмент - "{0}".]]></Val>
+            <Val><![CDATA[Попытка следовать сегментам типов в сегменте, который не является типом. Сегмент — "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6282,7 +6282,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The result of parsing $expand contained at least {0} items, but the maximum allowed is {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Результат синтаксического анализа $expand содержал по крайней мере {0} элементов, но максимально допустимое количество - {1}.]]></Val>
+            <Val><![CDATA[Результат синтаксического анализа $expand содержал по крайней мере столько элементов: {0}, но максимально допустимое количество — {1}.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6291,7 +6291,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The result of parsing $expand was at least {0} items deep, but the maximum allowed is {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Глубина результата синтаксического анализа $expand была равна по крайней мере {0}, но максимально допустимое значение - {1}.]]></Val>
+            <Val><![CDATA[Глубина результата синтаксического анализа $expand — по крайней мере столько элементов: {0}, но максимально допустимое значение — {1}.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6363,7 +6363,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Failed to parse '{0}' of Edm type '{1}' to primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Не удалось проанализировать "{0}" типа EDM "{1}" в качестве типа-примитива.]]></Val>
+            <Val><![CDATA[Не удалось проанализировать "{0}" типа EDM "{1}" в качестве примитивного типа.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6390,7 +6390,7 @@
         <Str Cat="Text">
           <Val><![CDATA[')' or ',' expected at position {0} in '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Символ ')' или ',' ожидается в позиции {0} в "{1}".]]></Val>
+            <Val><![CDATA[Символ ")" или "," ожидается в позиции {0} в "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6399,7 +6399,7 @@
         <Str Cat="Text">
           <Val><![CDATA[')' or operator expected at position {0} in '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Символ ')' или оператор ожидается в позиции {0} в "{1}".]]></Val>
+            <Val><![CDATA[Символ ")" или оператор ожидается в позиции {0} в "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6426,7 +6426,7 @@
         <Str Cat="Text">
           <Val><![CDATA['(' expected at position {0} in '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Символ '(' ожидается в позиции {0} в "{1}".]]></Val>
+            <Val><![CDATA[Символ "(" ожидается в позиции {0} в "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6654,7 +6654,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An incompatible primitive type '{0}[Nullable={1}]5D;' was found for an item that was expected to be of type '{2}[Nullable={3}]5D;'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Обнаружен несовместимый тип-примитив "{0}[Nullable={1}]5D;" для элемента, для которого ожидался тип "{2}[Nullable={3}]5D;".]]></Val>
+            <Val><![CDATA[Обнаружен несовместимый примитивный тип "{0}[Nullable={1}]5D;" для элемента, для которого ожидался тип "{2}[Nullable={3}]5D;".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6948,7 +6948,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataStreamReferenceValue item was found in a collection property value, which is not allowed. Collection properties can only have primitive and complex values as items.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[В значении свойства коллекции обнаружен недопустимый элемент ODataStreamReferenceValue. Свойства коллекции поддерживают только элементы со значениями типов-примитивов и сложных типов.]]></Val>
+            <Val><![CDATA[В значении свойства коллекции обнаружен недопустимый элемент ODataStreamReferenceValue. Свойства коллекции поддерживают только элементы со значениями примитивных и сложных типов.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An ODataStreamReferenceValue item was found in a collection property, which is invalid. Collection properties only support primitive and complex values as items.]]></Val>
@@ -6978,7 +6978,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unsupported primitive type. A primitive type could not be determined for an instance of type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Неподдерживаемый тип-примитив. Не удалось определить тип-примитив для экземпляра типа "{0}".]]></Val>
+            <Val><![CDATA[Неподдерживаемый примитивный тип. Не удалось определить примитивный тип для экземпляра типа "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7164,7 +7164,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No TypeName was found for an ODataResource of an open property, ODataResource or custom instance annotation, even though metadata was specified. If a model is passed to the writer, each complex value on an open property, resource or custom instance annotation must have a type name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Для объекта ODataResource открытого свойства, ресурса ODataResource или пользовательской аннотации экземпляра не найдено значение TypeName, хотя метаданные заданы. Если модель передается в модель записи, каждое сложное значение открытого свойства, ресурса или пользовательской аннотации экземпляра должно иметь имя типа.]]></Val>
+            <Val><![CDATA[Для объекта ODataResource открытого свойства, ресурса ODataResource или пользовательской заметки экземпляра не найдено значение TypeName, хотя метаданные заданы. Если модель передается в модуль записи, каждое сложное значение открытого свойства, ресурса или пользовательской заметки экземпляра должно иметь имя типа.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[No TypeName was found for an ODataComplexValue of an open property, ODataEntry or custom instance annotation, even though metadata was specified. If a model is passed to the writer, each complex value on an open property, entry or custom instance annotation must have a type name.]]></Val>
@@ -7332,11 +7332,17 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
         <Val><![CDATA[Microsoft Corporation]]></Val>
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Корпорация Майкрософт]]></Val>
+          <Val><![CDATA[Корпорация Майкрософт (Microsoft Corporation)]]></Val>
         </Tgt>
       </Str>
       <Disp Icon="Str" />

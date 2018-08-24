@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="de-DE" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -26,7 +26,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Annotations in the 'Documentation' namespace must implement 'IEdmDocumentation', but '{0}' does not.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Anmerkungen im Namespace "Documentation" müssen "IEdmDocumentation" implementieren, dies ist bei "{0}" jedoch nicht der Fall.]]></Val>
+            <Val><![CDATA[Anmerkungen im Documentation-Namespace müssen IEdmDocumentation implementieren, dies ist bei "{0}" jedoch nicht der Fall.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -35,7 +35,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Annotation of type '{0}' cannot be interpreted as '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Anmerkung des Typs "{0}" kann nicht als "{1}" nicht interpretiert werden.]]></Val>
+            <Val><![CDATA[Die Anmerkung des Typs "{0}" kann nicht als "{1}" interpretiert werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -98,7 +98,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The complex type '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der komplexe Typ '{0}' wurde nicht gefunden.]]></Val>
+            <Val><![CDATA[Der komplexe Typ "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -107,7 +107,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity container '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Entitätencontainer "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Der Entitätencontainer "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -116,7 +116,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Entitätenmenge "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Die Entitätenmenge "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -134,7 +134,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The enum member '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das Enumerationselement "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Das Enumerationselement "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -143,7 +143,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The enum type '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Enumerationstyp '{0}' wurde nicht gefunden.]]></Val>
+            <Val><![CDATA[Der Enumerationstyp "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -152,7 +152,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The labeled element '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das bezeichnete Element "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Das bezeichnete {0}-Element wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -161,7 +161,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A navigation property could not be found for the path '{0}' starting from the type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Für den ab dem {1}-Typ beginnenden Pfad '{0}' wurde keine Navigationseigenschaft gefunden.]]></Val>
+            <Val><![CDATA[Für den ab dem Typ "{1}" beginnenden Pfad "{0}" wurde keine Navigationseigenschaft gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -179,7 +179,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Parameter "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Der {0}-Parameter wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -188,7 +188,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The primitive type '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der primitive Typ "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Der primitive Typ "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -197,7 +197,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Eigenschaft "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Die {0}-Eigenschaft wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -206,7 +206,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Typ "{0}" konnte nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Der Typ "{0}" wurde nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -224,7 +224,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An entity type or a collection of an entity type is expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Entitätstyp oder eine Auflistung eines Entitätstyps wird erwartet.]]></Val>
+            <Val><![CDATA[Ein Entitätstyp oder eine Sammlung eines Entitätstyps wird erwartet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -233,7 +233,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Navigation target entity type must be '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Entitätstyp für das Navigationsziel muss '{0}' sein.]]></Val>
+            <Val><![CDATA[Der Entitätstyp für das Navigationsziel muss "{0}" sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -251,7 +251,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Nullable' attribute cannot be specified for a navigation property with collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das Nullable-Attribut kann nicht für eine Navigationseigenschaft mit einem Auflistungstyp angegeben werden.]]></Val>
+            <Val><![CDATA[Das Nullable-Attribut kann nicht für eine Navigationseigenschaft mit einem Sammlungstyp angegeben werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -260,7 +260,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The alias '{0}' is not a valid simple name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Alias '{0}' ist kein gültiger einfacher Name.]]></Val>
+            <Val><![CDATA[Der Alias "{0}" ist kein gültiger einfacher Name.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -296,7 +296,7 @@
         <Str Cat="Text">
           <Val><![CDATA['{0}' is not a valid entity set path.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' ist kein gültiger Entitätenmengenpfad.]]></Val>
+            <Val><![CDATA["{0}" ist kein gültiger Entitätenmengenpfad.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -305,7 +305,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The {0} '{1}' is invalid. The entitySetPath value is not allowed when IsBound attribute is false.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[{0} '{1}' ist ungültig. Der entitySetPath-Wert ist nicht zulässig, wenn das IsBound-Attribut 'false' lautet.]]></Val>
+            <Val><![CDATA[{0} "{1}" ist ungültig. Der entitySetPath-Wert ist nicht zulässig, wenn das IsBound-Attribut "false" lautet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -314,7 +314,7 @@
         <Str Cat="Text">
           <Val><![CDATA['{0}' is not a valid enum member path.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' ist kein gültiger Enumerationselementpfad.]]></Val>
+            <Val><![CDATA["{0}" ist kein gültiger Enumerationselementpfad.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -323,7 +323,7 @@
         <Str Cat="Text">
           <Val><![CDATA[If expression must contain 3 operands, the first being a boolean test, the second being being evaluated if the first is true, and the third being evaluated if the first is false.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der If-Ausdruck muss 3 Operanden enthalten, von denen es sich beim ersten um einen booleschen Test handelt, wobei der zweite ausgewertet wird, wenn der erste "true" ist, und der dritte ausgewertet wird, wenn der erste "false" ist.]]></Val>
+            <Val><![CDATA[Der If-Ausdruck muss drei Operanden enthalten, von denen es sich beim ersten um einen booleschen Test handelt, wobei der zweite ausgewertet wird, wenn der erste "true" ist, und der dritte ausgewertet wird, wenn der erste "false" ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -332,7 +332,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The IsType expression must contain 1 operand.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der IsType-Ausdruck muss 1 Operanden enthalten.]]></Val>
+            <Val><![CDATA[Der IsType-Ausdruck muss genau einen Operanden enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -341,7 +341,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The LabeledElement expression must contain 1 operand.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der LabeledElement-Ausdruck muss 1 Operanden enthalten.]]></Val>
+            <Val><![CDATA[Der LabeledElement-Ausdruck muss genau einen Operanden enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -413,7 +413,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Referential constraints requires one dependent role. Multiple dependent roles were specified for this referential constraint.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Referenzielle Einschränkungen erfordern eine einzelne Dependent Role. Für diese referenzielle Einschränkung wurden mehrere Dependent Roles angegeben.]]></Val>
+            <Val><![CDATA[Referenzielle Einschränkungen erfordern genau eine abhängige Rolle. Für diese referenzielle Einschränkung wurden mehrere abhängige Rollen angegeben.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -422,7 +422,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Referential constraints requires one principal role. Multiple principal roles were specified for this referential constraint.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Referenzielle Einschränkungen erfordern eine einzelne Principal Role. Für diese referenzielle Einschränkung wurden mehrere Principal Roles angegeben.]]></Val>
+            <Val><![CDATA[Referenzielle Einschränkungen erfordern genau eine Prinzipalrolle. Für diese referenzielle Einschränkung wurden mehrere Prinzipalrollen angegeben.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -431,7 +431,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The schema '{0}' contains the alias '{1}' more than once.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Alias '{1}' ist im Schema '{0}' mehrmals enthalten.]]></Val>
+            <Val><![CDATA[Der Alias "{1}" ist im Schema "{0}" mehrmals enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -479,7 +479,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Target object '{0}' is not an instance with type of Date.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Zielobjekt '{0}' ist keine Instanz mit dem Typ Date.]]></Val>
+            <Val><![CDATA[Das Zielobjekt "{0}" ist keine Instanz mit dem Typ "Date".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -488,7 +488,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The Year '{0}', Month '{1}' and Day '{2}' parameters describe an un-representable Date.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Parameter Jahr '{0}', Monat '{1}' und Tag '{2}' beschreiben ein nicht darstellbares Datum.]]></Val>
+            <Val><![CDATA[Die Parameter Jahr "{0}", Monat "{1}" und Tag "{2}" beschreiben ein nicht darstellbares Datum.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -497,7 +497,7 @@
         <Str Cat="Text">
           <Val><![CDATA[String '{0}' was not recognized as a valid Date.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Zeichenfolge '{0}' wurde nicht als gültiger Wert für Date erkannt.]]></Val>
+            <Val><![CDATA[Die Zeichenfolge "{0}" wurde nicht als gültiger Wert für Date erkannt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -533,7 +533,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The named type '{0}' is ambiguous from the model being validated.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der benannte Typ '{0}' ist im zu überprüfenden Modell nicht eindeutig.]]></Val>
+            <Val><![CDATA[Der benannte Typ "{0}" ist im zu überprüfenden Modell nicht eindeutig.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -542,7 +542,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property type could not be determined from the role '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Navigationseigenschaftentyp konnte aus der Rolle "{0}" nicht ermittelt werden.]]></Val>
+            <Val><![CDATA[Der Navigationseigenschaftstyp konnte aus der Rolle "{0}" nicht ermittelt werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -551,7 +551,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}'is not valid. The from role and to role are the same.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Navigationseigenschaft "{0}" ist ungültig. Die Quell- und die Zielrolle sind identisch.]]></Val>
+            <Val><![CDATA[Die {0}-Navigationseigenschaft ist ungültig. Die Quell- und die Zielrolle sind identisch.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -560,7 +560,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' is not valid. The role '{1}' is not defined in relationship '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Navigationseigenschaft "{0}" ist ungültig. Die Rolle "{1}" ist in der Beziehung "{2}" nicht definiert.]]></Val>
+            <Val><![CDATA[Die {0}-Navigationseigenschaft ist ungültig. Die Rolle "{1}" ist in der Beziehung "{2}" nicht definiert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -587,7 +587,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the binary constant is '{0}' characters long, but the max length of its type is '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert der binären Konstante ist '{0}' Zeichen lang, aber die maximale Typlänge beträgt '{1}'.]]></Val>
+            <Val><![CDATA[Der Wert der binären Konstante ist {0} Zeichen lang, aber die maximale Typlänge beträgt {1}.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -596,7 +596,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function overload '{0}' does not have the same return type as other function overloads. Expected type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die gebundene Funktionsüberladung '{0}' weist nicht denselben Rückgabetyp wie andere Funktionsüberladungen auf. Erwarteter Typ: {1}.]]></Val>
+            <Val><![CDATA[Die gebundene Funktionsüberladung "{0}" weist nicht denselben Rückgabetyp wie andere Funktionsüberladungen auf. Erwarteter Typ: "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -614,7 +614,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot assert the nullable type '{0}' as a non-nullable type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Typ '{0}', der NULL-Werte zulässt, kann nicht als Typ bestätigt werden, der keine NULL-Werte zulässt.]]></Val>
+            <Val><![CDATA[Der Typ "{0}", der NULL-Werte zulässt, kann nicht als Typ bestätigt werden, der keine NULL-Werte zulässt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -623,7 +623,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The association set '{0}' must specify an entity set for the role '{2}' because there are multiple entity sets for the role type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Vom Zuordnungssatz '{0}' muss eine Entitätenmenge für die Rolle '{2}' angegeben werden, weil mehrere Entitätenmengen für den Rollentyp '{1}' vorhanden sind.]]></Val>
+            <Val><![CDATA[Vom Zuordnungssatz "{0}" muss eine Entitätenmenge für die Rolle "{2}" angegeben werden, weil mehrere Entitätenmengen für den Rollentyp "{1}" vorhanden sind.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -632,7 +632,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A collection expression is incompatible with a non-collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Auflistungsausdruck ist nicht kompatibel mit einem Nicht-Auflistungstyp.]]></Val>
+            <Val><![CDATA[Ein Sammlungsausdruck ist nicht kompatibel mit einem Nicht-Sammlungstyp.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -641,7 +641,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The complex type '{0}' is invalid. A complex type must contain at least one property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der komplexe Typ '{0}' ist ungültig. Ein komplexer Typ muss mindestens eine Eigenschaft enthalten.]]></Val>
+            <Val><![CDATA[Der komplexe Typ "{0}" ist ungültig. Ein komplexer Typ muss mindestens eine Eigenschaft enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -650,7 +650,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' cannot belong to a type other than its declaring type. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Eigenschaft "{0}" kann zu keinem anderen Typ als dem zugehörigen deklarierenden Typ gehören. ]]></Val>
+            <Val><![CDATA[Die {0}-Eigenschaft kann zu keinem anderen Typ als dem zugehörigen deklarierenden Typ gehören. ]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -659,7 +659,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The dependent property '{0}' must belong to the dependent entity '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die abhängige Eigenschaft "{0}" muss zur abhängigen Entität "{1}" gehören.]]></Val>
+            <Val><![CDATA[Die abhängige {0}-Eigenschaft muss zur abhängigen Entität "{1}" gehören.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -668,7 +668,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotated element '{0}' has multiple annotations with the term '{1}' and the qualifier '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Das mit Anmerkungen versehene Element '{0}' verfügt über mehrere Anmerkungen mit der Benennung '{1}' und dem Qualifizierer '{2}'.]]></Val>
+            <Val><![CDATA[Das mit Anmerkungen versehene {0}-Element verfügt über mehrere Anmerkungen mit der Benennung "{1}" und dem Qualifizierer "{2}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -677,7 +677,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The dependent property '{0}' of navigation property '{1}' is a duplicate.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die abhängige Eigenschaft "{0}" der Navigationseigenschaft "{1}" ist ein Duplikat.]]></Val>
+            <Val><![CDATA[Die abhängige {0}-Eigenschaft der {1}-Navigationseigenschaft ist ein Duplikat.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -704,7 +704,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Each entity container name in a function must be unique. The name '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Jeder Entitätencontainername in einer Funktion muss eindeutig sein. Der Name '{0}' ist bereits definiert.]]></Val>
+            <Val><![CDATA[Jeder Entitätencontainername in einer Funktion muss eindeutig sein. Der Name "{0}" ist bereits definiert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -713,7 +713,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' should have only a single mapping for the property '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Entitätenmenge '{0}' sollte nur über eine Zuordnung für die Eigenschaft '{1}' verfügen.]]></Val>
+            <Val><![CDATA[Die Entitätenmenge "{0}" darf nur über eine Zuordnung für die {1}-Eigenschaft verfügen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -722,7 +722,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key specified in entity type '{0}' is not valid. Property '{1}' is referenced more than once in the key element.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der im Entitätstyp "{0}" angegebene Schlüssel ist ungültig. Im Schlüsselelement wird mehrmals auf die Eigenschaft "{1}" verwiesen.]]></Val>
+            <Val><![CDATA[Der im Entitätstyp "{0}" angegebene Schlüssel ist ungültig. Im Schlüsselelement wird mehrmals auf die {1}-Eigenschaft verwiesen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -731,7 +731,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An element already has a direct annotation with the namespace '{0}' and name '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Ein Element weist bereits eine direkte Anmerkung mit dem Namespace "{0}" und dem Namen "{1}" auf.]]></Val>
+            <Val><![CDATA[Ein Element weist bereits eine direkte Anmerkung mit dem {0}-Namespace und dem Namen "{1}" auf.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An element already has a direct value annotation with the namespace '{0}' and name '{1}'.]]></Val>
@@ -743,7 +743,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Each name and plural name in a relationship must be unique. '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Jeder Name und Pluralname in einer Beziehung muss eindeutig sein. '{0}' ist bereits definiert.]]></Val>
+            <Val><![CDATA[Jeder Name und Pluralname in einer Beziehung muss eindeutig sein. "{0}" ist bereits definiert.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Each name and plural name in a relationship must be unique. '{0}' was already defined.]]></Val>
@@ -755,7 +755,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' cannot have 'OnDelete' specified since its multiplicity is '*'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Für die Navigationseigenschaft "{0}" kann nicht "OnDelete" angegeben werden, da die zugehörige Multiplizität "*" ist.]]></Val>
+            <Val><![CDATA[Für die {0}-Navigationseigenschaft kann nicht "OnDelete" angegeben werden, da die zugehörige Multiplizität "*" ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -764,7 +764,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An entity container element without other errors must not have kind of none. The kind of entity container element '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Entitätencontainerelement ohne weitere Fehler darf nicht von der Art 'None' sein. Die Art des Entitätencontainerelements '{0}' ist 'None'.]]></Val>
+            <Val><![CDATA[Ein Entitätencontainerelement ohne weitere Fehler darf nicht von der Art "None" sein. Die Art des Entitätencontainerelements "{0}" ist "None".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -773,7 +773,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' in entity type '{1}' is not valid. All properties that are part of the entity key must be of primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Eigenschaft "{0}" im Entitätstyp "{1}" ist ungültig. Alle Eigenschaften, die zum Entitätsschlüssel gehören, müssen vom primitiven Typ sein.]]></Val>
+            <Val><![CDATA[Die {0}-Eigenschaft im Entitätstyp "{1}" ist ungültig. Alle Eigenschaften, die zum Entitätsschlüssel gehören, müssen vom primitiven Typ sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -782,7 +782,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' is invalid because it is contained by more than one navigation property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Entitätenmenge '{0}' ist ungültig, weil sie in mehr als einer Navigationseigenschaft enthalten ist.]]></Val>
+            <Val><![CDATA[Die Entitätenmenge "{0}" ist ungültig, weil sie in mehr als einer Navigationseigenschaft enthalten ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -791,7 +791,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Because the navigation property '{0}' is recursive, the mapping from the entity set '{1}' must point back to itself.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Da die Navigationseigenschaft '{0}' rekursiv ist, muss die Zuordnung von der Entitätenmenge '{1}' auf sich selbst zurückverweisen.]]></Val>
+            <Val><![CDATA[Da die {0}-Navigationseigenschaft rekursiv ist, muss die Zuordnung von der Entitätenmenge "{1}" auf sich selbst zurückverweisen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -800,7 +800,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the entity set '{1}' is not valid, it must be collection of entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der {0}-Typ der Entitätenmenge '{1}' ist ungültig, weil eine Auflistung von Entitätstypen erforderlich ist.]]></Val>
+            <Val><![CDATA[Der Typ "{0}" der Entitätenmenge "{1}" ist ungültig, weil eine Sammlung von Entitätstypen erforderlich ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -809,7 +809,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Each member name of an enum type must be unique. Enum member name '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Jeder Elementname eines Enumerationstyps muss eindeutig sein. Der Enumerationselementname '{0}' ist bereits definiert.]]></Val>
+            <Val><![CDATA[Jeder Elementname eines Enumerationstyps muss eindeutig sein. Der Enumerationselementname "{0}" ist bereits definiert.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Each member name of an enum type must be unique. Enum member name '{0}' was already defined.]]></Val>
@@ -821,7 +821,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of enum member '{0}' exceeds the range of its underlying type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Der Wert des Enumerationselements "{0}" überschreitet den Gültigkeitsbereich des zugrunde liegenden Typs.]]></Val>
+            <Val><![CDATA[Der Wert des {0}-Enumerationselements überschreitet den Gültigkeitsbereich des zugrunde liegenden Typs.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -830,7 +830,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The underlying type of '{0}' is not valid. The underlying type of an enum type must be an integral type. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der zugrunde liegende Typ von '{0}' ist ungültig. Der zugrunde liegende Typ eines Enumerationstyps muss ein ganzzahliger Typ sein. ]]></Val>
+            <Val><![CDATA[Der zugrunde liegende Typ von "{0}" ist ungültig. Der zugrunde liegende Typ eines Enumerationstyps muss ein ganzzahliger Typ sein. ]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -857,7 +857,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot promote the primitive type '{0}' to the specified primitive type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der primitive Typ '{0}' kann nicht auf den angegebenen primitiven Typ '{1}' höher gestuft werden.]]></Val>
+            <Val><![CDATA[Der primitive Typ "{0}" kann nicht auf den angegebenen primitiven Typ "{1}" hochgestuft werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -893,7 +893,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The target '{0}' could not be found from the model being validated.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Das Ziel '{0}' wurde im überprüften Modell nicht gefunden.]]></Val>
+            <Val><![CDATA[Das Ziel "{0}" wurde im überprüften Modell nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -902,7 +902,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The term '{0}' could not be found from the model being validated.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Benennung '{0}' wurde im überprüften Modell nicht gefunden.]]></Val>
+            <Val><![CDATA[Die Benennung "{0}" wurde im überprüften Modell nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -911,7 +911,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The named type '{0}' could not be found from the model being validated.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der benannte Typ "{0}" konnte im zu validierenden Modell nicht gefunden werden.]]></Val>
+            <Val><![CDATA[Der benannte Typ "{0}" wurde im zu validierenden Modell nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -920,7 +920,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function application provides '{0}' arguments, but the function '{1}' expects '{2}' arguments.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Funktionsanwendung stellt '{0}' Argumente bereit, es wurden jedoch '{2}' Argumente von der Funktion '{1}' erwartet.]]></Val>
+            <Val><![CDATA[Die Funktionsanwendung stellt {0}-Argumente bereit, von der {1}-Funktion wurden jedoch {2}-Argumente erwartet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -980,7 +980,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of an annotation marked to be serialized as an xml element must be a string representing an xml element with non-empty name and namespace.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Wert einer Anmerkung, die für die Serialisierung als XML-Element gekennzeichnet ist, muss einer Zeichenfolge entsprechen, die ein XML-Element mit einem nicht leeren Namen und Namespace darstellt.]]></Val>
+            <Val><![CDATA[Der Wert einer Anmerkung, die für die Serialisierung als XML-Element gekennzeichnet ist, muss eine Zeichenfolge sein, die ein XML-Element mit einem nicht leeren Namen und Namespace darstellt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -998,7 +998,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment that doesn't derive from the entity type '{2}' for type segment '{3}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut verfügt über einen ungültigen Wert. Der Pfad '{1}' verfügt über ein Typumwandlungssegment, das nicht vom Entitätstyp '{2}' für Typsegment '{3}' abgeleitet ist.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut hat einen ungültigen Wert. Der Pfad "{1}" enthält ein Typumwandlungssegment, das nicht vom Entitätstyp "{2}" für Typsegment "{3}" abgeleitet ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1007,7 +1007,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path doesn't contain the binding parameter name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut verfügt über einen ungültigen Wert. Der Name des Bindungsparameters ist nicht im Pfad enthalten.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut hat einen ungültigen Wert. Der Name des Bindungsparameters ist nicht im Pfad enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1016,7 +1016,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment '{2}' that is not an entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut verfügt über einen ungültigen Wert. Der Pfad '{1}' verfügt über das Typumwandlungssegment '{2}', das keinen Entitätstyp darstellt.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut hat einen ungültigen Wert. Der Pfad "{1}" enthält das Typumwandlungssegment "{2}", das keinen Entitätstyp darstellt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1025,7 +1025,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a navigation property segment '{2}' that is unknown.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut verfügt über einen ungültigen Wert. Der Pfad '{1}' verfügt über das unbekannte Navigationseigenschaftssegment '{2}'.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut hat einen ungültigen Wert. Der Pfad "{1}" enthält das unbekannte Navigationseigenschaftssegment "{2}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1034,7 +1034,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a type cast segment '{2}' that cannot be found in the model.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut verfügt über einen ungültigen Wert. Der Pfad '{1}' verfügt über das Typumwandlungssegment '{2}', das im Modell nicht gefunden wurde.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut hat einen ungültigen Wert. Der Pfad "{1}" enthält das Typumwandlungssegment "{2}", das im Modell nicht gefunden wurde.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1043,7 +1043,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' is invalid. The first item of the path '{2}' is '{3}' which does not match the first parameter name {3}. The first segment of the entity set path is required to be the name of the first parameter.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut ist ungültig. Das erste Element des Pfads '{2}' lautet '{3}' und stimmt nicht mit dem Namen des ersten Parameters '{3}' überein. Das erste Segment des Entitätenmengenpfads muss dem Namen des ersten Parameters entsprechen.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut ist ungültig. Das erste Element des Pfads "{2}" lautet "{3}" und stimmt nicht mit dem Namen des ersten Parameters "{3}" überein. Das erste Segment des Entitätenmengenpfads muss dem Namen des ersten Parameters entsprechen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1052,7 +1052,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' has an invalid value. The path '{1}' has a binding parameter that references a type '{2}' that is not an entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das {0}-Attribut verfügt über einen ungültigen Wert. Der Pfad '{1}' verfügt über einen Bindungsparameter, der auf den {2}-Typ verweist, der keinen Entitätstyp darstellt.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut hat einen ungültigen Wert. Der Pfad "{1}" enthält einen Bindungsparameter, der auf den Typ "{2}" verweist, der kein Entitätstyp ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1061,7 +1061,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key usage is not valid. '{0}' cannot define keys because one of its base classes '{1}' defines keys.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Schlüsselverwendung ist ungültig. "{0}" kann keine Schlüssel definieren, da eine der zugehörigen Basisklassen "{1}" Schlüssel definiert.]]></Val>
+            <Val><![CDATA[Die Schlüsselverwendung ist ungültig. "{0}" kann keine Schlüssel definieren, da eine der zugehörigen Basisklassen "{1}" Schlüssel definiert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1088,7 +1088,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The multiplicity of the dependent end '{0}' is not valid. Because the dependent properties don't represent the dependent end key, the the multiplicity of the dependent end must be '*'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Multiplizität des abhängigen Endes '{0}' ist ungültig. Da der Schlüssel des abhängigen Endes nicht von den abhängigen Eigenschaften dargestellt wird, muss die Multiplizität des abhängigen Endes '*' lauten.]]></Val>
+            <Val><![CDATA[Die Multiplizität des abhängigen Endes "{0}" ist ungültig. Da der Schlüssel des abhängigen Endes nicht von den abhängigen Eigenschaften dargestellt wird, muss die Multiplizität des abhängigen Endes "*" sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1097,7 +1097,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The multiplicity of the dependent end '{0}' is not valid. Because the dependent properties represent the dependent end key, the multiplicity of the dependent end must be '0..1' or '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Multiplizität des abhängigen Endes '{0}' ist ungültig. Da der Schlüssel des abhängigen Endes von den abhängigen Eigenschaften dargestellt wird, muss die Multiplizität des abhängigen Endes '0..1' oder '1' lauten.]]></Val>
+            <Val><![CDATA[Die Multiplizität des abhängigen Endes "{0}" ist ungültig. Da der Schlüssel des abhängigen Endes von den abhängigen Eigenschaften dargestellt wird, muss die Multiplizität des abhängigen Endes "0..1" oder "1" sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1106,7 +1106,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Because all dependent properties of the navigation '{0}' are non-nullable, the multiplicity of the principal end must be '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Da alle abhängigen Eigenschaften der {0}-Navigation keine NULL-Werte zulassen, muss die Multiplizität des Prinzipalendes '1' lauten.]]></Val>
+            <Val><![CDATA[Da alle abhängigen Eigenschaften der {0}-Navigation keine NULL-Werte zulassen, muss die Multiplizität des Prinzipalendes "1" sein.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are non-nullable, the multiplicity of the principal end must be '1'.]]></Val>
@@ -1118,7 +1118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Because all dependent properties of the navigation '{0}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Da alle abhängigen Eigenschaften der {0}-Navigation NULL-Werte zulassen, muss die Multiplizität des Prinzipalendes '0..1' lauten.]]></Val>
+            <Val><![CDATA[Da alle abhängigen Eigenschaften der {0}-Navigation NULL-Werte zulassen, muss die Multiplizität des Prinzipalendes "0..1" sein.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
@@ -1130,7 +1130,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type of the navigation property '{0}' is invalid. The navigation target type must be an entity type or a collection of entity type. The navigation target entity type must match the declaring type of the partner property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Typ der Navigationseigenschaft '{0}' ist ungültig. Der Navigationszieltyp muss ein Entitätstyp oder eine Auflistung von Entitätstypen sein. Der Entitätstyp des Navigationsziels muss mit dem deklarierenden Typ der Partnereigenschaft übereinstimmen.]]></Val>
+            <Val><![CDATA[Der Typ der {0}-Navigationseigenschaft ist ungültig. Der Navigationszieltyp muss ein Entitätstyp oder eine Sammlung von Entitätstypen sein. Der Entitätstyp des Navigationsziels muss mit dem deklarierenden Typ der Partnereigenschaft übereinstimmen.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The type of the navigation property '{0}' is invalid. Only entity type or a collection of entity type is valid for a navigation property.]]></Val>
@@ -1151,7 +1151,7 @@
         <Str Cat="Text">
           <Val><![CDATA[There is no property with name '{0}' defined in the type referred to by role '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[In dem Typ, auf den die Role "{1}" verweist, ist keine Eigenschaft mit dem Namen "{0}" definiert.]]></Val>
+            <Val><![CDATA[In dem Typ, auf den die Rolle "{1}" verweist, ist keine Eigenschaft mit dem Namen "{0}" definiert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1160,7 +1160,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The principal end properties in the referential constraint of the association '{0}' do not match the key of the type referred to by role '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Die Eigenschaften des Prinzipalendes in der referenziellen Einschränkung der Zuordnung '{0}' stimmen nicht mit dem Schlüssel des Typs überein, auf den von der Rolle '{1}' verwiesen wird.]]></Val>
+            <Val><![CDATA[Die Eigenschaften des Prinzipalendes in der referenziellen Einschränkung der Zuordnung "{0}" stimmen nicht mit dem Schlüssel des Typs überein, auf den von der Rolle "{1}" verwiesen wird.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[There is no property with name '{0}' referenced in the key of the type referred to by role '{1}'.]]></Val>
@@ -1184,7 +1184,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The string reference is invalid because if 'IsUnbounded' is true 'MaxLength' must be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Zeichenfolgenverweis ist ungültig, weil 'MaxLength' NULL sein muss, wenn 'IsUnbounded' TRUE ist.]]></Val>
+            <Val><![CDATA[Der Zeichenfolgenverweis ist ungültig, weil "MaxLength" NULL sein muss, wenn "IsUnbounded" TRUE ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1202,7 +1202,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key property '{0}' must belong to the entity '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Schlüsseleigenschaft "{0}" muss zur Entität "{1}" gehören.]]></Val>
+            <Val><![CDATA[Die {0}-Schlüsseleigenschaft muss zur Entität "{1}" gehören.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1229,7 +1229,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound action '{0}' is a duplicate of other bound actions. For bound actions the combination of the namespace, name, and binding parameter type uniquely identifies an bound action.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die gebundene Aktion '{0}' ist ein Duplikat anderer gebundener Aktionen. Durch die Kombination aus Namespace, Name und Bindungsparametertyp wird eine gebundene Aktion eindeutig identifiziert.]]></Val>
+            <Val><![CDATA[Die gebundene Aktion "{0}" ist ein Duplikat anderer gebundener Aktionen. Durch die Kombination aus Namespace, Name und Bindungsparametertyp wird eine gebundene Aktion eindeutig identifiziert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1238,7 +1238,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and unordered set of parameter names uniquely identifies a bound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die gebundene Funktion '{0}' ist ein Duplikat anderer gebundener Funktionen. Durch die Kombination aus Namespace, Name, Bindungsparametertyp und ungeordneter Menge von Parameternamen wird eine gebundene Funktion eindeutig identifiziert.]]></Val>
+            <Val><![CDATA[Die gebundene {0}-Funktion ist ein Duplikat anderer gebundener Funktionen. Durch die Kombination aus Namespace, Name, Bindungsparametertyp und ungeordneter Menge von Parameternamen wird eine gebundene Funktion eindeutig identifiziert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1247,7 +1247,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and ordered set of parameter types uniquely identifies a bound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die gebundene Funktion '{0}' ist ein Duplikat anderer gebundener Funktionen. Durch die Kombination aus Namespace, Name, Bindungsparametertyp und geordneter Menge von Parametertypen wird eine gebundene Funktion eindeutig identifiziert.]]></Val>
+            <Val><![CDATA[Die gebundene {0}-Funktion ist ein Duplikat anderer gebundener Funktionen. Durch die Kombination aus Namespace, Name, Bindungsparametertyp und geordneter Menge von Parametertypen wird eine gebundene Funktion eindeutig identifiziert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1256,7 +1256,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound action '{0}' is a duplicate of other unbound actions. For unbound actions the combination of the namespace, and name uniquely identifies an unbound action.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die nicht gebundene Aktion '{0}' ist ein Duplikat anderer nicht gebundener Aktionen. Durch die Kombination aus Namespace und Name wird eine nicht gebundene Aktion eindeutig identifiziert.]]></Val>
+            <Val><![CDATA[Die nicht gebundene Aktion "{0}" ist ein Duplikat anderer nicht gebundener Aktionen. Durch die Kombination aus Namespace und Name wird eine nicht gebundene Aktion eindeutig identifiziert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1265,7 +1265,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and unordered set of parameter names uniquely identifies an unbound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die nicht gebundene Funktion '{0}' ist ein Duplikat anderer nicht gebundener Funktionen. Durch die Kombination aus Namespace, Name und ungeordneter Menge von Parameternamen wird eine nicht gebundene Funktion eindeutig identifiziert.]]></Val>
+            <Val><![CDATA[Die nicht gebundene {0}-Funktion ist ein Duplikat anderer nicht gebundener Funktionen. Durch die Kombination aus Namespace, Name und ungeordneter Menge von Parameternamen wird eine nicht gebundene Funktion eindeutig identifiziert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1274,7 +1274,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and ordered set of parameter types uniquely identifies an unbound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die nicht gebundene Funktion '{0}' ist ein Duplikat anderer nicht gebundener Funktionen. Durch die Kombination aus Namespace, Name und geordneter Menge von Parametertypen wird eine nicht gebundene Funktion eindeutig identifiziert.]]></Val>
+            <Val><![CDATA[Die nicht gebundene {0}-Funktion ist ein Duplikat anderer nicht gebundener Funktionen. Durch die Kombination aus Namespace, Name und geordneter Menge von Parametertypen wird eine nicht gebundene Funktion eindeutig identifiziert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1283,7 +1283,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The binding of the entity set or singleton '{0}' on navigation property '{1}' is invalid, the binding of bidirectional navigation property must be bidirectional if specified. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Die Bindung der Entitätenmenge oder des Singletons '{0}' zur Navigationseigenschaft '{1}' ist ungültig. Die Bindung der bidirektionalen Navigationseigenschaft muss bidirektional sein, falls sie angegeben ist. ]]></Val>
+            <Val><![CDATA[Die Bindung der Entitätenmenge oder des {0}-Singletons zur {1}-Navigationseigenschaft ist ungültig. Die Bindung der bidirektionalen Navigationseigenschaft muss bidirektional sein, falls sie angegeben ist. ]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The mapping of the entity set or singleton '{0}' and navigation property '{1}' is invalid because the navigation property mapping must have a mapping with the navigation property's partner that points back to the originating entity set or singleton. ]]></Val>
@@ -1295,7 +1295,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' is invalid because it indirectly contains itself.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Navigationseigenschaft '{0}' ist ungültig, da sie indirekt in sich selbst enthalten ist.]]></Val>
+            <Val><![CDATA[Die {0}-Navigationseigenschaft ist ungültig, da sie indirekt in sich selbst enthalten ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1304,7 +1304,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{1}' is not a valid destination for the navigation property '{0}' because it cannot hold an element of the target entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Entitätenmenge oder das Singleton '{1}' ist kein gültiges Ziel für die Navigationseigenschaft '{0}', da sie kein Element des Zielentitätstyps enthalten kann.]]></Val>
+            <Val><![CDATA[Die Entitätenmenge oder das {1}-Singleton ist kein gültiges Ziel für die {0}-Navigationseigenschaft, da sie kein Element des Zielentitätstyps enthalten kann.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1313,7 +1313,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property mapping '{0}' is invalid because its type is collection but target to a singleton '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Navigationseigenschaftenzuordnung '{0}' ist ungültig, weil deren Typ eine Auflistung darstellt, aber das Singleton '{1}' zum Ziel hat.]]></Val>
+            <Val><![CDATA[Die Navigationseigenschaftenzuordnung "{0}" ist ungültig, weil deren Typ eine Sammlung darstellt, aber das {1}-Singleton zum Ziel hat.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1322,7 +1322,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The principal navigation property '{0}' has an invalid multiplicity. Valid values for the multiplicity of a principal end are '0..1' or '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Navigationseigenschaft '{0}' eines Prinzipals verfügt über eine ungültige Multiplizität. Gültige Werte für die Multiplizität eines Prinzipalendes sind '0..1' oder '1'.]]></Val>
+            <Val><![CDATA[Die {0}-Navigationseigenschaft eines Prinzipals verfügt über eine ungültige Multiplizität. Gültige Werte für die Multiplizität eines Prinzipalendes sind "0..1" oder "1".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1331,7 +1331,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is not the same as the target entity type, then the property represents a non-recursive containment and the multiplicity of the navigation source must be exactly one.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Quellmultiplizität der Navigationseigenschaft "{0}" ist ungültig. Wenn "ContainsTarget" für eine Navigationseigenschaft auf "True" festgelegt ist und der deklarierende Entitätstyp der Eigenschaft nicht mit dem Zielentitätstyp identisch ist, stellt die Eigenschaft eine nicht rekursive Kapselung dar, und die Multiplizität der Navigationsquelle muss genau 1 sein.]]></Val>
+            <Val><![CDATA[Die Quellmultiplizität der {0}-Navigationseigenschaft ist ungültig. Wenn ContainsTarget für eine Navigationseigenschaft auf "true" festgelegt ist und der deklarierende Entitätstyp der Eigenschaft nicht mit dem Zielentitätstyp identisch ist, stellt die Eigenschaft eine nicht rekursive Kapselung dar, und die Multiplizität der Navigationsquelle muss genau 1 sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1340,7 +1340,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and the multiplicity of the navigation source must be zero or one.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Quellmultiplizität der Navigationseigenschaft "{0}" ist ungültig. Wenn "ContainsTarget" für eine Navigationseigenschaft auf "True" festgelegt ist und der deklarierende Entitätstyp der Eigenschaft mit dem Zielentitätstyp identisch ist oder von diesem erbt, stellt die Eigenschaft eine rekursive Kapselung dar, und die Multiplizität der Navigationsquelle muss 0 oder 1 sein.]]></Val>
+            <Val><![CDATA[Die Quellmultiplizität der {0}-Navigationseigenschaft ist ungültig. Wenn ContainsTarget für eine Navigationseigenschaft auf "true" festgelegt ist und der deklarierende Entitätstyp der Eigenschaft mit dem Zielentitätstyp identisch ist oder von diesem erbt, stellt die Eigenschaft eine rekursive Kapselung dar, und die Multiplizität der Navigationsquelle muss 0 oder 1 sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1349,7 +1349,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The target multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and it must have an optional target represented by a collection or a nullable entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Zielmultiplizität der Navigationseigenschaft "{0}" ist ungültig. Wenn "ContainsTarget" für eine Navigationseigenschaft auf "True" festgelegt ist und der deklarierende Entitätstyp der Eigenschaft mit dem Zielentitätstyp identisch ist oder von diesem erbt, stellt die Eigenschaft eine rekursive Kapselung dar und muss ein optionales Ziel aufweisen, das von einer Auflistung oder einem Entitätstyp, der NULL-Werte zulässt, dargestellt wird.]]></Val>
+            <Val><![CDATA[Die Zielmultiplizität der {0}-Navigationseigenschaft ist ungültig. Wenn ContainsTarget für eine Navigationseigenschaft auf "true" festgelegt ist und der deklarierende Entitätstyp der Eigenschaft mit dem Zielentitätstyp identisch ist oder von diesem erbt, stellt die Eigenschaft eine rekursive Kapselung dar und muss ein optionales Ziel aufweisen, das von einer Sammlung oder einem Entitätstyp, der NULL-Werte zulässt, dargestellt wird.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1358,7 +1358,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{0}' is based on type '{1}' that has no keys defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Entitätenmenge oder das Singleton '{0}' basiert auf dem {1}-Typ, für den keine Schlüssel definiert sind.]]></Val>
+            <Val><![CDATA[Die Entitätenmenge oder das {0}-Singleton basiert auf dem Typ "{1}", für den keine Schlüssel definiert sind.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1367,7 +1367,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The association set '{0}' cannot assume an entity set for the role '{2}' because there are no entity sets for the role type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Zuordnungssatz '{0}' kann keine Entitätenmenge für die Rolle '{2}' annehmen, weil keine Entitätenmengen für den Rollentyp '{1}' vorhanden sind.]]></Val>
+            <Val><![CDATA[Der Zuordnungssatz "{0}" kann keine Entitätenmenge für die Rolle "{2}" annehmen, weil keine Entitätenmengen für den Rollentyp "{1}" vorhanden sind.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1403,7 +1403,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' imports operation '{1}' that is bound. Only an unbound operation can be imported using an operation import.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' importiert den gebundenen {1}-Vorgang. Mit einem Vorgangsimport können nur nicht gebundene Vorgänge importiert werden.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" importiert den gebundenen {1}-Vorgang. Mit einem Vorgangsimport können nur nicht gebundene Vorgänge importiert werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1412,7 +1412,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' specifies an entity set expression which is not valid. Operation import entity set expression can be either an entity set reference or a path starting with a operation import parameter and traversing navigation properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' gibt einen Entitätenmengenausdruck an, der nicht gültig ist. Der Entitätenmengenausdruck des Vorgangsimports kann ein Entitätenmengenverweis oder ein Pfad sein, der mit einem Vorgangsimportparameter beginnt und die Navigationseigenschaften durchläuft.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" gibt einen Entitätenmengenausdruck an, der nicht gültig ist. Der Entitätenmengenausdruck des Vorgangsimports kann ein Entitätenmengenverweis oder ein Pfad sein, der mit einem Vorgangsimportparameter beginnt und die Navigationseigenschaften durchläuft.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1421,7 +1421,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' specifies an entity set of kind '{1}' which is not supported in this context. Operation import entity set expression can be either an entity set reference or a path starting with a operation import parameter and traversing navigation properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' gibt eine Entitätenmenge der Art '{1}' an, die in diesem Kontext nicht unterstützt wird. Der Entitätenmengenausdruck des Vorgangsimports kann ein Entitätenmengenverweis oder ein Pfad sein, der mit einem Vorgangsimportparameter beginnt und die Navigationseigenschaften durchläuft.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" gibt eine Entitätenmenge der Art "{1}" an, die in diesem Kontext nicht unterstützt wird. Der Entitätenmengenausdruck des Vorgangsimports kann ein Entitätenmengenverweis oder ein Pfad sein, der mit einem Vorgangsimportparameter beginnt und die Navigationseigenschaften durchläuft.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1430,7 +1430,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' returns entities of type '{1}' that cannot exist in the entity set '{2}' specified for the operation import.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' gibt Entitäten des {1}-Typs zurück, die in der für den Vorgangsimport angegebenen Entitätenmenge '{2}' nicht enthalten sein können.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" gibt Entitäten des Typs "{1}" zurück, die in der für den Vorgangsimport angegebenen Entitätenmenge "{2}" nicht enthalten sein können.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1439,7 +1439,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' returns entities of type '{1}' that cannot be returned by the entity set path specified for the operation import.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' gibt Entitäten des {1}-Typs zurück, die von dem für den Vorgangsimport angegebenen Entitätenmengenpfad nicht zurückgegeben werden können.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" gibt Entitäten des Typs "{1}" zurück, die von dem für den Vorgangsimport angegebenen Entitätenmengenpfad nicht zurückgegeben werden können.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1448,7 +1448,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' specifies an entity set but does not return entities.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' gibt eine Entitätenmenge an, gibt jedoch keine Entitäten zurück.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" gibt eine Entitätenmenge an, gibt jedoch keine Entitäten zurück.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1457,7 +1457,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path determined entity type '{1}' is not assignable to the return type '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der für den Entitätenmengenpfad des {0}-Vorgangs ermittelte Entitätstyp '{1}' kann dem Rückgabetyp '{2}' nicht zugewiesen werden.]]></Val>
+            <Val><![CDATA[Der für den Entitätenmengenpfad des {0}-Vorgangs ermittelte Entitätstyp "{1}" kann dem Rückgabetyp "{2}" nicht zugewiesen werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1466,7 +1466,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path was determined to be a reference property but the return type is a collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Es wurde ermittelt, dass der Entitätenmengenpfad des {0}-Vorgangs einer Verweiseigenschaft, der Rückgabetyp aber einer Auflistung entspricht.]]></Val>
+            <Val><![CDATA[Es wurde ermittelt, dass der Entitätenmengenpfad des {0}-Vorgangs einer Verweiseigenschaft, der Rückgabetyp aber einer Sammlung entspricht.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1475,7 +1475,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path was determined to be a collection but the return type is not a collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Es wurde ermittelt, dass der Entitätenmengenpfad des {0}-Vorgangs einer Auflistung, der Rückgabetyp aber keiner Auflistung entspricht.]]></Val>
+            <Val><![CDATA[Es wurde ermittelt, dass der Entitätenmengenpfad des {0}-Vorgangs einer Sammlung, der Rückgabetyp aber keiner Sammlung entspricht.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1484,7 +1484,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' has an entity set path and with an invalid return type. The return type is required to be an entity type or a collection of entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der {0}-Vorgang verfügt über einen Entitätenmengenpfad mit einem ungültigen Rückgabetyp. Der Rückgabetyp muss ein Entitätstyp oder eine Auflistung von Entitätstypen sein.]]></Val>
+            <Val><![CDATA[Der {0}-Vorgang verfügt über einen Entitätenmengenpfad mit einem ungültigen Rückgabetyp. Der Rückgabetyp muss ein Entitätstyp oder eine Sammlung von Entitätstypen sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1502,7 +1502,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Each parameter name in a operation must be unique. The parameter name '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Jeder Parametername in einem Vorgang muss eindeutig sein. Der Parametername '{0}' ist bereits definiert.]]></Val>
+            <Val><![CDATA[Jeder Parametername in einem Vorgang muss eindeutig sein. Der Parametername "{0}" ist bereits definiert.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Each parameter name in a function must be unique. The parameter name '{0}' is already defined.]]></Val>
@@ -1541,7 +1541,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A primitive type without other errors must not have kind of none. The kind of primitive type '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein primitiver Typ ohne weitere Fehler darf nicht von der Art 'None' sein. Die Art des primitiven Typs '{0}' ist 'None'.]]></Val>
+            <Val><![CDATA[Ein primitiver Typ ohne weitere Fehler darf nicht von der Art "None" sein. Die Art des primitiven Typs "{0}" ist "None".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1550,7 +1550,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property without other errors must not have kind of none. The kind of property '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Eine Eigenschaft ohne weitere Fehler darf nicht von der Art 'None' sein. Die Art der Eigenschaft '{0}' ist 'None'.]]></Val>
+            <Val><![CDATA[Eine Eigenschaft ohne weitere Fehler darf nicht von der Art "None" sein. Die Art der {0}-Eigenschaft ist "None".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1559,7 +1559,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Each property name in a type must be unique. Property name '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Jeder Eigenschaftenname in einem Typ muss eindeutig sein. Der Eigenschaftenname '{0}' ist bereits definiert.]]></Val>
+            <Val><![CDATA[Jeder Eigenschaftsname in einem Typ muss eindeutig sein. Der Eigenschaftsname "{0}" ist bereits definiert.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Each property name in a type must be unique. Property name '{0}' was already defined.]]></Val>
@@ -1571,7 +1571,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type of the record expression is not open and does not contain a property named '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Typ des Datensatzausdrucks ist nicht offen und enthält keine Eigenschaft mit dem Namen '{0}'.]]></Val>
+            <Val><![CDATA[Der Typ des Datensatzausdrucks ist nicht offen und enthält keine Eigenschaft mit dem Namen "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1580,7 +1580,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The record expression does not have a constructor for a property named '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Datensatzausdruck verfügt über keinen Konstruktor für eine Eigenschaft mit dem Namen '{0}'.]]></Val>
+            <Val><![CDATA[Der Datensatzausdruck verfügt über keinen Konstruktor für eine Eigenschaft mit dem Namen "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1625,7 +1625,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A schema element without other errors must not have kind of none. The kind of schema element '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Schemaelement ohne weitere Fehler darf nicht von der Art 'None' sein. Die Art des Schemaelements '{0}' ist 'None'.]]></Val>
+            <Val><![CDATA[Ein Schemaelement ohne weitere Fehler darf nicht von der Art "None" sein. Die Art des {0}-Schemaelements ist "None".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1634,7 +1634,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An element with the name '{0}' is already defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Element mit dem Namen '{0}' ist bereits definiert.]]></Val>
+            <Val><![CDATA[Ein Element mit dem Namen "{0}" ist bereits definiert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1643,7 +1643,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the singleton '{1}' is not valid, it must be entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der {0}-Typ des Singletons '{1}' ist ungültig, weil es ein Entitätstyp sein muss.]]></Val>
+            <Val><![CDATA[Der Typ "{0}" des {1}-Singletons ist ungültig. Er muss ein Entitätstyp sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1652,7 +1652,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the string constant is '{0}' characters long, but the max length of its type is '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert der Zeichenfolgenkonstante ist '{0}' Zeichen lang, aber die maximale Länge des zugehörigen Typ beträgt '{1}'.]]></Val>
+            <Val><![CDATA[Der Wert der Zeichenfolgenkonstante ist {0} Zeichen lang, aber die maximale Länge des zugehörigen Typs beträgt {1}.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1670,7 +1670,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The namespace '{0}' is a system namespace and cannot be used by non-system types. Please choose a different namespace.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Namespace "{0}" ist ein Systemnamespace und kann nicht von Nicht-Systemschemas verwendet werden. Wählen Sie einen anderen Namespace aus.]]></Val>
+            <Val><![CDATA[Der {0}-Namespace ist ein Systemnamespace und kann nicht von Nicht-Systemschemas verwendet werden. Wählen Sie einen anderen Namespace aus.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1679,7 +1679,7 @@
         <Str Cat="Text">
           <Val><![CDATA[They type of the type annotation is not open, and does not contain a property named '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Typ der Typanmerkung ist nicht offen und enthält keine Eigenschaft mit dem Namen '{0}'.]]></Val>
+            <Val><![CDATA[Der Typ der Typanmerkung ist nicht offen und enthält keine Eigenschaft mit dem Namen "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1688,7 +1688,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type annotation is missing a binding for the property '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[In der Typanmerkung fehlt eine Bindung für die Eigenschaft '{0}'.]]></Val>
+            <Val><![CDATA[In der Typanmerkung fehlt eine Bindung für die {0}-Eigenschaft.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1697,7 +1697,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The types of all properties in the dependent role of a referential constraint must be the same as the corresponding property types in the principal role. The type of property '{0}' on entity '{1}' does not match the type of property '{2}' on entity '{3}' in the referential constraint '{4}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Typen aller Eigenschaften in der Dependent Role einer referenziellen Einschränkung müssen mit den entsprechenden Eigenschaftstypen der Principal Role übereinstimmen. Der Typ der Eigenschaft "{0}" der Entität "{1}" stimmt nicht mit dem Typ der Eigenschaft "{2}" der Entität "{3}" in der referenziellen Einschränkung "{4}" überein.]]></Val>
+            <Val><![CDATA[Die Typen aller Eigenschaften in der Dependent Role einer referenziellen Einschränkung müssen mit den entsprechenden Eigenschaftstypen der Principal Role übereinstimmen. Der Typ der {0}-Eigenschaft der Entität "{1}" stimmt nicht mit dem Typ der {2}-Eigenschaft der Entität "{3}" in der referenziellen Einschränkung "{4}" überein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1706,7 +1706,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A type without other errors must not have kind of none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Typ ohne weitere Fehler darf nicht von der Art 'None' sein.]]></Val>
+            <Val><![CDATA[Ein Typ ohne weitere Fehler darf nicht von der Art "None" sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1715,7 +1715,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function '{0}' has a different return type than other function overloads with the same name. Functions with the same name must have the same return type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die {0}-Funktion verfügt über einen anderen Rückgabetyp als andere Funktionsüberladungen mit demselben Namen. Gleichnamige Funktionen müssen über denselben Rückgabetyp verfügen.]]></Val>
+            <Val><![CDATA[Die {0}-Funktion verfügt über einen anderen Rückgabetyp als andere Funktionsüberladungen mit demselben Namen. Gleichnamige Funktionen müssen denselben Rückgabetyp haben.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1760,7 +1760,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}.{1}' of type '{2}' has value '{3}' that is not a valid enum member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Eigenschaft '{0}.{1}' des Typs '{2}' verfügt über den Wert '{3}', der kein gültiges Enumerationselement ist.]]></Val>
+            <Val><![CDATA[Die Eigenschaft "{0}.{1}" des Typs "{2}" verfügt über den Wert "{3}", der kein gültiges Enumerationselement ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1769,7 +1769,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the enumeration the property '{0}.{1}' contains a null element. Enumeration properties must not contain null elements.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert der Enumerationseigenschaft '{0}.{1}' enthält ein NULL-Element. Enumerationseigenschaften dürfen keine NULL-Elemente enthalten.]]></Val>
+            <Val><![CDATA[Der Wert der Enumerationseigenschaft "{0}.{1}" enthält ein NULL-Element. Enumerationseigenschaften dürfen keine NULL-Elemente enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1778,7 +1778,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The chain of base types of type '{0}' is cyclic.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Kette der Basistypen des Typs '{0}' ist zyklisch.]]></Val>
+            <Val><![CDATA[Die Kette der Basistypen des Typs "{0}" ist zyklisch.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1787,7 +1787,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An object with the value '{0}' of the '{1}.{2}' property must implement '{3}' interface.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Von einem Objekt mit dem Wert '{0}' der Eigenschaft '{1}.{2}' muss die Schnittstelle '{3}' implementiert werden.]]></Val>
+            <Val><![CDATA[Ein Objekt mit dem Wert "{0}" der Eigenschaft "{1}.{2}" muss die {3}-Schnittstelle implementieren.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1796,7 +1796,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' of the property '{1}.{2}' is not semantically valid. A semantically valid model must not contain elements of kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' der Eigenschaft '{1}.{2}' ist semantisch ungültig. Ein semantisch gültiges Modell darf keinen Elemente der Art '{0}' enthalten.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" der Eigenschaft "{1}.{2}" ist semantisch ungültig. Ein semantisch gültiges Modell darf keine Elemente der Art "{0}" enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1823,7 +1823,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The partner of the navigation property '{0}' must not be the same property, and must point back to the navigation property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Partner der Navigationseigenschaft '{0}' darf nicht dieselbe Eigenschaft aufweisen und muss auf die Navigationseigenschaft zurückverweisen.]]></Val>
+            <Val><![CDATA[Der Partner der {0}-Navigationseigenschaft darf nicht dieselbe Eigenschaft aufweisen und muss auf die Navigationseigenschaft zurückverweisen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1832,7 +1832,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the property '{0}.{1}' must not be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert der Eigenschaft ' {0}.{1}' darf nicht NULL sein.]]></Val>
+            <Val><![CDATA[Der Wert der Eigenschaft "{0}.{1}" darf nicht NULL sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1841,7 +1841,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An object implementing '{0}' interface has type definition of kind '{1}'. The type reference interface must match to the kind of the  definition.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Objekt, dass die Schnittstelle '{0}' implementiert, verfügt über eine Typdefinition der Art '{1}'. Die Typverweis-Schnittstelle muss mit der Art der Definition übereinstimmen.]]></Val>
+            <Val><![CDATA[Ein Objekt, dass die {0}-Schnittstelle implementiert, verfügt über eine Typdefinition der Art "{1}". Die Typverweis-Schnittstelle muss mit der Art der Definition übereinstimmen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1868,7 +1868,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Conversion of an edm collection value to the CLR type '{0}' is not supported. EDM collection values can be converted to System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> or System.Collections.Generic.ICollection<T>.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Konvertierung eines EDM-Auflistungswerts in den CLR-Typ '{0}' wird nicht unterstützt. EDM-Auflistungswerte können in System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> oder System.Collections.Generic.ICollection<T> konvertiert werden.]]></Val>
+            <Val><![CDATA[Die Konvertierung eines EDM-Sammlungswerts in den CLR-Typ "{0}" wird nicht unterstützt. EDM-Sammlungswerte können in System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> oder System.Collections.Generic.ICollection<T> konvertiert werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1877,7 +1877,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Conversion of an EDM value of the type '{0}' to the CLR type '{1}' is not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Konvertierung eines EDM-Werts des Typs '{0}' in den CLR-Typ '{1}' wird nicht unterstützt.]]></Val>
+            <Val><![CDATA[Die Konvertierung eines EDM-Werts des Typs "{0}" in den CLR-Typ "{1}" wird nicht unterstützt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1886,7 +1886,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot initialize a property '{0}' on an object of type '{1}'. The property already has a value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Eine Eigenschaft "{0}" für ein Objekt vom Typ "{1}" kann nicht initialisiert werden. Die Eigenschaft verfügt bereits über einen Wert.]]></Val>
+            <Val><![CDATA[Eine {0}-Eigenschaft für ein Objekt vom Typ "{1}" kann nicht initialisiert werden. Die Eigenschaft verfügt bereits über einen Wert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1895,7 +1895,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An EDM structured value contains multiple values for the property '{0}'. Conversion of an EDM structured value with duplicate property values is not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein strukturierter EDM-Wert enthält mehrere Werte für die Eigenschaft '{0}'. Die Konvertierung eines strukturierten EDM-Werts mit doppelten Eigenschaftswerten wird nicht unterstützt.]]></Val>
+            <Val><![CDATA[Ein strukturierter EDM-Wert enthält mehrere Werte für die {0}-Eigenschaft. Die Konvertierung eines strukturierten EDM-Werts mit doppelten Eigenschaftswerten wird nicht unterstützt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1913,7 +1913,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the object returned by the TryCreateObjectInstance delegate is not assignable to the expected type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Typ '{0}' des vom TryCreateObjectInstance-Delegaten zurückgegebenen Objekts kann dem erwarteten Typ '{1}' nicht zugewiesen werden.]]></Val>
+            <Val><![CDATA[Der Typ "{0}" des vom TryCreateObjectInstance-Delegaten zurückgegebenen Objekts kann dem erwarteten Typ "{1}" nicht zugewiesen werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1940,7 +1940,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An annotation of type string was expected for the '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' annotation, but an annotation of type '{1}' was found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Für die Anmerkung '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' wurde eine Anmerkung vom string-Typ erwartet, es wurde jedoch eine Anmerkung vom {1}-Typ gefunden.]]></Val>
+            <Val><![CDATA[Für die Anmerkung "{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}" wurde eine Anmerkung vom string-Typ erwartet, es wurde jedoch eine Anmerkung vom Typ "{1}" gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1958,7 +1958,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Value fails to match type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert stimmt nicht mit dem Typ '{0}' überein.]]></Val>
+            <Val><![CDATA[Der Wert stimmt nicht mit dem Typ "{0}" überein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1967,7 +1967,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A containing object cannot be null when getting value of an annotation with Path in the execution environment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Ein enthaltenes Objekt kann beim Abrufen des Werts einer Anmerkung mit dem Pfad in der Ausführungsumgebung nicht Null sein.]]></Val>
+            <Val><![CDATA[Ein enthaltenes Objekt kann beim Abrufen des Werts einer Anmerkung mit dem Pfad in der Ausführungsumgebung nicht NULL sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1976,7 +1976,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type '{0}' must have a single type annotation with term type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Typ '{0}' muss eine einzelne Typanmerkung mit dem Benennungstyp '{1}' aufweisen.]]></Val>
+            <Val><![CDATA[Der Typ "{0}" muss eine einzelne Typanmerkung mit dem Benennungstyp "{1}" aufweisen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2009,7 +2009,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An edm model must be provided for type cast.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Ein EDM-Modell muss für Typumwandlung bereitgestellt werden.]]></Val>
+            <Val><![CDATA[Ein EDM-Modell muss für die Typumwandlung bereitgestellt werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2018,7 +2018,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Function '{0}' is not present in the execution environment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Die Funktion "{0}" ist in der Ausführungsumgebung nicht vorhanden.]]></Val>
+            <Val><![CDATA[Die {0}-Funktion ist in der Ausführungsumgebung nicht vorhanden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2027,7 +2027,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Path segment '{0}' has no binding in the execution environment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Das Pfadsegment '{0}' verfügt über keine Bindung in der Ausführungsumgebung.]]></Val>
+            <Val><![CDATA[Das Pfadsegment "{0}" verfügt über keine Bindung in der Ausführungsumgebung.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2075,7 +2075,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unresolved Uri found in edmx:Reference, getReferencedModelReaderFunc should not return null when the URI is not a well-known schema.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Unter edmx:Reference wurde eine nicht aufgelöste URI gefunden, getReferencedModelReaderFunc sollte nicht Null zurückgeben, wenn die URI kein bekanntes Schema ist.]]></Val>
+            <Val><![CDATA[Unter edmx:Reference wurde eine nicht aufgelöste URI gefunden, getReferencedModelReaderFunc darf nicht NULL zurückgeben, wenn die URI kein bekanntes Schema ist.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2093,7 +2093,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Path segments must not contain '/' character.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Pfadsegmente dürfen kein '/'-Zeichen enthalten.]]></Val>
+            <Val><![CDATA[Pfadsegmente dürfen kein "/"-Zeichen enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2102,7 +2102,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="Approved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Im DateTimeOffset-Wert '{0}' fehlen die Zeitzoneninformationen. Ein DateTimeOffset-Wert muss Zeitzoneninformationen enthalten.]]></Val>
+            <Val><![CDATA[Im DateTimeOffset-Wert "{0}" fehlen die Zeitzoneninformationen. Ein DateTimeOffset-Wert muss Zeitzoneninformationen enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2129,7 +2129,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import '{0}' could not be serialized because its return type cannot be represented inline.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Vorgangsimport '{0}' konnte nicht serialisiert werden, weil dessen Rückgabetyp nicht inline dargestellt werden kann.]]></Val>
+            <Val><![CDATA[Der Vorgangsimport "{0}" konnte nicht serialisiert werden, weil dessen Rückgabetyp nicht inline dargestellt werden kann.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2138,7 +2138,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotation can not be serialized with an invalid target name. The name '{0}' is invalid.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Die Anmerkung kann nicht mit einem ungültigen Zielnamen serialisiert werden. Der Name '{0}' ist ungültig.]]></Val>
+            <Val><![CDATA[Die Anmerkung kann nicht mit einem ungültigen Zielnamen serialisiert werden. Der Name "{0}" ist ungültig.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2147,7 +2147,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A referenced type can not be serialized with an invalid name. The name '{0}' is invalid.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ein Typ, auf den verwiesen wird, kann nicht mit einem ungültigen Namen serialisiert werden. Der Name '{0}' ist ungültig.]]></Val>
+            <Val><![CDATA[Ein Typ, auf den verwiesen wird, kann nicht mit einem ungültigen Namen serialisiert werden. Der Name "{0}" ist ungültig.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2183,7 +2183,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The TimeSpan value '{0}' is out of representable TimeOfDay range.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der TimeSpan-Wert '{0}' befindet sich außerhalb des darstellbaren Bereichs von TimeOfDay.]]></Val>
+            <Val><![CDATA[Der TimeSpan-Wert "{0}" befindet sich außerhalb des darstellbaren Bereichs von TimeOfDay.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2192,7 +2192,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Target object '{0}' is not an instance with type of TimeOfDay.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Zielobjekt '{0}' ist keine Instanz mit dem Typ TimeOfDay.]]></Val>
+            <Val><![CDATA[Das Zielobjekt "{0}" ist keine Instanz mit dem Typ TimeOfDay.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2201,7 +2201,7 @@
         <Str Cat="Text">
           <Val><![CDATA[String '{0}' was not recognized as a valid TimeOfDay.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Zeichenfolge '{0}' wurde nicht als gültiger Wert für TimeOfDay erkannt.]]></Val>
+            <Val><![CDATA[Die Zeichenfolge "{0}" wurde nicht als gültiger Wert für TimeOfDay erkannt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2210,7 +2210,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The Hour '{0}', Minute '{1}', Second '{2}' and Millisecond '{3}' parameters describe an un-representable TimeOfDay.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Die Parameter Stunde '{0}', Minute '{1}', Sekunde '{2}' und Millisekunde '{3}' beschreiben eine nicht darstellbare Uhrzeit.]]></Val>
+            <Val><![CDATA[Die Parameter Stunde "{0}", Minute "{1}", Sekunde "{2}" und Millisekunde "{3}" beschreiben eine nicht darstellbare Uhrzeit.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The Hour '{0}', Minute '{1}', Second '{2}' and FractionalSeconds '{3}' parameters describe an un-representable TimeOfDay.]]></Val>
@@ -2222,7 +2222,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ticks value '{0}' is out of representable TimeOfDay range.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Teilstrichwert '{0}' befindet sich außerhalb des darstellbaren Bereichs von TimeOfDay.]]></Val>
+            <Val><![CDATA[Der Teilstrichwert "{0}" befindet sich außerhalb des darstellbaren Bereichs von TimeOfDay.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2231,7 +2231,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' could not be converted to be a '{1}' type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Typ "{0}" konnte nicht in einen {1}-Typ konvertiert werden.]]></Val>
+            <Val><![CDATA[Der Typ "{0}" konnte nicht in einen Typ "{1}" konvertiert werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2321,7 +2321,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid binary value. The value must be a hexadecimal string and must not be prefixed by '0x'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Binärwert. Der Wert muss eine hexadezimale Zeichenfolge sein und darf nicht das Präfix '0x' aufweisen.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Binärwert. Der Wert muss eine hexadezimale Zeichenfolge sein und darf nicht das Präfix "0x" aufweisen.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' is not a valid binary value.]]></Val>
@@ -2342,7 +2342,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid date value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Datumswert.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Datumswert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2351,7 +2351,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid date time value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Datums-/Uhrzeitwert. ]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Datums-/Uhrzeitwert. ]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0} is not a valid date time value. ]]></Val>
@@ -2363,7 +2363,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid date time offset value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Datums-/Uhrzeit-Offsetwert. ]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Datums-/Uhrzeit-Offsetwert. ]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0} is not a valid date time value. ]]></Val>
@@ -2375,7 +2375,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid decimal.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Dezimalwert.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Dezimalwert.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' is not a valid decimal value.]]></Val>
@@ -2387,7 +2387,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid duration value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Wert für die Dauer.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Wert für die Dauer.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2396,7 +2396,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid floating point value. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Gleitkommawert.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Gleitkommawert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2405,7 +2405,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid Guid. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist keine gültige GUID.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist keine gültige GUID.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' is not a valid GUID.]]></Val>
@@ -2444,7 +2444,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid scale. The value must either be a 32 bit integer or 'Variable'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Wert '{0}' ist keine gültige Skalierung. Der Wert muss eine 32-Bit-Ganzzahl oder 'Variable' sein.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist keine gültige Skalierung. Der Wert muss eine 32-Bit-Ganzzahl oder "Variable" sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2462,7 +2462,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid TimeOfDay value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Wert '{0}' ist kein gültiger Uhrzeitwert.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist kein gültiger Uhrzeitwert.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2471,7 +2471,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value writer cannot write a value of kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Wertewriter kann keinen Wert der Art '{0}' schreiben.]]></Val>
+            <Val><![CDATA[Der Wertewriter kann keinen Wert der Art "{0}" schreiben.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2498,7 +2498,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Required schema attribute '{0}' is not present on element '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das erforderliche Schemaattribut "{0}" ist im Element "{1}" nicht vorhanden.]]></Val>
+            <Val><![CDATA[Das erforderliche {0}-Schemaattribut ist im {1}-Element nicht vorhanden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2516,7 +2516,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' was not expected in the given context.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das Attribut "{0}" wurde im angegebenen Kontext nicht erwartet.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut wurde im angegebenen Kontext nicht erwartet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2525,7 +2525,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The schema element '{0}' was not expected in the given context.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das Schemaattribut "{0}" wurde im angegebenen Kontext nicht erwartet.]]></Val>
+            <Val><![CDATA[Das {0}-Schemaattribut wurde im angegebenen Kontext nicht erwartet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2546,7 +2546,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The element '{0}' was unexpected for the root element. The root element should be {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das Element "{0}" wurde für das Stammelement nicht erwartet. Das Stammelement muss "{1}" sein.]]></Val>
+            <Val><![CDATA[Das {0}-Element wurde für das Stammelement nicht erwartet. Das Stammelement muss "{1}" sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2564,7 +2564,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The namespace '{0}' is invalid. The root element is expected to belong to one of the following namespaces: '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Der Namespace '{0}' ist ungültig. Es wird erwartet, dass das Stammelement zu einem der folgenden Namespaces gehört: '{1}'.]]></Val>
+            <Val><![CDATA[Der {0}-Namespace ist ungültig. Es wird erwartet, dass das Stammelement zu einem der folgenden Namespaces gehört: "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2582,6 +2582,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="fr-FR" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -18,7 +18,7 @@
     <Cmt Name="ManifestData" />
     <Cmt Name="Mnemonic" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
     <Cmt Name="UIType" />
     <Cmt Name="UTSData" />
     <Cmt Name="UTSUI" />
@@ -624,7 +624,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot assert the nullable type '{0}' as a non-nullable type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Impossible de déclarer le type null '{0}' comme un type non null.]]></Val>
+            <Val><![CDATA[Impossible de déclarer le type Null '{0}' comme un type non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1140,7 +1140,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type of the navigation property '{0}' is invalid. The navigation target type must be an entity type or a collection of entity type. The navigation target entity type must match the declaring type of the partner property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Le type de la propriété de navigation '{0}' n'est pas valide. Seul un type d'entité ou une collection de types d'entité est valide pour un type cible de navigation. Le type d'entité cible de navigation doit correspondre avec le type déclarant de la propriété partenaire.]]></Val>
+            <Val><![CDATA[Le type de la propriété de navigation '{0}' n'est pas valide. Seul un type d'entité ou une collection de types d'entité est valide pour un type cible de navigation. Le type d'entité cible de navigation doit correspondre au type déclarant de la propriété partenaire.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The type of the navigation property '{0}' is invalid. Only entity type or a collection of entity type is valid for a navigation property.]]></Val>
@@ -1341,7 +1341,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is not the same as the target entity type, then the property represents a non-recursive containment and the multiplicity of the navigation source must be exactly one.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La multiplicité source de la propriété de navigation '{0}' n'est pas valide. Si 'ContainsTarget' d'une propriété de navigation a la valeur True et que le type d'entité déclarant de la propriété n'est pas le même que le type d'entité cible, la propriété représente une relation contenant-contenu non récursive et la multiplicité de la source de navigation doit être d'une exactement.]]></Val>
+            <Val><![CDATA[La multiplicité source de la propriété de navigation '{0}' n'est pas valide. Si 'ContainsTarget' d'une propriété de navigation a la valeur True et que le type d'entité déclarant de la propriété n'est pas le même que le type d'entité cible, la propriété représente une relation d'autonomie non récursive et la multiplicité de la source de navigation doit être d'une exactement.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1350,7 +1350,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and the multiplicity of the navigation source must be zero or one.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La multiplicité source de la propriété de navigation '{0}' n'est pas valide. Si 'ContainsTarget' d'une propriété de navigation a la valeur True et que le type d'entité déclarant de la propriété est le même que le type d'entité cible, ou hérite de ce dernier, la propriété représente une relation contenant-contenu récursive et la multiplicité de la source de navigation doit être de zéro ou un.]]></Val>
+            <Val><![CDATA[La multiplicité source de la propriété de navigation '{0}' n'est pas valide. Si 'ContainsTarget' d'une propriété de navigation a la valeur True et que le type d'entité déclarant de la propriété est le même que le type d'entité cible, ou hérite de ce dernier, la propriété représente une relation d'autonomie récursive et la multiplicité de la source de navigation doit être de zéro ou un.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1359,7 +1359,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The target multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is the same or inherits from the target entity type, then the property represents a recursive containment and it must have an optional target represented by a collection or a nullable entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La multiplicité cible de la propriété de navigation '{0}' n'est pas valide. Si 'ContainsTarget' d'une propriété de navigation a la valeur True et que le type d'entité déclarant de la propriété est le même que le type d'entité cible, ou hérite de ce dernier, la propriété représente une relation contenant-contenu récursive et elle doit avoir une cible facultative représentée par une collection ou un type d'entité acceptant la valeur Null.]]></Val>
+            <Val><![CDATA[La multiplicité cible de la propriété de navigation '{0}' n'est pas valide. Si 'ContainsTarget' d'une propriété de navigation a la valeur True et que le type d'entité déclarant de la propriété est le même que le type d'entité cible, ou hérite de ce dernier, la propriété représente une relation d'autonomie récursive et elle doit avoir une cible facultative représentée par une collection ou un type d'entité acceptant la valeur Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1386,7 +1386,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Null value cannot have a non-nullable type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La valeur Null ne peut pas avoir un type non null.]]></Val>
+            <Val><![CDATA[La valeur Null ne peut pas avoir un type non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1494,7 +1494,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' has an entity set path and with an invalid return type. The return type is required to be an entity type or a collection of entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[L'opération ''{0}' possède un chemin d'accès de jeu d'entités avec un type de retour non valide. Le type de retour doit être un type d'entité ou une collection de types d'entité.]]></Val>
+            <Val><![CDATA[L'opération '{0}' possède un chemin de jeu d'entités avec un type de retour non valide. Le type de retour doit être un type d'entité ou une collection de types d'entité.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1689,7 +1689,7 @@
         <Str Cat="Text">
           <Val><![CDATA[They type of the type annotation is not open, and does not contain a property named '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le type de l'annotation de type n'est pas Open et ne comporte pas une propriété nommée '{0}'.]]></Val>
+            <Val><![CDATA[Le type de l'annotation de type n'est pas ouvert et ne comporte pas une propriété nommée '{0}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2361,7 +2361,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid date time value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[La valeur '{0} n'est pas une valeur de date et d'heure valide.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas une valeur de date et d'heure valide.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0} is not a valid date time value. ]]></Val>
@@ -2373,7 +2373,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid date time offset value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[La valeur '{0} n'est pas une valeur de date et d'heure valide.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas une valeur de décalage de date et d'heure valide.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0} is not a valid date time value. ]]></Val>
@@ -2427,7 +2427,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid integer. The value must be a valid 32 bit integer.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La valeur '{0}' n'est pas un entier valide. La valeur doit être un entier à 32 bits valide.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas un entier valide. La valeur doit être un entier 32 bits valide.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2436,7 +2436,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid integer. The value must be a valid 64 bit integer.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La valeur '{0}' n'est pas un entier valide. La valeur doit être un entier à 64 bits valide.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas un entier valide. La valeur doit être un entier 64 bits valide.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2445,7 +2445,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid integer. The value must be a valid 32 bit integer or 'Max'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La valeur '{0}' n'est pas un entier valide. La valeur doit être un entier à 32 bits valide ou 'Max'.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas un entier valide. La valeur doit être un entier 32 bits valide ou 'Max'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2454,7 +2454,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid scale. The value must either be a 32 bit integer or 'Variable'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La valeur '{0}' n'est pas une echelle valide. La valeur doit être un entier à 32 bits ou 'Variable'.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas une échelle valide. La valeur doit être un entier 32 bits ou 'Variable'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2463,7 +2463,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid SRID. The value must either be a 32 bit integer or 'Variable'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La valeur '{0}' n'est pas un SRID valide. La valeur doit être un entier à 32 bits ou 'Variable'.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas un SRID valide. La valeur doit être un entier 32 bits ou 'Variable'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2592,6 +2592,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
