@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="es-ES" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -38,7 +38,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element where a numeric value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[GeoJSON no válido.Se encontró un valor no numérico en un elemento de matriz donde se esperaba un valor numérico.]]></Val>
+            <Val><![CDATA[GeoJSON no válido. Se encontró un valor no numérico en un elemento de matriz donde se esperaba un valor numérico.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element instead of the expected numeric value.]]></Val>
@@ -50,7 +50,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a recognized CRS name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[GeoJSON no válido. El valor '{0}' no es un nombre CRS reconocido.]]></Val>
+            <Val><![CDATA[GeoJSON no válido. El valor "{0}" no es un nombre CRS reconocido.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -59,7 +59,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a recognized CRS type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[GeoJSON no válido. El valor '{0}' no es un tipo CRS reconocido.]]></Val>
+            <Val><![CDATA[GeoJSON no válido. El valor "{0}" no es un tipo CRS reconocido.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -89,7 +89,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a valid value for the 'type' member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[GeoJSON no válido. '{0}' no es un valor válido para el miembro 'type'.]]></Val>
+            <Val><![CDATA[GeoJSON no válido. "{0}" no es un valor válido para el miembro "type".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -98,7 +98,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. The '{0}' member is required, but was not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[GeoJSON no válido. El miembro '{0}' es necesario, pero no se encontró.]]></Val>
+            <Val><![CDATA[GeoJSON no válido. El miembro "{0}" es necesario, pero no se encontró.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -128,7 +128,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' on element '{1}' is not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[No se admite el atributo '{0}' en el elemento '{1}'.]]></Val>
+            <Val><![CDATA[No se admite el atributo "{0}" en el elemento "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -191,7 +191,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[El valor '{0}' no es válido para la coordenada '{1}'.]]></Val>
+            <Val><![CDATA[El valor "{0}" no es válido para la coordenada "{1}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}']]></Val>
@@ -203,7 +203,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[No se puede leer el valor '{0}' para la propiedad '{1}' como un valor de cadena JSON entre comillas.]]></Val>
+            <Val><![CDATA[No se puede leer el valor "{0}" para la propiedad "{1}" como un valor de cadena JSON entre comillas.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -212,7 +212,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' as a JSON object.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[No se puede leer el valor '{0}' como un objeto JSON.]]></Val>
+            <Val><![CDATA[No se puede leer el valor "{0}" como un objeto JSON.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -221,7 +221,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Falta la información de zona horaria en el valor DateTimeOffset '{0}'. Un valor DateTimeOffset debe contener la información de zona horaria.]]></Val>
+            <Val><![CDATA[Falta la información de zona horaria en el valor DateTimeOffset "{0}". Un valor DateTimeOffset debe contener la información de zona horaria.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -428,7 +428,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unexpected character '{0}' found in text.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Se encontró el carácter inesperado '{0}' en el texto.]]></Val>
+            <Val><![CDATA[Se encontró el carácter inesperado "{0}" en el texto.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -458,6 +458,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
