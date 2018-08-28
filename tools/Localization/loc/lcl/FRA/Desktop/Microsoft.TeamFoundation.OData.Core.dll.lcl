@@ -1413,7 +1413,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A binary operator with incompatible types was detected. Found operand types '{0}' and '{1}' for operator kind '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un opérateur binaire avec des types incompatibles a été détecté. Types d'opérande '{0}'  et '{1}' trouvés pour le type d'opérateur '{2}' .]]></Val>
+            <Val><![CDATA[Un opérateur binaire avec des types incompatibles a été détecté. Types d'opérande '{0}' et '{1}' trouvés pour le type d'opérateur '{2}' .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1506,7 +1506,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Property '{0}' is not declared on type '{1}' or is not a key property. Only key properties can be used in key lookups.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété '{0}' n'est pas déclarée sur le type '{1}'  ou n'est pas une propriété de clé. Seules les propriétés de clé peuvent être utilisées dans les recherches de clé.]]></Val>
+            <Val><![CDATA[La propriété '{0}' n'est pas déclarée sur le type '{1}' ou n'est pas une propriété de clé. Seules les propriétés de clé peuvent être utilisées dans les recherches de clé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3141,7 +3141,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' or a property annotation for a property with name '{0}' was found when trying to read a collection of entity reference links; however, a property with name '{1}' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété nommée '{0}' ou une annotation de propriété pour une propriété nommée '{0}'  a été trouvée lors de la lecture d'une collection de liens de référence d'entité ; toutefois, une propriété nommée '{1}'  était attendue.]]></Val>
+            <Val><![CDATA[Une propriété nommée '{0}' ou une annotation de propriété pour une propriété nommée '{0}' a été trouvée lors de la lecture d'une collection de liens de référence d'entité ; toutefois, une propriété nommée '{1}'  était attendue.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3159,7 +3159,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found when reading an entity reference link. No properties other than the entity reference link property with name '{1}' are allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété nommée '{0}' a été trouvée lors de la lecture d'un lien de référence d'entité. Aucune propriété autre que la propriété de lien de référence d'entité nommée '{1}'  n'est autorisée.]]></Val>
+            <Val><![CDATA[Une propriété nommée '{0}' a été trouvée lors de la lecture d'un lien de référence d'entité. Aucune propriété autre que la propriété de lien de référence d'entité nommée '{1}' n'est autorisée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

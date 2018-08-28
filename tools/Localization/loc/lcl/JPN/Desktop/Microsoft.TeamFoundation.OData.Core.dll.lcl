@@ -1102,7 +1102,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unexpected '{1}' node was found when reading from the JSON reader. A '{0}' node was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[JSON リーダーから読み取り中に予期しないノード  '{1}'  が見つかりました。ノード '{0}' が必要とされていました。]]></Val>
+            <Val><![CDATA[JSON リーダーから読み取り中に予期しないノード  '{1}' が見つかりました。ノード '{0}' が必要とされていました。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An unexpected '{1}' node was found reading from the JSON reader. A '{0}' node was expected.]]></Val>
@@ -2605,7 +2605,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Group id or changeset GUID cannot be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[グループ ID または変更セット GUID を null にすることはできません。]]></Val>
+            <Val><![CDATA[ループ ID または変更セット GUID を null にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
