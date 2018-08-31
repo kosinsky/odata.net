@@ -6915,7 +6915,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une ressource de type '{0}' a été trouvée avec une ressource média, mais ce type d'entité n'est pas une ressource MLE (entrée de lien média). Quand le type n'est pas une entité MLE, la ressource ne peut pas avoir de ressource média.]]></Val>
+            <Val><![CDATA[Une ressource de type '{0}' a été trouvée avec une ressource multimédia, mais ce type d'entité n'est pas une ressource MLE (entrée de lien multimédia). Quand le type n'est pas une entité MLE, la ressource ne peut pas avoir de ressource multimédia.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
@@ -6927,7 +6927,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une ressource de type '{0}' a été trouvée sans ressource média, mais ce type d'entité est une ressource MLE (entrée de lien média). Quand le type est une entité MLE, la ressource doit avoir une ressource média.]]></Val>
+            <Val><![CDATA[Une ressource de type '{0}' a été trouvée sans ressource multimédia, mais ce type d'entité est une ressource MLE (entrée de lien multimédia). Quand le type est une entité MLE, la ressource doit avoir une ressource multimédia.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
