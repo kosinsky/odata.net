@@ -1877,7 +1877,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Conversion of an edm collection value to the CLR type '{0}' is not supported. EDM collection values can be converted to System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> or System.Collections.Generic.ICollection<T>.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[CLR 형식 '{0}'에 대한 EDM 컬렉션 값의 변환은 지원되지 않습니다. EDM 컬렉션 값은 System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> 또는 System.Collections.Generic.ICollection<T>으로 변환할 수 있습니다.]]></Val>
+            <Val><![CDATA[CLR 형식 '{0}'에 대한 EDM 컬렉션 값의 변환은 지원되지 않습니다. EDM 컬렉션 값은 System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> 또는 System.Collections.Generic.ICollection<T>로 변환할 수 있습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
