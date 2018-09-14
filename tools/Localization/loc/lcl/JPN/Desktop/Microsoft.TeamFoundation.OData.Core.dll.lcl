@@ -7057,7 +7057,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataEntityReferenceLink with a null Url was detected; an ODataEntityReferenceLink must have a non-null Url.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Url が NULL の ODataEntityReferenceLink が検出されました。ODataEntityReferenceLink には NULL 以外の Url を指定する必要があります。]]></Val>
+            <Val><![CDATA[URL が null 値の ODataEntityReferenceLink が検出されました。ODataEntityReferenceLink には null 値ではない URL を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

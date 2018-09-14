@@ -1083,7 +1083,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unexpected instance annotation name '{0}' was found when reading from the JSON reader, In OData, Instance annotation name must start with @.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Beim Lesen aus dem JSON reader wurde der unerwartete Name '{0}' für eine Instanzanmerkung gefunden. Namen für Instanzanmerkungen müssen in OData mit '@' beginnen.]]></Val>
+            <Val><![CDATA[Beim Lesen aus dem JSON-Reader wurde der unerwartete Name "{0}" für eine Instanzanmerkung gefunden. Namen für Instanzanmerkungen müssen in OData mit "@" beginnen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2010,7 +2010,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The message header '{0}' is invalid. The header value must be of the format '<header name>: <header value>'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Nachrichtenheader "{0}" ist ungültig. Der Headerwert muss das Format "<header name>: <header value>" aufweisen.]]></Val>
+            <Val><![CDATA[Der Nachrichtenheader "{0}" ist ungültig. Der Headerwert muss das Format "<Headername>: <Headerwert>" aufweisen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2718,7 +2718,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigationSource for resource or resource set is unknown or the Type is null. When writing a response, the navigation source or the type must be passed to the ODataMessageWriter.CreateODataResourceWriter/ODataMessageWriter.CreateODataResourceSetWriter method or the ODataResourceSerializationInfo must be set on the resource/resource set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Die navigationSource für eine Ressource oder einen Ressourcensatz ist unbekannt, oder der Typ ist NULL. Beim Schreiben einer Antwort muss die Navigationsquelle oder der Typ an die ODataMessageWriter.CreateODataResourceWriter/ODataMessageWriter.CreateODataResourceSetWriter-Methode übergeben werden, oder die ODataResourceSerializationInfo muss für die resource/resource set festgelegt werden.]]></Val>
+            <Val><![CDATA[Die navigationSource für eine Ressource oder einen Ressourcensatz ist unbekannt, oder der Typ ist NULL. Beim Schreiben einer Antwort muss die Navigationsquelle oder der Typ an die ODataMessageWriter.CreateODataResourceWriter/ODataMessageWriter.CreateODataResourceSetWriter-Methode übergeben werden, oder die ODataResourceSerializationInfo muss für die Ressource bzw. den Ressourcensatz festgelegt werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2727,7 +2727,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The Path property '{0}' of ODataMessageWriterSetting.ODataUri must end with the navigation property which the contained elements being written belong to.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Beim Schreiben enthaltener Elemente muss die Path-Eigenschaft '{0}' von 'ODataMessageWriterSetting.ODataUri' mit der Navigationseigenschaft enden, zu der diese Elemente gehören.]]></Val>
+            <Val><![CDATA[Beim Schreiben enthaltener Elemente muss die {0}-Pfadeigenschaft von ODataMessageWriterSetting.ODataUri mit der Navigationseigenschaft enden, zu der diese Elemente gehören.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2958,7 +2958,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An 'odata.type' annotation with value '{0}' was found for a top-level collection payload; however, top-level collections must specify a collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Eine 'odata.type'-Anmerkung mit dem Wert '{0}' wurde für eine Nutzlast einer Auflistung der obersten Ebene gefunden; für Auflistungen der obersten Ebene muss jedoch ein Auflistungstyp angegeben werden.]]></Val>
+            <Val><![CDATA[Eine odata.type-Anmerkung mit dem Wert "{0}" wurde für eine Nutzlast einer Sammlung der obersten Ebene gefunden; für Sammlungen der obersten Ebene muss jedoch ein Sammlungstyp angegeben werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2994,7 +2994,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A '$select' query option was found for the payload kind '{0}'. In OData, a '$select' query option is only supported for payload kinds 'Resource' and 'ResourceSet'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Für die Nutzlastart "{0}" wurde eine Abfrageoption '$select' gefunden. In OData wird die Abfrageoption '$select' nur für die Nutzlastarten 'Resource' und 'ResourceSet' unterstützt.]]></Val>
+            <Val><![CDATA[Für die Nutzlastart "{0}" wurde eine $select-Abfrageoption gefunden. In OData wird die $select-Abfrageoption nur für die Nutzlastarten "Resource" und "ResourceSet" unterstützt.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A '$select' query option was found for the payload kind '{0}'. In OData, a '$select' query option is only supported for payload kinds 'Entry' and 'Feed'.]]></Val>
@@ -3300,7 +3300,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When trying to read a null collection parameter value in JSON Light, a node of type '{0}' with the value '{1}' was read from the JSON reader; however, a primitive 'null' value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Beim Versuch, einen NULL-Auflistungsparameterwert in JSON Light zu lesen, wurde vom JSON-Reader ein Knoten vom Typ '{0}' mit dem Wert '{1}' eingelesen; es wurde jedoch der Primitive-Wert 'null' erwartet.]]></Val>
+            <Val><![CDATA[Beim Lesen eines NULL-Sammlungsparameterwerts in JSON Light wurde vom JSON-Reader ein Knoten vom Typ "{0}" mit dem Wert "{1}" eingelesen; es wurde jedoch der primitive Wert "null" erwartet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3483,7 +3483,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a metadata reference property '{0}' in a scope other than a resource. In OData, a property name with a '#' character indicates a reference into the metadata and is only supported for describing operations bound to a resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Es wurde eine Eigenschaft "{0}" für einen Metadatenverweis in einem Bereich gefunden, der von dem einer Ressource abweicht. In OData weist ein Eigenschaftenname mit einem '#'-Zeichen auf einen Verweis in den Metadaten hin und wird nur für die Beschreibung von Vorgängen unterstützt, die an eine Ressource gebunden sind.]]></Val>
+            <Val><![CDATA[Es wurde eine {0}-Eigenschaft für einen Metadatenverweis in einem Bereich gefunden, der von dem einer Ressource abweicht. In OData weist ein Eigenschaftsname mit einem "#"-Zeichen auf einen Verweis in den Metadaten hin und wird nur für die Beschreibung von Vorgängen unterstützt, die an eine Ressource gebunden sind.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Encountered a metadata reference property '{0}' in a scope other than an entry. In OData, a property name with a '#' character indicates a reference into the metadata and is only supported for describing operations bound to an entry.]]></Val>
@@ -3594,7 +3594,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the start of the content of a resource set; however, a node of type 'StartArray' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Beim Versuch, den Inhalt eines Ressourcensatzes zu lesen, wurde ein Knoten vom Typ "{0}" vom JSON-Reader gelesen. Es wurde aber ein Knoten vom Typ 'StartArray' erwartet.]]></Val>
+            <Val><![CDATA[Beim Versuch, den Inhalt eines Ressourcensatzes zu lesen, wurde ein Knoten vom Typ "{0}" vom JSON-Reader gelesen. Es wurde aber ein Knoten vom Typ "StartArray" erwartet.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3647,8 +3647,8 @@
       <Item ItemId=";ODataJsonLightResourceDeserializer_InvalidNodeTypeForItemsInResourceSet" ItemType="0" PsrId="211" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the entries of a typed resource set; however, a node of type 'StartObject' or 'EndArray', or a null value, was expected.]]></Val>
-          <Tgt Cat="Text" Stat="Update" Orig="New">
-            <Val><![CDATA[Beim Versuch, die Einträge eines Ressourcensatzes zu lesen, wurde ein Knoten vom Typ "{0}" vom JSON-Reader gelesen. Es wurde aber ein Knoten vom Typ 'StartObject' oder 'EndArray' erwartet.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ein Knoten vom Typ "{0}" wurde aus dem JSON-Reader beim Versuch gelesen, die Einträge eines typisierten Ressourcensatzes zu lesen. Es wurde jedoch ein Knoten vom Typ "StartObject" oder "EndArray" bzw. ein NULL-Wert erwartet.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the entries of a resource set; however, a node of type 'StartObject' or 'EndArray' was expected.]]></Val>
@@ -3723,7 +3723,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple target bindings encountered for the operation '{0}' but the 'target' property was not found in an operation value. To differentiate between multiple target bindings, each operation value must have exactly one 'target' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Mehrere Zielbindungen wurden für den {0}-Vorgang gefunden, aber die 'target'-Eigenschaft war in keinem Vorgangswert enthalten. Um zwischen mehreren Zielbindungen zu unterscheiden, muss jeder Vorgangswert genau eine 'target'-Eigenschaft aufweisen.]]></Val>
+            <Val><![CDATA[Mehrere Zielbindungen wurden für den {0}-Vorgang gefunden, aber die target-Eigenschaft war in keinem Vorgangswert enthalten. Um zwischen mehreren Zielbindungen zu unterscheiden, muss jeder Vorgangswert genau eine target-Eigenschaft aufweisen.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4266,7 +4266,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for a value is of kind '{0}'. Only types of Primitive kind can be specified as the expected type for reading a value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der erwartete Typ für einen Wert gehört zur Art "{0}". Nur Typen von der Art "Primitive" können als erwarteter Typ für das Lesen eines Werts angegeben werden.]]></Val>
+            <Val><![CDATA[Der erwartete Typ für einen Wert gehört zur Art "{0}". Nur Typen primitiver Art können als erwarteter Typ für das Lesen eines Werts angegeben werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6738,7 +6738,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a property '{0}' that was expected to be a reference to a location in the $metadata document but does not contain a '#' character or is otherwise not a valid metadata reference property. A metadata reference property must contain a '#' and be a valid absolute URI or begin with a '#' and be a valid URI fragment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Die Eigenschaft '{0}' wurde gefunden, die ein Verweis auf einen Ort im $metadata-Dokument sein sollte, aber kein Zeichen '#' enthält und auch sonst keiner gültigen Metadatenverweis-Eigenschaft entspricht. Eine Metadatenverweis-Eigenschaft muss das Zeichen '#' enthalten und ein gültiger absoluter URI sein oder mit einem '#' beginnen und ein gültiges URI-Fragment darstellen.]]></Val>
+            <Val><![CDATA[Die {0}-Eigenschaft wurde gefunden, die ein Verweis auf einen Ort im $metadata-Dokument sein sollte, aber kein Zeichen "#" enthält und auch sonst keiner gültigen Metadatenverweis-Eigenschaft entspricht. Eine Metadatenverweis-Eigenschaft muss das Zeichen "#" enthalten und ein gültiger absoluter URI sein oder mit einem "#" beginnen und ein gültiges URI-Fragment darstellen.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Encountered a property '{0}' which contains a '#' character, but which is not a valid metadata reference property.  A property with a '#' must either be a valid absolute URI or begin with a '#' and be a valid URI fragment.]]></Val>

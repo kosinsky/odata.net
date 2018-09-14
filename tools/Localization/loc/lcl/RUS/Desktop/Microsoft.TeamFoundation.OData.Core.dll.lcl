@@ -2010,7 +2010,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The message header '{0}' is invalid. The header value must be of the format '<header name>: <header value>'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый заголовок сообщения "{0}". Значение заголовка должно иметь формат "<header name>: <header value>".]]></Val>
+            <Val><![CDATA[Недопустимый заголовок сообщения "{0}". Значение заголовка должно иметь формат "<имя заголовка>: <значение заголовка>".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2958,7 +2958,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An 'odata.type' annotation with value '{0}' was found for a top-level collection payload; however, top-level collections must specify a collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Для коллекции верхнего уровня полезных данных была обнаружена заметка 'odata.type' со значением "{0}", однако для коллекций верхнего уровня необходимо указывать тип коллекции.]]></Val>
+            <Val><![CDATA[Для коллекции верхнего уровня полезных данных была обнаружена заметка "odata.type" со значением "{0}", однако для коллекций верхнего уровня необходимо указывать тип коллекции.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2994,7 +2994,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A '$select' query option was found for the payload kind '{0}'. In OData, a '$select' query option is only supported for payload kinds 'Resource' and 'ResourceSet'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Обнаружен параметр запроса '$select' для типа полезных данных "{0}". В OData параметр запроса "$select" поддерживается только для типов полезных данных 'Resource' и 'ResourceSet'.]]></Val>
+            <Val><![CDATA[Обнаружен параметр запроса "$select" для типа полезных данных "{0}". В OData параметр запроса "$select" поддерживается только для типов полезных данных "Resource" и "ResourceSet".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A '$select' query option was found for the payload kind '{0}'. In OData, a '$select' query option is only supported for payload kinds 'Entry' and 'Feed'.]]></Val>
@@ -3300,7 +3300,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When trying to read a null collection parameter value in JSON Light, a node of type '{0}' with the value '{1}' was read from the JSON reader; however, a primitive 'null' value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[При попытке чтения значения NULL параметра коллекции в JSON Light с модуля чтения JSON был считан узел типа "{0}" со значением "{1}". Однако ожидалось получить значение-примитив 'null'.]]></Val>
+            <Val><![CDATA[При попытке чтения значения NULL параметра коллекции в JSON Light с модуля чтения JSON был считан узел типа "{0}" со значением "{1}". Однако ожидалось получить примитивное значение "null".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3483,7 +3483,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a metadata reference property '{0}' in a scope other than a resource. In OData, a property name with a '#' character indicates a reference into the metadata and is only supported for describing operations bound to a resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Обнаружено ссылочное свойство метаданных "{0}" в области, отличной от ресурса. В OData имя свойства с символом '#' означает ссылку на метаданные и поддерживается только для описания операций, привязанных к ресурсу.]]></Val>
+            <Val><![CDATA[Обнаружено ссылочное свойство метаданных "{0}" в области, отличной от ресурса. В OData имя свойства с символом # означает ссылку на метаданные и поддерживается только для описания операций, привязанных к ресурсу.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Encountered a metadata reference property '{0}' in a scope other than an entry. In OData, a property name with a '#' character indicates a reference into the metadata and is only supported for describing operations bound to an entry.]]></Val>
@@ -3594,7 +3594,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the start of the content of a resource set; however, a node of type 'StartArray' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[При попытке прочитать начало содержимого набора ресурсов из модуля чтения JSON был считан узел типа "{0}", однако ожидался узел типа 'StartArray'.]]></Val>
+            <Val><![CDATA[При попытке прочитать начало содержимого набора ресурсов из модуля чтения JSON был считан узел типа "{0}", однако ожидался узел типа "StartArray".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3723,7 +3723,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple target bindings encountered for the operation '{0}' but the 'target' property was not found in an operation value. To differentiate between multiple target bindings, each operation value must have exactly one 'target' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Для операции "{0}" было обнаружено несколько целевых привязок, но свойство 'target' не было найдено в значении операции. Чтобы различать несколько целевых привязок, каждое значение операции должно иметь только одно свойство 'target'.]]></Val>
+            <Val><![CDATA[Для операции "{0}" было обнаружено несколько целевых привязок, но свойство "target" не было найдено в значении операции. Чтобы различать несколько целевых привязок, каждое значение операции должно иметь только одно свойство "target".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6738,7 +6738,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a property '{0}' that was expected to be a reference to a location in the $metadata document but does not contain a '#' character or is otherwise not a valid metadata reference property. A metadata reference property must contain a '#' and be a valid absolute URI or begin with a '#' and be a valid URI fragment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Обнаружено свойство "{0}", которое должно было быть ссылкой на расположение в документе $metadata, но не содержит символ '#' или не является допустимым свойством ссылки на метаданные. Свойство ссылки на метаданные должно содержать символ '#' и представлять допустимый абсолютный URI или начинаться с '#' и представлять допустимый фрагмент URI.]]></Val>
+            <Val><![CDATA[Обнаружено свойство "{0}", которое должно было быть ссылкой на расположение в документе $metadata, но не содержит символ "#" или не является допустимым свойством ссылки на метаданные. Свойство ссылки на метаданные должно содержать символ "#" и представлять допустимый абсолютный URI или начинаться с "#" и представлять допустимый фрагмент URI.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Encountered a property '{0}' which contains a '#' character, but which is not a valid metadata reference property.  A property with a '#' must either be a valid absolute URI or begin with a '#' and be a valid URI fragment.]]></Val>
