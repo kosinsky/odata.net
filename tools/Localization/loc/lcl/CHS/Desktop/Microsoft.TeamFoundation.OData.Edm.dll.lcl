@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.EdmPortable.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-CN" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -18,7 +18,7 @@
     <Cmt Name="ManifestData" />
     <Cmt Name="Mnemonic" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
     <Cmt Name="UIType" />
     <Cmt Name="UTSData" />
     <Cmt Name="UTSUI" />
@@ -1239,7 +1239,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound action '{0}' is a duplicate of other bound actions. For bound actions the combination of the namespace, name, and binding parameter type uniquely identifies an bound action.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[绑定操作“{0}”与其他绑定操作重复。对于绑定操作而言，命名空间、名称和绑定参数类型的组合唯一地标识一个绑定操作。]]></Val>
+            <Val><![CDATA[绑定操作“{0}”与其他绑定操作重复。对于绑定操作而言，命名空间、名称和绑定参数类型共同作用，唯一地标识一个绑定操作。 ]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1248,7 +1248,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and unordered set of parameter names uniquely identifies a bound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[绑定函数“{0}”与其他绑定函数重复。对于绑定函数而言，命名空间、名称、绑定参数类型和参数名称无序集的组合唯一地标识一个绑定函数。]]></Val>
+            <Val><![CDATA[绑定函数“{0}”与其他绑定函数重复。对于绑定函数而言，命名空间、名称、绑定参数类型和参数名称无序集共同作用，唯一地标识一个绑定函数。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1257,7 +1257,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The bound function '{0}' is a duplicate of other bound functions. For bound functions the combination of the namespace, name, binding parameter type and ordered set of parameter types uniquely identifies a bound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[绑定函数“{0}”与其他绑定函数重复。对于绑定函数而言，命名空间、名称、绑定参数类型和参数类型有序集的组合唯一地标识一个绑定函数。]]></Val>
+            <Val><![CDATA[绑定函数“{0}”与其他绑定函数重复。对于绑定函数而言，命名空间、名称、绑定参数类型和参数类型有序集共同作用，唯一地标识一个绑定函数。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1266,7 +1266,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound action '{0}' is a duplicate of other unbound actions. For unbound actions the combination of the namespace, and name uniquely identifies an unbound action.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[未绑定操作“{0}”与其他未绑定操作重复。对于未绑定操作而言，命名空间和名称的组合唯一地标识一个未绑定操作。]]></Val>
+            <Val><![CDATA[未绑定操作“{0}”与其他未绑定操作重复。对于未绑定操作而言，命名空间和名称共同作用，唯一地标识一个未绑定操作。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1275,7 +1275,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and unordered set of parameter names uniquely identifies an unbound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[未绑定函数“{0}”与其他未绑定函数重复。对于未绑定函数而言，命名空间、名称和参数名称无序集的组合唯一地标识一个未绑定函数。]]></Val>
+            <Val><![CDATA[未绑定函数“{0}”与其他未绑定函数重复。对于未绑定函数而言，命名空间、名称和参数名称无序集共同作用，唯一地标识一个未绑定函数。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1284,7 +1284,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The unbound function '{0}' is a duplicate of other unbound functions. For unbound functions the combination of the namespace, name and ordered set of parameter types uniquely identifies an unbound function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[未绑定函数“{0}”与其他未绑定函数重复。对于未绑定函数而言，命名空间、名称和参数类型有序集的组合唯一地标识一个未绑定函数。]]></Val>
+            <Val><![CDATA[未绑定函数“{0}”与其他未绑定函数重复。对于未绑定函数而言，命名空间、名称和参数类型有序集共同作用，唯一地标识一个未绑定函数。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2121,7 +2121,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The same rule cannot be in the same rule set twice.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同一规则不能在同一规则集中出现两次。]]></Val>
+            <Val><![CDATA[相同规则不能在同一规则集中出现两次。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2592,6 +2592,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>

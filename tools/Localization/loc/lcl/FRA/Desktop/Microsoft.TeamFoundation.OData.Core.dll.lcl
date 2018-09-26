@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Core.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="fr-FR" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -13,7 +13,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -144,7 +144,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered an 'annotation' element without a 'term' attribute. All 'annotation' elements must have a 'term' attribute.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Élément 'annotation' rencontré sans un attribut 'term'. Tous les éléments 'annotation' doivent avoir un attribut 'term'.]]></Val>
+            <Val><![CDATA[Élément 'annotation' rencontré sans attribut 'term'. Tous les éléments 'annotation' doivent avoir un attribut 'term'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -153,7 +153,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered an 'annotation' element with more than one attribute from following set: 'int', 'string', 'decimal', 'float', and 'bool'. Only one such attribute may appear on an 'annotation' element.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Élément 'annotation' rencontré avec plus d'un attribut de l'ensemble suivant : 'int', 'string', 'decimal', 'float' et 'bool'. Seul un attribut peut apparaître sur un élément 'annotation'.]]></Val>
+            <Val><![CDATA[Élément 'annotation' rencontré avec plus d'un attribut de l'ensemble suivant : 'int', 'string', 'decimal', 'float' et 'bool'. Un seul attribut peut apparaître sur un élément 'annotation'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -210,7 +210,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The child type '{0}' in a cast was not an entity type. Casts can only be performed on entity types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le type enfant « {0} » dans un cast n'était pas un type d'entité. Les casts peuvent être effectués uniquement sur des types d'entité.]]></Val>
+            <Val><![CDATA[Le type enfant '{0}' dans un cast n'était pas un type d'entité. Les casts peuvent être effectués uniquement sur des types d'entité.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -309,7 +309,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple annotations with the name '{0}' were detected for the property with name '{1}'. In OData, duplicate annotations are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Plusieurs annotations avec le nom « {0} » ont été détectées pour la propriété nommée « {1} ». Dans OData, les annotations en double ne sont pas autorisées.]]></Val>
+            <Val><![CDATA[Plusieurs annotations avec le nom '{0}' ont été détectées pour la propriété nommée '{1}'. Dans OData, les annotations en double ne sont pas autorisées.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -318,7 +318,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple annotations with the name '{0}' were detected. In OData, duplicate annotations are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Plusieurs annotations avec le nom « {0} » ont été détectées. Dans OData, les annotations en double ne sont pas autorisées.]]></Val>
+            <Val><![CDATA[Plusieurs annotations avec le nom '{0}' ont été détectées. Dans OData, les annotations en double ne sont pas autorisées.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -372,7 +372,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A value with primitive kind '{0}' cannot be converted into a primitive object value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une valeur de type primitif « {0} » ne peut pas être convertie en une valeur d'objet primitif.]]></Val>
+            <Val><![CDATA[Une valeur de type primitif '{0}' ne peut pas être convertie en une valeur d'objet primitif.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -381,7 +381,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incompatible primitive type kinds were found. The type '{0}' was found to be of kind '{2}' instead of the expected kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Des types primitifs incompatibles ont été trouvés. Le type « {0} » du genre « {2} » a été trouvé, au lieu du genre attendu « {1} ».]]></Val>
+            <Val><![CDATA[Des types primitifs incompatibles ont été trouvés. Le type '{0}' du genre '{2}' a été trouvé, au lieu du genre attendu '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -390,7 +390,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incompatible primitive type kinds were found. Found type kind '{0}' instead of the expected kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Des types primitifs incompatibles ont été trouvés. Le genre de type « {0} » a été trouvé au lieu du genre attendu « {1} ».]]></Val>
+            <Val><![CDATA[Des types primitifs incompatibles ont été trouvés. Le genre de type '{0}' a été trouvé au lieu du genre attendu '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -399,7 +399,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The primitive property '{0}' on type '{1}' has a value which is not a primitive value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété primitive « {0} » sur le type « {1} » a une valeur qui n'est pas une valeur primitive.]]></Val>
+            <Val><![CDATA[La propriété primitive '{0}' sur le type '{1}' a une valeur qui n'est pas une valeur primitive.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -408,7 +408,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity instance value of type '{0}' doesn't have a value for property '{1}'. To compute an entity's metadata, its key and concurrency-token property values must be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La valeur d'instance de l'entité de type « {0} » n'a pas de valeur pour la propriété « {1} ». Pour calculer les métadonnées de l'entité, ses clés et ses valeurs de propriété de jeton d'accès concurrentiel doivent être fournies.]]></Val>
+            <Val><![CDATA[La valeur d'instance de l'entité de type '{0}' n'a pas de valeur pour la propriété '{1}'. Pour calculer les métadonnées de l'entité, ses clés et ses valeurs de propriété de jeton d'accès concurrentiel doivent être fournies.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -417,7 +417,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' was found for a primitive value. In OData, the type '{0}' is not a supported primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le type « {0} » a été trouvé pour une valeur primitive. Dans OData, le type « {0} » n'est pas un type primitif pris en charge.]]></Val>
+            <Val><![CDATA[Le type '{0}' a été trouvé pour une valeur primitive. Dans OData, le type '{0}' n'est pas un type primitif pris en charge.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -495,7 +495,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The $level option on navigation property '{0}' is not allowed, because the related entity type '{1}' could not be cast to source entity type '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[L'option $level dans la propriété de navigation '{0}' n'est pas autorisée, car le type d'entité associé '{1}' ne peut pas être converti dans un type d'entité source '{2}'.]]></Val>
+            <Val><![CDATA[L'option $level dans la propriété de navigation '{0}' n'est pas autorisée, car le type d'entité associé '{1}' ne peut pas être converti en un type d'entité source '{2}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -531,7 +531,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Found a path traversing multiple navigation properties. Please rephrase the query such that each expand path contains only type segments and navigation properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Un chemin d'accès parcourant plusieurs propriétés de navigation a été trouvé. Veuillez reformuler la requête de sorte que chaque chemin d'accès de développement contienne uniquement des segments de type et des propriétés de navigation.]]></Val>
+            <Val><![CDATA[Un chemin parcourant plusieurs propriétés de navigation a été trouvé. Veuillez reformuler la requête de sorte que chaque chemin de développement contienne uniquement des segments de type et des propriétés de navigation.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -675,7 +675,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Found a function '{0}' on an open property. Functions on open properties are not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une fonction '{0}' a été trouvée sur une propriété d'ouverture. Les fonctions sur les propriétés d'ouverture ne sont pas prises en charge.]]></Val>
+            <Val><![CDATA[Une fonction '{0}' a été trouvée sur une propriété ouverte. Les fonctions sur les propriétés d'ouverture ne sont pas prises en charge.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -795,7 +795,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An error occurred when parsing the HTTP header '{0}'. The header value '{1}' is incorrect at position '{2}' because a token or a quoted-string is expected at this position but were not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une erreur s'est produite lors de l'analyse de l'en-tête HTTP '{0}'. La valeur d'en-tête '{1}' est incorrecte à la position '{2}' car une chaîne entre guillemets ou un jeton est attendu à ce position, mais aucun n'a été trouvé.]]></Val>
+            <Val><![CDATA[Une erreur s'est produite lors de l'analyse de l'en-tête HTTP '{0}'. La valeur d'en-tête '{1}' est incorrecte à la position '{2}' car une chaîne entre guillemets ou un jeton est attendu à cette position, mais aucun n'a été trouvé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1305,7 +1305,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A token of kind '{0}' was bound to the value null; this is invalid. A query token must always be bound to a non-null query node.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un jeton de type « {0} » a été lié à la valeur null ; cette opération n'est pas valide. Un jeton de requête doit toujours être lié à un nœud de requête avec une valeur autre que Null.]]></Val>
+            <Val><![CDATA[Un jeton de type '{0}' a été lié à la valeur null ; cette opération n'est pas valide. Un jeton de requête doit toujours être lié à un nœud de requête avec une valeur autre que Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1314,7 +1314,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Expression of type '{0}' cannot be converted to type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Impossible de convertir une expression de type « {0} » dans le type « {1} ».]]></Val>
+            <Val><![CDATA[Impossible de convertir une expression de type '{0}' en type '{1}' .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1350,7 +1350,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Collection open properties are not supported in this release.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Les propriétés de collection d'ouverture ne sont pas prises en charge dans cette version.]]></Val>
+            <Val><![CDATA[Les propriétés ouvertes de collection ne sont pas prises en charge dans cette version.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1359,7 +1359,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A key property '{0}' was found twice in a key lookup. Each key property can be specified just once in a key lookup.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété de clé « {0} » a été trouvée deux fois dans une recherche de clé. La propriété de clé ne peut être spécifiée qu'une seule fois dans une recherche de clé.]]></Val>
+            <Val><![CDATA[Une propriété de clé '{0}' a été trouvée deux fois dans une recherche de clé. La propriété de clé ne peut être spécifiée qu'une seule fois dans une recherche de clé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1377,7 +1377,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The argument for an invocation of a function with name '{0}' is not a single value. All arguments for this function must be single values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'argument pour l'appel d'une fonction nommée « {0} » n'est pas une valeur unique. Tous les arguments de cette fonction doivent avoir des valeurs uniques.]]></Val>
+            <Val><![CDATA[L'argument pour l'appel d'une fonction nommée '{0}' n'est pas une valeur unique. Tous les arguments de cette fonction doivent avoir des valeurs uniques.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1386,7 +1386,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered invalid type cast. '{0}' is not assignable from '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Cast de type non valide trouvé. « {0} » n'est pas attribuable à partir de « {1} ».]]></Val>
+            <Val><![CDATA[Cast de type non valide trouvé. '{0}' n'est pas attribuable à partir de '{1}' .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1404,7 +1404,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A unary operator with an incompatible type was detected. Found operand type '{0}' for operator kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un opérateur unaire avec un type incompatible a été détecté. Type d'opérande « {0} » trouvé pour le type d'opérateur « {1} ».]]></Val>
+            <Val><![CDATA[Un opérateur unaire avec un type incompatible a été détecté. Type d'opérande '{0}' trouvé pour le type d'opérateur '{1}' .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1413,7 +1413,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A binary operator with incompatible types was detected. Found operand types '{0}' and '{1}' for operator kind '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un opérateur binaire avec des types incompatibles a été détecté. Types d'opérande « {0} » et « {1} » trouvés pour le type d'opérateur « {2} ».]]></Val>
+            <Val><![CDATA[Un opérateur binaire avec des types incompatibles a été détecté. Types d'opérande '{0}' et '{1}' trouvés pour le type d'opérateur '{2}' .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1440,7 +1440,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No function signature for the function with name '{0}' matches the specified arguments. The function signatures considered are: {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Aucune signature de fonction pour la fonction nommée « {0} » ne correspond aux arguments spécifiés. Les signatures de fonction considérées sont : {1}.]]></Val>
+            <Val><![CDATA[Aucune signature de fonction pour la fonction nommée '{0}' ne correspond aux arguments spécifiés. Les signatures de fonction considérées sont : {1}.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1449,7 +1449,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A key lookup on type '{0}' didn't specify values for all key properties. All key properties must be specified in a key lookup.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une recherche de clé sur le type « {0} » n'a pas spécifié de valeurs pour toutes les propriétés de clé. Toutes les propriétés de clé doivent être spécifiées dans une recherche de clé.]]></Val>
+            <Val><![CDATA[Une recherche de clé sur le type '{0}' n'a pas spécifié de valeurs pour toutes les propriétés de clé. Toutes les propriétés de clé doivent être spécifiées dans une recherche de clé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1467,7 +1467,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is not in scope.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le paramètre « {0} » n'est pas dans la portée.]]></Val>
+            <Val><![CDATA[Le paramètre '{0}' n'est pas dans la portée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1476,7 +1476,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parent value for a property access of a property '{0}' is not a single value. Property access can only be applied to a single value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La valeur parente de l'accès à une propriété « {0} » n'est pas une valeur unique. L'accès à la propriété peut uniquement être appliqué à une valeur unique.]]></Val>
+            <Val><![CDATA[La valeur parente de l'accès à une propriété '{0}' n'est pas une valeur unique. L'accès à la propriété peut uniquement être appliqué à une valeur unique.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1506,7 +1506,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Property '{0}' is not declared on type '{1}' or is not a key property. Only key properties can be used in key lookups.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » n'est pas déclarée sur le type « {1} » ou n'est pas une propriété de clé. Seules les propriétés de clé peuvent être utilisées dans les recherches de clé.]]></Val>
+            <Val><![CDATA[La propriété '{0}' n'est pas déclarée sur le type '{1}' ou n'est pas une propriété de clé. Seules les propriétés de clé peuvent être utilisées dans les recherches de clé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1536,7 +1536,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a non-negative integer value. In OData, the $skip query option must specify a non-negative integer value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La valeur « {0} » n'est pas une valeur entière non négative. Dans OData, l'option de requête $skip doit spécifier une valeur entière non négative.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas une valeur entière non négative. Dans OData, l'option de requête $skip doit spécifier une valeur entière non négative.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1545,7 +1545,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a non-negative integer value. In OData, the $top query option must specify a non-negative integer value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La valeur « {0} » n'est pas une valeur entière non négative. Dans OData, l'option de requête $top doit spécifier une valeur entière non négative.]]></Val>
+            <Val><![CDATA[La valeur '{0}' n'est pas une valeur entière non négative. Dans OData, l'option de requête $top doit spécifier une valeur entière non négative.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1554,7 +1554,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operand for a unary operator '{0}' is not a single value. Unary operators require the operand to be a single value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'opérande pour un opérateur unaire « {0} » n'est pas une valeur unique. Les opérateurs unaires nécessitent que l'opérande soit une valeur unique.]]></Val>
+            <Val><![CDATA[L'opérande pour un opérateur unaire '{0}' n'est pas une valeur unique. Les opérateurs unaires nécessitent que l'opérande soit une valeur unique.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1563,7 +1563,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unknown function with name '{0}' was found. This may also be a function import or a key lookup on a navigation property, which is not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Une fonction inconnue nommée « {0} » a été trouvée. Il peut également s'agir d'une importation de fonction ou une recherche de clé sur une propriété de navigation, ce qui n'est pas autorisé.]]></Val>
+            <Val><![CDATA[Une fonction inconnue nommée '{0}' a été trouvée. Il peut également s'agir d'une importation de fonction ou une recherche de clé sur une propriété de navigation, ce qui n'est pas autorisé.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An unknown function with name '{0}' was found. This may also be a key lookup on a navigation property, which is not allowed.]]></Val>
@@ -1575,7 +1575,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unnamed key value was used in a key lookup on a type '{0}' which has more than one key property. Unnamed key value can only be used on a type with one key property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une valeur de clé sans nom a été utilisée dans une recherche de clé sur un type « {0} » qui a plus d'une propriété de clé. Une valeur de clé sans nom peut uniquement être utilisée sur un type qui a une seule propriété de clé.]]></Val>
+            <Val><![CDATA[Une valeur de clé sans nom a été utilisée dans une recherche de clé sur un type '{0}' qui a plus d'une propriété de clé. Une valeur de clé sans nom peut uniquement être utilisée sur un type qui a une seule propriété de clé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1584,7 +1584,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unsupported query token kind '{0}' was found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un jeton de requête non pris en charge de type « {0} » a été trouvé.]]></Val>
+            <Val><![CDATA[Un jeton de requête non pris en charge de type '{0}' a été trouvé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1659,7 +1659,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An entity type '{0}' was given to NonEntityParameterQueryNode. Use EntityParameterQueryNode instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un type d'entité « {0} » a été fourni à un NonEntityParameterQueryNode. Utilisez plutôt EntityParameterQueryNode.]]></Val>
+            <Val><![CDATA[Un type d'entité '{0}' a été fourni à un NonEntityParameterQueryNode. Utilisez plutôt EntityParameterQueryNode.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1668,7 +1668,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of this kind requires the associated property to be a structural, non-collection type, but property '{0}' is not structural.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un nœud de ce type exige que la propriété associée soit une propriété structurelle, de type autre que collection, mais la propriété « {0} » n'est pas structurelle.]]></Val>
+            <Val><![CDATA[Un nœud de ce type exige que la propriété associée soit une propriété structurelle, de type autre que collection, mais la propriété '{0}' n'est pas structurelle.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1677,7 +1677,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of this kind requires the associated property to be a structural, collection type, but property '{0}' is not a collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un nœud de ce type exige que la propriété associée soit une propriété structurelle, de type collection, mais la propriété « {0} » n'est pas une collection.]]></Val>
+            <Val><![CDATA[Un nœud de ce type exige que la propriété associée soit une propriété structurelle, de type collection, mais la propriété '{0}' n'est pas une collection.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1686,7 +1686,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of this kind requires the associated property to be a structural, non-collection type, but property '{0}' is a collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un nœud de ce type exige que la propriété associée soit une propriété structurelle, de type autre que collection, mais la propriété « {0} » est une collection.]]></Val>
+            <Val><![CDATA[Un nœud de ce type exige que la propriété associée soit une propriété structurelle, de type autre que collection, mais la propriété '{0}' est une collection.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1938,7 +1938,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The header with name '{0}' was not present in the header collection of the batch operation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'en-tête portant le nom '{0}' n'était pas présente dans la collection d'en-têtes de l'opération de traitement par lot.]]></Val>
+            <Val><![CDATA[L'en-tête portant le nom '{0}' n'était pas présent dans la collection d'en-têtes de l'opération de traitement par lot.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2076,7 +2076,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid multi-byte encoding '{0}' detected. Multi-byte encodings other than UTF-8 are only supported for operation payloads. They are not supported in batch or change set parts.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un encodage multi-octets '{0}' a été détecté. Les encodages multi-octets autres que UTF-8 sont uniquement pris en charge pour les charges utiles d'opérations. Ils ne sont pas pris en charge dans les lots ou dans les ensembles de modifications.]]></Val>
+            <Val><![CDATA[Un encodage multi-octet '{0}' a été détecté. Les encodages multi-octets autres que UTF-8 sont uniquement pris en charge pour les charges utiles d'opérations. Ils ne sont pas pris en charge dans les lots ou dans les ensembles de modifications.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2208,7 +2208,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The method CreateOperationRequestMessage was called in state '{0}', which is not allowed. CreateOperationRequestMessage can only be called in state 'Operation'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[La méthode CreateOperationRequestMessage a été appelée dans l'état {0}, ce qui n'est pas autorisé. CreateOperationRequestMessage ne peut être appelé que dans l'état 'Operation'.]]></Val>
+            <Val><![CDATA[La méthode CreateOperationRequestMessage a été appelée dans l'état '{0}', ce qui n'est pas autorisé. CreateOperationRequestMessage ne peut être appelé que dans l'état 'Operation'.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The method CreateOperationRequestMessage was called in state {0}, which is invalid. CreateOperationRequestMessage can only be called in state 'Operation'.]]></Val>
@@ -2220,7 +2220,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The method CreateOperationResponseMessage was called in state '{0}', which is not allowed. CreateOperationResponseMessage can only be called in state 'Operation'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[La méthode CreateOperationResponseMessage a été appelée dans l'état {0}, ce qui n'est pas autorisé. CreateOperationResponseMessage ne peut être appelé que dans l'état 'Operation'.]]></Val>
+            <Val><![CDATA[La méthode CreateOperationResponseMessage a été appelée dans l'état '{0}', ce qui n'est pas autorisé. CreateOperationResponseMessage ne peut être appelé que dans l'état 'Operation'.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The method CreateOperationResponseMessage was called in state {0}, which is invalid. CreateOperationResponseMessage can only be called in state 'Operation'.]]></Val>
@@ -2628,7 +2628,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The current state of the collection reader is '{0}'; however, the expected item type of a collection reader can only be set in state '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'état actuel du lecteur de collections est « {0} » ; toutefois, le type d'élément attendu d'un lecteur de collections peut uniquement avoir l'état « {1} ».]]></Val>
+            <Val><![CDATA[L'état actuel du lecteur de collections est '{0}' ; toutefois, le type d'élément attendu d'un lecteur de collections peut uniquement avoir l'état '{1}' .]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2790,7 +2790,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity type '{0}' has no key properties. Entity types must define at least one key property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le type d'entité « {0} » n'a pas de propriétés de clé. Les types d'entité doivent définir au moins une propriété de clé.]]></Val>
+            <Val><![CDATA[Le type d'entité '{0}' n'a pas de propriétés de clé. Les types d'entité doivent définir au moins une propriété de clé.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2799,7 +2799,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key property '{0}' on type '{1}' has a null value. Key properties must not have null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété de clé « {0} » sur le type « {1} » a une valeur Null. Les propriétés de clé ne doivent pas contenir de valeurs Null.]]></Val>
+            <Val><![CDATA[La propriété de clé '{0}' sur le type '{1}' a une valeur Null. Les propriétés de clé ne doivent pas contenir de valeurs Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2940,7 +2940,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property or annotation for a property with name '{0}' or an instance annotation with name '{0}' was found after reading the items of a top-level collection. No additional properties or annotations are allowed after the collection property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété ou une annotation pour une propriété nommée « {0} » ou une instance d'annotation avec le nom « {0} » a été trouvée après avoir lu les éléments d'une collection de niveau supérieur. Aucune propriété ou annotation supplémentaire n'est autorisée après la propriété de collection.]]></Val>
+            <Val><![CDATA[Une propriété ou une annotation pour une propriété nommée '{0}' ou une instance d'annotation avec le nom '{0}' a été trouvée après avoir lu les éléments d'une collection de niveau supérieur. Aucune propriété ou annotation supplémentaire n'est autorisée après la propriété de collection.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2949,7 +2949,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When trying to read the start of a collection, the expected collection property with name '{0}' was not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Lors de la tentative de lecture du début d'une collection, la propriété de collection attendue avec le nom « {0} » n'a pas été trouvée.]]></Val>
+            <Val><![CDATA[Lors de la tentative de lecture du début d'une collection, la propriété de collection attendue avec le nom '{0}' n'a pas été trouvée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3096,7 +3096,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A relative URI value '{0}' was specified in the payload, but the {1} annotation is missing from the payload. The payload must only contain absolute URIs or the {1} annotation must be on the payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une valeur URI relative « {0} » a été spécifiée dans la charge utile, mais l'annotation {1} ne figure pas dans la charge utile. La charge utile doit uniquement contenir des URI absolus ou bien l'annotation {1} doit être sur la charge utile.]]></Val>
+            <Val><![CDATA[Une valeur URI relative '{0}' a été spécifiée dans la charge utile, mais l'annotation {1} ne figure pas dans la charge utile. La charge utile doit uniquement contenir des URI absolus ou bien l'annotation {1} doit être sur la charge utile.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3105,7 +3105,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the start of an entity reference link. In JSON Light, entity reference links must be objects.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un nœud de type « {0} » a été lu à partir du lecteur JSON lors de la tentative de lecture du début d'un lien de référence d'entité. Dans JSON Light, les liens de référence d'entité doivent être des objets.]]></Val>
+            <Val><![CDATA[Un nœud de type '{0}' a été lu à partir du lecteur JSON lors de la tentative de lecture du début d'un lien de référence d'entité. Dans JSON Light, les liens de référence d'entité doivent être des objets.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3114,7 +3114,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' property of an entity reference link object cannot have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » d'un objet de lien de référence d'entité ne peut pas avoir de valeur Null.]]></Val>
+            <Val><![CDATA[La propriété '{0}' d'un objet de lien de référence d'entité ne peut pas avoir de valeur Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3123,7 +3123,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Did not find the required '{0}' property for an entity reference links payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » requise pour une charge utile de liens de référence d'entité n'a pas été trouvée.]]></Val>
+            <Val><![CDATA[La propriété '{0}' requise pour une charge utile de liens de référence d'entité n'a pas été trouvée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3132,7 +3132,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An instance annotation with name '{0}' or a property annotation for the property with name '{0}' was found when reading an entity reference link. No OData property or instance annotations are allowed when reading entity reference links.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation d'instance nommée « {0} » ou une annotation de propriété avec le nom « {0} » a été trouvée lors de la lecture d'un lien de référence d'entité. Aucune annotation de propriété ou d'instance OData n'est autorisée lors de la lecture des liens de référence d'entité.]]></Val>
+            <Val><![CDATA[Une annotation d'instance nommée '{0}' ou une annotation de propriété avec le nom '{0}' a été trouvée lors de la lecture d'un lien de référence d'entité. Aucune annotation de propriété ou d'instance OData n'est autorisée lors de la lecture des liens de référence d'entité.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3141,7 +3141,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' or a property annotation for a property with name '{0}' was found when trying to read a collection of entity reference links; however, a property with name '{1}' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété nommée « {0} » ou une annotation de propriété pour une propriété nommée « {0} » a été trouvée lors de la lecture d'une collection de liens de référence d'entité ; toutefois, une propriété nommée « {1} » était attendue.]]></Val>
+            <Val><![CDATA[Une propriété nommée '{0}' ou une annotation de propriété pour une propriété nommée '{0}' a été trouvée lors de la lecture d'une collection de liens de référence d'entité ; toutefois, une propriété nommée '{1}'  était attendue.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3150,7 +3150,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property annotation for a property with name '{0}' was found when reading an entity reference links payload. No property annotations, only instance annotations are allowed when reading entity reference links.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation de propriété pour une propriété nommée « {0} » a été trouvée lors de la lecture d'une charge utile de liens de référence d'entité. Les annotations de propriété ne sont pas autorisées, seules les annotations d'instance le sont lors de la lecture des liens de référence d'entité.]]></Val>
+            <Val><![CDATA[Une annotation de propriété pour une propriété nommée '{0}' a été trouvée lors de la lecture d'une charge utile de liens de référence d'entité. Les annotations de propriété ne sont pas autorisées, seules les annotations d'instance le sont lors de la lecture des liens de référence d'entité.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3159,7 +3159,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found when reading an entity reference link. No properties other than the entity reference link property with name '{1}' are allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété nommée « {0} » a été trouvé lors de la lecture d'un lien de référence d'entité. Aucune propriété autre que la propriété de lien de référence d'entité nommée « {1} » n'est autorisée.]]></Val>
+            <Val><![CDATA[Une propriété nommée '{0}' a été trouvée lors de la lecture d'un lien de référence d'entité. Aucune propriété autre que la propriété de lien de référence d'entité nommée '{1}' n'est autorisée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3168,7 +3168,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The required property '{0}' for an entity reference link was not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » requise pour un lien de référence d'entité n'a pas été trouvée.]]></Val>
+            <Val><![CDATA[La propriété '{0}' requise pour un lien de référence d'entité n'a pas été trouvée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3177,7 +3177,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{0}' properties were found in an entity reference link object; however, a single '{0}' property was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Plusieurs propriétés « {0} » ont été trouvées dans un objet de lien de référence d'entité, alors qu'une propriété « {0} » unique était attendue.]]></Val>
+            <Val><![CDATA[Plusieurs propriétés '{0}' ont été trouvées dans un objet de lien de référence d'entité, alors qu'une propriété '{0}' unique était attendue.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3204,7 +3204,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An OData instance annotation '{0}' was found in an error payload; however, error payloads do not support OData instance annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation d'instance OData « {0} » a été trouvée dans une charge utile d'erreur, alors que les charges utiles d'erreur ne prennent pas en charge les annotations d'instance OData.]]></Val>
+            <Val><![CDATA[Une annotation d'instance OData '{0}' a été trouvée dans une charge utile d'erreur, alors que les charges utiles d'erreur ne prennent pas en charge les annotations d'instance OData.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3213,7 +3213,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An OData property annotation '{0}' was found in an error payload; however, error payloads do not support OData property annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation de propriété OData « {0} » a été trouvée dans une charge utile d'erreur, alors que les charges utiles d'erreur ne prennent pas en charge les annotations de propriété OData.]]></Val>
+            <Val><![CDATA[Une annotation de propriété OData '{0}' a été trouvée dans une charge utile d'erreur, alors que les charges utiles d'erreur ne prennent pas en charge les annotations de propriété OData.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3222,7 +3222,7 @@
         <Str Cat="Text">
           <Val><![CDATA[One or more property annotations for property '{0}' were found in an error payload without the property to annotate. Error payloads must not contain property annotations for properties that are not in the payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété « {0} » ont été trouvées dans une charge utile d'erreur sans la propriété à annoter. Les charges utiles d'erreur ne doivent pas contenir d'annotations de propriétés qui ne sont pas dans la charge utile.]]></Val>
+            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété '{0}' ont été trouvées dans une charge utile d'erreur sans la propriété à annoter. Les charges utiles d'erreur ne doivent pas contenir d'annotations de propriétés qui ne sont pas dans la charge utile.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3231,7 +3231,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found in the error value of a top-level error. In OData, a top-level error value can only have properties with name 'code', 'message', or 'innererror', or custom instance annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété portant le nom « {0} » a été trouvée dans la valeur d'une erreur de niveau supérieur. Dans OData, une valeur d'erreur de niveau supérieur peut avoir uniquement des propriétés nommées « code », « message » ou « innererror », ou des annotations d'instance personnalisées.]]></Val>
+            <Val><![CDATA[Une propriété portant le nom '{0}' a été trouvée dans la valeur d'une erreur de niveau supérieur. Dans OData, une valeur d'erreur de niveau supérieur peut avoir uniquement des propriétés nommées « code », « message » ou « innererror », ou des annotations d'instance personnalisées.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3300,7 +3300,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When trying to read a null collection parameter value in JSON Light, a node of type '{0}' with the value '{1}' was read from the JSON reader; however, a primitive 'null' value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Lors de la tentative de lecture d'une valeur de paramètre de collection Null dans JSON Light, un noeud de type « {0} » avec la valeur « {1} » a été lu à partir du lecteur JSON alors qu'une valeur 'null' primitive était attendue.]]></Val>
+            <Val><![CDATA[Lors de la tentative de lecture d'une valeur de paramètre de collection Null dans JSON Light, un nœud de type '{0}' avec la valeur '{1}' a été lu à partir du lecteur JSON alors qu'une valeur 'null' primitive était attendue.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3318,7 +3318,7 @@
         <Str Cat="Text">
           <Val><![CDATA[One or more property annotations for property '{0}' were found in a parameter payload without the property to annotate. Parameter payloads must not contain property annotations for properties that are not in the payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété « {0} » ont été trouvées dans une charge utile de paramètre sans la propriété à annoter. Les charges utiles de paramètre ne doivent pas contenir d'annotations de propriétés qui ne sont pas dans la charge utile.]]></Val>
+            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété '{0}' ont été trouvées dans une charge utile de paramètre sans la propriété à annoter. Les charges utiles de paramètre ne doivent pas contenir d'annotations de propriétés qui ne sont pas dans la charge utile.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3327,7 +3327,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is of an unsupported type kind '{1}'. Only primitive, enum, complex, primitive collection, enum collection and complex collection types are supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Le paramètre « {0} » est d'un type « {1} » non pris en charge. Seuls les types Primitive, Enum, Complex, Primitive collection, Enum collection et Complex collection sont pris en charge.]]></Val>
+            <Val><![CDATA[Le paramètre '{0}' est d'un type '{1}' non pris en charge. Seuls les types Primitive, Enum, Complex, Primitive collection, Enum collection et Complex collection sont pris en charge.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The parameter '{0}' is of an unsupported type kind '{1}'. Only primitive, complex, primitive collection and complex collection types are supported.]]></Val>
@@ -3339,7 +3339,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is of the '{1}' primitive type, which is not supported in JSON Light.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le paramètre « {0} » est du type primitif « {1} », ce qui n'est pas pris en charge dans JSON Light.]]></Val>
+            <Val><![CDATA[Le paramètre '{0}' est du type primitif '{1}', ce qui n'est pas pris en charge dans JSON Light.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3375,7 +3375,7 @@
         <Str Cat="Text">
           <Val><![CDATA[One or more property annotations for property '{0}' were found in the complex value without the property to annotate. Complex values must only contain property annotations for existing properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété « {0} » ont été trouvées dans la valeur complexe sans la propriété à annoter. Les valeurs complexes doivent uniquement contenir les annotations de propriété des propriétés existantes.]]></Val>
+            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété '{0}' ont été trouvées dans la valeur complexe sans la propriété à annoter. Les valeurs complexes doivent uniquement contenir les annotations de propriété des propriétés existantes.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3384,7 +3384,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A complex property with an '{0}' property annotation was found. Complex properties must not have the '{0}' property annotation, instead the '{0}' should be specified as an instance annotation in the complex value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété complexe avec une annotation de propriété « {0} » a été trouvée. Les propriétés complexes ne doivent pas avoir d'annotation de propriété « {0} », en revanche « {0} » doit être spécifié sous la forme d'une annotation d'instance dans la valeur complexe.]]></Val>
+            <Val><![CDATA[Une propriété complexe avec une annotation de propriété '{0}' a été trouvée. Les propriétés complexes ne doivent pas avoir d'annotation de propriété '{0}', en revanche '{0}' doit être spécifié sous la forme d'une annotation d'instance dans la valeur complexe.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3393,7 +3393,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A top-level property with name '{0}' was found in the payload; however, property and collection payloads must always have a top-level property with name '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété de niveau supérieur nommée « {0} » a été trouvée dans la charge utile ; toutefois, les charges utiles de propriété et de collection doivent toujours avoir une propriété de niveau supérieur nommée « {1} ».]]></Val>
+            <Val><![CDATA[Une propriété de niveau supérieur nommée '{0}' a été trouvée dans la charge utile ; toutefois, les charges utiles de propriété et de collection doivent toujours avoir une propriété de niveau supérieur nommée '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3411,7 +3411,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'odata.type' instance annotation value '{0}' is not a valid type name. The value of the 'odata.type' instance annotation must be a non-empty string.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La valeur « {0} » d'annotation d'instance « odata.type » n'est pas un type de nom valide. La valeur de l'annotation d'instance « odata.type » doit être une chaîne non vide.]]></Val>
+            <Val><![CDATA[La valeur '{0}' d'annotation d'instance « odata.type » n'est pas un type de nom valide. La valeur de l'annotation d'instance « odata.type » doit être une chaîne non vide.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3420,7 +3420,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property with name '{0}' was found in a null payload. In OData, no properties or OData annotations can appear in a null payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété nommée « {0} » a été trouvée dans une charge utile null. Dans OData, aucune propriété ou annotation OData ne peut apparaître dans une charge utile null.]]></Val>
+            <Val><![CDATA[La propriété nommée '{0}' a été trouvée dans une charge utile null. Dans OData, aucune propriété ou annotation OData ne peut apparaître dans une charge utile null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3429,7 +3429,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An '{0}' annotation was read inside a JSON object representing a primitive value; type annotations for primitive values have to be property annotations of the owning property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation « {0} » a été lue dans un objet JSON qui représente une valeur primitive ; les annotations de type des valeurs primitives doivent être des annotations de propriété de la propriété propriétaire.]]></Val>
+            <Val><![CDATA[Une annotation '{0}' a été lue dans un objet JSON qui représente une valeur primitive ; les annotations de type des valeurs primitives doivent être des annotations de propriété de la propriété propriétaire.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3438,7 +3438,7 @@
         <Str Cat="Text">
           <Val><![CDATA[One or more property annotations for property '{0}' were found in the top-level property or collection payload without the property to annotate. Top-level property and collection payloads must contain a single property, with optional annotations for this property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété « {0} » ont été trouvées dans la charge utile de propriété de niveau supérieur ou de collection sans la propriété à annoter. Les charges de propriété de niveau supérieur et de collection doivent contenir une seule propriété, avec des annotations facultatives pour cette propriété.]]></Val>
+            <Val><![CDATA[Une ou plusieurs annotations de propriété pour la propriété '{0}' ont été trouvées dans la charge utile de propriété de niveau supérieur ou de collection sans la propriété à annoter. Les charges de propriété de niveau supérieur et de collection doivent contenir une seule propriété, avec des annotations facultatives pour cette propriété.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3447,7 +3447,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A top-level property with an invalid primitive null value was found. In OData, top-level properties with null value have to be serialized as JSON object with an '{0}' annotation that has the value '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété de niveau supérieur avec une valeur Null primitive non valide a été trouvée. Dans OData, les propriétés de niveau supérieur avec une valeur Null doivent être sérialisées en tant qu'objets JSON avec une annotation « {0} » ayant la valeur « {1} ».]]></Val>
+            <Val><![CDATA[Une propriété de niveau supérieur avec une valeur Null primitive non valide a été trouvée. Dans OData, les propriétés de niveau supérieur avec une valeur Null doivent être sérialisées en tant qu'objets JSON avec une annotation '{0}' ayant la valeur '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3456,7 +3456,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property with name '{0}' was found after the data property with name '{1}'. If a type is specified for a data property, it must appear before the data property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété nommée « {0} » a été trouvée après la propriété de données nommée « {1} ». Si un type est spécifié pour une propriété de données, il doit apparaître avant la propriété de données.]]></Val>
+            <Val><![CDATA[La propriété nommée '{0}' a été trouvée après la propriété de données nommée '{1}'. Si un type est spécifié pour une propriété de données, il doit apparaître avant la propriété de données.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3474,7 +3474,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' has a property annotation '{1}'. Primitive, complex, collection or open properties can only have an 'odata.type' property annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » possède une annotation de propriété « {1} ». Les propriétés primitives, complexes, de collection ou ouvertes peuvent avoir uniquement une annotation « odata.type ».]]></Val>
+            <Val><![CDATA[La propriété '{0}' possède une annotation de propriété '{1}'. Les propriétés primitives, complexes, de collection ou ouvertes peuvent avoir uniquement une annotation « odata.type ».]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3495,7 +3495,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An OData property annotation '{0}' was found. This property annotation is either not recognized or not expected at the current position.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation de propriété OData « {0} » a été trouvée. Cette annotation de propriété n'est pas reconnue ou n'est pas attendue à la position actuelle.]]></Val>
+            <Val><![CDATA[Une annotation de propriété OData '{0}' a été trouvée. Cette annotation de propriété n'est pas reconnue ou n'est pas attendue à la position actuelle.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3504,7 +3504,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found. This property is either not recognized or not expected at the current position.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété nommée « {0} » a été trouvée. Cette propriété n'est pas reconnue ou n'est pas attendue à la position actuelle.]]></Val>
+            <Val><![CDATA[Une propriété nommée '{0}' a été trouvée. Cette propriété n'est pas reconnue ou n'est pas attendue à la position actuelle.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3540,7 +3540,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' instance or property annotation has a null value. In OData, the '{0}' instance or property annotation must have a non-null string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'annotation d'instance ou de propriété « {0} » a une valeur Null. Dans OData, l'annotation d'instance ou de propriété « {0} » doit avoir une valeur de chaîne non-Null.]]></Val>
+            <Val><![CDATA[L'annotation d'instance ou de propriété '{0}' a une valeur Null. Dans OData, l'annotation d'instance ou de propriété '{0}' doit avoir une valeur de chaîne non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3549,7 +3549,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An '{0}' annotation was found with an invalid value. In OData, the only valid value for the '{0}' annotation is '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation « {0} » a été trouvée avec une valeur non valide. Dans OData, la seule valeur valide pour l'annotation « {0} » est « {1} ».]]></Val>
+            <Val><![CDATA[Une annotation '{0}' a été trouvée avec une valeur non valide. Dans OData, la seule valeur valide pour l'annotation '{0}' est '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3567,7 +3567,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The resource reference navigation property '{0}' has a property annotation '{1}' with an array value. Resource reference navigation properties can only have a property annotation '{1}' with a string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La propriété de navigation de référence de ressource « {0} » possède une annotation de propriété « {1} » avec une valeur de tableau. Les propriétés de navigation de référence de ressource peuvent uniquement avoir une annotation de propriété « {1} » avec une valeur de chaîne.]]></Val>
+            <Val><![CDATA[La propriété de navigation de référence de ressource '{0}' possède une annotation de propriété '{1}' avec une valeur de tableau. Les propriétés de navigation de référence de ressource peuvent uniquement avoir une annotation de propriété '{1}' avec une valeur de chaîne.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3630,7 +3630,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of '{0}' property annotation is an empty array. The '{0}' property annotation must have a non-empty array as its value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La valeur d'une annotation de propriété « {0} » est un tableau vide. L'annotation de propriété « {0} » doit avoir un tableau non vide comme valeur.]]></Val>
+            <Val><![CDATA[La valeur d'une annotation de propriété '{0}' est un tableau vide. L'annotation de propriété '{0}' doit avoir un tableau non vide comme valeur.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3687,7 +3687,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{0}' properties were found for an operation '{1}'. In OData, an operation can have at most one '{0}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Plusieurs propriétés « {0} » ont été trouvées pour une opération « {1} ». Dans OData, une opération peut avoir au plus une propriété « {0} ».]]></Val>
+            <Val><![CDATA[Plusieurs propriétés '{0}' ont été trouvées pour une opération '{1}'. Dans OData, une opération peut avoir au plus une propriété '{0}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3696,7 +3696,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' has no expanded value and no '{1}' property annotation. Navigation property in request without expanded value must have the '{1}' property annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La propriété de navigation « {0} » n'a aucune valeur développée et aucune annotation de propriété « {1} ». La propriété de navigation dans la demande sans valeur développée doit avoir l'annotation de propriété « {1} ».]]></Val>
+            <Val><![CDATA[La propriété de navigation '{0}' n'a aucune valeur développée et aucune annotation de propriété '{1}'. La propriété de navigation dans la demande sans valeur développée doit avoir l'annotation de propriété '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3705,7 +3705,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property '{0}' which only has property annotations in the payload but no property value is an open property. In OData, open property must be represented as a property with value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une propriété « {0} » qui a uniquement des annotations de propriété dans la charge utile, mais aucune valeur de propriété, est une propriété d'ouverture. Dans OData, une propriété d'ouverture doit être représentée par une propriété avec une valeur.]]></Val>
+            <Val><![CDATA[Une propriété '{0}' qui a uniquement des annotations de propriété dans la charge utile, mais aucune valeur de propriété, est une propriété ouverte. Dans OData, une propriété ouverte doit être représentée par une propriété avec une valeur.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3723,7 +3723,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple target bindings encountered for the operation '{0}' but the 'target' property was not found in an operation value. To differentiate between multiple target bindings, each operation value must have exactly one 'target' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Plusieurs liaisons de cible ont été trouvées pour l'opération « {0} » mais la propriété 'target' n'a pas été trouvée dans une valeur d'opération. Pour différencier plusieurs liaisons de cible, la valeur de chaque opération doit avoir exactement une propriété 'target'.]]></Val>
+            <Val><![CDATA[Plusieurs liaisons de cible ont été trouvées pour l'opération '{0}' mais la propriété 'target' n'a pas été trouvée dans une valeur d'opération. Pour différencier plusieurs liaisons de cible, la valeur de chaque opération doit avoir exactement une propriété 'target'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3732,7 +3732,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An undeclared property '{0}' which only has property annotations in the payload but no property value was found in the payload. In OData, only declared navigation properties and declared named streams can be represented as properties without values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une propriété « {0} » non déclarée, qui a uniquement des annotations de propriété dans la charge utile, mais aucune valeur de propriété, a été trouvée dans la charge utile. Dans OData, seules les propriétés de navigation déclarées et les flux nommés déclarés peuvent être représentés en tant que propriétés sans valeurs.]]></Val>
+            <Val><![CDATA[Une propriété '{0}' non déclarée, qui a uniquement des annotations de propriété dans la charge utile, mais aucune valeur de propriété, a été trouvée dans la charge utile. Dans OData, seules les propriétés de navigation déclarées et les flux nommés déclarés peuvent être représentés en tant que propriétés sans valeurs.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3741,7 +3741,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property '{0}' which only has property annotations in the payload but no property value is declared to be of type '{1}'. In OData, only navigation properties and named streams can be represented as properties without values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une propriété « {0} » qui a uniquement des annotations de propriété dans la charge utile, mais aucune valeur de propriété, est déclarée comme étant de type « {1} ». Dans OData, seules les propriétés de navigation et les flux nommés peuvent être représentés en tant que propriétés sans valeurs.]]></Val>
+            <Val><![CDATA[Une propriété '{0}' qui a uniquement des annotations de propriété dans la charge utile, mais aucune valeur de propriété, est déclarée comme étant de type '{1}'. Dans OData, seules les propriétés de navigation et les flux nommés peuvent être représentés en tant que propriétés sans valeurs.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3768,7 +3768,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The resource reference navigation property '{0}' has both the '{1}' property annotation as well as a value. Resource reference navigation properties can have either '{1}' property annotations or values, but not both.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La propriété de navigation de référence de ressource « {0} » possède l'annotation de propriété « {1} » ainsi qu'une valeur. Les propriétés de navigation de référence de ressource peuvent avoir des annotations de propriété « {1} » ou des valeurs, mais pas les deux à la fois.]]></Val>
+            <Val><![CDATA[La propriété de navigation de référence de ressource '{0}' possède l'annotation de propriété '{1}' ainsi qu'une valeur. Les propriétés de navigation de référence de ressource peuvent avoir des annotations de propriété '{1}' ou des valeurs, mais pas les deux à la fois.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3795,7 +3795,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The resource set reference navigation property '{0}' has a property annotation '{1}' with a string value. Resource set reference navigation properties can only have a property annotation '{1}' with an array value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La propriété de navigation de référence de jeu de ressources « {0} » possède une annotation de propriété « {1} » avec une valeur de chaîne. Les propriétés de navigation de référence de jeu de ressources peuvent uniquement avoir une annotation de propriété « {1} » avec une valeur de tableau.]]></Val>
+            <Val><![CDATA[La propriété de navigation de référence de jeu de ressources '{0}' possède une annotation de propriété '{1}' avec une valeur de chaîne. Les propriétés de navigation de référence de jeu de ressources peuvent uniquement avoir une annotation de propriété '{1}' avec une valeur de tableau.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3849,7 +3849,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property annotation '{0}' was found after the property '{1}' it is annotating. Only the 'odata.nextLink' property annotation can be used after the property it is annotating.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une annotation de propriété « {0} » a été trouvée après la propriété « {1} » qu'elle annote. Seule l'annotation de propriété « odata.nextLink » peut être utilisée après la propriété qu'elle annote.]]></Val>
+            <Val><![CDATA[Une annotation de propriété '{0}' a été trouvée après la propriété '{1}' qu'elle annote. Seule l'annotation de propriété « odata.nextLink » peut être utilisée après la propriété qu'elle annote.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3867,7 +3867,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The {0} annotation is missing from the payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[L'annotation « {0} » est manquante dans la charge utile.]]></Val>
+            <Val><![CDATA[L'annotation '{0}' est manquante dans la charge utile.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3876,7 +3876,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple operations have the same 'Metadata' property value of '{0}' and the same 'Target' property value of '{1}'. When multiple operations have the same 'Metadata' property value, their 'Target' property values must be unique.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Plusieurs opérations ont la même valeur de propriété « Metadata » de « {0} » et la même propriété « Target » de « {1} ». Lorsque plusieurs opérations ont la même valeur de propriété « Metadata », leurs valeurs de propriété « Target » doivent être uniques.]]></Val>
+            <Val><![CDATA[Plusieurs opérations ont la même valeur de propriété « Metadata » de '{0}' et la même propriété « Target » de '{1}'. Lorsque plusieurs opérations ont la même valeur de propriété « Metadata », leurs valeurs de propriété « Target » doivent être uniques.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3885,7 +3885,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple operations have the same 'Metadata' property value of '{0}'. The 'Target' property value of these operations must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Plusieurs opérations ont la même valeur de propriété « Metadata » de « {0} ». La valeur de propriété 'Target' de ces opérations doit être définie sur une valeur non-Null.]]></Val>
+            <Val><![CDATA[Plusieurs opérations ont la même valeur de propriété « Metadata » de '{0}'. La valeur de propriété 'Target' de ces opérations doit être définie sur une valeur non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3894,7 +3894,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A relative URI value '{0}' was specified in the data to write, but the metadata document URI or the metadata for the item to be written was not specified for the writer. The metadata document URI and the metadata for the item to be written must be provided to the writer when using relative URI values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une valeur URI relative « {0} » a été spécifiée dans les données à écrire, mais l'URI de document de métadonnées ou les métadonnées de l'élément à écrire n'ont pas été spécifiés pour l'enregistreur. L'URI de document de métadonnées et les métadonnées de l'élément à écrire doivent être fournis à l'enregistreur lorsque vous utilisez les valeurs URI relatives.]]></Val>
+            <Val><![CDATA[Une valeur URI relative '{0}' a été spécifiée dans les données à écrire, mais l'URI de document de métadonnées ou les métadonnées de l'élément à écrire n'ont pas été spécifiés pour l'enregistreur. L'URI de document de métadonnées et les métadonnées de l'élément à écrire doivent être fournis à l'enregistreur lorsque vous utilisez les valeurs URI relatives.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3903,7 +3903,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{0}' properties were found in a service document. In OData, a service document must have exactly one '{0}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Plusieurs propriétés « {0} » ont été trouvées dans un document de service. Dans OData, un document de service doit comporter exactement une propriété « {0} ».]]></Val>
+            <Val><![CDATA[Plusieurs propriétés '{0}' ont été trouvées dans un document de service. Dans OData, un document de service doit comporter exactement une propriété '{0}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3921,7 +3921,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unrecognized instance annotation '{0}' was found in a '{1}' object in a service document. OData instance annotations are not allowed in workspaces.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation d'instance non reconnue « {0} » a été trouvée dans un objet « {1} » dans un document de service. Les annotations d'instance OData ne sont pas autorisées dans les espaces de travail.]]></Val>
+            <Val><![CDATA[Une annotation d'instance non reconnue '{0}' a été trouvée dans un objet '{1}' dans un document de service. Les annotations d'instance OData ne sont pas autorisées dans les espaces de travail.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3948,7 +3948,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No '{0}' property was found for a service document. In OData, a service document must have exactly one '{0}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Aucune propriété « {0} » n'a été trouvée pour un document de service. Dans OData, un document de service doit comporter exactement une propriété « {0} ».]]></Val>
+            <Val><![CDATA[Aucune propriété '{0}' n'a été trouvée pour un document de service. Dans OData, un document de service doit comporter exactement une propriété '{0}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3957,7 +3957,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unrecognized property annotation '{0}' was found in a '{1}' object in a service document. OData property annotations are not allowed in workspaces.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation de propriété non reconnue « {0} » a été trouvée dans un objet « {1} » dans un document de service. Les annotations de propriété OData ne sont pas autorisées dans les espaces de travail.]]></Val>
+            <Val><![CDATA[Une annotation de propriété non reconnue '{0}' a été trouvée dans un objet '{1}' dans un document de service. Les annotations de propriété OData ne sont pas autorisées dans les espaces de travail.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3975,7 +3975,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a property annotation for the property '{0}' which wasn't immediately followed by the property. Property annotations must occur directly before the property being annotated.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une annotation de propriété pour la propriété « {0} », qui n'a pas été immédiatement suivie par la propriété, a été trouvée. Les annotations de propriété doivent se trouver directement avant la propriété en cours d'annotation.]]></Val>
+            <Val><![CDATA[Une annotation de propriété pour la propriété '{0}', qui n'a pas été immédiatement suivie par la propriété, a été trouvée. Les annotations de propriété doivent se trouver directement avant la propriété en cours d'annotation.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3984,7 +3984,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered unexpected property '{0}' in a service document. The top level object of a service document may only have a '{1}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une propriété inattendue « {0} » a été trouvée dans un document de service. L'objet de niveau supérieur d'un document de service ne peut avoir qu'une propriété « {1} ».]]></Val>
+            <Val><![CDATA[Une propriété inattendue '{0}' a été trouvée dans un document de service. L'objet de niveau supérieur d'un document de service ne peut avoir qu'une propriété '{1}'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4002,7 +4002,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a reference into metadata '{0}' which does not refer to the known metadata url '{1}'. Open metadata reference properties are not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une référence dans les métadonnées « {0} », qui ne référence pas l'url de métadonnées connue « {1} », a été trouvée. Les propriétés de référence de métadonnées ouvertes ne sont pas prises en charge.]]></Val>
+            <Val><![CDATA[Une référence dans les métadonnées '{0}', qui ne référence pas l'url de métadonnées connue '{1}', a été trouvée. Les propriétés de référence de métadonnées ouvertes ne sont pas prises en charge.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4011,7 +4011,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' property of the operation '{1}' cannot have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » de l'opération « {1} » ne peut pas avoir de valeur Null.]]></Val>
+            <Val><![CDATA[La propriété '{0}' de l'opération '{1}' ne peut pas avoir de valeur Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4056,7 +4056,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' property of an operation '{1}' in '{2}' cannot have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété « {0} » d'une opération « {1} » dans « {2} » ne peut pas avoir de valeur Null.]]></Val>
+            <Val><![CDATA[La propriété '{0}' d'une opération '{1}' dans '{2}' ne peut pas avoir de valeur Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4368,7 +4368,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' with singleton cardinality on type '{1}' was specified for reading a collection of entity reference links. A navigation property with collection cardinality has to be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[La propriété de navigation « {0} » avec la cardinalité singleton sur le type « {1} » a été spécifiée pour la lecture d'une collection de liens de référence d'entité. Une propriété de navigation avec une cardinalité de collection doit être fournie.]]></Val>
+            <Val><![CDATA[La propriété de navigation '{0}' avec la cardinalité singleton sur le type '{1}' a été spécifiée pour la lecture d'une collection de liens de référence d'entité. Une propriété de navigation avec une cardinalité de collection doit être fournie.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4419,7 +4419,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No model was specified in the ODataMessageWriterSettings; a model has to be provided in the ODataMessageWriterSettings when CreateODataParameterWriter is called with a non-null operation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Aucun modèle n'a été spécifié dans ODataMessageWriterSettings ; un modèle doit être fourni dans ODataMessageWriterSettings lorsque CreateODataParameterWriter est appelé avec une opération non Null.]]></Val>
+            <Val><![CDATA[Aucun modèle n'a été spécifié dans ODataMessageWriterSettings ; un modèle doit être fourni dans ODataMessageWriterSettings lorsque CreateODataParameterWriter est appelé avec une opération non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4509,7 +4509,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A JsonPaddingFunctionName was specified, but the content-type '{0}' is not supported with Json Padding.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Un JsonPaddingFunctionName a été spécifié, mais le type de contenu « {0} » n'est pas pris en charge avec Json Padding.]]></Val>
+            <Val><![CDATA[Un JsonPaddingFunctionName a été spécifié, mais le type de contenu '{0}' n'est pas pris en charge avec Json Padding.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4575,7 +4575,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Neither the 'OData.EntityInstanceUri' nor the 'OData.EntitySetUriSuffix' annotation was found for entity set '{0}'. One of these annotations is required.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Ni l'annotation « OData.EntityInstanceUri » ni l'annotation « OData.EntitySetUriSuffix » n'ont été trouvées dans le jeu d'entités « {0} ». L'une de ces annotations est nécessaire.]]></Val>
+            <Val><![CDATA[Ni l'annotation « OData.EntityInstanceUri » ni l'annotation « OData.EntitySetUriSuffix » n'ont été trouvées dans le jeu d'entités '{0}'. L'une de ces annotations est nécessaire.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4584,7 +4584,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' doesn't have the 'OData.EntitySetUri' annotation. This annotation is required.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le jeu d'entités « {0} » n'a pas l'annotation « OData.EntitySetUri ». Cette annotation est requise.]]></Val>
+            <Val><![CDATA[Le jeu d'entités '{0}' n'a pas l'annotation « OData.EntitySetUri ». Cette annotation est requise.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4602,7 +4602,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' has a URI '{1}' which has no path segments. An entity set URI suffix cannot be appended to a URI without path segments.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le jeu d'entités « {0} » a un URI « {1} » qui n'a aucun segment de chemin d'accès. Un suffixe d'URI de jeu d'entités ne peut pas être ajouté à un URI sans segments de chemin d'accès.]]></Val>
+            <Val><![CDATA[Le jeu d'entités '{0}' a un URI '{1}' qui n'a aucun segment de chemin. Un suffixe d'URI de jeu d'entités ne peut pas être ajouté à un URI sans segments de chemin.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5067,7 +5067,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key property '{0}' on type '{1}' has a null value. Key properties must not have null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La propriété de clé « {0} » sur le type « {1} » a une valeur Null. Les propriétés de clé ne doivent pas contenir de valeurs Null.]]></Val>
+            <Val><![CDATA[La propriété de clé '{0}' sur le type '{1}' a une valeur Null. Les propriétés de clé ne doivent pas contenir de valeurs Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5625,7 +5625,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An annotation with name '{0}' for property '{1}' was detected after the property, or after an annotation for another property. In OData, annotations for a property must be in a single group and must appear before the property they annotate.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une annotation avec le nom « {0} » pour la propriété « {1} » a été détectée après la propriété, ou après une annotation pour une autre propriété. Dans OData, les annotations pour une propriété doivent appartenir à un seul groupe et apparaître avant la propriété qu'elles annotent.]]></Val>
+            <Val><![CDATA[Une annotation avec le nom '{0}' pour la propriété '{1}' a été détectée après la propriété, ou après une annotation pour une autre propriété. Dans OData, les annotations pour une propriété doivent appartenir à un seul groupe et apparaître avant la propriété qu'elles annotent.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5634,7 +5634,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Query option '{0}' was specified more than once, but it must be specified at most once.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'option de requête « {0} » a été spécifiée plus d'une fois, alors qu'elle ne doit être spécifiée qu'une fois au plus.]]></Val>
+            <Val><![CDATA[L'option de requête '{0}' a été spécifiée plus d'une fois, alors qu'elle ne doit être spécifiée qu'une fois au plus.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5841,7 +5841,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The request URI is not valid, the segment $count cannot be applied to the root of the service.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'URI de requête n'est pas valide, le segment $count ne peut pas être appliqué à la racine du service.]]></Val>
+            <Val><![CDATA[L'URI de demande n'est pas valide, le segment $count ne peut pas être appliqué à la racine du service.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5850,7 +5850,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Empty segment encountered in request URL. Please make sure that a valid request URL is specified.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Segment vide détecté dans l'URL de la requête. Vérifiez qu'une URL de requête valide est spécifiée.]]></Val>
+            <Val><![CDATA[Segment vide détecté dans l'URL de la demande. Vérifiez qu'une URL de requête valide est spécifiée.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5970,7 +5970,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Bad Request - Error in query syntax.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Requête incorrecte : erreur dans la syntaxe de la requête.]]></Val>
+            <Val><![CDATA[Demande incorrecte : erreur dans la syntaxe de la requête.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6057,7 +6057,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When parsing a select clause a '*' segment was found immediately after a type segment in a property path. In OData, a '*' segment cannot appear following a type segment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Lors de l'analyse d'une clause select un segment « * » a été trouvé immédiatement après un segment de type dans un chemin de propriété. Dans OData, un segment « * » ne peut pas apparaître après un segment de type.]]></Val>
+            <Val><![CDATA[Lors de l'analyse d'une clause select un segment '*' a été trouvé immédiatement après un segment de type dans un chemin de propriété. Dans OData, un segment '*' ne peut pas apparaître après un segment de type.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6066,7 +6066,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When parsing a select clause a '*' segment was found before last segment of a property path. In OData, a '*' segment can only appear as last segment of a property path.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Lors de l'analyse d'une clause select, un segment « * » a été trouvé avant le dernier segment d'un chemin de propriété. Dans OData, un segment « * » ne peut apparaître que dans le dernier segment d'un chemin de propriété.]]></Val>
+            <Val><![CDATA[Lors de l'analyse d'une clause select, un segment '*' a été trouvé avant le dernier segment d'un chemin de propriété. Dans OData, un segment '*' ne peut apparaître que dans le dernier segment d'un chemin de propriété.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6111,7 +6111,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid value '{0}' for $skip query option found. The $skip query option requires a non-negative integer value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une valeur non valide « {0} » a été trouvée pour l'option de requête $skip. L'option de requête $skip exige une valeur entière non négative.]]></Val>
+            <Val><![CDATA[Une valeur non valide '{0}' a été trouvée pour l'option de requête $skip. L'option de requête $skip exige une valeur entière non négative.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6120,7 +6120,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid value '{0}' for $top query option found. The $top query option requires a non-negative integer value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Une valeur non valide « {0} » a été trouvée pour l'option de requête $top. L'option de requête $top exige une valeur entière non négative.]]></Val>
+            <Val><![CDATA[Une valeur non valide '{0}' a été trouvée pour l'option de requête $top. L'option de requête $top exige une valeur entière non négative.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6138,7 +6138,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The specified URI '{0}' must be absolute.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[L'URI spécifié « {0} » doit être absolu.]]></Val>
+            <Val><![CDATA[L'URI spécifié '{0}' doit être absolu.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6147,7 +6147,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The CLR literal of type '{0}' is not supported to be written as a Uri part.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Le littéral CLR de type « {0} » n'est pas pris en charge pour l'écriture d'une partie d'URI.]]></Val>
+            <Val><![CDATA[Le littéral CLR de type '{0}' n'est pas pris en charge pour l'écriture d'une partie d'URI.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6156,7 +6156,7 @@
         <Str Cat="Text">
           <Val><![CDATA[QueryToken '{0}' is not supported to be written as a Uri part.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[QueryToken '{0}' n'est pas pris en charge à écrire en tant que une partie d'URI.]]></Val>
+            <Val><![CDATA[QueryToken '{0}' n'est pas pris en charge à l'écriture en tant que partie d'URI.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6336,7 +6336,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' is not valid for $select or $expand, only structured types are allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Le type '{0}' n'est pas valide pour $select ou $expand, uniquement types structurés sont autorisés.]]></Val>
+            <Val><![CDATA[Le type '{0}' n'est pas valide pour $select ou $expand, seuls les types structurés sont autorisés.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6507,7 +6507,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Bad Request: there was an error in the query syntax.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Requête incorrecte : une erreur s'est produite dans la syntaxe de la requête.]]></Val>
+            <Val><![CDATA[Demande incorrecte : une erreur s'est produite dans la syntaxe de la requête.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6534,7 +6534,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Levels option must be a non-negative integer or 'max', it is set to '{0}' instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[L'option niveaux doit être un entier non négatif ou 'max', elle est en revanche a la valeur '{0}'.]]></Val>
+            <Val><![CDATA[L'option Levels doit être un entier non négatif ou 'max', elle est en revanche a la valeur '{0}'.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Levels option must be an integer or 'max', it is set to '{0}' instead.]]></Val>
@@ -6843,7 +6843,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An open stream property '{0}' was found. In OData, open stream properties are not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Une propriété de flux d'ouverture '{0}' a été trouvée. Dans OData, les propriétés de flux d'ouverture ne sont pas prises en charge.]]></Val>
+            <Val><![CDATA[Une propriété de flux ouverte '{0}' a été trouvée. Dans OData, les propriétés de flux ouvertes ne sont pas prises en charge.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6861,7 +6861,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' does not exist on type '{1}'. Make sure to only use property names that are defined by the type or mark the type as open type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[La propriété '{0}' n'existe pas sur le type '{1}'. Veillez à utiliser uniquement des noms de propriété qui sont définis par le type ou marquez le type comme type d'ouverture.]]></Val>
+            <Val><![CDATA[La propriété '{0}' n'existe pas sur le type '{1}'. Veillez à utiliser uniquement des noms de propriété qui sont définis par le type ou marquez le type comme type ouvert.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The property '{0}' does not exist on type '{1}'. Make sure to only use property names that are defined by the type.]]></Val>
@@ -6885,7 +6885,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Name' property on a resource collection with the 'Url' '{0}' must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La propriété 'Name' sur une collection de ressources avec 'Url' '{0}' doit être définie avec une valeur non Null.]]></Val>
+            <Val><![CDATA[La propriété 'Name' sur une collection de ressources avec 'Url' '{0}' doit être définie avec une valeur non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6894,7 +6894,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Url' property on a resource collection must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[La propriété 'Url' sur une collection de ressources doit être définie avec une valeur non Null.]]></Val>
+            <Val><![CDATA[La propriété 'Url' sur une collection de ressources doit être définie avec une valeur non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6915,7 +6915,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une ressource de type '{0}' a été trouvée avec une ressource média, mais ce type d'entité n'est pas une ressource MLE (entrée de lien média). Quand le type n'est pas une entité MLE, la ressource ne peut pas avoir de ressource média.]]></Val>
+            <Val><![CDATA[Une ressource de type '{0}' a été trouvée avec une ressource multimédia, mais ce type d'entité n'est pas une ressource MLE (entrée de lien multimédia). Quand le type n'est pas une entité MLE, la ressource ne peut pas avoir de ressource multimédia.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found with a media resource, but this entity type is not a media link resource (MLE). When the type is not an MLE entity, the resource cannot have a media resource.]]></Val>
@@ -6927,7 +6927,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Une ressource de type '{0}' a été trouvée sans ressource média, mais ce type d'entité est une ressource MLE (entrée de lien média). Quand le type est une entité MLE, la ressource doit avoir une ressource média.]]></Val>
+            <Val><![CDATA[Une ressource de type '{0}' a été trouvée sans ressource multimédia, mais ce type d'entité est une ressource MLE (entrée de lien multimédia). Quand le type est une entité MLE, la ressource doit avoir une ressource multimédia.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An resource with type '{0}' was found without a media resource, but this entity type is a media link resource (MLE). When the type is an MLE entity, the resource must have a media resource.]]></Val>
@@ -6939,7 +6939,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A service document element without a Url was detected; a service document element must have a non-null Url value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Un élément de document de service sans URL a été détecté ; un élément de document de service doit avoir une valeur d'URL non Null.]]></Val>
+            <Val><![CDATA[Un élément de document de service sans URL a été détecté ; un élément de document de service doit avoir une valeur d'URL non-Null.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7164,7 +7164,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No TypeName was found for an ODataResource of an open property, ODataResource or custom instance annotation, even though metadata was specified. If a model is passed to the writer, each complex value on an open property, resource or custom instance annotation must have a type name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Aucun TypeName n'a été trouvé pour un ODataResource d'une propriété d'ouverture, un ODataResource ou une annotation d'instance personnalisée, alors que des métadonnées étaient spécifiées. Si un modèle est passé à l'enregistreur, chaque valeur complexe sur une propriété d'ouverture, une ressource ou une annotation d'instance personnalisée doit avoir un nom de type.]]></Val>
+            <Val><![CDATA[Aucun TypeName n'a été trouvé pour un ODataResource d'une propriété ouverte, un ODataResource ou une annotation d'instance personnalisée, alors que des métadonnées étaient spécifiées. Si un modèle est passé à l'enregistreur, chaque valeur complexe sur une propriété ouverte, une ressource ou une annotation d'instance personnalisée doit avoir un nom de type.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[No TypeName was found for an ODataComplexValue of an open property, ODataEntry or custom instance annotation, even though metadata was specified. If a model is passed to the writer, each complex value on an open property, entry or custom instance annotation must have a type name.]]></Val>
@@ -7323,7 +7323,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An XML node of type '{0}' was found at the root level. The root level of an OData payload must contain a single XML element and no text nodes.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Un noeud XML de type '{0}' a été trouvé au niveau racine. Le niveau racine d'une charge utile OData doit contenir un élément XML unique et aucun nœud de texte.]]></Val>
+            <Val><![CDATA[Un nœud XML de type '{0}' a été trouvé au niveau racine. Le niveau racine d'une charge utile OData doit contenir un élément XML unique et aucun nœud de texte.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7332,6 +7332,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>

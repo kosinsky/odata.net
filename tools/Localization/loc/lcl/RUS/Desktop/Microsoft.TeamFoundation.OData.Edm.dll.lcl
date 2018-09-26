@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ru-RU" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -188,7 +188,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The primitive type '{0}' could not be found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Не удалось найти тип-примитив "{0}".]]></Val>
+            <Val><![CDATA[Не удалось найти примитивный тип "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -614,7 +614,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot assert the nullable type '{0}' as a non-nullable type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Невозможно предположить допускающий значение NULL тип "{0}" в качестве типа, не допускающего значений NULL.]]></Val>
+            <Val><![CDATA[Невозможно утвердить допускающий значение NULL тип "{0}" в качестве типа, не допускающего значений NULL.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -731,7 +731,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An element already has a direct annotation with the namespace '{0}' and name '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[У элемента уже есть прямая аннотация с пространством имен "{0}" и именем "{1}".]]></Val>
+            <Val><![CDATA[У элемента уже есть прямая заметка с пространством имен "{0}" и именем "{1}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An element already has a direct value annotation with the namespace '{0}' and name '{1}'.]]></Val>
@@ -764,7 +764,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An entity container element without other errors must not have kind of none. The kind of entity container element '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Элемент контейнера сущностей без других ошибок не должен иметь тип "none". Тип элемента контейнера сущностей "{0}" - "none".]]></Val>
+            <Val><![CDATA[Элемент контейнера сущностей без других ошибок не должен иметь тип "none". Тип элемента контейнера сущностей "{0}" — "none".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -773,7 +773,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' in entity type '{1}' is not valid. All properties that are part of the entity key must be of primitive type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимое свойство "{0}" в типе сущности "{1}". Все свойства, являющиеся частью ключа сущности, должны иметь тип-примитив.]]></Val>
+            <Val><![CDATA[Недопустимое свойство "{0}" в типе сущности "{1}". Все свойства — части ключа сущности, должны иметь примитивный тип.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -848,7 +848,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type of the expression is incompatible with the asserted type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Тип выражения несовместим с объявляемым типом.]]></Val>
+            <Val><![CDATA[Тип выражения несовместим с утвержденным типом.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -866,7 +866,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The primitive expression is not compatible with the asserted type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Примитивное выражение несовместимо с объявляемым типом.]]></Val>
+            <Val><![CDATA[Примитивное выражение несовместимо с утвержденным типом.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -929,7 +929,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the integer constant is out of range for the asserted type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Значение целочисленной константы выходит за границы диапазона утверждаемого типа.]]></Val>
+            <Val><![CDATA[Значение целочисленной константы выходит за границы диапазона утвержденного типа.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1118,7 +1118,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Because all dependent properties of the navigation '{0}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Поскольку все зависимые свойства навигации "{0}" допускают значения NULL, основной элемент должен иметь кратность "0-1".]]></Val>
+            <Val><![CDATA[Поскольку все зависимые свойства навигации "{0}" допускают значения NULL, основной элемент должен иметь кратность "0–1".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The multiplicity of the principal end '{0}' is not valid. Because all dependent properties of the end '{1}' are nullable, the multiplicity of the principal end must be '0..1'.]]></Val>
@@ -1172,7 +1172,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property cannot be of type '{0}'. The property type must be a complex, a primitive, an enum or an untyped type, or a collection of complex, primitive, or enum types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Свойство не может иметь тип "{0}". Свойство должно иметь сложный тип, тип-примитив, тип перечисления, быть нетипизированным либо являться коллекцией сложных типов, типов-примитивов или типов перечисления.]]></Val>
+            <Val><![CDATA[Свойство не может иметь тип "{0}". Свойство должно иметь сложный или примитивный тип, тип перечисления, быть нетипизированным либо являться коллекцией сложных или примитивных типов либо типов перечисления.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A property cannot be of type '{0}'. The property type must be a complex, a primitive or an enum type, or a collection of complex, primitive, or enum types.]]></Val>
@@ -1283,7 +1283,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The binding of the entity set or singleton '{0}' on navigation property '{1}' is invalid, the binding of bidirectional navigation property must be bidirectional if specified. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Привязка набора сущностей или одинарного элемента "{0}" к свойству навигации "{1}" недопустима, привязка двустороннего свойства навигации должна быть двусторонней, если это указано. ]]></Val>
+            <Val><![CDATA[Привязка набора сущностей или элемента singleton "{0}" к свойству навигации "{1}" недопустима, привязка двустороннего свойства навигации должна быть двусторонней, если это указано. ]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The mapping of the entity set or singleton '{0}' and navigation property '{1}' is invalid because the navigation property mapping must have a mapping with the navigation property's partner that points back to the originating entity set or singleton. ]]></Val>
@@ -1304,7 +1304,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{1}' is not a valid destination for the navigation property '{0}' because it cannot hold an element of the target entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Набор сущностей или одинарный элемент "{1}" не является допустимым назначением для свойства навигации "{0}", поскольку не может содержать элемент целевого типа сущности.]]></Val>
+            <Val><![CDATA[Набор сущностей или элемент singleton "{1}" — недопустимое назначение для свойства навигации "{0}", так как не может содержать элемент целевого типа сущности.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1313,7 +1313,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property mapping '{0}' is invalid because its type is collection but target to a singleton '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Сопоставление свойства навигации "{0}" является недопустимым, поскольку его тип является коллекцией, но нацелен на одинарный элемент "{1}".]]></Val>
+            <Val><![CDATA[Сопоставление свойства навигации "{0}" является недопустимым, поскольку его тип является коллекцией, но нацелен на элемент singleton "{1}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1322,7 +1322,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The principal navigation property '{0}' has an invalid multiplicity. Valid values for the multiplicity of a principal end are '0..1' or '1'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Недопустимая кратность элементов в основном свойстве навигации "{0}". Допустимые значения кратности элементов для основного конца: "0..1" и "1".]]></Val>
+            <Val><![CDATA[Недопустимая кратность элементов в основном свойстве навигации "{0}". Допустимые значения кратности элементов для основного элемента: "0..1" и "1".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1331,7 +1331,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The source multiplicity of the navigation property '{0}' is invalid. If a navigation property has 'ContainsTarget' set to true and declaring entity type of the property is not the same as the target entity type, then the property represents a non-recursive containment and the multiplicity of the navigation source must be exactly one.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимое исходное количество элементов для свойства навигации "{0}". Если в свойстве навигации параметр "ContainsTarget" имеет значение true, а объявляющий тип сущности свойства не совпадает с целевым типом сущности, то свойство представляет нерекурсивное включение и количество элементов в источнике навигации должно быть равно единице.]]></Val>
+            <Val><![CDATA[Недопустимая исходная кратность элементов для свойства навигации "{0}". Если в свойстве навигации параметр "ContainsTarget" имеет значение true, а объявляющий тип сущности свойства не совпадает с целевым типом сущности, то свойство представляет нерекурсивное включение и кратность элементов в источнике навигации должна быть равна единице.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1358,7 +1358,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{0}' is based on type '{1}' that has no keys defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Набор сущностей или одинарный элемент "{0}" основан на типе "{1}", для которого не задано ключей.]]></Val>
+            <Val><![CDATA[Набор сущностей или элемент singleton "{0}" основан на типе "{1}", для которого не задано ключей.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1541,7 +1541,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A primitive type without other errors must not have kind of none. The kind of primitive type '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Примитивный тип без других ошибок не должен иметь тип "none". Тип примитивного типа "{0}" - "none".]]></Val>
+            <Val><![CDATA[Примитивный тип без других ошибок не должен иметь вид "none". Вид примитивного типа "{0}" — "none".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1550,7 +1550,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property without other errors must not have kind of none. The kind of property '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Свойство без других ошибок не должно иметь тип "none". Тип свойства "{0}" - "none".]]></Val>
+            <Val><![CDATA[Свойство без других ошибок не должно иметь вид "none". Вид свойства "{0}" — "none".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1625,7 +1625,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A schema element without other errors must not have kind of none. The kind of schema element '{0}' is none.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Элемент схемы без других ошибок не должен иметь тип "none". Тип элемента схемы "{0}" - "none".]]></Val>
+            <Val><![CDATA[Элемент схемы без других ошибок не должен иметь тип "none". Тип элемента схемы "{0}" — "none".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1643,7 +1643,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the singleton '{1}' is not valid, it must be entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Тип "{0}" одинарного элемента "{1}" является недопустимым, он должен быть типом сущности.]]></Val>
+            <Val><![CDATA[Тип "{0}" элемента singleton "{1}" недопустимый, он должен быть типом сущности.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1859,7 +1859,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unexpected primitive type kind.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Непредвиденный класс типа-примитива.]]></Val>
+            <Val><![CDATA[Непредвиденный класс примитивного типа.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1985,7 +1985,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Element must have a single annotation with term '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Элемент должен иметь только одну аннотацию с термином "{0}".]]></Val>
+            <Val><![CDATA[Элемент должен иметь только одну заметку с термином "{0}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Element must have a single value annotation with term '{0}'.]]></Val>
@@ -1997,7 +1997,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type '{0}' must have a single annotation with term '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Тип "{0}" должен иметь только одну аннотацию с термином "{1}".]]></Val>
+            <Val><![CDATA[Тип "{0}" должен иметь только одну заметку с термином "{1}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Type '{0}' must have a single value annotation with term '{1}'.]]></Val>
@@ -2276,7 +2276,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid primitive kind: '{0}']]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Недопустимый класс типа-примитива: "{0}"]]></Val>
+            <Val><![CDATA[Недопустимый класс примитивного типа: "{0}"]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2582,11 +2582,17 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text">
         <Val><![CDATA[Microsoft Corporation]]></Val>
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-          <Val><![CDATA[Корпорация Майкрософт]]></Val>
+          <Val><![CDATA[Корпорация Майкрософт (Microsoft Corporation)]]></Val>
         </Tgt>
       </Str>
       <Disp Icon="Str" />

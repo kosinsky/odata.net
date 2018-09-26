@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Core.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="zh-CN" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -19,7 +19,7 @@
     <Cmt Name="ManifestData" />
     <Cmt Name="Mnemonic" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
     <Cmt Name="UIType" />
     <Cmt Name="UTSData" />
     <Cmt Name="UTSUI" />
@@ -37,7 +37,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a valid pattern to match an annotation. It must not contain a namespace or name segment that is empty.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[模式“{0}”不是匹配批注的有效模式。它不能包含为空的命名空间或名称段。]]></Val>
+            <Val><![CDATA[模式“{0}”不是匹配批注的有效模式。它不能包含空的命名空间或名称段。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -55,7 +55,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a supported pattern to match an annotation. It must not contain '*' as part of a segment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[模式“{0}”不是匹配批注的受支持模式。它不能包含 "*" 作为段的一部分。]]></Val>
+            <Val><![CDATA[模式“{0}”不是匹配批注的受支持模式。它不能在段中包含 "*"。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -751,7 +751,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple action overloads were found with the same binding parameter for '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[找到多个对于“{0}”具有同一绑定参数的操作重载。]]></Val>
+            <Val><![CDATA[找到了“{0}”的多个具有相同绑定参数的操作重载。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1066,7 +1066,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[无法读取属性“{1}”的值“{0}”作为带引号的 JSON 字符串值。]]></Val>
+            <Val><![CDATA[无法将属性“{1}”的值“{0}”作为带引号的 JSON 字符串值读取。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2680,7 +2680,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot transition from state '{0}' to state '{1}'. The only valid actions in state '{0}' are to write an item or to write the end of the collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[无法从状态“{0}”转换到状态“{1}”。状态“{0}”下的有效操作仅是写入项或写入集合的结尾。]]></Val>
+            <Val><![CDATA[无法从状态“{0}”转换到状态“{1}”。状态“{0}”下的有效操作仅包括写入项或写入集合的结尾。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2689,7 +2689,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot transition from state '{0}' to state '{1}'. The only valid actions in state '{0}' are to write an item or the end of the collection.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[无法从状态“{0}”转换到状态“{1}”。状态“{0}”下的有效操作仅是写入项或集合的结尾。]]></Val>
+            <Val><![CDATA[无法从状态“{0}”转换到状态“{1}”。状态“{0}”下的有效操作仅包括写入项或集合的结尾。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2698,7 +2698,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot transition from state '{0}' to state '{1}'. The only valid actions in state '{0}' are to write the collection or to write nothing at all.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[无法从状态“{0}”转换到状态“{1}”。状态“{0}”下的有效操作仅是写入集合或者完全不写入任何内容。]]></Val>
+            <Val><![CDATA[无法从状态“{0}”转换到状态“{1}”。状态“{0}”下的有效操作仅包括写入集合或者完全不写入任何内容。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4342,7 +4342,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataMessageReader is using the server behavior for WCF Data Services, as specified in its settings. Payload kind detection is not supported when using the WCF Data services server behavior.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ODataMessageReader 正在对 WCF Data Services 使用服务器行为，如其设置中的指定一样。使用 WCF Data services 服务器行为时，不支持负载种类检测。]]></Val>
+            <Val><![CDATA[ODataMessageReader 正在对 WCF Data Services 使用服务器行为，正如其设置中指定的一样。使用 WCF Data services 服务器行为时，不支持负载种类检测。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4360,7 +4360,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataMessageReader has already been used to read a message payload. An ODataMessageReader can only be used once to read a payload for a given message.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataMessageReader 已用于读取消息负载。为读取给定消息的负载，只能使用 ODataMessageReader 一次。]]></Val>
+            <Val><![CDATA[ODataMessageReader 已用于读取消息负载，只能使用一次 ODataMessageReader 来读取给定消息的负载。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4567,7 +4567,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataMessageWriter has already been used to write a message payload. An ODataMessageWriter can only be used once to write a payload for a given message.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataMessageWriter 已用于写入消息负载。ODataMessageWriter 只能使用一次以便写入给定消息的负载。]]></Val>
+            <Val><![CDATA[ODataMessageWriter 已用于写入消息负载。只能使用一次 ODataMessageWriter 来写入给定消息的负载。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4642,7 +4642,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The metadata document could not be written as specified.]D;]A;{0}]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[无法写入元数据文档的指定。]D;]A;{0}]]></Val>
+            <Val><![CDATA[无法按指定方式写入元数据文档。]D;]A;{0}]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5446,7 +5446,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot transition from state '{0}' to state '{1}'. You must first call ODataWriter.WriteEnd to finish writing a null ODataResource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[无法从状态“{0}”转换为状态“{1}”。你必须先调用 ODataWriter.WriteEnd 以完成写入 null ODataResource。]]></Val>
+            <Val><![CDATA[无法从状态“{0}”转换为状态“{1}”。必须先调用 ODataWriter.WriteEnd 以完成写入 null ODataResource。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5503,7 +5503,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The Path property in ODataMessageWriterSettings.ODataUri must be set when writing contained elements.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[在必须包含元素时，必须设置 ODataMessageWriterSettings.ODataUri 中的 Path 属性。]]></Val>
+            <Val><![CDATA[在写入包含元素时，必须设置 ODataMessageWriterSettings.ODataUri 中的 Path 属性。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5806,7 +5806,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type which can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[找到了没有类型名称的值，并且没有可用的预期类型。如果指定该模型，则负载中的每个值都必须具有可在负载中指定、显式由调用方调用或隐式从父值推断的类型。]]></Val>
+            <Val><![CDATA[找到了没有类型名称的值，并且没有可用的预期类型。如果指定该模型，则负载中的每个值都必须具有带以下特点的类型: 可在负载中指定、由调用方显式调用或从父值隐式推断。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A value without a type name was found and no expected type is available. If the model is specified, each value in the payload must have a type which can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value.]]></Val>
@@ -7342,6 +7342,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>

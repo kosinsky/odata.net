@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="de-DE" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -98,7 +98,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. The '{0}' member is required, but was not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Ungültige GeoJSON. Das Element "{0}" ist erforderlich, wurde aber nicht gefunden.]]></Val>
+            <Val><![CDATA[Ungültige GeoJSON. Das {0}-Element ist erforderlich, wurde aber nicht gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -128,7 +128,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' on element '{1}' is not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Das Attribut "{0}" für das Element "{1}" wird nicht unterstützt.]]></Val>
+            <Val><![CDATA[Das {0}-Attribut für das {1}-Element wird nicht unterstützt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -146,7 +146,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: a srsName attribute must begin with the namespace "{0}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Falsches GML-Format: Ein srsName-Attribut muss mit dem Namespace '{0}' beginnen.]]></Val>
+            <Val><![CDATA[Falsches GML-Format: Ein srsName-Attribut muss mit dem {0}-Namespace beginnen.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Incorrect GML Format: a "srsName" attribute must begin with the namespace "{0}".]]></Val>
@@ -182,7 +182,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: The XmlReader instance encountered an unexpected element "{0}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Falsches GML-Format: Von der XmlReader-Instanz wurde das unerwartete Element '{0}' gefunden.]]></Val>
+            <Val><![CDATA[Falsches GML-Format: Von der XmlReader-Instanz wurde das unerwartete {0}-Element gefunden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -191,7 +191,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Der Wert '{0}' ist für die Koordinate '{1}' ungültig.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" ist für die Koordinate "{1}" ungültig.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}']]></Val>
@@ -203,7 +203,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Der Wert "{0}" für die Eigenschaft "{1}" kann nicht als JSON-Zeichenfolgenwert in Anführungszeichen gelesen werden.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" für die {1}-Eigenschaft kann nicht als JSON-Zeichenfolgenwert in Anführungszeichen gelesen werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -212,7 +212,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' as a JSON object.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Den Wert "{0}" kann nicht als JSON-Objekt gelesen werden.]]></Val>
+            <Val><![CDATA[Der Wert "{0}" kann nicht als JSON-Objekt gelesen werden.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -221,7 +221,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Im DateTimeOffset-Wert '{0}' fehlen die Zeitzoneninformationen. Ein DateTimeOffset-Wert muss Zeitzoneninformationen enthalten.]]></Val>
+            <Val><![CDATA[Im DateTimeOffset-Wert "{0}" fehlen die Zeitzoneninformationen. Ein DateTimeOffset-Wert muss Zeitzoneninformationen enthalten.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -275,7 +275,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: the spatial type "FullGlobe" cannot be part of a collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Ungültige räumliche Daten: Der räumliche Typ "FullGlobe" kann nicht Teil eines Auflistungstyps sein.]]></Val>
+            <Val><![CDATA[Ungültige räumliche Daten: Der räumliche Typ "FullGlobe" kann nicht Teil eines Sammlungstyps sein.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -284,7 +284,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid latitude coordinate {0}. A latitude coordinate must be a value between -90.0 and +90.0 degrees.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Ungültige Breitenkoordinate {0}. Eine Breitenkoordinate muss einem Wert zwischen -90,0 und +90,0 Grad entsprechen.]]></Val>
+            <Val><![CDATA[Ungültige Breitenkoordinate {0}. Eine Breitenkoordinate muss einem Wert zwischen  –90,0 und +90,0 Grad entsprechen.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid latitude coordinate {0}. A latitude coordinate can only be defined from -90.0 to +90.0 degrees]]></Val>
@@ -296,7 +296,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid longitude coordinate {0}. A longitude coordinate must be a value between -15069.0 and +15069.0 degrees]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Ungültige Längenkoordinate {0}. Eine Längenkoordinate muss einem Wert zwischen -15069,0 und +15069,0 Grad entsprechen.]]></Val>
+            <Val><![CDATA[Ungültige Längenkoordinate {0}. Eine Längenkoordinate muss einem Wert zwischen –15069,0 und +15069,0 Grad entsprechen.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid longitude coordinate {0}, A longitude coordinate can only be defined from -15069.0 to +15069.0 degrees]]></Val>
@@ -332,7 +332,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: Invalid spatial type "{0}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Ungültige räumliche Daten: Ungültiger räumlicher Typ '{0}'.]]></Val>
+            <Val><![CDATA[Ungültige räumliche Daten: Ungültiger räumlicher Typ "{0}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid spatial data: invalid spatial type "{0}"]]></Val>
@@ -353,7 +353,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: only {0} levels of nesting are supported in collection types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Ungültige räumliche Daten: In Auflistungstypen werden nur {0} Ebenen der Verschachtelung unterstützt.]]></Val>
+            <Val><![CDATA[Ungültige räumliche Daten: In Sammlungstypen werden nur {0} Verschachtelungsebenen unterstützt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -374,7 +374,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got call to "{1}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Ungültige räumliche Daten: Ein Aufruf von '{0}' wurde erwartet, aber ein Aufruf von '{1}' übergeben.]]></Val>
+            <Val><![CDATA[Ungültige räumliche Daten: Ein Aufruf von "{0}" wurde erwartet, aber ein Aufruf von "{1}" übergeben.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got "{1}"]]></Val>
@@ -386,7 +386,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got call to "{2}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Ungültige räumliche Daten: Ein Aufruf von '{0}' oder '{1}' wurde erwartet, aber ein Aufruf von '{2}' übergeben.]]></Val>
+            <Val><![CDATA[Ungültige räumliche Daten: Ein Aufruf von "{0}" oder "{1}" wurde erwartet, aber ein Aufruf von "{2}" übergeben.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got "{2}"]]></Val>
@@ -437,7 +437,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Erwartet wird der Tokentyp '{0}' mit dem Text '{1}', gefunden wurde aber '{2}'.]]></Val>
+            <Val><![CDATA[Erwartet wird der Tokentyp "{0}" mit dem Text "{1}", gefunden wurde aber "{2}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}"]]></Val>
@@ -458,6 +458,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
