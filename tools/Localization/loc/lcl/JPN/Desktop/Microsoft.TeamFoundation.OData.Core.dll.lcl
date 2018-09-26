@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Core.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ja-JP" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -19,7 +19,7 @@
     <Cmt Name="ManifestData" />
     <Cmt Name="Mnemonic" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
     <Cmt Name="UIType" />
     <Cmt Name="UTSData" />
     <Cmt Name="UTSUI" />
@@ -37,7 +37,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a valid pattern to match an annotation. It must not contain a namespace or name segment that is empty.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[パターン '{0}' は注釈に一致する有効なパターンではありません。空の名前空間、または、セグメント名を含める必要があります。]]></Val>
+            <Val><![CDATA[パターン '{0}' は注釈に適合する有効なパターンではありません。空の名前空間 、空の名前セグメントを含めることができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -46,7 +46,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a valid pattern to match an annotation. It must contain at least one '.' separating the namespace and the name segments of an annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[パターン '{0}' は注釈に一致する有効なパターンではありません。注釈の名前空間とセグメント名を区別する '.' を少なくとも一つ含める必要があります。]]></Val>
+            <Val><![CDATA[パターン '{0}' は注釈に適合する有効なパターンではありません。注釈の名前空間とセグメント名を区別する '.' を少なくとも一つ含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -55,7 +55,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a supported pattern to match an annotation. It must not contain '*' as part of a segment.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[パターン '{0}' は注釈に一致するようにサポートされたパターンではありません。セグメントの一部として '*' を含める必要があります。]]></Val>
+            <Val><![CDATA[パターン '{0}' は注釈に適合するサポートされたパターンではありません。セグメントの中に  '*' を含めることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -64,7 +64,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The pattern '{0}' is not a supported pattern to match an annotation. '*' must be the last segment of the pattern.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[パターン '{0}' は注釈に一致するようにサポートされたパターンではありません。パターンのセグメントの末尾は '*' である必要があります。]]></Val>
+            <Val><![CDATA[パターン '{0}' は注釈に適合する、サポートされたパターンではありません。パターンのセグメントの末尾は '*' である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -73,7 +73,7 @@
         <Str Cat="Text">
           <Val><![CDATA[$apply/aggregate expression '{0}' operation does not support value type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[$apply/aggregate 式 '{0}' 操作は値の型 '{1}' をサポートしません。]]></Val>
+            <Val><![CDATA[$apply/aggregate 式 の操作 '{0}' では値の型 '{1}' がサポートされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -136,7 +136,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered the attribute '{0}' on a non-empty 'annotation' element. If attribute value notation is used to specify the annotation's value, then there can be no body to the element.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[空でない 'annotation' 要素 に属性 '{0}' が見つかりました。注釈の値を指定するのに属性値表記が使用されている場合は、要素に本体を含むことはできません。]]></Val>
+            <Val><![CDATA[空でない 'annotation' 要素で属性 '{0}' が検出されました。注釈の値を指定するのに属性値表記が使用されている場合は、要素に本体を含むことはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -145,7 +145,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the 'type' attribute on an 'annotation' element was '{0}', which is incompatible with the '{1}' attribute.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['annotation' 要素の 'type' 属性の値が '{0}' でした。この値は '{1}' と互換性がありません。]]></Val>
+            <Val><![CDATA['annotation' 要素の 'type' 属性の値が '{0}' でした。この値には属性 '{1}' との互換性がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -154,7 +154,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered an 'annotation' element without a 'term' attribute. All 'annotation' elements must have a 'term' attribute.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['term' 属性を含まない 'annotation' 要素が見つかりました。すべての 'annotation' 要素に 'term' 属性を含める必要があります。]]></Val>
+            <Val><![CDATA['term' 属性を含まない 'annotation' 要素が検出されました。すべての 'annotation' 要素に 'term' 属性を含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -163,7 +163,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered an 'annotation' element with more than one attribute from following set: 'int', 'string', 'decimal', 'float', and 'bool'. Only one such attribute may appear on an 'annotation' element.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['入れ子になったフィードに次の一つ以上の属性を含む 'annotation' 要素が見つかりました: 'int'、'string'、'decimal'、'float'、 'bool'。'annotation' 要素に使用できるのは、この中の属性のうち一つのみです。]]></Val>
+            <Val><![CDATA[次のセットのうち複数の属性を含む 'annotation' 要素が検出されました: 'int'、'string'、'decimal'、'float'、 'bool'。'annotation' 要素に使用できるのは、この属性のうち 1 つのみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -172,7 +172,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type '{0}' to the string representation of an Atom primitive value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 '{0}' の値を Atom プリミティブ型の値の文字列表記に変換できません。]]></Val>
+            <Val><![CDATA[型 '{0}' の値を Atom のプリミティブ値の文字列表記に変換できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -181,7 +181,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The number of keys specified in the URI does not match number of key properties for the resource '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[URI に指定されたキーの数が、リソース '{0}' のキー プロパティの数と異なります。]]></Val>
+            <Val><![CDATA[URI に指定されたキーの数が、リソース '{0}' のキー プロパティの数と一致しません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -238,7 +238,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An item of type kind '{0}' was found in a collection that otherwise has items of type kind '{1}'. In OData, all items in a collection must have the same type kind.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型の種類 '{1}' のアイテムを含むコレクション内に、型の種類 '{0}' のアイテムが見つかりました。OData では、コレクション内のすべてのアイテムの型の種類は同じである必要があります。]]></Val>
+            <Val><![CDATA[型の種類 '{1}' のアイテムを含むコレクション内に、型の種類 '{0}' のアイテムが別に見つかりました。OData では、コレクションにあるすべてのアイテム型の種類は同じである必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -247,7 +247,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An item with type name '{0}' was found in a collection of items with type name '{1}'. In OData, all items in a collection must have the same type name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型名が '{1}' のアイテムのコレクション内に、型名が '{0}' のアイテムが見つかりました。OData では、コレクション内のすべてのアイテムの型名が同じである必要があります。]]></Val>
+            <Val><![CDATA[型名が '{1}' のアイテムのコレクション内に、型名が '{0}' のアイテムが見つかりました。OData では、コレクションにあるすべてのアイテムの型名は同じである必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -256,7 +256,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An invalid item type kind '{0}' was found. Items in a collection can only be of type kind 'Primitive' or 'Complex', but not of type kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[無効な型の種類 '{0}' のアイテムが見つかりました。コレクション内のアイテムの型の種類には 'Primitive' または 'Complex' のみを使用できますが、型の種類 '{0}' は使用できません。]]></Val>
+            <Val><![CDATA[無効な型の種類 '{0}' のアイテムが見つかりました。コレクションにあるアイテムの型の種類には 'Primitive' または 'Complex' のみを使用できますが、型の種類 '{0}' は使用できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -265,7 +265,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The given custom function '{0}' already exists as a Built-In function in one of it's overloads. Thus cannot override the Built-In function.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[指定されたカスタム関数 '{0}' は、そのオーバーロードの 1 つで組み込み関数として既に存在します。そのため、組み込み関数をオーバーライドできません。]]></Val>
+            <Val><![CDATA[指定されたカスタム関数 '{0}' は、そのオーバーロードの一部で既に組み込み関数として存在しています。そのため、その組み込み関数をオーバーライドできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -274,7 +274,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The given custom function '{0}' already exists as a Built-In function. Consider use 'addAsOverloadToBuiltInFunction = true' parameter.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[指定されたカスタム関数 '{0}' は組み込み関数として既に存在します。'addAsOverloadToBuiltInFunction = true' パラメーターを使うことを検討してください。]]></Val>
+            <Val><![CDATA[指定されたカスタム関数 '{0}' は既に組み込み関数として存在しています。'addAsOverloadToBuiltInFunction = true' パラメーターを使うことを検討してください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -283,7 +283,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The given function name '{0}' already exists as a custom function with the same overload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[指定された関数名 '{0}' は、同じオーバーロードのカスタム関数として既に存在します。]]></Val>
+            <Val><![CDATA[指定された関数名 '{0}' は、同じオーバーロードで既にカスタム関数として存在しています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -292,7 +292,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The given type literal prefix '{0}' already exists as a custom uri type literal prefix.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[指定された型リテラル プレフィックス '{0}' は、カスタム URI 型リテラル プレフィックスとして既に存在します。]]></Val>
+            <Val><![CDATA[指定された型のリテラル プレフィックス '{0}' は、カスタム URI 型のリテラル プレフィックスとして既に存在します。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -301,7 +301,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The response requires that version {0} of the protocol be used, but the MaxProtocolVersion of the data service is set to {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[応答では、プロトコルのバージョン {0} を使用することが要求されますが、データ サービスの MaxProtocolVersion は {1} に設定されています。]]></Val>
+            <Val><![CDATA[応答では、プロトコルのバージョン {0} を使用することが求められていますが、データ サービスの MaxProtocolVersion は {1} に設定されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -310,7 +310,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple annotations with the name '{0}' were detected for the instance annotation with name '{1}'. In OData, duplicate annotations are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[名前 '{1}' のインスタンス注釈に対して '{0}' という名前の注釈が複数検出されました。OData では、注釈の重複は許可されません。]]></Val>
+            <Val><![CDATA[名前 '{1}' のインスタンス注釈に対して '{0}' という名前の注釈が複数検出されました。OData では、注釈の重複は許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -319,7 +319,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple annotations with the name '{0}' were detected for the property with name '{1}'. In OData, duplicate annotations are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[名前 '{1}' のプロパティに対して '{0}' という名前の注釈が複数検出されました。OData では、注釈の重複は許可されません。]]></Val>
+            <Val><![CDATA[名前 '{1}' のプロパティに対して '{0}' という名前の注釈が複数検出されました。OData では、注釈の重複は許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -328,7 +328,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple annotations with the name '{0}' were detected. In OData, duplicate annotations are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[名前 '{0}' の注釈が複数検出されました。OData では、注釈の重複は許可されません。]]></Val>
+            <Val><![CDATA[名前 '{0}' の注釈が複数検出されました。OData では、注釈の重複は許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -337,7 +337,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple properties with the name '{0}' were detected in a resource or a complex value. In OData, duplicate property names are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[リソースまたは複合型の値に名前 '{0}' のプロパティが複数検出されました。OData では、プロパティ名の重複は許可されません。]]></Val>
+            <Val><![CDATA[リソースまたは複合値に名前 '{0}' のプロパティが複数検出されました。OData では、プロパティ名の重複は許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -346,7 +346,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid implementation of an IEdmModel, an operation '{0}' was found using the IEdmModel method 'FindDeclaredBoundOperations' should never return bound operations without any parameters.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[IEdmModel の実装が無効です。IEdmModel のメソッド 'FindDeclaredBoundOperations' を使用していることが明らかになった操作 '{0}' から、パラメーターなしのバインドされた操作を返さないでください。]]></Val>
+            <Val><![CDATA[IEdmModel の実装が無効です。IEdmModel のメソッド 'FindDeclaredBoundOperations' を使用して検出された操作 '{0}' から、パラメーターなしのバインドされていない操作を返すことができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -364,7 +364,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid implementation of an IEdmModel, an operation '{0}' was found using the IEdmModel method 'FindDeclaredBoundOperations' should never return non-bound operations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[IEdmModel の実装が無効です。IEdmModel のメソッド 'FindDeclaredBoundOperations' を使用していることが明らかになった操作 '{0}' は、バインドされていない操作を返すべきではありません。]]></Val>
+            <Val><![CDATA[IEdmModel の実装が無効です。IEdmModel のメソッド 'FindDeclaredBoundOperations' を使用して検出された操作 '{0}' から、バインドされていない操作を返すことができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -391,7 +391,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incompatible primitive type kinds were found. The type '{0}' was found to be of kind '{2}' instead of the expected kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[互換性のないプリミティブ型の種類が見つかりました。検出された型 '{0}' は、予期していた種類 '{1}' ではなく、種類 '{2}' でした。]]></Val>
+            <Val><![CDATA[互換性のないプリミティブ型の種類が見つかりました。検出された型 '{0}' は、必要な種類 '{1}' ではなく、種類 '{2}' でした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -409,7 +409,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The primitive property '{0}' on type '{1}' has a value which is not a primitive value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{1}' のプリミティブ プロパティ '{0}' の値が、プリミティブ型の値ではありません。]]></Val>
+            <Val><![CDATA[型 '{1}' のプリミティブ プロパティ '{0}' の値が、プリミティブ値ではありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -418,7 +418,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity instance value of type '{0}' doesn't have a value for property '{1}'. To compute an entity's metadata, its key and concurrency-token property values must be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{0}' のエンティティ インスタンスの値には、プロパティ '{1}' の値が指定されていません。エンティティのメタデータを計算するには、そのキーと同時実行トークンのプロパティ値を指定する必要があります。]]></Val>
+            <Val><![CDATA[型 '{0}' のエンティティ インスタンスの値には、プロパティ '{1}' の値がありません。エンティティのメタデータを計算するには、そのキーとコンカレンシー トークンのプロパティ値を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -445,7 +445,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Value cannot be null or empty.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[値を NULL または空にすることはできません。]]></Val>
+            <Val><![CDATA[値を null 値 または空にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -454,7 +454,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A non-negative integer value was expected, but the value '{0}' is not a valid non-negative integer.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[負ではない整数値にする必要がありますが、値 '{0}' は負ではない有効な整数値ではありません。]]></Val>
+            <Val><![CDATA[負ではない整数値にする必要がありますが、値 '{0}' は有効な負ではない整数値ではありません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Non-negative integer value expected; the value '{0}' is not a valid non-negative integer.]]></Val>
@@ -532,7 +532,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Trying to traverse a non-normalized expand tree.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[正規化されていない展開ツリーをスキャンしようとしています。]]></Val>
+            <Val><![CDATA[正規化されていない展開ツリーを走査しようとしています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -724,7 +724,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation overloads matching '{0}' are invalid. This is most likely an error in the IEdmModel.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['{0}' に一致する操作オーバーロードが無効です。IEdmModel でのエラーが原因である可能性があります。]]></Val>
+            <Val><![CDATA['{0}' に一致する操作オーバーロードが無効です。IEdmModel のエラーの可能性があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -733,7 +733,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation import overloads matching '{0}' are invalid. This is most likely an error in the IEdmModel.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['{0}' に一致する操作インポートのオーバーロードが無効です。IEdmModel でのエラーが原因である可能性があります。]]></Val>
+            <Val><![CDATA['{0}' に一致する操作インポートのオーバーロードが無効です。IEdmModel のエラーの可能性があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -751,7 +751,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple action overloads were found with the same binding parameter for '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' に対して同じバインド パラメーターを持つ複数のアクション オーバーロードが見つかりました。]]></Val>
+            <Val><![CDATA['{0}' に対して同じバインディング パラメーターを持つ複数のアクション オーバーロードが見つかりました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -796,7 +796,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An error occurred when parsing the HTTP header '{0}'. The header value '{1}' is incorrect at position '{2}' because the header value should not end with the separator '{3}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。ヘッダー値は区切り記号 '{3}' 以外で終わる必要があります。]]></Val>
+            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。ヘッダー値の末尾を区切り記号 '{3}' にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -805,7 +805,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An error occurred when parsing the HTTP header '{0}'. The header value '{1}' is incorrect at position '{2}' because a token or a quoted-string is expected at this position but were not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。トークン、または、引用符で囲まれた文字列をこの位置で使用する必要があります。]]></Val>
+            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。トークン、または、引用符で囲まれた文字列がこの位置に必要ですが見つかりませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -823,7 +823,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An error occurred when parsing the HTTP header '{0}'. The header value '{1}' is incorrect at position '{2}' because a token is expected but a quoted-string is found instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。引用符で囲まれた文字列の代わりにトークンを使用する必要があります。]]></Val>
+            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。引用符で囲まれた文字列の代わりにトークンが必要です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -832,7 +832,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An error occurred when parsing the HTTP header '{0}'. The header value '{1}' is incorrect at position '{2}' because '{3}' is not a recognized separator. The supported separators are ',', ';', and '='.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。'{3}' は認識された区切り記号である必要があります。サポートされている区切り記号は ','、';', と '=' です。]]></Val>
+            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。'{3}' は認識された区切り記号ではありません。サポートされている区切り記号は ','、';', と '=' です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -871,7 +871,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An error occurred when parsing the HTTP header '{0}'. The header value '{1}' is incorrect at position '{2}' because it terminates with the escape character '{3}'. In a quoted-string, the escape characters must always be followed by a character.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。末尾にエスケープ文字 '{3}' があります。引用符で囲まれた文字列では、エスケープ文字の後に必ず文字が存在している必要があります。]]></Val>
+            <Val><![CDATA[HTTP ヘッダー '{0}' の解析中にエラーが発生しました。ヘッダー値 '{1}' の位置 '{2}' が正しくありません。末尾にエスケープ文字 '{3}' があります。引用符で囲まれた文字列では、エスケープ文字の後に必ず文字が続く必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A value for the MIME type parameter '{0}' is incorrect because it terminates with an escape character. In a parameter value, escape characters must always be followed by a character.]]></Val>
@@ -925,7 +925,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The string '{0}' cannot be converted into a supported HTTP method. The only supported HTTP methods are GET, DELETE, PUT, POST and PATCH.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[文字列 '{0}' を、サポート対象の HTTP メソッドに変換できません。サポート対象の HTTP メソッドは、GET、DELETE、PUT、POST、および PATCH のみです。]]></Val>
+            <Val><![CDATA[文字列 '{0}' を、サポートされている HTTP メソッドに変換できません。サポートされている HTTP メソッドは、GET、DELETE、PUT、POST、および PATCH のみです。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The string '{0}' cannot be converted into a supported HTTP method. The only supported HTTP methods are GET, DELETE, PUT, POST, PATCH and MERGE.]]></Val>
@@ -937,7 +937,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An invalid quality value '{0}' was detected in the header string '{1}'; quality values must be in the range [0, 1]5D;.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ヘッダー文字列 '{1}' に無効な品質値 '{0}' が見つかりました。品質値は 0 ～ 1 の範囲の値にする必要があります。]]></Val>
+            <Val><![CDATA[ヘッダー文字列 '{1}' に無効な品質値 '{0}' が見つかりました。品質値は 0 から 1 の範囲の値にする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -964,7 +964,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The MIME type is missing a parameter name for a parameter definition.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[MIME の種類のパラメーター定義にパラメーター名がありません。]]></Val>
+            <Val><![CDATA[MIME の種類で、パラメータ定義にパラメータ名がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -973,7 +973,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The MIME type is missing a parameter value for a parameter with the name '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[MIME の種類の名前 '{0}' のパラメーターにパラメーター値がありません。]]></Val>
+            <Val><![CDATA[MIME の種類で、名前 '{0}' のパラメーターにパラメーター値がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -991,7 +991,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The MIME type '{0}' requires a '/' character between type and subtype, such as 'text/plain'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[MIME の種類 '{0}' では、種類とサブタイプの間に 'text/plain' のように '/' 文字が必要です。]]></Val>
+            <Val><![CDATA[MIME の種類 '{0}' では、種類とサブタイプの間に 'text/plain' のように '/' の文字が 1 つ必要です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1009,7 +1009,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The MIME type '{0}' is invalid or unspecified.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[MIME の種類 '{0}' は、無効または未指定です。]]></Val>
+            <Val><![CDATA[MIME の種類 '{0}' が無効か、または指定されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1018,7 +1018,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The separator ',' was missing between charset values in the header '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ヘッダー '{0}' の文字セット値と文字セット値の間に区切り文字 ',' がありませんでした。]]></Val>
+            <Val><![CDATA[ヘッダー '{0}' で、文字セット値と文字セット値の間に区切り文字 ',' がありませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1027,7 +1027,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The specified content type '{0}' contains either no media type or more than one media type, which is not allowed. You must specify exactly one media type as the content type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[指定されたコンテンツの種類 '{0}' には、メディアの種類が含まれていないか、複数含まれているため許可されません。コンテンツの種類にはメディアの種類を 1 つだけ指定する必要があります。]]></Val>
+            <Val><![CDATA[指定されたコンテンツの種類 '{0}' には、メディアの種類が含まれていないか、メディアの種類が複数含まれていますが、これは許可されていません。コンテンツの種類にはメディアの種類を 1 つだけ指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The specified content type '{0}' contains no or more than one media type, which is invalid. Exactly one media type must be specified as content type.]]></Val>
@@ -1039,7 +1039,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unexpected end of the q-Value was detected in the header '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ヘッダー '{0}' で q-Value の予期しない終了を検出しました。]]></Val>
+            <Val><![CDATA[ヘッダー '{0}' で Q 値 の予期しない終了を検出しました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1057,7 +1057,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Writing null value for the instance annotation '{0}' is not allowed. The instance annotation '{0}' has the expected type '{1}[Nullable=False]5D;'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[インスタンス注釈 '{0}' の null 値を書き込むことはできません。インスタンス注釈 '{0}' には、想定された型 '{1}[Nullable=False]5D;' が指定されています。]]></Val>
+            <Val><![CDATA[インスタンス注釈 '{0}' に null 値を書き込むことはできません。インスタンス注釈 '{0}' に必要とされている型は '{1}[Nullable=False]5D;' です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1066,7 +1066,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[プロパティ '{1}' の値 '{0}' を引用符で囲まれた文字列値として読み取ることができません。]]></Val>
+            <Val><![CDATA[プロパティ '{1}' の値 '{0}' を引用符で囲まれた JSON 文字列値として読み取ることができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1075,7 +1075,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' as a double numeric value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[値 '{0}' を double numeric 値として読み取ることはできません。]]></Val>
+            <Val><![CDATA[値 '{0}' を倍精度浮動小数点数値として読み取ることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1093,7 +1093,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unexpected instance annotation name '{0}' was found when reading from the JSON reader, In OData, Instance annotation name must start with @.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[JSON reader からの読み取り中に、予期していないインスタンスの注釈名 '{0}' が見つかりました。OData 内では、インスタンスの注釈名は @ で始める必要があります。]]></Val>
+            <Val><![CDATA[JSON reader からの読み取り中に、予期しないインスタンスの注釈名 '{0}' が見つかりました。OData 内では、インスタンスの注釈名は @ で始める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1102,7 +1102,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unexpected '{1}' node was found when reading from the JSON reader. A '{0}' node was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[JSON リーダーから読み取り中に予期しない '{1}' ノードが見つかりました。'{0}' ノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[JSON リーダーから読み取り中に予期しないノード  '{1}' が見つかりました。ノード '{0}' が必要とされていました。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An unexpected '{1}' node was found reading from the JSON reader. A '{0}' node was expected.]]></Val>
@@ -1114,7 +1114,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An unexpected '{1}' node was found for property named '{2}' when reading from the JSON reader. A '{0}' node was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[JSON リーダーから読み取り中に '{2}' という名前のプロパティに対して予期しない '{1}' ノードが見つかりました。'{0}' ノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[JSON リーダーから読み取り中に予期しないノード '{1}' が見つかりました。ノード '{0}' が必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1123,7 +1123,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. Unexpected end of input was found in JSON content. Not all object and array scopes were closed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[無効な JSON です。JSON コンテンツに入力の予期しない終了が見つかりました。閉じられていないオブジェクトおよび配列のスコープがありました。]]></Val>
+            <Val><![CDATA[無効な JSON です。JSON コンテンツで、予期しない入力の終了が見つかりました。一部のオブジェクトおよび配列のスコープを閉じることができませんでした。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid JSON. Unexpected end of input found in JSON content. Not all object and array scopes were closed.]]></Val>
@@ -1156,7 +1156,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. A colon character ':' is expected after the property name '{0}', but none was found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[無効な JSON です。プロパティ名 '{0}' の後にはコロン文字 ':' が必要ですが、見つかりませんでした。]]></Val>
+            <Val><![CDATA[無効な JSON です。プロパティ名 '{0}' の後にはコロン文字 ':' が必要ですが、何も見つかりませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1165,7 +1165,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. A comma character ',' was expected in scope '{0}'. Every two elements in an array and properties of an object must be separated by commas.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[無効な JSON です。スコープ '{0}' にはコンマ文字 ',' が必要です。配列内の 2 つ以上の要素およびオブジェクトの 2 つ以上のプロパティはコンマで区切る必要があります。]]></Val>
+            <Val><![CDATA[無効な JSON です。スコープ '{0}' にはコンマ文字 ',' が必要です。配列内の要素およびオブジェクトにあるプロパティ内の要素は 2 つごとにコンマで区切る必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid JSON. A comma character was expected in scope '{0}'. Every two elements in an array or properties in an object must be separated by a comma.]]></Val>
@@ -1201,7 +1201,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid JSON. Unexpected end of input reached while processing a JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[無効な JSON です。JSON 文字列値の処理中に入力の予期しない終了に達しました。]]></Val>
+            <Val><![CDATA[無効な JSON です。JSON 文字列値の処理中に、予期しない入力の終了に達しました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1267,7 +1267,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The specified content type '{0}' contains either no media type or more than one media type, which is not allowed. You must specify exactly one media type as the content type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[指定されたコンテンツの種類 '{0}' には、メディアの種類が含まれていないか、複数含まれているため許可されません。コンテンツの種類にはメディアの種類を 1 つだけ指定する必要があります。]]></Val>
+            <Val><![CDATA[指定されたコンテンツの種類 '{0}' には、メディアの種類が含まれていないか、メディアの種類が複数含まれていますが、これは許可されていません。コンテンツの種類にはメディアの種類を 1 つだけ指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The specified content type '{0}' contains no or more than one media type, which is invalid. Exactly one media type must be specified as content type.]]></Val>
@@ -1288,7 +1288,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The maximum number of bytes allowed to be read from the stream has been exceeded. After the last read operation, a total of {0} bytes has been read from the stream; however a maximum of {1} bytes is allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ストリームから読み取ることができる最大バイト数を超えました。最後の読み取り操作の後、ストリームから合計 {0} バイトを読み取りましたが、最大 {1} バイトが許可されています。]]></Val>
+            <Val><![CDATA[ストリームから読み取ることができる最大バイト数を超えました。前回の読み取り操作の後、ストリームから合計 {0} バイトを読み取りましたが、許可されているのは最大 {1} バイトです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1306,7 +1306,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operand for a binary operator '{0}' is not a single value. Binary operators require both operands to be single values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[バイナリ演算子 '{0}' のオペランドが単一の値ではありません。バイナリ演算子では、2 つのオペランドが単一の値である必要があります。]]></Val>
+            <Val><![CDATA[バイナリ演算子 '{0}' のオペランドが単一の値ではありません。バイナリ演算子では、両方のオペランドが単一の値である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1315,7 +1315,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A token of kind '{0}' was bound to the value null; this is invalid. A query token must always be bound to a non-null query node.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[種類 '{0}' のトークンは値 NULL にバインドされました。これは無効です。クエリのトークンは常に NULL 以外のクエリ ノードにバインドされている必要があります。]]></Val>
+            <Val><![CDATA[種類 '{0}' のトークンは null 値 にバインドされましたが、これは無効です。クエリのトークンは常に null 値ではないクエリ ノードにバインドされている必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1369,7 +1369,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A key property '{0}' was found twice in a key lookup. Each key property can be specified just once in a key lookup.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[キー プロパティ '{0}' がキー参照内で 2 回見つかりました。各キー プロパティは、キー参照内で一度だけ指定できます。]]></Val>
+            <Val><![CDATA[キー プロパティ '{0}' がキー参照内で 2 つ見つかりました。各キー プロパティは、キー参照内で 1 つだけ指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1441,7 +1441,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A navigation property can only follow single entity nodes.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ナビゲーション プロパティの直後には、単一のエンティティ ノードのみを指定できます。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティは、単一のエンティティ ノードの後にのみ続けることができます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1459,7 +1459,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A key lookup on type '{0}' didn't specify values for all key properties. All key properties must be specified in a key lookup.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{0}' のキー参照は、すべてのキー プロパティに値を指定しませんでした。キー参照ですべてのキー プロパティを指定する必要があります。]]></Val>
+            <Val><![CDATA[型 '{0}' のキー参照で、一部のキー プロパティに値が指定されませんでした。キー参照では、すべてのキー プロパティを指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1477,7 +1477,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is not in scope.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[パラメーター '{0}' がスコープにありません。]]></Val>
+            <Val><![CDATA[パラメーター '{0}' がスコープ内にありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1495,7 +1495,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A PropertyAccessQueryToken without a parent was encountered outside of $filter or $orderby expression. The PropertyAccessQueryToken without a parent token is only allowed inside $filter or $orderby expressions.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[親のない PropertyAccessQueryToken が $filter 式または $orderby 式の外部で検出されました。親トークンのない PropertyAccessQueryToken は $filter 式または $orderby 式の内部でのみ許可されます。]]></Val>
+            <Val><![CDATA[親のない PropertyAccessQueryToken が $filter 式または $orderby 式の外側で検出されました。親トークンのない PropertyAccessQueryToken は $filter 式または $orderby 式の内側でのみ許可されます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1603,7 +1603,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The method 'FindDeclaredBoundOperations' on the IEdmModel has thrown an exception when looking for operations with a binding type {0}. See inner exception for more details.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[バインディングの種類が {0} である操作を検索するときに、IEdmModel 内のメソッド 'FindDeclaredBoundOperations' が例外をスローしました。詳細については、内部例外を参照してください。]]></Val>
+            <Val><![CDATA[バインドの型が {0} である操作を検索するときに、IEdmModel 内のメソッド 'FindDeclaredBoundOperations' が例外をスローしました。詳細については、内部例外を参照してください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1612,7 +1612,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The custom type resolver set in ODataMessageWriterSettings.EnableWcfDataServicesClientBehavior returned 'null' when resolving the type '{0}'. When a custom type resolver is specified, it cannot return null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ODataMessageWriterSettings.EnableWcfDataServicesClientBehavior で設定されているカスタム型リゾルバーが、型 '{0}' の解決時に 'null' を返しました。カスタム型リゾルバーが指定されている場合、そのカスタム型リゾルバーが null を返すことはできません。]]></Val>
+            <Val><![CDATA[ODataMessageWriterSettings.EnableWcfDataServicesClientBehavior で設定されているカスタム型リゾルバーが、型 '{0}' の解決時に 'null' を返しました。カスタム型リゾルバーが指定されている場合、null 値を返すことはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1714,7 +1714,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous async reader. Calls on an async reader instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同期非同期リーダーで非同期操作が呼び出されました。非同期リーダー インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期の非同期ライター上で同期操作が呼び出されました。非同期リーダー インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1750,7 +1750,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The HTTP version '{0}' used in an async response is not valid. The value must be '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期応答に使用されている HTTP バージョン '{0}' は無効です。値を '{1}' にする必要があります。]]></Val>
+            <Val><![CDATA[非同期応答に使用されている HTTP バージョン '{0}' は無効です。値は '{1}' である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1759,7 +1759,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid new line '{0}' encountered. Should be ']D;]A;'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[無効な改行 '{0}' が含まれています。']D;]A;' を使用する必要があります。]]></Val>
+            <Val><![CDATA[無効な改行 '{0}' が検出されました。']D;]A;' を使用する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1789,7 +1789,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The HTTP status code '{0}' is invalid. An HTTP status code must be an integer value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[HTTP 状態コード '{0}' は無効です。HTTP 状態コードは整数値にする必要があります。]]></Val>
+            <Val><![CDATA[HTTP 状態コード '{0}' は無効です。HTTP 状態コードは整数値である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1798,7 +1798,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous async reader. Calls on an async reader instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期非同期リーダーで同期操作が呼び出されました。非同期リーダー インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期の非同期リーダー上で同期操作が呼び出されました。非同期リーダー インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1807,7 +1807,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered an unexpected end of input while reading the async payload. Could be due to calling CreateResponseMessage() more than once.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期ペイロードの読み取り中に入力の予期しない終了が検出されました。CreateResponseMessage() を複数回呼び出したことが原因である可能性があります。]]></Val>
+            <Val><![CDATA[非同期ペイロードの読み取り中に、予期しない入力の終了が検出されました。CreateResponseMessage() を複数回呼び出したことが原因である可能性があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1825,7 +1825,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous async writer. Calls on an async writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同期非同期ライターで非同期操作が呼び出されました。非同期ライター インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期の非同期ライターで非同期操作が呼び出されました。非同期ライター インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1861,7 +1861,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous async writer. Calls on an async writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期非同期ライターで同期操作が呼び出されました。非同期ライター インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期の非同期ライター上で同期操作が呼び出されました。非同期ライター インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1882,7 +1882,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' elements were found in a top-level error value. In OData, the value of a top-level error value can have no more than one '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' element]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[最上位レベルのエラー値に、複数の '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' 要素が見つかりました。OData では、最上位レベルのエラー値には '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' 要素を 1 つのみ含めることができます。]]></Val>
+            <Val><![CDATA[トップレベルのエラー値に、複数の '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' 要素が見つかりました。OData では、トップレベルのエラー値には '{{http://docs.oasis-open.org/odata/ns/metadata}}:{0}' 要素を複数含めることができません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Multiple '{{http://schemas.microsoft.com/ado/2007/08/dataservices/metadata}}:{0}' elements were found in a top-level error value. In OData, the value of a top-level error value can have no more than one '{{http://schemas.microsoft.com/ado/2007/08/dataservices/metadata}}:{0}' element]]></Val>
@@ -1906,7 +1906,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The element with name '{0}' is not a valid collection item. The name of the collection item element must be 'element' and it must belong to the '{1}' namespace.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[名前 '{0}' の要素は有効なコレクション アイテムではありません。コレクション アイテム要素の名前には 'element' を指定し、'{1}' 名前空間に所属させる必要があります。]]></Val>
+            <Val><![CDATA[名前 '{0}' の要素は有効なコレクション アイテムではありません。コレクション アイテム要素の名前には 'element' を指定し、名前空間 '{1}' に所属させる必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The element with name '{0}' is not a valid collection item. The name of the collection item element must be 'element' and it must belong to the 'http://schemas.microsoft.com/ado/2007/08/dataservices' namespace.]]></Val>
@@ -1939,7 +1939,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple headers with names that match '{0}', when using a case insensitive comparison, have been added. When case-insensitive header names are used, at most one header can be added for each name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[大文字と小文字を区別しない比較を使用したときに、名前が '{0}' と一致する複数のヘッダーが追加されました。大文字と小文字を区別しないヘッダー名を使用する場合、名前ごとに最大 1 つのヘッダーしか追加できません。]]></Val>
+            <Val><![CDATA[大文字と小文字を区別しない比較を使用したときに、名前が '{0}' と一致する複数のヘッダーが追加されました。大文字と小文字を区別しないヘッダー名を使用する場合、 多くても名前ごとに 1 つのヘッダーしか追加できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2008,7 +2008,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' header value '{1}' is invalid. When this is the start of the change set, the value must be '{2}'; otherwise it must be '{3}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA['{0}' ヘッダーの値 '{1}' は無効です。このヘッダーが変更セットの開始となる場合は、値を '{2}' にする必要があります。それ以外の場合は '{3}' にする必要があります。]]></Val>
+            <Val><![CDATA['{0}' ヘッダーの値 '{1}' は無効です。これが変更セットの開始となる場合は、値を '{2}' にする必要があります。それ以外の場合は '{3}' にする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The '{0}' header value '{1}' is invalid. If this is the start of the change set, then the value must be '{2}', otherwise it must be '{3}'.]]></Val>
@@ -2107,7 +2107,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The HTTP status code '{0}' is invalid. An HTTP status code must be an integer value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[HTTP 状態コード '{0}' は無効です。HTTP 状態コードは整数値にする必要があります。]]></Val>
+            <Val><![CDATA[HTTP 状態コード '{0}' は無効です。HTTP 状態コードは整数値である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2116,7 +2116,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered an unexpected end of input while reading the batch payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[バッチ ペイロードの読み取り中に入力の予期しない終了が検出されました。]]></Val>
+            <Val><![CDATA[バッチ ペイロードの読み取り中に予期しない入力の終了が検出されました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2134,7 +2134,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous batch reader. Calls on a batch reader instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同期バッチ リーダーで非同期操作が呼び出されました。バッチ リーダー インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期バッチ リーダーで非同期操作が呼び出されました。バッチ リーダー インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2230,7 +2230,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The method CreateOperationResponseMessage was called in state '{0}', which is not allowed. CreateOperationResponseMessage can only be called in state 'Operation'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[メソッド CreateOperationResponseMessage が状態 {0} で呼び出されましたが、これは許可されません。CreateOperationResponseMessage は状態が 'Operation' の場合のみ呼び出すことができます。]]></Val>
+            <Val><![CDATA[メソッド CreateOperationResponseMessage が状態 {0} で呼び出されましたが、これは許可されていません。CreateOperationResponseMessage は状態が 'Operation' の場合のみ呼び出すことができます。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The method CreateOperationResponseMessage was called in state {0}, which is invalid. CreateOperationResponseMessage can only be called in state 'Operation'.]]></Val>
@@ -2263,7 +2263,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The current change set contains too many operations. A maximum number of '{0}' operations are allowed in a change set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[現在の変更セットに含まれている操作が多すぎます。変更セットで許可される操作は最大 '{0}' 件です。]]></Val>
+            <Val><![CDATA[現在の変更セットに含まれている操作が多すぎます。変更セットで許可されている操作は最大 '{0}' 件です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The current changeset contains too many operations. Only changesets with a maximum number of '{0}' operations are allowed.]]></Val>
@@ -2383,7 +2383,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous batch reader. Calls on a batch reader instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期バッチ リーダーで同期操作が呼び出されました。バッチ リーダー インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期バッチ リーダーで同期操作が呼び出されました。バッチ リーダー インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2416,7 +2416,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous batch writer. Calls on a batch writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同期バッチ ライターで非同期操作が呼び出されました。バッチ ライター インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期バッチ ライターで非同期操作が呼び出されました。バッチ ライター  インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2596,7 +2596,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous batch writer. Calls on a batch writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期バッチ ライターで同期操作が呼び出されました。バッチ ライター インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期バッチ ライターで同期操作が呼び出されました。バッチ ライター  インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2605,7 +2605,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Group id or changeset GUID cannot be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[グループ ID または変更セット GUID を null にすることはできません。]]></Val>
+            <Val><![CDATA[ループ ID または変更セット GUID を null にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2626,7 +2626,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous collection reader. All calls on a collection reader instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[同期コレクション リーダーで非同期操作が呼び出されました。コレクション リーダー インスタンスのすべての呼び出しは、同期にするか非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期コレクション リーダーで非同期操作が呼び出されました。コレクション リーダー  インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An asynchronous operation was called on a synchronous collection reader. Calls on a collection reader instance must be either all synchronous or all asynchronous.]]></Val>
@@ -2656,7 +2656,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous collection reader. All calls on a collection reader instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[非同期コレクション リーダーで同期操作が呼び出されました。コレクション リーダー インスタンスのすべての呼び出しは、同期にするか非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期コレクション リーダーで同期操作が呼び出されました。コレクション リーダー  インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A synchronous operation was called on an asynchronous collection reader. Calls on a collection reader instance must be either all synchronous or all asynchronous.]]></Val>
@@ -2668,7 +2668,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous collection writer. All calls on a collection writer instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[同期コレクション ライターで非同期操作が呼び出されました。コレクション ライター インスタンスのすべての呼び出しは、同期にするか非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期コレクション ライターで非同期操作が呼び出されました。コレクション ライター  インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An asynchronous operation was called on a synchronous collection writer. Calls on a collection writer instance must be either all synchronous or all asynchronous.]]></Val>
@@ -2707,7 +2707,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous collection writer. All calls on a collection writer instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[非同期コレクション ライターで同期操作が呼び出されました。コレクション ライター インスタンスのすべての呼び出しは、同期にするか非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期コレクション ライターで同期操作が呼び出されました。コレクション ライター  インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A synchronous operation was called on an asynchronous collection writer. Calls on a collection writer instance must be either all synchronous or all asynchronous.]]></Val>
@@ -2728,7 +2728,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigationSource for resource or resource set is unknown or the Type is null. When writing a response, the navigation source or the type must be passed to the ODataMessageWriter.CreateODataResourceWriter/ODataMessageWriter.CreateODataResourceSetWriter method or the ODataResourceSerializationInfo must be set on the resource/resource set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[リソースまたはリソース セットの navigationSource が不明であるか、または型が null です。応答を書き込むときは、ナビゲーション ソースまたは型を ODataMessageWriter.CreateODataResourceWriter/ODataMessageWriter.CreateODataResourceSetWriter メソッドに渡すか、ODataResourceSerializationInfo を resource/resource set 上で設定する必要があります。]]></Val>
+            <Val><![CDATA[リソースまたはリソース セットの navigationSource が不明であるか、または型が null 値 です。応答を書き込むときは、ナビゲーション ソースまたは型を ODataMessageWriter.CreateODataResourceWriter/ODataMessageWriter.CreateODataResourceSetWriter メソッドに渡すか、ODataResourceSerializationInfo を resource/resource set 上で設定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2791,7 +2791,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The base type '{0}' of the entity set specified for writing a payload is not assignable from the specified entity type '{1}'. When an entity type is specified it has to be the same or derived from the base type of the entity set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ペイロードを記述するために指定したエンティティ セットの基本データ型 '{0}' は、指定したエンティティ型 '{1}' から割り当てることができません。エンティティ型を指定する場合は、エンティティ セットの基本データ型と同じであるか、基本データ型から派生する必要があります。]]></Val>
+            <Val><![CDATA[ペイロードを記述するために指定したエンティティ セットの基本データ型 '{0}' は、指定したエンティティ型 '{1}' から割り当てることができません。エンティティ型を指定する場合は、エンティティ セットの基本データ型と同じであるか、エンティティ セットの基本データ型から派生する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2809,7 +2809,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key property '{0}' on type '{1}' has a null value. Key properties must not have null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{1}' のキー プロパティ '{0}' には NULL 値が指定されています。キー プロパティには NULL 値を指定しないでください。]]></Val>
+            <Val><![CDATA[型 '{1}' のキー プロパティ '{0}' には null 値が指定されています。キー プロパティには null 値を指定しないでください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2920,7 +2920,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found in the message value of a top-level error. In OData, the message value of a top-level error value can only have properties with name 'lang' or 'value'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[名前 '{0}' のプロパティが、最上位レベルのエラーのメッセージ値に見つかりました。OData では、最上位レベルのエラーのメッセージ値には、名前 'lang' または 'value' のプロパティのみを含むことができます。]]></Val>
+            <Val><![CDATA[名前 '{0}' のプロパティが、トップレベルのエラーのメッセージ値に見つかりました。OData では、トップレベルのエラーのメッセージ値には、名前 'lang' または 'value' のプロパティのみを含むことができます。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A property with name '{0}' was found in the message value of a top-level error. In OData, a top-level message value can only have properties with name 'lang' and 'value'.]]></Val>
@@ -2932,7 +2932,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found in the error object when reading a top-level error. In OData, a top-level error object must have exactly one property with name 'error'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[最上位レベルのエラーの読み取り時に名前 '{0}' のプロパティがエラー オブジェクトに見つかりました。OData では、最上位レベルのエラー オブジェクトに名前 'error' のプロパティを 1 つだけ含む必要があります。]]></Val>
+            <Val><![CDATA[トップレベルのエラーの読み取り時に名前 '{0}' のプロパティがエラー オブジェクトに見つかりました。OData では、トップレベルのエラー オブジェクトに名前 'error' のプロパティを 1 つだけ含む必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2941,7 +2941,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the items of a collection; however, a 'StartArray' node was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[コレクションのアイテムを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、'StartArray' ノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[コレクションのアイテムを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、'StartArray' ノードが必要とされてしていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2950,7 +2950,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property or annotation for a property with name '{0}' or an instance annotation with name '{0}' was found after reading the items of a top-level collection. No additional properties or annotations are allowed after the collection property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[最上位レベルのコレクションのアイテムを読み取った後に、'{0}' という名前のプロパティのプロパティまたは注釈、あるいは '{0}' という名前のインスタンス注釈が見つかりました。コレクション プロパティの後に、追加のプロパティまたは注釈を指定することはできません。]]></Val>
+            <Val><![CDATA[トップレベルのコレクションのアイテムを読み取った後に、'{0}' という名前のプロパティまたはプロパティの注釈、あるいは '{0}' という名前のインスタンス注釈が見つかりました。コレクション プロパティの後に、追加のプロパティまたは注釈を指定することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2959,7 +2959,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When trying to read the start of a collection, the expected collection property with name '{0}' was not found.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[コレクションの開始を読み取ろうとしているときに、'{0}' という名前の予期されたコレクション プロパティが見つかりませんでした。]]></Val>
+            <Val><![CDATA[コレクションの開始を読み取ろうとしているときに、'{0}' という名前の必要なコレクション プロパティが見つかりませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2968,7 +2968,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An 'odata.type' annotation with value '{0}' was found for a top-level collection payload; however, top-level collections must specify a collection type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[最上位レベルのコレクション ペイロードに、値 '{0}' の 'odata.type' 注釈が見つかりましたが、最上位レベルのコレクションではコレクション型を指定する必要があります。]]></Val>
+            <Val><![CDATA[トップレベルのコレクション ペイロードに、値 '{0}' の 'odata.type' 注釈が見つかりましたが、最上位レベルのコレクションではコレクション型を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2977,7 +2977,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' is not valid for the expected payload kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は、予期されるペイロードの種類 '{1}' に対して無効です。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は、必要なペイロードの種類 '{1}' に対して無効です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2995,7 +2995,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' references the entity set or type '{1}'. However, no entity set or type with name '{1}' is declared in the metadata.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は、エンティティ セットまたはエンティティ型 '{1}' を参照しています。ただし、名前が '{1}' のエンティティ セットもエンティティ型もメタデータ内で宣言されていません。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は、エンティティ セットまたはエンティティ型 '{1}' を参照していますが、エンティティ型または名前が '{1}' のエンティティ セットがメタデータ内で宣言されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3034,7 +3034,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A null metadata document URI was found in the payload. Metadata document URIs must not be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ペイロードで、NULL メタデータ ドキュメント URI が見つかりました。メタデータ ドキュメント URI を NULL にすることはできません。]]></Val>
+            <Val><![CDATA[ペイロードで、null 値のメタデータ ドキュメント URI が見つかりました。メタデータ ドキュメント URI を null 値にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3043,7 +3043,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The top level context URL '{0}' should be an absolute Uri.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[最上位レベルのコンテキスト URL '{0}' は、絶対 URI である必要があります。]]></Val>
+            <Val><![CDATA[トップレベルのコンテキスト URL '{0}' は、絶対 URI である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3124,7 +3124,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' property of an entity reference link object cannot have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[エンティティ参照リンクのオブジェクトの '{0}' プロパティには NULL 値を含むことはできません。]]></Val>
+            <Val><![CDATA[エンティティ参照リンクのオブジェクトの '{0}' プロパティを null 値にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3151,7 +3151,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' or a property annotation for a property with name '{0}' was found when trying to read a collection of entity reference links; however, a property with name '{1}' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[エンティティ参照リンクのコレクションを読み取ろうとしたときに、'{0}' という名前のプロパティ、または '{0}' という名前のプロパティのプロパティ注釈が見つかりましたが、'{1}' という名前のプロパティを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[エンティティ参照リンクのコレクションを読み取ろうとしたときに、'{0}' という名前のプロパティ、または '{0}' という名前のプロパティのプロパティ注釈が見つかりましたが、'{1}' という名前のプロパティが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3187,7 +3187,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{0}' properties were found in an entity reference link object; however, a single '{0}' property was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[エンティティ参照リンク オブジェクトに '{0}' プロパティが複数見つかりましたが、想定されていたのは 1 つの '{0}' プロパティでした。]]></Val>
+            <Val><![CDATA[エンティティ参照リンク オブジェクトに '{0}' プロパティが複数見つかりましたが、単独の '{0}' プロパティが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3241,7 +3241,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found in the error value of a top-level error. In OData, a top-level error value can only have properties with name 'code', 'message', or 'innererror', or custom instance annotations.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[名前 '{0}' のプロパティが、最上位レベルのエラーのエラー値に見つかりました。OData では、最上位レベルのエラー値には、'code'、'message'、または 'innererror' という名前のプロパティ、またはカスタム インスタンスの注釈のみを指定できます。]]></Val>
+            <Val><![CDATA[名前 '{0}' のプロパティが、トップレベルのエラーのエラー値に見つかりました。OData では、トップレベルのエラー値には、'code'、'message'、または 'innererror' という名前のプロパティ、またはカスタム インスタンスの注釈のみを指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3250,7 +3250,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity type '{0}' is not compatible with the base type '{1}' of the provided entity set '{2}'. When an entity type is specified for an OData resource set or resource reader, it has to be the same or a subtype of the base type of the specified entity set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA[エンティティ型 '{0}' は、指定されたエンティティ セット '{2}' の基本データ型 '{1}' と互換性がありません。エンティティ型を OData リソースまたはリソース リーダーに対して指定する場合は、指定されたエンティティ セットの基本データ型と同じ型または指定されたエンティティ セットの基本データ型のサブタイプである必要があります。]]></Val>
+            <Val><![CDATA[エンティティ型 '{0}' には、指定されたエンティティ セット '{2}' の基本データ型 '{1}' との互換性がありません。エンティティ型を OData リソースまたはリソース リーダーに対して指定する場合は、指定されたエンティティ セットの基本データ型と同じ型または指定されたエンティティ セットの基本データ型のサブタイプである必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The entity type '{0}' is not compatible with the base type '{1}' of the provided entity set '{2}'. When an entity type is specified for an OData feed or entry reader, it has to be the same or a subtype of the base type of the specified entity set.]]></Val>
@@ -3262,7 +3262,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An attempt to read a collection request payload without specifying a collection item type was detected. When reading collection payloads in requests, an expected item type has to be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[コレクション アイテムの型を指定せずにコレクション要求ペイロードを読み取ろうとしたことが検出されました。要求内のコレクション ペイロードを読み取るときは、予期されるアイテムの型を指定する必要があります。]]></Val>
+            <Val><![CDATA[コレクション アイテムの型を指定せずにコレクション要求ペイロードを読み取ろうとしたことが検出されました。要求内のコレクション ペイロードを読み取るときは、必要なアイテムの型を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3292,7 +3292,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is specified with a null value. For JSON Light, the '{0}' argument to the 'CreateParameterReader' method cannot be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[パラメーター '{0}' に NULL 値が指定されています。JSON Light では、'CreateParameterReader' メソッドの '{0}' 引数を NULL にすることはできません。]]></Val>
+            <Val><![CDATA[パラメーター '{0}' に  null 値が指定されています。JSON Light では、'CreateParameterReader' メソッドの '{0}' 引数を null 値 にすることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3310,7 +3310,7 @@
         <Str Cat="Text">
           <Val><![CDATA[When trying to read a null collection parameter value in JSON Light, a node of type '{0}' with the value '{1}' was read from the JSON reader; however, a primitive 'null' value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[JSON Light で NULL のコレクション パラメーター値を読み取ろうとしているときに、値 '{1}' の型 '{0}' のノードを JSON リーダーから読み取りましたが、プリミティブの 'null' 値を読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[JSON Light で  null 値のコレクション パラメーター値を読み取ろうとしているときに、値 '{1}' の型 '{0}' のノードを JSON リーダーから読み取りましたが、プリミティブの 'null' 値を読み取ることが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3337,7 +3337,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is of an unsupported type kind '{1}'. Only primitive, enum, complex, primitive collection, enum collection and complex collection types are supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[パラメーター '{0}' の型の種類 '{1}' はサポートされていません。サポートされているのは、列挙型、複合型、プリミティブ型のコレクション型、列挙型のコレクション型、および複合型のコレクション型だけです。]]></Val>
+            <Val><![CDATA[パラメーター '{0}' の型の種類 '{1}' はサポートされていません。サポートされているのは、列挙、複合、プリミティブ、および複合型のコレクション型だけです。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The parameter '{0}' is of an unsupported type kind '{1}'. Only primitive, complex, primitive collection and complex collection types are supported.]]></Val>
@@ -3394,7 +3394,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A complex property with an '{0}' property annotation was found. Complex properties must not have the '{0}' property annotation, instead the '{0}' should be specified as an instance annotation in the complex value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' プロパティ注釈が指定された複合プロパティが見つかりました。複合プロパティには '{0}' プロパティ注釈は必要ありません。代わりに、インスタンス注釈として '{0}' を複合型の値で指定する必要があります。]]></Val>
+            <Val><![CDATA['{0}' プロパティ注釈が指定された複合プロパティが見つかりました。複合プロパティでは '{0}' プロパティ注釈を付けることができません。代わりに、インスタンス注釈として '{0}' を複合型の値で指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3403,7 +3403,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A top-level property with name '{0}' was found in the payload; however, property and collection payloads must always have a top-level property with name '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ペイロードに '{0}' という名前の最上位レベルのプロパティが見つかりましたが、プロパティとコレクションのペイロードには常に '{1}' という名前の最上位レベルのプロパティが必要です。]]></Val>
+            <Val><![CDATA[ペイロードに '{0}' という名前のトップレベルのプロパティが見つかりましたが、プロパティとコレクションのペイロードには常に '{1}' という名前のトップレベルのプロパティが必要です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3412,7 +3412,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No top-level properties were found. A top-level property or collection in JSON Light must be represented as a JSON object with exactly one property which is not an annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[最上位レベルのプロパティが見つかりませんでした。JSON Light の最上位レベルのプロパティまたはコレクションは、注釈ではないプロパティが 1 つだけ指定された JSON オブジェクトとして表す必要があります。]]></Val>
+            <Val><![CDATA[トップレベルのプロパティが見つかりませんでした。JSON Light のトップレベルのプロパティまたはコレクションは、注釈以外のプロパティが 1 つだけ指定された JSON オブジェクトとして表す必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3430,7 +3430,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property with name '{0}' was found in a null payload. In OData, no properties or OData annotations can appear in a null payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' という名前のプロパティが NULL ペイロードで見つかりました。OData では、プロパティまたは OData 注釈を NULL ペイロードで使用できません。]]></Val>
+            <Val><![CDATA['{0}' という名前のプロパティが NULL ペイロードで見つかりました。OData では、プロパティまたは OData 注釈を null 値 のペイロードで使用できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3439,7 +3439,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An '{0}' annotation was read inside a JSON object representing a primitive value; type annotations for primitive values have to be property annotations of the owning property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プリミティブ型の値を表す JSON オブジェクト内で、'{0}' 注釈が読み取られました。プリミティブ型の値の型の注釈は、所有しているプロパティのプロパティ注釈である必要があります。]]></Val>
+            <Val><![CDATA[プリミティブ値を表す JSON オブジェクト内で、'{0}' 注釈が読み取られました。プリミティブ値の型の注釈は、所有しているプロパティのプロパティ注釈である必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3448,7 +3448,7 @@
         <Str Cat="Text">
           <Val><![CDATA[One or more property annotations for property '{0}' were found in the top-level property or collection payload without the property to annotate. Top-level property and collection payloads must contain a single property, with optional annotations for this property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[注釈を付けるプロパティが指定されていない最上位レベルのプロパティ ペイロードまたはコレクション ペイロードで、プロパティ '{0}' に対する 1 つ以上のプロパティ注釈が見つかりました。最上位レベルのプロパティ ペイロードとコレクション ペイロードには、このプロパティの省略可能な注釈が指定された 1 つのプロパティが含まれている必要があります。]]></Val>
+            <Val><![CDATA[注釈のないトップレベルのプロパティまたはコレクション ペイロードで、プロパティ '{0}' に対する 1 つ以上のプロパティ注釈が見つかりました。トップレベルのプロパティ ペイロードとコレクション ペイロードには、省略可能な注釈が付いている 単一のプロパティが含まれている必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3457,7 +3457,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A top-level property with an invalid primitive null value was found. In OData, top-level properties with null value have to be serialized as JSON object with an '{0}' annotation that has the value '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プリミティブ型の無効な NULL 値が指定された最上位レベルのプロパティが見つかりました。OData では、NULL 値が指定された最上位レベルのプロパティは、値が '{1}' の '{0}' 注釈で JSON オブジェクトとしてシリアル化される必要があります。]]></Val>
+            <Val><![CDATA[無効なプリミティブの null 値が指定されたトップレベルのプロパティが見つかりました。OData では、null 値が指定されたトップレベルのプロパティは、値が '{1}' の '{0}' 注釈で JSON オブジェクトとしてシリアル化される必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3475,7 +3475,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The annotation '{0}' was found. This annotation is either not recognized or not expected at the current position.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[注釈 '{0}' が見つかりました。この注釈は、現在の位置では認識されないか、予期されていません。]]></Val>
+            <Val><![CDATA[注釈 '{0}' が見つかりました。この注釈は、現在の位置では認識されないか、必要とされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3484,7 +3484,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' has a property annotation '{1}'. Primitive, complex, collection or open properties can only have an 'odata.type' property annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プロパティ '{0}' にプロパティ注釈 '{1}' が指定されています。プリミティブ プロパティ、複合プロパティ、コレクション プロパティ、またはオープン プロパティには、'odata.type' プロパティ注釈のみを指定できます。]]></Val>
+            <Val><![CDATA[プロパティ '{0}' にプロパティ注釈 '{1}' があります。プリミティブ プロパティ、複合プロパティ、コレクション プロパティ、またはオープン プロパティには、'odata.type' プロパティ注釈のみを指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3505,7 +3505,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An OData property annotation '{0}' was found. This property annotation is either not recognized or not expected at the current position.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[OData プロパティ注釈 '{0}' 見つかりました。このプロパティ注釈は、現在の位置では認識されないか、予期されていません。]]></Val>
+            <Val><![CDATA[OData プロパティ注釈 '{0}' が見つかりました。このプロパティ注釈は、現在の位置では認識されないか、必要とされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3514,7 +3514,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found. This property is either not recognized or not expected at the current position.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' という名前のプロパティが見つかりました。このプロパティは、現在の位置では認識されないか、予期されていません。]]></Val>
+            <Val><![CDATA['{0}' という名前のプロパティが見つかりました。このプロパティは、現在の位置では認識されないか、必要とされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3523,7 +3523,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}' has a property annotation '{1}'. This annotation is either not recognized or not expected at the current position.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プロパティ '{0}' にプロパティ注釈 '{1}' が指定されています。この注釈は、現在の位置では認識されないか、予期されていません。]]></Val>
+            <Val><![CDATA[プロパティ '{0}' にプロパティ注釈 '{1}' が指定されています。この注釈は、現在の位置では認識されないか、必要とされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3550,7 +3550,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' instance or property annotation has a null value. In OData, the '{0}' instance or property annotation must have a non-null string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{0}' インスタンス注釈またはプロパティ注釈の値が NULL です。OData では、'{0}' インスタンス注釈またはプロパティ注釈に NULL 以外の文字列値を指定する必要があります。]]></Val>
+            <Val><![CDATA['{0}' インスタンス注釈またはプロパティ注釈が null 値です。OData では、'{0}' インスタンス注釈またはプロパティ注釈に null 値ではないの文字列値を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3568,7 +3568,7 @@
         <Str Cat="Text">
           <Val><![CDATA[If a primitive value is representing a resource, the resource must be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[プリミティブ値がリソースを表している場合は、リソースを null にする必要があります。]]></Val>
+            <Val><![CDATA[プリミティブ値がリソースを表している場合は、リソースを null 値 にする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3586,7 +3586,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the contents of the property '{1}'; however, a 'StartArray' node was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[プロパティ '{1}' のコンテンツを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、'StartArray' ノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[プロパティ '{1}' のコンテンツを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、'StartArray' のノードが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3595,7 +3595,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A 'PrimitiveValue' node with non-null value was found when trying to read the value of the property '{0}'; however, a 'StartArray' node, a 'StartObject' node, or a 'PrimitiveValue' node with null value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[プロパティ '{0}' の値を読み取ろうとしているときに、null 以外の値を含む 'PrimitiveValue' ノードが見つかりましたが、'StartArray' ノード、'StartObject' ノード、または null 値を含む 'PrimitiveValue' ノードを検出することを想定していました。]]></Val>
+            <Val><![CDATA[プロパティ '{0}' の値を読み取ろうとしているときに、null 値ではない値を持つ 'PrimitiveValue' ノードが見つかりましたが、'StartArray' ノード、'StartObject' ノード、または null 値を持つ 'PrimitiveValue' ノードが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3604,7 +3604,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the start of the content of a resource set; however, a node of type 'StartArray' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[リソース セットのコンテンツを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、型 'StartArray' のノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[リソース セットのコンテンツを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、型 'StartArray' のノードが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3613,7 +3613,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the contents of the property '{1}'; however, a 'StartObject' node or 'PrimitiveValue' node with null value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[プロパティ '{1}' のコンテンツを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、'StartObject' ノードまたは null 値を含む 'PrimitiveValue' ノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[プロパティ '{1}' のコンテンツを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りましたが、'StartObject' ノードまたは null 値を持つ 'PrimitiveValue' ノードを読み取ることを想定していました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3649,7 +3649,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Did not find the required '{0}' property for the expected resource set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[想定されるリソース セットに必要な '{0}' プロパティが見つかりませんでした。]]></Val>
+            <Val><![CDATA[必要なリソース セットに対して、必須の '{0}' プロパティが見つかりませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3670,7 +3670,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property annotation for a property with name '{0}' was found when reading a top-level resource set. No property annotations, only instance annotations are allowed when reading top-level resource sets.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[トップレベルのリソース セットの読み取り中に、名前が '{0}' のプロパティのプロパティ注釈が見つかりました。トップレベルのリソース セットの読み取り中に許可されるのは、プロパティ注釈ではなく、インスタンス注釈のみです。]]></Val>
+            <Val><![CDATA[トップレベルのリソース セットの読み取り中に、'{0}' という名前のプロパティのプロパティ注釈が見つかりました。トップレベルのリソース セットの読み取り中は、プロパティ注釈ではなく、インスタンス注釈のみが許可されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3679,7 +3679,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property with name '{0}' was found when reading a top-level resource set. No properties other than the resource set property with name '{1}' are allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[トップレベルのリソース セットの読み取り中に、名前が '{0}' のプロパティが見つかりました。名前が '{1}' のリソース セット プロパティ以外のプロパティは許可されていません。]]></Val>
+            <Val><![CDATA[トップレベルのリソース セットの読み取り中に、'{0}' という名前のプロパティが見つかりました。'{1}' という名前のリソース セット プロパティ以外のプロパティは許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3697,7 +3697,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{0}' properties were found for an operation '{1}'. In OData, an operation can have at most one '{0}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[操作 '{1}' に複数の '{0}' プロパティが見つかりました。OData では、操作に含めることができる '{0}' プロパティは 1 つだけです。]]></Val>
+            <Val><![CDATA[操作 '{1}' に複数の '{0}' プロパティが見つかりました。OData では、操作に含めることができる '{0}' プロパティは多くても 1 つです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3715,7 +3715,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property '{0}' which only has property annotations in the payload but no property value is an open property. In OData, open property must be represented as a property with value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ペイロードにプロパティ注釈のみが指定され、プロパティ値がないプロパティ '{0}' はオープン プロパティです。OData では、オープン プロパティは、値が設定されたプロパティとして表す必要があります。]]></Val>
+            <Val><![CDATA[ペイロードにプロパティ注釈のみが指定されているもののプロパティ値を伴わないプロパティ '{0}' は、オープン プロパティです。OData では、オープン プロパティは、値を持つプロパティとして表す必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3724,7 +3724,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered the operation '{0}' which can not be resolved to an ODataAction or ODataFunction.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ODataAction または ODataFunction に解決することができない操作 '{0}' が見つかりました。]]></Val>
+            <Val><![CDATA[ODataAction または ODataFunction で解決することができない操作 '{0}' が検出されました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3751,7 +3751,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A property '{0}' which only has property annotations in the payload but no property value is declared to be of type '{1}'. In OData, only navigation properties and named streams can be represented as properties without values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ペイロードにプロパティ注釈のみが指定され、プロパティ値がないプロパティ '{0}' は、'{1}' 型として宣言されます。OData では、値のないプロパティとして表すことができるのは、ナビゲーション プロパティと名前付きストリームのみです。]]></Val>
+            <Val><![CDATA[ペイロードにプロパティ注釈のみが指定され、プロパティ値がないプロパティ '{0}' が、'{1}' 型として宣言されています。OData では、値のないプロパティとして表すことができるのは、ナビゲーション プロパティと名前付きストリームのみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3760,7 +3760,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' instance annotation in a resource object is preceded by a property or property annotation. In OData, the '{0}' instance annotation must be before any property or property annotation in a resource object.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[リソース オブジェクト内の '{0}' インスタンス注釈の前には、プロパティまたはプロパティの注釈が付きます。OData では、'{0}' インスタンス注釈はリソース オブジェクト内のプロパティまたはプロパティ注釈の前にある必要があります。]]></Val>
+            <Val><![CDATA[リソース オブジェクト内の '{0}' インスタンス注釈の前に、プロパティまたはプロパティの注釈が付いています。OData では、'{0}' インスタンス注釈はリソース オブジェクト内のプロパティまたはプロパティ注釈の前にある必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3850,7 +3850,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' has a property annotation '{1}'. Navigation links in request payloads can only have the '{2}' property annotation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ナビゲーション プロパティ '{0}' にプロパティ注釈 '{1}' が指定されています。要求ペイロード内のナビゲーション リンクに指定できるのは、'{2}' プロパティ注釈のみです。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティ '{0}' にプロパティ注釈 '{1}' があります。要求ペイロード内のナビゲーション リンクに指定できるのは、'{2}' プロパティ注釈のみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3895,7 +3895,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple operations have the same 'Metadata' property value of '{0}'. The 'Target' property value of these operations must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[複数の操作に同一の 'Metadata' プロパティ値 '{0}' が指定されています。これらの操作の 'Target' プロパティ値には、NULL 以外の値を設定する必要があります。]]></Val>
+            <Val><![CDATA[複数の操作に同一の 'Metadata' プロパティ値 '{0}' が指定されています。これらの操作の 'Target' プロパティ値には、null 値ではない値を設定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3994,7 +3994,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered unexpected property '{0}' in a service document. The top level object of a service document may only have a '{1}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[サービス ドキュメントに、予期しないプロパティ '{0}' が見つかりました。サービス ドキュメントの最上位レベルのオブジェクトには、'{1}' プロパティのみを含めることができます。]]></Val>
+            <Val><![CDATA[サービス ドキュメントで、予期しないプロパティ '{0}' が検出されました。サービス ドキュメントのトップレベルのオブジェクトには、'{1}' プロパティのみを含めることができます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4003,7 +4003,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered unexpected property '{0}' in a service document element. In service documents, service document element may only have '{1}' and '{2}' properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[サービス ドキュメント要素内に、予期しないプロパティ '{0}' が見つかりました。サービス ドキュメントでは、サービス ドキュメント要素に '{1}' プロパティと '{2}' プロパティのみを含めることができます。]]></Val>
+            <Val><![CDATA[サービス ドキュメント要素内に、予期しないプロパティ '{0}' が検出されました。サービス ドキュメントでは、サービス ドキュメント要素に '{1}' プロパティと '{2}' プロパティのみを含めることができます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4012,7 +4012,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Encountered a reference into metadata '{0}' which does not refer to the known metadata url '{1}'. Open metadata reference properties are not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[メタデータ '{0} への参照が見つかりましたが、この参照は、既知のメタデータ URL '{1}' を参照していません。オープン メタデータ参照のプロパティはサポートされていません。]]></Val>
+            <Val><![CDATA[メタデータ '{0} への参照が検出されましたが、この参照は、既知のメタデータ URL '{1}' を参照していません。オープン メタデータ参照のプロパティはサポートされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4021,7 +4021,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' property of the operation '{1}' cannot have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[操作 '{1}' の '{0}' プロパティには、NULL 値を指定できません。]]></Val>
+            <Val><![CDATA[操作 '{1}' の '{0}' プロパティには、null 値を指定できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4030,7 +4030,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A raw value was not provided for an instance of ODataUntypedValue.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Raw 値が ODataComplexValue のインスタンスに指定されませんでした。]]></Val>
+            <Val><![CDATA[未処理の値が ODataComplexValue のインスタンスに指定されませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4066,7 +4066,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' property of an operation '{1}' in '{2}' cannot have a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA['{2}' の操作 '{1}' の '{0}' プロパティには、NULL 値を指定できません。]]></Val>
+            <Val><![CDATA['{2}' の操作 '{1}' の '{0}' プロパティには、null 値を指定できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4096,7 +4096,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type 'Edm.Boolean' to the expected target type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 'Edm.Boolean' の値を、想定するターゲットの型 '{0}' に変換することはできません。]]></Val>
+            <Val><![CDATA[型 'Edm.Boolean' の値を、必要なターゲットの型 '{0}' に変換することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4105,7 +4105,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type 'Edm.DateTime' to the expected target type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 'Edm.DateTime' の値を、想定するターゲットの型 '{0}' に変換することはできません。]]></Val>
+            <Val><![CDATA[型 'Edm.DateTime' の値を、必要なターゲットの型 '{0}' に変換することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4114,7 +4114,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type 'Edm.DateTimeOffset' to the expected target type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 'Edm.DateTimeOffset' の値を、想定するターゲットの型 '{0}' に変換することはできません。]]></Val>
+            <Val><![CDATA[型 'Edm.DateTimeOffset' の値を、必要なターゲットの型 '{0}' に変換することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4123,7 +4123,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type 'Edm.Decimal' to the expected target type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 'Edm.Decimal' の値を、想定するターゲットの型 '{0}' に変換することはできません。]]></Val>
+            <Val><![CDATA[型 'Edm.Decimal' の値を、必要なターゲットの型 '{0}' に変換することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4132,7 +4132,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type 'Edm.Double' to the expected target type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 'Edm.Double' の値を、想定するターゲットの型 '{0}' に変換することはできません。]]></Val>
+            <Val><![CDATA[型 'Edm.Double' の値を、必要なターゲットの型 '{0}' に変換することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4141,7 +4141,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot convert a value of type 'Edm.Int32' to the expected target type '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 'Edm.Int32' の値を、想定するターゲットの型 '{0}' に変換することはできません。]]></Val>
+            <Val><![CDATA[型 ''Edm.Int32' の値を、必要なターゲットの型 '{0}' に変換することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4159,7 +4159,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple '{0}' properties were found in an error or inner error object. In OData, an error or inner error must have at most one '{0}' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[エラー オブジェクトまたは内部エラー オブジェクトに複数の '{0}' プロパティが見つかりました。OData では、エラー オブジェクトまたは内部エラー オブジェクトに最大でも 1 つしか '{0}' プロパティを含めることはできません。]]></Val>
+            <Val><![CDATA[エラー オブジェクトまたは内部エラー オブジェクトに複数の '{0}' プロパティが見つかりました。OData では、エラー オブジェクトまたは内部エラー オブジェクトに多くても 1 つしか '{0}' プロパティを含めることはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Multiple '{0}' properties were found in an error (or inner error) object. In OData, an error (or inner error) must have at most one '{0}' property.]]></Val>
@@ -4171,7 +4171,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A node of type '{0}' was read from the JSON reader when trying to read the resources of a resource set. A 'StartObject' or 'EndArray' node was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[リソース セットのリソースを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りました。'StartObject' または 'EndArray' ノードを読み取ることを想定していました。]]></Val>
+            <Val><![CDATA[リソース セットのリソースを読み取ろうとしているときに、型 '{0}' のノードを JSON リーダーから読み取りました。'StartObject' または 'EndArray' ノードが必要とされていました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4207,7 +4207,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is specified with a non-null value, but no metadata is available for the reader. The entity set can only be specified if metadata is made available to the reader.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[NULL 以外の値を含むパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。エンティティ セットを指定できるのは、リーダーでメタデータが使用できる場合だけです。]]></Val>
+            <Val><![CDATA[null 値を含むパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。エンティティ セットを指定できるのは、リーダーでメタデータが使用できる場合だけです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4216,7 +4216,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A top-level error cannot be read from request payloads. Top-level errors are only supported in responses.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[要求ペイロードから最上位レベルのエラーを読み取ることはできません。最上位レベルのエラーは応答のみでサポートされます。]]></Val>
+            <Val><![CDATA[要求ペイロードからトップレベルのエラーを読み取ることはできません。トップレベルのエラーは応答のみでサポートされます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4225,7 +4225,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for a collection reader is of kind '{0}'. Only types of Primitive or ComplexType kind can be specified as the expected type for a collection reader.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コレクション リーダーに想定した型の種類は '{0}' です。コレクション リーダーに想定する型として、種類が Primitive または ComplexType の型のみを指定できます。]]></Val>
+            <Val><![CDATA[コレクション リーダーに必要とされる型の種類は '{0}' です。コレクション リーダーに必要とされる型として、種類が Primitive または ComplexType の型のみを指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4234,7 +4234,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for property reading is of entity collection kind. Top-level properties can only be of primitive, complex, primitive collection or complex collection kind.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プロパティの読み取りに想定した型は、エンティティ コレクションです。最上位レベルのプロパティの種類に指定できるのは、プリミティブ、複合、プリミティブ型のコレクション、複合型のコレクションだけです。]]></Val>
+            <Val><![CDATA[プロパティの読み取りで想定されていた型は、エンティティ コレクションです。トップレベルのプロパティの種類に指定できるのは、プリミティブ、複合、プリミティブのコレクション、複合型のコレクションのみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4243,7 +4243,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for property reading is of entity kind. Top-level properties cannot be of entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[プロパティの読み取りに想定した型は EntityKind です。最上位レベルのプロパティにはエンティティ型は指定できません。]]></Val>
+            <Val><![CDATA[プロパティの読み取りで想定されていた型はエンティティの種類です。トップレベルのプロパティにはエンティティ型は指定できません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The expected type for property reading is of EntityKind. Top-level properties can not be of entity type.]]></Val>
@@ -4255,7 +4255,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The expected type for property reading is Edm.Stream. Top-level properties cannot be of stream type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[プロパティの読み取りに想定した型は Edm.Stream です。最上位レベルのプロパティにはストリーム型は指定できません。]]></Val>
+            <Val><![CDATA[プロパティの読み取りで想定されていた型は Edm.Stream です。トップレベルのプロパティにはストリーム型は指定できません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The expected type for property reading is Edm.Stream. Top-level properties can not be of stream type.]]></Val>
@@ -4267,7 +4267,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is specified with a non-null value, but no metadata is available for the reader. The expected type can only be specified if metadata is made available to the reader.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[NULL 以外の値を含むパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。想定している型は、リーダーでメタデータが使用できる場合のみ指定できます。]]></Val>
+            <Val><![CDATA[null 値ではない値を持つパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。想定されている型は、リーダーでメタデータが使用できる場合のみ指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4294,7 +4294,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A metadata document cannot be read from request payloads. Metadata documents are only supported in responses.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[メタデータ ドキュメントを要求ペイロードから読み取ることはできません。メタデータ ドキュメントは応答のみでサポートされます。]]></Val>
+            <Val><![CDATA[メタデータ ドキュメントを要求ペイロードから読み取ることはできません。メタデータ ドキュメントは応答のみでサポートされています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4315,7 +4315,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is specified with a non-null value, but no metadata is available for the reader. The operation import can only be specified if metadata is made available to the reader.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[NULL 以外の値を含むパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。操作インポートは、リーダーでメタデータが使用できる場合のみ指定できます。]]></Val>
+            <Val><![CDATA[null 値ではない値を持つパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。操作インポートは、リーダーでメタデータが使用できる場合のみ指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4324,7 +4324,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The parameter '{0}' is specified with a non-null value, but no metadata is available for the reader. The operation can only be specified if metadata is made available to the reader.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[NULL 以外の値を含むパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。操作は、リーダーでメタデータが使用できる場合のみ指定できます。]]></Val>
+            <Val><![CDATA[null 値ではない値を持つパラメーター '{0}' が指定されていますが、リーダーに使用できるメタデータがありません。操作は、リーダーでメタデータが使用できる場合のみ指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4333,7 +4333,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A parameter payload cannot be read from a response payload. Parameter payloads are only supported in requests.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[パラメーター ペイロードを応答ペイロードから読み取ることはできません。パラメーター ペイロードは、要求内でのみサポートされています。]]></Val>
+            <Val><![CDATA[パラメーター ペイロードを応答ペイロードから読み取ることはできません。パラメーター ペイロードは、要求のみでサポートされています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4378,7 +4378,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' with singleton cardinality on type '{1}' was specified for reading a collection of entity reference links. A navigation property with collection cardinality has to be provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[エンティティ参照リンクのコレクションを読み取るために、型 '{1}' の単一の基数を持つナビゲーション プロパティ '{0}' が指定されました。コレクションの基数を持つナビゲーション プロパティを指定する必要があります。]]></Val>
+            <Val><![CDATA[エンティティ参照リンクのコレクションを読み取るために、型 '{1}' の singleton のカーディナリティを持つナビゲーション プロパティ '{0}' が指定されました。カーディナリティを持つナビゲーション プロパティを指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4399,7 +4399,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Both startResourceXmlCustomizationCallback and endResourceXmlCustomizationCallback must be either null or non-null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[startResourceXmlCustomizationCallback と endResourceXmlCustomizationCallback の両方とも null にするか、両方とも null 以外にする必要があります。]]></Val>
+            <Val><![CDATA[startResourceXmlCustomizationCallback と endResourceXmlCustomizationCallback の両方とも null 値にするか、両方とも null 値ではない値にする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Both startEntryXmlCustomizationCallback and endEntryXmlCustomizationCallback must be either null or non-null.]]></Val>
@@ -4429,7 +4429,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No model was specified in the ODataMessageWriterSettings; a model has to be provided in the ODataMessageWriterSettings when CreateODataParameterWriter is called with a non-null operation.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataMessageWriterSettings でモデルが指定されませんでした。NULL 以外の操作を指定して CreateODataParameterWriter を呼び出すときは、ODataMessageWriterSettings でモデルを指定する必要があります。]]></Val>
+            <Val><![CDATA[ODataMessageWriterSettings でモデルが指定されませんでした。null 値ではない操作を指定して CreateODataParameterWriter を呼び出すときは、ODataMessageWriterSettings でモデルを指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4456,7 +4456,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot write the value 'null' in raw format.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Raw 形式では値 'NULL' を書き込むことはできません。]]></Val>
+            <Val><![CDATA[未処理の形式では値 'null' を書き込むことはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4465,7 +4465,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The stream property '{0}' cannot be written to the payload as a top level property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ストリーム プロパティ '{0}' を最上位レベルのプロパティとしてペイロードに書き込むことはできません。]]></Val>
+            <Val><![CDATA[ストリーム プロパティ '{0}' をトップレベルのプロパティとしてペイロードに書き込むことはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The named stream property '{0}' cannot be written to the payload as a top level property.]]></Val>
@@ -4486,7 +4486,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Top-level entity reference link collection payloads are not allowed in requests.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[最上位レベルのエンティティ参照リンク コレクションのペイロードは、要求では許可されません。]]></Val>
+            <Val><![CDATA[トップレベルのエンティティ参照リンク コレクションのペイロードは、要求では許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4507,7 +4507,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The payload kind '{0}' used in the last call to ODataUtils.SetHeadersForPayload is incompatible with the payload being written, which is of kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ODataUtils.SetHeadersForPayload への直前の呼び出しに使用したペイロードの種類 '{0}' は、書き込んでいるペイロードの種類 '{1}' と互換性がありません。]]></Val>
+            <Val><![CDATA[ODataUtils.SetHeadersForPayload に対する前回の呼び出しに使用したペイロードの種類 '{0}' は、書き込み中のペイロードの種類 '{1}' との互換性がありません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The payload kind '{0}' used in the last call to ODataUtils.SetHeadersForPayload is incompatible with the payload being written which is of kind '{1}'.]]></Val>
@@ -4537,7 +4537,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' specified as the collection's item type is not primitive, enum or complex. An ODataCollectionWriter can only write collections of primitive, enum or complex values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[コレクションのアイテム型として指定された型 '{0}' は、プリミティブ型、列挙型、または複合型ではありません。ODataCollectionWriter が書き込むことができるのは、プリミティブ型、列挙型、または複合型の値のコレクションのみです。]]></Val>
+            <Val><![CDATA[コレクションのアイテム型として指定された型 '{0}' は、プリミティブ、列挙、または複合ではありません。ODataCollectionWriter を使って書き込むことができるのは、プリミティブ値、列挙値、複合値のコレクションのみです。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The type '{0}' specified as the collection's item type is not primitive or complex. An ODataCollectionWriter can only write collections of primitive or complex values.]]></Val>
@@ -4558,7 +4558,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The WriteError method or the WriteErrorAsync method on the ODataMessageWriter has already been called to write an error payload. Only a single error payload can be written with each ODataMessageWriter instance.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataMessageWriter の WriteError メソッドまたは WriteErrorAsync メソッドがエラー ペイロードを書き込むために既に呼び出されています。ODataMessageWriter の各インスタンスを使用して、エラー ペイロードを 1 つだけ書き込むことができます。]]></Val>
+            <Val><![CDATA[ODataMessageWriter の WriteError メソッドまたは WriteErrorAsync メソッドがエラー ペイロードを書き込むために既に呼び出されています。ODataMessageWriter の各インスタンスで、エラー ペイロードを 1 つだけ書き込むことができます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4567,7 +4567,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataMessageWriter has already been used to write a message payload. An ODataMessageWriter can only be used once to write a payload for a given message.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataMessageWriter はメッセージ ペイロードの書き込みに既に使用されています。ODataMessageWriter は特定のメッセージのペイロードの書き込みに 1 回のみ使用できます。]]></Val>
+            <Val><![CDATA[ODataMessageWriter はメッセージ ペイロードの書き込みに既に使用されています。ODataMessageWriter は指定されたメッセージのペイロードの書き込みに一度だけ使用できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4585,7 +4585,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Neither the 'OData.EntityInstanceUri' nor the 'OData.EntitySetUriSuffix' annotation was found for entity set '{0}'. One of these annotations is required.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[エンティティ セット '{0}' には、'OData.EntityInstanceUri' 注釈も 'OData.EntitySetUriSuffix' 注釈も見つかりませんでした。これらの注釈のいずれかが必要です。]]></Val>
+            <Val><![CDATA[エンティティ セット '{0}' には、'OData.EntityInstanceUri' 注釈も 'OData.EntitySetUriSuffix' 注釈も見つかりませんでした。これらの注釈のうち一つは必須です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4594,7 +4594,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' doesn't have the 'OData.EntitySetUri' annotation. This annotation is required.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[エンティティ セット '{0}' には、'OData.EntitySetUri' 注釈が含まれていません。この注釈が必要です。]]></Val>
+            <Val><![CDATA[エンティティ セット '{0}' には、'OData.EntitySetUri' 注釈が含まれていません。この注釈 は必須です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4651,7 +4651,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ServiceRoot property in ODataMessageWriterSettings.ODataUri must be set when writing a payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[ペイロードを書き込むときには、ODataMessageWriterSettings.ODataUri の ServiceRoot を設定する必要があります。]]></Val>
+            <Val><![CDATA[ペイロードを書き込むときには、ODataMessageWriterSettings.ODataUri の ServiceRoot プロパティを設定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The ServiceRoot property in ODataMessageWriterSettings.ODataUri must be set when when writing a payload.]]></Val>
@@ -4672,7 +4672,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous parameter reader. All calls on a parameter reader instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[同期パラメーター リーダーで非同期操作が呼び出されました。パラメーター リーダー インスタンスのすべての呼び出しは、同期にするか、非同期にする必要があります。]]></Val>
+            <Val><![CDATA[同期パラメーター リーダーで非同期操作が呼び出されました。パラメーター リーダー インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An asynchronous operation was called on a synchronous parameter reader. Calls on a parameter reader instance must be either all synchronous or all asynchronous.]]></Val>
@@ -4684,7 +4684,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' method has already been called for the parameter '{1}'. Only one create reader method call is allowed for each resource, resource set, or collection parameter.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="Auto" Confidence="100">
-            <Val><![CDATA['{0}' メソッドはパラメーター '{1}' に対して既に呼び出されました。リーダーの作成メソッドの呼び出しを使用できるのは、リソース、リソース セット、またはコレクションのパラメーターごとに一度だけです。]]></Val>
+            <Val><![CDATA['{0}' メソッドはパラメーター '{1}' に対して既に呼び出されています。リーダーの作成メソッドの呼び出しを使用できるのは、リソース、リソース セット、またはコレクションのパラメーターごとに一度だけです。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The '{0}' method has already been called for the parameter '{1}'. Only one create reader method call is allowed for each entry, feed, or collection parameter.]]></Val>
@@ -4696,7 +4696,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Multiple parameters with the name '{0}' were found in the request payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[要求ペイロードで、'{0}' という名前のパラメーターが複数見つかりました。]]></Val>
+            <Val><![CDATA[要求ペイロード内で、'{0}' という名前のパラメーターが複数見つかりました。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Multiple parameters with the name '{0}' encountered in the request payload.]]></Val>
@@ -4732,7 +4732,7 @@
         <Str Cat="Text">
           <Val><![CDATA[One or more parameters of the operation '{0}' are missing from the request payload. The missing parameters are: {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[要求ペイロードに、操作 '{0}' の 1 つ以上のパラメーターが見つかりません。見つからないパラメーター:{1}.]]></Val>
+            <Val><![CDATA[要求ペイロードに、操作 '{0}' の 1 つまたは複数のパラメーターが見つかりません。見つからないパラメーター:{1}.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[One or more parameters of the function import '{0}' are missing from the request payload. The missing parameters are: {1}.]]></Val>
@@ -4744,7 +4744,7 @@
         <Str Cat="Text">
           <Val><![CDATA[ODataParameterReader.ReadAsync or ODataParameterReader.Read was called in an invalid state. No further calls can be made to the reader in state '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataParameterReader.ReadAsync または ODataParameterReader.Read が無効な状態で呼び出されました。状態 '{0}' でリーダーに対してこれ以上呼び出しを行うことはできません。]]></Val>
+            <Val><![CDATA[ODataParameterReader.ReadAsync または ODataParameterReader.Read が無効な状態で呼び出されました。状態 '{0}' のリーダーに対してこれ以上呼び出しを行うことはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4753,7 +4753,7 @@
         <Str Cat="Text">
           <Val><![CDATA[ODataParameterReader.ReadAsync or ODataParameterReader.Read was called in the '{0}' state. '{1}' must be called in this state, and the created reader must be in the 'Completed' state before the next ODataParameterReader.ReadAsync or ODataParameterReader.Read can be called.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ODataParameterReader.ReadAsync または ODataParameterReader.Read が '{0}' 状態で呼び出されました。'{1}' はこの状態で呼び出される必要があり、次の ODataParameterReader.ReadAsync または ODataParameterReader.Read を呼び出すまでは、作成されたリーダーは 'Completed' 状態である必要があります。]]></Val>
+            <Val><![CDATA[ODataParameterReader.ReadAsync または ODataParameterReader.Read が '{0}' 状態で呼び出されました。'{1}' はこの状態で呼び出される必要があり、作成されたリーダーが 'Completed' 状態になってから ODataParameterReader.ReadAsync または ODataParameterReader.Read を呼び出す必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[ODataParameterReader.ReadAsync or ODataParameterReader.Read was called in the '{0}' state. '{1}' must be called in this state and the created reader must be in the 'Completed' state before the next ODataParameterReader.ReadAsync or ODataParameterReader.Read can be called.]]></Val>
@@ -4765,7 +4765,7 @@
         <Str Cat="Text">
           <Val><![CDATA[ODataParameterReader.ReadAsync or ODataParameterReader.Read was called in the '{0}' state and '{1}' was called but the created reader is not in the 'Completed' state. The created reader must be in 'Completed' state before the next ODataParameterReader.ReadAsync or ODataParameterReader.Read can be called.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ODataParameterReader.ReadAsync または ODataParameterReader.Read が '{0}' 状態で呼び出され、'{1}' が呼び出されましたが、作成されたリーダーが 'Completed' 状態ではありません。次の ODataParameterReader.ReadAsync または ODataParameterReader.Read を呼び出す前に、作成されたリーダーは 'Completed' 状態である必要があります。]]></Val>
+            <Val><![CDATA[ODataParameterReader.ReadAsync または ODataParameterReader.Read が '{0}' 状態で呼び出され、'{1}' が呼び出されましたが、作成されたリーダーが 'Completed' 状態ではありません。作成されたリーダーが 'Completed' 状態になってから ODataParameterReader.ReadAsync または ODataParameterReader.Read を呼び出す必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4774,7 +4774,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous parameter reader. All calls on a parameter reader instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[非同期パラメーター リーダーで同期操作が呼び出されました。パラメーター リーダー インスタンスのすべての呼び出しは、同期にするか、非同期にする必要があります。]]></Val>
+            <Val><![CDATA[非同期パラメーター リーダーで同期操作が呼び出されました。パラメーター リーダー インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A synchronous operation was called on an asynchronous parameter reader. Calls on a parameter reader instance must be either all synchronous or all asynchronous.]]></Val>
@@ -4786,7 +4786,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous parameter writer. All calls on a parameter writer instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[同期パラメーター ライターで非同期操作が呼び出されました。パラメーター ライター インスタンスのすべての呼び出しは、同期にするか、非同期にする必要があります。]]></Val>
+            <Val><![CDATA[同期パラメーター ライターで非同期操作が呼び出されました。パラメーター ライター インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An asynchronous operation was called on a synchronous parameter writer. Calls on a parameter writer instance must be either all synchronous or all asynchronous.]]></Val>
@@ -4933,7 +4933,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous parameter writer. All calls on a parameter writer instance must be either synchronous or asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[非同期パラメーター ライターで同期操作が呼び出されました。パラメーター ライター インスタンスのすべての呼び出しは、同期にするか、非同期にする必要があります。]]></Val>
+            <Val><![CDATA[非同期パラメーター ライターで同期操作が呼び出されました。パラメーター ライター インスタンスでのすべての呼び出しを、同期、非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A synchronous operation was called on an asynchronous parameter writer. Calls on a parameter writer instance must be either all synchronous or all asynchronous.]]></Val>
@@ -4957,7 +4957,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Writing an in-stream error is not supported when writing a parameter payload.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ストリーム内のエラーの書き込みは、パラメーター ペイロードを作成するときはサポートされません。]]></Val>
+            <Val><![CDATA[ストリーム内のエラーの書き込みは、パラメーター ペイロードへの書き込み時はサポートされません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[In-stream error is not supported when writing a parameter payload.]]></Val>
@@ -4969,7 +4969,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot create an ODataPrimitiveValue from null; use ODataNullValue instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ODataPrimitiveValue を NULL から作成することはできません。代わりに、ODataNullValue を使用してください。]]></Val>
+            <Val><![CDATA[ODataPrimitiveValue を null 値 から作成することはできません。代わりに、ODataNullValue を使用してください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4987,7 +4987,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous reader. Calls on a reader instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同期リーダーで非同期操作が呼び出されました。リーダー インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期リーダーで非同期操作が呼び出されました。リーダー インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5014,7 +5014,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous reader. Calls on a reader instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期リーダーで同期操作が呼び出されました。リーダー インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期リーダーで同期操作が呼び出されました。リーダー インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5035,7 +5035,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The IODataRequestMessage.GetStream or IODataRequestMessageAsync.GetStreamAsync method returned a null stream value. The message can never return a null stream.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[IODataRequestMessage.GetStream メソッドまたは IODataRequestMessageAsync.GetStreamAsync メソッドが NULL ストリーム値を返しました。メッセージは NULL ストリームを返すことはできません。]]></Val>
+            <Val><![CDATA[IODataRequestMessage.GetStream メソッドまたは IODataRequestMessageAsync.GetStreamAsync メソッドが null ストリーム値を返しました。メッセージは null ストリーム値を返すことはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The IODataRequestMessage.GetStream or IODataRequestMessageAsync.GetStreamAsync method returned a null stream value. The message must never return a null stream.]]></Val>
@@ -5047,7 +5047,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The IODataRequestMessageAsync.GetStreamAsync method returned null. An asynchronous method that returns a task can never return null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[IODataRequestMessageAsync.GetStreamAsync メソッドが NULL を返しました。タスクを返す非同期メソッドは、NULL を返すことができません。]]></Val>
+            <Val><![CDATA[IODataRequestMessageAsync.GetStreamAsync メソッドが null 値を返しました。タスクを返す非同期メソッドは、null 値を返すことができません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The IODataRequestMessageAsync.GetStreamAsync method returned null. An asynchronous method which returns a task must never return null.]]></Val>
@@ -5077,7 +5077,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The key property '{0}' on type '{1}' has a null value. Key properties must not have null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[型 '{1}' のキー プロパティ '{0}' には NULL 値が指定されています。キー プロパティには NULL 値を指定しないでください。]]></Val>
+            <Val><![CDATA[型 '{1}' のキー プロパティ '{0}' には null 値が指定されています。キー プロパティには null 値を指定しないでください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5128,7 +5128,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The IODataResponseMessage.GetStream or IODataResponseMessageAsync.GetStreamAsync method returned a null stream value. The message can never return a null stream.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[IODataResponseMessage.GetStream メソッドまたは IODataResponseMessageAsync.GetStreamAsync メソッドが NULL ストリーム値を返しました。メッセージは NULL ストリームを返すことはできません。]]></Val>
+            <Val><![CDATA[IODataResponseMessage.GetStream メソッドまたは IODataResponseMessageAsync.GetStreamAsync メソッドが null ストリーム値を返しました。メッセージは null ストリーム値を返すことはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The IODataResponseMessage.GetStream or IODataResponseMessageAsync.GetStreamAsync method returned a null stream value. The message must never return a null stream.]]></Val>
@@ -5140,7 +5140,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The IODataResponseMessageAsync.GetStreamAsync method returned null. An asynchronous method that returns a task can never return null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[IODataResponseMessageAsync.GetStreamAsync メソッドが NULL を返しました。タスクを返す非同期メソッドは、NULL を返すことができません。]]></Val>
+            <Val><![CDATA[IODataResponseMessageAsync.GetStreamAsync メソッドが null 値を返しました。タスクを返す非同期メソッドは、null 値を返すことができません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The IODataResponseMessageAsync.GetStreamAsync method returned null. An asynchronous method which returns a task must never return null.]]></Val>
@@ -5170,7 +5170,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A navigation property can only be the last segment in $select.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ナビゲーション プロパティには、$select 内の最後のセグメントのみを指定できます。]]></Val>
+            <Val><![CDATA[ナビゲーション プロパティは、$select 内の最後のセグメントにのみ指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5179,7 +5179,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An operation can only be the last segment in $select.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[操作には、$select 内の最後のセグメントのみを指定できます。]]></Val>
+            <Val><![CDATA[操作は、$select 内の最後のセグメントにのみ指定できます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5206,7 +5206,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type verification failed. Expected non-nullable type '{0}' but received a null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型の検証に失敗しました。NULL 値が許可されない型 '{0}' が必要でしたが、NULL 値を受け取りました。]]></Val>
+            <Val><![CDATA[型の検証に失敗しました。Null 非許容型 '{0}' が必要でしたが、null 値を受け取りました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5215,7 +5215,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type verification failed. Expected type '{0}' but received non-matching null value with associated type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型の検証に失敗しました。型 '{0}' が必要でしたが、関連付けられた型 '{1}' に対応しない NULL 値を受け取りました。]]></Val>
+            <Val><![CDATA[型の検証に失敗しました。型 '{0}' が必要でしたが、関連付けられた型 '{1}' に適合しない null 値を受け取りました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5311,7 +5311,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An asynchronous operation was called on a synchronous writer. Calls on a writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[同期ライターで非同期操作が呼び出されました。ライター インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[同期ライターで非同期操作が呼び出されました。ライター インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5359,7 +5359,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataResourceSet.DeltaLink property must be null for expanded resource sets. Delta link is not supported on expanded resource sets.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[拡張されたリソース セットの ODataResourceSet.DeltaLink プロパティは null にする必要があります。差分リンクは拡張されたリソース セットではサポートされていません。]]></Val>
+            <Val><![CDATA[拡張されたリソース セットの ODataResourceSet.DeltaLink プロパティは null 値にする必要があります。差分リンクは拡張されたリソース セットではサポートされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5446,7 +5446,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot transition from state '{0}' to state '{1}'. You must first call ODataWriter.WriteEnd to finish writing a null ODataResource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[状態 '{0}' から状態 '{1}' に遷移できません。最初に ODataWriter.WriteEnd を呼び出して null の ODataResource の書き込みを完了する必要があります。]]></Val>
+            <Val><![CDATA[状態 '{0}' から状態 '{1}' に遷移できません。最初に ODataWriter.WriteEnd を呼び出して null 値の ODataResource の書き込みを完了する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5512,7 +5512,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataResourceSet.Count must be null for request payloads. Query counts are only supported in responses.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[要求ペイロードでは、ODataResourceSet.Count は null でなければなりません。クエリ カウントは応答でのみサポートされています。]]></Val>
+            <Val><![CDATA[要求ペイロードでは、ODataResourceSet.Count は null 値 でなければなりません。クエリ カウントは応答でのみサポートされています。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The ODataFeed.Count must be null for request payloads. Query counts are only supported in responses.]]></Val>
@@ -5524,7 +5524,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A synchronous operation was called on an asynchronous writer. Calls on a writer instance must be either all synchronous or all asynchronous.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[非同期ライターで同期操作が呼び出されました。ライター インスタンスの呼び出しは、すべて同期にするか、すべて非同期にするかのいずれかにする必要があります。]]></Val>
+            <Val><![CDATA[非同期ライターで同期操作が呼び出されました。ライター インスタンスでの呼び出しは、すべて同期、すべて非同期のいずれかにする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5572,7 +5572,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The return type from the operation is not possible with the given entity set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[操作の戻り値の型が、指定されたエンティティ セットで無効です。]]></Val>
+            <Val><![CDATA[操作の戻り値の型が、指定されたエンティティ セットでは不可能です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5581,7 +5581,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No type could be computed for this Segment since there were multiple possible operations with varying return types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[さまざまな戻り値の型で実行可能な操作が複数あるため、このセグメントのタイプを計算できませんでした。]]></Val>
+            <Val><![CDATA[さまざまな戻り値の型を持つ実行可能な操作が複数あるため、このセグメントのタイプを計算できませんでした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5608,7 +5608,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type cast segment '{0}' after a collection which is not of entity or complex type is not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[エンティティ型や複合型でないコレクションの後に型キャスト セグメント '{0}' を使用することはできません。]]></Val>
+            <Val><![CDATA[エンティティ型や複合型でないコレクションの後に型キャストされたセグメント '{0}' を使用することはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5635,7 +5635,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An annotation with name '{0}' for property '{1}' was detected after the property, or after an annotation for another property. In OData, annotations for a property must be in a single group and must appear before the property they annotate.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[プロパティ '{1}' の '{0}' という名前の注釈が、そのプロパティの後、または別のプロパティ注釈の後に検出されました。OData では、プロパティ注釈は 1 つのグループ内に含まれ、注釈を付けるプロパティの前に指定する必要があります。]]></Val>
+            <Val><![CDATA[プロパティ '{1}' の '{0}' という名前の注釈が、そのプロパティの後、または別のプロパティ注釈の後に検出されました。OData では、プロパティ注釈は単一のグループ内に含まれ、注釈を付けるプロパティの前に指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5644,7 +5644,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Query option '{0}' was specified more than once, but it must be specified at most once.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[クエリ オプション '{0}' が複数回指定されていますが、指定する必要があるのは 1 回だけです。]]></Val>
+            <Val><![CDATA[クエリ オプション '{0}' が複数回指定されていますが、指定する必要があるのは多くても 1 回だけです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5677,7 +5677,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' refers to the item type '{1}' which is not assignable to the expected item type '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は、予期されたアイテム型 '{2}' に割り当てることができないアイテム型 '{1}' を参照しています。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は、必要とされるアイテム型 '{2}' に割り当てができないアイテム型 '{1}' を参照しています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5686,7 +5686,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' references the entity set with name '{1}'; however, the name of the expected entity set is '{2}' and does not match the entity set referenced in the context URI.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は '{1}' という名前のエンティティ セットを参照していますが、予期されたエンティティ セットの名前は '{2}' で、コンテキスト URI で参照されているエンティティ セットと一致しません。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は '{1}' という名前のエンティティ セットを参照していますが、必要とされるエンティティ セットの名前は '{2}' で、コンテキスト URI で参照されているエンティティ セットと一致しません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5695,7 +5695,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' references the entity type with name '{1}'; however, the name of the expected entity type is '{2}' which is not compatible with the entity type with name '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は '{1}' という名前のエンティティ型を参照していますが、予期されたエンティティ型の名前は '{2}' で、'{1}' という名前のエンティティ型と互換性がありません。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は '{1}' という名前のエンティティ型を参照していますが、必要とされるエンティティ型の名前は '{2}' で、'{1}' という名前のエンティティ型と互換性がありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5704,7 +5704,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' references the property with name '{1}' on type '{2}'; however, the declaring type of the expected property is '{3}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は型 '{2}' の '{1}' という名前のプロパティを参照していますが、予期されたプロパティの宣言する型は '{3}' です。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は型 '{2}' の '{1}' という名前のプロパティを参照していますが、必要とされたプロパティの宣言する型は '{3}' です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5713,7 +5713,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The context URI '{0}' references the property with name '{1}' on type '{2}'; however, the name of the expected property is '{3}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コンテキスト URI '{0}' は型 '{2}' の '{1}' という名前のプロパティを参照していますが、予期されるプロパティの名前は '{3}' です。]]></Val>
+            <Val><![CDATA[コンテキスト URI '{0}' は型 '{2}' の '{1}' という名前のプロパティを参照していますが、必要なプロパティの名前は '{3}' です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5722,7 +5722,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No URI value was found for an entity reference link. A single URI value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[エンティティ参照リンクに URI 値が見つかりませんでした。1 つの URI 値が必要です。]]></Val>
+            <Val><![CDATA[エンティティ参照リンクに URI 値が見つかりませんでした。単独の URI 値が必要です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[No URI value was found for an entity reference link. A single URI value is expected.]]></Val>
@@ -5734,7 +5734,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The base URI '{0}' specified in ODataMessageReaderSettings.BaseUri is invalid; it must be either null or an absolute URI.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ODataMessageReaderSettings.BaseUri で指定されたベース URI '{0}' が無効です。NULL または絶対 URI にする必要があります。]]></Val>
+            <Val><![CDATA[ODataMessageReaderSettings.BaseUri で指定されたベース URI '{0}' が無効です。null 値または絶対 URI にする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The base URI '{0}' specified in ODataMessageReaderSettings.BaseUri is invalid; it must either be null or an absolute URI.]]></Val>
@@ -5746,7 +5746,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property or operation import name '{0}' was read from the payload; however, the name of the expected property or operation import is '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[プロパティまたは操作インポートの名前 '{0}' がペイロードから読み取られましたが、予期されるプロパティまたは操作インポートの名前は '{1}' です。]]></Val>
+            <Val><![CDATA[プロパティまたは操作インポートの名前 '{0}' がペイロードから読み取られましたが、必要なプロパティまたは操作インポートの名前は '{1}' です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The property or function import name '{0}' was read from the payload; however, the name of the expected property or function import is '{1}'.]]></Val>
@@ -5758,7 +5758,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A null value was found for the property named '{0}', which has the expected type '{1}[Nullable=False]5D;'. The expected type '{1}[Nullable=False]5D;' does not allow null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[想定された型 '{1}[Nullable=False]5D;' が指定された、'{0}' という名前のプロパティで NULL 値が見つかりました。想定された型 '{1}[Nullable=False]5D;' では NULL 値が許可されません。]]></Val>
+            <Val><![CDATA[想定された型 '{1}[Nullable=False]5D;' が指定された、'{0}' という名前のプロパティで null 値が見つかりました。想定された型 '{1}[Nullable=False]5D;' では NULL 値が許可されません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5767,7 +5767,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A null value was found with the expected type '{0}[Nullable=False]5D;'. The expected type '{0}[Nullable=False]5D;' does not allow null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[想定された型 '{0}[Nullable=False]5D;' で NULL 値が見つかりました。想定された型 '{0}[Nullable=False]5D;' では NULL 値が許可されません。]]></Val>
+            <Val><![CDATA[想定された型 '{0}[Nullable=False]5D;' で null 値が見つかりました。想定された型 '{0}[Nullable=False]5D;' では NULL 値が許可されません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5827,7 +5827,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The request URI is not valid. Since the segment '{0}' refers to a collection, this must be the last segment in the request URI or it must be followed by an function or action that can be bound to it otherwise all intermediate segments must refer to a single resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[要求 URI が無効です。セグメント '{0}' はコレクションを参照しているため、このセグメントを要求 URI 内の最後のセグメントにするか、このセグメントにバインドすることができる関数またはアクションをその後に続ける必要があります。それら以外の場合は、すべての中間セグメントで単一のリソースを参照する必要があります。]]></Val>
+            <Val><![CDATA[要求 URI が無効です。セグメント '{0}' はコレクションを参照しているため、このセグメントを要求 URI 内の最後のセグメントにするか、このセグメントにバインドすることができる関数またはアクションをその後に続ける必要があります。そうでない場合は、すべての中間セグメントで単一のリソースを参照する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The request URI is not valid. Since the segment '{0}' refers to a collection, this must be the last segment in the request URI. All intermediate segments must refer to a single resource.]]></Val>
@@ -5860,7 +5860,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Empty segment encountered in request URL. Please make sure that a valid request URL is specified.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[要求 URL で空のセグメントが見つかりました。有効な要求 URL が指定されていることを確認してください。]]></Val>
+            <Val><![CDATA[要求 URL で空のセグメントが検出されました。有効な要求 URL が指定されていることを確認してください。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5905,7 +5905,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The KeySegment provided (Id = {0}) is either null, having no keys, or does not target a single resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[指定した KeySegment (Id = {0}) が NULL でないか、キーを持っていないか、単一のリソースをターゲットにしていません。]]></Val>
+            <Val><![CDATA[指定した KeySegment (Id = {0}) が null 値でないか、キーを持っていないか、単一のリソースをターゲットにしていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5971,7 +5971,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The request URI is not valid. The segment '{0}' cannot include key predicates, however it may end with empty parenthesis.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[要求 URI が無効です。セグメント '{0}' にキー述語を含めることはできませんが、空のかっこで終わる場合があります。]]></Val>
+            <Val><![CDATA[要求 URI が無効です。セグメント '{0}' にキー述語を含めることはできませんが、空のかっこで終わることができます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6049,7 +6049,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Any selection that is expanded must have the same type qualifier on both selection and expansion.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[展開されている選択内容には、selection と expansio の両方で同じ型の修飾子が必要です。]]></Val>
+            <Val><![CDATA[展開されている選択内容にはすべて、selection と expansio の両方で同じ型の修飾子が必要です。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6085,7 +6085,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Only properties specified in $expand can be traversed in $select query options. Selected item was '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[$select クエリ オプションでスキャンできるのは、$expand で指定されたプロパティだけです。選択したアイテムは {0} でした。]]></Val>
+            <Val><![CDATA[$select クエリ オプションで走査できるのは、$expand で指定されたプロパティだけです。選択したアイテムは {0} でした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6139,7 +6139,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The maximum depth setting must be a number greater than zero.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[深さの上限の設定には 0 より大きい数値を指定する必要があります。]]></Val>
+            <Val><![CDATA[深度の上限には 0 より大きい数値を設定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6157,7 +6157,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The CLR literal of type '{0}' is not supported to be written as a Uri part.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{0}' の CLR リテラルを URI 部分として記述することはサポートされていません。]]></Val>
+            <Val><![CDATA[型 '{0}' の CLR リテラルを URI の一部として記述することはサポートされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6166,7 +6166,7 @@
         <Str Cat="Text">
           <Val><![CDATA[QueryToken '{0}' is not supported to be written as a Uri part.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[QueryToken '{0}' を URI 部分として記述することはサポートされていません。]]></Val>
+            <Val><![CDATA[QueryToken '{0}' を URI の一部として記述することはサポートされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6193,7 +6193,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot get parent entity type for term '{0}' to auto populate all navigation properties.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[用語 '{0}' の親エンティティ型を取得して、すべてのナビゲーション プロパティの自動挿入を行うことはできません。]]></Val>
+            <Val><![CDATA['{0}' という語の親エンティティ型を取得して、すべてのナビゲーション プロパティの自動挿入を行うことはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6202,7 +6202,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Term '{0}' is not valid in a $expand expression, as only $level option is allowed when the expanded navigation property is star.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[用語 '{0}' を $expand 式で使うことはできません。展開されたナビゲーション プロパティがアスタリスクである場合に、許可されているオプションは $level のみです。]]></Val>
+            <Val><![CDATA['{0}' という語を $expand 式で使うことはできません。展開されたナビゲーション プロパティがアスタリスクである場合に、許可されているオプションは $level のみです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6211,7 +6211,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Term '{0}' is not valid in a $expand expression, no option is allowed when the expanded navigation property is */$ref.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[用語 '{0}' を $expand 式で使うことはできません。展開されたナビゲーション プロパティが */$ref である場合に、許可されているオプションはありません。]]></Val>
+            <Val><![CDATA['{0}' という語を $expand 式で使うことはできません。展開されたナビゲーション プロパティが */$ref である場合に、許可されているオプションはありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6220,7 +6220,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Term '{0}' is not valid in a $expand expression as multiple stars are not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[複数のアスタリスクは許可されていないため、用語 '{0}' を $expand 式で使うことができません。]]></Val>
+            <Val><![CDATA[複数のアスタリスクは許可されていないため、 '{0}' という語を $expand 式で使うことができません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6337,7 +6337,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Parameter 'relativeUri' must be a relative Uri if serviceRoot is not specified.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[serviceRoot が指定されていない場合、パラメーター 'relativeUri' は相対 URL である必要があります。]]></Val>
+            <Val><![CDATA[serviceRoot が指定されていない場合、パラメーター 'relativeUri' は相対 URIである必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6346,7 +6346,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' is not valid for $select or $expand, only structured types are allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[型 '{0}' は $select または $expand に対して無効です。構造化型のみを使用できます。]]></Val>
+            <Val><![CDATA[型 '{0}' は $select または $expand に対して無効です。構造化型のみが許可されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6463,7 +6463,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Recursion depth exceeded allowed limit.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[再帰の深さが許可されている上限を超えました。]]></Val>
+            <Val><![CDATA[再帰深度が許可されている上限を超えました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6535,7 +6535,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Count option must be a boolean value, it is set to '{0}' instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[count オプションにはブール値を指定する必要があります。代わりに、'{0}' に設定されています。]]></Val>
+            <Val><![CDATA[count オプションはブール値にする必要がありますが、'{0}' に設定されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6544,7 +6544,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Levels option must be a non-negative integer or 'max', it is set to '{0}' instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[levels オプションには、負以外の整数または 'max' を指定する必要があります。代わりに、'{0}' に設定されています。]]></Val>
+            <Val><![CDATA[levels オプションは、負ではない整数または 'max' にする必要がありますが、'{0}' に設定されています。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Levels option must be an integer or 'max', it is set to '{0}' instead.]]></Val>
@@ -6556,7 +6556,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Skip option must be a non-negative integer, it is set to '{0}' instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[skip オプションには、負以外の整数を指定する必要があります。代わりに、'{0}' に設定されています。]]></Val>
+            <Val><![CDATA[skip オプションは、負ではない整数にする必要がありますが、'{0}' に設定されています。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Skip option must be an integer, it is set to '{0}' instead.]]></Val>
@@ -6568,7 +6568,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Top option must be a non-negative integer, it is set to '{0}' instead.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[top オプションには、負以外の整数を指定する必要があります。代わりに、'{0}' に設定されています。]]></Val>
+            <Val><![CDATA[top オプションは、負ではない整数にする必要がありますが、'{0}' に設定されています。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Top option must be an integer, it is set to '{0}' instead.]]></Val>
@@ -6607,7 +6607,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Metadata' property on an {0} must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[{0} の 'Metadata' プロパティは NULL 以外の値に設定する必要があります。]]></Val>
+            <Val><![CDATA[{0} の 'Metadata' プロパティは null 値ではない値に設定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6616,7 +6616,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Target' property on an {0} must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[{0} の 'Target' プロパティは NULL 以外の値に設定する必要があります。]]></Val>
+            <Val><![CDATA[{0} の 'Target' プロパティは null 値ではない値に設定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The Target property on an {0} must be set to a non-null value.]]></Val>
@@ -6640,7 +6640,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Url' property on an ODataAssociationLink must be set to a non-null value that represents the association or associations the link references.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ODataAssociationLink の 'Url' プロパティは、リンクが参照する 1 つ以上の関連付けを表す NULL 以外の値に設定する必要があります。]]></Val>
+            <Val><![CDATA[ODataAssociationLink の 'Url' プロパティは、リンクが参照する 1 つ以上の関連付けを表す、 null 値ではない値に設定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The Url property on an ODataAssociationLink must be set to a non-null value that represents the association or associations the link references.]]></Val>
@@ -6652,7 +6652,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The '{0}' enumerable contains a null item. This enumerable cannot contain null items.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[列挙可能な '{0}' に NULL アイテムが含まれています。この列挙可能なオブジェクトに NULL アイテムを含めることはできません。]]></Val>
+            <Val><![CDATA[列挙可能な '{0}' に null 値のアイテムが含まれています。この列挙可能なオブジェクトに null 値のアイテムを含めることはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The {0} enumerable contains a null item. This enumerable cannot contain null items.]]></Val>
@@ -6664,7 +6664,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An incompatible primitive type '{0}[Nullable={1}]5D;' was found for an item that was expected to be of type '{2}[Nullable={3}]5D;'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[互換性がないプリミティブ型 '{0}[Nullable={1}]5D;' が、型 '{2}[Nullable={3}]5D;' であると予期していたアイテムで見つかりました。]]></Val>
+            <Val><![CDATA[型 '{2}[Nullable={3}]5D;' が必要とされていたアイテムで、互換性がないプリミティブ型 '{0}[Nullable={1}]5D;' が見つかりました。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6673,7 +6673,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A value was encountered that has a type name that is incompatible with the metadata. The value specified its type as '{0}', but the type specified in the metadata is '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[メタデータと互換性がない型名の値が検出されました。この値はその型を '{0}' と指定しましたが、メタデータで指定されている型は '{1}' です。]]></Val>
+            <Val><![CDATA[メタデータとの互換性がない型名を持つ値が検出されました。この型に指定されている値は '{0}' ですが、メタデータで指定されている型は '{1}' です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A value was encountered that has a type name that is incompatible with the metadata. The value specifies its type as '{0}', but the type specified in the metadata is '{1}'.]]></Val>
@@ -6685,7 +6685,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incompatible type kinds were found. The type '{0}' was found to be of kind '{2}' instead of the expected kind '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[互換性がない型の種類が検出されました。検出された型 '{0}' は、予期していた種類 '{1}' ではなく、種類 '{2}' でした。]]></Val>
+            <Val><![CDATA[互換性のない型の種類が検出されました。検出された型 '{0}' は、必要な種類 '{1}' ではなく、種類 '{2}' でした。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6715,7 +6715,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The boundary delimiter '{0}' is invalid. A boundary delimiter must be non-null, be non-empty, and have a maximum of {1} characters.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[境界区切り '{0}' は無効です。境界区切りには、NULL 以外の空でない、最大 {1} 文字の値を指定する必要があります。]]></Val>
+            <Val><![CDATA[境界区切り '{0}' は無効です。境界区切りには、null 値以外の空でない、最大 {1} 文字の値を指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The boundary delimiter '{0}' is invalid. A boundary delimiter must be non-null, non-empty and must can have a maximum of {1} characters.]]></Val>
@@ -6814,7 +6814,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A null value was detected in the items of a collection property value; non-nullable instances of collection types do not support null values as items.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[コレクション プロパティ値のアイテムで NULL 値が検出されました。コレクション型の NULL 非許容インスタンスでは、NULL 値がアイテムとしてサポートされません。]]></Val>
+            <Val><![CDATA[コレクション プロパティ値のアイテムで null 値が検出されました。コレクション型の NULL 非許容インスタンスでは、null 値がアイテムとしてサポートされていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6823,7 +6823,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A primitive value was specified; however, a value of the non-primitive type '{0}' was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[プリミティブ型の値が指定されましたが、非プリミティブ型 '{0}' の値が必要でした。]]></Val>
+            <Val><![CDATA[プリミティブ値が指定されましたが、プリミティブ型 '{0}' ではない値が必要とされていました。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A primitive value was specified where a value of non-primitive type '{0}' was expected.]]></Val>
@@ -6835,7 +6835,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A null value was found in a collection, but the expected collection item type '{0}' does not allow null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[コレクションに NULL 値が見つかりましたが、必要なコレクション アイテムの型 '{0}' では NULL 値が許可されません。]]></Val>
+            <Val><![CDATA[コレクションに null 値が見つかりましたが、必要とされるコレクション アイテムの型 '{0}' では null 値が許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6862,7 +6862,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property name '{0}' is invalid; property names must not contain any of the reserved characters {1}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[プロパティ名 '{0}' が無効です。プロパティ名には、予約文字 {1} のいずれも含めないでください。]]></Val>
+            <Val><![CDATA[プロパティ名 '{0}' が無効です。プロパティ名に、予約文字 {1} を含めることはできません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6883,7 +6883,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The maximum recursion depth limit was reached. The depth of nested values in a single property cannot exceed {0}.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[再帰の深さの上限に達しました。1 つのプロパティ内で入れ子にされた値の深さは {0} 個までにしてください。]]></Val>
+            <Val><![CDATA[再帰深度の上限に達しました。単独のプロパティ内で入れ子にされた値の深さは {0} までにしてください。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Recursion depth limit reached. The depth of nested values in a single property may not exceed {0}.]]></Val>
@@ -6895,7 +6895,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Name' property on a resource collection with the 'Url' '{0}' must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['Url' が '{0}' であるリソース コレクションの 'Name' プロパティには、NULL 以外の値を設定する必要があります。]]></Val>
+            <Val><![CDATA['Url' が '{0}' のリソース コレクションの 'Name' プロパティには、 null 値ではない値を設定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6904,7 +6904,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'Url' property on a resource collection must be set to a non-null value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[リソース コレクションの 'Url' プロパティには NULL 以外の値を設定する必要があります。]]></Val>
+            <Val><![CDATA['リソース コレクションの 'Url' プロパティには、 null 値ではない値を設定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6949,7 +6949,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A service document element without a Url was detected; a service document element must have a non-null Url value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[URL を含まないサービス ドキュメント要素が検出されました。サービス ドキュメント要素には NULL 以外の URL 値を含める必要があります。]]></Val>
+            <Val><![CDATA[URL を含まないサービス ドキュメント要素が検出されました。サービス ドキュメント要素には null 値ではない URL の値を含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6958,7 +6958,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataStreamReferenceValue item was found in a collection property value, which is not allowed. Collection properties can only have primitive and complex values as items.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[コレクション プロパティ値で ODataStreamReferenceValue アイテムが見つかりましたが、このアイテムは許可されません。コレクション プロパティには、アイテムとしてプリミティブ型と複合型の値のみを含めることができます。]]></Val>
+            <Val><![CDATA[コレクション プロパティ値で ODataStreamReferenceValue アイテムが見つかりましたが、これは許可されていません。コレクション プロパティには、プリミティブ値と複合値のみをアイテムとして含めることができます。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An ODataStreamReferenceValue item was found in a collection property, which is invalid. Collection properties only support primitive and complex values as items.]]></Val>
@@ -6979,7 +6979,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A type named '{0}' could not be resolved by the model. When a model is available, each type name must resolve to a valid type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['{0}' という名前の型はモデルで解決できません。モデルが使用可能な場合、各型名は有効な型に解決される必要があります。]]></Val>
+            <Val><![CDATA['{0}' という名前の型はこのモデルで解決できません。モデルが使用可能な場合、型名はそれぞれ有効な型に解決される必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6997,7 +6997,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A null value was detected when enumerating the collections in a workspace. Workspace collections cannot be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[ワークスペースのコレクションを列挙中に NULL 値が検出されました。ワークスペースのコレクションを NULL にすることはできません。]]></Val>
+            <Val><![CDATA[URL を含まないサービス ドキュメント要素が検出されました。サービス ドキュメント要素には null 値ではない URL の値を含める必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7006,7 +7006,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid duration value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[値 {0} は、継続時間の有効な値ではありません。]]></Val>
+            <Val><![CDATA[値 {0} は、期間の有効な値ではありません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7024,7 +7024,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The collection property '{0}' has a null value, which is not allowed. In OData, collection properties cannot have null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[コレクション プロパティ '{0}' に NULL 値が含まれていますが、NULL 値は許可されていません。OData では、コレクション プロパティに NULL 値を指定できません。]]></Val>
+            <Val><![CDATA[コレクション プロパティ '{0}' に null 値が含まれていますが、これは許可されていません。OData では、コレクション プロパティに null 値を指定できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7033,7 +7033,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A default stream ODataStreamReferenceValue was detected with a 'ContentType' property but without a ReadLink value. In OData, a default stream must either have both a content type and a read link, or neither of them.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA['ContentType' プロパティが指定され、ReadLink 値が指定されていない既定のストリーム ODataStreamReferenceValue が検出されました。OData の既定のストリームでは、ContentType プロパティと ReadLink 値の両方を指定するか、いずれも指定しないようにする必要があります。]]></Val>
+            <Val><![CDATA['ContentType' プロパティを持つが、ReadLink 値を持たない既定のストリーム ODataStreamReferenceValue が検出されました。OData の既定のストリームでは、ContentType プロパティと ReadLink 値の両方を指定するか、いずれも指定しないようにする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[A default stream ODataStreamReferenceValue with a ContentType property but without a ReadLink value was detected. In OData, a default stream must have either both content type or read link or none of them.]]></Val>
@@ -7057,7 +7057,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataEntityReferenceLink with a null Url was detected; an ODataEntityReferenceLink must have a non-null Url.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Url が NULL の ODataEntityReferenceLink が検出されました。ODataEntityReferenceLink には NULL 以外の Url を指定する必要があります。]]></Val>
+            <Val><![CDATA[URL が null 値の ODataEntityReferenceLink が検出されました。ODataEntityReferenceLink には null 値ではない URL を指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7066,7 +7066,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'ODataEntityReferenceLinks.Links' enumerable contains a null item. This enumerable cannot contain null items.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[列挙可能な 'ODataEntityReferenceLinks.Links' に NULL アイテムが含まれています。この列挙可能なオブジェクトに NULL アイテムを含めることはできません。]]></Val>
+            <Val><![CDATA[列挙可能な 'ODataEntityReferenceLinks.Links' に null 値のアイテムが含まれています。この列挙可能なオブジェクトに null 値のアイテムを含めることはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The ODataEntityReferenceLinks.Links enumerable contains a null item. This enumerable cannot contain null items.]]></Val>
@@ -7090,7 +7090,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataNestedResourceInfo with the URL value '{0}' specifies in its 'IsCollection' property that its payload is a resource, but the actual payload is a resource set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo は、'IsCollection' プロパティにおいて、そのペイロードがリソースであることを指定していますが、実際のペイロードはリソース セットです。]]></Val>
+            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo において、'IsCollection' プロパティでは、そのペイロードがリソースとして指定されていますが、実際のペイロードはリソース セットです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7099,7 +7099,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataNestedResourceInfo with the URL value '{0}' specifies in its 'IsCollection' property that its payload is a resource, but the metadata declares it as resource set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo は、'IsCollection' プロパティにおいて、そのペイロードがリソースであることを指定していますが、メタデータではペイロードがリソース セットとして宣言されます。]]></Val>
+            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo において、'IsCollection' プロパティでは、そのペイロードがリソースとして指定されていますが、メタデータではペイロードがリソース セットとして宣言されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7108,7 +7108,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataNestedResourceInfo with the URL value '{0}' specifies in its 'IsCollection' property that its payload is a resource set, but the actual payload is a resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo は、'IsCollection' プロパティにおいて、そのペイロードがリソース セットであることを指定していますが、実際のペイロードはリソースです。]]></Val>
+            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo において、'IsCollection' プロパティでは、そのペイロードがリソース セットとして指定されていますが、実際のペイロードはリソースです。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7117,7 +7117,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataNestedResourceInfo with the URL value '{0}' specifies in its 'IsCollection' property that its payload is a resource set, but the metadata declares it as a resource.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo は、'IsCollection' プロパティにおいて、そのペイロードがリソース セットであることを指定していますが、メタデータではペイロードがリソースとして宣言されます。]]></Val>
+            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo において、'IsCollection' プロパティでは、そのペイロードがリソース セットとして指定されていますが、メタデータではペイロードがリソースとして宣言されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7126,7 +7126,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The content of the ODataNestedResourceInfo with the URL value '{0}' is a resource, but the metadata declares it as resource set.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo のコンテンツはリソースですが、メタデータではリソース セットとして宣言されます。]]></Val>
+            <Val><![CDATA[URL 値が '{0}' の ODataNestedResourceInfo のコンテンツはリソースですが、メタデータではリソース セットとして宣言されています。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7144,7 +7144,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The base URI '{0}' specified in ODataMessageWriterSettings.BaseUri is invalid; it must either be null or an absolute URI.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ODataMessageWriterSettings.BaseUri で指定されたベース URI '{0}' が無効です。null または絶対 URI にする必要があります。]]></Val>
+            <Val><![CDATA[ODataMessageWriterSettings.BaseUri で指定されたベース URI '{0}' が無効です。null 値または絶対 URI にする必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The base URI '{0}' specified in ODataMessageWriterSettings.PayloadBaseUri is invalid; it must either be null or an absolute URI.]]></Val>
@@ -7165,7 +7165,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The service document URI '{0}' specified is invalid; it must be either null or an absolute URI.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[指定したサービス ドキュメント URI '{0}' が無効です。NULL または絶対 URI にする必要があります。]]></Val>
+            <Val><![CDATA[指定したサービス ドキュメント URI '{0}' が無効です。null 値または絶対 URI にする必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7174,7 +7174,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No TypeName was found for an ODataResource of an open property, ODataResource or custom instance annotation, even though metadata was specified. If a model is passed to the writer, each complex value on an open property, resource or custom instance annotation must have a type name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[メタデータが指定されていても、オープン プロパティの ODataResource、ODataResource またはカスタム インスタンスの注釈で TypeName が見つかりませんでした。モデルがライターに渡される場合、オープン プロパティの複合型の値、リソースまたはカスタム インスタンスの注釈それぞれに型名を指定する必要があります。]]></Val>
+            <Val><![CDATA[メタデータが指定されていますが、オープン プロパティの ODataResource、ODataResource またはカスタム インスタンスの注釈に TypeName が見つかりませんでした。モデルがライターに渡される場合、オープン プロパティの複合値、リソースまたはカスタム インスタンスの注釈にはそれぞれ型名を指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[No TypeName was found for an ODataComplexValue of an open property, ODataEntry or custom instance annotation, even though metadata was specified. If a model is passed to the writer, each complex value on an open property, entry or custom instance annotation must have a type name.]]></Val>
@@ -7186,7 +7186,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataNestedResourceInfo.Url property on an navigation link '{0}' is null. The ODataNestedResourceInfo.Url property must be set to a non-null value that represents the entity or entities the navigation link references.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[ナビゲーション リンク '{0}' の ODataNestedResourceInfo.Url プロパティが null です。ODataNestedResourceInfo.Url プロパティは、ナビゲーション リンクが参照する 1 つ以上のエンティティを表す null 以外の値に設定する必要があります。]]></Val>
+            <Val><![CDATA[ナビゲーション リンク '{0}' の ODataNestedResourceInfo.Url プロパティが null 値です。ODataNestedResourceInfo.Url プロパティは、ナビゲーション リンクが参照する 1 つ以上のエンティティを表す、null 値ではない値に設定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The ODataNavigationLink.Url property on an navigation link '{0}' is null. The ODataNavigationLink.Url property must be set to a non-null value that represents the entity or entities the navigation link references.]]></Val>
@@ -7198,7 +7198,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataNestedResourceInfo.IsCollection property on a nested resource info '{0}' is null. The ODataNestedResourceInfo.IsCollection property must be specified when writing a nested resource into a request.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[入れ子にされたリソース情報 '{0}' の ODataNestedResourceInfo.IsCollection プロパティが null です。要求に入れ子にされたリソースを書き込むときは、ODataNestedResourceInfo.IsCollection プロパティを指定する必要があります。]]></Val>
+            <Val><![CDATA[入れ子にされたリソース情報 '{0}' の ODataNestedResourceInfo.IsCollection プロパティが null 値です。要求に入れ子にされたリソースを書き込むときは、ODataNestedResourceInfo.IsCollection プロパティを指定する必要があります。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7216,7 +7216,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The ODataResourceSet.NextPageLink must be null for request payloads. A next link is only supported in responses.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[要求ペイロードでは、ODataResourceSet.NextPageLink は null でなければなりません。次のリンクは応答でのみサポートされています。]]></Val>
+            <Val><![CDATA[要求ペイロードでは、ODataResourceSet.NextPageLink は null 値でなければなりません。次のリンクは応答でのみサポートされています。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The ODataFeed.NextPageLink must be null for request payloads. A next link is only supported in responses.]]></Val>
@@ -7228,7 +7228,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The property '{0}[Nullable=False]5D;' of type '{1}' has a null value, which is not allowed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[型 '{1}' のプロパティ '{0}[Nullable=False]5D;' に NULL 値が指定されていますが、これは許可されません。]]></Val>
+            <Val><![CDATA[型 '{1}' のプロパティ '{0}[Nullable=False]5D;' に null 値が指定されていますが、これは許可されていません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7237,7 +7237,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An action or a function with metadata '{0}' was detected when writing a request; actions and functions are only supported in responses.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[要求の作成時に、メタデータ '{0}' を含むアクションまたは関数が検出されました。アクションおよび関数は、応答でのみサポートされます。]]></Val>
+            <Val><![CDATA[要求の書き込み時に、メタデータ '{0}' を含むアクションまたは関数が検出されました。アクションおよび関数は、応答でのみサポートされます。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7246,7 +7246,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataProperty instance without a name was detected; an ODataProperty must have a non-null, non-empty name.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[名前がない ODataProperty インスタンスが検出されました。ODataProperty には NULL 以外の空でない名前を指定する必要があります。]]></Val>
+            <Val><![CDATA[名前がない ODataProperty インスタンスが検出されました。ODataProperty は null 値以外の空でない名前を指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An ODataProperty instance without a name detected; an ODataProperty must have a non-null, non-empty name.]]></Val>
@@ -7258,7 +7258,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The 'ODataResource.Properties' enumerable contains a null item. This enumerable cannot contain null items.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[列挙可能な 'ODataResource.Properties' に null アイテムが含まれています。この列挙可能なオブジェクトに null アイテムを含めることはできません。]]></Val>
+            <Val><![CDATA[列挙可能な 'ODataResource.Properties' に null 値のアイテムが含まれています。この列挙可能なオブジェクトに null 値のアイテムを含めることはできません。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The 'ODataEntry.Properties' enumerable contains a null item. This enumerable cannot contain null items.]]></Val>
@@ -7270,7 +7270,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The stream property '{0}' has a null value, which is not allowed. In OData, stream properties cannot have null values.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[ストリーム プロパティ '{0}' に NULL 値が設定されていますが、これは許可されません。OData のストリーム プロパティには NULL 値を指定できません。]]></Val>
+            <Val><![CDATA[ストリーム プロパティ '{0}' に null 値が設定されていますが、これは許可されません。OData のストリーム プロパティには null 値を指定できません。]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7288,7 +7288,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataStreamReferenceValue was detected with an empty string 'ContentType' property. In OData, a stream resource must either have a non-empty content type or it must be null.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA['ContentType' プロパティが空の文字列である ODataStreamReferenceValue が検出されました。OData のストリーム リソースには、空でないコンテンツの種類または NULL を指定する必要があります。]]></Val>
+            <Val><![CDATA['ContentType' プロパティが空の文字列である ODataStreamReferenceValue が検出されました。OData のストリーム リソースには、空でないコンテンツの種類または null 値を指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An ODataStreamReferenceValue with an empty string ContentType property was detected. In OData, a stream resource must have either null or non-empty content type.]]></Val>
@@ -7300,7 +7300,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataStreamReferenceValue was detected with null values for both EditLink and ReadLink. In OData, a stream resource must have at least an edit link or a read link.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[EditLink と ReadLink の両方に NULL が指定された ODataStreamReferenceValue が検出されました。OData のストリーム リソースには、編集リンクまたは読み取りリンクを 1 つ以上指定する必要があります。]]></Val>
+            <Val><![CDATA[EditLink と ReadLink の両方に null 値が指定された ODataStreamReferenceValue が検出されました。OData のストリーム リソースでは、編集リンクまたは読み取りリンクを 1 つ以上指定する必要があります。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An ODataStreamReferenceValue with a null EditLink and a null ReadLink was detected. In OData, a stream resource must have at least an edit link or a read link.]]></Val>
@@ -7312,7 +7312,7 @@
         <Str Cat="Text">
           <Val><![CDATA[An ODataStreamReferenceValue was detected with an ETag but without an edit link. In OData, a stream resource must have an edit link to have an ETag.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[ETag が設定され、編集リンクが指定されていない ODataStreamReferenceValue が検出されました。OData のストリーム リソースには、ETag を設定するために編集リンクが必要です。]]></Val>
+            <Val><![CDATA[ETag はあるが編集リンクのない ODataStreamReferenceValue が検出されました。OData のストリーム リソースでは、ETag を使用するには編集リンクが必要です。]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[An ODataStreamReferenceValue with an ETag but without an edit link was detected. In OData, a stream resource must have an edit link in order to have an ETag.]]></Val>
@@ -7342,6 +7342,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Core.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
@@ -7382,7 +7388,7 @@
       <Str Cat="Text">
         <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-          <Val><![CDATA[Microsoft および Windows は、Microsoft Corporation の米国およびその他の国における登録商標または商標です。]]></Val>
+          <Val><![CDATA[Microsoft および Windows は、米国 Microsoft Corporation の米国およびその他の国における登録商標または商標です。]]></Val>
         </Tgt>
       </Str>
       <Disp Icon="Str" />

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.Spatial.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="it-IT" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -26,7 +26,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element where an array was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[GeoJSON non valido. Trovato un valore primitivo in un elemento di matrice in cui era prevista una matrice.]]></Val>
+            <Val><![CDATA[GeoJSON non valido. È stato un valore primitivo in un elemento di matrice in cui era prevista una matrice.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid GeoJSON. A primitive value was found in an array element instead of the expected array.]]></Val>
@@ -38,7 +38,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element where a numeric value was expected.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[GeoJSON non valido. Trovato un valore non numerico in un elemento di matrice in cui era previsto un valore numerico.]]></Val>
+            <Val><![CDATA[GeoJSON non valido. È stato trovato un valore non numerico in un elemento di matrice in cui era previsto un valore numerico.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid GeoJSON. A non-numeric value was found in an array element instead of the expected numeric value.]]></Val>
@@ -89,7 +89,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid GeoJSON. The value '{0}' is not a valid value for the 'type' member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[GeoJSON non valido. '{0}' non è un valore valido per il membro 'type'.]]></Val>
+            <Val><![CDATA[GeoJSON non valido. Il valore '{0}' non è un valore valido per il membro 'type'.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -107,7 +107,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: a LinearRing element must not be empty.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[Formato GML non corretto. Un elemento LinearRing non deve essere vuoto.]]></Val>
+            <Val><![CDATA[Formato GML non corretto: un elemento LinearRing non deve essere vuoto.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Incorrect GML Format: a "LinearRing" element must not be empty.]]></Val>
@@ -128,7 +128,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The attribute '{0}' on element '{1}' is not supported.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Attributo '{0}' nell'elemento '{1}' non supportato.]]></Val>
+            <Val><![CDATA[L'attributo '{0}' nell'elemento '{1}' non è supportato.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -146,7 +146,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: a srsName attribute must begin with the namespace "{0}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Formato GML non corretto. Un attributo srsName deve iniziare con lo spazio dei nomi "{0}".]]></Val>
+            <Val><![CDATA[Formato GML non corretto: un attributo srsName deve iniziare con lo spazio dei nomi "{0}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Incorrect GML Format: a "srsName" attribute must begin with the namespace "{0}".]]></Val>
@@ -158,7 +158,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: a posList element must contain an even number of coordinates.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Formato GML non corretto. Un elemento posList deve contenere un numero pari di coordinate.]]></Val>
+            <Val><![CDATA[Formato GML non corretto: un elemento posList deve contenere un numero pari di coordinate.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Incorrect GML Format: a "posList" element must contain even number of coordinates.]]></Val>
@@ -170,7 +170,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: a pos element must contain at least two coordinates.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Formato GML non corretto. Un elemento pos deve contenere almeno due coordinate.]]></Val>
+            <Val><![CDATA[Formato GML non corretto: un elemento pos deve contenere almeno due coordinate.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Incorrect GML Format: a "pos" element must contain at least two coordinates.]]></Val>
@@ -182,7 +182,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Incorrect GML Format: The XmlReader instance encountered an unexpected element "{0}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[Formato GML non corretto. L'istanza di XmlReader ha rilevato un elemento imprevisto "{0}".]]></Val>
+            <Val><![CDATA[Formato GML non corretto: l'istanza di XmlReader ha rilevato un elemento imprevisto "{0}".]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -191,7 +191,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Valore '{0}' non valido per la coordinata '{1}'.]]></Val>
+            <Val><![CDATA[Il valore '{0}' non è valido per la coordinata '{1}'.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The value '{0}' is not valid for the coordinate '{1}']]></Val>
@@ -203,7 +203,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' for the property '{1}' as a quoted JSON string value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Impossibile leggere il valore '{0}' della proprietà '{1}' come valore stringa JSON delimitato.]]></Val>
+            <Val><![CDATA[Non è possibile leggere il valore '{0}' della proprietà '{1}' come valore stringa JSON delimitato.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -212,7 +212,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Cannot read the value '{0}' as a JSON object.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Impossibile leggere il valore '{0}' come oggetto JSON.]]></Val>
+            <Val><![CDATA[Non è possibile leggere il valore '{0}' come oggetto JSON.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -221,7 +221,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The time zone information is missing on the DateTimeOffset value '{0}'. A DateTimeOffset value must contain the time zone information.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Informazioni relative al fuso orario mancanti nel valore DateTimeOffset '{0}'. Il valore DateTimeOffset deve contenere le informazioni relative al fuso orario.]]></Val>
+            <Val><![CDATA[Mancano le informazioni relative al fuso orario nel valore DateTimeOffset '{0}'. Il valore DateTimeOffset deve contenere le informazioni relative al fuso orario.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -242,7 +242,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The builder cannot create an instance until all pipeline calls are completed.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Il compilatore non è grado di creare un'istanza fino a quando tutte le chiamate alla pipeline non sono state completate.]]></Val>
+            <Val><![CDATA[Il generatore non può creare un'istanza fino a quando non sono state completate tutte le chiamate alla pipeline.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The builder cannot create an instance before all pipeline calls are completed.]]></Val>
@@ -254,7 +254,7 @@
         <Str Cat="Text">
           <Val><![CDATA[No operations are registered. Please provide operations using SpatialImplementation.CurrentImplementation.Operations property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[Nessuna operazione registrata. Fornire le operazioni utilizzando la proprietà SpatialImplementation.CurrentImplementation.Operations.]]></Val>
+            <Val><![CDATA[Non è stata registrata alcuna operazione. Fornire le operazioni usando la proprietà SpatialImplementation.CurrentImplementation.Operations.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -308,7 +308,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: the coordinates ({0} {1} {2} {3}) are not valid.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Dati spaziali non validi. Coordinate ({0} {1} {2} {3}) non valide.]]></Val>
+            <Val><![CDATA[Dati spaziali non validi. Le coordinate ({0} {1} {2} {3}) non sono valide.]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid spatial data: the coordinates ({0} {1} {2} {3}) is not valid.]]></Val>
@@ -374,7 +374,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got call to "{1}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Dati spaziali non validi. Prevista una chiamata a "{0}", ma ricevuta una chiamata a "{1}".]]></Val>
+            <Val><![CDATA[Dati spaziali non validi. Era prevista una chiamata a "{0}", ma è stata ricevuta una chiamata a "{1}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid spatial data: expected call to "{0}" but got "{1}"]]></Val>
@@ -386,7 +386,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got call to "{2}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Dati spaziali non validi. Prevista una chiamata a "{0}" o "{1}", ma ricevuto una chiamata a "{2}".]]></Val>
+            <Val><![CDATA[Dati spaziali non validi. Era prevista una chiamata a "{0}" o "{1}", ma è stata ricevuta una chiamata a "{2}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Invalid spatial data: expected call to "{0}" or "{1}" but got "{2}"]]></Val>
@@ -437,7 +437,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}".]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" Confidence="100">
-            <Val><![CDATA[Previsto token di tipo "{0}" con il testo "{1}", ma è stato trovato "{2}"]]></Val>
+            <Val><![CDATA[È previsto il token di tipo "{0}" con il testo "{1}", ma è stato trovato "{2}".]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[Expecting token type "{0}" with text "{1}" but found "{2}"]]></Val>
@@ -458,6 +458,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.Spatial.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
@@ -498,7 +504,7 @@
       <Str Cat="Text">
         <Val><![CDATA[Microsoft and Windows are either registered trademarks or trademarks of Microsoft Corporation in the U.S. and/or other countries.]]></Val>
         <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-          <Val><![CDATA[Microsoft e Windows sono marchi o marchi registrati di Microsoft Corporation negli Stati Uniti e/o negli altri paesi.]]></Val>
+          <Val><![CDATA[Microsoft e Windows sono marchi registrati o marchi di Microsoft Corporation negli Stati Uniti e/o in altri paesi.]]></Val>
         </Tgt>
       </Str>
       <Disp Icon="Str" />

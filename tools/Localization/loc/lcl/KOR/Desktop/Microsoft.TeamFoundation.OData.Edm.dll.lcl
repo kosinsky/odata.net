@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LCX SchemaVersion="6.0" Name="Microsoft.OData.Edm.dll" PsrId="211" FileType="1" SrcCul="en-US" TgtCul="ko-KR" Desc="Commenting file created by LCXAdmin. For more information, please visit http://localizability/longhorn/LcxAdmin.asp" xmlns="http://schemas.microsoft.com/locstudio/2006/6/lcx">
   <Props>
     <Str Name="CustomName1" Val="Custom 1" />
@@ -12,7 +12,7 @@
     <Cmt Name="Dev" />
     <Cmt Name="LcxAdmin" />
     <Cmt Name="Note" />
-    <Cmt Name="Rccx" />
+    <Cmt Name="RCCX" />
   </OwnedComments>
   <Settings Name="@vsLocTools@\default.lss" Type="Lss" />
   <Item ItemId=";Managed Resources" ItemType="0" PsrId="211" Leaf="true">
@@ -26,7 +26,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Annotations in the 'Documentation' namespace must implement 'IEdmDocumentation', but '{0}' does not.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['Documentation' 네임스페이스의 주석이 'IEdmDocumentation'을 구현해야 하는데 '{0}'이(가) 구현하지 않습니다.]]></Val>
+            <Val><![CDATA[Documentation' 네임스페이스의 주석은 'IEdmDocumentation'을 구현해야 하지만 '{0}'은(는) 구현하지 않습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -215,7 +215,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The number of dependent properties must match the number of key properties on the principal entity type. '{0}' principal properties were provided, but {1} dependent properties were provided.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[종속 속성의 수는 주 엔터티 형식의 키 속성 수와 일치해야 합니다. '{0}'개의 주 속성이 제공되었는데 {1}개의 종속 속성이 제공되었습니다.]]></Val>
+            <Val><![CDATA[종속 속성의 수는 주 엔터티 형식의 키 속성 수와 일치해야 합니다. '{0}'개의 주 속성이 제공된 반면 {1}개의 종속 속성이 제공되었습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -791,7 +791,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set '{0}' is invalid because it is contained by more than one navigation property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[두 개 이상의 탐색 속성에 포함되기 때문에 엔터티 집합 '{0}'이(가) 잘못되었습니다.]]></Val>
+            <Val><![CDATA[엔터티 집합 '{0}'이(가) 두 개 이상의 탐색 속성에 포함되기 때문에 잘못되었습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -884,7 +884,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The function import '{0}' should not be included in service document because it has parameter.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA['{0}' 함수 가져오기는 매개 변수이기 때문에 서비스 문서에 포함되어서는 안 됩니다.]]></Val>
+            <Val><![CDATA['{0}' 함수 가져오기는 매개 변수가 있으므로 서비스 문서에 포함되어서는 안 됩니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -947,7 +947,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The complex type '{0}' is marked as abstract. Abstract complex types are only supported in version 1.1 EDM models.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[복합 형식 '{0}'은(는) 추상으로 표시됩니다. 추상 복합 형식은 버전 1.1 EDM 모델에서만 지원됩니다.]]></Val>
+            <Val><![CDATA[복합 형식 '{0}'은(는) 추상으로 표시되어 있습니다. 추상 복합 형식은 버전 1.1 EDM 모델에서만 지원됩니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1292,7 +1292,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The binding of the entity set or singleton '{0}' on navigation property '{1}' is invalid, the binding of bidirectional navigation property must be bidirectional if specified. ]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New">
-            <Val><![CDATA[탐색 속성 '{1}'의 엔터티 집합 또는 singleton '{0}'의 바인딩이 잘못되었습니다. 지정한 경우 양방향 탐색 속성의 바인딩은 양방향이어야 합니다.]]></Val>
+            <Val><![CDATA[탐색 속성 '{1}'의 엔터티 집합 또는 싱글톤 '{0}'의 바인딩이 잘못되었습니다. 지정한 경우 양방향 탐색 속성의 바인딩은 양방향이어야 합니다. ]]></Val>
           </Tgt>
           <Prev Cat="Text">
             <Val><![CDATA[The mapping of the entity set or singleton '{0}' and navigation property '{1}' is invalid because the navigation property mapping must have a mapping with the navigation property's partner that points back to the originating entity set or singleton. ]]></Val>
@@ -1304,7 +1304,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property '{0}' is invalid because it indirectly contains itself.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[탐색 속성 '{0}'은(는) 간접적으로 자신으로 포함하므로 잘못되었습니다.]]></Val>
+            <Val><![CDATA[탐색 속성 '{0}'은(는) 간접적으로 자신을 포함하므로 잘못되었습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1313,7 +1313,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{1}' is not a valid destination for the navigation property '{0}' because it cannot hold an element of the target entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[엔터티 집합 또는 singleton '{1}'은(는) 대상 엔터티 형식의 요소를 보유할 수 없으므로 탐색 속성 '{0}'에 대한 올바른 대상이 아닙니다.]]></Val>
+            <Val><![CDATA[엔터티 집합 또는 싱글톤 '{1}'은(는) 대상 엔터티 형식의 요소를 보유할 수 없으므로 탐색 속성 '{0}'에 대한 유효한 대상이 아닙니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1322,7 +1322,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The navigation property mapping '{0}' is invalid because its type is collection but target to a singleton '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[탐색 속성 매핑 '{0}'은(는) 형식이 컬렉션이지만 singleton '{1}'을(를) 대상으로 하므로 잘못되었습니다.]]></Val>
+            <Val><![CDATA[탐색 속성 매핑 '{0}'은(는) 형식이 컬렉션이지만 싱글톤 '{1}'을(를) 대상으로 하므로 잘못되었습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1367,7 +1367,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The entity set or singleton '{0}' is based on type '{1}' that has no keys defined.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[엔터티 집합 또는 singleton '{0}'은(는) 키가 정의되어 있지 않은 '{1}' 형식을 기준으로 합니다.]]></Val>
+            <Val><![CDATA[엔터티 집합 또는 싱글톤 '{0}'은(는) 키가 정의되어 있지 않은 '{1}' 형식을 기준으로 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1394,7 +1394,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Only entity types can be open types.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[엔터티 형식으로 공개 형식만 사용할 수 있습니다.]]></Val>
+            <Val><![CDATA[엔터티 형식만 공개 형식으로 사용할 수 있습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1466,7 +1466,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The operation '{0}' entity set path determined entity type '{1}' is not assignable to the return type '{2}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[작업 '{0}' 엔터티 집합 경로가 반환 형식 '{2}'에 지정할 수 없는 엔터티 형식 '{1}'으(로) 결정되었습니다.]]></Val>
+            <Val><![CDATA[작업 '{0}' 엔터티 집합 경로가 반환 형식 '{2}'에 할당할 수 없는 엔터티 형식 '{1}'으(로) 결정되었습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1652,7 +1652,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the singleton '{1}' is not valid, it must be entity type.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[singleton '{1}'의 '{0}' 형식이 잘못되었습니다. 엔터티 형식이어야 합니다.]]></Val>
+            <Val><![CDATA[싱글톤 '{1}'의 '{0}' 형식이 잘못되었습니다. 엔터티 형식이어야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1661,7 +1661,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value of the string constant is '{0}' characters long, but the max length of its type is '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[문자열 상수의 값이 '{0}'자이지만 해당 형식의 최대 길이는 '{1}'입니다.]]></Val>
+            <Val><![CDATA[문자열 상수의 값이 '{0}'자이지만 해당 형식의 최대 길이는 '{1}'자입니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1805,7 +1805,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' of the property '{1}.{2}' is not semantically valid. A semantically valid model must not contain elements of kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[속성 '{1}.{2}'의 값 '{0}'이(가) 기능적으로 잘못되었습니다. 기능적으로 올바른 모델은 유형이 '{0}'인 요소를 포함하지 않아야 합니다.]]></Val>
+            <Val><![CDATA[속성 '{1}.{2}'의 값 '{0}'이(가) 의미상 잘못되었습니다. 의미상 유효한 모델은 유형이 '{0}'인 요소를 포함하지 않아야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1877,7 +1877,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Conversion of an edm collection value to the CLR type '{0}' is not supported. EDM collection values can be converted to System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> or System.Collections.Generic.ICollection<T>.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[CLR 형식 '{0}'에 대한 edm 컬렉션 값 변환은 지원되지 않습니다. EDM 컬렉션 값은 System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> 또는 System.Collections.Generic.ICollection<T>로 변환할 수 있습니다.]]></Val>
+            <Val><![CDATA[CLR 형식 '{0}'에 대한 EDM 컬렉션 값의 변환은 지원되지 않습니다. EDM 컬렉션 값은 System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T> 또는 System.Collections.Generic.ICollection<T>로 변환할 수 있습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -1922,7 +1922,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type '{0}' of the object returned by the TryCreateObjectInstance delegate is not assignable to the expected type '{1}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[TryCreateObjectInstance 대리자로 반환된 개체의 '{0}' 형식을 필요한 형식 '{1}'에 할당할 수 없습니다.]]></Val>
+            <Val><![CDATA[TryCreateObjectInstance 대리자에서 반환된 개체의 '{0}' 형식을 필요한 형식 '{1}'에 할당할 수 없습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2084,7 +2084,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Unresolved Uri found in edmx:Reference, getReferencedModelReaderFunc should not return null when the URI is not a well-known schema.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[해당 URI가 잘 알려진 스키마가 아닌 경우 edmx:Reference, getReferencedModelReaderFunc에서 발견된 확인되지 않은 URI는 null을 반환해서는 안 됩니다.]]></Val>
+            <Val><![CDATA[확인되지 않은 URI가 edmx:Reference에서 발견되었습니다. 해당 URI가 잘 알려진 스키마가 아닌 경우 getReferencedModelReaderFunc는 null을 반환해서는 안 됩니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2165,7 +2165,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Single file provided but model cannot be serialized into single file.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[단일 파일이 제공되었는데 모델을 단일 파일로 직렬화할 수 없습니다.]]></Val>
+            <Val><![CDATA[단일 파일이 제공되었지만 모델을 단일 파일로 직렬화할 수 없습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2468,7 +2468,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid scale. The value must either be a 32 bit integer or 'Variable'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[값 '{0}'은(는) 올바른 눈금 값이 아닙니다. 값은 32비트 정수 또는 'Variable'이어야 합니다.]]></Val>
+            <Val><![CDATA[값 '{0}'은(는) 유효한 눈금 값(scale)이 아닙니다. 값은 32비트 정수 또는 'Variable'이어야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2486,7 +2486,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value '{0}' is not a valid TimeOfDay value.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="New" AutoAppr="N/A">
-            <Val><![CDATA[값 '{0}'은(는) 올바른 시간 값이 아닙니다.]]></Val>
+            <Val><![CDATA[값 '{0}'은(는) 유효한 TimeOfDay 값이 아닙니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2495,7 +2495,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The value writer cannot write a value of kind '{0}'.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Appr="PreApproved" Orig="Auto" AutoAppr="N/A" Confidence="100">
-            <Val><![CDATA[값 작성기가 '{0}' 유형의 값을 쓸 수 없습니다.]]></Val>
+            <Val><![CDATA[값 기록기가 '{0}' 유형의 값을 쓸 수 없습니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2606,6 +2606,12 @@
   </Item>
   <Item ItemId=";Version" ItemType="0" PsrId="211" Leaf="false">
     <Disp Icon="Ver" Disp="true" LocTbl="false" Path=" \ ;Version \ 8 \ 0" />
+    <Item ItemId=";Comments" ItemType="0" PsrId="211" Leaf="true">
+      <Str Cat="Text">
+        <Val><![CDATA[Microsoft.TeamFoundation.OData.Edm.dll]]></Val>
+      </Str>
+      <Disp Icon="Str" />
+    </Item>
     <Item ItemId=";CompanyName" ItemType="0" PsrId="211" Leaf="true">
       <Str Cat="Text" UsrLk="true">
         <Val><![CDATA[Microsoft Corporation]]></Val>
