@@ -21,7 +21,16 @@ OData .NET library is open source at http://github.com/OData/odata.net</descript
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Edm.dll" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Edm.pdb" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Edm.xml" target="lib\net45" />
-    <file src="$ProductRoot$\Desktop\localize\**\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45" />
+    <file src="$ProductRoot$\Desktop\localize\CHS\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\zh-Hans" />
+    <file src="$ProductRoot$\Desktop\localize\CHT\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\zh-Hant" />
+    <file src="$ProductRoot$\Desktop\localize\DEU\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\de" />
+    <file src="$ProductRoot$\Desktop\localize\ESN\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\es" />
+    <file src="$ProductRoot$\Desktop\localize\FRA\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\fr" />
+    <file src="$ProductRoot$\Desktop\localize\ITA\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\it" />
+    <file src="$ProductRoot$\Desktop\localize\JPN\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\ja" />
+    <file src="$ProductRoot$\Desktop\localize\KOR\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\ko" />
+    <file src="$ProductRoot$\Desktop\localize\RUS\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\ru" />
+    <file src="$ProductRoot$\Desktop\localize\TRK\Microsoft.TeamFoundation.OData.Edm.resources.dll" target="lib\net45\tr" />
     <!-- <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Edm.dll" target="lib\netstandard1.1" />
     <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Edm.pdb" target="lib\netstandard1.1" />
     <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Edm.xml" target="lib\netstandard1.1" /> -->
