@@ -21,7 +21,7 @@ namespace Microsoft.OData.UriParser.Aggregation
         private FilterBinder filterBinder;
         private ComputeBinder computeBinder;
 
-        private IEnumerable<AggregateExpression> aggregateExpressionsCache;
+        private IEnumerable<AggregateExpressionBase> aggregateExpressionsCache;
 
         public ApplyBinder(MetadataBinder.QueryTokenVisitor bindMethod, BindingState state)
         {
@@ -35,16 +35,17 @@ namespace Microsoft.OData.UriParser.Aggregation
         {
             ExceptionUtils.CheckArgumentNotNull(tokens, "tokens");
 
-            var transformations = new List<TransformationNode>();
-            foreach (var token in tokens)
+            List<TransformationNode> transformations = new List<TransformationNode>();
+            foreach (QueryToken token in tokens)
             {
                 switch (token.Kind)
                 {
                     case QueryTokenKind.Aggregate:
                         AggregateTransformationNode aggregate = BindAggregateToken((AggregateToken)(token));
                         transformations.Add(aggregate);
-                        aggregateExpressionsCache = aggregate.Expressions;
-                        state.AggregatedPropertyNames = aggregate.Expressions.Select(statement => statement.Alias).ToList();
+                        aggregateExpressionsCache = aggregate.AggregateExpressions;
+                        state.AggregatedPropertyNames =
+                            aggregate.AggregateExpressions.Select(statement => statement.Alias).ToList();
                         state.IsCollapsed = true;
                         break;
                     case QueryTokenKind.AggregateGroupBy:
@@ -52,11 +53,16 @@ namespace Microsoft.OData.UriParser.Aggregation
                         transformations.Add(groupBy);
                         state.IsCollapsed = true;
                         break;
+                    // case QueryTokenKind.Compute:
+                    //     ComputeClause computeClause = this.computeBinder.BindCompute((ComputeToken)token);
+                    //     ComputeTransformationNode computeNode = new ComputeTransformationNode(computeClause.);
+                    //     transformations.Add(computeNode);
+                    //     state.AggregatedPropertyNames = computeNode.Expressions.Select(statement => statement.Alias).ToList();
+                    //     break;
                     case QueryTokenKind.Compute:
-                        ComputeClause computeClause = this.computeBinder.BindCompute((ComputeToken)token);
-                        ComputeTransformationNode computeNode = new ComputeTransformationNode(computeClause);
-                        transformations.Add(computeNode);
-                        state.AggregatedPropertyNames = computeNode.ComputeClause.ComputedItems.Select(statement => statement.Alias).ToList();
+                        var compute = BindComputeToken((ComputeToken)token);
+                        transformations.Add(compute);
+                        state.AggregatedPropertyNames = compute.Expressions.Select(statement => statement.Alias).ToList();
                         break;
                     default:
                         FilterClause filterClause = this.filterBinder.BindFilter(token);
@@ -71,8 +77,10 @@ namespace Microsoft.OData.UriParser.Aggregation
 
         private AggregateTransformationNode BindAggregateToken(AggregateToken token)
         {
-            var statements = new List<AggregateExpression>();
-            foreach (var statementToken in token.Expressions)
+            IEnumerable<AggregateTokenBase> aggregateTokens = MergeEntitySetAggregates(token.AggregateExpressions);
+            List<AggregateExpressionBase> statements = new List<AggregateExpressionBase>();
+
+            foreach (AggregateTokenBase statementToken in aggregateTokens)
             {
                 statements.Add(BindAggregateExpressionToken(statementToken));
             }
@@ -80,27 +88,75 @@ namespace Microsoft.OData.UriParser.Aggregation
             return new AggregateTransformationNode(statements);
         }
 
-        private AggregateExpression BindAggregateExpressionToken(AggregateExpressionToken token)
+        private static IEnumerable<AggregateTokenBase> MergeEntitySetAggregates(IEnumerable<AggregateTokenBase> tokens)
         {
-            var expression = this.bindMethod(token.Expression) as SingleValueNode;
+            List<AggregateTokenBase> mergedTokens = new List<AggregateTokenBase>();
+            Dictionary<string, AggregateTokenBase> entitySetTokens = new Dictionary<string, AggregateTokenBase>();
 
-            if (expression == null)
+            foreach (AggregateTokenBase token in tokens)
             {
-                throw new ODataException(ODataErrorStrings.ApplyBinder_AggregateExpressionNotSingleValue(token.Expression));
+                switch (token.Kind)
+                {
+                    case QueryTokenKind.EntitySetAggregateExpression:
+                    {
+                        AggregateTokenBase currentValue;
+                        EntitySetAggregateToken entitySetToken = token as EntitySetAggregateToken;
+                        string key = entitySetToken.Path();
+
+                        if (entitySetTokens.TryGetValue(key, out currentValue))
+                        {
+                            entitySetTokens.Remove(key);
+                        }
+
+                        entitySetTokens.Add(key, EntitySetAggregateToken.Merge(entitySetToken, currentValue as EntitySetAggregateToken));
+                        break;
+                    }
+
+                    case QueryTokenKind.AggregateExpression:
+                    {
+                        mergedTokens.Add(token);
+                        break;
+                    }
+                }
             }
 
-            var typeReference = CreateAggregateExpressionTypeReference(expression, token.MethodDefinition);
+            return mergedTokens.Concat(entitySetTokens.Values).ToList();
+        }
 
-            // TODO: Determine source
-            return new AggregateExpression(expression, token.MethodDefinition, token.Alias, typeReference);
+        private AggregateExpressionBase BindAggregateExpressionToken(AggregateTokenBase aggregateToken)
+        {
+            switch (aggregateToken.Kind)
+            {
+                case QueryTokenKind.AggregateExpression:
+                {
+                    AggregateExpressionToken token = aggregateToken as AggregateExpressionToken;
+                    SingleValueNode expression = this.bindMethod(token.Expression) as SingleValueNode;
+                    IEdmTypeReference typeReference = CreateAggregateExpressionTypeReference(expression, token.MethodDefinition);
+
+                    // TODO: Determine source
+                    return new AggregateExpression(expression, token.MethodDefinition, token.Alias, typeReference);
+                }
+
+                case QueryTokenKind.EntitySetAggregateExpression:
+                {
+                    EntitySetAggregateToken token = aggregateToken as EntitySetAggregateToken;
+                    CollectionNavigationNode expression = this.bindMethod(token.EntitySet) as CollectionNavigationNode;
+
+                    IEnumerable<AggregateExpressionBase> children = token.Expressions.Select(x => BindAggregateExpressionToken(x));
+                    return new EntitySetAggregateExpression(expression, children);
+                }
+
+                default:
+                    throw new ODataException(ODataErrorStrings.ApplyBinder_UnsupportedAggregateKind(aggregateToken.Kind));
+            }
         }
 
         private IEdmTypeReference CreateAggregateExpressionTypeReference(SingleValueNode expression, AggregationMethodDefinition method)
         {
-            var expressionType = expression.TypeReference;
+            IEdmTypeReference expressionType = expression.TypeReference;
             if (expressionType == null && aggregateExpressionsCache != null)
             {
-                var openProperty = expression as SingleValueOpenPropertyAccessNode;
+                SingleValueOpenPropertyAccessNode openProperty = expression as SingleValueOpenPropertyAccessNode;
                 if (openProperty != null)
                 {
                     expressionType = GetTypeReferenceByPropertyName(openProperty.Name);
@@ -110,7 +166,7 @@ namespace Microsoft.OData.UriParser.Aggregation
             switch (method.MethodKind)
             {
                 case AggregationMethod.Average:
-                    var expressionPrimitiveKind = expressionType.PrimitiveKind();
+                    EdmPrimitiveTypeKind expressionPrimitiveKind = expressionType.PrimitiveKind();
                     switch (expressionPrimitiveKind)
                     {
                         case EdmPrimitiveTypeKind.Int32:
@@ -147,7 +203,8 @@ namespace Microsoft.OData.UriParser.Aggregation
         {
             if (aggregateExpressionsCache != null)
             {
-                var expression = aggregateExpressionsCache.FirstOrDefault(statement => statement.Alias.Equals(name));
+                AggregateExpression expression = aggregateExpressionsCache.OfType<AggregateExpression>()
+                    .FirstOrDefault(statement => statement.AggregateKind == AggregateExpressionKind.PropertyAggregate && statement.Alias.Equals(name));
                 if (expression != null)
                 {
                     return expression.TypeReference;
@@ -159,13 +216,13 @@ namespace Microsoft.OData.UriParser.Aggregation
 
         private GroupByTransformationNode BindGroupByToken(GroupByToken token)
         {
-            var properties = new List<GroupByPropertyNode>();
+            List<GroupByPropertyNode> properties = new List<GroupByPropertyNode>();
 
-            foreach (var propertyToken in token.Properties)
+            foreach (EndPathToken propertyToken in token.Properties)
             {
-                var bindResult = this.bindMethod(propertyToken);
-                var property = bindResult as SingleValuePropertyAccessNode;
-                var complexProperty = bindResult as SingleComplexNode;
+                QueryNode bindResult = this.bindMethod(propertyToken);
+                SingleValuePropertyAccessNode property = bindResult as SingleValuePropertyAccessNode;
+                SingleComplexNode complexProperty = bindResult as SingleComplexNode;
 
                 if (property != null)
                 {
@@ -177,10 +234,10 @@ namespace Microsoft.OData.UriParser.Aggregation
                 }
                 else
                 {
-                    var openProperty = bindResult as SingleValueOpenPropertyAccessNode;
+                    SingleValueOpenPropertyAccessNode openProperty = bindResult as SingleValueOpenPropertyAccessNode;
                     if (openProperty != null)
                     {
-                        var type = GetTypeReferenceByPropertyName(openProperty.Name);
+                        IEdmTypeReference type = GetTypeReferenceByPropertyName(openProperty.Name);
                         properties.Add(new GroupByPropertyNode(openProperty.Name, openProperty, type));
                     }
                     else
@@ -197,7 +254,7 @@ namespace Microsoft.OData.UriParser.Aggregation
                 if (token.Child.Kind == QueryTokenKind.Aggregate)
                 {
                     aggregate = BindAggregateToken((AggregateToken)token.Child);
-                    aggregateExpressionsCache = ((AggregateTransformationNode)aggregate).Expressions;
+                    aggregateExpressionsCache = ((AggregateTransformationNode)aggregate).AggregateExpressions;
                     state.AggregatedPropertyNames =
                         aggregateExpressionsCache.Select(statement => statement.Alias).ToList();
                 }
@@ -220,7 +277,7 @@ namespace Microsoft.OData.UriParser.Aggregation
 
         private static Stack<SingleValueNode> ReversePropertyPath(SingleValueNode node)
         {
-            var result = new Stack<SingleValueNode>();
+            Stack<SingleValueNode> result = new Stack<SingleValueNode>();
             do
             {
                 result.Push(node);
@@ -244,13 +301,13 @@ namespace Microsoft.OData.UriParser.Aggregation
 
         private static void RegisterProperty(IList<GroupByPropertyNode> properties, Stack<SingleValueNode> propertyStack)
         {
-            var property = propertyStack.Pop();
+            SingleValueNode property = propertyStack.Pop();
             string propertyName = GetNodePropertyName(property);
 
             if (propertyStack.Count != 0)
             {
                 // Not at the leaf, let's add to the container.
-                var containerProperty = properties.FirstOrDefault(p => p.Name == propertyName);
+                GroupByPropertyNode containerProperty = properties.FirstOrDefault(p => p.Name == propertyName);
                 if (containerProperty == null)
                 {
                     // We do not have container yet. Create it.
@@ -285,6 +342,18 @@ namespace Microsoft.OData.UriParser.Aggregation
             {
                 throw new NotSupportedException();
             }
+        }
+
+        private ComputeTransformationNode BindComputeToken(ComputeToken token)
+        {
+            var statements = new List<ComputeExpression>();
+            foreach (ComputeExpressionToken statementToken in token.Expressions)
+            {
+                var singleValueNode = (SingleValueNode)bindMethod(statementToken.Expression);
+                statements.Add(new ComputeExpression(singleValueNode, statementToken.Alias, singleValueNode.TypeReference));
+            }
+
+            return new ComputeTransformationNode(statements);
         }
     }
 }

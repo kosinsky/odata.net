@@ -51,7 +51,7 @@
             Represents a CSDL Action.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlAction.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperationParameter},Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlTypeReference,System.Boolean,System.String,Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlDocumentation,Microsoft.OData.Edm.Csdl.CsdlLocation)">
+        <member name="M:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlAction.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperationParameter},Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlTypeReference,System.Boolean,System.String,Microsoft.OData.Edm.Csdl.CsdlLocation)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlAction"/> class.
             </summary>
@@ -60,7 +60,6 @@
             <param name="returnType">The return type of the function.</param>
             <param name="isBound">if set to <c>true</c> [is bound].</param>
             <param name="entitySetPath">The entity set path.</param>
-            <param name="documentation">The documentation.</param>
             <param name="location">The location in the csdl document of the function.</param>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlActionImport">
@@ -95,7 +94,7 @@
             Represents a CSDL Function.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlFunction.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperationParameter},Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlTypeReference,System.Boolean,System.String,System.Boolean,Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlDocumentation,Microsoft.OData.Edm.Csdl.CsdlLocation)">
+        <member name="M:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlFunction.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperationParameter},Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlTypeReference,System.Boolean,System.String,System.Boolean,Microsoft.OData.Edm.Csdl.CsdlLocation)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlFunction"/> class.
             </summary>
@@ -105,7 +104,6 @@
             <param name="isBound">if set to <c>true</c> [is bound].</param>
             <param name="entitySetPath">The entity set path.</param>
             <param name="isComposable">if set to <c>true</c> [is composable].</param>
-            <param name="documentation">The documentation.</param>
             <param name="location">The location in the csdl document of the function.</param>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlFunctionImport">
@@ -206,19 +204,9 @@
             Represents a reference to a CSDL decimal type.
             </summary>
         </member>
-        <member name="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlDocumentation">
-            <summary>
-            Represents a CSDL documentation.
-            </summary>
-        </member>
         <member name="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlElement">
             <summary>
             Common base class for CSDL elements.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlElementWithDocumentation">
-            <summary>
-            Base class for CSDL elements that have documentation.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlEntityContainer">
@@ -251,7 +239,7 @@
             Represents a CSDL Operation.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperation.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperationParameter},Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlTypeReference,System.Boolean,System.String,Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlDocumentation,Microsoft.OData.Edm.Csdl.CsdlLocation)">
+        <member name="M:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperation.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperationParameter},Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlTypeReference,System.Boolean,System.String,Microsoft.OData.Edm.Csdl.CsdlLocation)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlAction"/> class.
             </summary>
@@ -260,7 +248,6 @@
             <param name="returnType">Type of the return.</param>
             <param name="isBound">if set to <c>true</c> [is bound].</param>
             <param name="entitySetPath">The entity set path.</param>
-            <param name="documentation">The documentation.</param>
             <param name="location">The location.</param>
         </member>
         <member name="P:Microsoft.OData.Edm.Csdl.Parsing.Ast.CsdlOperation.IsBound">
@@ -450,6 +437,11 @@
             Represents information about an EDM function that failed to resolve.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.UnresolvedVocabularyTerm.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsNavigationPropertyPathExpression">
             <summary>
             Provides semantics for a Csdl Navigation Property Path expression.
@@ -458,6 +450,11 @@
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTypeDefinitionDefinition">
             <summary>
             Provides semantics for CsdlTypeDefinition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTypeDefinitionDefinition.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsAction">
@@ -638,6 +635,11 @@
             Provides semantics for a CsdlTerm.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTerm.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsBinaryTypeReference">
             <summary>
             Provides the semantics of a reference to an EDM Binary type.
@@ -648,19 +650,24 @@
             Provides semantics for CsdlComplexType.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsComplexTypeDefinition.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsDecimalTypeReference">
             <summary>
             Provides the semantics of a reference to an EDM Decimal type.
             </summary>
         </member>
-        <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsDocumentation">
-            <summary>
-            Provides semantics for CsdlDocumentation.
-            </summary>
-        </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsEntityContainer">
             <summary>
             Provides semantics for CsdlEntityContainer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsEntityContainer.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsEntityReferenceTypeDefinition">
@@ -678,9 +685,19 @@
             Provides semantics for CsdlEntityType.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsEntityTypeDefinition.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsOperation">
             <summary>
             Provides semantics for a CsdlOperation
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsOperation.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsOperationParameter">
@@ -747,6 +764,11 @@
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.UnresolvedOperation">
             <summary>
             Represents information about an EDM operation that failed to resolve.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.UnresolvedOperation.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsPrimitiveTypeReference">
@@ -824,6 +846,11 @@
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlSemantics.UnresolvedType">
             <summary>
             Represents information about an EDM type definition that failed to resolve.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Csdl.CsdlSemantics.UnresolvedType.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.CsdlLocation">
@@ -1643,6 +1670,707 @@
             <param name="otherType">Type referenced being compared to.</param>
             <returns>Equivalence of the two type references.</returns>
         </member>
+        <member name="T:Microsoft.OData.Edm.BadPathType">
+            <summary>
+            Represents a semantically invalid EDM path type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmCoreModelComplexType">
+            <summary>
+            The built-in Edm.ComplexType abstract type in the core model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmCoreModelComplexType.Instance">
+            <summary>
+            The core Edm.ComplexType singleton.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.TypeKind">
+            <summary>
+            Gets the kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.SchemaElementKind">
+            <summary>
+            Gets the schema element kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.Name">
+            <summary>
+            Gets the name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.Namespace">
+            <summary>
+            Gets the namespace of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.FullName">
+            <summary>
+            Gets the full name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.IsAbstract">
+            <summary>
+            Gets a value indicating whether this type is abstract.
+            The Edm.ComplexType is always an abstract type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.IsOpen">
+            <summary>
+            Gets a value indicating whether this type is open.
+            The Edm.ComplexType is always non-open type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmCoreModelComplexType.BaseType">
+            <summary>
+            Gets the base type of this type.
+            The Edm.ComplexType is always without base type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.DeclaredProperties">
+            <summary>
+            Gets the properties declared immediately within this type.
+            The Edm.ComplexType is always without any declared properties.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelComplexType.Microsoft#OData#Edm#IEdmStructuredType#BaseType">
+            <summary>
+            Gets the base structured type of this type.
+            The Edm.ComplexType is always without base type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelComplexType.FindProperty(System.String)">
+            <summary>
+            Searches for a structural or navigation property with the given name in this type.
+            </summary>
+            <param name="name">The name of the property being found.</param>
+            <returns>The Edm.ComplexType is always without any declared properties.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelComplexType.#ctor">
+            <summary>
+            private constructor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmCoreModelPrimitiveType">
+            <summary>
+            The built-in Edm.PrimitiveType and other concrete primitive types in the core model.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.#ctor(Microsoft.OData.Edm.EdmPrimitiveTypeKind)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.EdmCoreModelPrimitiveType"/> class.
+            </summary>
+            <param name="pathKind">The path kind.</param>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.Name">
+            <summary>
+            Gets the name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.Namespace">
+            <summary>
+            Getst the namespace of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.TypeKind">
+            <summary>
+            Gets the kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.PrimitiveKind">
+            <summary>
+            Gets the primitive kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.SchemaElementKind">
+            <summary>
+            Gets the schema element kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPrimitiveType.FullName">
+            <summary>
+            Gets the full name of this type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmCoreModelUntypedType">
+            <summary>
+            The built-in Edm.Untyped type in the core model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmCoreModelUntypedType.Instance">
+            <summary>
+            The core Edm.Untyped singleton.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelUntypedType.TypeKind">
+            <summary>
+            Gets the Edm type kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelUntypedType.SchemaElementKind">
+            <summary>
+            Gets the scheme element type kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelUntypedType.Name">
+            <summary>
+            Gets the name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelUntypedType.Namespace">
+            <summary>
+            Gets the namespace of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelUntypedType.FullName">
+            <summary>
+            Gets the full name of this type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelUntypedType.#ctor">
+            <summary>
+            Private constructor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.IEdmCoreModelElement">
+            <summary>
+            This is a marker interface for core model elements that do not require validation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmCoreModelEntityType">
+            <summary>
+            The built-in Edm.EntityType abstract type in the core model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmCoreModelEntityType.Instance">
+            <summary>
+            The core Edm.EntityType singleton.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.TypeKind">
+            <summary>
+            Gets the kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.SchemaElementKind">
+            <summary>
+            Gets the schema element kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.Name">
+            <summary>
+            Gets the name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.Namespace">
+            <summary>
+            Gets the namespace of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.FullName">
+            <summary>
+            Gets the full name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.HasStream">
+            <summary>
+            Gets the value indicating whether or not this type is a media entity.
+            The Edm.EntityType has not stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.IsAbstract">
+            <summary>
+            Gets a value indicating whether this type is abstract.
+            The Edm.EntityType is always an abstract type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.IsOpen">
+            <summary>
+            Gets a value indicating whether this type is open.
+            The Edm.EntityType is always non-open type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.BaseType">
+            <summary>
+            Gets the base type of this type.
+            The Edm.EntityType is always without base type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.DeclaredProperties">
+            <summary>
+            Gets the properties declared immediately within this type.
+            The Edm.EntityType is always without any declared properties.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelEntityType.DeclaredKey">
+            <summary>
+            Gets the structural properties of the entity type that make up the entity key.
+            The Edm.EntityType is always without any declrared keys.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelEntityType.FindProperty(System.String)">
+            <summary>
+            Searches for a structural or navigation property with the given name in this type.
+            </summary>
+            <param name="name">The name of the property being found.</param>
+            <returns>The Edm.EntityType is always without any declared properties.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelEntityType.#ctor">
+            <summary>
+            Private constructor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmCoreModelPathType">
+            <summary>
+            The built-in Edm.AnnotationPath, Edm.PropertyPath, Edm.NavigationPropertyPath abstract type in the core model.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModelPathType.#ctor(Microsoft.OData.Edm.EdmPathTypeKind)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.EdmCoreModelPathType"/> class.
+            </summary>
+            <param name="pathKind">The path kind.</param>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPathType.PathKind">
+            <summary>
+            Gets the path kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPathType.FullName">
+            <summary>
+            Gets the full name of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPathType.TypeKind">
+            <summary>
+            Gets the Edm type kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPathType.SchemaElementKind">
+            <summary>
+            Gets the schema element kind of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPathType.Namespace">
+            <summary>
+            Gets the namespace of this type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModelPathType.Name">
+            <summary>
+            Gets the name of this type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmCoreModel">
+            <summary>
+            Provides predefined declarations relevant to EDM semantics.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmCoreModel.Instance">
+            <summary>
+            The default core EDM model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.Namespace">
+            <summary>
+            Gets the namespace of this core model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.SchemaElements">
+            <summary>
+            Gets the types defined in this core model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.DeclaredNamespaces">
+            <summary>
+            Gets the collection of namespaces that schema elements use contained in this model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.VocabularyAnnotations">
+            <summary>
+            Gets the vocabulary annotations defined in this model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.ReferencedModels">
+            <summary>
+            Gets the collection of models referred to by this model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.DirectValueAnnotationsManager">
+            <summary>
+            Gets the model's annotations manager.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmCoreModel.EntityContainer">
+            <summary>
+            Gets the only one entity container of the model.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetCollection(Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Gets a reference to a non-atomic collection type definition.
+            </summary>
+            <param name="elementType">Type of elements in the collection.</param>
+            <returns>A new non-atomic collection type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredType(System.String)">
+            <summary>
+            Searches for a type with the given name in this model only and returns null if no such type exists.
+            </summary>
+            <param name="qualifiedName">The qualified name of the type being found.</param>
+            <returns>The requested type, or null if no such type exists.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredBoundOperations(Microsoft.OData.Edm.IEdmType)">
+            <summary>
+            Searches for bound operations based on the binding type, returns an empty enumerable if no operation exists.
+            </summary>
+            <param name="bindingType">Type of the binding.</param>
+            <returns>A set of operations that share the binding type or empty enumerable if no such operation exists.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredBoundOperations(System.String,Microsoft.OData.Edm.IEdmType)">
+            <summary>
+            Searches for bound operations based on the qualified name and binding type, returns an empty enumerable if no operation exists.
+            </summary>
+            <param name="qualifiedName">The qualified name of the operation.</param>
+            <param name="bindingType">Type of the binding.</param>
+            <returns>
+            A set of operations that share the qualified name and binding type or empty enumerable if no such operation exists.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredTerm(System.String)">
+            <summary>
+            Searches for a term with the given name in this model and returns null if no such term exists.
+            </summary>
+            <param name="qualifiedName">The qualified name of the term being found.</param>
+            <returns>The requested term, or null if no such term exists.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredOperations(System.String)">
+            <summary>
+            Searches for operations with the given name in this model and returns an empty enumerable if no such operation exists.
+            </summary>
+            <param name="qualifiedName">The qualified name of the operation being found.</param>
+            <returns>A set operations sharing the specified qualified name, or an empty enumerable if no such operation exists.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindOperationImportsByNameNonBindingParameterType(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Searches for any functionImport or actionImport by name and parameter names.
+            </summary>
+            <param name="operationImportName">The name of the operation imports to find. May be qualified with the namespace.</param>
+            <param name="parameterNames">The parameter names of the parameters.</param>
+            <returns>The operation imports that matches the search criteria or empty there was no match.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitiveType(Microsoft.OData.Edm.EdmPrimitiveTypeKind)">
+            <summary>
+            Gets primitive type by kind.
+            </summary>
+            <param name="kind">Kind of the primitive type.</param>
+            <returns>Primitive type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitiveType">
+            <summary>
+            Gets Edm.PrimitiveType type.
+            </summary>
+            <returns>IEdmPrimitiveType type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetComplexType">
+            <summary>
+            Gets Edm.ComplexType type.
+            </summary>
+            <returns>IEdmComplexType type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetEntityType">
+            <summary>
+            Gets Edm.EntityType type.
+            </summary>
+            <returns>IEdmEntityType type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetUntypedType">
+            <summary>
+            Gets Edm.Untyped type.
+            </summary>
+            <returns>IEdmUntypedType type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPathType(Microsoft.OData.Edm.EdmPathTypeKind)">
+            <summary>
+            Gets path type by kind.
+            </summary>
+            <param name="kind">Kind of the path type.</param>
+            <returns>Path type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitiveTypeKind(System.String)">
+            <summary>
+            Gets the EdmPrimitiveTypeKind by the type name.
+            </summary>
+            <param name="typeName">Name of the type to look up.</param>
+            <returns>EdmPrimitiveTypeKind of the type.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitive(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Boolean)">
+            <summary>
+            Gets a reference to a primitive type of the specified kind.
+            </summary>
+            <param name="kind">Primitive kind of the type reference being created.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPathTypeKind(System.String)">
+            <summary>
+            Gets the EdmPathTypeKind by the type name.
+            </summary>
+            <param name="typeName">Name of the type to look up.</param>
+            <returns>EdmPrimitiveTypeKind of the type.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPathType(Microsoft.OData.Edm.EdmPathTypeKind,System.Boolean)">
+            <summary>
+            Gets a reference to a path type of the specified kind.
+            </summary>
+            <param name="kind">Primitive kind of the type reference being created.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetAnnotationPath(System.Boolean)">
+            <summary>
+            Gets a reference to the Edm.AnnotationPath type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new Edm.AnnotationPath type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPropertyPath(System.Boolean)">
+            <summary>
+            Gets a reference to the Edm.PropertyPath type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new Edm.PropertyPath type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetNavigationPropertyPath(System.Boolean)">
+            <summary>
+            Gets a reference to the Edm.NavigationPropertyPath type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new Edm.NavigationPropertyPath type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetEntityType(System.Boolean)">
+            <summary>
+            Gets a reference to the Edm.EntityType type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new Edm.EntityType type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetComplexType(System.Boolean)">
+            <summary>
+            Gets a reference to the Edm.ComplexType type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new Edm.ComplexType type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitiveType(System.Boolean)">
+            <summary>
+            Gets a reference to the Edm.PrimitiveType type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new Edm.PrimitiveType type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetInt16(System.Boolean)">
+            <summary>
+            Gets a reference to the Int16 primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetInt32(System.Boolean)">
+            <summary>
+            Gets a reference to the Int32 primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetInt64(System.Boolean)">
+            <summary>
+            Gets a reference to the Int64 primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetBoolean(System.Boolean)">
+            <summary>
+            Gets a reference to the Boolean primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetByte(System.Boolean)">
+            <summary>
+            Gets a reference to the Byte primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSByte(System.Boolean)">
+            <summary>
+            Gets a reference to the SByte primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetGuid(System.Boolean)">
+            <summary>
+            Gets a reference to the Guid primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDate(System.Boolean)">
+            <summary>
+            Get a reference to the Date primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new primitive type reference</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDateTimeOffset(System.Boolean)">
+            <summary>
+            Gets a reference to a datetime with offset primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new datetime with offset type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDuration(System.Boolean)">
+            <summary>
+            Gets a reference to a duration primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new duration type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetTimeOfDay(System.Boolean)">
+            <summary>
+            Gets a reference to a TimeOfDay primitive type definition
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new TimeOfDay type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDecimal(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Gets a reference to a decimal primitive type definition.
+            </summary>
+            <param name="precision">Precision of values of this type.</param>
+            <param name="scale">Scale of values of this type.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new decimal type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDecimal(System.Boolean)">
+            <summary>
+            Gets a reference to a decimal primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new decimal type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSingle(System.Boolean)">
+            <summary>
+            Gets a reference to a single primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new decimal type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDouble(System.Boolean)">
+            <summary>
+            Gets a reference to a double primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new decimal type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetStream(System.Boolean)">
+            <summary>
+            Gets a reference to a stream primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new stream type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetTemporal(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Gets a reference to a temporal primitive type definition.
+            </summary>
+            <param name="kind">Primitive kind of the type reference being created.</param>
+            <param name="precision">Precision of values of this type.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new temporal type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetTemporal(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Boolean)">
+            <summary>
+            Gets a reference to a temporal primitive type definition.
+            </summary>
+            <param name="kind">Primitive kind of the type reference being created.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new temporal type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetBinary(System.Boolean,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Gets a reference to a binary primitive type definition.
+            </summary>
+            <param name="isUnbounded">Flag specifying if max length is unbounded.</param>
+            <param name="maxLength">Maximum length of the type.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new binary type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetBinary(System.Boolean)">
+            <summary>
+            Gets a reference to a binary primitive type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new binary type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSpatial(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Gets a reference to a spatial primitive type definition.
+            </summary>
+            <param name="kind">Primitive kind of the type reference being created.</param>
+            <param name="spatialReferenceIdentifier">Spatial Reference Identifier for the spatial type being created.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new spatial type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSpatial(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Boolean)">
+            <summary>
+            Gets a reference to a spatial primitive type definition.
+            </summary>
+            <param name="kind">Primitive kind of the type reference being created.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new spatial type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetString(System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Boolean)">
+            <summary>
+            Gets a reference to a string primitive type definition.
+            </summary>
+            <param name="isUnbounded">Flag specifying if max length is the maximum allowable value.</param>
+            <param name="maxLength">Maximum length of the type.</param>
+            <param name="isUnicode">Flag specifying if the type should support unicode encoding.</param>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new string type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetString(System.Boolean)">
+            <summary>
+            Gets a reference to a binary string type definition.
+            </summary>
+            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
+            <returns>A new string type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetUntyped">
+            <summary>
+            Gets a reference to a Edm.Untyped type definition.
+            </summary>
+            <returns>A new Edm.Untyped type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredVocabularyAnnotations(Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable)">
+            <summary>
+            Searches for vocabulary annotations specified by this model or a referenced model for a given element.
+            </summary>
+            <param name="element">The annotated element.</param>
+            <returns>The vocabulary annotations for the element.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDirectlyDerivedTypes(Microsoft.OData.Edm.IEdmStructuredType)">
+            <summary>
+            Finds a list of types that derive from the supplied type.
+            </summary>
+            <param name="baseType">The base type that derived types are being searched for.</param>
+            <returns>A list of types that derive from the type.</returns>
+        </member>
         <member name="T:Microsoft.OData.Edm.EdmUntypedStructuredType">
             <summary>
             Common base class for definitions of EDM structured types.
@@ -1663,6 +2391,11 @@
         <member name="P:Microsoft.OData.Edm.EdmUntypedStructuredType.Namespace">
             <summary>
             Gets the namespace of this element.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmUntypedStructuredType.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="P:Microsoft.OData.Edm.EdmUntypedStructuredType.Name">
@@ -1691,6 +2424,18 @@
             </summary>
             <param name="definition">IEdmStructuredType definition.</param>
         </member>
+        <member name="T:Microsoft.OData.Edm.EdmPathTypeReference">
+            <summary>
+            Represents a reference to an EDM Path type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmPathTypeReference.#ctor(Microsoft.OData.Edm.IEdmPathType,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="definition">IEdmPathType definition.</param>
+            <param name="isNullable">nullable or not.</param>
+        </member>
         <member name="T:Microsoft.OData.Edm.EdmUntypedTypeReference">
             <summary>
             Represents a reference to an EDM Untyped type.
@@ -1701,6 +2446,56 @@
             Constructor
             </summary>
             <param name="definition">IEdmUntypedType definition.</param>
+        </member>
+        <member name="T:Microsoft.OData.Edm.IEdmFullNamedElement">
+            <summary>
+            Common base interface for all named EDM elements.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.IEdmFullNamedElement.FullName">
+            <summary>
+            Gets the full name of this element.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.IEdmPathTypeReference">
+            <summary>
+            Represents references to Edm.*Path type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.EdmPathTypeKind">
+            <summary>
+            Enumerates the kinds of Edm Path type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmPathTypeKind.None">
+            <summary>
+             Represents a path type of unknown kind.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmPathTypeKind.AnnotationPath">
+            <summary>
+            Represents a Edm.AnnotationPath type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmPathTypeKind.PropertyPath">
+            <summary>
+            Represents a Edm.PropertyPath type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.EdmPathTypeKind.NavigationPropertyPath">
+            <summary>
+            Represents a Edm.NavigationPropertyPath type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.IEdmPathType">
+            <summary>
+            Represents a definition of a Path type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.IEdmPathType.PathKind">
+            <summary>
+            Gets the path kind of this type.
+            </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.IEdmUntypedType">
             <summary>
@@ -2507,6 +3302,11 @@
             Represents a semantically invalid EDM type definition.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.BadTypeDefinition.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.EdmTypeDefinition">
             <summary>
             Represents the definition of an Edm type definition.
@@ -2541,6 +3341,11 @@
         <member name="P:Microsoft.OData.Edm.EdmTypeDefinition.Namespace">
             <summary>
             Gets the namespace this schema element belongs to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmTypeDefinition.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="P:Microsoft.OData.Edm.EdmTypeDefinition.Name">
@@ -2631,6 +3436,14 @@
             </summary>
             <param name="parentNavigationSource">The <see cref="T:Microsoft.OData.Edm.IEdmNavigationSource"/> that container element belongs to</param>
             <param name="navigationProperty">An <see cref="T:Microsoft.OData.Edm.IEdmNavigationProperty"/> containing the navigation property definition of the contained element</param>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmContainedEntitySet.#ctor(Microsoft.OData.Edm.IEdmNavigationSource,Microsoft.OData.Edm.IEdmNavigationProperty,Microsoft.OData.Edm.IEdmPathExpression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.EdmContainedEntitySet"/> class.
+            </summary>
+            <param name="parentNavigationSource">The <see cref="T:Microsoft.OData.Edm.IEdmNavigationSource"/> that container element belongs to</param>
+            <param name="navigationProperty">An <see cref="T:Microsoft.OData.Edm.IEdmNavigationProperty"/> containing the navigation property definition of the contained element</param>
+            <param name="navigationPath">The path from the parentNavigationSource to the related resource, concluding with the navigation property name. May traverse complex types and cast segments</param>
         </member>
         <member name="P:Microsoft.OData.Edm.EdmContainedEntitySet.Path">
             <summary>
@@ -3257,6 +4070,16 @@
             </summary>
             <typeparam name="TElement">Type of the ambiguous element.</typeparam>
         </member>
+        <member name="P:Microsoft.OData.Edm.AmbiguousEntityContainerBinding.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.AmbiguousOperationBinding.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.AmbiguousOperationImportBinding">
             <summary>
             Class that represents an unresolved operation import binding to two or more operation imports.
@@ -3282,9 +4105,19 @@
             Represents a name binding to more than one item.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.AmbiguousTypeBinding.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.AmbiguousTermBinding">
             <summary>
             Represents a name binding to more than one item.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.AmbiguousTermBinding.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.BadBinaryTypeReference">
@@ -3317,6 +4150,11 @@
             Represents a semantically invalid EDM entity container.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.BadEntityContainer.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="P:Microsoft.OData.Edm.BadEntityContainer.SchemaElementKind">
             <summary>
             Gets the kind of this schema element.
@@ -3342,6 +4180,11 @@
             Represents a semantically invalid EDM enumeration type.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.BadEnumType.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.BadLabeledExpression">
             <summary>
             Represents a semantically invalid EDM labeled expression.
@@ -3352,9 +4195,19 @@
             Represents a semantically invalid EDM named structured type definition.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.BadNamedStructuredType.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.BadPrimitiveType">
             <summary>
             Represents a semantically invalid EDM primitive type definition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.BadPrimitiveType.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.BadPrimitiveTypeReference">
@@ -3710,6 +4563,11 @@
             Validates that there is no entity set or singleton whose entity type has no key.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.NavigationSourceDeclaringTypeCannotHavePathTypeProperty">
+            <summary>
+            Validates that there is no entity set or singleton whose entity type has not property defined with Path type.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.NavigationSourceInaccessibleEntityType">
             <summary>
             Validates that the entity type of an entity set or singleton can be found from the model being validated.
@@ -3751,9 +4609,19 @@
             Validates that the type of entity set is collection of entity type.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EntitySetTypeCannotBeEdmEntityType">
+            <summary>
+            Validates that the type of an entity set cannot be Edm.EntityType.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.SingletonTypeMustBeEntityType">
             <summary>
             Validates that the type of singleton is entity type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.SingletonTypeCannotBeEdmEntityType">
+            <summary>
+            Validates that the type of singleton cannot be Edm.EntityType.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.StructuredTypeInvalidMemberNameMatchesTypeName">
@@ -3769,6 +4637,11 @@
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.StructuredTypeBaseTypeMustBeSameKindAsDerivedKind">
             <summary>
             Validates that the base type of a complex type is complex, and the base type of an entity type is an entity.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.StructuredTypeBaseTypeCannotBeAbstractType">
+            <summary>
+            Validates that the base type of a structured type cannot be Edm.EntityType or Edm.ComplexType.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.StructuredTypeInaccessibleBaseType">
@@ -3791,9 +4664,19 @@
             Raises an error if the underlying type of an enum type is not an integer type.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EnumUnderlyingTypeCannotBeEdmPrimitiveType">
+            <summary>
+            Validates that the underlying type of a type definition cannot be Edm.PrimitiveType.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EnumMemberValueMustHaveSameTypeAsUnderlyingType">
             <summary>
             Raises an error if the type of an enum member doesn't match the underlying type of the enum it belongs to.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.TypeDefinitionUnderlyingTypeCannotBeEdmPrimitiveType">
+            <summary>
+            Validates that the underlying type of a type definition cannot be Edm.PrimitiveType.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EntityTypeDuplicatePropertyNameSpecifiedInEntityKey">
@@ -3824,6 +4707,11 @@
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EntityTypeKeyPropertyMustBelongToEntity">
             <summary>
             Validates that all properties in the key of an entity blong to that entity.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EntityTypeKeyTypeCannotBeEdmPrimitiveType">
+            <summary>
+            Validates that Edm.PrimitiveType cannot be used as the type of a key property of an entity type.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.EntityReferenceTypeInaccessibleEntityType">
@@ -3922,6 +4810,11 @@
             Validates that if an entity does not directly contain itself, it cannot contain itself through a containment loop.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.NavigationPropertyTypeCannotHavePathTypeProperty">
+            <summary>
+            Validates that the type of the navigation property cannot have path type property defined.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.NavigationPropertyTypeMismatchRelationshipConstraint">
             <summary>
             Validates that each pair of properties between the dependent properties and the principal properties are of the same type.
@@ -3930,6 +4823,11 @@
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.PropertyMustNotHaveKindOfNone">
             <summary>
             A property without other errors must not have kind of none.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.PropertyTypeCannotBeCollectionOfAbstractType">
+            <summary>
+            Collection(Edm.PrimitiveType) and Collection(Edm.ComplexType) cannot be used as the type of a property.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.OperationImportCannotImportBoundOperation">
@@ -3985,6 +4883,11 @@
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.OperationReturnTypeEntityTypeMustBeValid">
             <summary>
             Validates that the return type is consistent with the entityset path if it exists.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.OperationReturnTypeCannotBeCollectionOfAbstractType">
+            <summary>
+            Validates that the return type cannot be Collection(Edm.PrimitiveType) or Collection(Edm.ComplexType).
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.ValidationRules.TypeReferenceInaccessibleSchemaType">
@@ -4614,6 +5517,11 @@
             Navigation property has a type that is not an entity or collection of entities.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.KeyPropertyTypeCannotBeEdmPrimitiveType">
+            <summary>
+            Edm.PrimitiveType cannot be used as the type of a key property of an entity type.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.UnderlyingTypeIsBadBecauseEnumTypeIsBad">
             <summary>
             Underlying type of the enumeration type is bad because the enumeration type is bad.
@@ -4697,6 +5605,11 @@
         <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.OperationWithEntitySetPathReturnTypeInvalid">
             <summary>
             Operation with an EntitySetPath has an invalid return type. The return type must be an entity type or collection of entity type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.OperationWithCollectionOfAbstractReturnTypeInvalid">
+            <summary>
+            Collection(Edm.PrimitiveType) and Collection(Edm.ComplexType) cannot be used as the return type of a function.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.MaxLengthOutOfRange">
@@ -5011,6 +5924,11 @@
             A property without other errors must not have kind of none.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.PropertyTypeCannotBeCollectionOfAbstractType">
+            <summary>
+            A property type cannot be collection of Edm.Primitive or Edm.ComplexType.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.SchemaElementMustNotHaveKindOfNone">
             <summary>
             A schema element without other errors must not have kind of none.
@@ -5224,6 +6142,41 @@
         <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.ExpressionEnumKindNotValidForAssertedType">
             <summary>
             The enum type is not valid for the requested type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.TypeDefinitionUnderlyingTypeCannotBeEdmPrimitiveType">
+            <summary>
+            The underlying type of a type definition type cannot be Edm.PrimitiveType.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.EntityTypeBaseTypeCannotBeEdmEntityType">
+            <summary>
+            The base type of an entity type cannot be Edm.EntityType.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.ComplexTypeBaseTypeCannotBeEdmComplexType">
+            <summary>
+            The base type of a complex type cannot be Edm.ComplexType.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.EntityTypeOfSingletonCannotBeEdmEntityType">
+            <summary>
+            Edm.EntityType cannot be used as the type of a singleton in an entity container.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.EntityTypeOfEntitySetCannotBeEdmEntityType">
+            <summary>
+            Edm.EntityType cannot be used as the type of an entity set in an entity container.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.DeclaringTypeOfNavigationSourceCannotHavePathProperty">
+            <summary>
+            The dclaring type of navigation source cannot have path type property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Validation.EdmErrorCode.TypeOfNavigationPropertyCannotHavePathProperty">
+            <summary>
+            The type of navigation property cannot have path type property.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Vocabularies.EdmVocabularyAnnotation">
@@ -5650,6 +6603,21 @@
         <member name="F:Microsoft.OData.Edm.Vocabularies.V1.CapabilitiesVocabularyConstants.VocabularyUrlSuffix">
             <summary>Org.OData.Capabilities.V1.xml file suffix</summary>
         </member>
+        <member name="T:Microsoft.OData.Edm.Vocabularies.V1.AuthorizationVocabularyModel">
+            <summary>
+            Representing Org.OData.Authorization.V1 Vocabulary Model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Vocabularies.V1.AuthorizationVocabularyModel.Instance">
+            <summary>
+            The EDM model with authorization vocabularies.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Vocabularies.V1.AuthorizationVocabularyModel.#cctor">
+            <summary>
+            Parse authorization vocabulary Model from AuthorizationVocabularies.xml
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.Vocabularies.V1.CapabilitiesVocabularyModel">
             <summary>
             Representing Capabilities Vocabulary Model.
@@ -5996,6 +6964,11 @@
         <member name="P:Microsoft.OData.Edm.Vocabularies.EdmTerm.Namespace">
             <summary>
             Gets the namespace of this term.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Vocabularies.EdmTerm.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="P:Microsoft.OData.Edm.Vocabularies.EdmTerm.Type">
@@ -7947,6 +8920,11 @@
             Gets the name of this enumeration type.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.EdmEnumType.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="P:Microsoft.OData.Edm.EdmEnumType.UnderlyingType">
             <summary>
             Gets the underlying type of this enumeration type.
@@ -9245,22 +10223,6 @@
             <param name="segmentType">The type of the segment.</param>
             <returns>Non-null entity type that may be bad.</returns>
         </member>
-        <member name="M:Microsoft.OData.Edm.ExtensionMethods.GetDocumentation(Microsoft.OData.Edm.IEdmModel,Microsoft.OData.Edm.IEdmElement)">
-            <summary>
-            Gets documentation for a specified element.
-            </summary>
-            <param name="model">The model containing the documentation.</param>
-            <param name="element">The element.</param>
-            <returns>Documentation that exists on the element. Otherwise, null.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.ExtensionMethods.SetDocumentation(Microsoft.OData.Edm.IEdmModel,Microsoft.OData.Edm.IEdmElement,Microsoft.OData.Edm.IEdmDocumentation)">
-            <summary>
-            Sets documentation for a specified element.
-            </summary>
-            <param name="model">The model containing the documentation.</param>
-            <param name="element">The element.</param>
-            <param name="documentation">Documentation to set.</param>
-        </member>
         <member name="M:Microsoft.OData.Edm.ExtensionMethods.FindEntitySetExtended(Microsoft.OData.Edm.IEdmEntityContainer,System.String)">
             <summary>
             Searches for entity set by the given name that may be container qualified in default container and .Extends containers.
@@ -9268,6 +10230,22 @@
             <param name="container">The container to search.</param>
             <param name="qualifiedName">The name which might be container qualified. If no container name is provided, then default container will be searched.</param>
             <returns>The entity set found or empty if none found.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.ExtensionMethods.FindNavigationSourceExtended(Microsoft.OData.Edm.IEdmEntityContainer,System.String)">
+            <summary>
+            Searches for an entity set or contained navigation property according to the specified path that may be container qualified in default container and .Extends containers.
+            </summary>
+            <param name="container">The container to search.</param>
+            <param name="path">The name which might be container qualified. If no container name is provided, then default container will be searched.</param>
+            <returns>The entity set found or empty if none found.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.ExtensionMethods.FindNavigationSource(Microsoft.OData.Edm.IEdmEntityContainer,System.String)">
+            <summary>
+            Searches for an entity set or contained navigation property according to the specified path that may be container qualified in default container and .Extends containers.
+            </summary>
+            <param name="container">The container to search.</param>
+            <param name="path">The path which might be container qualified. If no container name is provided, then default container will be searched.</param>
+            <returns>The navigation source found or empty if none found.</returns>
         </member>
         <member name="M:Microsoft.OData.Edm.ExtensionMethods.FindSingletonExtended(Microsoft.OData.Edm.IEdmEntityContainer,System.String)">
             <summary>
@@ -9315,9 +10293,9 @@
             </summary>
             <typeparam name="T">The IEdmEntityContainerElement derived type.</typeparam>
             <param name="container">The IEdmEntityContainer object, can be CsdlSemanticsEntityContainer.</param>
-            <param name="simpleName">A simple (not fully qualified) entity set name or singleton name or operation import name.</param>
+            <param name="simpleName">A simple (not fully qualified) entity set name, singleton name, operation import name or path.</param>
             <param name="finderFunc">The func to do the search within container.</param>
-            <param name="deepth">The recursive deepth of .Extends containers to search.</param>
+            <param name="depth">The recursive deepth of .Extends containers to search.</param>
             <returns>The found entity set or singleton or operation import.</returns>
         </member>
         <member name="T:Microsoft.OData.Edm.IEdmBinaryTypeReference">
@@ -9563,6 +10541,11 @@
             Represents a TimeOfDay type
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.EdmPrimitiveTypeKind.PrimitiveType">
+            <summary>
+            Represents a Primitive type
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.IEdmPrimitiveType">
             <summary>
             Represents a definition of an EDM primitive type.
@@ -9743,6 +10726,24 @@
             <param name="computeValue">The function to compute value if key not exist in dictionary</param>
             <returns>The value for the key</returns>
         </member>
+        <member name="M:Microsoft.OData.Edm.EdmUtil.DictionarySafeGet``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Query dictionary for certain key, return default if not present
+            </summary>
+            <typeparam name="TKey">Key type for dictionary</typeparam>
+            <typeparam name="TValue">Value type for dictionary</typeparam>
+            <param name="dictionary">The dictionary to look up</param>
+            <param name="key">The key property</param>
+            <returns>The value for the key, or default if the value does not exist</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmUtil.GetFullNameForSchemaElement(System.String,System.String)">
+            <summary>
+            Gets full name for the schema element with the provided namespace and name
+            </summary>
+            <param name="elementNamespace">Namespace of the element</param>
+            <param name="elementName">The element name</param>
+            <returns>The full name of the element</returns>
+        </member>
         <member name="M:Microsoft.OData.Edm.EdmUtil.GetStringAnnotationValue``1(Microsoft.OData.Edm.IEdmModel,``0,System.String,System.Func{System.String})">
             <summary>
             Checks whether the <paramref name="annotatable"/> has an annotation.
@@ -9757,21 +10758,6 @@
         <member name="T:Microsoft.OData.Edm.IEdmComplexTypeReference">
             <summary>
             Represents references to EDM complex types.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.Edm.IEdmDocumentation">
-            <summary>
-            Represents an EDM documentation.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.IEdmDocumentation.Summary">
-            <summary>
-            Gets a summary of this documentation.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.IEdmDocumentation.Description">
-            <summary>
-            Gets a long description of this documentation.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.IEdmElement">
@@ -10258,6 +11244,11 @@
             Represents a type implementing <see cref="T:Microsoft.OData.Edm.IEdmUntypedType"/>.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.EdmTypeKind.Path">
+            <summary>
+            Represetns a type implementing <see cref="T:Microsoft.OData.Edm.IEdmPathType"/>.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.IEdmType">
             <summary>
             Represents the definition of an EDM type.
@@ -10572,31 +11563,14 @@
             Gets the name of this element.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.EdmComplexType.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="P:Microsoft.OData.Edm.EdmComplexType.TypeKind">
             <summary>
             Gets the kind of this type.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.Edm.EdmDocumentation">
-            <summary>
-            Represents an EDM documentation.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmDocumentation.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.EdmDocumentation"/> class.
-            </summary>
-            <param name="summary">Summary of the documentation.</param>
-            <param name="description">The documentation contents.</param>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmDocumentation.Summary">
-            <summary>
-            Gets summary of this documentation.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmDocumentation.Description">
-            <summary>
-            Gets documentation.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.EdmEntityContainer">
@@ -10624,6 +11598,11 @@
         <member name="P:Microsoft.OData.Edm.EdmEntityContainer.Name">
             <summary>
             Gets the name of this entity container.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmEntityContainer.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="P:Microsoft.OData.Edm.EdmEntityContainer.SchemaElementKind">
@@ -10873,6 +11852,11 @@
             Gets the name of this element.
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Edm.EdmEntityType.FullName">
+            <summary>
+            Gets the full name of this schema element.
+            </summary>
+        </member>
         <member name="P:Microsoft.OData.Edm.EdmEntityType.TypeKind">
             <summary>
             Gets the kind of this type.
@@ -10978,6 +11962,11 @@
         <member name="P:Microsoft.OData.Edm.EdmOperation.Namespace">
             <summary>
             Gets the namespace of this function.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.EdmOperation.FullName">
+            <summary>
+            Gets the full name of this schema element.
             </summary>
         </member>
         <member name="P:Microsoft.OData.Edm.EdmOperation.ReturnType">
@@ -11698,16 +12687,6 @@
             The current latest version of EDM.
             </summary>
         </member>
-        <member name="F:Microsoft.OData.Edm.EdmConstants.DocumentationUri">
-            <summary>
-            The URI of annotations that will be serialized as documentation elements.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.Edm.EdmConstants.DocumentationAnnotation">
-            <summary>
-            The local name of annotations that will be serialized as documentation elements.
-            </summary>
-        </member>
         <member name="F:Microsoft.OData.Edm.EdmConstants.InternalUri">
             <summary>
             The URI of annotations that are internal and will not be serialized.
@@ -11763,343 +12742,6 @@
             </summary>
             <param name="entityType">The definition refered to by this reference.</param>
             <param name="isNullable">Denotes whether the type can be nullable.</param>
-        </member>
-        <member name="T:Microsoft.OData.Edm.IEdmValidCoreModelElement">
-            <summary>
-            This is a marker interface for core model elements that do not require validation.
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.Edm.EdmCoreModel">
-            <summary>
-            Provides predefined declarations relevant to EDM semantics.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.Edm.EdmCoreModel.Instance">
-            <summary>
-            The default core EDM model.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.Namespace">
-            <summary>
-            Gets the namespace of this core model.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.SchemaElements">
-            <summary>
-            Gets the types defined in this core model.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.DeclaredNamespaces">
-            <summary>
-            Gets the collection of namespaces that schema elements use contained in this model.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.VocabularyAnnotations">
-            <summary>
-            Gets the vocabulary annotations defined in this model.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.ReferencedModels">
-            <summary>
-            Gets the collection of models referred to by this model.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.DirectValueAnnotationsManager">
-            <summary>
-            Gets the model's annotations manager.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.EntityContainer">
-            <summary>
-            Gets the only one entity container of the model.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetCollection(Microsoft.OData.Edm.IEdmTypeReference)">
-            <summary>
-            Gets a reference to a non-atomic collection type definition.
-            </summary>
-            <param name="elementType">Type of elements in the collection.</param>
-            <returns>A new non-atomic collection type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredType(System.String)">
-            <summary>
-            Searches for a type with the given name in this model only and returns null if no such type exists.
-            </summary>
-            <param name="qualifiedName">The qualified name of the type being found.</param>
-            <returns>The requested type, or null if no such type exists.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredBoundOperations(Microsoft.OData.Edm.IEdmType)">
-            <summary>
-            Searches for bound operations based on the binding type, returns an empty enumerable if no operation exists.
-            </summary>
-            <param name="bindingType">Type of the binding.</param>
-            <returns>A set of operations that share the binding type or empty enumerable if no such operation exists.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredBoundOperations(System.String,Microsoft.OData.Edm.IEdmType)">
-            <summary>
-            Searches for bound operations based on the qualified name and binding type, returns an empty enumerable if no operation exists.
-            </summary>
-            <param name="qualifiedName">The qualified name of the operation.</param>
-            <param name="bindingType">Type of the binding.</param>
-            <returns>
-            A set of operations that share the qualified name and binding type or empty enumerable if no such operation exists.
-            </returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredTerm(System.String)">
-            <summary>
-            Searches for a term with the given name in this model and returns null if no such term exists.
-            </summary>
-            <param name="qualifiedName">The qualified name of the term being found.</param>
-            <returns>The requested term, or null if no such term exists.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredOperations(System.String)">
-            <summary>
-            Searches for operations with the given name in this model and returns an empty enumerable if no such operation exists.
-            </summary>
-            <param name="qualifiedName">The qualified name of the operation being found.</param>
-            <returns>A set operations sharing the specified qualified name, or an empty enumerable if no such operation exists.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindOperationImportsByNameNonBindingParameterType(System.String,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Searches for any functionImport or actionImport by name and parameter names.
-            </summary>
-            <param name="operationImportName">The name of the operation imports to find. May be qualified with the namespace.</param>
-            <param name="parameterNames">The parameter names of the parameters.</param>
-            <returns>The operation imports that matches the search criteria or empty there was no match.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitiveType(Microsoft.OData.Edm.EdmPrimitiveTypeKind)">
-            <summary>
-            Gets primitive type by kind.
-            </summary>
-            <param name="kind">Kind of the primitive type.</param>
-            <returns>Primitive type definition.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetUntypedType">
-            <summary>
-            Gets Edm.Untyped type.
-            </summary>
-            <returns>IEdmUntypedType type definition.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitiveTypeKind(System.String)">
-            <summary>
-            Gets the EdmPrimitiveTypeKind by the type name.
-            </summary>
-            <param name="typeName">Name of the type to look up.</param>
-            <returns>EdmPrimitiveTypeKind of the type.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetPrimitive(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Boolean)">
-            <summary>
-            Gets a reference to a primitive type of the specified kind.
-            </summary>
-            <param name="kind">Primitive kind of the type reference being created.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetInt16(System.Boolean)">
-            <summary>
-            Gets a reference to the Int16 primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetInt32(System.Boolean)">
-            <summary>
-            Gets a reference to the Int32 primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetInt64(System.Boolean)">
-            <summary>
-            Gets a reference to the Int64 primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetBoolean(System.Boolean)">
-            <summary>
-            Gets a reference to the Boolean primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetByte(System.Boolean)">
-            <summary>
-            Gets a reference to the Byte primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSByte(System.Boolean)">
-            <summary>
-            Gets a reference to the SByte primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetGuid(System.Boolean)">
-            <summary>
-            Gets a reference to the Guid primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDate(System.Boolean)">
-            <summary>
-            Get a reference to the Date primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new primitive type reference</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDateTimeOffset(System.Boolean)">
-            <summary>
-            Gets a reference to a datetime with offset primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new datetime with offset type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDuration(System.Boolean)">
-            <summary>
-            Gets a reference to a duration primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new duration type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetTimeOfDay(System.Boolean)">
-            <summary>
-            Gets a reference to a TimeOfDay primitive type definition
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new TimeOfDay type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDecimal(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean)">
-            <summary>
-            Gets a reference to a decimal primitive type definition.
-            </summary>
-            <param name="precision">Precision of values of this type.</param>
-            <param name="scale">Scale of values of this type.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new decimal type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDecimal(System.Boolean)">
-            <summary>
-            Gets a reference to a decimal primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new decimal type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSingle(System.Boolean)">
-            <summary>
-            Gets a reference to a single primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new decimal type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetDouble(System.Boolean)">
-            <summary>
-            Gets a reference to a double primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new decimal type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetStream(System.Boolean)">
-            <summary>
-            Gets a reference to a stream primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new stream type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetTemporal(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Nullable{System.Int32},System.Boolean)">
-            <summary>
-            Gets a reference to a temporal primitive type definition.
-            </summary>
-            <param name="kind">Primitive kind of the type reference being created.</param>
-            <param name="precision">Precision of values of this type.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new temporal type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetTemporal(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Boolean)">
-            <summary>
-            Gets a reference to a temporal primitive type definition.
-            </summary>
-            <param name="kind">Primitive kind of the type reference being created.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new temporal type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetBinary(System.Boolean,System.Nullable{System.Int32},System.Boolean)">
-            <summary>
-            Gets a reference to a binary primitive type definition.
-            </summary>
-            <param name="isUnbounded">Flag specifying if max length is unbounded.</param>
-            <param name="maxLength">Maximum length of the type.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new binary type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetBinary(System.Boolean)">
-            <summary>
-            Gets a reference to a binary primitive type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new binary type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSpatial(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Nullable{System.Int32},System.Boolean)">
-            <summary>
-            Gets a reference to a spatial primitive type definition.
-            </summary>
-            <param name="kind">Primitive kind of the type reference being created.</param>
-            <param name="spatialReferenceIdentifier">Spatial Reference Identifier for the spatial type being created.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new spatial type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetSpatial(Microsoft.OData.Edm.EdmPrimitiveTypeKind,System.Boolean)">
-            <summary>
-            Gets a reference to a spatial primitive type definition.
-            </summary>
-            <param name="kind">Primitive kind of the type reference being created.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new spatial type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetString(System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Boolean)">
-            <summary>
-            Gets a reference to a string primitive type definition.
-            </summary>
-            <param name="isUnbounded">Flag specifying if max length is the maximum allowable value.</param>
-            <param name="maxLength">Maximum length of the type.</param>
-            <param name="isUnicode">Flag specifying if the type should support unicode encoding.</param>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new string type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetString(System.Boolean)">
-            <summary>
-            Gets a reference to a binary string type definition.
-            </summary>
-            <param name="isNullable">Flag specifying if the referenced type should be nullable.</param>
-            <returns>A new string type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.GetUntyped">
-            <summary>
-            Gets a reference to a Edm.Untyped type definition.
-            </summary>
-            <returns>A new Edm.Untyped type reference.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDeclaredVocabularyAnnotations(Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable)">
-            <summary>
-            Searches for vocabulary annotations specified by this model or a referenced model for a given element.
-            </summary>
-            <param name="element">The annotated element.</param>
-            <returns>The vocabulary annotations for the element.</returns>
-        </member>
-        <member name="M:Microsoft.OData.Edm.EdmCoreModel.FindDirectlyDerivedTypes(Microsoft.OData.Edm.IEdmStructuredType)">
-            <summary>
-            Finds a list of types that derive from the supplied type.
-            </summary>
-            <param name="baseType">The base type that derived types are being searched for.</param>
-            <returns>A list of types that derive from the type.</returns>
-        </member>
-        <member name="P:Microsoft.OData.Edm.EdmCoreModel.EdmValidCoreModelPrimitiveType.TypeKind">
-            <summary>
-            Gets the kind of this type.
-            </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.EdmPrimitiveTypeReference">
             <summary>
@@ -12193,6 +12835,13 @@
             </summary>
             <param name="type">Type reference.</param>
             <returns>This reference refers to an entity type.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmTypeSemantics.IsPath(Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Returns true if this reference refers to a path type.
+            </summary>
+            <param name="type">Type reference.</param>
+            <returns>This reference refers to a path type.</returns>
         </member>
         <member name="M:Microsoft.OData.Edm.EdmTypeSemantics.IsEntityReference(Microsoft.OData.Edm.IEdmTypeReference)">
             <summary>
@@ -12557,6 +13206,15 @@
             </summary>
             <param name="type">Reference to the calling object.</param>
             <returns>A valid complex type reference if the definition of the reference is of a complex type. Otherwise a bad complex type reference.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.EdmTypeSemantics.AsPath(Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            If this reference is of a path type, this will return a valid path type reference to the type definition.
+            Otherwise, it will return a bad path type reference.
+            </summary>
+            <param name="type">Reference to the calling object.</param>
+            <returns>A valid path type reference if the definition of the reference is of a path type.
+            Otherwise a bad path type reference.</returns>
         </member>
         <member name="M:Microsoft.OData.Edm.EdmTypeSemantics.AsSpatial(Microsoft.OData.Edm.IEdmTypeReference)">
             <summary>
@@ -12978,9 +13636,9 @@
             A string like "Unexpected primitive type kind."
             </summary>
         </member>
-        <member name="M:Microsoft.OData.Edm.Strings.Annotations_DocumentationPun(System.Object)">
+        <member name="P:Microsoft.OData.Edm.Strings.EdmPath_UnexpectedKind">
             <summary>
-            A string like "Annotations in the 'Documentation' namespace must implement 'IEdmDocumentation', but '{0}' does not."
+            A string like "Unexpected path type kind."
             </summary>
         </member>
         <member name="M:Microsoft.OData.Edm.Strings.Annotations_TypeMismatch(System.Object,System.Object)">
@@ -13393,6 +14051,16 @@
             A string like "The key property '{0}' must belong to the entity '{1}'."
             </summary>
         </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_EdmPrimitiveTypeCannotBeUsedAsTypeOfKey(System.Object,System.Object)">
+            <summary>
+            A string like "The 'Edm.PrimitiveType' cannot be used as the type of a key property '{0}' of an entity type '{1}'."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_EdmPrimitiveTypeCannotBeUsedAsUnderlyingType(System.Object,System.Object)">
+            <summary>
+            A string like "The 'Edm.PrimitiveType' cannot be used as the underlying type of '{0}' type '{1}'."
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_DependentPropertiesMustBelongToDependentEntity(System.Object,System.Object)">
             <summary>
             A string like "The dependent property '{0}' must belong to the dependent entity '{1}'."
@@ -13736,6 +14404,41 @@
         <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_NavigationPropertyOfCollectionTypeMustNotTargetToSingleton(System.Object,System.Object)">
             <summary>
             A string like "The navigation property mapping '{0}' is invalid because its type is collection but target to a singleton '{1}'."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_StructuredTypeBaseTypeCannotBeAbstractType(System.Object,System.Object,System.Object)">
+            <summary>
+            A string like "The type '{0}' cannot be the base type of an '{1}' type '{2}'."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_PropertyTypeCannotBeCollectionOfAbstractType(System.Object,System.Object)">
+            <summary>
+            A string like "The type '{0}' cannot be used as the type of a property '{1}'."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_OperationReturnTypeCannotBeCollectionOfAbstractType(System.Object,System.Object)">
+            <summary>
+            A string like "The type '{0}' cannot be used as the return type of a function '{1}'."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_EdmEntityTypeCannotBeTypeOfSingleton(System.Object)">
+            <summary>
+            A string like "The type 'Edm.EntityType' cannot be used as the type of a singleton '{0}' in an entity container."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_EdmEntityTypeCannotBeTypeOfEntitySet(System.Object)">
+            <summary>
+            A string like "The type 'Edm.EntityType' cannot be used as the type of an entity set '{0}' in an entity container."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_DeclaringTypeOfNavigationSourceCannotHavePathProperty(System.Object,System.Object,System.Object)">
+            <summary>
+            A string like "The declaring type '{0}' of {1} '{2}' cannot include path type property."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Strings.EdmModel_Validator_Semantic_TypeOfNavigationPropertyCannotHavePathProperty(System.Object,System.Object,System.Object)">
+            <summary>
+            A string like "The type '{0}' of navigation property '{1}' on declaring type '{2}' cannot include path type property."
             </summary>
         </member>
         <member name="P:Microsoft.OData.Edm.Strings.EdmModel_Validator_Syntactic_MissingName">

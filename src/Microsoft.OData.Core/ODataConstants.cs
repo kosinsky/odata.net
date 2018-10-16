@@ -121,7 +121,7 @@ namespace Microsoft.OData
         internal const int DefaultMaxPartsPerBatch = 100;
 
         /// <summary>The default maximum number of operations per changeset.</summary>
-        internal const int DefulatMaxOperationsPerChangeset = 1000;
+        internal const int DefaultMaxOperationsPerChangeset = 1000;
 
         /// <summary>The '/' (forward slash) which is the URI segment separator.</summary>
         internal const string UriSegmentSeparator = "/";
@@ -143,6 +143,9 @@ namespace Microsoft.OData
 
         /// <summary>A segment name in a URI that indicates metadata is being requested.</summary>
         internal const string UriMetadataSegment = "$metadata";
+
+        /// <summary>The OData prefix</summary>
+        internal const string ODataPrefix = "odata";
 
         #region Context URL
 
@@ -172,6 +175,9 @@ namespace Microsoft.OData
 
         /// <summary>The "," used to split properties of Select and Expand fragment a context URI.</summary>
         internal const string ContextUriProjectionPropertySeparator = ",";
+
+        /// <summary>The token that indicates the payload is a property with null value.</summary>
+        internal const string ContextUriFragmentNull = "Edm.Null";
 
         /// <summary>The token that indicates the payload is a property with an untyped value.</summary>
         internal const string ContextUriFragmentUntyped = "Edm.Untyped";

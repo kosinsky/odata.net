@@ -81,7 +81,7 @@ Simply open the shortcut `OData.sln` at the root level folder to launch a soluti
 
 Here is the usage of each solution file (the `OData.sln` shortcut opens the one marked default):
 
-- OData.CodeGen.sln - OData T4 client code generator product source and tests.
+- OData.CodeGen.sln - OData T4 client code generator product source.
 - OData.Net35.sln - Product source built with .Net Framework 3.5.
 - OData.Net45.sln (default) - Product source built with .Net Framework Portable 4.5 and contains corresponding unit tests. _Recommended_ for doing general bug fixes and feature development.
 - OData.NetStandard.sln - Product source built with .Net Standard 1.1 and contains corresponding unit tests written in .NET Core.
@@ -153,3 +153,7 @@ There are many ways for you to contribute to OData .NET. The easiest way is to p
 We’re using NDepend to analyze and increase code quality.
 
 [![NDepend](images/ndependlogo.png)](http://www.ndepend.com)
+
+### Code of Conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

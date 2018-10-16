@@ -441,6 +441,23 @@
             <param name="stream">The stream to write the data into.</param>
             <returns>The task which represent the asynchronous write operation.</returns>
         </member>
+        <member name="T:Microsoft.OData.Buffers.BufferUtils">
+            <summary>
+            Helpers to deal with buffers
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Buffers.BufferUtils.BufferLength">
+            <summary>
+            Buffer length
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Buffers.BufferUtils.InitializeBufferIfRequired(System.Char[])">
+            <summary>
+            Checks if the buffer is not initialized and if initialized returns the same buffer or creates a new one.
+            </summary>
+            <param name="buffer">The buffer to verify</param>
+            <returns>The initialized buffer</returns>
+        </member>
         <member name="T:Microsoft.OData.ContainerBuilderExtensions">
             <summary>
             Extension methods for <see cref="T:Microsoft.OData.IContainerBuilder"/>.
@@ -3370,7 +3387,7 @@
             Class responsible for determining the type name that should be written on the wire for entries and values in JSON full metadata mode.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.JsonLight.JsonFullMetadataTypeNameOracle.GetResourceSetTypeNameForForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
+        <member name="M:Microsoft.OData.JsonLight.JsonFullMetadataTypeNameOracle.GetResourceSetTypeNameForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
             <summary>
             Determines the resource set type name to write to the payload.
             </summary>
@@ -3419,6 +3436,13 @@
         </member>
         <member name="F:Microsoft.OData.JsonLight.JsonLightConstants.ODataPropertyAnnotationSeparatorChar">
             <summary>The separator of property annotations.</summary>
+        </member>
+        <member name="F:Microsoft.OData.JsonLight.JsonLightConstants.ODataNullPropertyName">
+            <summary>
+            The 'null' property name for the Json Light value property.
+            This is an OData 3.0 protocol element used for compatibility
+            with 6.x library version.
+            </summary>
         </member>
         <member name="F:Microsoft.OData.JsonLight.JsonLightConstants.ODataNullAnnotationTrueValue">
             <summary>The value 'true' for the OData null annotation.</summary>
@@ -3627,7 +3651,7 @@
             Class responsible for determining the type name that should be written on the wire for entries and values in JSON Light.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.JsonLight.JsonLightTypeNameOracle.GetResourceSetTypeNameForForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
+        <member name="M:Microsoft.OData.JsonLight.JsonLightTypeNameOracle.GetResourceSetTypeNameForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
             <summary>
             Determines the resource set type name to write to the payload.
             </summary>
@@ -3709,7 +3733,7 @@
             Class responsible for determining the type name that should be written on the wire for entries and values in JSON minimal metadata mode,
             </summary>
         </member>
-        <member name="M:Microsoft.OData.JsonLight.JsonMinimalMetadataTypeNameOracle.GetResourceSetTypeNameForForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
+        <member name="M:Microsoft.OData.JsonLight.JsonMinimalMetadataTypeNameOracle.GetResourceSetTypeNameForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
             <summary>
             Determines the resource set type name to write to the payload.
             </summary>
@@ -3784,7 +3808,7 @@
             Class responsible for determining the type name that should be written on the wire for entries and values in JSON no metadata mode.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.JsonLight.JsonNoMetadataTypeNameOracle.GetResourceSetTypeNameForForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
+        <member name="M:Microsoft.OData.JsonLight.JsonNoMetadataTypeNameOracle.GetResourceSetTypeNameForWriting(System.String,Microsoft.OData.ODataResourceSet,System.Boolean)">
             <summary>
             Determines the resource set type name to write to the payload.
             </summary>
@@ -3886,6 +3910,12 @@
         </member>
         <member name="F:Microsoft.OData.JsonLight.ODataAnnotationNames.ODataDelta">
             <summary>The 'odata.delta' annotation name.</summary>
+        </member>
+        <member name="F:Microsoft.OData.JsonLight.ODataAnnotationNames.ODataNull">
+            <summary>
+            The OData Null annotation name. This is an OData 3.0 protocol element
+            used for compatibility with 6.x library version.
+            </summary>
         </member>
         <member name="M:Microsoft.OData.JsonLight.ODataAnnotationNames.IsODataAnnotationName(System.String)">
             <summary>
@@ -7372,6 +7402,19 @@
             This method does not move the reader.
             </remarks>
         </member>
+        <member name="M:Microsoft.OData.JsonLight.ODataJsonLightPropertyAndValueDeserializer.IsTopLevel6xNullValue">
+            <summary>
+            Tries to read a top-level null value from the JSON reader.
+            </summary>
+            <returns>true if a null value could be read from the JSON reader; otherwise false.</returns>
+            <remarks>If the method detects the odata.null annotation, it will read it; otherwise the reader does not move.</remarks>
+        </member>
+        <member name="M:Microsoft.OData.JsonLight.ODataJsonLightPropertyAndValueDeserializer.ValidateNoPropertyInNullPayload(Microsoft.OData.PropertyAndAnnotationCollector)">
+            <summary>
+            Make sure that we don't find any other odata.* annotations or properties after reading a payload with the odata.null annotation.
+            </summary>
+            <param name="propertyAndAnnotationCollector">The duplicate property names checker to use.</param>
+        </member>
         <member name="M:Microsoft.OData.JsonLight.ODataJsonLightPropertyAndValueDeserializer.IncreaseRecursionDepth">
             <summary>
             Increases the recursion depth of values by 1. This will throw if the recursion depth exceeds the current limit.
@@ -10066,6 +10109,26 @@
             </summary>
             <param name="node">The node after which to insert this buffered property.</param>
         </member>
+        <member name="T:Microsoft.OData.ODataLibraryCompatibility">
+            <summary>
+            Library compatibility levels.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.ODataLibraryCompatibility.Version6">
+            <summary>
+            Version 6.x
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.ODataLibraryCompatibility.Version7">
+            <summary>
+            Version 7.x
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.ODataLibraryCompatibility.Latest">
+            <summary>
+            The latest version of the library.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.MultipartMixed.DependsOnIdsTracker">
             <summary>
             This class is to keep track of dependsOn ids and associated change set state,
@@ -10285,15 +10348,6 @@
             <param name="isResponse">A flag indicating whether the boundary should be created for a request or a response.</param>
             <param name="changesetId">The value for construction of changeset boundary for multipart batch.</param>
             <returns>The newly created changeset boundary as string.</returns>
-        </member>
-        <member name="M:Microsoft.OData.MultipartMixed.ODataMultipartMixedBatchWriterUtils.GetChangeSetIdFromBoundary(System.String)">
-            <summary>
-            Extract the changeset id from the change set boundary string.
-            This is the reversal method of <code>CreateChangeSetBoundary(bool, string)</code>.
-            </summary>
-            <param name="changesetBoundary">Change set boundary string previous constructed by <code>CreateChangeSetBoundary</code>.
-            Can be null.</param>
-            <returns>The change set id or null.</returns>
         </member>
         <member name="M:Microsoft.OData.MultipartMixed.ODataMultipartMixedBatchWriterUtils.CreateMultipartMixedContentType(System.String)">
             <summary>
@@ -11007,13 +11061,14 @@
             performed; properties and such are not validated.
             </remarks>
         </member>
-        <member name="M:Microsoft.OData.IWriterValidator.ValidateNullPropertyValue(Microsoft.OData.Edm.IEdmTypeReference,System.String,Microsoft.OData.Edm.IEdmModel)">
+        <member name="M:Microsoft.OData.IWriterValidator.ValidateNullPropertyValue(Microsoft.OData.Edm.IEdmTypeReference,System.String,System.Boolean,Microsoft.OData.Edm.IEdmModel)">
             <summary>
             Validates that the expected property allows null value.
             </summary>
             <param name="expectedPropertyTypeReference">The expected property type or null if we
             don't have any.</param>
             <param name="propertyName">The name of the property.</param>
+            <param name="isTopLevel">true if the property is top-level.</param>
             <param name="model">The model used to get the OData version.</param>
         </member>
         <member name="M:Microsoft.OData.IWriterValidator.ValidateNullCollectionItem(Microsoft.OData.Edm.IEdmTypeReference)">
@@ -11041,6 +11096,30 @@
             <param name="declaringStructuredType">The <see cref="T:Microsoft.OData.Edm.IEdmStructuredType"/> declaring the structural property or navigation property; or null if metadata is not available.</param>
             <param name="expandedPayloadKind">The <see cref="T:Microsoft.OData.ODataPayloadKind"/> of the expanded content of this nested resource info or null for deferred links.</param>
             <returns>The type of the navigation property for this nested resource info; or null if no <paramref name="declaringStructuredType"/> was specified.</returns>
+        </member>
+        <member name="T:Microsoft.OData.Json.DefaultJsonWriterFactory">
+            <summary>
+            Default JSON writer factory
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Json.DefaultJsonWriterFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.OData.Json.DefaultJsonWriterFactory" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Json.DefaultJsonWriterFactory.#ctor(Microsoft.OData.Json.ODataStringEscapeOption)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.OData.Json.DefaultJsonWriterFactory" />.
+            </summary>
+            <param name="stringEscapeOption">The string escape option.</param>
+        </member>
+        <member name="M:Microsoft.OData.Json.DefaultJsonWriterFactory.CreateJsonWriter(System.IO.TextWriter,System.Boolean)">
+            <summary>
+            Creates a new JSON writer of <see cref="T:Microsoft.OData.Json.IJsonWriter"/>.
+            </summary>
+            <param name="textWriter">Writer to which text needs to be written.</param>
+            <param name="isIeee754Compatible">True if it is IEEE754Compatible.</param>
+            <returns>The JSON writer created.</returns>
         </member>
         <member name="T:Microsoft.OData.Json.IJsonReader">
             <summary>
@@ -12475,12 +12554,14 @@
             <param name="writer">The text writer to write the output to.</param>
             <param name="value">SByte value to be written.</param>
         </member>
-        <member name="M:Microsoft.OData.Json.JsonValueUtils.WriteValue(System.IO.TextWriter,System.String)">
+        <member name="M:Microsoft.OData.Json.JsonValueUtils.WriteValue(System.IO.TextWriter,System.String,Microsoft.OData.Json.ODataStringEscapeOption,System.Char[]@)">
             <summary>
             Write a string value.
             </summary>
             <param name="writer">The text writer to write the output to.</param>
             <param name="value">String value to be written.</param>
+            <param name="stringEscapeOption">The string escape option.</param>
+            <param name="buffer">Char buffer to use for streaming data</param>
         </member>
         <member name="M:Microsoft.OData.Json.JsonValueUtils.WriteValue(System.IO.TextWriter,System.Byte[])">
             <summary>
@@ -12489,12 +12570,14 @@
             <param name="writer">The text writer to write the output to.</param>
             <param name="value">Byte array to be written.</param>
         </member>
-        <member name="M:Microsoft.OData.Json.JsonValueUtils.WriteEscapedJsonString(System.IO.TextWriter,System.String)">
+        <member name="M:Microsoft.OData.Json.JsonValueUtils.WriteEscapedJsonString(System.IO.TextWriter,System.String,Microsoft.OData.Json.ODataStringEscapeOption,System.Char[]@)">
             <summary>
             Returns the string value with special characters escaped.
             </summary>
             <param name="writer">The text writer to write the output to.</param>
             <param name="inputString">Input string value.</param>
+            <param name="stringEscapeOption">The string escape option.</param>
+            <param name="buffer">Char buffer to use for streaming data</param>
         </member>
         <member name="M:Microsoft.OData.Json.JsonValueUtils.JsonTicksToDateTimeTicks(System.Int64)">
             <summary>
@@ -12510,6 +12593,16 @@
             </summary>
             <param name="inputString">string that might contain special characters.</param>
             <returns>A string with special characters escaped properly.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Json.JsonValueUtils.CheckIfStringHasSpecialChars(System.String,Microsoft.OData.Json.ODataStringEscapeOption,System.Int32@)">
+            <summary>
+            Checks if the string contains special char and returns the first index
+            of special char if present.
+            </summary>
+            <param name="inputString">string that might contain special characters.</param>
+            <param name="stringEscapeOption">The string escape option.</param>
+            <param name="firstIndex">first index of the special char</param>
+            <returns>A value indicating whether the string contains special character</returns>
         </member>
         <member name="M:Microsoft.OData.Json.JsonValueUtils.InitializeODataNumberFormatInfo">
             <summary>
@@ -12558,12 +12651,30 @@
             otherwise keep number without quotes.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Json.JsonWriter.stringEscapeOption">
+            <summary>
+            Gets or sets a value indicating how to escape the string when writing JSON string.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Json.JsonWriter.buffer">
+            <summary>
+            The buffer to help with streaming responses.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Json.JsonWriter.#ctor(System.IO.TextWriter,System.Boolean)">
             <summary>
             Creates a new instance of Json writer.
             </summary>
             <param name="writer">Writer to which text needs to be written.</param>
-            <param name="isIeee754Compatible">if it is IEEE754Compatible</param>
+            <param name="isIeee754Compatible">if it is IEEE754Compatible.</param>
+        </member>
+        <member name="M:Microsoft.OData.Json.JsonWriter.#ctor(System.IO.TextWriter,System.Boolean,Microsoft.OData.Json.ODataStringEscapeOption)">
+            <summary>
+            Creates a new instance of Json writer.
+            </summary>
+            <param name="writer">Writer to which text needs to be written.</param>
+            <param name="isIeee754Compatible">if it is IEEE754Compatible.</param>
+            <param name="stringEscapeOption">Specifies how to escape string.</param>
         </member>
         <member name="T:Microsoft.OData.Json.JsonWriter.ScopeType">
             <summary>
@@ -12953,6 +13064,21 @@
             <param name="recursionDepth">The number of times this method has been called recursively.</param>
             <param name="maxInnerErrorDepth">The maximum number of nested inner errors to allow.</param>
         </member>
+        <member name="T:Microsoft.OData.Json.ODataStringEscapeOption">
+            <summary>
+            Enum type to specify how to escape string value when writing JSON text.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Json.ODataStringEscapeOption.EscapeNonAscii">
+            <summary>
+            All non-ASCII and control characters (e.g. newline) are escaped.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Json.ODataStringEscapeOption.EscapeOnlyControls">
+            <summary>
+            Only control characters (e.g. newline) are escaped.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Json.TextWriterWrapper">
             <summary>
             Writes text non indented
@@ -13201,25 +13327,166 @@
             <param name="parsedSegments">The list of segments in Uri path.</param>
             <returns>True if the path of navigation property in current scope is matching the <paramref name="bindingPath"/>.</returns>
         </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode">
+        <member name="T:Microsoft.OData.UriParser.InBinder">
             <summary>
-            Node representing a Compute transformation.
+            Class that knows how to bind the In operator.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.#ctor(Microsoft.OData.UriParser.ComputeClause)">
+        <member name="F:Microsoft.OData.UriParser.InBinder.bindMethod">
             <summary>
-            Create a ComputeTransformationNode.
-            </summary>
-            <param name="computeClause">A <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause">
-            <summary>
-            Gets the <see cref="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.ComputeClause"/> representing the metadata bound Compute expression.
+            Method to use for binding the parent node, if needed.
             </summary>
         </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.Kind">
+        <member name="M:Microsoft.OData.UriParser.InBinder.#ctor(System.Func{Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.QueryNode})">
             <summary>
-            Gets the kind of the transformation node.
+            Constructs a InBinder with the given method to be used binding the parent token if needed.
+            </summary>
+            <param name="bindMethod">Method to use for binding the parent token, if needed.</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InBinder.BindInOperator(Microsoft.OData.UriParser.InToken,Microsoft.OData.UriParser.BindingState)">
+            <summary>
+            Binds an In operator token.
+            </summary>
+            <param name="inToken">The In operator token to bind.</param>
+            <param name="state">State of the metadata binding.</param>
+            <returns>The bound In operator token.</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InBinder.GetSingleValueOperandFromToken(Microsoft.OData.UriParser.QueryToken)">
+            <summary>
+            Retrieve SingleValueNode bound with given query token.
+            </summary>
+            <param name="queryToken">The query token</param>
+            <returns>The corresponding SingleValueNode</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InBinder.GetCollectionOperandFromToken(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.Edm.IEdmTypeReference,Microsoft.OData.Edm.IEdmModel)">
+            <summary>
+            Retrieve CollectionNode bound with given query token.
+            </summary>
+            <param name="queryToken">The query token</param>
+            <param name="expectedType">The expected type that this collection holds</param>
+            <param name="model">The Edm model</param>
+            <returns>The corresponding CollectionNode</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateTokenBase">
+            <summary>
+            Base class for Aggregate transformation tokens
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyTransformationToken">
+            <summary>
+            Base class for Apply transformation tokens
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateExpression">
+            <summary>
+            Represents an aggregate expression that aggregates an entity set.
+            An example of a OData query that generates it can be found in example 59 of OData Extension for Data Aggregation Version 4.0.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateExpression.#ctor(Microsoft.OData.UriParser.CollectionNavigationNode,System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase})">
+            <summary>Constructor.</summary>
+            <param name="expression">Navigation node used to create the expression.</param>
+            <param name="children">Children of the expression.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateExpression.Expression">
+            <summary>Returns the collection navigation node of this expression.</summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateExpression.Children">
+            <summary>Returns the children expression of this expression.</summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken">
+            <summary>
+            Query token representing an Entity Set Aggregate expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.#ctor(Microsoft.OData.UriParser.QueryToken,System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateTokenBase})">
+            <summary>
+            Create an EntitySetAggregateToken.
+            </summary>
+            <param name="entitySet">The entity set.</param>
+            <param name="expressions">The aggregate expressions.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.Expressions">
+            <summary>
+            Gets the expressions associated with the aggregation token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.EntitySet">
+            <summary>
+            Gets the entity set associated with the aggregation token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.Merge(Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken,Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken)">
+            <summary>
+            Merges two <see cref="T:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken"/> that have the same entity set into one.
+            If the parameters do not share the the entity set, an exception is thrown.
+            </summary>
+            <param name="token1">First token that is going to be merged.</param>
+            <param name="token2">Second token that is going to be merged.</param>
+            <returns>
+            Returns a token with the same entitySet as the parameters and with expressions from both objects.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.Path">
+            <summary>
+            Returns the path to access the entity set.
+            </summary>
+            <returns>Returns a <see cref="T:System.String"/> that contains the path to access the entity set.</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression">
+            <summary>
+            Represents an aggregate expression that aggregates a single value entity.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Create a PropertyAggregateExpression.
+            </summary>
+            <param name="expression">The aggregation expression.</param>
+            <param name="method">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.</param>
+            <param name="alias">The aggregation alias.</param>
+            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
+            <summary>
+            Create a AggregateExpression.
+            </summary>
+            <param name="expression">The aggregation expression.</param>
+            <param name="methodDefinition">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.</param>
+            <param name="alias">The aggregation alias.</param>
+            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Expression">
+            <summary>
+            Gets the aggregation expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Method">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.MethodDefinition">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.TypeReference">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.
             </summary>
         </member>
         <member name="T:Microsoft.OData.UriParser.Aggregation.FilterTransformationNode">
@@ -13258,15 +13525,20 @@
             Node representing a aggregate transformation.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpression})">
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase})">
             <summary>
             Create a AggregateTransformationNode.
             </summary>
-            <param name="expressions">A list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>.</param>
+            <param name="expressions">A list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase"/>.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.Expressions">
             <summary>
-            Gets the list of <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>.
+            Property that only return <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression"/>s.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.AggregateExpressions">
+            <summary>
+            Property that returns a list of all <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase"/>s of this transformation node.
             </summary>
         </member>
         <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateTransformationNode.Kind">
@@ -13274,53 +13546,56 @@
             Gets the kind of the transformation node.
             </summary>
         </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpression">
+        <member name="T:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode">
+            <summary>
+            Node representing a compute expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.ComputeExpression})">
+            <summary>
+            Create a ComputeTransformationNode.
+            </summary>
+            <param name="expressions">A list of <see cref="T:Microsoft.OData.UriParser.ComputeExpression"/>.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.Expressions">
+            <summary>
+            Gets the list of <see cref="T:Microsoft.OData.UriParser.ComputeExpression"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.ComputeTransformationNode.Kind">
+            <summary>
+            Gets the kind of the transformation node.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind">
+            <summary>
+            Enumeration of the possible types of aggregations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind.None">
+            <summary>Value used to treat non recognized aggregations.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind.PropertyAggregate">
+            <summary>Aggregation of a single value property.</summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind.EntitySetAggregate">
+            <summary>Aggregation of a entity set property.</summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase">
             <summary>
             A aggregate expression representing a aggregation transformation.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
-            <summary>
-            Create a AggregateExpression.
-            </summary>
-            <param name="expression">The aggregation expression.</param>
-            <param name="method">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.</param>
-            <param name="alias">The aggregation alias.</param>
-            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase.#ctor(Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind,System.String)">
+            <summary>Base constructor for concrete subclasses use for convenience.</summary>
+            <param name="kind">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind"/> of the expression.</param>
+            <param name="alias">Alias of the resulting aggregated value.</param>
         </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateExpression.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String,Microsoft.OData.Edm.IEdmTypeReference)">
-            <summary>
-            Create a AggregateExpression.
-            </summary>
-            <param name="expression">The aggregation expression.</param>
-            <param name="methodDefinition">The <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.</param>
-            <param name="alias">The aggregation alias.</param>
-            <param name="typeReference">The <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.</param>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase.AggregateKind">
+            <summary>Returns the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionKind"/> of the expression.</summary>
         </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Expression">
-            <summary>
-            Gets the aggregation expression.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Method">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethod"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.MethodDefinition">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.Alias">
-            <summary>
-            Gets the aggregation alias.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpression.TypeReference">
-            <summary>
-            Gets the <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> of this aggregate expression.
-            </summary>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase.Alias">
+            <summary>Returns the alias of the expression.</summary>
         </member>
         <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyClause">
             <summary>
@@ -13411,35 +13686,6 @@
             Gets or sets the child transformations <see cref="T:Microsoft.OData.UriParser.Aggregation.GroupByPropertyNode"/>s of this node.
             </summary>
         </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateToken">
-            <summary>
-            Query token representing an Aggregate token.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken})">
-            <summary>
-            Create an AggregateToken.
-            </summary>
-            <param name="expressions">The list of AggregateExpressionToken.</param>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Kind">
-            <summary>
-            Gets the kind of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Expressions">
-            <summary>
-            Gets the list of AggregateExpressionToken.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
-            <summary>
-            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
-            </summary>
-            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
-            <param name="visitor">An implementation of the visitor interface.</param>
-            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
-        </member>
         <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken">
             <summary>
             Query token representing an Aggregate expression.
@@ -13471,14 +13717,14 @@
             Gets the AggregationMethod of this token.
             </summary>
         </member>
-        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.MethodDefinition">
-            <summary>
-            Gets the aggregate method definition.
-            </summary>
-        </member>
         <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Expression">
             <summary>
             Gets the expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.MethodDefinition">
+            <summary>
+            Gets the aggregate method definition.
             </summary>
         </member>
         <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateExpressionToken.Alias">
@@ -13494,10 +13740,40 @@
             <param name="visitor">An implementation of the visitor interface.</param>
             <returns>An object whose type is determined by the type parameter of the visitor.</returns>
         </member>
-        <member name="T:Microsoft.OData.UriParser.Aggregation.ApplyTransformationToken">
+        <member name="T:Microsoft.OData.UriParser.Aggregation.AggregateToken">
             <summary>
-            Base class for Apply transformation tokens
+            Query token representing an Aggregate token.
             </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.UriParser.Aggregation.AggregateTokenBase})">
+            <summary>
+            Create an AggregateTransformationToken.
+            </summary>
+            <param name="expressions">The aggregate expressions.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.Expressions">
+            <summary>
+            Create an AggregateToken.
+            </summary>
+            <param name="expressions">The list of AggregateExpressionToken.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.Aggregation.AggregateToken.AggregateExpressions">
+            <summary>
+            Gets the expressions of this token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.Aggregation.AggregateToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
         </member>
         <member name="T:Microsoft.OData.UriParser.Aggregation.GroupByToken">
             <summary>
@@ -13620,8 +13896,83 @@
         </member>
         <member name="F:Microsoft.OData.UriParser.Aggregation.TransformationNodeKind.Compute">
             <summary>
-            A compute clause
+            A Compute expressions
             </summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode">
+            <summary>
+            Node representing a originally collection resource that's been aggregated into a single value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.source">
+            <summary>
+            The collection that was aggregated and contains this property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.property">
+            <summary>
+            The EDM property which is to be accessed.
+            </summary>
+            <remarks>Only non-entity, non-collection properties are supported by this node.</remarks>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.typeReference">
+            <summary>
+            The target type that the property represents.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.navigationSource">
+            <summary>
+            The navigation source containing the source entity.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.#ctor(Microsoft.OData.UriParser.CollectionNavigationNode,Microsoft.OData.Edm.IEdmProperty)">
+            <summary>
+            Constructs a <see cref="T:Microsoft.OData.UriParser.SingleValuePropertyAccessNode"/>.
+            </summary>
+            <param name="source">The value containing this property.</param>
+            <param name="property">The EDM property which is to be accessed.</param>
+            <exception cref="T:System.ArgumentNullException">Throws if input source or property is null.</exception>
+            <exception cref="T:System.ArgumentException">Throws if input property is not structural, or is a collection.</exception>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.Source">
+            <summary>
+            Gets the value containing this property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.Property">
+            <summary>
+            Gets the EDM property which is to be accessed.
+            </summary>
+            <remarks>Only non-entity, non-collection properties are supported by this node.</remarks>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.TypeReference">
+            <summary>
+            Gets the type of the single value this node represents.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.NavigationSource">
+            <summary>
+            Gets the navigation source of this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.StructuredTypeReference">
+            <summary>
+            Gets the type reference of this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.InternalKind">
+            <summary>
+            Gets the kind of this node.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.AggregatedCollectionPropertyNode.Accept``1(Microsoft.OData.UriParser.QueryNodeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.QueryNodeVisitor`1"/> that walks a tree of <see cref="T:Microsoft.OData.UriParser.QueryNode"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws if the input visitor is null.</exception>
         </member>
         <member name="T:Microsoft.OData.UriParser.CollectionComplexNode">
             <summary>
@@ -13715,6 +14066,69 @@
             <returns>An object whose type is determined by the type parameter of the visitor.</returns>
             <exception cref="T:System.ArgumentNullException">Throws if the input visitor is null.</exception>
         </member>
+        <member name="T:Microsoft.OData.UriParser.CollectionConstantNode">
+            <summary>
+            Node representing a constant value, can either be primitive, complex, entity, or collection value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.CollectionConstantNode.collection">
+            <summary>
+            Collection of ConstantNodes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.CollectionConstantNode.itemType">
+            <summary>
+            Cache for the TypeReference after it has been calculated for the current state of the node.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.CollectionConstantNode.collectionTypeReference">
+            <summary>
+            The type of the collection represented by this node.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.CollectionConstantNode.#ctor(System.Collections.Generic.IEnumerable{System.Object},System.String,Microsoft.OData.Edm.IEdmCollectionTypeReference)">
+            <summary>
+            Create a CollectionConstantNode
+            </summary>
+            <param name="objectCollection">A collection of objects.</param>
+            <param name="literalText">The literal text for this node's value, formatted according to the OData URI literal formatting rules.</param>
+            <param name="collectionType">The reference to the collection type.</param>
+            <exception cref="T:System.ArgumentNullException">Throws if the input literalText is null.</exception>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.CollectionConstantNode.Collection">
+            <summary>
+            Gets the collection of ConstantNodes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.CollectionConstantNode.LiteralText">
+            <summary>
+            Get or Set the literal text for this node's value, formatted according to the OData URI literal formatting rules. May be null if the text was not provided at construction time.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.CollectionConstantNode.ItemType">
+            <summary>
+            Gets the resource type of a single item from the collection represented by this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.CollectionConstantNode.CollectionType">
+            <summary>
+            The type of the collection represented by this node.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.CollectionConstantNode.InternalKind">
+            <summary>
+            Gets the kind of this node.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.CollectionConstantNode.Accept``1(Microsoft.OData.UriParser.QueryNodeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.QueryNodeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryNode"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws if the input visitor is null.</exception>
+        </member>
         <member name="T:Microsoft.OData.UriParser.ComputeClause">
             <summary>
             The result of parsing a $compute query option.
@@ -13778,6 +14192,115 @@
         </member>
         <member name="P:Microsoft.OData.UriParser.CountVirtualPropertyNode.TypeReference">
             <summary>Type returned by the $count virtual property.</summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.AnnotationSegment">
+            <summary>
+            A segment representing an Annotation
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.AnnotationSegment.term">
+            <summary>
+            The annotation term referred to by this segment
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.AnnotationSegment.#ctor(Microsoft.OData.Edm.Vocabularies.IEdmTerm)">
+            <summary>
+            Build a segment based on an annotation term
+            </summary>
+            <param name="term">The annotation term that this segment represents.</param>
+            <exception cref="T:System.ArgumentNullException">Throws if the input annotation term is null.</exception>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AnnotationSegment.Term">
+            <summary>
+            Gets the annotation term that this segment represents.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.AnnotationSegment.EdmType">
+            <summary>
+            Gets the <see cref="T:Microsoft.OData.Edm.IEdmType"/> of this <see cref="T:Microsoft.OData.UriParser.AnnotationSegment"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.AnnotationSegment.TranslateWith``1(Microsoft.OData.UriParser.PathSegmentTranslator{``0})">
+            <summary>
+            Translate a <see cref="T:Microsoft.OData.UriParser.AnnotationSegment"/> using an instance of <see cref="T:Microsoft.OData.UriParser.PathSegmentTranslator`1"/>/>.
+            </summary>
+            <typeparam name="T">Type that the translator will return after visiting this token.</typeparam>
+            <param name="translator">An implementation of the translator interface.</param>
+            <returns>An object whose type is determined by the type parameter of the translator.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws if the input translator is null.</exception>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.AnnotationSegment.HandleWith(Microsoft.OData.UriParser.PathSegmentHandler)">
+            <summary>
+            Handle a <see cref="T:Microsoft.OData.UriParser.AnnotationSegment"/> using an instance of <see cref="T:Microsoft.OData.UriParser.PathSegmentHandler"/>.
+            </summary>
+            <param name="handler">An implementation of the handler interface.</param>
+            <exception cref="T:System.ArgumentNullException">Throws if the input handler is null.</exception>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.AnnotationSegment.Equals(Microsoft.OData.UriParser.ODataPathSegment)">
+            <summary>
+            Check if this segment is equal to another segment.
+            </summary>
+            <param name="other">the other segment to check.</param>
+            <returns>true if the other segment is equal.</returns>
+            <exception cref="T:System.ArgumentNullException">Throws if the input other is null.</exception>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.InNode">
+            <summary>
+            Query node representing an In operator.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InNode.boolTypeReference">
+            <summary>
+            Bool reference, as In always returns boolean.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InNode.left">
+            <summary>
+            The left operand.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InNode.right">
+            <summary>
+            The right operand.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InNode.#ctor(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.UriParser.CollectionNode)">
+            <summary>
+            Create a InNode
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <exception cref="T:System.ArgumentNullException">Throws if the left or right inputs are null.</exception>
+            <exception cref="T:Microsoft.OData.ODataException">Throws if the right operand single item type isn't the same type as the left operand.</exception>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InNode.Left">
+            <summary>
+            Gets the left operand.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InNode.Right">
+            <summary>
+            Gets the right operand.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InNode.TypeReference">
+            <summary>
+            Gets the resource type of the single value this node represents.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InNode.InternalKind">
+            <summary>
+            Gets the kind of this node.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InNode.Accept``1(Microsoft.OData.UriParser.QueryNodeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.QueryNodeVisitor`1"/> that walks a tree of <see cref="T:Microsoft.OData.UriParser.QueryNode"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+            <exception cref="T:System.ArgumentNullException">throws if the input visitor is null.</exception>
         </member>
         <member name="T:Microsoft.OData.UriParser.SingleComplexNode">
             <summary>
@@ -13976,6 +14499,51 @@
             </summary>
         </member>
         <member name="M:Microsoft.OData.UriParser.ComputeExpressionToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.InToken">
+            <summary>
+            Lexical token representing an In operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InToken.left">
+            <summary>
+            The left operand.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InToken.right">
+            <summary>
+            The right operand.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InToken.#ctor(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.QueryToken)">
+            <summary>
+            Create a new InToken given the left and right query tokens.
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InToken.Kind">
+            <summary>
+            The kind of the query token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InToken.Left">
+            <summary>
+            The left operand.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.InToken.Right">
+            <summary>
+            The right operand.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.InToken.Accept``1(Microsoft.OData.UriParser.ISyntacticTreeVisitor{``0})">
             <summary>
             Accept a <see cref="T:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.UriParser.QueryToken"/>s.
             </summary>
@@ -14528,7 +15096,7 @@
         </member>
         <member name="M:Microsoft.OData.UriParser.EndPathBinder.BindEndPath(Microsoft.OData.UriParser.EndPathToken)">
             <summary>
-            Binds a an end path token into a PropertyAccessToken, OpenPropertyToken, or FunctionCallToken.
+            Binds an end path token into a PropertyAccessToken, OpenPropertyToken, or FunctionCallToken.
             </summary>
             <param name="endPathToken">The property access token to bind.</param>
             <returns>A Query node representing this endpath token, bound to metadata.</returns>
@@ -14715,22 +15283,23 @@
             <param name="argumentNodes">The arguments to validate.</param>
             <returns>SingleValueNode array</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.MatchSignatureToUriFunction(System.String,Microsoft.OData.UriParser.SingleValueNode[],Microsoft.OData.UriParser.FunctionSignatureWithReturnType[])">
+        <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.MatchSignatureToUriFunction(System.String,Microsoft.OData.UriParser.SingleValueNode[],System.Collections.Generic.IList{System.Collections.Generic.KeyValuePair{System.String,Microsoft.OData.UriParser.FunctionSignatureWithReturnType}})">
             <summary>
             Finds the signature that best matches the arguments
             </summary>
-            <param name="functionName">The name of the function</param>
+            <param name="functionCallToken">The name of the function</param>
             <param name="argumentNodes">The nodes of the arguments, can be new {null,null}.</param>
-            <param name="signatures">The signatures to match against</param>
+            <param name="nameSignatures">The name-signature pairs to match against</param>
             <returns>Returns the matching signature or throws</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.GetUriFunctionSignatures(System.String)">
+        <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.GetUriFunctionSignatures(System.String,System.Boolean)">
             <summary>
             Finds all signatures for the given function name.
             Search in both BuiltIn uri functions and Custom uri functions.
             Combine and return the signatures overloads of the results.
             </summary>
-            <param name="functionName">The function to get the signatures for.</param>
+            <param name="functionCallToken">The function call token to get the signatures for.</param>
+            <param name="enableCaseInsensitive">Optional flag for whether case insensitive match is enabled.</param>
             <returns>The signatures which match the supplied function name.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.BindFunctionCall(Microsoft.OData.UriParser.FunctionCallToken)">
@@ -14822,10 +15391,10 @@
         </member>
         <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.IsUnboundFunction(System.String)">
             <summary>
-            Determines whether this is a function that we don't bind to a BuiltInFunction
+            Determines whether this is a unbound BuiltInFunction according to the configured case-sensitiveness.
             </summary>
             <param name="functionName">name of the function</param>
-            <returns>true if this is a function that we don't bind</returns>
+            <returns>matched unbound function names; null if no matches found.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.FunctionCallBinder.CreateUnboundFunctionNode(System.String,System.Collections.Generic.List{Microsoft.OData.UriParser.QueryNode})">
             <summary>
@@ -15211,6 +15780,13 @@
             <param name="stringLiteralToken">The StringLiteral token to bind.</param>
             <returns>The bound StringLiteral token.</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.MetadataBinder.BindIn(Microsoft.OData.UriParser.InToken)">
+            <summary>
+            Binds an In token.
+            </summary>
+            <param name="inToken">The In token to bind.</param>
+            <returns>The bound In token.</returns>
+        </member>
         <member name="T:Microsoft.OData.UriParser.MetadataBindingUtils">
             <summary>
             Helper methods for metadata binding.
@@ -15592,6 +16168,16 @@
             <param name="segment">Bound segment if the token was bound to a declared property successfully, or null.</param>
             <returns>True if the token was bound successfully, or false otherwise.</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.SelectPathSegmentTokenBinder.TryBindAsDeclaredTerm(Microsoft.OData.UriParser.PathSegmentToken,Microsoft.OData.Edm.IEdmModel,Microsoft.OData.UriParser.ODataUriResolver,Microsoft.OData.UriParser.ODataPathSegment@)">
+            <summary>
+            Tries to bind a given token as a declared annotation term.
+            </summary>
+            <param name="tokenIn">Token to bind.</param>
+            <param name="model">The model to search for this term</param>
+            <param name="resolver">Resolver for uri parser.</param>
+            <param name="segment">Bound segment if the token was bound to a declared term successfully, or null.</param>
+            <returns>True if the token was bound successfully, or false otherwise.</returns>
+        </member>
         <member name="T:Microsoft.OData.UriParser.SelectTreeNormalizer">
             <summary>
             Translate a select tree into the right format to be used with an expand tree.
@@ -15795,12 +16381,16 @@
             <returns>'False' if custom function signature doesn't exist. 'True' if function has been removed successfully</returns>
             <exception cref="T:System.ArgumentNullException">Arguments are null, or function signature return type is null</exception>
         </member>
-        <member name="M:Microsoft.OData.UriParser.CustomUriFunctions.TryGetCustomFunction(System.String,Microsoft.OData.UriParser.FunctionSignatureWithReturnType[]@)">
+        <member name="M:Microsoft.OData.UriParser.CustomUriFunctions.TryGetCustomFunction(System.String,System.Collections.Generic.IList{System.Collections.Generic.KeyValuePair{System.String,Microsoft.OData.UriParser.FunctionSignatureWithReturnType}}@,System.Boolean)">
             <summary>
-            Returns a list of signatures for a function name.
+            Returns a list of name-signature pairs for a function name.
             </summary>
-            <param name="name">The name of the function to look for.</param>
-            <param name="signatures">The list of signatures available for the function name.</param>
+            <param name="functionCallToken">The name of the function to look for.</param>
+            <param name="nameSignatures">
+            Output for the list of signature objects for matched function names, with canonical name of the function;
+            null if no matches found.
+            </param>
+            <param name="enableCaseInsensitive">Whether to perform case-insensitive match for function name.</param>
             <returns>true if the function was found, or false otherwise.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.CustomUriFunctions.ValidateFunctionWithReturnType(Microsoft.OData.UriParser.FunctionSignatureWithReturnType)">
@@ -15934,7 +16524,7 @@
             IsLetterOrDigit covers Ll, Lu, Lt, Lo, Lm, Nd, this set covers the rest
             </summary>
         </member>
-        <member name="F:Microsoft.OData.UriParser.ExpressionLexer.useSemicolonDelimeter">
+        <member name="F:Microsoft.OData.UriParser.ExpressionLexer.useSemicolonDelimiter">
             <summary> flag to indicate whether to delimit on a semicolon. </summary>
         </member>
         <member name="F:Microsoft.OData.UriParser.ExpressionLexer.parsingFunctionParameters">
@@ -15947,13 +16537,13 @@
             <summary>Initializes a new <see cref="T:Microsoft.OData.UriParser.ExpressionLexer"/>.</summary>
             <param name="expression">Expression to parse.</param>
             <param name="moveToFirstToken">If true, this constructor will call NextToken() to move to the first token.</param>
-            <param name="useSemicolonDelimeter">If true, the lexer will tokenize based on semicolons as well.</param>
+            <param name="useSemicolonDelimiter">If true, the lexer will tokenize based on semicolons as well.</param>
         </member>
         <member name="M:Microsoft.OData.UriParser.ExpressionLexer.#ctor(System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>Initializes a new <see cref="T:Microsoft.OData.UriParser.ExpressionLexer"/>.</summary>
             <param name="expression">Expression to parse.</param>
             <param name="moveToFirstToken">If true, this constructor will call NextToken() to move to the first token.</param>
-            <param name="useSemicolonDelimeter">If true, the lexer will tokenize based on semicolons as well.</param>
+            <param name="useSemicolonDelimiter">If true, the lexer will tokenize based on semicolons as well.</param>
             <param name="parsingFunctionParameters">Whether the lexer is being used to parse function parameters. If true, will allow/recognize parameter aliases and typed nulls.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.ExpressionLexer.CurrentToken">
@@ -16045,6 +16635,23 @@
                For this reason, you probably want to call NextToken() after this method, since CurrentToken wil be garbage.
             </remarks>
             <returns>The parenthesis expression, including the outer parenthesis.</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.ExpressionLexer.SnapshotPosition">
+            <summary>
+            Get the current position in this lexer that can be used restore the lexer to this position later.
+            </summary>
+            <returns>
+            Returns a snapshot position used to call RestorePosition.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.ExpressionLexer.RestorePosition(Microsoft.OData.UriParser.ExpressionLexer.ExpressionLexerPosition)">
+            <summary>
+            Sets the current position to the specified position.
+            </summary>
+            <param name="position">The position to restore, returned from SnapshotPosition.</param>
+            <remarks>
+            The specified position must have been retrieved by GetPostion on this instance.
+            </remarks>
         </member>
         <member name="M:Microsoft.OData.UriParser.ExpressionLexer.ParseError(System.String)">
             <summary>Creates an exception for a parse error.</summary>
@@ -16147,8 +16754,9 @@
             <param name="startingCharacter">the starting delimiter</param>
             <param name="endingCharacter">the ending delimiter.</param>
         </member>
-        <member name="M:Microsoft.OData.UriParser.ExpressionLexer.ParseIdentifier">
+        <member name="M:Microsoft.OData.UriParser.ExpressionLexer.ParseIdentifier(System.Boolean)">
             <summary>Parses an identifier by advancing the current character.</summary>
+            <param name="includingDots">Optional flag for whether to include dots as part of the identifier.</param>
         </member>
         <member name="M:Microsoft.OData.UriParser.ExpressionLexer.SetTextPos(System.Int32)">
             <summary>Sets the text position.</summary>
@@ -16156,6 +16764,11 @@
         </member>
         <member name="M:Microsoft.OData.UriParser.ExpressionLexer.ValidateDigit">
             <summary>Validates the current character is a digit.</summary>
+        </member>
+        <member name="T:Microsoft.OData.UriParser.ExpressionLexer.ExpressionLexerPosition">
+            <summary>
+            Provides fields to remember an ExpresionLexer's position.
+            </summary>
         </member>
         <member name="T:Microsoft.OData.UriParser.ExpressionLexer.UnicodeCategoryEqualityComparer">
             <summary>This class implements IEqualityComparer for UnicodeCategory</summary>
@@ -16582,6 +17195,14 @@
             All extensions should look at this property and keep case sensitive behavior consistent.
             </remarks>
         </member>
+        <member name="P:Microsoft.OData.UriParser.ODataUriResolver.EnableNoDollarQueryOptions">
+            <summary>
+            Gets and sets the optional-$-sign-prefix for OData system query option.
+            </summary>
+            <remarks>
+            All extensions should look at this property and keep case sensitive behavior consistent.
+            </remarks>
+        </member>
         <member name="P:Microsoft.OData.UriParser.ODataUriResolver.TypeFacetsPromotionRules">
             <summary>
             Gets and sets promotion rules for type facets.
@@ -16611,6 +17232,14 @@
             <param name="type">The declaring type.</param>
             <param name="propertyName">The property name.</param>
             <returns>The resolved <see cref="T:Microsoft.OData.Edm.IEdmProperty"/></returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.ODataUriResolver.ResolveTerm(Microsoft.OData.Edm.IEdmModel,System.String)">
+            <summary>
+            Resolve term name from model.
+            </summary>
+            <param name="model">The model to be used.</param>
+            <param name="termName">The term name to be resolved.</param>
+            <returns>Resolved term.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.ODataUriResolver.ResolveType(Microsoft.OData.Edm.IEdmModel,System.String)">
             <summary>
@@ -16671,7 +17300,7 @@
             <param name="convertFunc">The convert function to be used for value converting.</param>
             <returns>The resolved key list.</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.ODataUriResolver.ResolveOpearationParameterNameCaseInsensitive(Microsoft.OData.Edm.IEdmOperation,System.String)">
+        <member name="M:Microsoft.OData.UriParser.ODataUriResolver.ResolveOperationParameterNameCaseInsensitive(Microsoft.OData.Edm.IEdmOperation,System.String)">
             <summary>
             Resolve an operation parameter's name with case insensitive enabled
             </summary>
@@ -17350,7 +17979,7 @@
         </member>
         <member name="P:Microsoft.OData.UriParser.ODataUriParserConfiguration.EnableNoDollarQueryOptions">
             <summary>
-            Whether no dollar query options is enabled.
+            Gets or Sets an option whether no dollar query options is enabled.
             If it is enabled, the '$' prefix of system query options becomes optional.
             For example, "select" and "$select" are equivalent in this case.
             </summary>
@@ -17688,12 +18317,25 @@
             Method used to parse arguments.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.UriParser.FunctionCallParser.restoreStateIfFail">
+            <summary>
+            If set to true, catches any ODataException thrown while trying to parse function arguments.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.UriParser.FunctionCallParser.#ctor(Microsoft.OData.UriParser.ExpressionLexer,Microsoft.OData.UriParser.UriQueryExpressionParser)">
             <summary>
             Create a new FunctionCallParser.
             </summary>
             <param name="lexer">Lexer positioned at a function identifier.</param>
             <param name="parser">The UriQueryExpressionParser.</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.FunctionCallParser.#ctor(Microsoft.OData.UriParser.ExpressionLexer,Microsoft.OData.UriParser.UriQueryExpressionParser,System.Boolean)">
+            <summary>
+            Create a new FunctionCallParser.
+            </summary>
+            <param name="lexer">Lexer positioned at a function identifier.</param>
+            <param name="parser">The UriQueryExpressionParser.</param>
+            <param name="restoreStateIfFail">If set to true, catches any ODataException thrown while trying to parse function arguments.</param>
         </member>
         <member name="P:Microsoft.OData.UriParser.FunctionCallParser.UriQueryExpressionParser">
             <summary>
@@ -17705,17 +18347,21 @@
             Reference to the lexer.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.UriParser.FunctionCallParser.ParseIdentifierAsFunction(Microsoft.OData.UriParser.QueryToken)">
+        <member name="M:Microsoft.OData.UriParser.FunctionCallParser.TryParseIdentifierAsFunction(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.QueryToken@)">
             <summary>
-            Parses an identifier that represents a function.
+            Try to parse an identifier that represents a function. If the parser instance has
+            <see cref="F:Microsoft.OData.UriParser.FunctionCallParser.restoreStateIfFail"/> set as false, then an <see cref="T:Microsoft.OData.ODataException"/>
+            is thrown if the parser finds an error.
             </summary>
             <param name="parent">Token for the parent of the function being parsed.</param>
-            <returns>QueryToken representing this function.</returns>
+            <param name="result">QueryToken representing this function.</param>
+            <returns>True if the parsing was successful.</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.FunctionCallParser.ParseArgumentListOrEntityKeyList">
+        <member name="M:Microsoft.OData.UriParser.FunctionCallParser.ParseArgumentListOrEntityKeyList(System.Action)">
             <summary>
             Parses argument lists or entity key value list.
             </summary>
+            <param name="restoreAction">Action invoked for restoring a state during failure.</param>
             <returns>The lexical tokens representing the arguments.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.FunctionCallParser.ParseArguments">
@@ -17812,12 +18458,13 @@
             Reference to the lexer.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.UriParser.IFunctionCallParser.ParseIdentifierAsFunction(Microsoft.OData.UriParser.QueryToken)">
+        <member name="M:Microsoft.OData.UriParser.IFunctionCallParser.TryParseIdentifierAsFunction(Microsoft.OData.UriParser.QueryToken,Microsoft.OData.UriParser.QueryToken@)">
             <summary>
             Parses an identifier that represents a function.
             </summary>
             <param name="parent">the syntactically bound parent of this identifier.</param>
-            <returns>QueryToken representing this function.</returns>
+            <param name="result">QueryToken representing this function.</param>
+            <returns>True if the parsing was successful.</returns>
         </member>
         <member name="T:Microsoft.OData.UriParser.IdentifierTokenizer">
             <summary>
@@ -19132,6 +19779,13 @@
             <returns>true if the text is correctly formatted, false otherwise.</returns>
             <remarks>Copy of WebConvert.IsKeyValueQuoted.</remarks>
         </member>
+        <member name="M:Microsoft.OData.UriParser.UriParserHelper.IsAnnotation(System.String)">
+            <summary>
+            Determines whether or not an identifier is an annotation term name
+            </summary>
+            <param name="identifier">The identifer that may be an annotation term name</param>
+            <returns>True if the identifier is an annotation term, otherwise false</returns>
+        </member>
         <member name="M:Microsoft.OData.UriParser.UriParserHelper.IsValidNumericConstant(System.String)">
             <summary>
             Checks if text is '-INF' or 'INF' or 'NaN'.
@@ -19198,6 +19852,16 @@
             Whether to allow case insensitive for builtin identifier.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.UriParser.UriQueryExpressionParser.parseAggregateExpresionDepth">
+            <summary>
+            Tracks the depth of aggregate expression recursion.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.UriQueryExpressionParser.aggregateExpressionParents">
+            <summary>
+            Tracks expression parents of aggregate expression recursion.
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.UriParser.UriQueryExpressionParser.#ctor(System.Int32)">
             <summary>
             Creates a UriQueryExpressionParser.
@@ -19227,6 +19891,11 @@
         <member name="P:Microsoft.OData.UriParser.UriQueryExpressionParser.Lexer">
             <summary>
             Reference to the lexer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.UriParser.UriQueryExpressionParser.IsInAggregateExpression">
+            <summary>
+            Gets if this parser is currently within an aggregate expression parsing stack.
             </summary>
         </member>
         <member name="M:Microsoft.OData.UriParser.UriQueryExpressionParser.ParseFilter(System.String)">
@@ -19324,7 +19993,7 @@
         </member>
         <member name="M:Microsoft.OData.UriParser.UriQueryExpressionParser.ParseComparison">
             <summary>
-            Parses the eq, ne, lt, gt, le, ge operators.
+            Parses the eq, ne, lt, gt, le, ge, has, and in operators.
             </summary>
             <returns>The lexical token representing the expression.</returns>
         </member>
@@ -20245,7 +20914,7 @@
         </member>
         <member name="T:Microsoft.OData.UriParser.ConstantNode">
             <summary>
-            Node representing a constant value, can either be primtive, complex, entity, or collection value.
+            Node representing a constant value, can either be primitive, complex, entity, or collection value.
             </summary>
         </member>
         <member name="F:Microsoft.OData.UriParser.ConstantNode.constantValue">
@@ -22931,19 +23600,21 @@
             <param name="subSelectExpand">The sub select and expand clause under sub property.</param>
             <param name="typeSegment">Type cast segment, if exists.</param>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.GetSelectExpandPaths(Microsoft.OData.UriParser.SelectExpandClause,System.String@,System.String@)">
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.GetSelectExpandPaths(Microsoft.OData.UriParser.SelectExpandClause,Microsoft.OData.ODataVersion,System.String@,System.String@)">
             <summary>
             Gets the select and expand clauses as strings.
             </summary>
             <param name="selectExpandClause">The select expand clause to get the paths from.</param>
+            <param name="version">OData version.</param>
             <param name="selectClause">Returns the select clause.</param>
             <param name="expandClause">Returns the expand clause.</param>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.GetSelectExpandPaths(Microsoft.OData.UriParser.SelectExpandClause,System.Text.StringBuilder@,System.Text.StringBuilder@)">
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.GetSelectExpandPaths(Microsoft.OData.UriParser.SelectExpandClause,Microsoft.OData.ODataVersion,System.Text.StringBuilder@,System.Text.StringBuilder@)">
             <summary>
             Gets the select and expand clauses as <see cref="T:System.Text.StringBuilder"/>.
             </summary>
             <param name="selectExpandClause">The select expand clause to get the paths from.</param>
+            <param name="version">OData version.</param>
             <param name="selectClause">Returns the select clause.</param>
             <param name="expandClause">Returns the expand clause.</param>
         </member>
@@ -22954,7 +23625,7 @@
             <param name="selectExpandClause">The select expand clause used.</param>
             <returns>String list generated from selected items</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.Traverse``1(Microsoft.OData.UriParser.SelectExpandClause,System.Func{System.String,``0,``0},System.Func{System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{``0},``0},``0@)">
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.Traverse``1(Microsoft.OData.UriParser.SelectExpandClause,System.Func{System.String,``0,Microsoft.OData.ODataVersion,``0},System.Func{System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{``0},``0},Microsoft.OData.ODataVersion,``0@)">
             <summary>
             Traverse a SelectExpandClause using given functions.
             </summary>
@@ -22962,6 +23633,7 @@
             <param name="selectExpandClause">The select expand clause for evaluation.</param>
             <param name="processSubResult">The method to deal with sub expand result.</param>
             <param name="combineSelectAndExpand">The method to combine select and expand result lists.</param>
+            <param name="version">OData version to use in traversing the selectExpand clause</param>
             <param name="result">The result of the traversing.</param>
         </member>
         <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.BuildTopLevelSelect(Microsoft.OData.UriParser.SelectExpandClause)">
@@ -22978,17 +23650,19 @@
             <param name="selectedItem">the select item to translate</param>
             <returns>the string representation of this select item, or null if the select item is an expandedNavPropSelectItem</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.BuildExpandsForNode(Microsoft.OData.UriParser.SelectExpandClause)">
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.BuildExpandsForNode(Microsoft.OData.UriParser.SelectExpandClause,Microsoft.OData.ODataVersion)">
             <summary>
             Build the expand clause for a given level in the selectExpandClause
             </summary>
             <param name="selectExpandClause">the current level select expand clause</param>
+            <param name="version">OData Version.</param>
             <returns>the expand clause for this level.</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.ProcessSubExpand(System.String,System.String)">
+        <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.ProcessSubExpand(System.String,System.String,Microsoft.OData.ODataVersion)">
             <summary>Process sub expand node, contact with subexpad result</summary>
             <param name="expandNode">The current expanded node.</param>
             <param name="subExpand">Generated sub expand node.</param>
+            <param name="version">OData version.</param>
             <returns>The generated expand string.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.SelectExpandClauseExtensions.CombineSelectAndExpandResult(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
@@ -25212,6 +25886,9 @@
         <member name="F:Microsoft.OData.UriParser.ExpressionTokenKind.CustomTypeLiteral">
             <summary>CustomType Literal.</summary>
         </member>
+        <member name="F:Microsoft.OData.UriParser.ExpressionTokenKind.ParenthesesExpression">
+            <summary>A ParenthesesExpression is an expression within parentheses. It contains a list of objects.</summary>
+        </member>
         <member name="T:Microsoft.OData.UriParser.QueryNodeKind">
             <summary>
             Public enumeration of kinds of query nodes. A subset of InternalQueryNodeKind
@@ -25365,6 +26042,26 @@
         <member name="F:Microsoft.OData.UriParser.QueryNodeKind.SingleValueCast">
             <summary>
             Cast on a single value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.QueryNodeKind.CollectionPropertyNode">
+            <summary>
+            Node represents a property of a collection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.QueryNodeKind.AggregatedCollectionPropertyNode">
+            <summary>
+            Node represents a property of a aggregated collection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.QueryNodeKind.In">
+            <summary>
+            In operator node.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.QueryNodeKind.CollectionConstant">
+            <summary>
+            Node that represents a collection of constants.
             </summary>
         </member>
         <member name="T:Microsoft.OData.UriParser.InternalQueryNodeKind">
@@ -25522,6 +26219,26 @@
             Cast on a single value.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.UriParser.InternalQueryNodeKind.CollectionPropertyNode">
+            <summary>
+            Node represents a property of a collection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InternalQueryNodeKind.AggregatedCollectionPropertyNode">
+            <summary>
+            Node represents a property of a aggregated collection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InternalQueryNodeKind.In">
+            <summary>
+            In operator node.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.InternalQueryNodeKind.CollectionConstant">
+            <summary>
+            Node that represents a collection of constants.
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.UriParser.QueryTokenKind">
             <summary>
             Enumeration of kinds of query tokens.
@@ -25634,7 +26351,7 @@
         </member>
         <member name="F:Microsoft.OData.UriParser.QueryTokenKind.AggregateExpression">
             <summary>
-            $apply aggregate statement token
+            $apply aggregate statement to a property token
             </summary>
         </member>
         <member name="F:Microsoft.OData.UriParser.QueryTokenKind.AggregateGroupBy">
@@ -25650,6 +26367,16 @@
         <member name="F:Microsoft.OData.UriParser.QueryTokenKind.ComputeExpression">
             <summary>
             $compute expression token
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.QueryTokenKind.EntitySetAggregateExpression">
+            <summary>
+            $apply aggregate statement to a entity set token
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.UriParser.QueryTokenKind.In">
+            <summary>
+            In operator.
             </summary>
         </member>
         <member name="T:Microsoft.OData.UriParser.RequestTargetKind">
@@ -25725,6 +26452,11 @@
             entity and complex types.
             </remarks>
         </member>
+        <member name="F:Microsoft.OData.UriParser.TypePromotionUtils.NotFoundKeyValuePair">
+            <summary>
+            Struct constant for not found result of name-signature search.
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.UriParser.TypePromotionUtils.logicalSignatures">
             <summary>Function signatures for logical operators (and, or).</summary>
         </member>
@@ -25790,10 +26522,11 @@
             <param name="typeReference">Type of the operand.</param>
             <returns>True if the type could be promoted; otherwise false.</returns>
         </member>
-        <member name="M:Microsoft.OData.UriParser.TypePromotionUtils.FindBestFunctionSignature(Microsoft.OData.UriParser.FunctionSignatureWithReturnType[],Microsoft.OData.UriParser.SingleValueNode[])">
+        <member name="M:Microsoft.OData.UriParser.TypePromotionUtils.FindBestFunctionSignature(System.Collections.Generic.IList{System.Collections.Generic.KeyValuePair{System.String,Microsoft.OData.UriParser.FunctionSignatureWithReturnType}},Microsoft.OData.UriParser.SingleValueNode[],System.String)">
             <summary>Finds the best fitting function for the specified arguments.</summary>
-            <param name="functions">Functions to consider.</param>
+            <param name="nameFunctions">Functions with names to consider.</param>
             <param name="argumentNodes">Nodes of the arguments for the function, can be new {null,null}.</param>
+            <param name="functionCallToken">Function call token used for case-sensitive matching to resolve ambiguous cases.</param>
             <returns>The best fitting function; null if none found or ambiguous.</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.TypePromotionUtils.CanConvertTo(Microsoft.OData.UriParser.SingleValueNode,Microsoft.OData.Edm.IEdmTypeReference,Microsoft.OData.Edm.IEdmTypeReference)">
@@ -26008,6 +26741,9 @@
         <member name="F:Microsoft.OData.UriParser.UriQueryConstants.ComputeQueryOption">
             <summary>A compute query option name.</summary>
         </member>
+        <member name="F:Microsoft.OData.UriParser.UriQueryConstants.AnnotationPrefix">
+            <summary>An annotation prefix in a URL.</summary>
+        </member>
         <member name="T:Microsoft.OData.UriParser.IPathSegmentTokenVisitor`1">
             <summary>
             Visitor interface for walking the Path Tree.
@@ -26071,6 +26807,13 @@
             </summary>
             <param name="tokenIn">The Binary operator token to visit.</param>
             <returns>A BinaryOperatorNode thats bound to this token</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.InToken)">
+            <summary>
+            Visits an InToken
+            </summary>
+            <param name="tokenIn">The In token to visit.</param>
+            <returns>An InNode thats bound to this token</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.DottedIdentifierToken)">
             <summary>
@@ -26191,6 +26934,13 @@
             <param name="tokenIn">The AggregateExpressionToken to bind</param>
             <returns>A T node bound to this AggregateExpressionToken</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken)">
+            <summary>
+            Visits a EntitySetAggregateToken
+            </summary>
+            <param name="tokenIn">The EntitySetAggregateToken to bind</param>
+            <returns>A T node bound to this EntitySetAggregateToken</returns>
+        </member>
         <member name="M:Microsoft.OData.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.Aggregation.GroupByToken)">
             <summary>
             Visits a GroupByToken
@@ -26230,6 +26980,14 @@
         <member name="M:Microsoft.OData.UriParser.IsCollectionTranslator.Translate(Microsoft.OData.UriParser.PropertySegment)">
             <summary>
             Translate a PropertySegment
+            </summary>
+            <param name="segment">the segment to Translate</param>
+            <returns>UserDefinedValue</returns>
+            <exception cref="T:System.ArgumentNullException">Throws if the input segment is null.</exception>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.IsCollectionTranslator.Translate(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Translate an AnnotationSegment
             </summary>
             <param name="segment">the segment to Translate</param>
             <returns>UserDefinedValue</returns>
@@ -26335,6 +27093,12 @@
         <member name="M:Microsoft.OData.UriParser.PathSegmentHandler.Handle(Microsoft.OData.UriParser.PropertySegment)">
             <summary>
             Handle a PropertySegment
+            </summary>
+            <param name="segment">the segment to Handle</param>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.PathSegmentHandler.Handle(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Handle an AnnotationSegment
             </summary>
             <param name="segment">the segment to Handle</param>
         </member>
@@ -26466,6 +27230,13 @@
             <param name="segment">the segment to Translate</param>
             <returns>Defined by the implementer.</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.PathSegmentToContextUrlPathTranslator.Translate(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Translate an AnnotationSegment
+            </summary>
+            <param name="segment">the segment to Translate</param>
+            <returns>Defined by the implementer.</returns>
+        </member>
         <member name="M:Microsoft.OData.UriParser.PathSegmentToContextUrlPathTranslator.Translate(Microsoft.OData.UriParser.OperationSegment)">
             <summary>
             Translate a OperationSegment
@@ -26587,6 +27358,13 @@
             <param name="segment">the segment to Translate</param>
             <returns>Defined by the implementer.</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.PathSegmentToResourcePathTranslator.Translate(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Translate an AnnotationSegment
+            </summary>
+            <param name="segment">the segment to Translate</param>
+            <returns>Defined by the implementer.</returns>
+        </member>
         <member name="M:Microsoft.OData.UriParser.PathSegmentToResourcePathTranslator.Translate(Microsoft.OData.UriParser.OperationSegment)">
             <summary>
             Translate a OperationSegment
@@ -26682,6 +27460,13 @@
         <member name="M:Microsoft.OData.UriParser.PathSegmentToStringTranslator.Translate(Microsoft.OData.UriParser.PropertySegment)">
             <summary>
             Translate a PropertySegment
+            </summary>
+            <param name="segment">the segment to Translate</param>
+            <returns>Defined by the implementer.</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.PathSegmentToStringTranslator.Translate(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Translate an AnnotationSegment
             </summary>
             <param name="segment">the segment to Translate</param>
             <returns>Defined by the implementer.</returns>
@@ -26821,6 +27606,13 @@
             <param name="segment">the segment to Translate</param>
             <returns>Defined by the implementer.</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.PathSegmentTranslator`1.Translate(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Translate an AnnotationSegment
+            </summary>
+            <param name="segment">the segment to Translate</param>
+            <returns>Defined by the implementer.</returns>
+        </member>
         <member name="M:Microsoft.OData.UriParser.PathSegmentTranslator`1.Translate(Microsoft.OData.UriParser.OperationImportSegment)">
             <summary>
             Translate a OperationImportSegment
@@ -26949,6 +27741,13 @@
         <member name="M:Microsoft.OData.UriParser.QueryNodeVisitor`1.Visit(Microsoft.OData.UriParser.ConstantNode)">
             <summary>
             Visit a ConstantNode
+            </summary>
+            <param name="nodeIn">the node to visit</param>
+            <returns>Defined by the implementer</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.QueryNodeVisitor`1.Visit(Microsoft.OData.UriParser.CollectionConstantNode)">
+            <summary>
+            Visit a CollectionConstantNode
             </summary>
             <param name="nodeIn">the node to visit</param>
             <returns>Defined by the implementer</returns>
@@ -27082,6 +27881,20 @@
         <member name="M:Microsoft.OData.UriParser.QueryNodeVisitor`1.Visit(Microsoft.OData.UriParser.SingleValueCastNode)">
             <summary>
             Visit a SingleValueCastNode
+            </summary>
+            <param name="nodeIn">the node to visit</param>
+            <returns>Defined by the implementer</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.QueryNodeVisitor`1.Visit(Microsoft.OData.UriParser.AggregatedCollectionPropertyNode)">
+            <summary>
+            Visit a CollectionComplexNode
+            </summary>
+            <param name="nodeIn">the node to visit</param>
+            <returns>Defined by the implementer</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.QueryNodeVisitor`1.Visit(Microsoft.OData.UriParser.InNode)">
+            <summary>
+            Visit an InNode
             </summary>
             <param name="nodeIn">the node to visit</param>
             <returns>Defined by the implementer</returns>
@@ -27294,6 +28107,12 @@
             </summary>
             <param name="segment">the segment to Handle</param>
         </member>
+        <member name="M:Microsoft.OData.UriParser.SplitEndingSegmentOfTypeHandler`1.Handle(Microsoft.OData.UriParser.AnnotationSegment)">
+            <summary>
+            Handle an AnnotationSegment
+            </summary>
+            <param name="segment">the segment to Handle</param>
+        </member>
         <member name="M:Microsoft.OData.UriParser.SplitEndingSegmentOfTypeHandler`1.Handle(Microsoft.OData.UriParser.OperationImportSegment)">
             <summary>
             Handle an OperationSegment
@@ -27381,6 +28200,13 @@
             <param name="tokenIn">The Binary operator token to visit.</param>
             <returns>A BinaryOperatorNode thats bound to this token</returns>
         </member>
+        <member name="M:Microsoft.OData.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.InToken)">
+            <summary>
+            Visits an InToken
+            </summary>
+            <param name="tokenIn">The In token to visit.</param>
+            <returns>An InNode thats bound to this token</returns>
+        </member>
         <member name="M:Microsoft.OData.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.DottedIdentifierToken)">
             <summary>
             Visits a DottedIdentifierToken
@@ -27436,6 +28262,13 @@
             </summary>
             <param name="tokenIn">The AggregateExpressionToken to visit</param>
             <returns>A T bound to this AggregateExpressionToken</returns>
+        </member>
+        <member name="M:Microsoft.OData.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken)">
+            <summary>
+            Visits an EntitySetAggregateToken
+            </summary>
+            <param name="tokenIn">The EntitySetAggregateToken to visit</param>
+            <returns>A T bound to this EntitySetAggregateToken</returns>
         </member>
         <member name="M:Microsoft.OData.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.UriParser.LambdaToken)">
             <summary>
@@ -35495,7 +36328,7 @@
         <member name="F:Microsoft.OData.ODataConstants.DefaultMaxPartsPerBatch">
             <summary>The default maximum number of top-level operations and changesets per batch payload.</summary>
         </member>
-        <member name="F:Microsoft.OData.ODataConstants.DefulatMaxOperationsPerChangeset">
+        <member name="F:Microsoft.OData.ODataConstants.DefaultMaxOperationsPerChangeset">
             <summary>The default maximum number of operations per changeset.</summary>
         </member>
         <member name="F:Microsoft.OData.ODataConstants.UriSegmentSeparator">
@@ -35518,6 +36351,9 @@
         </member>
         <member name="F:Microsoft.OData.ODataConstants.UriMetadataSegment">
             <summary>A segment name in a URI that indicates metadata is being requested.</summary>
+        </member>
+        <member name="F:Microsoft.OData.ODataConstants.ODataPrefix">
+            <summary>The OData prefix</summary>
         </member>
         <member name="F:Microsoft.OData.ODataConstants.CollectionOfEntityReferencesContextUrlSegment">
             <summary>
@@ -35545,6 +36381,9 @@
         </member>
         <member name="F:Microsoft.OData.ODataConstants.ContextUriProjectionPropertySeparator">
             <summary>The "," used to split properties of Select and Expand fragment a context URI.</summary>
+        </member>
+        <member name="F:Microsoft.OData.ODataConstants.ContextUriFragmentNull">
+            <summary>The token that indicates the payload is a property with null value.</summary>
         </member>
         <member name="F:Microsoft.OData.ODataConstants.ContextUriFragmentUntyped">
             <summary>The token that indicates the payload is a property with an untyped value.</summary>
@@ -35729,11 +36568,12 @@
         <member name="P:Microsoft.OData.ODataContextUrlInfo.IncludeFragmentItemSelector">
             <summary>Whether context Url is for single item used for building context Url</summary>
         </member>
-        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.ODataValue,Microsoft.OData.ODataUri,Microsoft.OData.Edm.IEdmModel)">
+        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.ODataValue,Microsoft.OData.ODataVersion,Microsoft.OData.ODataUri,Microsoft.OData.Edm.IEdmModel)">
             <summary>
             Create ODataContextUrlInfo for OdataValue.
             </summary>
             <param name="value">The ODataValue to be used.</param>
+            <param name="version">OData Version.</param>
             <param name="odataUri">The odata uri info for current query.</param>
             <param name="model">The model used to handle unsigned int conversions.</param>
             <returns>The generated ODataContextUrlInfo.</returns>
@@ -35746,7 +36586,7 @@
             <param name="itemTypeReference">ItemTypeReference specifying element type.</param>
             <returns>The generated ODataContextUrlInfo.</returns>
         </member>
-        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.Edm.IEdmNavigationSource,System.String,System.Boolean,Microsoft.OData.ODataUri)">
+        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.Edm.IEdmNavigationSource,System.String,System.Boolean,Microsoft.OData.ODataUri,Microsoft.OData.ODataVersion)">
             <summary>
             Create ODataContextUrlInfo from basic information
             </summary>
@@ -35754,22 +36594,25 @@
             <param name="expectedEntityTypeName">The expectedEntity for current element.</param>
             <param name="isSingle">Whether target is single item.</param>
             <param name="odataUri">The odata uri info for current query.</param>
+            <param name="version">The OData Version of the response.</param>
             <returns>The generated ODataContextUrlInfo.</returns>
         </member>
-        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.ODataResourceTypeContext,System.Boolean,Microsoft.OData.ODataUri)">
+        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.ODataResourceTypeContext,Microsoft.OData.ODataVersion,System.Boolean,Microsoft.OData.ODataUri)">
             <summary>
             Create ODataContextUrlInfo from ODataResourceTypeContext
             </summary>
             <param name="typeContext">The ODataResourceTypeContext to be used.</param>
+            <param name="version">The OData Version of the response</param>
             <param name="isSingle">Whether target is single item.</param>
             <param name="odataUri">The odata uri info for current query.</param>
             <returns>The generated ODataContextUrlInfo.</returns>
         </member>
-        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.ODataResourceTypeContext,Microsoft.OData.ODataDeltaKind,Microsoft.OData.ODataUri)">
+        <member name="M:Microsoft.OData.ODataContextUrlInfo.Create(Microsoft.OData.ODataResourceTypeContext,Microsoft.OData.ODataVersion,Microsoft.OData.ODataDeltaKind,Microsoft.OData.ODataUri)">
             <summary>
             Create contextUrlInfo for delta
             </summary>
             <param name="typeContext">The ODataResourceTypeContext to be used.</param>
+            <param name="version">The OData version of the response.</param>
             <param name="kind">The delta kind.</param>
             <param name="odataUri">The odata uri info for current query.</param>
             <returns>The generated ODataContextUrlInfo.</returns>
@@ -35789,17 +36632,19 @@
             <param name="model">The model used to handle unsigned int conversions.</param>
             <returns>The type name for the context URI.</returns>
         </member>
-        <member name="M:Microsoft.OData.ODataContextUrlInfo.CreateSelectExpandContextUriSegment(Microsoft.OData.UriParser.SelectExpandClause)">
+        <member name="M:Microsoft.OData.ODataContextUrlInfo.CreateSelectExpandContextUriSegment(Microsoft.OData.UriParser.SelectExpandClause,Microsoft.OData.ODataVersion)">
             <summary>
             Build the expand clause for a given level in the selectExpandClause
             </summary>
             <param name="selectExpandClause">the current level select expand clause</param>
+            <param name="version">OData Version of the response</param>
             <returns>the select and expand segment for context url in this level.</returns>
         </member>
-        <member name="M:Microsoft.OData.ODataContextUrlInfo.ProcessSubExpand(System.String,System.String)">
+        <member name="M:Microsoft.OData.ODataContextUrlInfo.ProcessSubExpand(System.String,System.String,Microsoft.OData.ODataVersion)">
             <summary>Process sub expand node, contact with subexpand result</summary>
             <param name="expandNode">The current expanded node.</param>
             <param name="subExpand">Generated sub expand node.</param>
+            <param name="version">OData Version of the generated response.</param>
             <returns>The generated expand string.</returns>
         </member>
         <member name="M:Microsoft.OData.ODataContextUrlInfo.CombineSelectAndExpandResult(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
@@ -38583,6 +39428,11 @@
             with default values for the specified OData version.</summary>
             <param name="odataVersion">OData Version for which to create default settings.</param>
         </member>
+        <member name="P:Microsoft.OData.ODataMessageReaderSettings.LibraryCompatibility">
+            <summary>
+            Gets or sets library compatibility version. Default value is <see cref="T:ODataLibraryCompatibilityLevel.Latest"/>,
+            </summary>
+        </member>
         <member name="P:Microsoft.OData.ODataMessageReaderSettings.Version">
             <summary>Gets or sets the OData protocol version to be used for reading payloads. </summary>
             <returns>The OData protocol version to be used for reading payloads.</returns>
@@ -39309,6 +40159,11 @@
         </member>
         <member name="M:Microsoft.OData.ODataMessageWriterSettings.#ctor">
             <summary>Initializes a new instance of the <see cref="T:Microsoft.OData.ODataMessageWriterSettings" /> class with default settings. </summary>
+        </member>
+        <member name="P:Microsoft.OData.ODataMessageWriterSettings.LibraryCompatibility">
+            <summary>
+            Gets or sets library compatibility version. Default value is <see cref="T:ODataLibraryCompatibilityLevel.Latest"/>,
+            </summary>
         </member>
         <member name="P:Microsoft.OData.ODataMessageWriterSettings.Validations">
             <summary>
@@ -45384,11 +46239,12 @@
             <param name="selectQueryOption">The value of the $select query option.</param>
             <returns>A tree representation of the selected properties specified in the query option.</returns>
         </member>
-        <member name="M:Microsoft.OData.SelectedPropertiesNode.Create(Microsoft.OData.UriParser.SelectExpandClause)">
+        <member name="M:Microsoft.OData.SelectedPropertiesNode.Create(Microsoft.OData.UriParser.SelectExpandClause,Microsoft.OData.ODataVersion)">
             <summary>
             Creates a node from the given SelectExpandClause.
             </summary>
             <param name="selectExpandClause">The value of the $select query option.</param>
+            <param name="version">OData version</param>
             <returns>A tree representation of the selected properties specified in the query option.</returns>
         </member>
         <member name="M:Microsoft.OData.SelectedPropertiesNode.CombineNodes(Microsoft.OData.SelectedPropertiesNode,Microsoft.OData.SelectedPropertiesNode)">
@@ -45492,15 +46348,17 @@
               <c>true</c> if the operation is selected; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:Microsoft.OData.SelectedPropertiesNode.CreateFromSelectExpandClause(Microsoft.OData.UriParser.SelectExpandClause)">
+        <member name="M:Microsoft.OData.SelectedPropertiesNode.CreateFromSelectExpandClause(Microsoft.OData.UriParser.SelectExpandClause,Microsoft.OData.ODataVersion)">
             <summary>Create SelectedPropertiesNode from SelectExpandClause.</summary>
             <param name="selectExpandClause">The SelectExpandClause representing $select and $expand clauses.</param>
+            <param name="version">OData version</param>
             <returns>SelectedPropertiesNode generated using <paramref name="selectExpandClause"/></returns>
         </member>
-        <member name="M:Microsoft.OData.SelectedPropertiesNode.ProcessSubExpand(System.String,Microsoft.OData.SelectedPropertiesNode)">
+        <member name="M:Microsoft.OData.SelectedPropertiesNode.ProcessSubExpand(System.String,Microsoft.OData.SelectedPropertiesNode,Microsoft.OData.ODataVersion)">
             <summary>Process sub expand node, set name for the node.</summary>
             <param name="nodeName">Node name for the subexpandnode.</param>
             <param name="subExpandNode">Generated sub expand node.</param>
+            <param name="version">OData version.</param>
             <returns>The sub expanded node passed in.</returns>
         </member>
         <member name="M:Microsoft.OData.SelectedPropertiesNode.CombineSelectAndExpandResult(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{Microsoft.OData.SelectedPropertiesNode})">
@@ -46175,6 +47033,9 @@
         <member name="F:Microsoft.OData.ExpressionConstants.KeywordMax">
             <summary>"max" keyword for expressions.</summary>
         </member>
+        <member name="F:Microsoft.OData.ExpressionConstants.KeywordIn">
+            <summary>"in" keyword for expressions.</summary>
+        </member>
         <member name="F:Microsoft.OData.ExpressionConstants.UnboundFunctionCast">
             <summary> "cast" function </summary>
         </member>
@@ -46271,11 +47132,11 @@
         <member name="F:Microsoft.OData.ExpressionConstants.KeywordFilter">
             <summary>"filter" keyword for $apply.</summary>
         </member>
-        <member name="F:Microsoft.OData.ExpressionConstants.KeywordCompute">
-            <summary>"compute" keyword for $apply.</summary>
-        </member>
         <member name="F:Microsoft.OData.ExpressionConstants.KeywordGroupBy">
             <summary>"groupby" keyword for $apply.</summary>
+        </member>
+        <member name="F:Microsoft.OData.ExpressionConstants.KeywordCompute">
+            <summary>"compute" keyword for $apply.</summary>
         </member>
         <member name="F:Microsoft.OData.ExpressionConstants.KeywordSum">
             <summary>"sum" keyword for expressions.</summary>
@@ -46329,6 +47190,13 @@
             <param name="node">The node to translate.</param>
             <returns>The translated String.</returns>
         </member>
+        <member name="M:Microsoft.OData.NodeToStringBuilder.Visit(Microsoft.OData.UriParser.InNode)">
+            <summary>
+            Translates a <see cref="T:Microsoft.OData.UriParser.InNode"/> into a corresponding <see cref="T:System.String"/>.
+            </summary>
+            <param name="node">The node to translate.</param>
+            <returns>The translated String.</returns>
+        </member>
         <member name="M:Microsoft.OData.NodeToStringBuilder.Visit(Microsoft.OData.UriParser.CountNode)">
             <summary>
             Translates a <see cref="T:Microsoft.OData.UriParser.CountNode"/> into a corresponding <see cref="T:System.String"/>.
@@ -46359,7 +47227,14 @@
         </member>
         <member name="M:Microsoft.OData.NodeToStringBuilder.Visit(Microsoft.OData.UriParser.ConstantNode)">
             <summary>
-            Translates a <see cref="T:Microsoft.OData.UriParser.CollectionPropertyAccessNode"/> into a corresponding <see cref="T:System.String"/>.
+            Translates a <see cref="T:Microsoft.OData.UriParser.ConstantNode"/> into a corresponding <see cref="T:System.String"/>.
+            </summary>
+            <param name="node">The node to translate.</param>
+            <returns>The translated String.</returns>
+        </member>
+        <member name="M:Microsoft.OData.NodeToStringBuilder.Visit(Microsoft.OData.UriParser.CollectionConstantNode)">
+            <summary>
+            Translates a <see cref="T:Microsoft.OData.UriParser.CollectionConstantNode"/> into a corresponding <see cref="T:System.String"/>.
             </summary>
             <param name="node">The node to translate.</param>
             <returns>The translated String.</returns>
@@ -48308,13 +49183,14 @@
             performed; properties and such are not validated.
             </remarks>
         </member>
-        <member name="M:Microsoft.OData.WriterValidator.ValidateNullPropertyValue(Microsoft.OData.Edm.IEdmTypeReference,System.String,Microsoft.OData.Edm.IEdmModel)">
+        <member name="M:Microsoft.OData.WriterValidator.ValidateNullPropertyValue(Microsoft.OData.Edm.IEdmTypeReference,System.String,System.Boolean,Microsoft.OData.Edm.IEdmModel)">
             <summary>
             Validates that the expected property allows null value.
             </summary>
             <param name="expectedPropertyTypeReference">The expected property type or null if we
             don't have any.</param>
             <param name="propertyName">The name of the property.</param>
+            <param name="isTopLevel">true if the property is top-level.</param>
             <param name="model">The model used to get the OData version.</param>
         </member>
         <member name="M:Microsoft.OData.WriterValidator.ValidateNullCollectionItem(Microsoft.OData.Edm.IEdmTypeReference)">
@@ -48648,6 +49524,11 @@
         <member name="P:Microsoft.OData.Strings.ODataMessageWriter_AsyncInRequest">
             <summary>
             A string like "Cannot write async in request payload."
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Strings.ODataMessageWriter_CannotWriteTopLevelNull">
+            <summary>
+            A string like "Cannot write the value 'null' in top level property; return 204 instead."
             </summary>
         </member>
         <member name="P:Microsoft.OData.Strings.ODataMessageWriter_CannotWriteNullInRawFormat">
@@ -49060,11 +49941,6 @@
         <member name="M:Microsoft.OData.Strings.ODataBatchReader_DependsOnIdNotFound(System.Object,System.Object)">
             <summary>
             A string like "The dependsOn Id: [{0}] in request [{1}] is not matching any of the request Id and atomic group Id seen so far. Forward reference is not allowed."
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.Strings.ODataBatchReader_AbsoluteURINotMatchingBaseUri(System.Object,System.Object)">
-            <summary>
-            A string like "Absolute URI {0} is not start with the base URI [{1}] specified by the operation message."
             </summary>
         </member>
         <member name="M:Microsoft.OData.Strings.ODataBatchReader_ReferenceIdNotIncludedInDependsOn(System.Object,System.Object,System.Object)">
@@ -51262,6 +52138,16 @@
             A string like "The operand for a unary operator '{0}' is not a single value. Unary operators require the operand to be a single value."
             </summary>
         </member>
+        <member name="P:Microsoft.OData.Strings.MetadataBinder_LeftOperandNotSingleValue">
+            <summary>
+            A string like "The left operand for the IN operation is not a single value. IN operations require the left operand to be a single value and the right operand to be a collection value."
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Strings.MetadataBinder_RightOperandNotCollectionValue">
+            <summary>
+            A string like "The right operand for the IN operation is not a collection value. IN operations require the left operand to be a single value and the right operand to be a collection value."
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Strings.MetadataBinder_PropertyAccessSourceNotSingleValue(System.Object)">
             <summary>
             A string like "The parent value for a property access of a property '{0}' is not a single value. Property access can only be applied to a single value."
@@ -51382,6 +52268,11 @@
             A string like "$apply/aggregate does not support method '{0}'."
             </summary>
         </member>
+        <member name="M:Microsoft.OData.Strings.ApplyBinder_UnsupportedAggregateKind(System.Object)">
+            <summary>
+            A string like "$apply/aggregate token kind '{0}' not supported."
+            </summary>
+        </member>
         <member name="M:Microsoft.OData.Strings.ApplyBinder_AggregateExpressionNotSingleValue(System.Object)">
             <summary>
             A string like "$apply/aggregate expression '{0}' must evaluate to a single value."
@@ -51400,6 +52291,11 @@
         <member name="M:Microsoft.OData.Strings.ApplyBinder_UnsupportedGroupByChild(System.Object)">
             <summary>
             A string like "$apply/groupby not support '{0}' as child transformation"
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Strings.AggregateTransformationNode_UnsupportedAggregateExpressions">
+            <summary>
+            A string like "There are unsupported aggregation expressions in the transformation node."
             </summary>
         </member>
         <member name="M:Microsoft.OData.Strings.FunctionCallBinder_CannotFindASuitableOverload(System.Object,System.Object)">
@@ -51565,6 +52461,11 @@
         <member name="P:Microsoft.OData.Strings.Nodes_SingleValueFunctionCallNode_ItemTypeMustBePrimitiveOrComplexOrEnum">
             <summary>
             A string like "An instance of SingleValueFunctionCallNode can only be created with a primitive, complex or enum type. For functions returning a single entity, use SingleEntityFunctionCallNode instead."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Strings.Nodes_InNode_CollectionItemTypeMustBeSameAsSingleItemType(System.Object,System.Object)">
+            <summary>
+            A string like "An instance of InNode can only be created where the item type of the right operand collection '{0}' is equal to that of the left operand single value '{0}'."
             </summary>
         </member>
         <member name="P:Microsoft.OData.Strings.ExpandTreeNormalizer_NonPathInPropertyChain">
@@ -52065,6 +52966,11 @@
         <member name="M:Microsoft.OData.Strings.JsonReader_UnexpectedComma(System.Object)">
             <summary>
             A string like "Invalid JSON. An unexpected comma was found in scope '{0}'. A comma is only valid between properties of an object or between elements of an array."
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Strings.JsonReader_ArrayClosureMismatch(System.Object,System.Object,System.Object)">
+            <summary>
+            A string like "Invalid JSON. A array closure mismatch occurred. A '{0}' was expected to match '{1}', but instead '{2}' was found."
             </summary>
         </member>
         <member name="P:Microsoft.OData.Strings.JsonReader_MultipleTopLevelValues">

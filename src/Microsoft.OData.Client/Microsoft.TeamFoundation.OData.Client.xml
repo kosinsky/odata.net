@@ -818,70 +818,16 @@
             <param name="keyProperties">The key properties.</param>
             <param name="getPropertyValue">The callback to get each property's value.</param>
         </member>
-        <member name="T:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken">
-            <summary>
-            Query token representing an Aggregate expression.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.#ctor(Microsoft.OData.Client.ALinq.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String)">
-            <summary>
-            Create an AggregateExpressionToken.
-            </summary>
-            <param name="expression">The aggregate expression.</param>
-            <param name="method">The aggregation method.</param>
-            <param name="alias">The alias for this query token.</param>
-        </member>
-        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.#ctor(Microsoft.OData.Client.ALinq.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String)">
-            <summary>
-            Create an AggregateExpressionToken.
-            </summary>
-            <param name="expression">The aggregate expression.</param>
-            <param name="methodDefinition">The aggregate method definition.</param>
-            <param name="alias">The alias for this query token.</param>
-        </member>
-        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Kind">
-            <summary>
-            Gets the kind of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Method">
-            <summary>
-            Gets the AggregationMethod of this token.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.MethodDefinition">
-            <summary>
-            Gets the aggregate method definition.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Expression">
-            <summary>
-            Gets the expression.
-            </summary>
-        </member>
-        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Alias">
-            <summary>
-            Gets the alias.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
-            <summary>
-            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
-            </summary>
-            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
-            <param name="visitor">An implementation of the visitor interface.</param>
-            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
-        </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.AggregateToken">
             <summary>
             Query token representing an Aggregate token.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken})">
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.#ctor(System.Collections.Generic.IEnumerable{Microsoft.OData.Client.ALinq.UriParser.AggregateTokenBase})">
             <summary>
-            Create an AggregateToken.
+            Create an AggregateTransformationToken.
             </summary>
-            <param name="expressions">The list of AggregateExpressionToken.</param>
+            <param name="expressions">The aggregate expressions.</param>
         </member>
         <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.Kind">
             <summary>
@@ -890,7 +836,13 @@
         </member>
         <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.Expressions">
             <summary>
-            Gets the list of AggregateExpressionToken.
+            Create an AggregateToken.
+            </summary>
+            <param name="expressions">The list of AggregateExpressionToken.</param>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.AggregateExpressions">
+            <summary>
+            Gets the expressions of this token.
             </summary>
         </member>
         <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
@@ -900,11 +852,6 @@
             <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
             <param name="visitor">An implementation of the visitor interface.</param>
             <returns>An object whose type is determined by the type parameter of the visitor.</returns>
-        </member>
-        <member name="T:Microsoft.OData.Client.ALinq.UriParser.ApplyTransformationToken">
-            <summary>
-            Base class for Apply transformation tokens
-            </summary>
         </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.GroupByToken">
             <summary>
@@ -1751,6 +1698,51 @@
             <param name="visitor">An implementation of the visitor interface.</param>
             <returns>An object whose type is determined by the type parameter of the visitor.</returns>
         </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.InToken">
+            <summary>
+            Lexical token representing an In operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.InToken.left">
+            <summary>
+            The left operand.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.InToken.right">
+            <summary>
+            The right operand.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.InToken.#ctor(Microsoft.OData.Client.ALinq.UriParser.QueryToken,Microsoft.OData.Client.ALinq.UriParser.QueryToken)">
+            <summary>
+            Create a new InToken given the left and right query tokens.
+            </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.InToken.Kind">
+            <summary>
+            The kind of the query token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.InToken.Left">
+            <summary>
+            The left operand.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.InToken.Right">
+            <summary>
+            The right operand.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.InToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.IPathSegmentTokenVisitor`1">
             <summary>
             Visitor interface for walking the Path Tree.
@@ -1814,6 +1806,13 @@
             </summary>
             <param name="tokenIn">The Binary operator token to visit.</param>
             <returns>A BinaryOperatorNode thats bound to this token</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.InToken)">
+            <summary>
+            Visits an InToken
+            </summary>
+            <param name="tokenIn">The In token to visit.</param>
+            <returns>An InNode thats bound to this token</returns>
         </member>
         <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.DottedIdentifierToken)">
             <summary>
@@ -1934,6 +1933,13 @@
             <param name="tokenIn">The AggregateExpressionToken to bind</param>
             <returns>A T node bound to this AggregateExpressionToken</returns>
         </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken)">
+            <summary>
+            Visits a EntitySetAggregateToken
+            </summary>
+            <param name="tokenIn">The EntitySetAggregateToken to bind</param>
+            <returns>A T node bound to this EntitySetAggregateToken</returns>
+        </member>
         <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.GroupByToken)">
             <summary>
             Visits a GroupByToken
@@ -1967,6 +1973,13 @@
             </summary>
             <param name="tokenIn">The Binary operator token to visit.</param>
             <returns>A BinaryOperatorNode thats bound to this token</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.InToken)">
+            <summary>
+            Visits an InToken
+            </summary>
+            <param name="tokenIn">The In token to visit.</param>
+            <returns>An InNode thats bound to this token</returns>
         </member>
         <member name="M:Microsoft.OData.Client.ALinq.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.DottedIdentifierToken)">
             <summary>
@@ -2023,6 +2036,13 @@
             </summary>
             <param name="tokenIn">The AggregateExpressionToken to visit</param>
             <returns>A T bound to this AggregateExpressionToken</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken)">
+            <summary>
+            Visits an EntitySetAggregateToken
+            </summary>
+            <param name="tokenIn">The EntitySetAggregateToken to visit</param>
+            <returns>A T bound to this EntitySetAggregateToken</returns>
         </member>
         <member name="M:Microsoft.OData.Client.ALinq.UriParser.SyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.LambdaToken)">
             <summary>
@@ -2576,7 +2596,7 @@
         </member>
         <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.AggregateExpression">
             <summary>
-            $apply aggregate statement token
+            $apply aggregate statement to a property token
             </summary>
         </member>
         <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.AggregateGroupBy">
@@ -2592,6 +2612,16 @@
         <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.ComputeExpression">
             <summary>
             $compute expression token
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.EntitySetAggregateExpression">
+            <summary>
+            $apply aggregate statement to a entity set token
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.In">
+            <summary>
+            In operator.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.RangeVariableToken">
@@ -2818,6 +2848,122 @@
             </summary>
         </member>
         <member name="M:Microsoft.OData.Client.ALinq.UriParser.UnaryOperatorToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.ApplyTransformationToken">
+            <summary>
+            Base class for Apply transformation tokens
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken">
+            <summary>
+            Query token representing an Entity Set Aggregate expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.#ctor(Microsoft.OData.Client.ALinq.UriParser.QueryToken,System.Collections.Generic.IEnumerable{Microsoft.OData.Client.ALinq.UriParser.AggregateTokenBase})">
+            <summary>
+            Create an EntitySetAggregateToken.
+            </summary>
+            <param name="entitySet">The entity set.</param>
+            <param name="expressions">The aggregate expressions.</param>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.Expressions">
+            <summary>
+            Gets the expressions associated with the aggregation token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.EntitySet">
+            <summary>
+            Gets the entity set associated with the aggregation token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.Merge(Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken,Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken)">
+            <summary>
+            Merges two <see cref="T:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken"/> that have the same entity set into one.
+            If the parameters do not share the the entity set, an exception is thrown.
+            </summary>
+            <param name="token1">First token that is going to be merged.</param>
+            <param name="token2">Second token that is going to be merged.</param>
+            <returns>
+            Returns a token with the same entitySet as the parameters and with expressions from both objects.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.Path">
+            <summary>
+            Returns the path to access the entity set.
+            </summary>
+            <returns>Returns a <see cref="T:System.String"/> that contains the path to access the entity set.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.EntitySetAggregateToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.AggregateTokenBase">
+            <summary>
+            Base class for Aggregate transformation tokens
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken">
+            <summary>
+            Query token representing an Aggregate expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.#ctor(Microsoft.OData.Client.ALinq.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethod,System.String)">
+            <summary>
+            Create an AggregateExpressionToken.
+            </summary>
+            <param name="expression">The aggregate expression.</param>
+            <param name="method">The aggregation method.</param>
+            <param name="alias">The alias for this query token.</param>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.#ctor(Microsoft.OData.Client.ALinq.UriParser.QueryToken,Microsoft.OData.UriParser.Aggregation.AggregationMethodDefinition,System.String)">
+            <summary>
+            Create an AggregateExpressionToken.
+            </summary>
+            <param name="expression">The aggregate expression.</param>
+            <param name="methodDefinition">The aggregate method definition.</param>
+            <param name="alias">The alias for this query token.</param>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Kind">
+            <summary>
+            Gets the kind of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Method">
+            <summary>
+            Gets the AggregationMethod of this token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Expression">
+            <summary>
+            Gets the expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.MethodDefinition">
+            <summary>
+            Gets the aggregate method definition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Alias">
+            <summary>
+            Gets the alias.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
             <summary>
             Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
             </summary>
@@ -8791,7 +8937,7 @@
         </member>
         <member name="T:Microsoft.OData.Client.DictionaryExtensions">
             <summary>
-            Useful extension methods for IDictionary
+            Useful extension methods for IDictionary and ConcurrentDictionary
             </summary>
         </member>
         <member name="M:Microsoft.OData.Client.DictionaryExtensions.FindOrAdd``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``1})">
@@ -8813,6 +8959,16 @@
             <typeparam name="TValue">The type of the value.</typeparam>
             <param name="dictionary">The dictionary to set the values in.</param>
             <param name="valuesToCopy">Enumerable of key-value pairs to set in <paramref name="dictionary"/>.</param>
+        </member>
+        <member name="M:Microsoft.OData.Client.DictionaryExtensions.Add``2(System.Collections.Concurrent.ConcurrentDictionary{``0,``1},``0,``1)">
+            <summary>
+            Convenience function that wraps ConcurrentDictionary.TryAdd() to allow same signature as IDictionary
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.DictionaryExtensions.Remove``2(System.Collections.Concurrent.ConcurrentDictionary{``0,``1},``0)">
+            <summary>
+            Convenience function for ConcurrentDictionary to allow same signature as IDictionary
+            </summary>
         </member>
         <member name="T:Microsoft.OData.Client.DataServiceClientFormat">
             <summary>
@@ -12263,6 +12419,18 @@
             <param name="instance">The instance</param>
             <returns>The string representation of the instance</returns>
         </member>
+        <member name="T:Microsoft.OData.Client.DateTimeTypeConverter">
+            <summary>
+            Convert between primitive types to string and xml representation
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.DateTimeTypeConverter.Parse(System.String)">
+            <summary>
+            Create an instance of primitive type from a string representation
+            </summary>
+            <param name="text">The string representation</param>
+            <returns>An instance of primitive type</returns>
+        </member>
         <member name="T:Microsoft.OData.Client.TimeSpanTypeConverter">
             <summary>
             Convert between primitive types to string and xml representation
@@ -12627,6 +12795,11 @@
             Name of the type.
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Client.PrimitiveType.ClientEdmPrimitiveType.fullName">
+            <summary>
+            Full name of the type;
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Client.PrimitiveType.ClientEdmPrimitiveType.primitiveKind">
             <summary>
             The kind of primitive.
@@ -12648,6 +12821,11 @@
         <member name="P:Microsoft.OData.Client.PrimitiveType.ClientEdmPrimitiveType.Namespace">
             <summary>
             Namespace of the type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.PrimitiveType.ClientEdmPrimitiveType.FullName">
+            <summary>
+            Full name of the type
             </summary>
         </member>
         <member name="P:Microsoft.OData.Client.PrimitiveType.ClientEdmPrimitiveType.PrimitiveKind">
@@ -24502,6 +24680,24 @@
             </summary>
             <param name="text">String to be converted.</param>
             <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.PlatformHelper.ConvertStringToDateTime(System.String)">
+            <summary>
+            Converts a string to a DateTime. This is only built in client library
+            </summary>
+            <param name="text">A DateTime value to be converted.</param>
+            <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.PlatformHelper.ConvertDateTimeToDateTimeOffset(System.DateTime)">
+            <summary>
+            Convert the given DateTime instance to corresponding DateTimeOffset instance. 
+            The conversion rules for a DateTime kind to DateTimeOffset are:
+            a) Unspecified -> UTC
+            b) Local -> Local
+            c) UTC -> UTC
+            </summary>
+            <param name="dt">Given DateTime value.</param>
+            <returns>DateTimeOffset corresponding to given DateTime value.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.PlatformHelper.ValidateTimeZoneInformationInDateTimeOffsetString(System.String)">
             <summary>

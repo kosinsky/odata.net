@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+
 using Microsoft.OData.Edm.Csdl;
 using Microsoft.OData.Edm.Csdl.CsdlSemantics;
 using Microsoft.OData.Edm.Vocabularies;
@@ -231,7 +232,11 @@ namespace Microsoft.OData.Edm
             foreach (IEdmOperationParameter parameter in operation.Parameters)
             {
                 string typeName = "";
-                if (parameter.Type.IsCollection())
+                if (parameter.Type == null)
+                {
+                    typeName = CsdlConstants.TypeName_Untyped;
+                }
+                else if (parameter.Type.IsCollection())
                 {
                     typeName = CsdlConstants.Value_Collection + "(" + parameter.Type.AsCollection().ElementType().FullName() + ")";
                 }
@@ -256,6 +261,14 @@ namespace Microsoft.OData.Edm
             return sb.ToString();
         }
 
+        internal static bool TryGetNamespaceNameFromQualifiedName(string qualifiedName, out string namespaceName, out string name, out string fullName)
+        {
+            bool foundNamespace = EdmUtil.TryGetNamespaceNameFromQualifiedName(qualifiedName, out namespaceName, out name);
+
+            fullName = EdmUtil.GetFullNameForSchemaElement(namespaceName, name);
+            return foundNamespace;
+        }
+
         internal static bool TryGetNamespaceNameFromQualifiedName(string qualifiedName, out string namespaceName, out string name)
         {
             // Qualified name can be a operation import name which is separated by '/'
@@ -275,7 +288,6 @@ namespace Microsoft.OData.Edm
                 name = qualifiedName.Substring(lastDot + 1);
                 return true;
             }
-
             namespaceName = qualifiedName.Substring(0, lastSlash);
             name = qualifiedName.Substring(lastSlash + 1);
             return true;
@@ -451,6 +463,51 @@ namespace Microsoft.OData.Edm
             }
 
             return val;
+        }
+
+        /// <summary>
+        /// Query dictionary for certain key, return default if not present
+        /// </summary>
+        /// <typeparam name="TKey">Key type for dictionary</typeparam>
+        /// <typeparam name="TValue">Value type for dictionary</typeparam>
+        /// <param name="dictionary">The dictionary to look up</param>
+        /// <param name="key">The key property</param>
+        /// <returns>The value for the key, or default if the value does not exist</returns>
+        internal static TValue DictionarySafeGet<TKey, TValue>(
+            IDictionary<TKey, TValue> dictionary,
+            TKey key)
+        {
+            CheckArgumentNull(dictionary, "dictionary");
+
+            TValue val;
+
+            lock (dictionary)
+            {
+                dictionary.TryGetValue(key, out val);
+            }
+
+            return val;
+        }
+
+        /// <summary>
+        /// Gets full name for the schema element with the provided namespace and name
+        /// </summary>
+        /// <param name="elementNamespace">Namespace of the element</param>
+        /// <param name="elementName">The element name</param>
+        /// <returns>The full name of the element</returns>
+        internal static string GetFullNameForSchemaElement(string elementNamespace, string elementName)
+        {
+            if (elementName == null)
+            {
+                return string.Empty;
+            }
+
+            if (elementNamespace == null)
+            {
+                return elementName;
+            }
+
+            return elementNamespace + "." + elementName;
         }
 
         /// <summary>
