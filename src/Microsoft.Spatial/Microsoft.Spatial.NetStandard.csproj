@@ -5,6 +5,7 @@
     <RootNamespace>Microsoft.Spatial</RootNamespace>
     <TargetFramework>netstandard1.1</TargetFramework>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <TargetFrameworkFolderName>.NETPortable\v5.0</TargetFrameworkFolderName>
     <!-- Disable GenerateAssemblyInfo to use the existing AssemblyInfo.cs -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyOriginatorKeyFile>..\..\..\tools\StrongNamePublicKeys\FinalPublicKey.snk</AssemblyOriginatorKeyFile>
@@ -15,6 +16,12 @@
     <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     <DefineConstants>$(DefineConstants);SPATIAL;PORTABLELIB;SUPPRESS_PORTABLELIB_TARGETFRAMEWORK_ATTRIBUTE;SUPPRESS_SECURITY_RULES</DefineConstants>
     <EnableLocalization>true</EnableLocalization>
+    <!-- SourceLink Options-->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <TargetFrameworkProfile />
+    <!-- /SourceLink Options-->
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,6 +40,10 @@
   </ItemGroup>
 
   <Import Project="..\Build.props" />
+
+  <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.Vsts.Git" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="InternalsVisibleTo.cs">

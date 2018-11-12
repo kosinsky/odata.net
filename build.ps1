@@ -567,6 +567,7 @@ Function BuildProcess
     if ($TestType -eq 'Quick')
     {
         RunBuild ('OData.Net45.sln')
+		RunBuild ('OData.NetStandard.sln') -vsToolVersion '15.0'
     }
     else
     {
