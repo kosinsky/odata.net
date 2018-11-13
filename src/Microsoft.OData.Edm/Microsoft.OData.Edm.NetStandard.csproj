@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Microsoft.OData.Edm</AssemblyName>
+    <AssemblyName>Microsoft.TeamFoundation.OData.Edm</AssemblyName>
     <RootNamespace>Microsoft.OData.Edm</RootNamespace>
     <TargetFramework>netstandard1.1</TargetFramework>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>

@@ -6,7 +6,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>
-    <AssemblyName>Microsoft.OData.Edm</AssemblyName>
+    <AssemblyName>Microsoft.TeamFoundation.OData.Edm</AssemblyName>
     <OutputType>Library</OutputType>
     <TransparentAssembly>true</TransparentAssembly>
     <SecurityMigration>false</SecurityMigration>
