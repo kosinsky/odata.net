@@ -5,8 +5,7 @@
     <id>Mseng.Spatial</id>
     <tags>wcf data services odata odatalib edmlib spatial ado.net ef entity framework open protocol wcfds wcfdataservices dataservices</tags>
     <version>$VersionFullSemantic$-Nightly$NightlyBuildVersion$</version>
-    <authors>Microsoft Corporation</authors>
-    <owners>Microsoft Corporation</owners>
+    <authors>Microsoft</authors>
     <licenseUrl>http://go.microsoft.com/fwlink/?linkid=833178</licenseUrl>
     <projectUrl>http://odata.github.io/</projectUrl>
     <iconUrl>http://static.tumblr.com/hgchgxz/9ualgdf98/icon.png</iconUrl>
@@ -14,7 +13,7 @@
     <summary>Contains classes and methods that facilitate geography and geometry spatial operations. Supports OData v4 only.</summary>
     <description>Contains classes and methods that facilitate geography and geometry spatial operations. Support OData v4 only. Targets .NET Platform Standard 1.1. Localized for CHS, CHT, DEU, ESN, FRA, ITA, JPN, KOR and RUS.
 OData .NET library is open source at http://github.com/OData/odata.net</description>
-    <copyright>© Microsoft Corporation.  All rights reserved.</copyright>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
   </metadata>
   <files>
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.Spatial.dll" target="lib\net45" />
@@ -30,9 +29,9 @@ OData .NET library is open source at http://github.com/OData/odata.net</descript
     <file src="$ProductRoot$\Desktop\localize\KOR\Microsoft.TeamFoundation.Spatial.resources.dll" target="lib\net45\ko" />
     <file src="$ProductRoot$\Desktop\localize\RUS\Microsoft.TeamFoundation.Spatial.resources.dll" target="lib\net45\ru" />
     <file src="$ProductRoot$\Desktop\localize\TRK\Microsoft.TeamFoundation.Spatial.resources.dll" target="lib\net45\tr" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.Spatial.dll" target="lib\netstandard1.1" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.Spatial.pdb" target="lib\netstandard1.1" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.Spatial.xml" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.Spatial.dll" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.Spatial.pdb" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.Spatial.xml" target="lib\netstandard1.1" />
     <file src="$SourcesRoot$\src\Microsoft.Spatial\**\*.cs" target="src\Microsoft.Spatial" />
     <file src="$SourcesRoot$\src\PlatformHelper.cs" target="src\PlatformHelper.cs" />
     <file src="$SourcesRoot$\src\AssemblyInfo\AssemblyMetadataAttribute.cs" target="src\AssemblyMetadataAttribute.cs" />

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Microsoft.OData.Edm</AssemblyName>
+    <AssemblyName>Microsoft.TeamFoundation.OData.Edm</AssemblyName>
     <RootNamespace>Microsoft.OData.Edm</RootNamespace>
     <TargetFramework>netstandard1.1</TargetFramework>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
@@ -40,6 +40,7 @@
     <None Remove="Microsoft.OData.Edm.txt" />
     <None Remove="Parameterized.Microsoft.OData.Edm.tt" />
     <None Remove="Vocabularies\AlternateKeysVocabularies.xml" />
+    <None Remove="Vocabularies\AuthorizationVocabularies.xml" />
     <None Remove="Vocabularies\CapabilitiesVocabularies.xml" />
     <None Remove="Vocabularies\CoreVocabularies.xml" />
     <Compile Remove="Csdl\Parsing\CsdlDocumentParser.cs" />
@@ -114,6 +115,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vocabularies\AlternateKeysVocabularies.xml">
       <LogicalName>AlternateKeysVocabularies.xml</LogicalName>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vocabularies\AuthorizationVocabularies.xml">
+      <LogicalName>AuthorizationVocabularies.xml</LogicalName>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

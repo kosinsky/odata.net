@@ -6,34 +6,35 @@
 
 namespace Microsoft.OData.UriParser.Aggregation
 {
-    using Microsoft.OData.UriParser;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// Node representing a Compute transformation.
+    /// Node representing a compute expression.
     /// </summary>
     public sealed class ComputeTransformationNode : TransformationNode
     {
-        private readonly ComputeClause computeClause;
+        private readonly IEnumerable<ComputeExpression> expressions;
 
         /// <summary>
         /// Create a ComputeTransformationNode.
         /// </summary>
-        /// <param name="computeClause">A <see cref="ComputeClause"/> representing the metadata bound Compute expression.</param>
-        public ComputeTransformationNode(ComputeClause computeClause)
+        /// <param name="expressions">A list of <see cref="ComputeExpression"/>.</param>
+        public ComputeTransformationNode(IEnumerable<ComputeExpression> expressions)
         {
-            ExceptionUtils.CheckArgumentNotNull(computeClause, "computeClause");
+            // public ComputeTransformationNode(ComputeClause computeClause)
+            ExceptionUtils.CheckArgumentNotNull(expressions, "expressions");
 
-            this.computeClause = computeClause;
+            this.expressions = expressions;
         }
 
         /// <summary>
-        /// Gets the <see cref="ComputeClause"/> representing the metadata bound Compute expression.
+        /// Gets the list of <see cref="ComputeExpression"/>.
         /// </summary>
-        public ComputeClause ComputeClause
+        public IEnumerable<ComputeExpression> Expressions
         {
             get
             {
-                return this.computeClause;
+                return expressions;
             }
         }
 

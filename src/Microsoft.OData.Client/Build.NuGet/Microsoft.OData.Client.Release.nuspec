@@ -5,8 +5,7 @@
     <id>Mseng.OData.Client</id>
     <tags>wcf data services odata odatalib edmlib spatial ado.net ef entity framework open protocol wcfds wcfdataservices dataservices</tags>
     <version>$VersionNuGetSemantic$</version>
-    <authors>Microsoft Corporation</authors>
-    <owners>Microsoft Corporation</owners>
+    <authors>Microsoft</authors>
     <licenseUrl>http://go.microsoft.com/fwlink/?linkid=833178</licenseUrl>
     <projectUrl>http://odata.github.io/</projectUrl>
     <iconUrl>http://static.tumblr.com/hgchgxz/9ualgdf98/icon.png</iconUrl>
@@ -15,7 +14,7 @@
     <description>LINQ-enabled client API for issuing OData queries and consuming OData JSON payloads. Supports OData v4 only. Targets .NET 4.5 and .NET Platform Standard 1.1. Localized for CHS, CHT, DEU, ESN, FRA, ITA, JPN, KOR and RUS.
 OData .NET library is open source at http://github.com/OData/odata.net</description>
     <releaseNotes>http://odata.github.io/odata.net/v7/#ODL-$VersionFullSemantic$</releaseNotes>
-    <copyright>© Microsoft Corporation.  All rights reserved.</copyright>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <dependencies>
       <dependency id="Mseng.OData.Core" version="[$VersionNuGetSemantic$]" />
     </dependencies>
@@ -28,9 +27,9 @@ OData .NET library is open source at http://github.com/OData/odata.net</descript
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Client.dll" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Client.xml" target="lib\net45" />
     <file src="$ProductRoot$\Desktop\Microsoft.TeamFoundation.OData.Client.pdb" target="lib\net45" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.dll" target="lib\netstandard1.1" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.pdb" target="lib\netstandard1.1" />
-    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.OData.Client.xml" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Client.dll" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Client.pdb" target="lib\netstandard1.1" />
+    <file src="$ProductRoot$\.NETPortable\v5.0\Microsoft.TeamFoundation.OData.Client.xml" target="lib\netstandard1.1" />
     <file src="$SourcesRoot$\src\Microsoft.OData.Client\**\*.cs" target="src\Microsoft.OData.Client" />
     <!-- files imported from EdmLib -->
     <file src="$SourcesRoot$\src\Microsoft.OData.Edm\Csdl\EdmValueParser.cs" target="src\Microsoft.OData.Edm\Csdl\EdmValueParser.cs" />

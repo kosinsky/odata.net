@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Microsoft.Spatial</AssemblyName>
+    <AssemblyName>Microsoft.TeamFoundation.Spatial</AssemblyName>
     <RootNamespace>Microsoft.Spatial</RootNamespace>
     <TargetFramework>netstandard1.1</TargetFramework>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>

@@ -10,8 +10,9 @@ namespace Microsoft.OData.Client
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using Microsoft.Spatial;
+
     using Microsoft.OData.Edm;
+    using Microsoft.Spatial;
 
     /// <summary>
     /// Represent a Primitive Type on the client
@@ -380,6 +381,7 @@ namespace Microsoft.OData.Client
             RegisterKnownType(typeof(UInt16), null, EdmPrimitiveTypeKind.String, new UInt16TypeConverter(), false);
             RegisterKnownType(typeof(UInt32), null, EdmPrimitiveTypeKind.String, new UInt32TypeConverter(), false);
             RegisterKnownType(typeof(UInt64), null, EdmPrimitiveTypeKind.String, new UInt64TypeConverter(), false);
+            RegisterKnownType(typeof(DateTime), null, EdmPrimitiveTypeKind.DateTimeOffset, new DateTimeTypeConverter(), false);
 
 #if !PORTABLELIB
             // There is no static dependency on System.Data.Linq so we use a substitute type for the Binary type
@@ -447,7 +449,7 @@ namespace Microsoft.OData.Client
         /// <summary>
         /// Represents a definition of an EDM primitive type.
         /// </summary>
-        private class ClientEdmPrimitiveType : EdmType, IEdmPrimitiveType
+        private class ClientEdmPrimitiveType : EdmType, IEdmPrimitiveType, IEdmFullNamedElement
         {
             /// <summary>
             /// Namespace of the type.
@@ -458,6 +460,11 @@ namespace Microsoft.OData.Client
             /// Name of the type.
             /// </summary>
             private readonly string name;
+
+            /// <summary>
+            /// Full name of the type;
+            /// </summary>
+            private readonly string fullName;
 
             /// <summary>
             /// The kind of primitive.
@@ -475,6 +482,7 @@ namespace Microsoft.OData.Client
                 this.namespaceName = namespaceName;
                 this.name = name;
                 this.primitiveKind = primitiveKind;
+                this.fullName = this.namespaceName + "." + this.name;
             }
 
             /// <summary>
@@ -491,6 +499,14 @@ namespace Microsoft.OData.Client
             public string Namespace
             {
                 get { return this.namespaceName; }
+            }
+
+            /// <summary>
+            /// Full name of the type
+            /// </summary>
+            public string FullName
+            {
+                get { return this.fullName; }
             }
 
             /// <summary>

@@ -13,7 +13,7 @@
     <ProgramFilesPath Condition="Exists('$(PROGRAMFILES) (x86)')">$(PROGRAMFILES) (x86)</ProgramFilesPath>
     <ProgramFilesPath Condition="$(ProgramFilesPath) == ''">$(PROGRAMFILES)</ProgramFilesPath>
     
-    <VisualStudioBasePath>$(ProgramFilesPath)\Microsoft Visual Studio\2017</VisualStudioBasePath>
+    <VisualStudioBasePath>$(ProgramFilesPath)\Microsoft Visual Studio\Preview</VisualStudioBasePath>
     <VisualStudioFxCopSuffixPath>Team Tools\Static Analysis Tools\FxCop</VisualStudioFxCopSuffixPath>
     
     <!--VS2015 and below-->

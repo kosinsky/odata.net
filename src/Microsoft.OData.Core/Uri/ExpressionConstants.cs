@@ -111,6 +111,9 @@ namespace Microsoft.OData
         /// <summary>"max" keyword for expressions.</summary>
         internal const string KeywordMax = "max";
 
+        /// <summary>"in" keyword for expressions.</summary>
+        internal const string KeywordIn = "in";
+
         /// <summary> "cast" function </summary>
         internal const string UnboundFunctionCast = "cast";
 
@@ -207,11 +210,11 @@ namespace Microsoft.OData
         /// <summary>"filter" keyword for $apply.</summary>
         internal const string KeywordFilter = "filter";
 
-        /// <summary>"compute" keyword for $apply.</summary>
-        internal const string KeywordCompute = "compute";
-
         /// <summary>"groupby" keyword for $apply.</summary>
         internal const string KeywordGroupBy = "groupby";
+
+        /// <summary>"compute" keyword for $apply.</summary>
+        internal const string KeywordCompute = "compute";
 
         /// <summary>"sum" keyword for expressions.</summary>
         internal const string KeywordSum = "sum";
