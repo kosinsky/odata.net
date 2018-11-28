@@ -20,15 +20,19 @@ namespace Microsoft.OData.UriParser.Aggregation
 
         private FilterBinder filterBinder;
         private ComputeBinder computeBinder;
+        private ODataUriParserConfiguration configuration;
+        private ODataPathInfo odataPathInfo;
 
         private IEnumerable<AggregateExpressionBase> aggregateExpressionsCache;
 
-        public ApplyBinder(MetadataBinder.QueryTokenVisitor bindMethod, BindingState state)
+        public ApplyBinder(MetadataBinder.QueryTokenVisitor bindMethod, BindingState state, ODataUriParserConfiguration configuration = null, ODataPathInfo odataPathInfo = null)
         {
             this.bindMethod = bindMethod;
             this.state = state;
             this.filterBinder = new FilterBinder(bindMethod, state);
             this.computeBinder = new ComputeBinder(bindMethod);
+            this.configuration = configuration;
+            this.odataPathInfo = odataPathInfo;
         }
 
         public ApplyClause BindApply(IEnumerable<QueryToken> tokens)
@@ -63,6 +67,11 @@ namespace Microsoft.OData.UriParser.Aggregation
                         var compute = BindComputeToken((ComputeToken)token);
                         transformations.Add(compute);
                         state.AggregatedPropertyNames = compute.Expressions.Select(statement => statement.Alias).ToList();
+                        break;
+                    case QueryTokenKind.Expand:
+                        SelectExpandClause expandClause = SelectExpandSemanticBinder.Bind(this.odataPathInfo,  (ExpandToken)token, null, this.configuration);
+                        ExpandTransformationNode expandNode = new ExpandTransformationNode(expandClause);
+                        transformations.Add(expandNode);
                         break;
                     default:
                         FilterClause filterClause = this.filterBinder.BindFilter(token);
