@@ -289,6 +289,17 @@ public abstract class Microsoft.Spatial.GmlFormatter : Microsoft.Spatial.Spatial
 	public static Microsoft.Spatial.GmlFormatter Create ()
 }
 
+public abstract class Microsoft.Spatial.SpatialFactory {
+	protected virtual void AddLine (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void AddPos (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void BeginFigure (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void BeginGeo (Microsoft.Spatial.SpatialType type)
+	protected virtual void EndFigure ()
+	protected virtual void EndGeo ()
+	protected virtual void Finish ()
+	protected virtual void StartRing (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+}
+
 public abstract class Microsoft.Spatial.SpatialFormatter`2 {
 	protected SpatialFormatter`2 (Microsoft.Spatial.SpatialImplementation creator)
 
@@ -348,6 +359,31 @@ public sealed class Microsoft.Spatial.FormatterExtensions {
 	public static string Write (Microsoft.Spatial.SpatialFormatter`2[[System.Xml.XmlReader],[System.Xml.XmlWriter]] formatter, Microsoft.Spatial.ISpatial spatial)
 }
 
+public sealed class Microsoft.Spatial.GeographyFactory {
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyCollection]] Collection ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyCollection]] Collection (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyLineString]] LineString ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyLineString]] LineString (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyLineString]] LineString (double latitude, double longitude)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyLineString]] LineString (Microsoft.Spatial.CoordinateSystem coordinateSystem, double latitude, double longitude)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyLineString]] LineString (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyLineString]] LineString (Microsoft.Spatial.CoordinateSystem coordinateSystem, double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyMultiLineString]] MultiLineString ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyMultiLineString]] MultiLineString (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyMultiPoint]] MultiPoint ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyMultiPoint]] MultiPoint (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyMultiPolygon]] MultiPolygon ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyMultiPolygon]] MultiPolygon (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPoint]] Point ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPoint]] Point (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPoint]] Point (double latitude, double longitude)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPoint]] Point (Microsoft.Spatial.CoordinateSystem coordinateSystem, double latitude, double longitude)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPoint]] Point (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPoint]] Point (Microsoft.Spatial.CoordinateSystem coordinateSystem, double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPolygon]] Polygon ()
+	public static Microsoft.Spatial.GeographyFactory`1[[Microsoft.Spatial.GeographyPolygon]] Polygon (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+}
+
 [
 ExtensionAttribute(),
 ]
@@ -366,6 +402,31 @@ public sealed class Microsoft.Spatial.GeographyOperationsExtensions {
 	ExtensionAttribute(),
 	]
 	public static System.Nullable`1[[System.Double]] Length (Microsoft.Spatial.Geography operand)
+}
+
+public sealed class Microsoft.Spatial.GeometryFactory {
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryCollection]] Collection ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryCollection]] Collection (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryLineString]] LineString ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryLineString]] LineString (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryLineString]] LineString (double x, double y)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryLineString]] LineString (Microsoft.Spatial.CoordinateSystem coordinateSystem, double x, double y)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryLineString]] LineString (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryLineString]] LineString (Microsoft.Spatial.CoordinateSystem coordinateSystem, double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryMultiLineString]] MultiLineString ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryMultiLineString]] MultiLineString (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryMultiPoint]] MultiPoint ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryMultiPoint]] MultiPoint (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryMultiPolygon]] MultiPolygon ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryMultiPolygon]] MultiPolygon (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPoint]] Point ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPoint]] Point (Microsoft.Spatial.CoordinateSystem coordinateSystem)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPoint]] Point (double x, double y)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPoint]] Point (Microsoft.Spatial.CoordinateSystem coordinateSystem, double x, double y)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPoint]] Point (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPoint]] Point (Microsoft.Spatial.CoordinateSystem coordinateSystem, double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPolygon]] Polygon ()
+	public static Microsoft.Spatial.GeometryFactory`1[[Microsoft.Spatial.GeometryPolygon]] Polygon (Microsoft.Spatial.CoordinateSystem coordinateSystem)
 }
 
 [
@@ -419,6 +480,30 @@ public class Microsoft.Spatial.CoordinateSystem {
 	public string ToWktId ()
 }
 
+public class Microsoft.Spatial.GeographyFactory`1 : Microsoft.Spatial.SpatialFactory {
+	protected virtual void AddLine (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void BeginFigure (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void BeginGeo (Microsoft.Spatial.SpatialType type)
+	public T Build ()
+	public Microsoft.Spatial.GeographyFactory`1 Collection ()
+	protected virtual void EndFigure ()
+	protected virtual void EndGeo ()
+	public Microsoft.Spatial.GeographyFactory`1 LineString ()
+	public Microsoft.Spatial.GeographyFactory`1 LineString (double latitude, double longitude)
+	public Microsoft.Spatial.GeographyFactory`1 LineString (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public Microsoft.Spatial.GeographyFactory`1 LineTo (double latitude, double longitude)
+	public Microsoft.Spatial.GeographyFactory`1 LineTo (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public Microsoft.Spatial.GeographyFactory`1 MultiLineString ()
+	public Microsoft.Spatial.GeographyFactory`1 MultiPoint ()
+	public Microsoft.Spatial.GeographyFactory`1 MultiPolygon ()
+	public Microsoft.Spatial.GeographyFactory`1 Point ()
+	public Microsoft.Spatial.GeographyFactory`1 Point (double latitude, double longitude)
+	public Microsoft.Spatial.GeographyFactory`1 Point (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public Microsoft.Spatial.GeographyFactory`1 Polygon ()
+	public Microsoft.Spatial.GeographyFactory`1 Ring (double latitude, double longitude)
+	public Microsoft.Spatial.GeographyFactory`1 Ring (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+}
+
 public class Microsoft.Spatial.GeographyPosition : IEquatable`1 {
 	public GeographyPosition (double latitude, double longitude)
 	public GeographyPosition (double latitude, double longitude, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
@@ -432,6 +517,30 @@ public class Microsoft.Spatial.GeographyPosition : IEquatable`1 {
 	public virtual bool Equals (object obj)
 	public virtual int GetHashCode ()
 	public virtual string ToString ()
+}
+
+public class Microsoft.Spatial.GeometryFactory`1 : Microsoft.Spatial.SpatialFactory {
+	protected virtual void AddLine (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void BeginFigure (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	protected virtual void BeginGeo (Microsoft.Spatial.SpatialType type)
+	public T Build ()
+	public Microsoft.Spatial.GeometryFactory`1 Collection ()
+	protected virtual void EndFigure ()
+	protected virtual void EndGeo ()
+	public Microsoft.Spatial.GeometryFactory`1 LineString ()
+	public Microsoft.Spatial.GeometryFactory`1 LineString (double x, double y)
+	public Microsoft.Spatial.GeometryFactory`1 LineString (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public Microsoft.Spatial.GeometryFactory`1 LineTo (double x, double y)
+	public Microsoft.Spatial.GeometryFactory`1 LineTo (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public Microsoft.Spatial.GeometryFactory`1 MultiLineString ()
+	public Microsoft.Spatial.GeometryFactory`1 MultiPoint ()
+	public Microsoft.Spatial.GeometryFactory`1 MultiPolygon ()
+	public Microsoft.Spatial.GeometryFactory`1 Point ()
+	public Microsoft.Spatial.GeometryFactory`1 Point (double x, double y)
+	public Microsoft.Spatial.GeometryFactory`1 Point (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
+	public Microsoft.Spatial.GeometryFactory`1 Polygon ()
+	public Microsoft.Spatial.GeometryFactory`1 Ring (double x, double y)
+	public Microsoft.Spatial.GeometryFactory`1 Ring (double x, double y, System.Nullable`1[[System.Double]] z, System.Nullable`1[[System.Double]] m)
 }
 
 public class Microsoft.Spatial.GeometryPosition : IEquatable`1 {
@@ -3840,6 +3949,10 @@ public sealed class Microsoft.OData.Edm.Vocabularies.V1.CoreVocabularyModel {
 	public static readonly Microsoft.OData.Edm.Vocabularies.IEdmTerm ResourcePathTerm = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTerm
 }
 
+public sealed class Microsoft.OData.Edm.Vocabularies.V1.ValidationVocabularyModel {
+	public static readonly Microsoft.OData.Edm.IEdmModel Instance = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsModel
+}
+
 public sealed class Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyConstants {
 	public static string AlternateKeys = "OData.Community.Keys.V1.AlternateKeys"
 }
@@ -3847,6 +3960,11 @@ public sealed class Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysV
 public sealed class Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel {
 	public static readonly Microsoft.OData.Edm.Vocabularies.IEdmTerm AlternateKeysTerm = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTerm
 	public static readonly Microsoft.OData.Edm.IEdmModel Instance = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsModel
+}
+
+public sealed class Microsoft.OData.Edm.Vocabularies.Community.V1.CommunityVocabularyModel {
+	public static readonly Microsoft.OData.Edm.IEdmModel Instance = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsModel
+	public static readonly Microsoft.OData.Edm.Vocabularies.IEdmTerm UrlEscapeFunctionTerm = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTerm
 }
 
 public enum Microsoft.OData.BatchPayloadUriOption : int {
@@ -5243,6 +5361,7 @@ public sealed class Microsoft.OData.ODataUri {
 	System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.QueryNode]] CustomQueryOptions  { public get; public set; }
 	string DeltaToken  { public get; public set; }
 	Microsoft.OData.UriParser.FilterClause Filter  { public get; public set; }
+	System.Nullable`1[[System.Int64]] Index  { public get; public set; }
 	Microsoft.OData.UriParser.OrderByClause OrderBy  { public get; public set; }
 	System.Collections.Generic.IDictionary`2[[System.String],[Microsoft.OData.UriParser.SingleValueNode]] ParameterAliasNodes  { public get; }
 	Microsoft.OData.UriParser.ODataPath Path  { public get; public set; }
@@ -5504,7 +5623,9 @@ public abstract class Microsoft.OData.UriParser.PathSegmentHandler {
 	public virtual void Handle (Microsoft.OData.UriParser.BatchSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.CountSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.DynamicPathSegment segment)
+	public virtual void Handle (Microsoft.OData.UriParser.EachSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.EntitySetSegment segment)
+	public virtual void Handle (Microsoft.OData.UriParser.FilterSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.KeySegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.MetadataSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.NavigationPropertyLinkSegment segment)
@@ -5514,6 +5635,7 @@ public abstract class Microsoft.OData.UriParser.PathSegmentHandler {
 	public virtual void Handle (Microsoft.OData.UriParser.OperationSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.PathTemplateSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.PropertySegment segment)
+	public virtual void Handle (Microsoft.OData.UriParser.ReferenceSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.SingletonSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.TypeSegment segment)
 	public virtual void Handle (Microsoft.OData.UriParser.ValueSegment segment)
@@ -5538,7 +5660,9 @@ public abstract class Microsoft.OData.UriParser.PathSegmentTranslator`1 {
 	public virtual T Translate (Microsoft.OData.UriParser.BatchSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.CountSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.DynamicPathSegment segment)
+	public virtual T Translate (Microsoft.OData.UriParser.EachSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.EntitySetSegment segment)
+	public virtual T Translate (Microsoft.OData.UriParser.FilterSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.KeySegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.MetadataSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.NavigationPropertyLinkSegment segment)
@@ -5547,6 +5671,7 @@ public abstract class Microsoft.OData.UriParser.PathSegmentTranslator`1 {
 	public virtual T Translate (Microsoft.OData.UriParser.OperationSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.PathTemplateSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.PropertySegment segment)
+	public virtual T Translate (Microsoft.OData.UriParser.ReferenceSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.SingletonSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.TypeSegment segment)
 	public virtual T Translate (Microsoft.OData.UriParser.ValueSegment segment)
@@ -5697,7 +5822,9 @@ public class Microsoft.OData.UriParser.ExpandedReferenceSelectItem : Microsoft.O
 	public ExpandedReferenceSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource)
 	public ExpandedReferenceSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.FilterClause filterOption, Microsoft.OData.UriParser.OrderByClause orderByOption, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countOption, Microsoft.OData.UriParser.SearchClause searchOption)
 	public ExpandedReferenceSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.FilterClause filterOption, Microsoft.OData.UriParser.OrderByClause orderByOption, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countOption, Microsoft.OData.UriParser.SearchClause searchOption, Microsoft.OData.UriParser.ComputeClause computeOption)
+	public ExpandedReferenceSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.FilterClause filterOption, Microsoft.OData.UriParser.OrderByClause orderByOption, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countOption, Microsoft.OData.UriParser.SearchClause searchOption, Microsoft.OData.UriParser.ComputeClause computeOption, Microsoft.OData.UriParser.Aggregation.ApplyClause applyOption)
 
+	Microsoft.OData.UriParser.Aggregation.ApplyClause ApplyOption  { public get; }
 	Microsoft.OData.UriParser.ComputeClause ComputeOption  { public get; }
 	System.Nullable`1[[System.Boolean]] CountOption  { public get; }
 	Microsoft.OData.UriParser.FilterClause FilterOption  { public get; }
@@ -5756,6 +5883,7 @@ public class Microsoft.OData.UriParser.ODataQueryOptionParser {
 	public System.Nullable`1[[System.Boolean]] ParseCount ()
 	public string ParseDeltaToken ()
 	public Microsoft.OData.UriParser.FilterClause ParseFilter ()
+	public System.Nullable`1[[System.Int64]] ParseIndex ()
 	public Microsoft.OData.UriParser.OrderByClause ParseOrderBy ()
 	public Microsoft.OData.UriParser.SearchClause ParseSearch ()
 	public Microsoft.OData.UriParser.SelectExpandClause ParseSelectAndExpand ()
@@ -6111,6 +6239,15 @@ public sealed class Microsoft.OData.UriParser.DynamicPathSegment : Microsoft.ODa
 	public virtual T TranslateWith (PathSegmentTranslator`1 translator)
 }
 
+public sealed class Microsoft.OData.UriParser.EachSegment : Microsoft.OData.UriParser.ODataPathSegment {
+	public EachSegment (Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.Edm.IEdmType targetEdmType)
+
+	Microsoft.OData.Edm.IEdmType EdmType  { public virtual get; }
+
+	public virtual void HandleWith (Microsoft.OData.UriParser.PathSegmentHandler handler)
+	public virtual T TranslateWith (PathSegmentTranslator`1 translator)
+}
+
 public sealed class Microsoft.OData.UriParser.EndPathToken : Microsoft.OData.UriParser.PathToken {
 	public EndPathToken (string identifier, Microsoft.OData.UriParser.QueryToken nextToken)
 
@@ -6139,6 +6276,7 @@ public sealed class Microsoft.OData.UriParser.ExpandedNavigationSelectItem : Mic
 	public ExpandedNavigationSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.SelectExpandClause selectExpandOption)
 	public ExpandedNavigationSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.SelectExpandClause selectAndExpand, Microsoft.OData.UriParser.FilterClause filterOption, Microsoft.OData.UriParser.OrderByClause orderByOption, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countOption, Microsoft.OData.UriParser.SearchClause searchOption, Microsoft.OData.UriParser.LevelsClause levelsOption)
 	public ExpandedNavigationSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.SelectExpandClause selectAndExpand, Microsoft.OData.UriParser.FilterClause filterOption, Microsoft.OData.UriParser.OrderByClause orderByOption, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countOption, Microsoft.OData.UriParser.SearchClause searchOption, Microsoft.OData.UriParser.LevelsClause levelsOption, Microsoft.OData.UriParser.ComputeClause computeOption)
+	public ExpandedNavigationSelectItem (Microsoft.OData.UriParser.ODataExpandPath pathToNavigationProperty, Microsoft.OData.Edm.IEdmNavigationSource navigationSource, Microsoft.OData.UriParser.SelectExpandClause selectAndExpand, Microsoft.OData.UriParser.FilterClause filterOption, Microsoft.OData.UriParser.OrderByClause orderByOption, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countOption, Microsoft.OData.UriParser.SearchClause searchOption, Microsoft.OData.UriParser.LevelsClause levelsOption, Microsoft.OData.UriParser.ComputeClause computeOption, Microsoft.OData.UriParser.Aggregation.ApplyClause applyOption)
 
 	Microsoft.OData.UriParser.LevelsClause LevelsOption  { public get; }
 	Microsoft.OData.UriParser.SelectExpandClause SelectAndExpand  { public get; }
@@ -6152,7 +6290,9 @@ public sealed class Microsoft.OData.UriParser.ExpandTermToken : Microsoft.OData.
 	public ExpandTermToken (Microsoft.OData.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.UriParser.SelectToken selectOption, Microsoft.OData.UriParser.ExpandToken expandOption)
 	public ExpandTermToken (Microsoft.OData.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.UriParser.QueryToken filterOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.OrderByToken]] orderByOptions, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countQueryOption, System.Nullable`1[[System.Int64]] levelsOption, Microsoft.OData.UriParser.QueryToken searchOption, Microsoft.OData.UriParser.SelectToken selectOption, Microsoft.OData.UriParser.ExpandToken expandOption)
 	public ExpandTermToken (Microsoft.OData.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.UriParser.QueryToken filterOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.OrderByToken]] orderByOptions, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countQueryOption, System.Nullable`1[[System.Int64]] levelsOption, Microsoft.OData.UriParser.QueryToken searchOption, Microsoft.OData.UriParser.SelectToken selectOption, Microsoft.OData.UriParser.ExpandToken expandOption, Microsoft.OData.UriParser.ComputeToken computeOption)
+	public ExpandTermToken (Microsoft.OData.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.UriParser.QueryToken filterOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.OrderByToken]] orderByOptions, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countQueryOption, System.Nullable`1[[System.Int64]] levelsOption, Microsoft.OData.UriParser.QueryToken searchOption, Microsoft.OData.UriParser.SelectToken selectOption, Microsoft.OData.UriParser.ExpandToken expandOption, Microsoft.OData.UriParser.ComputeToken computeOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.QueryToken]] applyOptions)
 
+	System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.QueryToken]] ApplyOptions  { public get; }
 	Microsoft.OData.UriParser.ComputeToken ComputeOption  { public get; }
 	System.Nullable`1[[System.Boolean]] CountQueryOption  { public get; }
 	Microsoft.OData.UriParser.ExpandToken ExpandOption  { public get; }
@@ -6184,6 +6324,19 @@ public sealed class Microsoft.OData.UriParser.FilterClause {
 	Microsoft.OData.UriParser.SingleValueNode Expression  { public get; }
 	Microsoft.OData.Edm.IEdmTypeReference ItemType  { public get; }
 	Microsoft.OData.UriParser.RangeVariable RangeVariable  { public get; }
+}
+
+public sealed class Microsoft.OData.UriParser.FilterSegment : Microsoft.OData.UriParser.ODataPathSegment {
+	public FilterSegment (Microsoft.OData.UriParser.SingleValueNode expression, Microsoft.OData.UriParser.RangeVariable rangeVariable, Microsoft.OData.Edm.IEdmNavigationSource navigationSource)
+
+	Microsoft.OData.Edm.IEdmType EdmType  { public virtual get; }
+	Microsoft.OData.UriParser.SingleValueNode Expression  { public get; }
+	Microsoft.OData.Edm.IEdmTypeReference ItemType  { public get; }
+	string LiteralText  { public get; }
+	Microsoft.OData.UriParser.RangeVariable RangeVariable  { public get; }
+
+	public virtual void HandleWith (Microsoft.OData.UriParser.PathSegmentHandler handler)
+	public virtual T TranslateWith (PathSegmentTranslator`1 translator)
 }
 
 public sealed class Microsoft.OData.UriParser.FunctionCallToken : Microsoft.OData.UriParser.QueryToken {
@@ -6371,6 +6524,7 @@ public sealed class Microsoft.OData.UriParser.ODataUriParser {
 	public string ParseDeltaToken ()
 	public Microsoft.OData.UriParser.EntityIdSegment ParseEntityId ()
 	public Microsoft.OData.UriParser.FilterClause ParseFilter ()
+	public System.Nullable`1[[System.Int64]] ParseIndex ()
 	public Microsoft.OData.UriParser.OrderByClause ParseOrderBy ()
 	public Microsoft.OData.UriParser.ODataPath ParsePath ()
 	public Microsoft.OData.UriParser.SearchClause ParseSearch ()
@@ -6489,6 +6643,15 @@ public sealed class Microsoft.OData.UriParser.RangeVariableToken : Microsoft.ODa
 	string Name  { public get; }
 
 	public virtual T Accept (ISyntacticTreeVisitor`1 visitor)
+}
+
+public sealed class Microsoft.OData.UriParser.ReferenceSegment : Microsoft.OData.UriParser.ODataPathSegment {
+	public ReferenceSegment (Microsoft.OData.Edm.IEdmNavigationSource navigationSource)
+
+	Microsoft.OData.Edm.IEdmType EdmType  { public virtual get; }
+
+	public virtual void HandleWith (Microsoft.OData.UriParser.PathSegmentHandler handler)
+	public virtual T TranslateWith (PathSegmentTranslator`1 translator)
 }
 
 public sealed class Microsoft.OData.UriParser.ResourceRangeVariable : Microsoft.OData.UriParser.RangeVariable {
@@ -7961,7 +8124,9 @@ public sealed class Microsoft.OData.Client.ALinq.UriParser.ExpandTermToken : Mic
 	public ExpandTermToken (Microsoft.OData.Client.ALinq.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.Client.ALinq.UriParser.SelectToken selectOption, Microsoft.OData.Client.ALinq.UriParser.ExpandToken expandOption)
 	public ExpandTermToken (Microsoft.OData.Client.ALinq.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.Client.ALinq.UriParser.QueryToken filterOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.Client.ALinq.UriParser.OrderByToken]] orderByOptions, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countQueryOption, System.Nullable`1[[System.Int64]] levelsOption, Microsoft.OData.Client.ALinq.UriParser.QueryToken searchOption, Microsoft.OData.Client.ALinq.UriParser.SelectToken selectOption, Microsoft.OData.Client.ALinq.UriParser.ExpandToken expandOption)
 	public ExpandTermToken (Microsoft.OData.Client.ALinq.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.Client.ALinq.UriParser.QueryToken filterOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.Client.ALinq.UriParser.OrderByToken]] orderByOptions, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countQueryOption, System.Nullable`1[[System.Int64]] levelsOption, Microsoft.OData.Client.ALinq.UriParser.QueryToken searchOption, Microsoft.OData.Client.ALinq.UriParser.SelectToken selectOption, Microsoft.OData.Client.ALinq.UriParser.ExpandToken expandOption, Microsoft.OData.Client.ALinq.UriParser.ComputeToken computeOption)
+	public ExpandTermToken (Microsoft.OData.Client.ALinq.UriParser.PathSegmentToken pathToNavigationProp, Microsoft.OData.Client.ALinq.UriParser.QueryToken filterOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.Client.ALinq.UriParser.OrderByToken]] orderByOptions, System.Nullable`1[[System.Int64]] topOption, System.Nullable`1[[System.Int64]] skipOption, System.Nullable`1[[System.Boolean]] countQueryOption, System.Nullable`1[[System.Int64]] levelsOption, Microsoft.OData.Client.ALinq.UriParser.QueryToken searchOption, Microsoft.OData.Client.ALinq.UriParser.SelectToken selectOption, Microsoft.OData.Client.ALinq.UriParser.ExpandToken expandOption, Microsoft.OData.Client.ALinq.UriParser.ComputeToken computeOption, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.Client.ALinq.UriParser.QueryToken]] applyOptions)
 
+	System.Collections.Generic.IEnumerable`1[[Microsoft.OData.Client.ALinq.UriParser.QueryToken]] ApplyOptions  { public get; }
 	Microsoft.OData.Client.ALinq.UriParser.ComputeToken ComputeOption  { public get; }
 	System.Nullable`1[[System.Boolean]] CountQueryOption  { public get; }
 	Microsoft.OData.Client.ALinq.UriParser.ExpandToken ExpandOption  { public get; }

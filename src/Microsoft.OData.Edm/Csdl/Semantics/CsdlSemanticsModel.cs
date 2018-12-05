@@ -4,10 +4,14 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+#if PORTABLELIB
+using System.Collections.Concurrent;
+#endif
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+
 using Microsoft.OData.Edm.Csdl.Parsing.Ast;
 using Microsoft.OData.Edm.Validation;
 using Microsoft.OData.Edm.Vocabularies;
@@ -24,7 +28,11 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
         private readonly CsdlModel astModel;        // current internal CsdlModel
         private readonly List<CsdlSemanticsSchema> schemata = new List<CsdlSemanticsSchema>();
         private readonly Dictionary<string, List<CsdlSemanticsAnnotations>> outOfLineAnnotations = new Dictionary<string, List<CsdlSemanticsAnnotations>>();
+#if PORTABLELIB
+        private readonly ConcurrentDictionary<CsdlAnnotation, CsdlSemanticsVocabularyAnnotation> wrappedAnnotations = new ConcurrentDictionary<CsdlAnnotation, CsdlSemanticsVocabularyAnnotation>();
+#else
         private readonly Dictionary<CsdlAnnotation, CsdlSemanticsVocabularyAnnotation> wrappedAnnotations = new Dictionary<CsdlAnnotation, CsdlSemanticsVocabularyAnnotation>();
+#endif
         private readonly Dictionary<string, List<IEdmStructuredType>> derivedTypeMappings = new Dictionary<string, List<IEdmStructuredType>>();
 
         /// <summary>
@@ -149,6 +157,14 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
         public override IEnumerable<string> DeclaredNamespaces
         {
             get { return this.schemata.Select(s => s.Namespace); }
+        }
+
+        public IDictionary<string, List<CsdlSemanticsAnnotations>> OutOfLineAnnotations
+        {
+            get
+            {
+                return outOfLineAnnotations;
+            }
         }
 
         public override IEnumerable<IEdmVocabularyAnnotation> VocabularyAnnotations
@@ -281,7 +297,9 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
                 {
                     foreach (CsdlAnnotation annotation in annotations.Annotations.Annotations)
                     {
-                        result.Add(this.WrapVocabularyAnnotation(annotation, annotations.Context, null, annotations, annotations.Annotations.Qualifier));
+                        IEdmVocabularyAnnotation vocabAnnotation = this.WrapVocabularyAnnotation(annotation, annotations.Context, null, annotations, annotations.Annotations.Qualifier);
+                        vocabAnnotation.SetSerializationLocation(this, EdmVocabularyAnnotationSerializationLocation.OutOfLine);
+                        result.Add(vocabAnnotation);
                     }
                 }
 
