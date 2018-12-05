@@ -873,7 +873,7 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Flaky")]
         public void CustomUriLiteralPrefix_ParseTypeWithCorrectLiteralPrefixAndUriParserPerEdmType()
         {
             RegisterTestCase("CustomUriLiteralPrefix_ParseTypeWithCorrectLiteralPrefixAndUriParserPerEdmType");
