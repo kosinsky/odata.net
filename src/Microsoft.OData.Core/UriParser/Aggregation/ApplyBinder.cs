@@ -19,7 +19,6 @@ namespace Microsoft.OData.UriParser.Aggregation
         private BindingState state;
 
         private FilterBinder filterBinder;
-        private ComputeBinder computeBinder;
         private ODataUriParserConfiguration configuration;
         private ODataPathInfo odataPathInfo;
 
@@ -30,7 +29,6 @@ namespace Microsoft.OData.UriParser.Aggregation
             this.bindMethod = bindMethod;
             this.state = state;
             this.filterBinder = new FilterBinder(bindMethod, state);
-            this.computeBinder = new ComputeBinder(bindMethod);
             this.configuration = configuration;
             this.odataPathInfo = odataPathInfo;
         }
