@@ -60,12 +60,6 @@ namespace Microsoft.OData.UriParser.Aggregation
                         transformations.Add(groupBy);
                         state.IsCollapsed = true;
                         break;
-                    // case QueryTokenKind.Compute:
-                    //     ComputeClause computeClause = this.computeBinder.BindCompute((ComputeToken)token);
-                    //     ComputeTransformationNode computeNode = new ComputeTransformationNode(computeClause.);
-                    //     transformations.Add(computeNode);
-                    //     state.AggregatedPropertyNames = computeNode.Expressions.Select(statement => statement.Alias).ToList();
-                    //     break;
                     case QueryTokenKind.Compute:
                         var compute = BindComputeToken((ComputeToken)token);
                         transformations.Add(compute);
