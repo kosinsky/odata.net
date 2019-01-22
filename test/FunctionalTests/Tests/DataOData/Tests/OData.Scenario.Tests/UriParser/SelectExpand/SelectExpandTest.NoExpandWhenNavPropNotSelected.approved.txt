@@ -16,3 +16,4 @@ SelectExpandQueryOption
 							AllSelected = True
 							SelectedItems(Empty List)
 		Path[(Property: Quantity)]
+		Path[(NavigationProperty: AssociatedOrder)]

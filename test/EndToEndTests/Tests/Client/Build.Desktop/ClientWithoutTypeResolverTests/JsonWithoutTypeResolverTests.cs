@@ -48,13 +48,6 @@ namespace Microsoft.Test.OData.Tests.Client.ClientWithoutTypeResolverTests
         }
 
         [TestMethod]
-        public void ExpandEntryQueryWithNestedSelect()
-        {
-            var contextWrapper = this.CreateContext();
-            var queryResults = contextWrapper.Execute<Customer>(new Uri(this.ServiceUri.OriginalString + "/Customer(-9)?$expand=Info($select=Information)")).ToArray();
-        }
-
-        [TestMethod]
         public void DerivedTypeExpandWithProjectionFeedQuery()
         {
             var contextWrapper = this.CreateContext();
