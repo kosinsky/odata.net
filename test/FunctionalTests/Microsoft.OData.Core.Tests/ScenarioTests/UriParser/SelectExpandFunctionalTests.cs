@@ -108,7 +108,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             selectItem.ShouldBePathSelectionItem(new ODataPath(new PropertySegment(HardCodedTestModel.GetPersonAddressProp())));
         }
 
-        [Fact]
+        [Fact]  
         public void SelectComplexPropertyWithCast()
         {
             var selectItem = ParseSingleSelectForPerson("MyAddress/Fully.Qualified.Namespace.HomeAddress");
@@ -824,13 +824,13 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             var results = RunParseSelectExpand("MyAddress", "MyDog, MyFavoritePainting", HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet());
 
-            results.SelectedItems.Should().HaveCount(3);
+            results.SelectedItems.Should().HaveCount(5);
             results.SelectedItems.OfType<ExpandedNavigationSelectItem>().Should().HaveCount(2);
             results.SelectedItems.OfType<ExpandedNavigationSelectItem>().ElementAt(0).SelectAndExpand.AllSelected.Should().BeTrue();
             results.SelectedItems.OfType<ExpandedNavigationSelectItem>().ElementAt(1).SelectAndExpand.AllSelected.Should().BeTrue();
             results.AllSelected.Should().BeFalse();
 
-            AssertSelectString("MyAddress", results);
+            AssertSelectString("MyAddress,MyDog,MyFavoritePainting", results);
             AssertExpandString("MyDog,MyFavoritePainting", results);
         }
 
@@ -839,15 +839,16 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             var results = RunParseSelectExpand("MyAddress, MyDog", "MyDog, MyFavoritePainting", HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet());
 
-            results.SelectedItems.Should().HaveCount(4);
+            results.SelectedItems.Should().HaveCount(5);
             results.SelectedItems.OfType<ExpandedNavigationSelectItem>().Should().HaveCount(2);
             results.SelectedItems.OfType<ExpandedNavigationSelectItem>().ElementAt(0).SelectAndExpand.AllSelected.Should().BeTrue();
             results.SelectedItems.OfType<ExpandedNavigationSelectItem>().ElementAt(1).SelectAndExpand.AllSelected.Should().BeTrue();
             results.SelectedItems.OfType<PathSelectItem>().ElementAt(0).ShouldBePathSelectionItem(new ODataPath(new PropertySegment(HardCodedTestModel.GetPersonAddressProp())));
             results.SelectedItems.OfType<PathSelectItem>().ElementAt(1).ShouldBePathSelectionItem(new ODataPath(new NavigationPropertySegment(HardCodedTestModel.GetPersonMyDogNavProp(), HardCodedTestModel.GetPeopleSet())));
+            results.SelectedItems.OfType<PathSelectItem>().ElementAt(2).ShouldBePathSelectionItem(new ODataPath(new NavigationPropertySegment(HardCodedTestModel.GetPersonMyFavoritePaintingNavProp(), HardCodedTestModel.GetPeopleSet())));
             results.AllSelected.Should().BeFalse();
 
-            AssertSelectString("MyAddress,MyDog", results);
+            AssertSelectString("MyAddress,MyDog,MyFavoritePainting", results);
             AssertExpandString("MyDog,MyFavoritePainting", results);
         }
 
@@ -931,9 +932,10 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void SelectAndExpandWithDifferentTypesWorks()
         {
             var result = RunParseSelectExpand("Fully.Qualified.Namespace.Employee/MyDog", "Fully.Qualified.Namespace.Manager/MyDog", HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet());
-            result.SelectedItems.Count().Should().Be(2);
+            result.SelectedItems.Count().Should().Be(3);
             result.SelectedItems.Single(x => x is ExpandedNavigationSelectItem).ShouldBeExpansionFor(HardCodedTestModel.GetPersonMyDogNavProp());
-            result.SelectedItems.Single(x => x is PathSelectItem).ShouldBePathSelectionItem(new ODataPath(new TypeSegment(HardCodedTestModel.GetEmployeeType(), HardCodedTestModel.GetPeopleSet()), new NavigationPropertySegment(HardCodedTestModel.GetPersonMyDogNavProp(), HardCodedTestModel.GetPeopleSet())));
+            result.SelectedItems.First(x => x is PathSelectItem).ShouldBePathSelectionItem(new ODataPath(new TypeSegment(HardCodedTestModel.GetEmployeeType(), HardCodedTestModel.GetPeopleSet()), new NavigationPropertySegment(HardCodedTestModel.GetPersonMyDogNavProp(), HardCodedTestModel.GetPeopleSet())));
+            result.SelectedItems.Last(x => x is PathSelectItem).ShouldBePathSelectionItem(new ODataPath(new TypeSegment(HardCodedTestModel.GetManagerType(), HardCodedTestModel.GetPeopleSet()), new NavigationPropertySegment(HardCodedTestModel.GetPersonMyDogNavProp(), HardCodedTestModel.GetPeopleSet())));
         }
 
         [Fact]
@@ -1019,15 +1021,16 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void MixOfSelectionTypesShouldWork()
         {
             const string select = "Name,Birthdate,MyAddress,Fully.Qualified.Namespace.*,MyLions";
+            const string expectedSelect = "Name,Birthdate,MyAddress,Fully.Qualified.Namespace.*,MyLions,MyDog";
             const string expand = "MyDog";
             var results = RunParseSelectExpandAndAssertPaths(
                 select,
                 expand,
-                select,
+                expectedSelect,
                 expand,
                 HardCodedTestModel.GetPersonType(),
                 null);
-            results.SelectedItems.Should().HaveCount(6);
+            results.SelectedItems.Should().HaveCount(7);
             results.AllSelected.Should().BeFalse();
         }
 
@@ -1166,13 +1169,15 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         }
 
         [Fact]
-        public void ExplicitNavPropIsNotAddedIfNeededAtDeeperLevels()
+        public void ExplicitNavPropIsAddedIfNeededAtDeeperLevels()
         {
             const string expandClauseText = "MyDog($select=Color;$expand=MyPeople)";
             const string selectClauseText = "";
+            const string expectedExpandClauseText = "MyDog($select=Color,MyPeople;$expand=MyPeople)";
+            const string expectedSelectClause = "";
             var results = RunParseSelectExpand(selectClauseText, expandClauseText, HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet());
-            AssertSelectString(selectClauseText, results);
-            AssertExpandString(expandClauseText, results);
+            AssertSelectString(expectedSelectClause, results);
+            AssertExpandString(expectedExpandClauseText, results);
         }
 
         [Fact]
