@@ -1904,6 +1904,16 @@ public sealed class Microsoft.OData.Edm.ExtensionMethods {
 	[
 	ExtensionAttribute(),
 	]
+	public static System.Collections.Generic.IEnumerable`1[[System.String]] GetDerivedTypeConstraints (Microsoft.OData.Edm.IEdmModel model, Microsoft.OData.Edm.IEdmNavigationSource navigationSource)
+
+	[
+	ExtensionAttribute(),
+	]
+	public static System.Collections.Generic.IEnumerable`1[[System.String]] GetDerivedTypeConstraints (Microsoft.OData.Edm.IEdmModel model, Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable target)
+
+	[
+	ExtensionAttribute(),
+	]
 	public static string GetDescriptionAnnotation (Microsoft.OData.Edm.IEdmModel model, Microsoft.OData.Edm.Vocabularies.IEdmVocabularyAnnotatable target)
 
 	[
@@ -3950,7 +3960,9 @@ public sealed class Microsoft.OData.Edm.Vocabularies.V1.CoreVocabularyModel {
 }
 
 public sealed class Microsoft.OData.Edm.Vocabularies.V1.ValidationVocabularyModel {
+	public static readonly Microsoft.OData.Edm.Vocabularies.IEdmTerm DerivedTypeConstraintTerm = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsTerm
 	public static readonly Microsoft.OData.Edm.IEdmModel Instance = Microsoft.OData.Edm.Csdl.CsdlSemantics.CsdlSemanticsModel
+	public static readonly string Namespace = "Org.OData.Validation.V1"
 }
 
 public sealed class Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyConstants {
@@ -6916,6 +6928,7 @@ public enum Microsoft.OData.UriParser.Aggregation.AggregationMethod : int {
 public enum Microsoft.OData.UriParser.Aggregation.TransformationNodeKind : int {
 	Aggregate = 0
 	Compute = 3
+	Expand = 4
 	Filter = 2
 	GroupBy = 1
 }
@@ -6994,6 +7007,32 @@ public sealed class Microsoft.OData.UriParser.Aggregation.ComputeTransformationN
 	public ComputeTransformationNode (Microsoft.OData.UriParser.ComputeClause computeClause)
 
 	Microsoft.OData.UriParser.ComputeClause ComputeClause  { public get; }
+	Microsoft.OData.UriParser.Aggregation.TransformationNodeKind Kind  { public virtual get; }
+}
+
+public sealed class Microsoft.OData.UriParser.Aggregation.EntitySetAggregateExpression : Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase {
+	public EntitySetAggregateExpression (Microsoft.OData.UriParser.CollectionNavigationNode expression, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase]] children)
+
+	System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.Aggregation.AggregateExpressionBase]] Children  { public get; }
+	Microsoft.OData.UriParser.CollectionNavigationNode Expression  { public get; }
+}
+
+public sealed class Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken : Microsoft.OData.UriParser.Aggregation.AggregateTokenBase {
+	public EntitySetAggregateToken (Microsoft.OData.UriParser.QueryToken entitySet, System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.Aggregation.AggregateTokenBase]] expressions)
+
+	Microsoft.OData.UriParser.QueryToken EntitySet  { public get; }
+	System.Collections.Generic.IEnumerable`1[[Microsoft.OData.UriParser.Aggregation.AggregateTokenBase]] Expressions  { public get; }
+	Microsoft.OData.UriParser.QueryTokenKind Kind  { public virtual get; }
+
+	public virtual T Accept (ISyntacticTreeVisitor`1 visitor)
+	public static Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken Merge (Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken token1, Microsoft.OData.UriParser.Aggregation.EntitySetAggregateToken token2)
+	public string Path ()
+}
+
+public sealed class Microsoft.OData.UriParser.Aggregation.ExpandTransformationNode : Microsoft.OData.UriParser.Aggregation.TransformationNode {
+	public ExpandTransformationNode (Microsoft.OData.UriParser.SelectExpandClause expandClause)
+
+	Microsoft.OData.UriParser.SelectExpandClause ExpandClause  { public get; }
 	Microsoft.OData.UriParser.Aggregation.TransformationNodeKind Kind  { public virtual get; }
 }
 

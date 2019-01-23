@@ -2825,6 +2825,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "The value type '{0}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation on {1} '{2}'."
+        /// </summary>
+        internal static string WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint(object p0, object p1, object p2) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint, p0, p1, p2);
+        }
+
+        /// <summary>
         /// A string like "An XML node of type '{0}' was found in a string value. An element with a string value can only contain Text, CDATA, SignificantWhitespace, Whitespace or Comment nodes."
         /// </summary>
         internal static string XmlReaderExtension_InvalidNodeInStringValue(object p0) {
@@ -4683,6 +4690,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "String item should be single/double quoted: '{0}'."
+        /// </summary>
+        internal static string StringItemShouldBeQuoted(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.StringItemShouldBeQuoted, p0);
+        }
+
+        /// <summary>
         /// A string like "$apply/aggregate expression '{0}' operation does not support value type '{1}'."
         /// </summary>
         internal static string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod(object p0, object p1) {
@@ -5217,6 +5231,13 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string PathParser_TypeCastOnlyAllowedAfterStructuralCollection(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.PathParser_TypeCastOnlyAllowedAfterStructuralCollection, p0);
+        }
+
+        /// <summary>
+        /// A string like "Type cast segment '{0}' on {1} '{2}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation."
+        /// </summary>
+        internal static string PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint(object p0, object p1, object p2) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint, p0, p1, p2);
         }
 
         /// <summary>

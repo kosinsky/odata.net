@@ -426,6 +426,7 @@ WriterValidationUtils_MessageWriterSettingsServiceDocumentUriMustBeNullOrAbsolut
 WriterValidationUtils_NavigationLinkMustSpecifyUrl=The ODataNestedResourceInfo.Url property on an navigation link '{0}' is null. The ODataNestedResourceInfo.Url property must be set to a non-null value that represents the entity or entities the navigation link references.
 WriterValidationUtils_NestedResourceInfoMustSpecifyIsCollection=The ODataNestedResourceInfo.IsCollection property on a nested resource info '{0}' is null. The ODataNestedResourceInfo.IsCollection property must be specified when writing a nested resource into a request.
 WriterValidationUtils_MessageWriterSettingsJsonPaddingOnRequestMessage=A JSON Padding function was specified on ODataMessageWriterSettings when trying to write a request message. JSON Padding is only for writing responses.
+WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint=The value type '{0}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation on {1} '{2}'.
 
 XmlReaderExtension_InvalidNodeInStringValue=An XML node of type '{0}' was found in a string value. An element with a string value can only contain Text, CDATA, SignificantWhitespace, Whitespace or Comment nodes.
 XmlReaderExtension_InvalidRootNode=An XML node of type '{0}' was found at the root level. The root level of an OData payload must contain a single XML element and no text nodes.
@@ -734,7 +735,7 @@ MetadataBinder_CastOrIsOfCollectionsNotSupported=The Cast and IsOf functions do 
 MetadataBinder_CollectionOpenPropertiesNotSupportedInThisRelease=Collection open properties are not supported in this release.
 MetadataBinder_IllegalSegmentType=Can only bind segments that are Navigation, Structural, Complex, or Collections. We found a segment '{0}' that isn't any of those. Please revise the query.
 MetadataBinder_QueryOptionNotApplicable=The '{0}' option cannot be applied to the query path. '{0}' can only be applied to a collection of entities.
-
+StringItemShouldBeQuoted=String item should be single/double quoted: '{0}'.
 ApplyBinder_AggregateExpressionIncompatibleTypeForMethod=$apply/aggregate expression '{0}' operation does not support value type '{1}'.
 ApplyBinder_UnsupportedAggregateMethod=$apply/aggregate does not support method '{0}'.
 ApplyBinder_UnsupportedAggregateKind=$apply/aggregate expression token kind '{0}' not supported.
@@ -820,6 +821,7 @@ PathParser_EntityReferenceNotSupported=The request URI is not valid. $ref cannot
 PathParser_CannotUseValueOnCollection=$value cannot be applied to a collection.
 PathParser_TypeMustBeRelatedToSet=The type '{0}' does not inherit from and is not a base type of '{1}'. The type of '{2}' must be related to the Type of the EntitySet.
 PathParser_TypeCastOnlyAllowedAfterStructuralCollection=Type cast segment '{0}' after a collection which is not of entity or complex type is not allowed.
+PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint=Type cast segment '{0}' on {1} '{2}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation.
 
 ODataResourceSet_MustNotContainBothNextPageLinkAndDeltaLink=A resource set may contain a next page link, a delta link or neither, but must not contain both.
 
@@ -882,7 +884,6 @@ RequestUriProcessor_ResourceNotFound=Resource not found for the segment '{0}'.
 RequestUriProcessor_BatchedActionOnEntityCreatedInSameChangeset=Batched service action '{0}' cannot be invoked because it was bound to an entity created in the same changeset.
 RequestUriProcessor_Forbidden=Forbidden
 RequestUriProcessor_OperationSegmentBoundToANonEntityType=Found an operation bound to a non-entity type.
-
 
 ; Note: The below list of error messages are common to both the OData and the OData.Query project.
 General_InternalError=An internal error '{0}' occurred.
