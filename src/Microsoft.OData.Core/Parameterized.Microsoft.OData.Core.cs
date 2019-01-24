@@ -586,6 +586,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "Not allowed to write top level property '{0}' with 'ODataResourceValue' or collection of resource value."
+        /// </summary>
+        internal static string ODataMessageWriter_NotAllowedWriteTopLevelPropertyWithResourceValue(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataMessageWriter_NotAllowedWriteTopLevelPropertyWithResourceValue, p0);
+        }
+
+        /// <summary>
         /// A string like "Both startResourceXmlCustomizationCallback and endResourceXmlCustomizationCallback must be either null or non-null."
         /// </summary>
         internal static string ODataMessageWriterSettings_MessageWriterSettingsXmlCustomizationCallbacksMustBeSpecifiedBoth {
@@ -2825,6 +2832,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "The value type '{0}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation on {1} '{2}'."
+        /// </summary>
+        internal static string WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint(object p0, object p1, object p2) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint, p0, p1, p2);
+        }
+
+        /// <summary>
         /// A string like "An XML node of type '{0}' was found in a string value. An element with a string value can only contain Text, CDATA, SignificantWhitespace, Whitespace or Comment nodes."
         /// </summary>
         internal static string XmlReaderExtension_InvalidNodeInStringValue(object p0) {
@@ -3142,11 +3156,11 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "Neither an expected type nor a type name in the OData object model was provided for a complex value. When writing a request payload, either an expected type or a type name has to be specified."
+        /// A string like "Neither an expected type nor a type name in the OData object model was provided for a resource value. When writing a request payload, either an expected type or a type name has to be specified."
         /// </summary>
-        internal static string ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForComplexValueRequest {
+        internal static string ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForResourceValueRequest {
             get {
-                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForComplexValueRequest);
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForResourceValueRequest);
             }
         }
 
@@ -3302,10 +3316,10 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "One or more property annotations for property '{0}' were found in the complex value without the property to annotate. Complex values must only contain property annotations for existing properties."
+        /// A string like "One or more property annotations for property '{0}' were found in the resource value without the property to annotate. Resource values must only contain property annotations for existing properties."
         /// </summary>
-        internal static string ODataJsonLightPropertyAndValueDeserializer_ComplexValuePropertyAnnotationWithoutProperty(object p0) {
-            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightPropertyAndValueDeserializer_ComplexValuePropertyAnnotationWithoutProperty, p0);
+        internal static string ODataJsonLightPropertyAndValueDeserializer_ResourceValuePropertyAnnotationWithoutProperty(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightPropertyAndValueDeserializer_ResourceValuePropertyAnnotationWithoutProperty, p0);
         }
 
         /// <summary>
@@ -3316,11 +3330,11 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "The 'odata.type' instance annotation in a complex object is not the first property of the object. In OData, the 'odata.type' instance annotation must be the first property of the complex object."
+        /// A string like "The 'odata.type' instance annotation in a resource object is not the first property of the object. In OData, the 'odata.type' instance annotation must be the first property of the resource object."
         /// </summary>
-        internal static string ODataJsonLightPropertyAndValueDeserializer_ComplexTypeAnnotationNotFirst {
+        internal static string ODataJsonLightPropertyAndValueDeserializer_ResourceTypeAnnotationNotFirst {
             get {
-                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightPropertyAndValueDeserializer_ComplexTypeAnnotationNotFirst);
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightPropertyAndValueDeserializer_ResourceTypeAnnotationNotFirst);
             }
         }
 
@@ -4061,6 +4075,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "The value of a property '{0}' in ODataResource cannot be of type ODataResourceValue or collection of ODataResourceValue."
+        /// </summary>
+        internal static string ODataResource_PropertyValueCannotBeODataResourceValue(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataResource_PropertyValueCannotBeODataResourceValue, p0);
+        }
+
+        /// <summary>
         /// A string like "The primitive property '{0}' on type '{1}' has a value which is not a primitive value."
         /// </summary>
         internal static string EdmValueUtils_NonPrimitiveValue(object p0, object p1) {
@@ -4683,6 +4704,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "String item should be single/double quoted: '{0}'."
+        /// </summary>
+        internal static string StringItemShouldBeQuoted(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.StringItemShouldBeQuoted, p0);
+        }
+
+        /// <summary>
         /// A string like "$apply/aggregate expression '{0}' operation does not support value type '{1}'."
         /// </summary>
         internal static string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod(object p0, object p1) {
@@ -5217,6 +5245,13 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string PathParser_TypeCastOnlyAllowedAfterStructuralCollection(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.PathParser_TypeCastOnlyAllowedAfterStructuralCollection, p0);
+        }
+
+        /// <summary>
+        /// A string like "Type cast segment '{0}' on {1} '{2}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation."
+        /// </summary>
+        internal static string PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint(object p0, object p1, object p2) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint, p0, p1, p2);
         }
 
         /// <summary>

@@ -139,6 +139,7 @@ namespace Microsoft.OData {
         internal const string ODataMessageWriter_CannotSpecifyOperationWithoutModel = "ODataMessageWriter_CannotSpecifyOperationWithoutModel";
         internal const string ODataMessageWriter_JsonPaddingOnInvalidContentType = "ODataMessageWriter_JsonPaddingOnInvalidContentType";
         internal const string ODataMessageWriter_NonCollectionType = "ODataMessageWriter_NonCollectionType";
+        internal const string ODataMessageWriter_NotAllowedWriteTopLevelPropertyWithResourceValue = "ODataMessageWriter_NotAllowedWriteTopLevelPropertyWithResourceValue";
         internal const string ODataMessageWriterSettings_MessageWriterSettingsXmlCustomizationCallbacksMustBeSpecifiedBoth = "ODataMessageWriterSettings_MessageWriterSettingsXmlCustomizationCallbacksMustBeSpecifiedBoth";
         internal const string ODataCollectionWriterCore_InvalidTransitionFromStart = "ODataCollectionWriterCore_InvalidTransitionFromStart";
         internal const string ODataCollectionWriterCore_InvalidTransitionFromCollection = "ODataCollectionWriterCore_InvalidTransitionFromCollection";
@@ -428,6 +429,7 @@ namespace Microsoft.OData {
         internal const string WriterValidationUtils_NavigationLinkMustSpecifyUrl = "WriterValidationUtils_NavigationLinkMustSpecifyUrl";
         internal const string WriterValidationUtils_NestedResourceInfoMustSpecifyIsCollection = "WriterValidationUtils_NestedResourceInfoMustSpecifyIsCollection";
         internal const string WriterValidationUtils_MessageWriterSettingsJsonPaddingOnRequestMessage = "WriterValidationUtils_MessageWriterSettingsJsonPaddingOnRequestMessage";
+        internal const string WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint = "WriterValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint";
         internal const string XmlReaderExtension_InvalidNodeInStringValue = "XmlReaderExtension_InvalidNodeInStringValue";
         internal const string XmlReaderExtension_InvalidRootNode = "XmlReaderExtension_InvalidRootNode";
         internal const string ODataMetadataInputContext_ErrorReadingMetadata = "ODataMetadataInputContext_ErrorReadingMetadata";
@@ -471,7 +473,7 @@ namespace Microsoft.OData {
         internal const string ODataJsonLightDeserializer_AnnotationTargetingInstanceAnnotationWithoutValue = "ODataJsonLightDeserializer_AnnotationTargetingInstanceAnnotationWithoutValue";
         internal const string ODataJsonLightWriter_EntityReferenceLinkAfterResourceSetInRequest = "ODataJsonLightWriter_EntityReferenceLinkAfterResourceSetInRequest";
         internal const string ODataJsonLightWriter_InstanceAnnotationNotSupportedOnExpandedResourceSet = "ODataJsonLightWriter_InstanceAnnotationNotSupportedOnExpandedResourceSet";
-        internal const string ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForComplexValueRequest = "ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForComplexValueRequest";
+        internal const string ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForResourceValueRequest = "ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForResourceValueRequest";
         internal const string ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForCollectionValueInRequest = "ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForCollectionValueInRequest";
         internal const string ODataResourceTypeContext_MetadataOrSerializationInfoMissing = "ODataResourceTypeContext_MetadataOrSerializationInfoMissing";
         internal const string ODataResourceTypeContext_ODataResourceTypeNameMissing = "ODataResourceTypeContext_ODataResourceTypeNameMissing";
@@ -491,9 +493,9 @@ namespace Microsoft.OData {
         internal const string ODataJsonLightPropertyAndValueDeserializer_InvalidTopLevelPropertyName = "ODataJsonLightPropertyAndValueDeserializer_InvalidTopLevelPropertyName";
         internal const string ODataJsonLightPropertyAndValueDeserializer_InvalidTypeName = "ODataJsonLightPropertyAndValueDeserializer_InvalidTypeName";
         internal const string ODataJsonLightPropertyAndValueDeserializer_TopLevelPropertyAnnotationWithoutProperty = "ODataJsonLightPropertyAndValueDeserializer_TopLevelPropertyAnnotationWithoutProperty";
-        internal const string ODataJsonLightPropertyAndValueDeserializer_ComplexValuePropertyAnnotationWithoutProperty = "ODataJsonLightPropertyAndValueDeserializer_ComplexValuePropertyAnnotationWithoutProperty";
+        internal const string ODataJsonLightPropertyAndValueDeserializer_ResourceValuePropertyAnnotationWithoutProperty = "ODataJsonLightPropertyAndValueDeserializer_ResourceValuePropertyAnnotationWithoutProperty";
         internal const string ODataJsonLightPropertyAndValueDeserializer_ComplexValueWithPropertyTypeAnnotation = "ODataJsonLightPropertyAndValueDeserializer_ComplexValueWithPropertyTypeAnnotation";
-        internal const string ODataJsonLightPropertyAndValueDeserializer_ComplexTypeAnnotationNotFirst = "ODataJsonLightPropertyAndValueDeserializer_ComplexTypeAnnotationNotFirst";
+        internal const string ODataJsonLightPropertyAndValueDeserializer_ResourceTypeAnnotationNotFirst = "ODataJsonLightPropertyAndValueDeserializer_ResourceTypeAnnotationNotFirst";
         internal const string ODataJsonLightPropertyAndValueDeserializer_UnexpectedDataPropertyAnnotation = "ODataJsonLightPropertyAndValueDeserializer_UnexpectedDataPropertyAnnotation";
         internal const string ODataJsonLightPropertyAndValueDeserializer_TypePropertyAfterValueProperty = "ODataJsonLightPropertyAndValueDeserializer_TypePropertyAfterValueProperty";
         internal const string ODataJsonLightPropertyAndValueDeserializer_ODataTypeAnnotationInPrimitiveValue = "ODataJsonLightPropertyAndValueDeserializer_ODataTypeAnnotationInPrimitiveValue";
@@ -596,6 +598,7 @@ namespace Microsoft.OData {
         internal const string ODataResourceMetadataContext_EntityTypeWithNoKeyProperties = "ODataResourceMetadataContext_EntityTypeWithNoKeyProperties";
         internal const string ODataResourceMetadataContext_NullKeyValue = "ODataResourceMetadataContext_NullKeyValue";
         internal const string ODataResourceMetadataContext_KeyOrETagValuesMustBePrimitiveValues = "ODataResourceMetadataContext_KeyOrETagValuesMustBePrimitiveValues";
+        internal const string ODataResource_PropertyValueCannotBeODataResourceValue = "ODataResource_PropertyValueCannotBeODataResourceValue";
         internal const string EdmValueUtils_NonPrimitiveValue = "EdmValueUtils_NonPrimitiveValue";
         internal const string EdmValueUtils_PropertyDoesntExist = "EdmValueUtils_PropertyDoesntExist";
         internal const string ODataPrimitiveValue_CannotCreateODataPrimitiveValueFromNull = "ODataPrimitiveValue_CannotCreateODataPrimitiveValueFromNull";
@@ -678,6 +681,7 @@ namespace Microsoft.OData {
         internal const string MetadataBinder_CollectionOpenPropertiesNotSupportedInThisRelease = "MetadataBinder_CollectionOpenPropertiesNotSupportedInThisRelease";
         internal const string MetadataBinder_IllegalSegmentType = "MetadataBinder_IllegalSegmentType";
         internal const string MetadataBinder_QueryOptionNotApplicable = "MetadataBinder_QueryOptionNotApplicable";
+        internal const string StringItemShouldBeQuoted = "StringItemShouldBeQuoted";
         internal const string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod = "ApplyBinder_AggregateExpressionIncompatibleTypeForMethod";
         internal const string ApplyBinder_UnsupportedAggregateMethod = "ApplyBinder_UnsupportedAggregateMethod";
         internal const string ApplyBinder_UnsupportedAggregateKind = "ApplyBinder_UnsupportedAggregateKind";
@@ -749,6 +753,7 @@ namespace Microsoft.OData {
         internal const string PathParser_CannotUseValueOnCollection = "PathParser_CannotUseValueOnCollection";
         internal const string PathParser_TypeMustBeRelatedToSet = "PathParser_TypeMustBeRelatedToSet";
         internal const string PathParser_TypeCastOnlyAllowedAfterStructuralCollection = "PathParser_TypeCastOnlyAllowedAfterStructuralCollection";
+        internal const string PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint = "PathParser_TypeCastOnlyAllowedInDerivedTypeConstraint";
         internal const string ODataResourceSet_MustNotContainBothNextPageLinkAndDeltaLink = "ODataResourceSet_MustNotContainBothNextPageLinkAndDeltaLink";
         internal const string ODataExpandPath_OnlyLastSegmentMustBeNavigationProperty = "ODataExpandPath_OnlyLastSegmentMustBeNavigationProperty";
         internal const string ODataExpandPath_InvalidExpandPathSegment = "ODataExpandPath_InvalidExpandPathSegment";
