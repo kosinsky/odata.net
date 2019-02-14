@@ -745,6 +745,7 @@ ApplyBinder_AggregateExpressionNotSingleValue=$apply/aggregate expression '{0}' 
 ApplyBinder_GroupByPropertyNotPropertyAccessValue=$apply/groupby grouping expression '{0}' must evaluate to a property access value.
 ApplyBinder_UnsupportedType=$apply clause does not support type '{0}'.
 ApplyBinder_UnsupportedGroupByChild=$apply/groupby not support '{0}' as child transformation
+ApplyBinder_UnsupportedForEntitySetAggregation=Path '{0}' of type '{1}' is unsupported for entity set aggregation.
 
 AggregateTransformationNode_UnsupportedAggregateExpressions=There are unsupported aggregation expressions in the transformation node.
 

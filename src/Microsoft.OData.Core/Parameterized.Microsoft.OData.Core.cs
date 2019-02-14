@@ -4760,6 +4760,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "Path '{0}' of type '{1}' is unsupported for entity set aggregation."
+        /// </summary>
+        internal static string ApplyBinder_UnsupportedForEntitySetAggregation(object p0, object p1) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ApplyBinder_UnsupportedForEntitySetAggregation, p0, p1);
+        }
+
+        /// <summary>
         /// A string like "There are unsupported aggregation expressions in the transformation node."
         /// </summary>
         internal static string AggregateTransformationNode_UnsupportedAggregateExpressions {

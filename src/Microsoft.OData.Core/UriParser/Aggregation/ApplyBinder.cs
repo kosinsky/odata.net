@@ -146,10 +146,15 @@ namespace Microsoft.OData.UriParser.Aggregation
                 case QueryTokenKind.EntitySetAggregateExpression:
                 {
                     EntitySetAggregateToken token = aggregateToken as EntitySetAggregateToken;
-                    CollectionNavigationNode expression = this.bindMethod(token.EntitySet) as CollectionNavigationNode;
+                    QueryNode boundPath = this.bindMethod(token.EntitySet);
+                    
+                    if (boundPath.Kind != QueryNodeKind.CollectionNavigationNode)
+                    {
+                        throw new ODataException(ODataErrorStrings.ApplyBinder_UnsupportedForEntitySetAggregation((token.EntitySet as EndPathToken)?.Identifier ?? string.Empty, boundPath.Kind));
+                    }
 
                     IEnumerable<AggregateExpressionBase> children = token.Expressions.Select(x => BindAggregateExpressionToken(x));
-                    return new EntitySetAggregateExpression(expression, children);
+                    return new EntitySetAggregateExpression((CollectionNavigationNode)boundPath, children);
                 }
 
                 default:

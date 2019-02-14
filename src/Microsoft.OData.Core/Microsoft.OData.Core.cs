@@ -689,6 +689,7 @@ namespace Microsoft.OData {
         internal const string ApplyBinder_GroupByPropertyNotPropertyAccessValue = "ApplyBinder_GroupByPropertyNotPropertyAccessValue";
         internal const string ApplyBinder_UnsupportedType = "ApplyBinder_UnsupportedType";
         internal const string ApplyBinder_UnsupportedGroupByChild = "ApplyBinder_UnsupportedGroupByChild";
+        internal const string ApplyBinder_UnsupportedForEntitySetAggregation = "ApplyBinder_UnsupportedForEntitySetAggregation";
         internal const string AggregateTransformationNode_UnsupportedAggregateExpressions = "AggregateTransformationNode_UnsupportedAggregateExpressions";
         internal const string FunctionCallBinder_CannotFindASuitableOverload = "FunctionCallBinder_CannotFindASuitableOverload";
         internal const string FunctionCallBinder_UriFunctionMustHaveHaveNullParent = "FunctionCallBinder_UriFunctionMustHaveHaveNullParent";

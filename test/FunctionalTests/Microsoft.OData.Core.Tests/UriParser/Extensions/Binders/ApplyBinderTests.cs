@@ -12,6 +12,7 @@ using Microsoft.OData.Tests.UriParser.Binders;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.UriParser.Aggregation;
 using Xunit;
+using ErrorStrings = Microsoft.OData.Strings;
 
 namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
 {
@@ -330,6 +331,23 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
 
             EntitySetAggregateExpression entitySetAggregate = aggregate.AggregateExpressions.First() as EntitySetAggregateExpression;
             entitySetAggregate.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void BindApplyWithEntitySetAggregationOnSingleNavigationThrows()
+        {
+            IEnumerable<QueryToken> tokens =
+                _parser.ParseApply(
+                    "aggregate(MyDog($count as Count))");
+
+            BindingState state = new BindingState(_configuration);
+            MetadataBinder metadataBiner = new MetadataBinder(_bindingState);
+
+            ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
+            Action bind = () => binder.BindApply(tokens);
+
+            bind.ShouldThrow<ODataException>().Where(e => e.Message == ErrorStrings.ApplyBinder_UnsupportedForEntitySetAggregation("MyDog", QueryNodeKind.SingleNavigationNode));
+            
         }
 
         private readonly ODataUriParserConfiguration V4configuration = new ODataUriParserConfiguration(HardCodedTestModel.TestModel);
