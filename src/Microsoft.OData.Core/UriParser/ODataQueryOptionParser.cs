@@ -388,17 +388,7 @@ namespace Microsoft.OData.UriParser
             QueryToken filterToken = expressionParser.ParseFilter(filter);
 
             // Bind it to metadata
-            BindingState state = new BindingState(configuration, odataPathInfo.Segments.ToList());
-            state.ImplicitRangeVariable = NodeFactory.CreateImplicitRangeVariable(odataPathInfo.TargetEdmType.ToTypeReference(), odataPathInfo.TargetNavigationSource);
-            state.RangeVariables.Push(state.ImplicitRangeVariable);
-            if (applyClause != null)
-            {
-                state.AggregatedPropertyNames = applyClause.GetLastAggregatedPropertyNames();
-                if (applyClause.Transformations.Any(x => x.Kind == TransformationNodeKind.GroupBy || x.Kind == TransformationNodeKind.Aggregate))
-                {
-                    state.IsCollapsed = true;
-                }
-            }
+            BindingState state = CreateBindingState(configuration, odataPathInfo);
 
             MetadataBinder binder = new MetadataBinder(state);
             FilterBinder filterBinder = new FilterBinder(binder.Bind, state);
@@ -444,7 +434,7 @@ namespace Microsoft.OData.UriParser
         /// <param name="configuration">The configuration used for binding.</param>
         /// <param name="odataPathInfo">The path info from Uri path.</param>
         /// <returns>A <see cref="SelectExpandClause"/> representing the metadata bound select and expand expression.</returns>
-        private static SelectExpandClause ParseSelectAndExpandImplementation(string select, string expand, ODataUriParserConfiguration configuration, ODataPathInfo odataPathInfo)
+        private SelectExpandClause ParseSelectAndExpandImplementation(string select, string expand, ODataUriParserConfiguration configuration, ODataPathInfo odataPathInfo)
         {
             ExceptionUtils.CheckArgumentNotNull(configuration, "configuration");
             ExceptionUtils.CheckArgumentNotNull(configuration.Model, "model");
@@ -456,7 +446,8 @@ namespace Microsoft.OData.UriParser
             SelectExpandSyntacticParser.Parse(select, expand, odataPathInfo.TargetStructuredType, configuration, out expandTree, out selectTree);
 
             // semantic pass
-            return SelectExpandSemanticBinder.Bind(odataPathInfo, expandTree, selectTree, configuration);
+            BindingState state = CreateBindingState(configuration, odataPathInfo);
+            return SelectExpandSemanticBinder.Bind(odataPathInfo, expandTree, selectTree, configuration, state.AggregatedPropertyNames);
         }
 
         /// <summary>
@@ -478,6 +469,17 @@ namespace Microsoft.OData.UriParser
             var orderByQueryTokens = expressionParser.ParseOrderBy(orderBy);
 
             // Bind it to metadata
+            BindingState state = CreateBindingState(configuration, odataPathInfo);
+
+            MetadataBinder binder = new MetadataBinder(state);
+            OrderByBinder orderByBinder = new OrderByBinder(binder.Bind);
+            OrderByClause orderByClause = orderByBinder.BindOrderBy(state, orderByQueryTokens);
+
+            return orderByClause;
+        }
+
+        private BindingState CreateBindingState(ODataUriParserConfiguration configuration, ODataPathInfo odataPathInfo)
+        {
             BindingState state = new BindingState(configuration, odataPathInfo.Segments.ToList());
             state.ImplicitRangeVariable = NodeFactory.CreateImplicitRangeVariable(odataPathInfo.TargetEdmType.ToTypeReference(), odataPathInfo.TargetNavigationSource);
             state.RangeVariables.Push(state.ImplicitRangeVariable);
@@ -490,11 +492,20 @@ namespace Microsoft.OData.UriParser
                 }
             }
 
-            MetadataBinder binder = new MetadataBinder(state);
-            OrderByBinder orderByBinder = new OrderByBinder(binder.Bind);
-            OrderByClause orderByClause = orderByBinder.BindOrderBy(state, orderByQueryTokens);
+            if (computeClause != null)
+            {
+                var computedProperties = computeClause.ComputedItems.Select(i => i.Alias).ToList();
+                if(state.AggregatedPropertyNames == null)
+                {
+                    state.AggregatedPropertyNames = computedProperties;
+                }
+                else
+                {
+                    state.AggregatedPropertyNames.AddRange(computedProperties);
+                }
+            }
 
-            return orderByClause;
+            return state;
         }
 
         /// <summary>
