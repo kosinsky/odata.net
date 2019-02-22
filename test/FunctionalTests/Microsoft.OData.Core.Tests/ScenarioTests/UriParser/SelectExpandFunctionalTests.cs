@@ -1280,6 +1280,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
                 });
             odataQueryOptionParser.ParseCompute();
             var selectClause = odataQueryOptionParser.ParseSelectAndExpand();
+            AssertSelectString("DoubleTotal", selectClause);
         }
 
         [Fact]
@@ -1294,6 +1295,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
                 });
             odataQueryOptionParser.ParseApply();
             var selectClause = odataQueryOptionParser.ParseSelectAndExpand();
+            AssertSelectString("DoubleTotal", selectClause);
         }
 
         [Fact]
@@ -1310,8 +1312,8 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             odataQueryOptionParser.ParseApply();
             odataQueryOptionParser.ParseCompute();
             var selectClause = odataQueryOptionParser.ParseSelectAndExpand();
+            AssertSelectString("DoubleTotal, NewTotal", selectClause);
         }
-
 
         #endregion
         #region Test Running Helpers
