@@ -887,6 +887,14 @@ namespace Microsoft.OData.Tests.Evaluation
         }
 
         [Fact]
+        public void GetNextUnprocessedNestedResourceInfoShouldBeNullEntryIsATransientEntry()
+        {
+            this.derivedMultiKeyMultiEtagMleEntry.IsTransient = true;
+            this.derivedMultiKeyMultiEtagMleConventionalEntityMetadataBuilder.GetNextUnprocessedNavigationLink()
+                .Should().BeNull();
+        }
+
+        [Fact]
         public void GetNextUnprocessedNestedResourceInfoShouldReturnNavProps()
         {
             var nextNavProp = this.derivedMultiKeyMultiEtagMleConventionalEntityMetadataBuilder.GetNextUnprocessedNavigationLink();

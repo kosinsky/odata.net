@@ -373,6 +373,11 @@ namespace Microsoft.OData.Evaluation
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "A method for consistency with the rest of the API.")]
         internal override ODataJsonLightReaderNestedResourceInfo GetNextUnprocessedNavigationLink()
         {
+            if (this.ResourceMetadataContext.Resource.IsTransient)
+            {
+                return null;
+            }
+
             if (this.unprocessedNestedResourceInfos == null)
             {
                 Debug.Assert(this.ResourceMetadataContext != null, "this.resourceMetadataContext != null");
