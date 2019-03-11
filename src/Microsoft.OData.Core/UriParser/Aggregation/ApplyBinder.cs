@@ -58,6 +58,7 @@ namespace Microsoft.OData.UriParser.Aggregation
                     case QueryTokenKind.AggregateGroupBy:
                         GroupByTransformationNode groupBy = BindGroupByToken((GroupByToken)(token));
                         transformations.Add(groupBy);
+                        state.AggregatedPropertyNames = groupBy.GroupingProperties.Select(g => g.Name).ToList();
                         state.IsCollapsed = true;
                         break;
                     case QueryTokenKind.Compute:
@@ -66,7 +67,7 @@ namespace Microsoft.OData.UriParser.Aggregation
                         state.AggregatedPropertyNames = compute.Expressions.Select(statement => statement.Alias).ToList();
                         break;
                     case QueryTokenKind.Expand:
-                        SelectExpandClause expandClause = SelectExpandSemanticBinder.Bind(this.odataPathInfo,  (ExpandToken)token, null, this.configuration, null);
+                        SelectExpandClause expandClause = SelectExpandSemanticBinder.Bind(this.odataPathInfo,  (ExpandToken)token, null, this.configuration, null, false);
                         ExpandTransformationNode expandNode = new ExpandTransformationNode(expandClause);
                         transformations.Add(expandNode);
                         break;
@@ -153,7 +154,7 @@ namespace Microsoft.OData.UriParser.Aggregation
                         throw new ODataException(ODataErrorStrings.ApplyBinder_UnsupportedForEntitySetAggregation((token.EntitySet as EndPathToken)?.Identifier ?? string.Empty, boundPath.Kind));
                     }
 
-                    IEnumerable<AggregateExpressionBase> children = token.Expressions.Select(x => BindAggregateExpressionToken(x));
+                    IEnumerable<AggregateExpressionBase> children = token.Expressions.Select(x => BindAggregateExpressionToken(x)).ToList();
                     return new EntitySetAggregateExpression((CollectionNavigationNode)boundPath, children);
                 }
 
