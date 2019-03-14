@@ -1262,7 +1262,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             odataQueryOptionParser.ParseApply();
             var orderByClause = odataQueryOptionParser.ParseOrderBy();
             orderByClause.Direction.Should().Be(OrderByDirection.Ascending);
-            orderByClause.Expression.ShouldBeSingleValueOpenPropertyAccessQueryNode("Color");
+            orderByClause.Expression.ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetDogColorProp());
         }
 
         [Fact]
