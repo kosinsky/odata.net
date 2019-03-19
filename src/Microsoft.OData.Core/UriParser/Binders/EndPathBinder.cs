@@ -228,9 +228,6 @@ namespace Microsoft.OData.UriParser
         /// </summary>
         /// <param name="endPath">EndPathToken to check in the list of aggregated properties.</param>
         /// <returns>Whether the token represents an aggregated property.</returns>
-        private bool IsAggregatedProperty(EndPathToken endPath)
-        {
-            return (state.AggregatedPropertyNames != null && state.AggregatedPropertyNames.Contains(endPath));
-        }
+        private bool IsAggregatedProperty(EndPathToken endPath) => state?.AggregatedPropertyNames?.Contains(endPath) ?? false;
     }
 }
