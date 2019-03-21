@@ -113,7 +113,7 @@ namespace Microsoft.OData.UriParser
         {
             if (parentNode.TypeReference == null ||
                 parentNode.TypeReference.Definition.IsOpen() ||
-                IsAggregatedProperty(endPathToken.Identifier))
+                IsAggregatedProperty(endPathToken))
             {
                 return new SingleValueOpenPropertyAccessNode(parentNode, endPathToken.Identifier);
             }
@@ -141,6 +141,11 @@ namespace Microsoft.OData.UriParser
             SingleValueNode singleValueParent = parent as SingleValueNode;
             if (singleValueParent != null)
             {
+                if (state.IsCollapsed && !IsAggregatedProperty(endPathToken))
+                {
+                    throw ExceptionUtil.CreatePropertyNotFoundException(endPathToken.Identifier, singleValueParent.TypeReference.FullName(), isOpenProperty: true);
+                }
+
                 // Now that we have the parent type, can find its corresponding EDM type
                 IEdmStructuredTypeReference structuredParentType =
                     singleValueParent.TypeReference == null ? null : singleValueParent.TypeReference.AsStructuredOrNull();
@@ -183,8 +188,7 @@ namespace Microsoft.OData.UriParser
 
                 if (property.PropertyKind == EdmPropertyKind.Structural
                     && !property.Type.IsCollection()
-                    && this.state.AggregatedPropertyNames != null
-                    && this.state.AggregatedPropertyNames.Any(p => p == collectionParent.NavigationProperty.Name))
+                    && this.state.InEntitySetAggregation)
                 {
                     return new AggregatedCollectionPropertyNode(collectionParent, property);
                 }
@@ -223,11 +227,8 @@ namespace Microsoft.OData.UriParser
         /// <summary>
         /// Determines the token if represents an aggregated property or not.
         /// </summary>
-        /// <param name="identifier">Tokon identifier.</param>
+        /// <param name="endPath">EndPathToken to check in the list of aggregated properties.</param>
         /// <returns>Whether the token represents an aggregated property.</returns>
-        private bool IsAggregatedProperty(string identifier)
-        {
-            return (state.AggregatedPropertyNames != null && state.AggregatedPropertyNames.Contains(identifier));
-        }
+        private bool IsAggregatedProperty(EndPathToken endPath) => state?.AggregatedPropertyNames?.Contains(endPath) ?? false;
     }
 }

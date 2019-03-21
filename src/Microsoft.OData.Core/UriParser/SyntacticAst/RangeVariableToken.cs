@@ -57,5 +57,21 @@ namespace Microsoft.OData.UriParser
         {
             return visitor.Visit(this);
         }
+
+        public override bool Equals(object obj)
+        {
+            var otherPath = obj as RangeVariableToken;
+            if (otherPath == null)
+            {
+                return false;
+            }
+
+            return this.Name.Equals(otherPath.Name);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Name.GetHashCode();
+        }
     }
 }

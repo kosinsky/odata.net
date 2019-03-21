@@ -5,6 +5,7 @@
 //---------------------------------------------------------------------
 
 using Microsoft.OData.Edm;
+using System.Collections.Generic;
 
 namespace Microsoft.OData.UriParser
 {
@@ -25,14 +26,15 @@ namespace Microsoft.OData.UriParser
             ODataPathInfo odataPathInfo,
             ExpandToken expandToken,
             SelectToken selectToken,
-            ODataUriParserConfiguration configuration)
+            ODataUriParserConfiguration configuration,
+            BindingState state)
         {
             ExpandToken unifiedSelectExpandToken = SelectExpandSyntacticUnifier.Combine(expandToken, selectToken);
 
             ExpandTreeNormalizer expandTreeNormalizer = new ExpandTreeNormalizer();
             ExpandToken normalizedSelectExpandToken = expandTreeNormalizer.NormalizeExpandTree(unifiedSelectExpandToken);
 
-            SelectExpandBinder selectExpandBinder = new SelectExpandBinder(configuration, odataPathInfo);
+            SelectExpandBinder selectExpandBinder = new SelectExpandBinder(configuration, odataPathInfo, state);
             SelectExpandClause clause = selectExpandBinder.Bind(normalizedSelectExpandToken);
 
             SelectExpandClauseFinisher.AddExplicitNavPropLinksWhereNecessary(clause);
