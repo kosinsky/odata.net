@@ -5,6 +5,7 @@
 //---------------------------------------------------------------------
 
 using System;
+using System.Linq;
 using Microsoft.OData.UriParser;
 using Xunit;
 
@@ -137,6 +138,18 @@ namespace Microsoft.OData.Tests.UriParser.Metadata
                 "People?$orderby=Addr/GetZip",
                 parser => parser.ParseOrderBy(),
                 clause => clause.Expression.ShouldBeSingleValueFunctionCallQueryNode("TestNS.GetZip").And.Source.ShouldBeSingleComplexNode(AddrProperty),
+                null);
+        }
+
+
+        [Fact]
+        public void OpenTypeUnqualifiedFunctionOnComplexTypeInQueryComputTest()
+        {
+            this.TestUnqualified(
+                "People?$compute=Addr/TestNS.GetZip as Zip",
+                "People?$compute=Addr/GetZip as Zip",
+                parser => parser.ParseCompute(),
+                clause => clause.ComputedItems.First().Expression.ShouldBeSingleValueFunctionCallQueryNode("TestNS.GetZip").And.Source.ShouldBeSingleComplexNode(AddrProperty),
                 null);
         }
 
