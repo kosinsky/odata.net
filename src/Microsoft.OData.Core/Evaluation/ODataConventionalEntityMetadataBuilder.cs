@@ -479,6 +479,11 @@ namespace Microsoft.OData.Evaluation
         {
             ExceptionUtils.CheckArgumentStringNotNullOrEmpty(operationName, "operationName");
 
+            if(this.ResourceMetadataContext.Resource.IsTransient)
+            {
+                return null;
+            }
+
             Uri baseUri;
             if (string.IsNullOrEmpty(bindingParameterTypeName) || this.ResourceMetadataContext.Resource.NonComputedEditLink != null)
             {
