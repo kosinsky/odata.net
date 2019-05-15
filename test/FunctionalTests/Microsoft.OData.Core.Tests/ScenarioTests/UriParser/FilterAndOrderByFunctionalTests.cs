@@ -1360,7 +1360,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             var point = GeographyPoint.Create(1, 2);
             var filterClause = ParseFilter("Fully.Qualified.Namespace.GetNearbyPriorAddresses(currentLocation=geography'" + SpatialHelpers.WriteSpatial(point) + "',limit=null)/any()", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet());
             filterClause.Expression.ShouldBeAnyQueryNode()
-                .And.Source.ShouldBeCollectionResourceFunctionCallNode(HardCodedTestModel.GetNearbyPriorAddressesFunction())
+                .And.Source.ShouldBeCollectionFunctionCallNode(HardCodedTestModel.GetNearbyPriorAddressesFunction())
                     .And.ShouldHaveConstantParameter("currentLocation", point)
                     .And.ShouldHaveConstantParameter("limit", (object)null);
         }
@@ -1881,7 +1881,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             FilterClause filter = ParseFilter("Fully.Qualified.Namespace.GetPriorAddress in Fully.Qualified.Namespace.GetPriorAddresses", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
             filter.Expression.As<InNode>().Left.As<SingleValueFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddress");
-            filter.Expression.As<InNode>().Right.As<CollectionResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddresses");
+            filter.Expression.As<InNode>().Right.As<CollectionFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddresses");
         }
 
         [Fact]
@@ -2065,7 +2065,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             OrderByClause orderby = ParseOrderBy("Fully.Qualified.Namespace.GetPriorAddress in Fully.Qualified.Namespace.GetPriorAddresses", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
             orderby.Expression.As<InNode>().Left.As<SingleValueFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddress");
-            orderby.Expression.As<InNode>().Right.As<CollectionResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddresses");
+            orderby.Expression.As<InNode>().Right.As<CollectionFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddresses");
         }
 
         [Fact]

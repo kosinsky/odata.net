@@ -18,12 +18,39 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
     {
 
         [Fact]
-        public void ComputeWithCollectionResourceBoundFunction()
+        public void ComputeWithCollectionBoundFunction()
         {
             ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetPriorAddresses as PriorAddresses", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
             ComputeExpression expression = compute.ComputedItems.Single();
             expression.Alias.Should().Be("PriorAddresses");
-            expression.Expression.As<CollectionResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddresses");
+            expression.Expression.As<CollectionFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddresses");
+        }
+
+        [Fact]
+        public void ComputeWithCollectionResourceBoundFunction()
+        {
+            ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetHotPeople(limit=1) as Hot", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
+            ComputeExpression expression = compute.ComputedItems.Single();
+            expression.Alias.Should().Be("Hot");
+            expression.Expression.As<CollectionResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetHotPeople");
+        }
+
+        [Fact]
+        public void ComputeWithComplexBoundFunction()
+        {
+            ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetPriorAddress as PriorAddress", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
+            ComputeExpression expression = compute.ComputedItems.Single();
+            expression.Alias.Should().Be("PriorAddress");
+            expression.Expression.As<SingleValueFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPriorAddress");
+        }
+
+        [Fact]
+        public void ComputeWithEntityBoundFunction()
+        {
+            ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetMyPerson as Person", HardCodedTestModel.TestModel, HardCodedTestModel.GetDogType());
+            ComputeExpression expression = compute.ComputedItems.Single();
+            expression.Alias.Should().Be("Person");
+            expression.Expression.As<SingleResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetMyPerson");
         }
 
         private static ComputeClause ParseCompute(string text, IEdmModel edmModel, IEdmType edmType, IEdmNavigationSource edmEntitySet = null)

@@ -413,7 +413,7 @@ namespace Microsoft.OData.UriParser
             {
                 boundFunction = new SingleResourceFunctionCallNode(functionName, new[] { function }, boundArguments, (IEdmEntityTypeReference)returnType.Definition.ToTypeReference(), returnSet, parent);
             }
-            else if (returnType.IsStructuredCollection())
+            else if (returnType.IsEntityCollectionType())
             {
                 IEdmCollectionTypeReference collectionTypeReference = (IEdmCollectionTypeReference)returnType;
                 boundFunction = new CollectionResourceFunctionCallNode(functionName, new[] { function }, boundArguments, collectionTypeReference, returnSet, parent);
