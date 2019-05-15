@@ -19,7 +19,7 @@ namespace Microsoft.OData.UriParser
     /// <summary>
     /// Node representing a function call which returns a single value.
     /// </summary>
-    public sealed class SingleValueFunctionCallNode : SingleValueNode
+    public sealed class SingleValueFunctionCallNode : SingleValueNode, IFunctionCallNode
     {
         /// <summary>
         /// the name of this function.

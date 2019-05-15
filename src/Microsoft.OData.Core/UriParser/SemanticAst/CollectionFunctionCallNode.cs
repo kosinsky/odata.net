@@ -16,7 +16,7 @@ namespace Microsoft.OData.UriParser
     /// <summary>
     /// Node to represent a function call that returns a Collection
     /// </summary>
-    public sealed class CollectionFunctionCallNode : CollectionNode
+    public sealed class CollectionFunctionCallNode : CollectionNode, IFunctionCallNode
     {
         /// <summary>
         /// the name of this function

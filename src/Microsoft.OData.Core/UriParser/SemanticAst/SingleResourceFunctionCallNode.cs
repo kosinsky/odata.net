@@ -18,7 +18,7 @@ namespace Microsoft.OData.UriParser
     /// <summary>
     /// Node representing a function call which returns a single entity or complex.
     /// </summary>
-    public sealed class SingleResourceFunctionCallNode : SingleResourceNode
+    public sealed class SingleResourceFunctionCallNode : SingleResourceNode, IFunctionCallNode
     {
         /// <summary>
         /// the name of this function
