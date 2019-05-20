@@ -398,7 +398,25 @@ namespace Microsoft.OData.UriParser
             ICollection<FunctionParameterToken> parsedParameters = HandleComplexOrCollectionParameterValueIfExists(state.Configuration.Model, function, syntacticArguments, state.Configuration.Resolver.EnableCaseInsensitive);
 
             IEnumerable<QueryNode> boundArguments = parsedParameters.Select(p => this.bindMethod(p));
-            boundArguments = boundArguments.ToList(); // force enumerable to run : will immediately evaluate all this.bindMethod(p).
+            var boundArgumentsList = boundArguments.ToList(); // force enumerable to run : will immediately evaluate all this.bindMethod(p).
+
+            // Look for Strings that could be promoted
+            for(int i=0; i< boundArguments.Count(); i++)
+            {
+                var arg = boundArgumentsList[i];
+                if (arg is NamedFunctionParameterNode namedArg
+                    && namedArg.Value is ConstantNode constantNode
+                    && (constantNode.TypeReference?.IsString() ?? false))
+                {
+                    var type = function.FindParameter(namedArg.Name)?.Type;
+                    if (type != null && type.IsEnum())
+                    {
+                        boundArgumentsList[i] =  new NamedFunctionParameterNode(namedArg.Name, MetadataBindingUtils.ConvertToTypeIfNeeded(constantNode, type));
+                    }
+                }
+            }
+
+            boundArguments = boundArgumentsList;
             IEdmTypeReference returnType = function.ReturnType;
             IEdmEntitySetBase returnSet = null;
             SingleResourceNode singleEntityNode = parent as SingleResourceNode;

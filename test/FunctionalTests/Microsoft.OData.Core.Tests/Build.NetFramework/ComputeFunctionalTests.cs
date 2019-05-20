@@ -53,6 +53,16 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             expression.Expression.As<SingleResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetMyPerson");
         }
 
+        [Fact]
+        public void ComputeWithEnumBoundFunction()
+        {
+            ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetPetCount(colorPattern='BlueYellowStriped') as Person", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
+            ComputeExpression expression = compute.ComputedItems.Single();
+            expression.Alias.Should().Be("Person");
+            expression.Expression.As<SingleResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPetCount");
+            expression.Expression.As<SingleResourceFunctionCallNode>().Parameters.First().As<NamedFunctionParameterNode>().Value.GetEdmType().FullTypeName().Should().Be("Fully.Qualified.Namespace.ColorPattern");
+        }
+
         private static ComputeClause ParseCompute(string text, IEdmModel edmModel, IEdmType edmType, IEdmNavigationSource edmEntitySet = null)
         {
             return new ODataQueryOptionParser(edmModel, edmType, edmEntitySet, new Dictionary<string, string>() { { "$compute", text } }) { Resolver = new ODataUriResolver() { EnableCaseInsensitive = false } }.ParseCompute();
