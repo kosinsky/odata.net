@@ -56,9 +56,9 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         [Fact]
         public void ComputeWithEnumBoundFunction()
         {
-            ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetPetCount(colorPattern='BlueYellowStriped') as Person", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
+            ComputeClause compute = ParseCompute("Fully.Qualified.Namespace.GetPetCount(colorPattern='BlueYellowStriped') as Count", HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
             ComputeExpression expression = compute.ComputedItems.Single();
-            expression.Alias.Should().Be("Person");
+            expression.Alias.Should().Be("Count");
             expression.Expression.As<SingleResourceFunctionCallNode>().Name.Should().Be("Fully.Qualified.Namespace.GetPetCount");
             expression.Expression.As<SingleResourceFunctionCallNode>().Parameters.First().As<NamedFunctionParameterNode>().Value.GetEdmType().FullTypeName().Should().Be("Fully.Qualified.Namespace.ColorPattern");
         }

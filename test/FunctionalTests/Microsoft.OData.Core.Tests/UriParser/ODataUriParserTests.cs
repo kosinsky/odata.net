@@ -885,11 +885,11 @@ namespace Microsoft.OData.Tests.UriParser
             items.Count().Should().Be(2);
             items[0].Alias.ShouldBeEquivalentTo("Property1AsString");
             items[0].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //items[0].Expression.TypeReference.ShouldBeEquivalentTo(typeReference);
+            items[0].Expression.As<SingleValueNode>().TypeReference.ShouldBeEquivalentTo(typeReference);
             items[1].Alias.ShouldBeEquivalentTo("Property1Lower");
             items[1].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //items[1].Expression.TypeReference.FullName().ShouldBeEquivalentTo("Edm.String");
-            //items[1].Expression.TypeReference.IsNullable.ShouldBeEquivalentTo(true); // tolower is built in function that allows nulls.
+            items[1].Expression.As<SingleValueNode>().TypeReference.FullName().ShouldBeEquivalentTo("Edm.String");
+            items[1].Expression.As<SingleValueNode>().TypeReference.IsNullable.ShouldBeEquivalentTo(true); // tolower is built in function that allows nulls.
 
             ComputeExpression copy = new ComputeExpression(items[0].Expression, items[0].Alias, null);
             copy.Expression.Should().NotBeNull();
@@ -930,7 +930,7 @@ namespace Microsoft.OData.Tests.UriParser
             computes.Count.Should().Be(1);
             computes[0].Alias.ShouldBeEquivalentTo("NavProperty1AsString");
             computes[0].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //computes[0].Expression.TypeReference.ShouldBeEquivalentTo(typeReference);
+            computes[0].Expression.As<SingleValueNode>().TypeReference.ShouldBeEquivalentTo(typeReference);
         }
 
         [Fact]
@@ -981,11 +981,11 @@ namespace Microsoft.OData.Tests.UriParser
             items.Count().Should().Be(2);
             items[0].Alias.ShouldBeEquivalentTo("Property1AsString");
             items[0].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //items[0].Expression.TypeReference.ShouldBeEquivalentTo(typeReference);
+            items[0].Expression.As<SingleValueNode>().TypeReference.ShouldBeEquivalentTo(typeReference);
             items[1].Alias.ShouldBeEquivalentTo("Property1Lower");
             items[1].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //items[1].Expression.TypeReference.FullName().ShouldBeEquivalentTo("Edm.String");
-            //items[1].Expression.TypeReference.IsNullable.ShouldBeEquivalentTo(true); // tolower is built in function that allows nulls.
+            items[1].Expression.As<SingleValueNode>().TypeReference.FullName().ShouldBeEquivalentTo("Edm.String");
+            items[1].Expression.As<SingleValueNode>().TypeReference.IsNullable.ShouldBeEquivalentTo(true); // tolower is built in function that allows nulls.
 
             // validate level 1 expand compute
             List<SelectItem> selectItems = selectClause.SelectedItems.ToList();
@@ -995,7 +995,7 @@ namespace Microsoft.OData.Tests.UriParser
             computes.Count.Should().Be(1);
             computes[0].Alias.ShouldBeEquivalentTo("NavProperty1AsString");
             computes[0].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //computes[0].Expression.TypeReference.ShouldBeEquivalentTo(typeReference);
+            computes[0].Expression.As<SingleValueNode>().TypeReference.ShouldBeEquivalentTo(typeReference);
 
             // validate level 2 expand compute
             List<SelectItem> subSelectItems = expanded.SelectAndExpand.SelectedItems.ToList();
@@ -1005,7 +1005,7 @@ namespace Microsoft.OData.Tests.UriParser
             subComputes.Count.Should().Be(1);
             subComputes[0].Alias.ShouldBeEquivalentTo("SubNavProperty1AsString");
             subComputes[0].Expression.ShouldBeSingleValueFunctionCallQueryNode();
-            //subComputes[0].Expression.TypeReference.ShouldBeEquivalentTo(typeReference);
+            subComputes[0].Expression.As<SingleValueNode>().TypeReference.ShouldBeEquivalentTo(typeReference);
         }
         #endregion
 
