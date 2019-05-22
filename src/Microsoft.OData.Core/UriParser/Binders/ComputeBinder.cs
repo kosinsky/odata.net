@@ -35,8 +35,8 @@ namespace Microsoft.OData.UriParser
 
         private ComputeExpression BindComputeExpressionToken(ComputeExpressionToken token)
         {
-            SingleValueNode node = this.bindMethod(token.Expression) as SingleValueNode;
-            ComputeExpression expression = new ComputeExpression(node, token.Alias, node.TypeReference);
+            QueryNode node = this.bindMethod(token.Expression) as QueryNode;
+            ComputeExpression expression = new ComputeExpression(node, token.Alias, (node as SingleValueNode)?.TypeReference);
 
             return expression;
         }

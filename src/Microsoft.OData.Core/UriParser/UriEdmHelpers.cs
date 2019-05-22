@@ -151,6 +151,25 @@ namespace Microsoft.OData.UriParser
         }
 
         /// <summary>
+        /// Returns true if this type is a entity type collection
+        /// </summary>
+        /// <param name="type">The type to check</param>
+        /// <returns>true if the type is a entity type collection</returns>
+        public static bool IsEntityCollection(this IEdmTypeReference type)
+        {
+            ExceptionUtils.CheckArgumentNotNull(type, "type");
+            IEdmCollectionTypeReference collectionType = type as IEdmCollectionTypeReference;
+            if (collectionType != null)
+            {
+                return collectionType.ElementType().IsEntity();
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Returns the type reference of the <paramref name="structuredType"/>
         /// </summary>
         /// <param name="structuredType">The structured type</param>

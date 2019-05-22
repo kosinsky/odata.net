@@ -51,7 +51,7 @@ namespace Microsoft.OData
             return true;
         }
 
-        private void AppendExpression(SingleValueNode expression)
+        private void AppendExpression(QueryNode expression)
         {
             string text = Uri.EscapeDataString(nodeToStringBuilder.TranslateNode(expression));
             query.Append(text);

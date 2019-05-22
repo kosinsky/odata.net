@@ -13,7 +13,7 @@ namespace Microsoft.OData.UriParser
     /// </summary>
     public sealed class ComputeExpression
     {
-        private readonly SingleValueNode expression;
+        private readonly QueryNode expression;
 
         private readonly string alias;
 
@@ -25,7 +25,7 @@ namespace Microsoft.OData.UriParser
         /// <param name="expression">The compute expression.</param>
         /// <param name="alias">The compute alias.</param>
         /// <param name="typeReference">The <see cref="IEdmTypeReference"/> of this aggregate expression.</param>
-        public ComputeExpression(SingleValueNode expression, string alias, IEdmTypeReference typeReference)
+        public ComputeExpression(QueryNode expression, string alias, IEdmTypeReference typeReference)
         {
             ExceptionUtils.CheckArgumentNotNull(expression, "expression");
             ExceptionUtils.CheckArgumentNotNull(alias, "alias");
@@ -39,7 +39,7 @@ namespace Microsoft.OData.UriParser
         /// <summary>
         /// Gets the aggregation expression.
         /// </summary>
-        public SingleValueNode Expression
+        public QueryNode Expression
         {
             get
             {

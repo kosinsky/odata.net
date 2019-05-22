@@ -517,6 +517,7 @@
     <Compile Include="UriParser\SemanticAst\CountSegment.cs" />
     <Compile Include="UriParser\SemanticAst\DetermineNavigationSourceTranslator.cs" />
     <Compile Include="UriParser\SemanticAst\CollectionResourceCastNode.cs" />
+    <Compile Include="UriParser\SemanticAst\IFunctionCallNode.cs" />
     <Compile Include="UriParser\SemanticAst\CollectionResourceFunctionCallNode.cs" />
     <Compile Include="UriParser\SemanticAst\CollectionResourceNode.cs" />
     <Compile Include="UriParser\SemanticAst\EntityIdSegment.cs" />
