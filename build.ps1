@@ -70,7 +70,7 @@ $VSBASE = $null
 ForEach ($version in $VS15VERSIONS)
 {
     # Try RTW first
-    $tempVSBasePath = ($PROGRAMFILESX86 + "\Microsoft Visual Studio\2017\{0}") -f $version
+    $tempVSBasePath = ($PROGRAMFILESX86 + "\Microsoft Visual Studio\2019\{0}") -f $version
     if(Test-Path $tempVSBasePath)
     {
         $VSBASE = $tempVSBasePath
@@ -97,7 +97,7 @@ if ($VSBASE -eq $null)
 }
 else
 {
-    $MSBUILD = $VSBASE + "\MSBuild\15.0\Bin\MSBuild.exe"
+    $MSBUILD = $VSBASE + "\MSBuild\Current\Bin\MSBuild.exe"
 }
 
 $DOTNETDIR = "C:\Program Files\dotnet\"
@@ -170,8 +170,8 @@ $NightlyTestDlls = "Microsoft.Test.Data.Services.DDBasics.dll",
 $NetCoreXUnitTestProjs = "\test\FunctionalTests\Microsoft.Spatial.Tests\Microsoft.Spatial.Tests.NetCore.csproj",
     "\test\FunctionalTests\Microsoft.OData.Edm.Tests\Microsoft.OData.Edm.Tests.NetCore.csproj",
     "\test\FunctionalTests\Microsoft.OData.Core.Tests\Microsoft.OData.Core.Tests.NetCore.csproj",
-    "\test\FunctionalTests\Microsoft.OData.Client.Tests\Microsoft.OData.Client.Tests.NetCore.csproj",
-    "\test\FunctionalTests\Tests\DataServices\UnitTests\Client.TDD.Tests\Microsoft.OData.Client.TDDUnitTests.NetCore.csproj"
+    "\test\FunctionalTests\Microsoft.OData.Client.Tests\Microsoft.OData.Client.Tests.NetCore.csproj"#,
+    #"\test\FunctionalTests\Tests\DataServices\UnitTests\Client.TDD.Tests\Microsoft.OData.Client.TDDUnitTests.NetCore.csproj"
 
 $QuickTestSuite = @()
 $NightlyTestSuite = @()
@@ -265,9 +265,6 @@ Function SkipStrongName
     {
         & $SNx64 /Vr $dll | Out-File $SnLog -Append
     }
-
-    & $SN /Vl
-    & $SNx64 /Vl
 
     Write-Host "SkipStrongName Done" -ForegroundColor $Success
 }
