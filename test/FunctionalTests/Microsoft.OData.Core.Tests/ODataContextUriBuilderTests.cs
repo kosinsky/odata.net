@@ -73,7 +73,7 @@ namespace Microsoft.OData.Tests
         {
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(default(string), null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities"));
+                this.CreateFeedContextUri(default(string), null, null, null,version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities"));
             }
         }
 
@@ -82,7 +82,7 @@ namespace Microsoft.OData.Tests
         {
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(string.Empty, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, string.Empty));
+                this.CreateFeedContextUri(string.Empty, null, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, string.Empty));
             }
         }
 
@@ -94,7 +94,7 @@ namespace Microsoft.OData.Tests
             string expectClause = "Name";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(selectClause, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectClause));
+                this.CreateFeedContextUri(selectClause, null, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectClause));
             }
 
             // Select single navigation property
@@ -102,7 +102,7 @@ namespace Microsoft.OData.Tests
             expectClause = "Districts";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(selectClause, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectClause));
+                this.CreateFeedContextUri(selectClause, null, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectClause));
             }
         }
 
@@ -112,7 +112,7 @@ namespace Microsoft.OData.Tests
             string expectClause = "Districts($apply=aggregate($count as Count))";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(null, expectClause, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, "Districts(Count)"));
+                this.CreateFeedContextUri(null, expectClause, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, "Districts(Count)"));
             }
         }
 
@@ -122,7 +122,7 @@ namespace Microsoft.OData.Tests
             string applyClause = "aggregate(Id with sum as TotalId)";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(applyClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(TotalId)");
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(TotalId)");
             }
         }
 
@@ -137,7 +137,7 @@ namespace Microsoft.OData.Tests
             string applyClause = "aggregate(DynamicProperty with " + method + " as DynamicPropertyTotal)";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(applyClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(DynamicPropertyTotal)");
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(DynamicPropertyTotal)");
             }
         }
 
@@ -147,7 +147,7 @@ namespace Microsoft.OData.Tests
             string applyClause = "groupby((Name, Address/Street))";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(applyClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name,Address(Street))");
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name,Address(Street))");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Microsoft.OData.Tests
             string applyClause = "groupby((Name, DynamicProperty, Address/Street))";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(applyClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name,DynamicProperty,Address(Street))");
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name,DynamicProperty,Address(Street))");
             }
         }
 
@@ -167,7 +167,7 @@ namespace Microsoft.OData.Tests
             string applyClause = "filter(Id eq 1)";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(applyClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities");
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities");
             }
         }
         [Fact]
@@ -176,7 +176,68 @@ namespace Microsoft.OData.Tests
             string applyClause = "groupby((Name), aggregate(Id with sum as TotalId))";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(applyClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name,TotalId)");
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name,TotalId)");
+            }
+        }
+
+        [Fact]
+        public void FeedContextUriWithApplyAndSelect()
+        {
+            string applyClause = "groupby((Name), aggregate(Id with sum as TotalId))";
+            foreach (ODataVersion version in Versions)
+            {
+                this.CreateFeedContextUri("Name", null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Name)");
+            }
+        }
+
+        [Fact]
+        public void FeedContextUriWithApplyExpand()
+        {
+            string applyClause = "expand(Districts, filter(true))";
+            foreach (ODataVersion version in Versions)
+            {
+                this.CreateFeedContextUri(null, null, applyClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities");
+            }
+        }
+
+
+        [Fact]
+        public void FeedContextUriWithApplyCompute()
+        {
+            string computeClause = "compute('Test' as NewColumn)";
+            foreach (ODataVersion version in Versions)
+            {
+                this.CreateFeedContextUri(null, null, computeClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities");
+            }
+        }
+
+        [Fact]
+        public void FeedContextUriWithApplyComputeAndSelect()
+        {
+            string computeClause = "compute('Test' as NewColumn)";
+            foreach (ODataVersion version in Versions)
+            {
+                this.CreateFeedContextUri("Id,Name,NewColumn", null, computeClause, null, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Id,Name,NewColumn)");
+            }
+        }
+
+        [Fact]
+        public void FeedContextUriWithCompute()
+        {
+            string computeClause = "'Test' as NewColumn";
+            foreach (ODataVersion version in Versions)
+            {
+                this.CreateFeedContextUri(null, null, null, computeClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities");
+            }
+        }
+
+        [Fact]
+        public void FeedContextUriWithComputeAndSelect()
+        {
+            string computeClause = "'Test' as NewColumn";
+            foreach (ODataVersion version in Versions)
+            {
+                this.CreateFeedContextUri("Id,Name,NewColumn", null, null, computeClause, version).OriginalString.Should().Be(MetadataDocumentUriString + "#Cities(Id,Name,NewColumn)");
             }
         }
 
@@ -187,7 +248,7 @@ namespace Microsoft.OData.Tests
             const string expectClause = "*";
             foreach (ODataVersion version in Versions)
             {
-                this.CreateFeedContextUri(selectClause, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectClause));
+                this.CreateFeedContextUri(selectClause, null, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectClause));
             }
         }
 
@@ -233,7 +294,7 @@ namespace Microsoft.OData.Tests
 
         public void FeedContextUriWithSingleExpandString(ODataVersion version, string expandClause, string expectedClause)
         {
-            this.CreateFeedContextUri("", expandClause, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectedClause));
+            this.CreateFeedContextUri("", expandClause, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectedClause));
         }
 
         [Theory]
@@ -254,7 +315,7 @@ namespace Microsoft.OData.Tests
         [InlineData(ODataVersion.V401, "Name,Districts", "Districts($select=Name)", "Name,Districts(Name)")]
         public void FeedContextUriWithSelectAndExpandString(ODataVersion version, string selectClause, string expandClause, string expectedClause)
         {
-            this.CreateFeedContextUri(selectClause, expandClause, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectedClause));
+            this.CreateFeedContextUri(selectClause, expandClause, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectedClause));
         }
 
         [Fact]
@@ -308,7 +369,7 @@ namespace Microsoft.OData.Tests
         {
             const string selectClause = "Size,Name";
             const string expandClause = "Districts($select=Zip,City;$expand=City($expand=Districts;$select=Name))";
-            this.CreateFeedContextUri(selectClause, expandClause, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectedClause));
+            this.CreateFeedContextUri(selectClause, expandClause, null, null, version).OriginalString.Should().Be(BuildExpectedContextUri("#Cities", false, expectedClause));
         }
         #endregion context uri with $select and $expand
 
@@ -868,19 +929,35 @@ namespace Microsoft.OData.Tests
             return contextUrl;
         }
 
-        private Uri CreateFeedContextUri(string selectClause, string expandClause, ODataVersion version)
+        private Uri CreateFeedContextUri(string selectClause, string expandClause, string applyClauseString, string computeClauseString, ODataVersion version)
         {
-            SelectExpandClause selectExpandClause = new ODataQueryOptionParser(edmModel, this.cityType, this.citySet, new Dictionary<string, string> { { "$expand", expandClause }, { "$select", selectClause } }).ParseSelectAndExpand();
+            var parser = new ODataQueryOptionParser(edmModel, this.cityType, this.citySet, new Dictionary<string, string> {
+                { "$expand", expandClause },
+                { "$select", selectClause },
+                { "$apply", applyClauseString },
+                { "$compute", computeClauseString } });
+            ApplyClause applyClause = null;
+            ComputeClause computeClause = null;
+            SelectExpandClause selectExpandClause = null;
+            if (applyClauseString != null)
+            {
+                applyClause = parser.ParseApply();
+            }
+
+            if (computeClauseString != null)
+            {
+                computeClause = parser.ParseCompute();
+            }
+
+            if (selectClause != null || expandClause != null)
+            {
+                selectExpandClause = parser.ParseSelectAndExpand();
+            }
+
+            
             ODataResourceTypeContext typeContext = ODataResourceTypeContext.Create( /*serializationInfo*/null, this.citySet, this.cityType, this.cityType, true);
-            ODataContextUrlInfo info = ODataContextUrlInfo.Create(typeContext, version, false, new ODataUri() { SelectAndExpand = selectExpandClause });
-            Uri contextUrl = this.responseContextUriBuilder.BuildContextUri(ODataPayloadKind.ResourceSet, info);
-            return contextUrl;
-        }
-        private Uri CreateFeedContextUri(string applyClauseString, ODataVersion version)
-        {
-            ApplyClause applyClause = new ODataQueryOptionParser(edmModel, this.cityType, this.citySet, new Dictionary<string, string> { { "$apply", applyClauseString } }).ParseApply();
-            ODataResourceTypeContext typeContext = ODataResourceTypeContext.Create( /*serializationInfo*/null, this.citySet, this.cityType, this.cityType, true);
-            ODataContextUrlInfo info = ODataContextUrlInfo.Create(typeContext, version, false, new ODataUri() { Apply = applyClause });
+            ODataUri odataUri = new ODataUri() { SelectAndExpand = selectExpandClause, Apply = applyClause, Compute = computeClause };
+            ODataContextUrlInfo info = ODataContextUrlInfo.Create(typeContext, version, false,  odataUri);
             Uri contextUrl = this.responseContextUriBuilder.BuildContextUri(ODataPayloadKind.ResourceSet, info);
             return contextUrl;
         }

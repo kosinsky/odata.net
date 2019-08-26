@@ -588,7 +588,7 @@ namespace Microsoft.OData
         private static SelectedPropertiesNode CreateFromSelectExpandClause(SelectExpandClause selectExpandClause, ODataVersion version)
         {
             SelectedPropertiesNode node;
-            selectExpandClause.Traverse(ProcessSubExpand, CombineSelectAndExpandResult, version, out node);
+            selectExpandClause.Traverse(ProcessSubExpand, CombineSelectAndExpandResult, null, version, out node);
             return node;
         }
 

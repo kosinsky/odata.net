@@ -47,10 +47,10 @@
         <StrongName>StrongName</StrongName>
     </FilesToSign>
     <SignFilesDependsOn Include="GatherLocalizedOutputsForSigning"> 
-      <!-- Do not have this show up in Solution Explorer in VS --> 
       <InProject>false</InProject> 
     </SignFilesDependsOn>
   </ItemGroup>
+
   <Target Name="GatherLocalizedOutputsForSigning" Condition="'$(LocalizationEnabled)' == 'true'"> 
     <ItemGroup> 
       <FilesToSign Include="$(OutDir)\localize\**\$(AssemblyName).resources.dll"> 

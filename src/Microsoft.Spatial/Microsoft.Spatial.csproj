@@ -52,7 +52,6 @@
             <StrongName>StrongName</StrongName>
         </FilesToSign>
         <SignFilesDependsOn Include="GatherLocalizedOutputsForSigning">
-            <!-- Do not have this show up in Solution Explorer in VS -->
             <InProject>false</InProject>
         </SignFilesDependsOn>
     </ItemGroup>
