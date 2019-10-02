@@ -1962,6 +1962,16 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             filter.Expression.As<BinaryOperatorNode>().Right.ShouldBeConstantQueryNode("a'bc");
         }
 
+        [Theory]
+        [InlineData("()")]
+        [InlineData("(  )")]
+        public void FilterWithInOperationWithEmptyCollection(string collection)
+        {
+            string filterClause = $"ID in {collection}";
+            Action parse = () => ParseFilter(filterClause, HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType());
+            parse.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_RightOperandNotCollectionValue);
+        }
+
         [Fact]
         public void FilterWithInOperationWithMismatchedClosureCollection()
         {
