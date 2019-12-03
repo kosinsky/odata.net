@@ -305,7 +305,7 @@ namespace Microsoft.OData.UriParser.Aggregation
                 }
                 else if (node.Kind == QueryNodeKind.SingleNavigationNode)
                 {
-                    node = ((SingleNavigationNode)node).NavigationSource as SingleValueNode;
+                    node = ((SingleNavigationNode)node).Source as SingleValueNode;
                 }
             }
             while (node != null && IsPropertyNode(node));

@@ -148,7 +148,7 @@ namespace Microsoft.OData.UriParser
 
                 if (state.IsCollapsed && !IsAggregatedProperty(endPathToken))
                 {
-                    throw ExceptionUtil.CreatePropertyNotFoundException(endPathToken.Identifier, singleValueParent.TypeReference.FullName(), isOpenProperty: true);
+                    throw ExceptionUtil.CreatePropertyNotFoundException(endPathToken.Identifier, singleValueParent.TypeReference?.FullName(), isOpenProperty: true);
                 }
 
                 // Now that we have the parent type, can find its corresponding EDM type
