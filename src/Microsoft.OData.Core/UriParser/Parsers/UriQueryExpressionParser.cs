@@ -30,7 +30,7 @@ namespace Microsoft.OData.UriParser
         /// <summary>
         /// List of supported $apply keywords
         /// </summary>
-        private static readonly string supportedKeywords = string.Join("|", new string[] { ExpressionConstants.KeywordAggregate, ExpressionConstants.KeywordFilter, ExpressionConstants.KeywordGroupBy, ExpressionConstants.KeywordCompute });
+        private static readonly string supportedKeywords = string.Join("|", new string[] { ExpressionConstants.KeywordAggregate, ExpressionConstants.KeywordFilter, ExpressionConstants.KeywordGroupBy, ExpressionConstants.KeywordCompute, ExpressionConstants.KeywordExpand });
 
         /// <summary>
         /// Set of parsed parameters
@@ -58,7 +58,7 @@ namespace Microsoft.OData.UriParser
         /// <summary>
         /// Tracks the depth of aggregate expression recursion.
         /// </summary>
-        private int parseAggregateExpresionDepth = 0;
+        private int parseAggregateExpressionDepth = 0;
 
         /// <summary>
         /// Tracks expression parents of aggregate expression recursion.
@@ -119,7 +119,7 @@ namespace Microsoft.OData.UriParser
         {
             get
             {
-                return this.parseAggregateExpresionDepth > 0;
+                return this.parseAggregateExpressionDepth > 0;
             }
         }
 
@@ -307,6 +307,7 @@ namespace Microsoft.OData.UriParser
             {
                 throw ParseError(ODataErrorStrings.UriQueryExpressionParser_OpenParenExpected(this.lexer.CurrentToken.Position, this.lexer.ExpressionText));
             }
+
             this.lexer.NextToken();
 
             List<ExpandTermToken> termTokens = new List<ExpandTermToken>();
@@ -314,12 +315,12 @@ namespace Microsoft.OData.UriParser
             // First token must be Path
             var termParser = new SelectExpandTermParser(this.lexer, this.maxDepth - 1, false);
             PathSegmentToken pathToken = termParser.ParseTerm(allowRef: true);
-            
+
             QueryToken filterToken = null;
             ExpandToken nestedExpand = null;
 
             // Followed (optionally) by filter and expand
-            // Syntax for expand inside $apply is different (and much simplier)  from $expand clause => had to use different parsing approach
+            // Syntax for expand inside $apply is different (and much simpler)  from $expand clause => had to use different parsing approach
             while (this.lexer.CurrentToken.Kind == ExpressionTokenKind.Comma)
             {
                 this.lexer.NextToken();
@@ -328,17 +329,16 @@ namespace Microsoft.OData.UriParser
                     switch (this.lexer.CurrentToken.GetIdentifier())
                     {
                         case ExpressionConstants.KeywordFilter:
-                            filterToken= this.ParseApplyFilter();
+                            filterToken = this.ParseApplyFilter();
                             break;
                         case ExpressionConstants.KeywordExpand:
                             ExpandToken tempNestedExpand = ParseExpand();
-                            nestedExpand = nestedExpand == null 
-                                ? tempNestedExpand 
+                            nestedExpand = nestedExpand == null
+                                ? tempNestedExpand
                                 : new ExpandToken(nestedExpand.ExpandTerms.Concat(tempNestedExpand.ExpandTerms));
                             break;
                         default:
                             throw ParseError(ODataErrorStrings.UriQueryExpressionParser_KeywordOrIdentifierExpected(supportedKeywords, this.lexer.CurrentToken.Position, this.lexer.ExpressionText));
-
                     }
                 }
             }
@@ -349,7 +349,7 @@ namespace Microsoft.OData.UriParser
                 throw ParseError(ODataErrorStrings.UriQueryExpressionParser_InnerMostExpandRequireFilter(this.lexer.CurrentToken.Position, this.lexer.ExpressionText));
             }
 
-            ExpandTermToken expandTermToken = new ExpandTermToken(pathToken, filterToken, null, null, null, null, null, null, null, nestedExpand); 
+            ExpandTermToken expandTermToken = new ExpandTermToken(pathToken, filterToken, null, null, null, null, null, null, null, nestedExpand);
             termTokens.Add(expandTermToken);
 
             // ")"
@@ -418,7 +418,7 @@ namespace Microsoft.OData.UriParser
             return new ReadOnlyCollection<QueryToken>(transformationTokens);
         }
 
-        // parses $apply aggregate tranformation (.e.g. aggregate(UnitPrice with sum as TotalUnitPrice))
+        // parses $apply aggregate transformation (.e.g. aggregate(UnitPrice with sum as TotalUnitPrice))
         internal AggregateToken ParseAggregate()
         {
             Debug.Assert(TokenIdentifierIs(ExpressionConstants.KeywordAggregate), "token identifier is aggregate");
@@ -466,7 +466,7 @@ namespace Microsoft.OData.UriParser
         {
             try
             {
-                this.parseAggregateExpresionDepth++;
+                this.parseAggregateExpressionDepth++;
 
                 // expression
                 QueryToken expression = ParseLogicalOr();
@@ -504,11 +504,11 @@ namespace Microsoft.OData.UriParser
             }
             finally
             {
-                this.parseAggregateExpresionDepth--;
+                this.parseAggregateExpressionDepth--;
             }
         }
 
-        // parses $apply groupby tranformation (.e.g. groupby(ProductID, CategoryId, aggregate(UnitPrice with sum as TotalUnitPrice))
+        // parses $apply groupby transformation (.e.g. groupby(ProductID, CategoryId, aggregate(UnitPrice with sum as TotalUnitPrice))
         internal GroupByToken ParseGroupBy()
         {
             Debug.Assert(TokenIdentifierIs(ExpressionConstants.KeywordGroupBy), "token identifier is groupby");
@@ -588,7 +588,7 @@ namespace Microsoft.OData.UriParser
             return new GroupByToken(properties, transformationToken);
         }
 
-        // parses $apply filter tranformation (.e.g. filter(ProductName eq 'Aniseed Syrup'))
+        // parses $apply filter transformation (.e.g. filter(ProductName eq 'Aniseed Syrup'))
         internal QueryToken ParseApplyFilter()
         {
             Debug.Assert(TokenIdentifierIs(ExpressionConstants.KeywordFilter), "token identifier is filter");
@@ -634,7 +634,7 @@ namespace Microsoft.OData.UriParser
         /// Parses the $orderby expression.
         /// </summary>
         /// <param name="orderBy">The $orderby expression string to parse.</param>
-        /// <returns>The enumeraion of lexical tokens representing order by tokens.</returns>
+        /// <returns>The enumeration of lexical tokens representing order by tokens.</returns>
         internal IEnumerable<OrderByToken> ParseOrderBy(string orderBy)
         {
             Debug.Assert(orderBy != null, "orderBy != null");

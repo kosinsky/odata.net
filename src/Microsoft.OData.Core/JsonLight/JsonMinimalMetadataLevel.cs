@@ -19,7 +19,7 @@ namespace Microsoft.OData.JsonLight
     internal sealed class JsonMinimalMetadataLevel : JsonLightMetadataLevel
     {
         /// <summary>
-        /// Returns the oracle to use when determing the type name to write for entries and values.
+        /// Returns the oracle to use when determining the type name to write for entries and values.
         /// </summary>
         /// <returns>An oracle that can be queried to determine the type name to write.</returns>
         internal override JsonLightTypeNameOracle GetTypeNameOracle()
@@ -40,6 +40,7 @@ namespace Microsoft.OData.JsonLight
         /// <param name="isResponse">true if the resource metadata builder to create should be for a response payload; false for a request.</param>
         /// <param name="keyAsSegment">true if keys should go in separate segments in auto-generated URIs, false if they should go in parentheses.</param>
         /// <param name="odataUri">The OData Uri.</param>
+        /// <param name="settings">The settings to use when creating the resource builder.</param>
         /// <returns>The created metadata builder.</returns>
         internal override ODataResourceMetadataBuilder CreateResourceMetadataBuilder(
             ODataResourceBase resource,
@@ -49,7 +50,8 @@ namespace Microsoft.OData.JsonLight
             SelectedPropertiesNode selectedProperties,
             bool isResponse,
             bool keyAsSegment,
-            ODataUri odataUri)
+            ODataUri odataUri,
+            ODataMessageWriterSettings settings)
         {
             // For minimal metadata we don't want to change the metadata builder that's currently on the resource because the resource might come from a JSON light
             // reader and it would contain the metadata builder from the reader.  Until we give the user the ability to choose whether to write what was reported

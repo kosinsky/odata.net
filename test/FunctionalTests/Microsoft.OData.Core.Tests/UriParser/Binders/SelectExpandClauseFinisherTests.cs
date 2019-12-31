@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------
 
 using System.Collections.Generic;
-using FluentAssertions;
+using System.Linq;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Xunit;
@@ -25,8 +25,10 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             },
             false /*allSelected*/);
             SelectExpandClauseFinisher.AddExplicitNavPropLinksWhereNecessary(clause);
-            clause.SelectedItems.Should().HaveCount(3)
-                .And.Contain(x => x is PathSelectItem && x.As<PathSelectItem>().SelectedPath.LastSegment is NavigationPropertySegment && x.As<PathSelectItem>().SelectedPath.LastSegment.As<NavigationPropertySegment>().NavigationProperty.Name == navigationProperty.Name);
+
+            Assert.Equal(3, clause.SelectedItems.Count());
+            var pathSelectItem = Assert.IsType<PathSelectItem>(clause.SelectedItems.Last(x => x is PathSelectItem));
+            var propertySegment = Assert.IsType<NavigationPropertySegment>(pathSelectItem.SelectedPath.LastSegment);
         }
 
         [Fact]
@@ -38,7 +40,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             },
             false /*allSelected*/);
             SelectExpandClauseFinisher.AddExplicitNavPropLinksWhereNecessary(clause);
-            clause.SelectedItems.Should().HaveCount(1);
+            Assert.Single(clause.SelectedItems);
         }
     }
 }

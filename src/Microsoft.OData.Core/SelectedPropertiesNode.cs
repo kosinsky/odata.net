@@ -259,7 +259,10 @@ namespace Microsoft.OData
             {
                 return EntireSubtree;
             }
-
+            if (this.selectedProperties == null)
+            {
+                this.selectedProperties = CreateSelectedPropertiesHashSet();
+            }
             // $select=Orders will include the entire subtree
             if (this.selectedProperties.Contains(navigationPropertyName))
             {
@@ -315,8 +318,7 @@ namespace Microsoft.OData
             // NOTE: the assumption is that the number of selected properties usually is a lot smaller
             //       than the number of all properties on the type and that FindProperty for each selected
             //       property is faster than iterating through all the properties on the type.
-            Debug.Assert(this.selectedProperties != null, "selectedProperties != null");
-            IEnumerable<string> navigationPropertyNames = this.selectedProperties;
+            IEnumerable<string> navigationPropertyNames = this.selectedProperties ?? CreateSelectedPropertiesHashSet();
             if (this.children != null)
             {
                 navigationPropertyNames = this.children.Keys.Concat(navigationPropertyNames);
@@ -360,13 +362,14 @@ namespace Microsoft.OData
                 return entityType.StructuralProperties().Where(sp => sp.Type.IsStream()).ToDictionary(sp => sp.Name, StringComparer.Ordinal);
             }
 
-            Debug.Assert(this.selectedProperties != null, "selectedProperties != null");
-
-            IDictionary<string, IEdmStructuralProperty> selectedStreamProperties = this.selectedProperties
-                .Select(entityType.FindProperty)
-                .OfType<IEdmStructuralProperty>()
-                .Where(p => p.Type.IsStream())
-                .ToDictionary(p => p.Name, StringComparer.Ordinal);
+            IDictionary<string, IEdmStructuralProperty> selectedStreamProperties = 
+                this.selectedProperties == null ?
+                    new Dictionary<string, IEdmStructuralProperty>() :
+                    this.selectedProperties
+                        .Select(entityType.FindProperty)
+                        .OfType<IEdmStructuralProperty>()
+                        .Where(p => p.Type.IsStream())
+                        .ToDictionary(p => p.Name, StringComparer.Ordinal);
 
             // gather up the selected stream from any child nodes that have type segments matching the current type and add them to the dictionary.
             foreach (SelectedPropertiesNode typeSegmentChild in this.GetMatchingTypeSegments(entityType))
@@ -511,7 +514,6 @@ namespace Microsoft.OData
             {
                 this.selectedProperties = CreateSelectedPropertiesHashSet();
             }
-
             bool isStar = string.CompareOrdinal(StarSegment, currentSegment) == 0;
             bool isLastSegment = index == segments.Length - 1;
             if (!isLastSegment)
@@ -533,7 +535,7 @@ namespace Microsoft.OData
         }
 
         /// <summary>
-        /// Ensures that a child annotation for the specified segment name already exists; if not creates one.
+        /// Ensures that a child node for the specified segment name already exists; if not creates one.
         /// </summary>
         /// <param name="segmentName">The segment name to get the child annotation for.</param>
         /// <returns>The existing or newly created child annotation for the <paramref name="segmentName"/>.</returns>
@@ -568,14 +570,14 @@ namespace Microsoft.OData
         {
             Debug.Assert(operation != null, "operation != null");
 
-            if (this.selectionType == SelectionType.Empty)
-            {
-                return false;
-            }
-
             if (this.selectionType == SelectionType.EntireSubtree)
             {
                 return true;
+            }
+
+            if (this.selectionType == SelectionType.Empty || this.selectedProperties == null )
+            {
+                return false;
             }
 
             return GetPossibleMatchesForSelectedOperation(operation, mustBeNamespaceQualified).Any(possibleMatch => this.selectedProperties.Contains(possibleMatch));
@@ -608,17 +610,17 @@ namespace Microsoft.OData
         }
 
         /// <summary>Create SelectedPropertiesNode using selected name list and expand node list.</summary>
-        /// <param name="selectList">A list of selected item names.</param>
-        /// <param name="expandList">A list of sub expanded nodes.</param>
+        /// <param name="selectList">An enumerable of selected item names.</param>
+        /// <param name="expandList">An enumerable of sub expanded nodes.</param>
         /// <returns>The generated SelectedPropertiesNode.</returns>
-        private static SelectedPropertiesNode CombineSelectAndExpandResult(IList<string> selectList, IList<SelectedPropertiesNode> expandList)
+        private static SelectedPropertiesNode CombineSelectAndExpandResult(IEnumerable<string> selectList, IEnumerable<SelectedPropertiesNode> expandList)
         {
             List<string> rawSelect = selectList.ToList();
             rawSelect.RemoveAll(expandList.Select(m => m.nodeName).Contains);
 
             SelectedPropertiesNode node = new SelectedPropertiesNode(SelectionType.PartialSubtree)
             {
-                selectedProperties = CreateSelectedPropertiesHashSet(),
+                selectedProperties = rawSelect.Count > 0 ? CreateSelectedPropertiesHashSet() : null,
                 children = new Dictionary<string, SelectedPropertiesNode>(StringComparer.Ordinal)
             };
 

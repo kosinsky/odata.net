@@ -5,11 +5,9 @@
 //---------------------------------------------------------------------
 
 using System.Linq;
-using FluentAssertions;
 using Microsoft.OData.Edm.Csdl;
 using Microsoft.OData.Edm.Csdl.CsdlSemantics;
 using Microsoft.OData.Edm.Csdl.Parsing.Ast;
-using Microsoft.OData.Edm;
 using Microsoft.OData.Edm.Vocabularies;
 using Xunit;
 
@@ -39,16 +37,24 @@ namespace Microsoft.OData.Edm.Tests.Csdl.Semantics
         [Fact]
         public void NonBoundCsdlSemanticsOperationPropertiesShouldBeCorrect()
         {
-            var function = new CsdlFunction("Checkout", Enumerable.Empty<CsdlOperationParameter>(), new CsdlNamedTypeReference("Edm.String", false, testLocation), false /*isBound*/, null /*entitySetPath*/, true /*isComposable*/, testLocation);
+            var function = new CsdlFunction(
+                "Checkout",
+                Enumerable.Empty<CsdlOperationParameter>(),
+                new CsdlOperationReturn(new CsdlNamedTypeReference("Edm.String", false, testLocation), testLocation),
+                false /*isBound*/,
+                null /*entitySetPath*/,
+                true /*isComposable*/,
+                testLocation);
+
             var semanticFunction = new CsdlSemanticsFunction(this.semanticSchema, function);
-            semanticFunction.IsBound.Should().BeFalse();
-            semanticFunction.Location().Should().Be(testLocation);
-            semanticFunction.Name.Should().Be("Checkout");
-            semanticFunction.Namespace.Should().Be("FQ.NS");
-            semanticFunction.ReturnType.Definition.Should().Be(EdmCoreModel.Instance.GetString(true).Definition);
-            semanticFunction.EntitySetPath.Should().BeNull();
-            semanticFunction.SchemaElementKind.Should().Be(EdmSchemaElementKind.Function);
-            semanticFunction.IsComposable.Should().BeTrue();
+            Assert.False(semanticFunction.IsBound);
+            Assert.Equal(testLocation, semanticFunction.Location());
+            Assert.Equal("Checkout", semanticFunction.Name);
+            Assert.Equal("FQ.NS", semanticFunction.Namespace);
+            Assert.Equal("Edm.String", semanticFunction.ReturnType.Definition.FullTypeName());
+            Assert.Null(semanticFunction.EntitySetPath);
+            Assert.Equal(EdmSchemaElementKind.Function, semanticFunction.SchemaElementKind);
+            Assert.True(semanticFunction.IsComposable);
         }
 
         [Fact]
@@ -57,20 +63,20 @@ namespace Microsoft.OData.Edm.Tests.Csdl.Semantics
             var action = new CsdlAction(
                 "Checkout",
                 new CsdlOperationParameter[] { new CsdlOperationParameter("entity", new CsdlNamedTypeReference("FQ.NS.EntityType", false, testLocation), testLocation) }, 
-                new CsdlNamedTypeReference("Edm.String", false, testLocation), 
+                new CsdlOperationReturn(new CsdlNamedTypeReference("Edm.String", false, testLocation), testLocation),
                 true /*isBound*/,
                 "entity/FakePath",
                 testLocation);
 
             var semanticAction = new CsdlSemanticsAction(this.semanticSchema, action);
-            semanticAction.IsBound.Should().BeTrue();
-            semanticAction.Location().Should().Be(testLocation);
-            semanticAction.Name.Should().Be("Checkout");
-            semanticAction.Namespace.Should().Be("FQ.NS");
-            semanticAction.ReturnType.Definition.Should().Be(EdmCoreModel.Instance.GetString(true).Definition);
-            semanticAction.EntitySetPath.PathSegments.ToList()[0].Should().Be("entity");
-            semanticAction.EntitySetPath.PathSegments.ToList()[1].Should().Be("FakePath");
-            semanticAction.SchemaElementKind.Should().Be(EdmSchemaElementKind.Action);
+            Assert.True(semanticAction.IsBound);
+            Assert.Equal(testLocation, semanticAction.Location());
+            Assert.Equal("Checkout", semanticAction.Name);
+            Assert.Equal("FQ.NS", semanticAction.Namespace);
+            Assert.Equal("Edm.String", semanticAction.ReturnType.Definition.FullTypeName());
+            Assert.Equal("entity", semanticAction.EntitySetPath.PathSegments.ToList()[0]);
+            Assert.Equal("FakePath", semanticAction.EntitySetPath.PathSegments.ToList()[1]);
+            Assert.Equal(EdmSchemaElementKind.Action, semanticAction.SchemaElementKind);
         }
     }
 }

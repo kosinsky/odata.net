@@ -6,7 +6,7 @@
 
 using System;
 using System.IO;
-using FluentAssertions;
+using Microsoft.OData.Buffers;
 using Microsoft.OData.Json;
 using Xunit;
 
@@ -17,61 +17,74 @@ namespace Microsoft.OData.Tests.Json
         [Fact]
         public void DottedNumberShouldBeReadAsDecimal()
         {
-            this.CreateJsonLightReader("42.0").ReadPrimitiveValue().Should().BeOfType<Decimal>();
+            Assert.IsType<Decimal>(this.CreateJsonLightReader("42.0").ReadPrimitiveValue());
         }
 
         [Fact]
         public void NonDottedNumberShouldBeReadAsInt()
         {
-            this.CreateJsonLightReader("42").ReadPrimitiveValue().Should().BeOfType<Int32>();
+            Assert.IsType<Int32>(this.CreateJsonLightReader("42").ReadPrimitiveValue());
         }
 
         [Fact]
         public void TrueShouldBeReadAsBoolean()
         {
-            this.CreateJsonLightReader("true").ReadPrimitiveValue().Should().BeOfType<Boolean>();
+            Assert.IsType<Boolean>(this.CreateJsonLightReader("true").ReadPrimitiveValue());
         }
 
         [Fact]
         public void FalseShouldBeReadAsBoolean()
         {
-            this.CreateJsonLightReader("false").ReadPrimitiveValue().Should().BeOfType<Boolean>();
+            Assert.IsType<Boolean>(this.CreateJsonLightReader("false").ReadPrimitiveValue());
         }
 
         [Fact]
         public void NullShouldBeReadAsNull()
         {
-            this.CreateJsonLightReader("null").ReadPrimitiveValue().Should().BeNull();
+            Assert.Null(this.CreateJsonLightReader("null").ReadPrimitiveValue());
         }
 
         [Fact]
         public void QuotedNumberShouldBeReadAsString()
         {
-            this.CreateJsonLightReader("\"42\"").ReadPrimitiveValue().Should().BeOfType<String>();
+            Assert.IsType<String>(this.CreateJsonLightReader("\"42\"").ReadPrimitiveValue());
         }
 
         [Fact]
         public void QuotedISO8601DateTimeShouldBeReadAsString()
         {
-            this.CreateJsonLightReader("\"2012-08-14T19:39Z\"").ReadPrimitiveValue().Should().BeOfType<String>();
+            Assert.IsType<String>(this.CreateJsonLightReader("\"2012-08-14T19:39Z\"").ReadPrimitiveValue());
         }
 
         [Fact]
         public void QuotedNullShouldBeReadAsString()
         {
-            this.CreateJsonLightReader("\"null\"").ReadPrimitiveValue().Should().BeOfType<String>();
+            Assert.IsType<String>(this.CreateJsonLightReader("\"null\"").ReadPrimitiveValue());
         }
 
         [Fact]
         public void QuotedBooleanValueShouldBeReadAsString()
         {
-            this.CreateJsonLightReader("\"true\"").ReadPrimitiveValue().Should().BeOfType<String>();
+            Assert.IsType<String>(this.CreateJsonLightReader("\"true\"").ReadPrimitiveValue());
         }
 
         [Fact]
         public void QuotedAspNetDateTimeValueShouldBeReadAsStringInJsonLight()
         {
-            this.CreateJsonLightReader("\"\\/Date(628318530718)\\/\"").ReadPrimitiveValue().Should().BeOfType<String>();
+            Assert.IsType<String>(this.CreateJsonLightReader("\"\\/Date(628318530718)\\/\"").ReadPrimitiveValue());
+        }
+
+        [Theory]
+        [InlineData("\"abc\u6211xyz\"")]
+        [InlineData("\"abcxyz\u6211\"")]
+        [InlineData("\"\u6211abcxyz\"")]
+        public void EscapeStringShouldBeReadAsString(string value)
+        {
+            // Arrange & Act
+            object actual = this.CreateJsonLightReader(value).ReadPrimitiveValue();
+
+            // Assert
+            Assert.IsType<string>(actual);
         }
 
         private JsonReader CreateJsonLightReader(string jsonValue)
@@ -80,9 +93,49 @@ namespace Microsoft.OData.Tests.Json
             reader.Read();
             reader.ReadStartObject();
             reader.ReadPropertyName();
-            reader.NodeType.Should().Be(JsonNodeType.PrimitiveValue);
+            Assert.Equal(JsonNodeType.PrimitiveValue, reader.NodeType);
 
             return reader;
+        }
+
+        [Fact]
+        public void ShouldUseArrayPoolIfSet()
+        {
+            // Arrange
+            TestArrayPool pool = new TestArrayPool();
+            Assert.Equal(0, pool.RentCount); // guard
+            Assert.Equal(0, pool.ReturnCount); // guard
+            IJsonReader reader = new JsonReader(new StringReader("[]"), isIeee754Compatible: false)
+            {
+                ArrayPool = pool
+            };
+
+            // Act
+            while (reader.Read())
+            { }
+
+            // Assert
+            Assert.Equal(JsonNodeType.EndOfInput, reader.NodeType);
+            Assert.Equal(1, pool.RentCount);
+            Assert.Equal(1, pool.ReturnCount);
+        }
+
+        public class TestArrayPool : ICharArrayPool
+        {
+            public int RentCount { get; set; }
+
+            public int ReturnCount { get; set; }
+
+            public char[] Rent(int minSize)
+            {
+                RentCount++;
+                return new char[minSize];
+            }
+
+            public void Return(char[] array)
+            {
+                ReturnCount++;
+            }
         }
     }
 }

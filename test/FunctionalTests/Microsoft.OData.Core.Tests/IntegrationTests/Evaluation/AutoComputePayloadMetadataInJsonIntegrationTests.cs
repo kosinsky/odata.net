@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Microsoft.Test.OData.DependencyInjection;
@@ -193,8 +192,6 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                            "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/stream/read\"," +
                            "\"StreamProp1@odata.mediaContentType\":\"image/jpeg\"," +
                            "\"StreamProp1@odata.mediaEtag\":\"stream etag\"," +
-                           "\"StreamProp2@odata.mediaEditLink\":\"http://example.com/edit/StreamProp2\"," +
-                           "\"StreamProp2@odata.mediaReadLink\":\"http://example.com/read/StreamProp2\"," +
                            "\"DeferredNavLink@odata.associationLink\":\"http://example.com/association\"," +
                            "\"DeferredNavLink@odata.navigationLink\":\"http://example.com/navigation\"," +
                            "\"ExpandedNavLink@odata.associationLink\":\"http://example.com/expanded/association\"," +
@@ -216,6 +213,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                            "\"UnknownCollectionNavProp@odata.navigationLink\":\"http://example.com/read/UnknownCollectionNavProp\"," +
                            "\"EnumAsKeyContainedNavProp@odata.associationLink\":\"http://example.com/read/EnumAsKeyContainedNavProp/$ref\"," +
                            "\"EnumAsKeyContainedNavProp@odata.navigationLink\":\"http://example.com/read/EnumAsKeyContainedNavProp\"," +
+                           "\"StreamProp2@odata.mediaEditLink\":\"http://example.com/edit/StreamProp2\"," +
+                           "\"StreamProp2@odata.mediaReadLink\":\"http://example.com/read/StreamProp2\"," +
                            "\"#Action\":{\"title\":\"ActionTitle\",\"target\":\"http://example.com/DoAction\"}," +
                            "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/edit/Namespace.AlwaysBindableAction1\"}," +
                            "\"#Namespace.AlwaysBindableAction2\":{\"title\":\"Namespace.AlwaysBindableAction2\",\"target\":\"http://example.com/edit/Namespace.AlwaysBindableAction2\"}," +
@@ -241,8 +240,6 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                            "\"StreamProp1@mediaReadLink\":\"http://example.com/stream/read\"," +
                            "\"StreamProp1@mediaContentType\":\"image/jpeg\"," +
                            "\"StreamProp1@mediaEtag\":\"stream etag\"," +
-                           "\"StreamProp2@mediaEditLink\":\"http://example.com/edit/StreamProp2\"," +
-                           "\"StreamProp2@mediaReadLink\":\"http://example.com/read/StreamProp2\"," +
                            "\"DeferredNavLink@associationLink\":\"http://example.com/association\"," +
                            "\"DeferredNavLink@navigationLink\":\"http://example.com/navigation\"," +
                            "\"ExpandedNavLink@associationLink\":\"http://example.com/expanded/association\"," +
@@ -264,6 +261,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                            "\"UnknownCollectionNavProp@navigationLink\":\"http://example.com/read/UnknownCollectionNavProp\"," +
                            "\"EnumAsKeyContainedNavProp@associationLink\":\"http://example.com/read/EnumAsKeyContainedNavProp/$ref\"," +
                            "\"EnumAsKeyContainedNavProp@navigationLink\":\"http://example.com/read/EnumAsKeyContainedNavProp\"," +
+                           "\"StreamProp2@mediaEditLink\":\"http://example.com/edit/StreamProp2\"," +
+                           "\"StreamProp2@mediaReadLink\":\"http://example.com/read/StreamProp2\"," +
                            "\"#Action\":{\"title\":\"ActionTitle\",\"target\":\"http://example.com/DoAction\"}," +
                            "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/edit/Namespace.AlwaysBindableAction1\"}," +
                            "\"#Namespace.AlwaysBindableAction2\":{\"title\":\"Namespace.AlwaysBindableAction2\",\"target\":\"http://example.com/edit/Namespace.AlwaysBindableAction2\"}," +
@@ -598,7 +597,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             entitySetWriter.WriteEnd();
             entitySetWriter.WriteEnd();
             var str = Encoding.UTF8.GetString(stream.ToArray());
-            str.Should().Be(
+            Assert.Equal(
                 "{\"@odata.context\":\"http://svc/$metadata#EntitySet\"," +
                 "\"value\":[{" +
                     "\"@odata.id\":\"EntitySet(1)\"," +
@@ -629,7 +628,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                             "\"PrimitiveProperty1\":1," +
                             "\"PrimitiveProperty2@odata.type\":\"#Int64\"," +
                             "\"PrimitiveProperty2\":2" +
-                        "}]}]}");
+                        "}]}]}", str);
         }
 
         [Fact]
@@ -718,7 +717,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             entitySetWriter.WriteEnd();
             entitySetWriter.WriteEnd();
             var str = Encoding.UTF8.GetString(stream.ToArray());
-            str.Should().Be(
+            Assert.Equal(
                 "{\"@context\":\"http://svc/$metadata#EntitySet\"," +
                 "\"value\":[{" +
                     "\"@id\":\"EntitySet(1)\"," +
@@ -749,8 +748,299 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                             "\"PrimitiveProperty1\":1," +
                             "\"PrimitiveProperty2@type\":\"Int64\"," +
                             "\"PrimitiveProperty2\":2" +
-                        "}]}]}");
+                        "}]}]}", str);
         }
+
+        #region Entity Reference link
+        [Fact]
+        public void WritingNestedSingleEntityReferenceLinkInRequest_ODataV4_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V4, request: true, collection: false);
+
+            // Assert
+            Assert.Equal("{\"@odata.context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrder@odata.bind\":\"http://svc/Orders(8)\"" +
+              "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedSingleEntityReferenceLinkInResponse_ODataV4_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V4, request: false, collection: false);
+
+            // Assert
+            Assert.Equal("{\"@odata.context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrder\":{" +
+                    "\"@odata.id\":\"Orders(8)\"" +
+                  "}" +
+                "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedSingleEntityReferenceLinkInRequest_ODataV401_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V401, request: true, collection: false);
+
+            // Assert
+            Assert.Equal("{\"@context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrder\":{" +
+                    "\"@id\":\"Orders(8)\"" +
+                  "}" +
+                "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedSingleEntityReferenceLinkInResponse_ODataV401_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V401, request: false, collection: false);
+
+            // Assert
+            Assert.Equal("{\"@context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrder\":{" +
+                    "\"@id\":\"Orders(8)\"" +
+                  "}" +
+                "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInRequest_ODataV4_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V4, request: true, collection: true);
+
+            // Assert
+            Assert.Equal("{\"@odata.context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrders@odata.bind\":[" +
+                  "\"http://svc/Orders(2)\"," +
+                  "\"http://svc/Orders(3)\"," +
+                  "\"http://svc/Orders(4)\"" +
+                "]" +
+              "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInResponse_ODataV4_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V4, request: false, collection: true);
+
+            // Assert
+            Assert.Equal("{\"@odata.context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrders\":[" +
+                    "{\"@odata.id\":\"Orders(2)\"}," +
+                    "{\"@odata.id\":\"Orders(3)\"}," +
+                    "{\"@odata.id\":\"Orders(4)\"}" +
+                  "]" +
+                "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInRequest_ODataV401_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V401, request: true, collection: true);
+
+            // Assert
+            Assert.Equal("{\"@context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrders\":[" +
+                    "{\"@id\":\"Orders(2)\"}," +
+                    "{\"@id\":\"Orders(3)\"}," +
+                    "{\"@id\":\"Orders(4)\"}" +
+                  "]" +
+                "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInResponse_ODataV401_Works()
+        {
+            // Arrange & Act
+            string payload = GetEntityReferenceLinksPayload(ODataVersion.V401, request: false, collection: true);
+
+            // Assert
+            Assert.Equal("{\"@context\":\"http://svc/$metadata#Customers/$entity\"," +
+                "\"CustomerId\":7," +
+                "\"BillOrders\":[" +
+                    "{\"@id\":\"Orders(2)\"}," +
+                    "{\"@id\":\"Orders(3)\"}," +
+                    "{\"@id\":\"Orders(4)\"}" +
+                  "]" +
+                "}", payload);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInResponseWithoutNestedResourceSet_Throws()
+        {
+            // Arrange
+            MemoryStream stream = new MemoryStream();
+            ODataWriter writer = GetODataWriterForEntityReferenceLink(ODataVersion.V401, request: false, stream: stream);
+
+            // Act
+            Action test = () =>
+            {
+                writer.WriteStart(new ODataResource { Properties = new[] { new ODataProperty { Name = "CustomerId", Value = 7 } } });
+                writer.WriteStart(new ODataNestedResourceInfo { Name = "BillOrder", IsCollection = false });
+                writer.WriteEntityReferenceLink(new ODataEntityReferenceLink { Url = new Uri("http://svc/Orders(2)") });
+                writer.WriteEntityReferenceLink(new ODataEntityReferenceLink { Url = new Uri("http://svc/Orders(3)") });
+                writer.WriteEnd();
+                writer.WriteEnd();
+            };
+
+            // Assert
+            var exception = Assert.Throws<ODataException>(test);
+            Assert.Equal(Strings.ODataWriterCore_MultipleItemsInNestedResourceInfoWithContent, exception.Message);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInResponseWithNextLinks_ODataV40_Works()
+        {
+            // Arrange & Act
+            Func<ODataResourceSet> func = () => new ODataResourceSet
+            {
+                NextPageLink = new Uri("http://nextLink")
+            };
+
+            MemoryStream stream = new MemoryStream();
+            string actual = GetEntityReferenceLinksPayload(ODataVersion.V4, request: false, collection: true, nestedResourceSetFunc: func);
+
+            // Assert
+            Assert.Equal("{\"@odata.context\":\"http://svc/$metadata#Customers/$entity\"," +
+                    "\"CustomerId\":7," +
+                    "\"BillOrders@odata.nextLink\":\"http://nextlink/\"," +
+                    "\"BillOrders\":[" +
+                      "{\"@odata.id\":\"Orders(2)\"}," +
+                      "{\"@odata.id\":\"Orders(3)\"}," +
+                      "{\"@odata.id\":\"Orders(4)\"}" +
+                    "]" +
+                  "}", actual);
+        }
+
+        [Fact]
+        public void WritingNestedCollectionEntityReferenceLinksInResponseWithNextLinks_ODataV401_Works()
+        {
+            // Arrange & Act
+            Func<ODataResourceSet> func = () => new ODataResourceSet
+            {
+                NextPageLink = new Uri("http://nextLink")
+            };
+
+            MemoryStream stream = new MemoryStream();
+            string actual = GetEntityReferenceLinksPayload(ODataVersion.V401, request: false, collection: true, nestedResourceSetFunc: func);
+
+            // Assert
+            Assert.Equal("{\"@context\":\"http://svc/$metadata#Customers/$entity\"," +
+                    "\"CustomerId\":7," +
+                    "\"BillOrders@nextLink\":\"http://nextlink/\"," +
+                    "\"BillOrders\":[" +
+                      "{\"@id\":\"Orders(2)\"}," +
+                      "{\"@id\":\"Orders(3)\"}," +
+                      "{\"@id\":\"Orders(4)\"}" +
+                    "]" +
+                  "}", actual);
+        }
+
+        private string GetEntityReferenceLinksPayload(ODataVersion version, bool request, bool collection,
+            Func<ODataResourceSet> nestedResourceSetFunc = null)
+        {
+            MemoryStream stream = new MemoryStream();
+            ODataWriter odataWriter = GetODataWriterForEntityReferenceLink(version, request, stream);
+
+            odataWriter.WriteStart(new ODataResource { Properties = new[] { new ODataProperty { Name = "CustomerId", Value = 7 } } });
+            if (collection)
+            {
+                odataWriter.WriteStart(new ODataNestedResourceInfo { Name = "BillOrders", IsCollection = true });
+                if (!request)
+                {
+                    // only in response, we should call "WriteStart(ODataResourceSet)".
+                    ODataResourceSet resourceSet = nestedResourceSetFunc == null ? new ODataResourceSet() : nestedResourceSetFunc();
+                    odataWriter.WriteStart(resourceSet);
+                }
+
+                odataWriter.WriteEntityReferenceLink(new ODataEntityReferenceLink { Url = new Uri("http://svc/Orders(2)") });
+                odataWriter.WriteEntityReferenceLink(new ODataEntityReferenceLink { Url = new Uri("http://svc/Orders(3)") });
+                odataWriter.WriteEntityReferenceLink(new ODataEntityReferenceLink { Url = new Uri("http://svc/Orders(4)") });
+
+                if (!request)
+                {
+                    odataWriter.WriteEnd(); // End of ResourceSet
+                }
+            }
+            else
+            {
+                odataWriter.WriteStart(new ODataNestedResourceInfo { Name = "BillOrder", IsCollection = false });
+                odataWriter.WriteEntityReferenceLink(new ODataEntityReferenceLink { Url = new Uri("http://svc/Orders(8)") });
+            }
+
+            odataWriter.WriteEnd(); // End of NestedResourceInfo
+            odataWriter.WriteEnd(); // End of ResourceInfo
+            odataWriter.Flush();
+
+            return Encoding.UTF8.GetString(stream.ToArray());
+        }
+
+        private ODataWriter GetODataWriterForEntityReferenceLink(ODataVersion version, bool request, MemoryStream stream)
+        {
+            // Arrange - Edm model
+            var model = new EdmModel();
+            var customer = new EdmEntityType("NS", "Customer");
+            customer.AddKeys(customer.AddStructuralProperty("CustomerId", EdmPrimitiveTypeKind.Int32));
+            model.AddElement(customer);
+
+            var order = new EdmEntityType("NS", "Order");
+            order.AddKeys(order.AddStructuralProperty("OrderId", EdmPrimitiveTypeKind.Int32));
+            model.AddElement(order);
+            customer.AddUnidirectionalNavigation(new EdmNavigationPropertyInfo
+            {
+                Name = "BillOrder",
+                Target = order,
+                TargetMultiplicity = EdmMultiplicity.One
+            });
+
+            customer.AddUnidirectionalNavigation(new EdmNavigationPropertyInfo
+            {
+                Name = "BillOrders",
+                Target = order,
+                TargetMultiplicity = EdmMultiplicity.Many
+            });
+
+            var container = new EdmEntityContainer("NS", "Container");
+            var customers = container.AddEntitySet("Customers", customer);
+            model.AddElement(container);
+
+            var message = new InMemoryMessage { Stream = stream };
+            var settings = new ODataMessageWriterSettings
+            {
+                ODataUri = new ODataUri
+                {
+                    ServiceRoot = new Uri("http://svc/")
+                },
+                Version = version
+            };
+
+            ODataMessageWriter writer;
+            if (request)
+            {
+                writer = new ODataMessageWriter((IODataRequestMessage)message, settings, model);
+            }
+            else
+            {
+                writer = new ODataMessageWriter((IODataResponseMessage)message, settings, model);
+            }
+
+            // Act
+            return writer.CreateODataResourceWriter(customers);
+        }
+        #endregion
 
         [Fact]
         public void WritingResourceNestedPropertyWithEdmAbstractTypeWorks()
@@ -925,50 +1215,44 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
         [Fact]
         public void WritingSimplifiedODataAnnotationsInFullMetadataMode()
         {
-            GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=full", false, enableWritingODataAnnotationWithoutPrefix: true)
-                .Should().Be(expectedPayloadWithFullMetadataODataSimplified);
+            Assert.Equal(expectedPayloadWithFullMetadataODataSimplified,
+                GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=full", false, enableWritingODataAnnotationWithoutPrefix: true));
         }
 
         [Fact]
         public void WritingInNoMetadataModeShouldStripPayloadMetadataIfAutoComputePayloadMetadataInJsonIsTrue()
         {
-            GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=none", true)
-                .Should().Be(PayloadWithNoMetadata);
+            Assert.Equal(PayloadWithNoMetadata, GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=none", true));
         }
 
         [Fact]
         public void WritingInNoMetadataModeShouldNotStripPayloadMetadataIfAutoComputePayloadMetadataInJsonIsFalse()
         {
-            GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=none", false)
-                .Should().Be(PayloadWithNoMetadata);
+            Assert.Equal(PayloadWithNoMetadata, GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=none", false));
         }
 
         [Fact]
         public void WritingInMinimalMetadataModeShouldNotStripPayloadMetadataIfAutoComputePayloadMetadataInJsonIsTrue()
         {
-            GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=minimal", true)
-                .Should().Be(PayloadWithAllMetadata);
+            Assert.Equal(PayloadWithAllMetadata, GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=minimal", true));
         }
 
         [Fact]
         public void WritingInMinimalMetadataModeShouldNotStripPayloadMetadataIfAutoComputePayloadMetadataInJsonIsFalse()
         {
-            GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=minimal", false)
-                .Should().Be(PayloadWithAllMetadata);
+            Assert.Equal(PayloadWithAllMetadata, GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=minimal", false));
         }
 
         [Fact]
         public void WritingInFullMetadataModeShouldNotStripPayloadMetadataIfAutoComputePayloadMetadataInJsonIsFalse()
         {
-            GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=full", false)
-                .Should().Be(expectedPayloadWithFullMetadata);
+            Assert.Equal(expectedPayloadWithFullMetadata, GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=full", false));
         }
 
         [Fact]
         public void WritingInFullMetadataModeShouldNotStripPayloadMetadataAndShouldWriteMissingMetadataIfAutoComputePayloadMetadataInJsonIsTrue()
         {
-            var actualPayload = GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=full", true);
-            actualPayload.Should().Be(expectedPayloadWithFullMetadata);
+            Assert.Equal(expectedPayloadWithFullMetadata, GetWriterOutputForEntryWithPayloadMetadata("application/json;odata.metadata=full", true));
         }
 
         [Fact]
@@ -982,10 +1266,6 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                                            "\"@odata.mediaEditLink\":\"EntitySet(123)/$value\"," +
                                            "\"ID\":123," +
                                            "\"Name\":\"Bob\"," +
-                                           "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
-                                           "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
-                                           "\"StreamProp2@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp2\"," +
-                                           "\"StreamProp2@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp2\"," +
                                            "\"DeferredNavLink@odata.associationLink\":\"http://example.com/EntitySet(123)/DeferredNavLink/$ref\"," +
                                            "\"DeferredNavLink@odata.navigationLink\":\"http://example.com/EntitySet(123)/DeferredNavLink\"," +
                                            "\"ExpandedNavLink@odata.associationLink\":\"http://example.com/EntitySet(123)/ExpandedNavLink/$ref\"," +
@@ -1007,6 +1287,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                                            "\"UnknownCollectionNavProp@odata.navigationLink\":\"http://example.com/EntitySet(123)/UnknownCollectionNavProp\"," +
                                            "\"EnumAsKeyContainedNavProp@odata.associationLink\":\"http://example.com/EntitySet(123)/EnumAsKeyContainedNavProp/$ref\","+
                                            "\"EnumAsKeyContainedNavProp@odata.navigationLink\":\"http://example.com/EntitySet(123)/EnumAsKeyContainedNavProp\"," +
+                                           "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
+                                           "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
+                                           "\"StreamProp2@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp2\"," +
+                                           "\"StreamProp2@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp2\"," +
                                            "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableAction1\"}," +
                                            "\"#Namespace.AlwaysBindableAction2\":{\"title\":\"Namespace.AlwaysBindableAction2\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableAction2\"}," +
                                            "\"#Namespace.AlwaysBindableFunction1\":{\"title\":\"Namespace.AlwaysBindableFunction1\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableFunction1\"}," +
@@ -1014,8 +1298,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                                            "\"#Namespace.Function3\":{\"title\":\"Namespace.Function3\",\"target\":\"http://example.com/EntitySet(123)/Namespace.Function3\"}," +
                                            "\"#Namespace.Function4\":{\"title\":\"Namespace.Function4\",\"target\":\"http://example.com/EntitySet(123)/Namespace.Function4\"}" +
                                            "}";
-            GetWriterOutputForEntryWithOnlyData("application/json;odata.metadata=full", true)
-                .Should().Be(expectedPayload);
+
+            Assert.Equal(expectedPayload, GetWriterOutputForEntryWithOnlyData("application/json;odata.metadata=full", true));
         }
 
         [Fact]
@@ -1029,18 +1313,18 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                                            "\"@odata.mediaEditLink\":\"EntitySet(123)/$value\"," +
                                            "\"ID\":123," +
                                            "\"Name\":\"Bob\"," +
-                                           "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
-                                           "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
                                            "\"DeferredNavLink@odata.associationLink\":\"http://example.com/EntitySet(123)/DeferredNavLink/$ref\"," +
                                            "\"DeferredNavLink@odata.navigationLink\":\"http://example.com/EntitySet(123)/DeferredNavLink\"," +
                                            "\"ExpandedNavLink@odata.associationLink\":\"http://example.com/EntitySet(123)/ExpandedNavLink/$ref\"," +
                                            "\"ExpandedNavLink@odata.navigationLink\":\"http://example.com/EntitySet(123)/ExpandedNavLink\"," +
                                            "\"ExpandedNavLink\":[]," +
+                                           "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
+                                           "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
                                            "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableAction1\"}," +
                                            "\"#Namespace.AlwaysBindableFunction1\":{\"title\":\"Namespace.AlwaysBindableFunction1\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableFunction1\"}" +
                                            "}";
-            GetWriterOutputForEntryWithOnlyData("application/json;odata.metadata=full", true, "StreamProp1,Namespace.AlwaysBindableAction1,Namespace.AlwaysBindableFunction1")
-                .Should().Be(expectedPayload);
+            Assert.Equal(expectedPayload,
+                GetWriterOutputForEntryWithOnlyData("application/json;odata.metadata=full", true, "StreamProp1,Namespace.AlwaysBindableAction1,Namespace.AlwaysBindableFunction1"));
         }
 
         [Fact]
@@ -1057,8 +1341,6 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                         "\"@odata.mediaEditLink\":\"EntitySet(123)/$value\"," +
                         "\"ID\":123," +
                         "\"Name\":\"Bob\"," +
-                        "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
-                        "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
                         "\"ExpandedNavLink@odata.associationLink\":\"http://example.com/expanded/association\"," +
                         "\"ExpandedNavLink@odata.navigationLink\":\"http://example.com/expanded/navigation\"," +
                         "\"ExpandedNavLink\":[" +
@@ -1069,8 +1351,6 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                             "\"@odata.mediaEditLink\":\"EntitySet(234)/$value\"," +
                             "\"ID\":234," +
                             "\"Name\":\"Foo\"," +
-                            "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(234)/StreamProp1\"," +
-                            "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(234)/StreamProp1\"," +
                             "\"DeferredNavLink@odata.associationLink\":\"http://example.com/EntitySet(234)/DeferredNavLink/$ref\"," +
                             "\"DeferredNavLink@odata.navigationLink\":\"http://example.com/EntitySet(234)/DeferredNavLink\"," +
                             "\"ExpandedNavLink@odata.associationLink\":\"http://example.com/expanded/association\"," +
@@ -1087,10 +1367,14 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                                 "\"StreamProp2@odata.mediaReadLink\":\"http://example.com/EntitySet(345)/StreamProp2\"," +
                                 "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/EntitySet(345)/Namespace.AlwaysBindableAction1\"}" +
                             "}]," +
+                            "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(234)/StreamProp1\"," +
+                            "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(234)/StreamProp1\"," +
                             "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/EntitySet(234)/Namespace.AlwaysBindableAction1\"}" +
                         "}]," +
                         "\"DeferredNavLink@odata.associationLink\":\"http://example.com/EntitySet(123)/DeferredNavLink/$ref\"," +
                         "\"DeferredNavLink@odata.navigationLink\":\"http://example.com/EntitySet(123)/DeferredNavLink\"," +
+                        "\"StreamProp1@odata.mediaEditLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
+                        "\"StreamProp1@odata.mediaReadLink\":\"http://example.com/EntitySet(123)/StreamProp1\"," +
                         "\"#Namespace.AlwaysBindableAction1\":{\"title\":\"Namespace.AlwaysBindableAction1\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableAction1\"}," +
                         "\"#Namespace.AlwaysBindableFunction1\":{\"title\":\"Namespace.AlwaysBindableFunction1\",\"target\":\"http://example.com/EntitySet(123)/Namespace.AlwaysBindableFunction1\"}" +
                     "}]" +
@@ -1105,8 +1389,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
 
             const string selectClause = "StreamProp1,Namespace.AlwaysBindableAction1,Namespace.AlwaysBindableFunction1,DeferredNavLink";
             const string expandClause = "ExpandedNavLink($select=StreamProp1,Namespace.AlwaysBindableAction1;$expand=ExpandedNavLink($select=StreamProp2,Namespace.AlwaysBindableAction1))";
-            this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause)
-                .Should().Be(expectedPayload);
+            Assert.Equal(expectedPayload,
+                this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause));
         }
 
         [Fact]
@@ -1123,9 +1407,9 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             const string expandClause = "ExpandedNavLink($select=StreamProp1,Namespace.AlwaysBindableAction1;$expand=ExpandedNavLink($select=StreamProp2,Namespace.AlwaysBindableAction1))";
             this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause);
 
-            this.entryWithOnlyData.MetadataBuilder.ParentMetadataBuilder.Should().BeNull();
-            this.entryWithOnlyData2.MetadataBuilder.ParentMetadataBuilder.Should().Be(this.entryWithOnlyData.MetadataBuilder);
-            this.entryWithOnlyData3.MetadataBuilder.ParentMetadataBuilder.Should().Be(this.entryWithOnlyData2.MetadataBuilder);
+            Assert.Null(this.entryWithOnlyData.MetadataBuilder.ParentMetadataBuilder);
+            Assert.Same(this.entryWithOnlyData.MetadataBuilder, this.entryWithOnlyData2.MetadataBuilder.ParentMetadataBuilder);
+            Assert.Same(this.entryWithOnlyData2.MetadataBuilder, this.entryWithOnlyData3.MetadataBuilder.ParentMetadataBuilder);
         }
 
         [Fact]
@@ -1142,7 +1426,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause, "EntitySet(123)");
 
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNavProp(234)");
-            this.entryWithOnlyData2.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.entryWithOnlyData2.Id);
         }
 
         [Fact]
@@ -1159,10 +1443,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, contianedEntitySet, EntityType, null, null, resourcePath);
 
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNavProp(123)");
-            this.entryWithOnlyData.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.entryWithOnlyData.Id);
 
             string expectedContextUriString = "$metadata#EntitySet(123)/ContainedNavProp/$entity";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1177,10 +1461,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, contianedEntitySet, EnumAsKeyEntityType, null, null, resourcePath);
 
             Uri containedId = new Uri("http://example.com/EntitySet(123)/EnumAsKeyContainedNavProp(Namespace.Gender'Male')");
-            entry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, entry.Id);
 
             string expectedContextUriString = "$metadata#EntitySet(123)/EnumAsKeyContainedNavProp/$entity";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1197,7 +1481,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, contianedEntitySet, EntityType, null, null, resourcePath);
 
             string expectedContextUriString = "$metadata#EntitySet(123)/ContainedNonCollectionNavProp";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1211,7 +1495,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, null, null, resourcePath);
 
             string expectedContextUriString = "$metadata#EntitySet/$entity";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1228,10 +1512,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, contianedEntitySet, DerivedType, null, null, resourcePath);
 
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNavProp(123)");
-            this.entryWithOnlyData.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.entryWithOnlyData.Id);
 
             string expectedContextUriString = "$metadata#EntitySet(123)/ContainedNavProp/Namespace.DerivedType/$entity";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1248,7 +1532,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, contianedEntitySet, DerivedType, null, null, resourcePath);
 
             string expectedContextUriString = "$metadata#EntitySet(123)/ContainedNavProp/Namespace.DerivedType\"";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1265,10 +1549,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, contianedEntitySet, EntityType, null, null, resourcePath);
 
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNavProp(123)");
-            this.entryWithOnlyData.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.entryWithOnlyData.Id);
 
             string expectedContextUriString = "$metadata#EntitySet(123)/ContainedNavProp";
-            result.Should().Contain(expectedContextUriString);
+            Assert.Contains(expectedContextUriString, result);
         }
 
         [Fact]
@@ -1286,9 +1570,9 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause, "EntitySet");
 
             Uri containedIdLevel1 = new Uri("http://example.com/EntitySet(123)/ContainedNonCollectionNavProp");
-            this.entryWithOnlyData2.Id.Should().Be(containedIdLevel1);
+            Assert.Equal(containedIdLevel1, this.entryWithOnlyData2.Id);
             Uri containedIdLevel2 = new Uri("http://example.com/EntitySet(123)/ContainedNonCollectionNavProp/ContainedNonCollectionNavProp");
-            this.entryWithOnlyData3.Id.Should().Be(containedIdLevel2);
+            Assert.Equal(containedIdLevel2, this.entryWithOnlyData3.Id);
         }
 
         [Fact]
@@ -1305,7 +1589,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, null, null, "EntitySet");
 
             Uri containedId = new Uri("http://example.com/EntitySet(345)/ContainedNonCollectionNavProp");
-            this.entryWithOnlyData.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.entryWithOnlyData.Id);
         }
 
         [Fact]
@@ -1323,7 +1607,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, containedEntitySet, DerivedType, null, null, "EntitySet(0)/Namespace.DerivedType/ContainedNonCollectionNavProp");
 
             Uri containedId = new Uri("http://example.com/EntitySet(0)/ContainedNonCollectionNavProp");
-            this.derivedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.derivedEntry.Id);
         }
 
         [Fact]
@@ -1341,7 +1625,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, containedEntitySet, DerivedType, null, null, "EntitySet(0)/Namespace.DerivedType/DerivedContainedNavProp");
 
             Uri containedId = new Uri("http://example.com/EntitySet(0)/Namespace.DerivedType/DerivedContainedNavProp(345)");
-            this.derivedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.derivedEntry.Id);
         }
 
         [Fact]
@@ -1359,7 +1643,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             string result = this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, null, null, "EntitySet");
 
             Uri containedId = new Uri("http://example.com/EntitySet(345)/Namespace.DerivedType/DerivedContainedNavProp(123)");
-            this.entryWithOnlyData.Id.Should().Be(containedId);
+            Assert.Equal(containedId, this.entryWithOnlyData.Id);
         }
 
         [Fact]
@@ -1375,9 +1659,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             const string selectClause = "ContainedNonCollectionNavProp";
             const string expandClause = "ExpandedNavLink($select=ContainedNonCollectionNavProp;$expand=ExpandedNavLink($select=ContainedNonCollectionNavProp))";
 
-
             Action test = () => this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause);
-            test.ShouldThrow<ODataException>().WithMessage(Strings.ODataWriterCore_PathInODataUriMustBeSetWhenWritingContainedElement);
+            test.Throws<ODataException>(Strings.ODataWriterCore_PathInODataUriMustBeSetWhenWritingContainedElement);
         }
 
         [Fact]
@@ -1395,7 +1678,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             const string expandClause = "ExpandedNavLink($select=ContainedNonCollectionNavProp;$expand=ExpandedNavLink($select=ContainedNonCollectionNavProp))";
 
             Action test = () => this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause);
-            test.ShouldThrow<ODataException>().WithMessage(Strings.EdmValueUtils_PropertyDoesntExist("Namespace.EntityType", "ID"));
+            test.Throws<ODataException>(Strings.EdmValueUtils_PropertyDoesntExist("Namespace.EntityType", "ID"));
         }
 
         [Fact]
@@ -1411,7 +1694,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             const string expandClause = "ExpandedNavLink($expand=UnknownCollectionNavProp)";
 
             Action test = () => this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause);
-            test.ShouldThrow<ODataException>().WithMessage(Strings.ODataMetadataBuilder_UnknownEntitySet("UnknownCollectionNavProp"));
+            test.Throws<ODataException>(Strings.ODataMetadataBuilder_UnknownEntitySet("UnknownCollectionNavProp"));
         }
 
         [Fact]
@@ -1440,7 +1723,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             const string expandClause = "ExpandedNavLink($expand=UnknownCollectionNavProp)";
 
             this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, Model, EntitySet, EntityType, selectClause, expandClause);
-            entryWithOnlyData2.Id.Should().Be("http://example.com/EntitySet(234)");
+            Assert.Equal(new Uri("http://example.com/EntitySet(234)"), entryWithOnlyData2.Id);
         }
 
         [Fact]
@@ -1486,7 +1769,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNonCollectionNavProp");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1528,7 +1811,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/ContainedNavProp(123)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1571,7 +1854,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1612,7 +1895,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1652,7 +1935,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1692,7 +1975,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1736,7 +2019,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/ContainedNavProp(2)/ContainedNavProp(123)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1781,7 +2064,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/ContainedNavProp(2)/AnotherContainedNavProp(123)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1824,7 +2107,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/ContainedNavProp(123)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1863,7 +2146,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1907,7 +2190,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNavProp(234)");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -1951,7 +2234,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             Uri containedId = new Uri("http://example.com/EntitySet(123)/ContainedNonCollectionNavProp");
 
             ODataResource containedEntry = entryList[0];
-            containedEntry.Id.Should().Be(containedId);
+            Assert.Equal(containedId, containedEntry.Id);
         }
 
         [Fact]
@@ -2026,8 +2309,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
 
             const string selectClause = "StreamProp1,Namespace.AlwaysBindableAction1,Namespace.AlwaysBindableFunction1,DeferredNavLink";
             const string expandClause = "ExpandedNavLink($select=StreamProp1,Namespace.AlwaysBindableAction1;$expand=ExpandedNavLink($select=StreamProp2,Namespace.AlwaysBindableAction1))";
-            this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, edmModel: Model, edmEntitySet: null, edmEntityType: EntityType, selectClause: selectClause, expandClause: expandClause)
-                .Should().Be(expectedPayload);
+            Assert.Equal(expectedPayload,
+                this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, edmModel: Model, edmEntitySet: null, edmEntityType: EntityType, selectClause: selectClause, expandClause: expandClause));
         }
 
         [Fact]
@@ -2140,8 +2423,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
 
             const string selectClause = "StreamProp1,Namespace.AlwaysBindableAction1,Namespace.AlwaysBindableFunction1,DeferredNavLink";
             const string expandClause = "ExpandedNavLink($select=StreamProp1,Namespace.AlwaysBindableAction1;$expand=ExpandedNavLink($select=StreamProp2,Namespace.AlwaysBindableAction1))";
-            this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, edmModel: Model, edmEntitySet: null, edmEntityType: EntityType, selectClause: selectClause, expandClause: expandClause)
-                .Should().Be(expectedPayload);
+            Assert.Equal(expectedPayload,
+                this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=full", true, itemsToWrite, edmModel: Model, edmEntitySet: null, edmEntityType: EntityType, selectClause: selectClause, expandClause: expandClause));
         }
 
         [Fact]
@@ -2227,8 +2510,8 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
 
             const string selectClause = "StreamProp1,Namespace.AlwaysBindableAction1,Namespace.AlwaysBindableFunction1,DeferredNavLink";
             const string expandClause = "ExpandedNavLink($select=StreamProp1,Namespace.AlwaysBindableAction1;$expand=ExpandedNavLink($select=StreamProp2,Namespace.AlwaysBindableAction1))";
-            this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=minimal", true, itemsToWrite, edmModel: Model, edmEntitySet: null, edmEntityType: EntityType, selectClause: selectClause, expandClause: expandClause)
-                .Should().Be(expectedPayload);
+            Assert.Equal(expectedPayload,
+                this.GetWriterOutputForContentTypeAndKnobValue("application/json;odata.metadata=minimal", true, itemsToWrite, edmModel: Model, edmEntitySet: null, edmEntityType: EntityType, selectClause: selectClause, expandClause: expandClause));
         }
 
         #region compute id for containment in reader
@@ -2247,16 +2530,16 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(123)"), entry.Id);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)"), entry.Id);
 
             entry = entryList[2];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[3];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)"), entry.Id);
         }
 
         [Fact]
@@ -2275,16 +2558,16 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(123)"), entry.Id);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/Namespace.DerivedType/ContainedNavPropOnDerived(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/Namespace.DerivedType/ContainedNavPropOnDerived(123)"), entry.Id);
 
             entry = entryList[2];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/Namespace.DerivedType/ContainedNonCollectionNavPropOnDerived"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/Namespace.DerivedType/ContainedNonCollectionNavPropOnDerived"), entry.Id);
 
             entry = entryList[3];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)"), entry.Id);
         }
 
         [Fact]
@@ -2300,12 +2583,12 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            Action getId = () => entry.Id.Should().Be(new Uri(""));
-            getId.ShouldThrow<ODataException>().WithMessage(Strings.ODataMetadataBuilder_MissingParentIdOrContextUrl);
+            Action getId = () => Assert.Equal(entry.Id, new Uri(""));
+            getId.Throws<ODataException>(Strings.ODataMetadataBuilder_MissingParentIdOrContextUrl);
 
             entry = entryList[1];
-            getId = () => entry.Id.Should().Be(new Uri(""));
-            getId.ShouldThrow<ODataException>().WithMessage(Strings.ODataMetadataBuilder_MissingParentIdOrContextUrl);
+            getId = () => Assert.Equal(entry.Id, new Uri(""));
+            getId.Throws<ODataException>(Strings.ODataMetadataBuilder_MissingParentIdOrContextUrl);
         }
 
 
@@ -2324,10 +2607,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)"), entry.Id);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp"), entry.Id);
         }
 
         [Fact]
@@ -2354,26 +2637,26 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/ContainedNavProp(11)/AnotherContainedNavProp(111)"));
-            entry.TypeName.Should().Be("Namespace.AnotherEntityType");
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/ContainedNavProp(11)/AnotherContainedNavProp(111)"), entry.Id);
+            Assert.Equal("Namespace.AnotherEntityType", entry.TypeName);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/ContainedNavProp(11)/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/ContainedNavProp(11)/AnotherContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[2];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/ContainedNavProp(11)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/ContainedNavProp(11)"), entry.Id);
 
             entry = entryList[3];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp/AnotherContainedNavProp(221)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp/AnotherContainedNavProp(221)"), entry.Id);
 
             entry = entryList[4];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp/AnotherContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[5];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/ContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[6];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)"), entry.Id);
         }
 
         [Fact]
@@ -2400,26 +2683,26 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, AnotherEntitySet, AnotherEntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNavPropIsDerived(11)/AnotherContainedNavProp(111)"));
-            entry.TypeName.Should().Be("Namespace.AnotherEntityType");
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNavPropIsDerived(11)/AnotherContainedNavProp(111)"), entry.Id);
+            Assert.Equal("Namespace.AnotherEntityType", entry.TypeName);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNavPropIsDerived(11)/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNavPropIsDerived(11)/AnotherContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[2];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNavPropIsDerived(11)"));
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNavPropIsDerived(11)"), entry.Id);
 
             entry = entryList[3];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNonCollectionNavPropIsDerived/AnotherContainedNavProp(221)"));
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNonCollectionNavPropIsDerived/AnotherContainedNavProp(221)"), entry.Id);
 
             entry = entryList[4];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNonCollectionNavPropIsDerived/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNonCollectionNavPropIsDerived/AnotherContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[5];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNonCollectionNavPropIsDerived"));
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)/ContainedNonCollectionNavPropIsDerived"), entry.Id);
 
             entry = entryList[6];
-            entry.Id.Should().Be(new Uri("http://example.com/AnotherEntitySet(1)"));
+            Assert.Equal(new Uri("http://example.com/AnotherEntitySet(1)"), entry.Id);
         }
 
         [Fact]
@@ -2441,14 +2724,14 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(123)/Namespace.DerivedType/ContainedNavPropOnDerived(123)"));
-            entry.TypeName.Should().Be("Namespace.AnotherEntityType");
+            Assert.Equal(new Uri("http://example.com/EntitySet(123)/Namespace.DerivedType/ContainedNavPropOnDerived(123)"), entry.Id);
+            Assert.Equal("Namespace.AnotherEntityType", entry.TypeName);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(123)/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(123)/AnotherContainedNonCollectionNavProp"), entry.Id);
 
             entry = entryList[2];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(123)"), entry.Id);
         }
 
         [Fact]
@@ -2467,10 +2750,10 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
             var entryList = ReadPayload(payload, EntitySet, EntityType);
 
             ODataResource entry = entryList[0];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/AnotherContainedNavProp(123)"), entry.Id);
 
             entry = entryList[1];
-            entry.Id.Should().Be(new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp"));
+            Assert.Equal(new Uri("http://example.com/EntitySet(1)/AnotherContainedNonCollectionNavProp"), entry.Id);
         }
 
         private List<ODataResource> ReadPayload(string payload, IEdmNavigationSource entitySet, IEdmStructuredType entityType)
@@ -2523,7 +2806,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
         {
             MemoryStream outputStream = new MemoryStream();
             var container = ContainerBuilderHelper.BuildContainer(null);
-            container.GetRequiredService<ODataSimplifiedOptions>().EnableWritingODataAnnotationWithoutPrefix = enableWritingODataAnnotationWithoutPrefix;
+            container.GetRequiredService<ODataSimplifiedOptions>().SetOmitODataPrefix(enableWritingODataAnnotationWithoutPrefix);
             IODataResponseMessage message = new InMemoryMessage() { Stream = outputStream, Container = container };
 
             message.SetHeader("Content-Type", contentType);
@@ -2565,7 +2848,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Evaluation
                     Assert.True(false, "Top level item to write must be entry or feed.");
                 }
 
-                currentIdx.Should().Be(itemsToWrite.Length, "Invalid list of items to write.");
+                Assert.Equal(itemsToWrite.Length, currentIdx);
 
                 outputStream.Seek(0, SeekOrigin.Begin);
                 output = new StreamReader(outputStream).ReadToEnd();

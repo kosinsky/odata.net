@@ -4,20 +4,16 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+using System;
+using System.IO;
 using Microsoft.OData;
+using Microsoft.OData.JsonLight;
+using Microsoft.OData.Tests;
+using Microsoft.OData.Edm;
+using Xunit;
 
 namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 {
-    using FluentAssertions;
-    using Microsoft.OData;
-    using Microsoft.OData.JsonLight;
-    using Microsoft.OData.Tests;
-    using Microsoft.OData.Edm;
-    using System;
-    using System.IO;
-    using System.Text;
-    using Xunit;
-
     public class ODataJsonLightEntryAndFeedSerializerUndeclaredTests
     {
         private Uri metadataDocumentUri = new Uri("http://odata.org/test/$metadata/");
@@ -69,7 +65,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredFloat, false);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -79,7 +75,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredNull, false);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredType1"":null,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredType1"":null,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -103,7 +99,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredComplex_Info, undeclaredComplex, false);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address"",""Street"":""No.1000,Zixing Rd Minhang"",""UndeclaredStreet"":""No.1001,Zixing Rd Minhang""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address"",""Street"":""No.1000,Zixing Rd Minhang"",""UndeclaredStreet"":""No.1001,Zixing Rd Minhang""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -123,7 +119,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredComplex_Info, undeclaredComplex, false);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -146,7 +142,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredCol, false);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1"":[""mystr1"",""mystr2"",""mystr3""],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1"":[""mystr1"",""mystr2"",""mystr3""],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -164,7 +160,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredCol, false);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1"":[],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1"":[],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         #endregion
@@ -209,7 +205,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreetNo"":12.0}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreetNo"":12.0}}");
         }
 
         [Fact]
@@ -251,7 +247,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -275,7 +271,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredAddress1"":{""@odata.type"":""#Server.NS.AddressInValid"",'Street':""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":'No.10000000999,Zixing Rd Minhang'}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredAddress1"":{""@odata.type"":""#Server.NS.AddressInValid"",'Street':""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":'No.10000000999,Zixing Rd Minhang'}}");
         }
 
         [Fact]
@@ -299,7 +295,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredCollection1"":[""email1@163.com"",""email2@gmail.com"",""email3@gmail2.com""]}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredCollection1"":[""email1@163.com"",""email2@gmail.com"",""email3@gmail2.com""]}");
         }
 
         [Fact]
@@ -318,7 +314,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
             },
             true );
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UntypedCollection"":[1,null,""abc""]}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UntypedCollection"":[1,null,""abc""]}");
         }
 
         [Fact]
@@ -368,7 +364,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
             },
             true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UntypedCollection"":[""string"",[null,1,{""prop"":1,""nullProp"":null,""collectionProp@odata.type"":""#Collection(String)"",""collectionProp"":[""abc"",null],""nestedCollection"":[1,null,{},[]]}]]}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UntypedCollection"":[""string"",[null,1,{""prop"":1,""nullProp"":null,""collectionProp@odata.type"":""#Collection(String)"",""collectionProp"":[""abc"",null],""nestedCollection"":[1,null,{},[]]}]]}");
         }
 
         [Fact]
@@ -412,7 +408,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
             },
             true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UntypedCollection"":[null,[null,1,null,""abc""],[2,""def"",null],[[3,null],[4,5]]]}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UntypedCollection"":[null,[null,1,null,""abc""],[2,""def"",null],[[3,null],[4,5]]]}");
         }
 
 
@@ -427,7 +423,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredNull, true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredType1"":null,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredType1"":null,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -437,7 +433,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredNull, true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
         [Fact]
         public void WriteOpenEntryUndeclaredComplexPropertiesTest()
@@ -460,7 +456,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredComplex_Info, undeclaredComplex, true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address"",""Street"":""No.1000,Zixing Rd Minhang"",""UndeclaredStreet"":""No.1001,Zixing Rd Minhang""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address"",""Street"":""No.1000,Zixing Rd Minhang"",""UndeclaredStreet"":""No.1001,Zixing Rd Minhang""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -480,7 +476,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredComplex_Info, undeclaredComplex, true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredComplexType1"":{""@odata.type"":""#Server.NS.Address""},""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -503,7 +499,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredCol, true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1@odata.type"":""#Collection(String)"",""UndeclaredCollection1"":[""mystr1"",""mystr2"",""mystr3""],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1@odata.type"":""#Collection(String)"",""UndeclaredCollection1"":[""mystr1"",""mystr2"",""mystr3""],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -521,7 +517,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
 
             string result = WriteNonOpenEntryUndeclaredPropertiesTest(undeclaredCol, true);
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1@odata.type"":""#Collection(String)"",""UndeclaredCollection1"":[],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredCollection1@odata.type"":""#Collection(String)"",""UndeclaredCollection1"":[],""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         #endregion
@@ -566,7 +562,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreetNo"":12.0}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreetNo"":12.0}}");
         }
 
         [Fact]
@@ -607,7 +603,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""Address"":{""Street"":""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":""No.10000000999,Zixing Rd Minhang""}}");
         }
 
         [Fact]
@@ -631,7 +627,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredAddress1"":{""@odata.type"":""#Server.NS.AddressInValid"",'Street':""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":'No.10000000999,Zixing Rd Minhang'}}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredAddress1"":{""@odata.type"":""#Server.NS.AddressInValid"",'Street':""No.999,Zixing Rd Minhang"",""UndeclaredStreet"":'No.10000000999,Zixing Rd Minhang'}}");
         }
 
         [Fact]
@@ -655,7 +651,7 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
                 writer.WriteEnd();
             });
 
-            result.Should().Be(@"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredCollection1"":[""email1@163.com"",""email2@gmail.com"",""email3@gmail2.com""]}");
+            Assert.Equal(result, @"{""@odata.context"":""http://www.sampletest.com/$metadata#serverOpenEntitySet/$entity"",""Id"":61880128,""UndeclaredFloatId"":12.3,""UndeclaredCollection1"":[""email1@163.com"",""email2@gmail.com"",""email3@gmail2.com""]}");
         }
 
         #endregion

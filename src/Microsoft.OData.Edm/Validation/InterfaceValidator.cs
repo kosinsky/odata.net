@@ -700,11 +700,11 @@ namespace Microsoft.OData.Edm.Validation
 
                 if (type.BaseType != null)
                 {
-                    HashSetInternal<IEdmStructuredType> visitiedTypes = new HashSetInternal<IEdmStructuredType>();
-                    visitiedTypes.Add(type);
+                    HashSetInternal<IEdmStructuredType> visitedTypes = new HashSetInternal<IEdmStructuredType>();
+                    visitedTypes.Add(type);
                     for (IEdmStructuredType currentBaseType = currentBaseType = type.BaseType; currentBaseType != null; currentBaseType = currentBaseType.BaseType)
                     {
-                        if (visitiedTypes.Contains(currentBaseType))
+                        if (visitedTypes.Contains(currentBaseType))
                         {
                             IEdmSchemaType schemaType = type as IEdmSchemaType;
                             string typeName = schemaType != null ? schemaType.FullName() : typeof(Type).Name;
@@ -1094,6 +1094,34 @@ namespace Microsoft.OData.Edm.Validation
             protected override IEnumerable<EdmError> VisitT(IEdmOptionalParameter parameter, List<object> followup, List<object> references)
             {
                 return null;
+            }
+        }
+
+        private sealed class VisitorOfIEdmOperationReturn : VisitorOfT<IEdmOperationReturn>
+        {
+            protected override IEnumerable<EdmError> VisitT(IEdmOperationReturn operationReturn, List<object> followup, List<object> references)
+            {
+                List<EdmError> errors = null;
+
+                if (operationReturn.Type != null)
+                {
+                    followup.Add(operationReturn.Type);
+                }
+                else
+                {
+                    CollectErrors(CreatePropertyMustNotBeNullError(operationReturn, "Type"), ref errors);
+                }
+
+                if (operationReturn.DeclaringOperation != null)
+                {
+                    references.Add(operationReturn.DeclaringOperation);
+                }
+                else
+                {
+                    CollectErrors(CreatePropertyMustNotBeNullError(operationReturn, "DeclaringOperation"), ref errors);
+                }
+
+                return errors;
             }
         }
 

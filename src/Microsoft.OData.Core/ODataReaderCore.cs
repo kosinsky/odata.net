@@ -11,18 +11,20 @@ namespace Microsoft.OData
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
 #if PORTABLELIB
     using System.Threading.Tasks;
 #endif
     using Microsoft.OData.Edm;
     using Microsoft.OData.Metadata;
+
     #endregion Namespaces
 
     /// <summary>
     /// Base class for OData readers that verifies a proper sequence of read calls on the reader.
     /// </summary>
-    internal abstract class ODataReaderCore : ODataReader
+    internal abstract class ODataReaderCore : ODataReader, IODataStreamListener
     {
         /// <summary>The input to read the payload from.</summary>
         private readonly ODataInputContext inputContext;
@@ -63,6 +65,16 @@ namespace Microsoft.OData
             this.listener = listener;
             this.currentResourceDepth = 0;
             this.Version = inputContext.MessageReaderSettings.Version;
+        }
+
+        /// <summary>
+        /// Enum used to describe the current state of the stream.
+        /// </summary>
+        internal enum StreamingState
+        {
+            None = 0,
+            Streaming,
+            Completed
         }
 
         /// <summary>
@@ -182,19 +194,37 @@ namespace Microsoft.OData
         /// <summary>
         /// Returns the expected resource type for the current scope.
         /// </summary>
-        protected IEdmStructuredType CurrentResourceType
+        protected IEdmType CurrentResourceType
+        {
+            get
+            {
+                if (CurrentResourceTypeReference != null)
+                {
+                    return CurrentResourceTypeReference.Definition;
+                }
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets and Sets the expected resource type reference for the current scope.
+        /// </summary>
+        protected IEdmTypeReference CurrentResourceTypeReference
         {
             get
             {
                 Debug.Assert(this.scopes != null && this.scopes.Count > 0, "A scope must always exist.");
-                IEdmStructuredType resourceType = this.scopes.Peek().ResourceType;
-                Debug.Assert(resourceType == null || this.inputContext.Model.IsUserModel(), "We can only have structured type if we also have metadata.");
-                return resourceType;
+                IEdmTypeReference resourceTypeReference = this.scopes.Peek().ResourceTypeReference;
+                Debug.Assert(resourceTypeReference == null || this.inputContext.Model.IsUserModel(), "We can only have structured type if we also have metadata.");
+
+                return resourceTypeReference;
             }
 
             set
             {
-                this.scopes.Peek().ResourceType = value;
+                Debug.Assert(this.scopes != null && this.scopes.Count > 0, "A scope must always exist.");
+                this.scopes.Peek().ResourceTypeReference = value;
             }
         }
 
@@ -339,6 +369,18 @@ namespace Microsoft.OData
         }
 
         /// <summary>
+        /// Validator to validate the derived type constraint.
+        /// </summary>
+        protected DerivedTypeValidator CurrentDerivedTypeValidator
+        {
+            get
+            {
+                Debug.Assert(this.State == ODataReaderState.ResourceStart || this.State == ODataReaderState.DeletedResourceStart, "CurrentDerivedTypeValidator should only be called while reading a resource.");
+                return this.ParentScope == null ? null : this.ParentScope.DerivedTypeValidator;
+            }
+        }
+
+        /// <summary>
         /// Reads the next <see cref="ODataItem"/> from the message payload.
         /// </summary>
         /// <returns>true if more items were read; otherwise false.</returns>
@@ -356,9 +398,85 @@ namespace Microsoft.OData
         public override sealed Task<bool> ReadAsync()
         {
             this.VerifyCanRead(false);
-            return this.ReadAsynchronously().FollowOnFaultWith(t => this.EnterScope(new Scope(ODataReaderState.Exception, null, null, null, null)));
+            return this.ReadAsynchronously().FollowOnFaultWith(t => this.EnterScope(new Scope(ODataReaderState.Exception, null, null)));
         }
 #endif
+
+        /// <summary>
+        /// Creates a stream for reading an inline stream property.
+        /// </summary>
+        /// <returns>A stream for reading the stream property.</returns>
+        public override sealed Stream CreateReadStream()
+        {
+            if (this.State != ODataReaderState.Stream)
+            {
+                throw new ODataException(Strings.ODataReaderCore_CreateReadStreamCalledInInvalidState);
+            }
+
+            StreamScope scope = this.CurrentScope as StreamScope;
+            Debug.Assert(scope != null, "ODataReaderState.Stream when Scope is not a StreamScope");
+            if (scope.StreamingState != StreamingState.None)
+            {
+                throw new ODataException(Strings.ODataReaderCore_CreateReadStreamCalledInInvalidState);
+            }
+
+            scope.StreamingState = StreamingState.Streaming;
+            return new ODataNotificationStream(this.InterceptException(this.CreateReadStreamImplementation), this);
+        }
+
+        /// <summary>
+        /// Creates a TextWriter for reading an inline stream property.
+        /// </summary>
+        /// <returns>A TextWriter for reading the stream property.</returns>
+        public override sealed TextReader CreateTextReader()
+        {
+            if (this.State == ODataReaderState.Stream)
+            {
+                StreamScope scope = this.CurrentScope as StreamScope;
+                Debug.Assert(scope != null, "ODataReaderState.Stream when Scope is not a StreamScope");
+                if (scope.StreamingState != StreamingState.None)
+                {
+                    throw new ODataException(Strings.ODataReaderCore_CreateReadStreamCalledInInvalidState);
+                }
+
+                scope.StreamingState = StreamingState.Streaming;
+                return new ODataNotificationReader(this.InterceptException(this.CreateTextReaderImplementation), this);
+            }
+            else
+            {
+                throw new ODataException(Strings.ODataReaderCore_CreateTextReaderCalledInInvalidState);
+            }
+        }
+
+        /// <summary>
+        /// This method is called when a stream is requested. It is a no-op.
+        /// </summary>
+        void IODataStreamListener.StreamRequested()
+        {
+        }
+
+#if PORTABLELIB
+        /// <summary>
+        /// This method is called when an async stream is requested. It is a no-op.
+        /// </summary>
+        /// <returns>A task for method called when a stream is requested.</returns>
+        Task IODataStreamListener.StreamRequestedAsync()
+        {
+            return TaskUtils.GetTaskForSynchronousOperation(() => ((IODataStreamListener)this).StreamRequested());
+        }
+#endif
+
+        /// <summary>
+        /// This method is called when a stream is disposed.
+        /// </summary>
+        void IODataStreamListener.StreamDisposed()
+        {
+            Debug.Assert(this.State == ODataReaderState.Stream, "Stream was disposed when not in ReaderState.Stream state.");
+            StreamScope scope = this.CurrentScope as StreamScope;
+            Debug.Assert(scope != null, "Stream disposed when not in stream scope");
+            Debug.Assert(scope.StreamingState == StreamingState.Streaming, "StreamDisposed called when reader was not streaming");
+            scope.StreamingState = StreamingState.Completed;
+        }
 
         /// <summary>
         /// Seek scope in the stack which is type of <typeparamref name="T"/>.
@@ -423,6 +541,42 @@ namespace Microsoft.OData
         /// </summary>
         /// <returns>true if more items can be read from the reader; otherwise false.</returns>
         protected virtual bool ReadAtPrimitiveImplementation()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Implementation of the reader logic when in state 'PropertyInfo'.
+        /// </summary>
+        /// <returns>true if more items can be read from the reader; otherwise false.</returns>
+        protected virtual bool ReadAtNestedPropertyInfoImplementation()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Implementation of the reader logic when in state 'Stream'.
+        /// </summary>
+        /// <returns>true if more items can be read from the reader; otherwise false.</returns>
+        protected virtual bool ReadAtStreamImplementation()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Creates a Stream for reading a stream property when in state 'Stream'.
+        /// </summary>
+        /// <returns>A stream for reading the stream property.</returns>
+        protected virtual Stream CreateReadStreamImplementation()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Creates a TextReader for reading a string property when in state 'Text'.
+        /// </summary>
+        /// <returns>A TextReader for reading the string property.</returns>
+        protected virtual TextReader CreateTextReaderImplementation()
         {
             throw new NotImplementedException();
         }
@@ -513,6 +667,11 @@ namespace Microsoft.OData
                 scope.ResourceTypeValidator = new ResourceSetWithoutExpectedTypeValidator(scope.ResourceType);
             }
 
+            if (scope.State == ODataReaderState.ResourceSetStart || scope.State == ODataReaderState.DeltaResourceSetStart)
+            {
+                scope.DerivedTypeValidator = this.CurrentScope.DerivedTypeValidator;
+            }
+
             // TODO: implement some basic validation that the transitions are ok
             this.scopes.Push(scope);
             if (this.listener != null)
@@ -590,7 +749,7 @@ namespace Microsoft.OData
                     EdmTypeKind.None,
                     /*expectStructuredType*/ true,
                     /*defaultPrimitivePayloadType*/ null,
-                    this.CurrentResourceType.ToTypeReference(),
+                    this.CurrentResourceTypeReference,
                     resourceTypeNameFromPayload,
                     this.inputContext.Model,
                     () => EdmTypeKind.Entity,
@@ -615,7 +774,7 @@ namespace Microsoft.OData
             }
 
             // Set the current resource type since the type might be derived from the expected one.
-            this.CurrentResourceType = targetResourceType;
+            this.CurrentResourceTypeReference = targetResourceTypeReference;
         }
 
         /// <summary>
@@ -642,7 +801,7 @@ namespace Microsoft.OData
 #endif
 
         /// <summary>
-        /// Increments the nested resource count by one and fails if the new value exceeds the maxiumum nested resource depth limit.
+        /// Increments the nested resource count by one and fails if the new value exceeds the maxium nested resource depth limit.
         /// </summary>
         protected void IncreaseResourceDepth()
         {
@@ -697,6 +856,14 @@ namespace Microsoft.OData
 
                 case ODataReaderState.Primitive:
                     result = this.ReadAtPrimitiveImplementation();
+                    break;
+
+                case ODataReaderState.Stream:
+                    result = this.ReadAtStreamImplementation();
+                    break;
+
+                case ODataReaderState.NestedProperty:
+                    result = this.ReadAtNestedPropertyInfoImplementation();
                     break;
 
                 case ODataReaderState.NestedResourceInfoStart:
@@ -764,7 +931,7 @@ namespace Microsoft.OData
             {
                 if (ExceptionUtils.IsCatchableExceptionType(e))
                 {
-                    this.EnterScope(new Scope(ODataReaderState.Exception, null, null, null, null));
+                    this.EnterScope(new Scope(ODataReaderState.Exception, null, null));
                 }
 
                 throw;
@@ -783,6 +950,16 @@ namespace Microsoft.OData
             if (this.State == ODataReaderState.Exception || this.State == ODataReaderState.Completed)
             {
                 throw new ODataException(Strings.ODataReaderCore_ReadOrReadAsyncCalledInInvalidState(this.State));
+            }
+
+            if (this.State == ODataReaderState.Stream)
+            {
+                StreamScope scope = this.CurrentScope as StreamScope;
+                Debug.Assert(scope != null, "In stream state without a stream scope");
+                if (scope.StreamingState != StreamingState.Completed)
+                {
+                    throw new ODataException(Strings.ODataReaderCore_ReadCalledWithOpenStream);
+                }
             }
         }
 
@@ -836,28 +1013,17 @@ namespace Microsoft.OData
             /// </summary>
             /// <param name="state">The reader state of this scope.</param>
             /// <param name="item">The item attached to this scope.</param>
-            /// <param name="navigationSource">The navigation source we are going to read entities for.</param>
-            /// <param name="expectedResourceType">The expected resource type for the scope.</param>
             /// <param name="odataUri">The odataUri parsed based on the context uri for current scope</param>
-            /// <remarks>The <paramref name="expectedResourceType"/> has the following meanings for given state:
-            /// Start -               it's the expected base type of the top-level resource or resources in the top-level resource set.
-            /// ResourceSetStart -           it's the expected base type of the resources in the resource set.
-            ///                       note that it might be a more derived type than the base type of the entity set for the resource set.
-            /// EntryStart -          it's the expected base type of the resource. If the resource has no type name specified
-            ///                       this type will be assumed. Otherwise the specified type name must be
-            ///                       the expected type or a more derived type.
-            /// NestedResourceInfoStart - it's the expected base type the entries in the expanded link (either the single resource
-            ///                       or entries in the expanded resource set).
-            /// EntityReferenceLink - it's null, no need for types on entity reference links.
-            /// In all cases the specified type must be an structured type.</remarks>
             [SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily", Justification = "Debug.Assert check only.")]
-            internal Scope(ODataReaderState state, ODataItem item, IEdmNavigationSource navigationSource, IEdmStructuredType expectedResourceType, ODataUri odataUri)
+            internal Scope(ODataReaderState state, ODataItem item, ODataUri odataUri)
             {
                 Debug.Assert(
                     state == ODataReaderState.Exception && item == null ||
                     state == ODataReaderState.ResourceStart && (item == null || item is ODataResource) ||
                     state == ODataReaderState.ResourceEnd && (item is ODataResource || item == null) ||
-                    state == ODataReaderState.Primitive && (item == null || item is ODataPrimitiveValue) ||
+                    state == ODataReaderState.Primitive && (item == null || item is ODataPrimitiveValue || item is ODataNullValue) ||
+                    state == ODataReaderState.Stream && (item == null || item is ODataStreamItem) ||
+                    state == ODataReaderState.NestedProperty && (item == null || item is ODataPropertyInfo) ||
                     state == ODataReaderState.ResourceSetStart && item is ODataResourceSet ||
                     state == ODataReaderState.ResourceSetEnd && item is ODataResourceSet ||
                     state == ODataReaderState.NestedResourceInfoStart && item is ODataNestedResourceInfo ||
@@ -875,9 +1041,34 @@ namespace Microsoft.OData
 
                 this.state = state;
                 this.item = item;
-                this.ResourceType = expectedResourceType;
-                this.NavigationSource = navigationSource;
                 this.odataUri = odataUri;
+            }
+
+            /// <summary>
+            /// Constructor creating a new reader scope.
+            /// </summary>
+            /// <param name="state">The reader state of this scope.</param>
+            /// <param name="item">The item attached to this scope.</param>
+            /// <param name="navigationSource">The navigation source we are going to read entities for.</param>
+            /// <param name="expectedResourceTypeReference">The expected resource type reference for the scope.</param>
+            /// <param name="odataUri">The odataUri parsed based on the context uri for current scope</param>
+            /// <remarks>The <paramref name="expectedResourceTypeReference"/> has the following meanings for given state:
+            /// Start -               it's the expected base type reference of the top-level resource or resources in the top-level resource set.
+            /// ResourceSetStart -           it's the expected base type reference of the resources in the resource set.
+            ///                       note that it might be a more derived type than the base type of the entity set for the resource set.
+            /// EntryStart -          it's the expected base type reference of the resource. If the resource has no type name specified
+            ///                       this type will be assumed. Otherwise the specified type name must be
+            ///                       the expected type or a more derived type.
+            /// NestedResourceInfoStart - it's the expected base type reference the entries in the expanded link (either the single resource
+            ///                       or entries in the expanded resource set).
+            /// EntityReferenceLink - it's null, no need for types on entity reference links.
+            /// In all cases the specified type must be an structured type.</remarks>
+            [SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily", Justification = "Debug.Assert check only.")]
+            internal Scope(ODataReaderState state, ODataItem item, IEdmNavigationSource navigationSource, IEdmTypeReference expectedResourceTypeReference, ODataUri odataUri)
+                : this(state, item, odataUri)
+            {
+                this.NavigationSource = navigationSource;
+                this.ResourceTypeReference = expectedResourceTypeReference;
             }
 
             /// <summary>
@@ -922,7 +1113,24 @@ namespace Microsoft.OData
             /// The resource type for this scope. Can be either the expected one if the real one
             /// was not found yet, or the one specified in the payload itself (the real one).
             /// </summary>
-            internal IEdmStructuredType ResourceType { get; set; }
+            internal IEdmType ResourceType
+            {
+                get
+                {
+                    if (this.ResourceTypeReference != null)
+                    {
+                        return ResourceTypeReference.Definition;
+                    }
+
+                    return null;
+                }
+            }
+
+            /// <summary>
+            /// The resource type reference for this scope. Can be either the expected one if the real one
+            /// was not found yet, or the one specified in the payload itself (the real one).
+            /// </summary>
+            internal IEdmTypeReference ResourceTypeReference { get; set; }
 
             /// <summary>
             /// Validator for resource type.
@@ -939,6 +1147,33 @@ namespace Microsoft.OData
                     this.resourceTypeValidator = value;
                 }
             }
+
+            /// <summary>
+            /// Gets or sets the derived type constraint validator.
+            /// </summary>
+            internal DerivedTypeValidator DerivedTypeValidator { get; set; }
+        }
+
+        protected internal class StreamScope : Scope
+        {
+            /// <summary>
+            /// Constructor creating a new reader scope.
+            /// </summary>
+            /// <param name="state">The reader state of this scope.</param>
+            /// <param name="item">The item attached to this scope.</param>
+            /// <param name="navigationSource">The navigation source we are going to read entities for.</param>
+            /// <param name="expectedResourceType">The expected resource type for the scope.</param>
+            /// <param name="odataUri">The odataUri parsed based on the context uri for current scope</param>
+            internal StreamScope(ODataReaderState state, ODataItem item, IEdmNavigationSource navigationSource, IEdmTypeReference expectedResourceType, ODataUri odataUri)
+                : base(state, item, navigationSource, expectedResourceType, odataUri)
+            {
+                this.StreamingState = StreamingState.None;
+            }
+
+            /// <summary>
+            /// Current state of the stream.
+            /// </summary>
+            internal StreamingState StreamingState { get; set; }
         }
     }
 }

@@ -79,6 +79,32 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
     </Property>
     <Annotation Term=""Core.Description"" String=""The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)"" />
   </ComplexType>
+  <ComplexType Name=""ExampleValue"">
+    <Property Name=""Description"" Type=""Edm.String"">
+      <Annotation Term=""Core.Description"" String=""Description of the example value"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""PrimitiveExampleValue"" BaseType=""Core.ExampleValue"">
+    <Property Name=""Value"" Type=""Edm.PrimitiveType"" Nullable=""false"">
+      <Annotation Term=""Core.Description"" String=""Example value for the custom parameter"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""ComplexExampleValue"" BaseType=""Core.ExampleValue"">
+    <Property Name=""Value"" Type=""Edm.ComplexType"" Nullable=""false"">
+      <Annotation Term=""Core.Description"" String=""Example value for the custom parameter"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""EntityExampleValue"" BaseType=""Core.ExampleValue"">
+    <NavigationProperty Name=""Value"" Type=""Edm.EntityType"" Nullable=""false"">
+      <Annotation Term=""Core.Description"" String=""Example value for the custom parameter"" />
+    </NavigationProperty>
+  </ComplexType>
+  <ComplexType Name=""ExternalExampleValue"" BaseType=""Core.ExampleValue"">
+    <Property Name=""ExternalValue"" Type=""Edm.String"" Nullable=""false"">
+      <Annotation Term=""Core.Description"" String=""Url reference to the value in its literal format"" />
+      <Annotation Term=""Core.IsURL"" Bool=""true"" />
+    </Property>
+  </ComplexType>
   <ComplexType Name=""MessageType"">
     <Property Name=""code"" Type=""Edm.String"" Nullable=""false"">
       <Annotation Term=""Core.Description"" String=""Machine-readable, language-independent message code"" />
@@ -95,6 +121,32 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
     </Property>
     <Property Name=""details"" Type=""Collection(Core.MessageType)"" Nullable=""false"">
       <Annotation Term=""Core.Description"" String=""List of detail messages"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""ExceptionType"" Abstract=""true"">
+    <Property Name=""info"" Type=""Core.MessageType"">
+      <Annotation Term=""Core.Description"" String=""Information about the exception"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""ValueExceptionType"" BaseType=""Core.ExceptionType"">
+    <Property Name=""value"" Type=""Edm.String"">
+      <Annotation Term=""Core.Description"" String=""String representation of the exact value"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""ResourceExceptionType"" BaseType=""Core.ExceptionType"">
+    <Property Name=""retryLink"" Type=""Edm.String"">
+      <Annotation Term=""Core.Description"" String=""A GET request to this URL retries retrieving the problematic instance"" />
+      <Annotation Term=""Core.IsURL"" Bool=""true"" />
+    </Property>
+  </ComplexType>
+  <ComplexType Name=""DataModificationExceptionType"" BaseType=""Core.ExceptionType"">
+    <Property Name=""failedOperation"" Type=""Core.DataModificationOperationKind"" Nullable=""false"">
+      <Annotation Term=""Core.Description"" String=""The kind of modification operation that failed"" />
+    </Property>
+    <Property Name=""responseCode"" Type=""Edm.Int16"">
+      <Annotation Term=""Core.Description"" String=""Response code of the failed operation, e.g. 424 for a failed dependency"" />
+      <Annotation Term=""Validation.Minimum"" Decimal=""100"" />
+      <Annotation Term=""Validation.Maximum"" Decimal=""599"" />
     </Property>
   </ComplexType>
   <ComplexType Name=""AlternateKey"">
@@ -117,6 +169,7 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
   <ComplexType Name=""OptionalParameterType"">
     <Property Name=""DefaultValue"" Type=""Edm.String"">
       <Annotation Term=""Core.Description"" String=""Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs."" />
+      <Annotation Term=""Core.LongDescription"" String=""If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date."" />
     </Property>
   </ComplexType>
   <EnumType Name=""RevisionKind"">
@@ -128,6 +181,29 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
     </Member>
     <Member Name=""Deprecated"">
       <Annotation Term=""Core.Description"" String=""Model element was deprecated"" />
+    </Member>
+  </EnumType>
+  <EnumType Name=""DataModificationOperationKind"">
+    <Member Name=""insert"">
+      <Annotation Term=""Core.Description"" String=""Insert new instance"" />
+    </Member>
+    <Member Name=""update"">
+      <Annotation Term=""Core.Description"" String=""Update existing instance"" />
+    </Member>
+    <Member Name=""upsert"">
+      <Annotation Term=""Core.Description"" String=""Insert new instance or update it if it already exists"" />
+    </Member>
+    <Member Name=""delete"">
+      <Annotation Term=""Core.Description"" String=""Delete existing instance"" />
+    </Member>
+    <Member Name=""invoke"">
+      <Annotation Term=""Core.Description"" String=""Invoke action or function"" />
+    </Member>
+    <Member Name=""link"">
+      <Annotation Term=""Core.Description"" String=""Add link between entities"" />
+    </Member>
+    <Member Name=""unlink"">
+      <Annotation Term=""Core.Description"" String=""Remove link between entities"" />
     </Member>
   </EnumType>
   <EnumType Name=""Permission"" IsFlags=""true"">
@@ -167,8 +243,25 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
   <Term Name=""Links"" Type=""Collection(Core.Link)"" Nullable=""false"">
     <Annotation Term=""Core.Description"" String=""Link to related information"" />
   </Term>
+  <Term Name=""Example"" Type=""Core.ExampleValue"" AppliesTo=""EntityType ComplexType TypeDefinition Term Property NavigationProperty Parameter ReturnType"" Nullable=""false"">
+    <Annotation Term=""Core.Description"" String=""Example for an instance of the annotated model element"" />
+    <Annotation Term=""Core.Example"">
+      <Record>
+        <PropertyValue Property=""Description"" String=""The value of Core.Example is a record/object containing the example value and/or annotation examples."" />
+      </Record>
+    </Annotation>
+  </Term>
   <Term Name=""Messages"" Type=""Collection(Core.MessageType)"" Nullable=""false"">
     <Annotation Term=""Core.Description"" String=""Instance annotation for warning and info messages"" />
+  </Term>
+  <Term Name=""ValueException"" Type=""Core.ValueExceptionType"" Nullable=""false"">
+    <Annotation Term=""Core.Description"" String=""The annotated value is problematic"" />
+  </Term>
+  <Term Name=""ResourceException"" Type=""Core.ResourceExceptionType"" Nullable=""false"">
+    <Annotation Term=""Core.Description"" String=""The annotated instance within a success payload is problematic"" />
+  </Term>
+  <Term Name=""DataModificationException"" Type=""Core.DataModificationExceptionType"" Nullable=""false"">
+    <Annotation Term=""Core.Description"" String=""A modification operation failed on the annotated instance or collection within a success payload"" />
   </Term>
   <Term Name=""IsLanguageDependent"" Type=""Core.Tag"" DefaultValue=""true"" AppliesTo=""Term Property"" Nullable=""false"">
     <Annotation Term=""Core.Description"" String=""Properties and terms annotated with this term are language-dependent"" />
@@ -224,14 +317,14 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
     <Annotation Term=""Core.RequiresType"" String=""Edm.String"" />
   </Term>
   <Term Name=""OptimisticConcurrency"" Type=""Collection(Edm.PropertyPath)"" AppliesTo=""EntitySet"" Nullable=""false"">
-    <Annotation Term=""Core.Description"" String=""Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag"" />
+    <Annotation Term=""Core.Description"" String=""Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag."" />
   </Term>
   <Term Name=""AdditionalProperties"" Type=""Core.Tag"" DefaultValue=""true"" AppliesTo=""EntityType ComplexType"" Nullable=""false"">
     <Annotation Term=""Core.Description"" String=""Instances of this type may contain properties in addition to those declared in $metadata"" />
     <Annotation Term=""Core.LongDescription"" String=""If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute."" />
   </Term>
-  <Term Name=""AutoExpand"" Type=""Core.Tag"" DefaultValue=""true"" AppliesTo=""NavigationProperty"" Nullable=""false"">
-    <Annotation Term=""Core.Description"" String=""The service will automatically expand this navigation property even if not requested with $expand"" />
+  <Term Name=""AutoExpand"" Type=""Core.Tag"" DefaultValue=""true"" AppliesTo=""NavigationProperty Property"" Nullable=""false"">
+    <Annotation Term=""Core.Description"" String=""The service will automatically expand this stream or navigation property even if not requested with $expand"" />
   </Term>
   <Term Name=""AutoExpandReferences"" Type=""Core.Tag"" DefaultValue=""true"" AppliesTo=""NavigationProperty"" Nullable=""false"">
     <Annotation Term=""Core.Description"" String=""The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref"" />
@@ -249,7 +342,7 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
     <Annotation Term=""Core.Description"" String=""Communicates available alternate keys"" />
   </Term>
   <Term Name=""OptionalParameter"" Type=""Core.OptionalParameterType"" AppliesTo=""Parameter"">
-    <Annotation Term=""Core.Description"" String=""Supplying a value for the parameter is optional."" />
+    <Annotation Term=""Core.Description"" String=""Supplying a value for the action or function parameter is optional."" />
     <Annotation Term=""Core.LongDescription"" String=""All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional."" />
   </Term>
   <Term Name=""OperationAvailable"" Type=""Edm.Boolean"" DefaultValue=""true"" AppliesTo=""Action Function"">
@@ -305,13 +398,18 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
         }
 
         [Theory]
-        [InlineData("OptionalParameterType", "DefaultValue")]
-        [InlineData("PropertyRef", "Name|Alias")]
-        [InlineData("AlternateKey", "Key")]
-        [InlineData("MessageType", "code|message|severity|target|details")]
-        [InlineData("Link", "rel|href")]
-        [InlineData("RevisionType", "Version|Kind|Description")]
-        public void TestCoreVocabularyComplexType(string typeName, string properties)
+        [InlineData("OptionalParameterType", "DefaultValue", null)]
+        [InlineData("PropertyRef", "Name|Alias", null)]
+        [InlineData("AlternateKey", "Key", null)]
+        [InlineData("MessageType", "code|message|severity|target|details", null)]
+        [InlineData("Link", "rel|href", null)]
+        [InlineData("RevisionType", "Version|Kind|Description", null)]
+        [InlineData("ExampleValue", "Description", null)]
+        [InlineData("PrimitiveExampleValue", "Value", "ExampleValue")]
+        [InlineData("ComplexExampleValue", "Value", "ExampleValue")]
+        [InlineData("EntityExampleValue", "Value", "ExampleValue")]
+        [InlineData("ExternalExampleValue", "ExternalValue", "ExampleValue")]
+        public void TestCoreVocabularyComplexType(string typeName, string properties, string baseType)
         {
             var schemaType = this.coreVocModel.FindDeclaredType("Org.OData.Core.V1." + typeName);
             Assert.NotNull(schemaType);
@@ -321,11 +419,26 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
 
             Assert.False(complex.IsAbstract);
             Assert.False(complex.IsOpen);
-            Assert.Null(complex.BaseType);
+            if (baseType == null)
+            {
+                Assert.Null(complex.BaseType);
+            }
+            else
+            {
+                Assert.Equal("Org.OData.Core.V1." + baseType, complex.BaseType.FullTypeName());
+            }
 
             Assert.NotEmpty(complex.DeclaredProperties);
             Assert.Equal(properties, string.Join("|", complex.DeclaredProperties.Select(e => e.Name)));
-            Assert.Empty(complex.DeclaredNavigationProperties());
+
+            if (typeName != "EntityExampleValue")
+            {
+                Assert.Empty(complex.DeclaredNavigationProperties());
+            }
+            else
+            {
+                Assert.Equal(properties, string.Join("|", complex.DeclaredNavigationProperties().Select(e => e.Name)));
+            }
         }
 
         [Theory]
@@ -353,7 +466,7 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
         [InlineData("Ordered", "Org.OData.Core.V1.Tag", "Property NavigationProperty EntitySet ReturnType")]
         [InlineData("MayImplement", "Collection(Org.OData.Core.V1.QualifiedTypeName)", null)]
         [InlineData("AutoExpandReferences", "Org.OData.Core.V1.Tag", "NavigationProperty")]
-        [InlineData("AutoExpand", "Org.OData.Core.V1.Tag", "NavigationProperty")]
+        [InlineData("AutoExpand", "Org.OData.Core.V1.Tag", "NavigationProperty Property")]
         [InlineData("AdditionalProperties", "Org.OData.Core.V1.Tag", "EntityType ComplexType")]
         [InlineData("OptimisticConcurrency", "Collection(Edm.PropertyPath)", "EntitySet")]
         [InlineData("IsMediaType", "Org.OData.Core.V1.Tag", "Property Term")]
@@ -378,6 +491,7 @@ namespace Microsoft.OData.Edm.Tests.Vocabularies
         [InlineData("Revisions", "Collection(Org.OData.Core.V1.RevisionType)", null)]
         [InlineData("SchemaVersion", "Edm.String", "Schema Reference")]
         [InlineData("ODataVersions", "Edm.String", "EntityContainer")]
+        [InlineData("Example", "Org.OData.Core.V1.ExampleValue", "EntityType ComplexType TypeDefinition Term Property NavigationProperty Parameter ReturnType")]
         public void TestCoreVocabularyTermType(string termName, string typeName, string appliesTo)
         {
             var termType = this.coreVocModel.FindDeclaredTerm("Org.OData.Core.V1." + termName);

@@ -54,26 +54,24 @@ namespace Microsoft.OData
         /// <summary>
         /// Validates a stream reference property.
         /// </summary>
-        /// <param name="streamProperty">The stream property to check.</param>
+        /// <param name="streamInfo">The stream info for the property to check.</param>
+        /// <param name="propertyName">The name of the property being checked.</param>
         /// <param name="structuredType">The owning type of the stream property or null if no metadata is available.</param>
         /// <param name="streamEdmProperty">The stream property defined by the model.</param>
         /// <param name="throwOnUndeclaredLinkProperty">Whether ThrowOnUndeclaredLinkProperty validation setting is enabled.</param>
         internal static void ValidateStreamReferenceProperty(
-            ODataProperty streamProperty, IEdmStructuredType structuredType,
+            IODataStreamReferenceInfo streamInfo, string propertyName, IEdmStructuredType structuredType,
             IEdmProperty streamEdmProperty, bool throwOnUndeclaredLinkProperty)
         {
-            Debug.Assert(streamProperty != null, "streamProperty != null");
+            Debug.Assert(streamInfo != null, "streamInfo != null");
 
-            ValidationUtils.ValidateStreamReferenceProperty(streamProperty, streamEdmProperty);
+            ValidationUtils.ValidateStreamPropertyInfo(streamInfo, streamEdmProperty, propertyName);
 
             if (structuredType != null && structuredType.IsOpen)
             {
-                // If no property match was found in the metadata and an error wasn't raised,
-                // it is an open property (which is not supported for streams).
                 if (streamEdmProperty == null && throwOnUndeclaredLinkProperty)
                 {
-                    // Fails with the correct error message.
-                    ValidationUtils.ValidateOpenPropertyValue(streamProperty.Name, streamProperty.Value);
+                    throw new ODataException(Strings.ValidationUtils_OpenStreamProperty(propertyName));
                 }
             }
         }
@@ -134,10 +132,6 @@ namespace Microsoft.OData
                 if (throwOnUndeclaredPropertyForNonOpenType)
                 {
                     throw new ODataException(Strings.ValidationUtils_PropertyDoesNotExistOnType(propertyName, owningStructuredType.FullTypeName()));
-                }
-                else
-                {
-                    Debug.Assert(!throwOnUndeclaredPropertyForNonOpenType, "!throwOnUndeclaredPropertyForNonOpenType");
                 }
             }
 
@@ -584,10 +578,6 @@ namespace Microsoft.OData
             }
 
             Debug.Assert(contextUriParseResult != null, "contextUriParseResult != null");
-            Debug.Assert(
-                contextUriParseResult.Path != null && contextUriParseResult.Path.IsUndeclared() ||
-                contextUriParseResult.NavigationSource != null || (contextUriParseResult.EdmType != null && contextUriParseResult.EdmType is IEdmStructuredType),
-                "contextUriParseResult.Path != null && contextUriParseResult.Path.IsUndeclared() || contextUriParseResult.NavigationSource != null || (contextUriParseResult.EdmType != null && contextUriParseResult.EdmType is IEdmStructuredType)");
 
             // Set the navigation source name or make sure the navigation source names match.
             if (scope.NavigationSource == null)
@@ -610,7 +600,7 @@ namespace Microsoft.OData
 
             if (payloadEntityType == null)
             {
-                // for dynmaic path, the contextUriParseResult.EdmType might be null;
+                // for dynamic path, the contextUriParseResult.EdmType might be null;
                 return;
             }
 
@@ -618,14 +608,14 @@ namespace Microsoft.OData
             {
                 if (updateScope)
                 {
-                    scope.ResourceType = payloadEntityType;
+                    scope.ResourceTypeReference = payloadEntityType.ToTypeReference(true).AsStructured();
                 }
             }
             else if (scope.ResourceType.IsAssignableFrom(payloadEntityType))
             {
                 if (updateScope)
                 {
-                    scope.ResourceType = payloadEntityType;
+                    scope.ResourceTypeReference = payloadEntityType.ToTypeReference(true).AsStructured();
                 }
             }
             else if (!payloadEntityType.IsAssignableFrom(scope.ResourceType))
@@ -1100,6 +1090,7 @@ namespace Microsoft.OData
                     expectedValueTypeReference.IsODataTypeDefinitionTypeKind() ||
                     expectedValueTypeReference.IsODataEnumTypeKind() ||
                     expectedValueTypeReference.IsODataComplexTypeKind() ||
+                    expectedValueTypeReference.IsUntyped() ||
                     expectedValueTypeReference.IsNonEntityCollectionType(),
                     "Only primitive, type definition, Enum, complex and collection types are supported by this method.");
 
@@ -1131,6 +1122,13 @@ namespace Microsoft.OData
                 {
                     IEdmComplexTypeReference complexTypeReference = expectedValueTypeReference.AsComplex();
                     if (!complexTypeReference.IsNullable)
+                    {
+                        ThrowNullValueForNonNullableTypeException(expectedValueTypeReference, propertyName);
+                    }
+                }
+                else if (expectedValueTypeReference.IsUntyped())
+                {
+                    if (!expectedValueTypeReference.IsNullable)
                     {
                         ThrowNullValueForNonNullableTypeException(expectedValueTypeReference, propertyName);
                     }

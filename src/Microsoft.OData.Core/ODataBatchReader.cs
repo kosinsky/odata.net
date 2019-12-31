@@ -21,16 +21,16 @@ namespace Microsoft.OData
     /// <summary>
     /// Abstract class for reading OData batch messages; also verifies the proper sequence of read calls on the reader.
     /// </summary>
-    public abstract class ODataBatchReader : IODataBatchOperationListener
+    public abstract class ODataBatchReader : IODataStreamListener
     {
+        /// <summary>The batch-specific URL converter that stores the content IDs found in a changeset and supports resolving cross-referencing URLs.</summary>
+        internal readonly ODataBatchPayloadUriConverter PayloadUriConverter;
+
         /// <summary>The input context to read the content from.</summary>
         private readonly ODataInputContext inputContext;
 
         /// <summary>True if the writer was created for synchronous operation; false for asynchronous.</summary>
         private readonly bool synchronous;
-
-        /// <summary>The batch-specific URL converter that stores the content IDs found in a changeset and supports resolving cross-referencing URLs.</summary>
-        private readonly ODataBatchPayloadUriConverter payloadUriConverter;
 
         /// <summary>The dependency injection container to get related services.</summary>
         private readonly IServiceProvider container;
@@ -68,7 +68,7 @@ namespace Microsoft.OData
             this.inputContext = inputContext;
             this.container = inputContext.Container;
             this.synchronous = synchronous;
-            this.payloadUriConverter = new ODataBatchPayloadUriConverter(inputContext.PayloadUriConverter);
+            this.PayloadUriConverter = new ODataBatchPayloadUriConverter(inputContext.PayloadUriConverter);
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace Microsoft.OData
         /// <summary>
         /// This method is called to notify that the content stream for a batch operation has been requested.
         /// </summary>
-        void IODataBatchOperationListener.BatchOperationContentStreamRequested()
+        void IODataStreamListener.StreamRequested()
         {
             this.operationState = OperationState.StreamRequested;
         }
@@ -229,7 +229,7 @@ namespace Microsoft.OData
         /// A task representing any action that is running as part of the status change of the reader;
         /// null if no such action exists.
         /// </returns>
-        Task IODataBatchOperationListener.BatchOperationContentStreamRequestedAsync()
+        Task IODataStreamListener.StreamRequestedAsync()
         {
             this.operationState = OperationState.StreamRequested;
             return TaskUtils.CompletedTask;
@@ -239,7 +239,7 @@ namespace Microsoft.OData
         /// <summary>
         /// This method is called to notify that the content stream of a batch operation has been disposed.
         /// </summary>
-        void IODataBatchOperationListener.BatchOperationContentStreamDisposed()
+        void IODataStreamListener.StreamDisposed()
         {
             this.operationState = OperationState.StreamDisposed;
         }
@@ -333,7 +333,7 @@ namespace Microsoft.OData
             {
                 foreach (string id in dependsOnRequestIds)
                 {
-                    if (!this.payloadUriConverter.ContainsContentId(id))
+                    if (!this.PayloadUriConverter.ContainsContentId(id))
                     {
                         throw new ODataException(Strings.ODataBatchReader_DependsOnIdNotFound(id, contentId));
                     }
@@ -341,13 +341,13 @@ namespace Microsoft.OData
             }
 
             Uri uri = ODataBatchUtils.CreateOperationRequestUri(
-                requestUri, this.inputContext.MessageReaderSettings.BaseUri, this.payloadUriConverter);
+                requestUri, this.inputContext.MessageReaderSettings.BaseUri, this.PayloadUriConverter);
 
             ODataBatchUtils.ValidateReferenceUri(requestUri, dependsOnRequestIds,
                 this.inputContext.MessageReaderSettings.BaseUri);
 
             return new ODataBatchOperationRequestMessage(streamCreatorFunc, method, uri, headers, this,
-                contentId, this.payloadUriConverter, /*writing*/ false, this.container, dependsOnRequestIds, groupId);
+                contentId, this.PayloadUriConverter, /*writing*/ false, this.container, dependsOnRequestIds, groupId);
         }
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace Microsoft.OData
             ODataBatchOperationResponseMessage responseMessage = new ODataBatchOperationResponseMessage(
                 streamCreatorFunc, headers, this,
                 contentId,
-                this.payloadUriConverter.BatchMessagePayloadUriConverter, /*writing*/ false, this.container, groupId)
+                this.PayloadUriConverter.BatchMessagePayloadUriConverter, /*writing*/ false, this.container, groupId)
             {
                 StatusCode = statusCode
             };
@@ -471,13 +471,13 @@ namespace Microsoft.OData
                     // a potential content ID header) have been read.
                     if (this.contentIdToAddOnNextRead != null)
                     {
-                        if (this.payloadUriConverter.ContainsContentId(this.contentIdToAddOnNextRead))
+                        if (this.PayloadUriConverter.ContainsContentId(this.contentIdToAddOnNextRead))
                         {
                             throw new ODataException(
                                 Strings.ODataBatchReader_DuplicateContentIDsNotAllowed(this.contentIdToAddOnNextRead));
                         }
 
-                        this.payloadUriConverter.AddContentId(this.contentIdToAddOnNextRead);
+                        this.PayloadUriConverter.AddContentId(this.contentIdToAddOnNextRead);
                         this.contentIdToAddOnNextRead = null;
                     }
 
@@ -512,9 +512,9 @@ namespace Microsoft.OData
                     this.IncreaseBatchSize();
 
                     this.State = this.ReadAtChangesetStartImplementation();
-                    if (this.inputContext.MessageReaderSettings.MaxProtocolVersion <= ODataVersion.V4)
+                    if (this.inputContext.MessageReaderSettings.Version <= ODataVersion.V4)
                     {
-                        this.payloadUriConverter.Reset();
+                        this.PayloadUriConverter.Reset();
                     }
 
                     this.isInChangeset = true;

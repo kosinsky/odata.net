@@ -43,15 +43,16 @@ namespace Microsoft.OData.Evaluation
         /// </summary>
         /// <param name="resourceState">Resource state to use as reference for information needed by the builder.</param>
         /// <param name="useKeyAsSegment">true if keys should go in separate segments in auto-generated URIs, false if they should go in parentheses.</param>
+        /// <param name="isDelta">true if the payload being read is a delta payload.</param>
         /// <returns>An entity metadata builder.</returns>
-        ODataResourceMetadataBuilder GetResourceMetadataBuilderForReader(IODataJsonLightReaderResourceState resourceState, bool useKeyAsSegment);
+        ODataResourceMetadataBuilder GetResourceMetadataBuilderForReader(IODataJsonLightReaderResourceState resourceState, bool useKeyAsSegment, bool isDelta);
 
         /// <summary>
         /// Gets the list of operations that are bindable to a type.
         /// </summary>
         /// <param name="bindingType">The binding type in question.</param>
         /// <returns>The list of operations that are always bindable to a type.</returns>
-        IEdmOperation[] GetBindableOperationsForType(IEdmType bindingType);
+        IEnumerable<IEdmOperation> GetBindableOperationsForType(IEdmType bindingType);
 
         /// <summary>
         /// Determines whether operations bound to this type must be qualified with the operation they belong to when appearing in a $select clause.
@@ -79,7 +80,7 @@ namespace Microsoft.OData.Evaluation
         /// <summary>
         /// Cache of operations that are bindable to entity types.
         /// </summary>
-        private readonly Dictionary<IEdmType, IEdmOperation[]> bindableOperationsCache;
+        private readonly Dictionary<IEdmType, IList<IEdmOperation>> bindableOperationsCache;
 
         /// <summary>
         /// true if we are reading or writing a response payload, false otherwise.
@@ -150,7 +151,7 @@ namespace Microsoft.OData.Evaluation
             this.edmTypeResolver = edmTypeResolver;
             this.model = model;
             this.metadataDocumentUri = metadataDocumentUri;
-            this.bindableOperationsCache = new Dictionary<IEdmType, IEdmOperation[]>(ReferenceEqualityComparer<IEdmType>.Instance);
+            this.bindableOperationsCache = new Dictionary<IEdmType, IList<IEdmOperation>>(ReferenceEqualityComparer<IEdmType>.Instance);
             this.odataUri = odataUri;
         }
 
@@ -233,8 +234,9 @@ namespace Microsoft.OData.Evaluation
         /// </summary>
         /// <param name="resourceState">Resource state to use as reference for information needed by the builder.</param>
         /// <param name="useKeyAsSegment">true if keys should go in separate segments in auto-generated URIs, false if they should go in parentheses.</param>
+        /// <param name="isDelta">true if the payload being read is a delta payload</param>
         /// <returns>A resource metadata builder.</returns>
-        public ODataResourceMetadataBuilder GetResourceMetadataBuilderForReader(IODataJsonLightReaderResourceState resourceState, bool useKeyAsSegment)
+        public ODataResourceMetadataBuilder GetResourceMetadataBuilderForReader(IODataJsonLightReaderResourceState resourceState, bool useKeyAsSegment, bool isDelta = false)
         {
             Debug.Assert(resourceState != null, "resource != null");
 
@@ -242,7 +244,7 @@ namespace Microsoft.OData.Evaluation
             if (resourceState.MetadataBuilder == null)
             {
                 ODataResourceBase resource = resourceState.Resource;
-                if (this.isResponse)
+                if (this.isResponse && !isDelta)
                 {
                     ODataTypeAnnotation typeAnnotation = resource.TypeAnnotation;
 
@@ -273,7 +275,7 @@ namespace Microsoft.OData.Evaluation
                         ODataResourceTypeContext.Create( /*serializationInfo*/
                             null, navigationSource, navigationSourceElementType, resourceState.ResourceTypeFromMetadata ?? resourceState.ResourceType,
                             /*throwIfMissingTypeInfo*/ true);
-                    IODataResourceMetadataContext resourceMetadataContext = ODataResourceMetadataContext.Create(resource, typeContext, /*serializationInfo*/null, structuredType, this, resourceState.SelectedProperties);
+                    IODataResourceMetadataContext resourceMetadataContext = ODataResourceMetadataContext.Create(resource, typeContext, /*serializationInfo*/null, structuredType, this, resourceState.SelectedProperties, null);
 
                     ODataConventionalUriBuilder uriBuilder = new ODataConventionalUriBuilder(this.ServiceBaseUri,
                         useKeyAsSegment ? ODataUrlKeyDelimiter.Slash : ODataUrlKeyDelimiter.Parentheses);
@@ -301,13 +303,13 @@ namespace Microsoft.OData.Evaluation
         /// </summary>
         /// <param name="bindingType">The binding type in question.</param>
         /// <returns>The list of operations that are always bindable to a type.</returns>
-        public IEdmOperation[] GetBindableOperationsForType(IEdmType bindingType)
+        public IEnumerable<IEdmOperation> GetBindableOperationsForType(IEdmType bindingType)
         {
             Debug.Assert(bindingType != null, "bindingType != null");
             Debug.Assert(this.bindableOperationsCache != null, "this.bindableOperationsCache != null");
             Debug.Assert(this.isResponse, "this.readingResponse");
 
-            IEdmOperation[] bindableOperations;
+            IList<IEdmOperation> bindableOperations;
             if (!this.bindableOperationsCache.TryGetValue(bindingType, out bindableOperations))
             {
                 bindableOperations = MetadataUtils.CalculateBindableOperationsForType(bindingType, this.model, this.edmTypeResolver);

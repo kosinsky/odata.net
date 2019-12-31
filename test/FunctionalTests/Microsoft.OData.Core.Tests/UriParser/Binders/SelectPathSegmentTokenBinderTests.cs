@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Xunit;
@@ -89,15 +88,68 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         [Fact]
         public void OperationWithParenthesesShouldNotWork()
         {
-            Action action = () => SelectPathSegmentTokenBinder.ConvertNonTypeTokenToSegment(new NonSystemToken("Move()", null, null), HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType(), DefaultUriResolver).Should();
-            action.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_PropertyNotDeclared("Fully.Qualified.Namespace.Person", "Move()"));
+            Action action = () => SelectPathSegmentTokenBinder.ConvertNonTypeTokenToSegment(new NonSystemToken("Move()", null, null), HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType(), DefaultUriResolver);
+            action.Throws<ODataErrorException>(ODataErrorStrings.MetadataBinder_PropertyNotDeclared("Fully.Qualified.Namespace.Person", "Move()"));
         }
 
         [Fact]
         public void UnboundOperationShouldIgnore()
         {
             var segment = SelectPathSegmentTokenBinder.ConvertNonTypeTokenToSegment(new NonSystemToken("Fully.Qualified.Namespace.GetPet1", null, null), HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType(), DefaultUriResolver);
-            segment.Should().BeNull();
+            Assert.Null(segment);
+        }
+
+        [Fact]
+        public void NamespaceQualifiedWithWildcardResultsNamespaceQualifiedWildcardSelectItem()
+        {
+            // Arrange
+            SelectItem selectItem;
+            PathSegmentToken pathSegment = new NonSystemToken("Fully.Qualified.Namespace.*", null, null);
+
+            // Act
+            var result = SelectPathSegmentTokenBinder.TryBindAsWildcard(pathSegment, HardCodedTestModel.TestModel, out selectItem);
+
+            // Assert
+            Assert.True(result);
+            Assert.NotNull(selectItem);
+            NamespaceQualifiedWildcardSelectItem namesapceQualifiedSelectItem = Assert.IsType<NamespaceQualifiedWildcardSelectItem>(selectItem);
+            Assert.NotNull(namesapceQualifiedSelectItem);
+            Assert.Equal("Fully.Qualified.Namespace", namesapceQualifiedSelectItem.Namespace);
+        }
+
+        [Fact]
+        public void WithWildcardResultsWildcardSelectItem()
+        {
+            // Arrange
+            SelectItem selectItem;
+            PathSegmentToken pathSegment = new NonSystemToken("*", null, null);
+
+            // Act
+            var result = SelectPathSegmentTokenBinder.TryBindAsWildcard(pathSegment, HardCodedTestModel.TestModel, out selectItem);
+
+            // Assert
+            Assert.True(result);
+            Assert.NotNull(selectItem);
+            Assert.IsType<WildcardSelectItem>(selectItem);
+        }
+
+        [Theory]
+        [InlineData("Unknown.Namespace.*")]
+        [InlineData("abc.*")]
+        [InlineData("abc")]
+        [InlineData("Shoe")]
+        public void NotWildcardAndNotNamespaceQualifiedWildcardResultsWildcardSelectItem(string identifier)
+        {
+            // Arrange
+            SelectItem selectItem;
+            PathSegmentToken pathSegment = new NonSystemToken(identifier, null, null);
+
+            // Act
+            var result = SelectPathSegmentTokenBinder.TryBindAsWildcard(pathSegment, HardCodedTestModel.TestModel, out selectItem);
+
+            // Assert
+            Assert.False(result);
+            Assert.Null(selectItem);
         }
 
         [Fact]
@@ -111,7 +163,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void OperationWithQualifiedParameterTypeNamesShouldIgnore()
         {
             var segment = SelectPathSegmentTokenBinder.ConvertNonTypeTokenToSegment(new NonSystemToken("Move2(Fully.Qualified.Namespace.Person,Edm.String)", null, null), HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType(), DefaultUriResolver);
-            segment.Should().BeNull();
+            Assert.Null(segment);
         }
 
         [Fact]
@@ -139,16 +191,15 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void UnfoundProperyOnClosedTypeThrows()
         {
             Action visit = () => SelectPathSegmentTokenBinder.ConvertNonTypeTokenToSegment(new NonSystemToken("Missing", null, null), HardCodedTestModel.TestModel, HardCodedTestModel.GetPersonType(), DefaultUriResolver);
-            visit.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_PropertyNotDeclared(HardCodedTestModel.GetPersonType(), "Missing"));
+            visit.Throws<ODataErrorException>(Strings.MetadataBinder_PropertyNotDeclared(HardCodedTestModel.GetPersonType(), "Missing"));
         }
 
         [Fact]
         public void UnQualifiedActionNameShouldThrow()
         {
             Action visit = () => SelectPathSegmentTokenBinder.ConvertNonTypeTokenToSegment(new NonSystemToken("Walk", null, null), HardCodedTestModel.TestModel, HardCodedTestModel.GetDogType(), DefaultUriResolver);
-            visit.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_PropertyNotDeclared(HardCodedTestModel.GetDogType(), "Walk"));
+            visit.Throws<ODataErrorException>(Strings.MetadataBinder_PropertyNotDeclared(HardCodedTestModel.GetDogType(), "Walk"));
         }
-
 
         [Fact]
         public void ValidateThrowInFindOperationsByBindingParameterTypeHierarchyExceptionDoesNotSurface()
@@ -156,7 +207,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var model = new FindOperationsByBindingParameterTypeHierarchyThrowingCatchableExceptionEdmModel();
             IEdmEntityType entityType = new EdmEntityType("n", "EntityType");
             ODataPathSegment foundPathSegment = null;
-            SelectPathSegmentTokenBinder.TryBindAsOperation(new SystemToken("foo", null), model, entityType, out foundPathSegment).Should().BeFalse();
+            Assert.False(SelectPathSegmentTokenBinder.TryBindAsOperation(new SystemToken("foo", null), model, entityType, out foundPathSegment));
         }
 
         [Fact]
@@ -165,7 +216,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var model = new FindOperationsByBindingParameterTypeHierarchyThrowingCatchableExceptionEdmModel();
             IEdmEntityType entityType = new EdmEntityType("n", "EntityType");
             ODataPathSegment foundPathSegment = null;
-            SelectPathSegmentTokenBinder.TryBindAsOperation(new SystemToken("f*oo", null), model, entityType, out foundPathSegment).Should().BeFalse();
+            Assert.False(SelectPathSegmentTokenBinder.TryBindAsOperation(new SystemToken("f*oo", null), model, entityType, out foundPathSegment));
         }
 
         public void ValidateNonCatchableExceptionsThrowInFindOperationsByBindingParameterTypeHierarchyExceptionAndSurfaces()
@@ -174,7 +225,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             IEdmEntityType entityType = new EdmEntityType("n", "EntityType");
             ODataPathSegment foundPathSegment = null;
             Action test = () => SelectPathSegmentTokenBinder.TryBindAsOperation(new SystemToken("foo", null), model, entityType, out foundPathSegment);
-            test.ShouldThrow<OutOfMemoryException>();
+            Assert.Throws<OutOfMemoryException>(test);
         }
 
         [Fact]
@@ -192,7 +243,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                 {
                     FindOperations = (bindingType) =>
                         {
-                            bindingType.Should().BeSameAs(dummyBindingType);
+                            Assert.Same(bindingType, dummyBindingType);
                             return dummyOperations;
                         }
                 };

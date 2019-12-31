@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
-using FluentAssertions;
 using Microsoft.OData.Edm.Csdl;
 using Microsoft.OData.Edm.Csdl.CsdlSemantics;
 using Microsoft.OData.Edm.Validation;
@@ -192,15 +191,15 @@ namespace Microsoft.OData.Edm.Tests.Csdl
             var setA = model.FindDeclaredNavigationSource("Root");
             var target = setA.NavigationPropertyBindings.First().Target;
             Assert.True(target is IEdmContainedEntitySet);
-            target.Name.Should().Be("SetB");
+            Assert.Equal("SetB", target.Name);
             var targetSegments = target.Path.PathSegments.ToList();
-            targetSegments.Count().Should().Be(2);
-            targetSegments[0].Should().Be("Root");
-            targetSegments[1].Should().Be("SetB");
+            Assert.Equal(2, targetSegments.Count());
+            Assert.Equal("Root", targetSegments[0]);
+            Assert.Equal("SetB", targetSegments[1]);
             var pathSegments = setA.NavigationPropertyBindings.First().Path.PathSegments.ToList();
-            pathSegments.Count().Should().Be(2);
-            pathSegments[0].Should().Be("EntityA");
-            pathSegments[1].Should().Be("EntityAToB");
+            Assert.Equal(2, pathSegments.Count());
+            Assert.Equal("EntityA", pathSegments[0]);
+            Assert.Equal("EntityAToB", pathSegments[1]);
         }
 
         [Fact]
@@ -238,25 +237,26 @@ namespace Microsoft.OData.Edm.Tests.Csdl
 
             IEdmModel model;
             IEnumerable<EdmError> errors;
-            CsdlReader.TryParse(XElement.Parse(csdl).CreateReader(), out model, out errors).Should().BeTrue();
-            errors.Count().Should().Be(0);
+            var result = CsdlReader.TryParse(XElement.Parse(csdl).CreateReader(), out model, out errors);
+            Assert.True(result);
+            Assert.Empty(errors);
             model.Validate(out errors);
-            errors.Count().Should().Be(0);
+            Assert.Empty(errors);
 
             var educationSingleton = model.FindDeclaredNavigationSource("education");
             var navPropBinding = educationSingleton.NavigationPropertyBindings.First();
             var target = navPropBinding.Target;
-            target.Should().NotBeNull();
+            Assert.NotNull(target);
             Assert.True(target is IEdmContainedEntitySet);
-            target.Name.Should().Be("users");
+            Assert.Equal("users", target.Name);
             var targetSegments = target.Path.PathSegments.ToList();
-            targetSegments.Count().Should().Be(2);
-            targetSegments[0].Should().Be("education");
-            targetSegments[1].Should().Be("users");
+            Assert.Equal(2, targetSegments.Count());
+            Assert.Equal("education", targetSegments[0]);
+            Assert.Equal("users", targetSegments[1]);
             var pathSegments = navPropBinding.Path.PathSegments.ToList();
-            pathSegments.Count().Should().Be(2);
-            pathSegments[0].Should().Be("classes");
-            pathSegments[1].Should().Be("members");
+            Assert.Equal(2, pathSegments.Count());
+            Assert.Equal("classes", pathSegments[0]);
+            Assert.Equal("members", pathSegments[1]);
         }
 
         [Fact]
@@ -448,6 +448,59 @@ namespace Microsoft.OData.Edm.Tests.Csdl
             Assert.Equal(optionalParamWithDefault.DefaultValueString, "Smith");
         }
 
+        [Theory]
+        [InlineData(EdmVocabularyAnnotationSerializationLocation.Inline)]
+        [InlineData(EdmVocabularyAnnotationSerializationLocation.OutOfLine)]
+        public void ParsingReturnTypeAnnotationShouldSucceed(EdmVocabularyAnnotationSerializationLocation location)
+        {
+            const string template = @"<edmx:Edmx Version=""4.0"" xmlns:edmx=""http://docs.oasis-open.org/odata/ns/edmx"">
+  <edmx:DataServices>
+    <Schema Namespace=""NS"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
+      <Function Name=""TestFunction"">
+        <ReturnType Type=""Edm.PrimitiveType"" Nullable=""false"" >
+          {0}
+        </ReturnType>
+      </Function>
+      <Annotations Target=""NS.TestFunction()/$ReturnType"">
+         {1}
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>";
+
+            string annotationString =
+                "<Annotation Term =\"Org.OData.Validation.V1.DerivedTypeConstraint\">" +
+                  "<Collection>" +
+                     "<String>Edm.Int32</String>" +
+                     "<String>Edm.Boolean</String>" +
+                   "</Collection>" +
+                 "</Annotation>";
+            string inline = location == EdmVocabularyAnnotationSerializationLocation.Inline ? annotationString : "";
+            string outLine = location == EdmVocabularyAnnotationSerializationLocation.Inline ? "" : annotationString;
+            string csdl = String.Format(template, inline, outLine);
+
+            var model = CsdlReader.Parse(XElement.Parse(csdl).CreateReader());
+            var function = model.FindDeclaredOperations("NS.TestFunction").FirstOrDefault();
+            Assert.NotNull(function);
+            Assert.NotNull(function.ReturnType);
+            IEdmOperationReturn returnType = function.GetReturn();
+            Assert.NotNull(returnType);
+            Assert.Same(returnType.DeclaringOperation, function);
+            Assert.Equal("Edm.PrimitiveType", returnType.Type.FullName());
+
+            var termType = model.FindTerm("Org.OData.Validation.V1.DerivedTypeConstraint");
+            Assert.NotNull(termType);
+
+            IEdmVocabularyAnnotation annotation = model.FindVocabularyAnnotations<IEdmVocabularyAnnotation>(returnType, termType).FirstOrDefault();
+            Assert.NotNull(annotation);
+
+            Assert.True(annotation.GetSerializationLocation(model) == location);
+            IEdmCollectionExpression collectConstant = annotation.Value as IEdmCollectionExpression;
+            Assert.NotNull(collectConstant);
+
+            Assert.Equal(new[] { "Edm.Int32", "Edm.Boolean" }, collectConstant.Elements.Select(e => ((IEdmStringConstantExpression)e).Value));
+        }
+
         [Fact]
         public void ParsingValidXmlWithOneReferencesShouldSucceed()
         {
@@ -484,8 +537,9 @@ namespace Microsoft.OData.Edm.Tests.Csdl
   </edmx:DataServices>
 </edmx:Edmx>";
             Action parseAction = () => CsdlReader.Parse(XElement.Parse(EdmxwithMultipleEntityContainers).CreateReader());
-            parseAction.ShouldThrow<EdmParseException>().Where(e => e.Message.Contains(
-                Strings.CsdlParser_MetadataDocumentCannotHaveMoreThanOneEntityContainer)).And.Errors.Should().HaveCount(1);
+            var exception = Assert.Throws<EdmParseException>(parseAction);
+            Assert.Contains(Strings.CsdlParser_MetadataDocumentCannotHaveMoreThanOneEntityContainer, exception.Message);
+            Assert.Equal(1, exception.Errors.Count);
         }
 
         [Fact]
@@ -685,6 +739,9 @@ namespace Microsoft.OData.Edm.Tests.Csdl
             IEdmModel model = GetEdmModel(types: types);
             Assert.NotNull(model);
 
+            IEnumerable<EdmError> errors;
+            Assert.True(model.Validate(out errors), String.Format("Errors in validating model. {0}", String.Concat(errors.Select(e => e.ErrorMessage))));
+
             var color = model.SchemaElements.OfType<IEdmEnumType>().FirstOrDefault(c => c.Name == "Color");
             Assert.NotNull(color);
 
@@ -730,14 +787,17 @@ namespace Microsoft.OData.Edm.Tests.Csdl
         private void RunValidTest(Func<XmlReader, IEdmModel> parse)
         {
             var result = parse(this.validReader);
-            result.Should().NotBeNull();
-            result.EntityContainer.FullName().Should().Be("Test.Container");
+            Assert.NotNull(result);
+            Assert.Equal("Test.Container", result.EntityContainer.FullName());
         }
 
         private void RunInvalidTest(Func<XmlReader, IEdmModel> parse)
         {
             Action parseAction = () => parse(this.invalidReader);
-            parseAction.ShouldThrow<EdmParseException>().WithMessage(ErrorStrings.EdmParseException_ErrorsEncounteredInEdmx(ErrorMessage)).And.Errors.Should().OnlyContain(e => e.ToString() == ErrorMessage);
+
+            EdmParseException exception = Assert.Throws<EdmParseException>(parseAction);
+            Assert.Equal(ErrorStrings.EdmParseException_ErrorsEncounteredInEdmx(ErrorMessage), exception.Message);
+            Assert.Single(exception.Errors, e => e.ToString() == ErrorMessage);
         }
 
         private static IEdmModel GetEdmModel(string types = "", string properties = "")
@@ -874,10 +934,49 @@ namespace Microsoft.OData.Edm.Tests.Csdl
             Assert.Equal("Smith", parameter.DefaultValueString);
         }
 
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void ParsingUrlEscapeFunctionWorks(bool escaped)
+        {
+            string format = @"<?xml version=""1.0"" encoding=""utf-16""?>
+            <edmx:Edmx Version=""4.0"" xmlns:edmx=""http://docs.oasis-open.org/odata/ns/edmx"" >
+               <edmx:DataServices>
+                <Schema Namespace=""NS"" xmlns =""http://docs.oasis-open.org/odata/ns/edm"" >
+                   <EntityType Name=""Entity"" >
+                    <Key>
+                      <PropertyRef Name=""Id"" />
+                    </Key>
+                    <Property Name=""Id"" Type =""Edm.Int32"" Nullable =""false"" />
+                  </EntityType>
+                  <Function Name=""Function"" IsBound =""true"" >
+                    <Parameter Name=""entity"" Type =""NS.Entity"" />
+                    <Parameter Name=""path"" Type =""Edm.String"" />
+                    <ReturnType Type=""Edm.Int32"" />
+                    {0}
+                  </Function>
+                </Schema>
+              </edmx:DataServices>
+            </edmx:Edmx>";
+
+            string annotation = escaped ? "<Annotation Term=\"Org.OData.Community.V1.UrlEscapeFunction\" Bool=\"true\" />" : "";
+            string csdl = String.Format(format, annotation);
+
+            IEdmModel model;
+            IEnumerable<EdmError> errors;
+
+            bool result = CsdlReader.TryParse(XElement.Parse(csdl).CreateReader(), out model, out errors);
+            Assert.True(result);
+            Assert.NotNull(model);
+
+            var function = model.SchemaElements.OfType<IEdmFunction>().First();
+            Assert.Equal(escaped, model.IsUrlEscapeFunction(function));
+        }
+
         [Fact]
         public void ParsingBaseAndDerivedTypeWithSameAnnotationWorksButValidationSuccessful()
         {
-            string annotations =@"
+            string annotations = @"
             <Annotations Target=""NS.Base"">
                 <Annotation Term=""Org.OData.Core.V1.Description"" String=""Base description"" />
             </Annotations>
@@ -915,7 +1014,7 @@ namespace Microsoft.OData.Edm.Tests.Csdl
             var edmType = model.SchemaElements.OfType<IEdmEntityType>().FirstOrDefault(c => c.Name == "Derived");
             Assert.NotNull(edmType);
             var descriptions = model.FindVocabularyAnnotations<IEdmVocabularyAnnotation>(edmType, CoreVocabularyModel.DescriptionTerm);
-            Assert.Equal(new [] { "Derived description 1", "Derived description 2" },
+            Assert.Equal(new[] { "Derived description 1", "Derived description 2" },
                 descriptions.Select(d => d.Value as IEdmStringConstantExpression).Select(e => e.Value));
 
             IEnumerable<EdmError> errors;
@@ -981,6 +1080,25 @@ namespace Microsoft.OData.Edm.Tests.Csdl
 
             Assert.Equal(EdmTypeKind.TypeDefinition, property.Type.TypeKind());
             Assert.Equal("Org.OData.Core.V1.LocalDateTime", property.Type.FullName());
+        }
+
+        [Theory]
+        [InlineData("4.0")]
+        [InlineData("4.01")]
+        public void ValidateEdmxVersions(string odataVersion)
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?><edmx:Edmx Version=\"" + odataVersion + "\" xmlns:edmx=\"http://docs.oasis-open.org/odata/ns/edmx\"><edmx:DataServices /></edmx:Edmx>";
+
+            var stringReader = new System.IO.StringReader(xml);
+            var xmlReader = System.Xml.XmlReader.Create(stringReader);
+
+            IEdmModel edmModel = null;
+            IEnumerable<EdmError> edmErrors;
+
+            // Read in the CSDL and verify the version
+            CsdlReader.TryParse(xmlReader, out edmModel, out edmErrors);
+            Assert.Equal(edmErrors.Count(), 0);
+            Assert.Equal(edmModel.GetEdmVersion(), odataVersion == "4.0" ? EdmConstants.EdmVersion4 : EdmConstants.EdmVersion401);
         }
     }
 }

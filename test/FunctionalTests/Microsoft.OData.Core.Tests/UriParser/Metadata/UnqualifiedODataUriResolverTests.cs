@@ -5,7 +5,6 @@
 //---------------------------------------------------------------------
 
 using System;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Xunit;
 
@@ -73,7 +72,7 @@ namespace Microsoft.OData.Tests.UriParser.Metadata
                 "People?$orderby=TestNS.FindPencil(pid=2)/Id",
                 "People?$orderby=FindPencil(pid=2)/Id",
                 parser => parser.ParseOrderBy(),
-                clause => clause.Expression.ShouldBeSingleValuePropertyAccessQueryNode(PencilId).And.Source.ShouldBeSingleResourceFunctionCallNode("TestNS.FindPencil"),
+                clause => clause.Expression.ShouldBeSingleValuePropertyAccessQueryNode(PencilId).Source.ShouldBeSingleResourceFunctionCallNode("TestNS.FindPencil"),
                 Strings.MetadataBinder_UnknownFunction("FindPencil"));
         }
 
@@ -84,7 +83,7 @@ namespace Microsoft.OData.Tests.UriParser.Metadata
                 "People?$orderby=TestNS.FindPencil/Id",
                 "People?$orderby=FindPencil/Id",
                 parser => parser.ParseOrderBy(),
-                clause => clause.Expression.ShouldBeSingleValuePropertyAccessQueryNode(PencilId).And.Source.ShouldBeSingleResourceFunctionCallNode("TestNS.FindPencil"),
+                clause => clause.Expression.ShouldBeSingleValuePropertyAccessQueryNode(PencilId).Source.ShouldBeSingleResourceFunctionCallNode("TestNS.FindPencil"),
                 Strings.MetadataBinder_PropertyNotDeclared("TestNS.Person", "FindPencil"));
         }
 
@@ -96,7 +95,7 @@ namespace Microsoft.OData.Tests.UriParser.Metadata
                 "People?$orderby=Addr/GetZip",
                 parser => parser.ParseOrderBy(),
                 clause =>
-                    clause.Expression.ShouldBeSingleValueFunctionCallQueryNode("TestNS.GetZip").And.Source.ShouldBeSingleComplexNode(AddrProperty),
+                    clause.Expression.ShouldBeSingleValueFunctionCallQueryNode("TestNS.GetZip").Source.ShouldBeSingleComplexNode(AddrProperty),
                 Strings.MetadataBinder_PropertyNotDeclared("TestNS.Address", "GetZip"));
         }
 
@@ -141,7 +140,7 @@ namespace Microsoft.OData.Tests.UriParser.Metadata
                 Resolver = new UnqualifiedODataUriResolver() {EnableCaseInsensitive = false}
             };
             Action action = () => parser.ParsePath();
-            action.ShouldThrow<ODataException>().WithMessage(Strings.BadRequest_KeyCountMismatch("TestNS.Pet"));
+            action.Throws<ODataException>(Strings.BadRequest_KeyCountMismatch("TestNS.Pet"));
         }
 
         [Fact]
@@ -150,7 +149,7 @@ namespace Microsoft.OData.Tests.UriParser.Metadata
             Uri uriUnmatchedKeysCount = new Uri("PetSet(key1=1, key2='aStr', nonExistingKey='bStr')", UriKind.Relative);
             ODataUriParser parser = new ODataUriParser(Model, uriUnmatchedKeysCount);
             Action action = () => parser.ParsePath();
-            action.ShouldThrow<ODataException>().WithMessage(Strings.BadRequest_KeyCountMismatch("TestNS.Pet"));
+            action.Throws<ODataException>(Strings.BadRequest_KeyCountMismatch("TestNS.Pet"));
         }
 
         private void TestUnqualified<TResult>(

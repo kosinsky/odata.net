@@ -48,16 +48,16 @@ namespace Microsoft.OData.UriParser
         public static void AddCustomUriFunction(string functionName, FunctionSignatureWithReturnType functionSignature)
         {
             // Parameters validation
-            ExceptionUtils.CheckArgumentStringNotNullOrEmpty(functionName, "customFunctionName");
-            ExceptionUtils.CheckArgumentNotNull(functionSignature, "newCustomFunctionSignature");
+            ExceptionUtils.CheckArgumentStringNotNullOrEmpty(functionName, "functionName");
+            ExceptionUtils.CheckArgumentNotNull(functionSignature, "functionSignature");
 
             ValidateFunctionWithReturnType(functionSignature);
 
-            // Thread saftey - before using the custom functions dictionary
+            // Thread safety - before using the custom functions dictionary
             lock (Locker)
             {
                 // Check if the function does already exists in the Built-In functions
-                // If 'addAsOverloadToBuiltInFunction' parameter is false - throw expection
+                // If 'addAsOverloadToBuiltInFunction' parameter is false - throw expectation
                 // Else, add as a custom function
                 FunctionSignatureWithReturnType[] existingBuiltInFunctionOverload;
                 if (BuiltInUriFunctions.TryGetBuiltInFunction(functionName, out existingBuiltInFunctionOverload))
@@ -75,7 +75,7 @@ namespace Microsoft.OData.UriParser
         }
 
         /// <summary>
-        /// Removes the specific function overload from the custum uri functions.
+        /// Removes the specific function overload from the custom uri functions.
         /// </summary>
         /// <param name="functionName">Custom function name to remove</param>
         /// <param name="functionSignature">The specific signature overload of the function to remove</param>
@@ -83,8 +83,8 @@ namespace Microsoft.OData.UriParser
         /// <exception cref="ArgumentNullException">Arguments are null, or function signature return type is null</exception>
         public static bool RemoveCustomUriFunction(string functionName, FunctionSignatureWithReturnType functionSignature)
         {
-            ExceptionUtils.CheckArgumentStringNotNullOrEmpty(functionName, "customFunctionName");
-            ExceptionUtils.CheckArgumentNotNull(functionSignature, "customFunctionSignature");
+            ExceptionUtils.CheckArgumentStringNotNullOrEmpty(functionName, "functionName");
+            ExceptionUtils.CheckArgumentNotNull(functionSignature, "functionSignature");
 
             ValidateFunctionWithReturnType(functionSignature);
 
@@ -114,7 +114,7 @@ namespace Microsoft.OData.UriParser
                 else
                 {
                     // Requested overload has been removed.
-                    // Update the custom functions to the overloads wihtout that one requested to be removed
+                    // Update the custom functions to the overloads without that one requested to be removed
                     CustomFunctions[functionName] = customFunctionOverloadsWithoutTheOneToRemove;
                     return true;
                 }
@@ -129,7 +129,7 @@ namespace Microsoft.OData.UriParser
         /// <exception cref="ArgumentNullException">Arguments are null, or function signature return type is null</exception>
         public static bool RemoveCustomUriFunction(string functionName)
         {
-            ExceptionUtils.CheckArgumentStringNotNullOrEmpty(functionName, "customFunctionName");
+            ExceptionUtils.CheckArgumentStringNotNullOrEmpty(functionName, "functionName");
 
             lock (Locker)
             {
@@ -242,7 +242,7 @@ namespace Microsoft.OData.UriParser
 
         /// <summary>
         /// Check if FunctionSignatureWithReturnType is valid.
-        /// Vaild if the signature has a ReturnType
+        /// Valid if the signature has a ReturnType
         /// </summary>
         /// <param name="functionSignature">Function signature to validate</param>
         private static void ValidateFunctionWithReturnType(FunctionSignatureWithReturnType functionSignature)

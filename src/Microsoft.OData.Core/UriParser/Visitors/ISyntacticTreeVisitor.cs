@@ -36,14 +36,14 @@ namespace Microsoft.OData.UriParser
         /// Visits a BinaryOperatorToken
         /// </summary>
         /// <param name="tokenIn">The Binary operator token to visit.</param>
-        /// <returns>A BinaryOperatorNode thats bound to this token</returns>
+        /// <returns>A BinaryOperatorNode that's bound to this token</returns>
         T Visit(BinaryOperatorToken tokenIn);
 
         /// <summary>
         /// Visits an InToken
         /// </summary>
         /// <param name="tokenIn">The In token to visit.</param>
-        /// <returns>An InNode thats bound to this token</returns>
+        /// <returns>An InNode that's bound to this token</returns>
         T Visit(InToken tokenIn);
 
         /// <summary>
@@ -129,6 +129,13 @@ namespace Microsoft.OData.UriParser
         /// <param name="tokenIn">The SelectToken to bind</param>
         /// <returns>A QueryNode bound to this SelectToken</returns>
         T Visit(SelectToken tokenIn);
+
+        /// <summary>
+        /// Visits an SelectTermToken
+        /// </summary>
+        /// <param name="tokenIn">The SelectTermToken to visit</param>
+        /// <returns>A QueryNode bound to this SelectTermToken</returns>
+        T Visit(SelectTermToken tokenIn);
 
         /// <summary>
         /// Visits a StarToken

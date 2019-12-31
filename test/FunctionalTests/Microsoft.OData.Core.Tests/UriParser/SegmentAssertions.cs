@@ -7,10 +7,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Microsoft.OData.Edm.Vocabularies;
+using Xunit;
 
 namespace Microsoft.OData.Tests.UriParser
 {
@@ -19,199 +19,204 @@ namespace Microsoft.OData.Tests.UriParser
     /// </summary>
     internal static class SegmentAssertions
     {
-        public static AndConstraint<CountSegment> ShouldBeCountSegment(this ODataPathSegment segment)
+        public static CountSegment ShouldBeCountSegment(this ODataPathSegment segment)
         {
-            segment.Should().BeOfType<CountSegment>();
-            return new AndConstraint<CountSegment>(segment.As<CountSegment>());
+            Assert.NotNull(segment);
+            return Assert.IsType<CountSegment>(segment);
         }
 
-        public static AndConstraint<FilterSegment> ShouldBeFilterSegment(this ODataPathSegment segment)
+        public static FilterSegment ShouldBeFilterSegment(this ODataPathSegment segment)
         {
-            segment.Should().BeOfType<FilterSegment>();
-            return new AndConstraint<FilterSegment>(segment.As<FilterSegment>());
+            Assert.NotNull(segment);
+            return Assert.IsType<FilterSegment>(segment);
         }
 
-        public static AndConstraint<EachSegment> ShouldBeEachSegment(this ODataPathSegment segment)
+        public static EachSegment ShouldBeEachSegment(this ODataPathSegment segment)
         {
-            segment.Should().BeOfType<EachSegment>();
-            return new AndConstraint<EachSegment>(segment.As<EachSegment>());
+            Assert.NotNull(segment);
+            return Assert.IsType<EachSegment>(segment);
         }
 
-        public static AndConstraint<BatchSegment> ShouldBeBatchSegment(this ODataPathSegment segment)
+        public static BatchSegment ShouldBeBatchSegment(this ODataPathSegment segment)
         {
-            segment.Should().BeOfType<BatchSegment>();
-            return new AndConstraint<BatchSegment>(segment.As<BatchSegment>());
+            Assert.NotNull(segment);
+            return Assert.IsType<BatchSegment>(segment);
         }
 
-        public static AndConstraint<NavigationPropertyLinkSegment> ShouldBeNavigationPropertyLinkSegment(this ODataPathSegment segment, IEdmNavigationProperty navigationProperty)
+        public static NavigationPropertyLinkSegment ShouldBeNavigationPropertyLinkSegment(this ODataPathSegment segment, IEdmNavigationProperty navigationProperty)
         {
-            segment.Should().BeOfType<NavigationPropertyLinkSegment>();
-            NavigationPropertyLinkSegment navigationPropertyLinkSegment = segment.As<NavigationPropertyLinkSegment>();
-            navigationPropertyLinkSegment.NavigationProperty.Should().Be(navigationProperty);
-            return new AndConstraint<NavigationPropertyLinkSegment>(navigationPropertyLinkSegment);
+            Assert.NotNull(segment);
+            NavigationPropertyLinkSegment navigationPropertyLinkSegment = Assert.IsType<NavigationPropertyLinkSegment>(segment);
+            Assert.Same(navigationProperty, navigationPropertyLinkSegment.NavigationProperty);
+            return navigationPropertyLinkSegment;
         }
 
-        public static AndConstraint<MetadataSegment> ShouldBeMetadataSegment(this ODataPathSegment segment)
+        public static MetadataSegment ShouldBeMetadataSegment(this ODataPathSegment segment)
         {
-            segment.Should().BeOfType<MetadataSegment>();
-            return new AndConstraint<MetadataSegment>(segment.As<MetadataSegment>());
+            Assert.NotNull(segment);
+            return Assert.IsType<MetadataSegment>(segment);
         }
 
-        public static AndConstraint<ValueSegment> ShouldBeValueSegment(this ODataPathSegment segment)
+        public static ValueSegment ShouldBeValueSegment(this ODataPathSegment segment)
         {
-            segment.Should().BeOfType<ValueSegment>();
-            return new AndConstraint<ValueSegment>(segment.As<ValueSegment>());
+            Assert.NotNull(segment);
+            return Assert.IsType<ValueSegment>(segment);
         }
 
-        public static AndConstraint<TypeSegment> ShouldBeTypeSegment(this ODataPathSegment segment, IEdmType type)
+        public static TypeSegment ShouldBeTypeSegment(this ODataPathSegment segment, IEdmType type)
         {
-            segment.Should().BeOfType<TypeSegment>();
-            TypeSegment typeSegment = segment.As<TypeSegment>();
-            typeSegment.EdmType.ShouldBeEquivalentTo(type);
-            return new AndConstraint<TypeSegment>(typeSegment);
+            Assert.NotNull(segment);
+            TypeSegment typeSegment = Assert.IsType<TypeSegment>(segment);
+            Assert.True(typeSegment.EdmType.IsEquivalentTo(type));
+            return typeSegment;
         }
 
-        public static AndConstraint<TypeSegment> ShouldBeTypeSegment(this ODataPathSegment segment, IEdmType actualType, IEdmType expectType)
+        public static TypeSegment ShouldBeTypeSegment(this ODataPathSegment segment, IEdmType actualType, IEdmType expectType)
         {
-            segment.Should().BeOfType<TypeSegment>();
-            TypeSegment typeSegment = segment.As<TypeSegment>();
-            typeSegment.EdmType.ShouldBeEquivalentTo(actualType);
-            typeSegment.TargetEdmType.ShouldBeEquivalentTo(expectType);
-            return new AndConstraint<TypeSegment>(typeSegment);
+            Assert.NotNull(segment);
+            TypeSegment typeSegment = Assert.IsType<TypeSegment>(segment);
+            Assert.Equal(typeSegment.EdmType.FullTypeName(), actualType.FullTypeName());
+            Assert.Equal(typeSegment.ExpectedType.FullTypeName(), expectType.FullTypeName());
+            return typeSegment;
         }
 
-        public static AndConstraint<PropertySegment> ShouldBePropertySegment(this ODataPathSegment segment, IEdmProperty expectedProperty)
+        public static PropertySegment ShouldBePropertySegment(this ODataPathSegment segment, IEdmProperty expectedProperty)
         {
-            segment.Should().BeOfType<PropertySegment>();
-            PropertySegment propertySegment = segment.As<PropertySegment>();
-            propertySegment.Property.Should().Be(expectedProperty);
-            return new AndConstraint<PropertySegment>(propertySegment);
+            Assert.NotNull(segment);
+            PropertySegment propertySegment = Assert.IsType<PropertySegment>(segment);
+            Assert.Same(expectedProperty, propertySegment.Property);
+            return propertySegment;
         }
 
-        public static AndConstraint<AnnotationSegment> ShouldBeAnnotationSegment(this ODataPathSegment segment, IEdmTerm expectedTerm)
+        public static AnnotationSegment ShouldBeAnnotationSegment(this ODataPathSegment segment, IEdmTerm expectedTerm)
         {
-            segment.Should().BeOfType<AnnotationSegment>();
-            AnnotationSegment annotationSegment = segment.As<AnnotationSegment>();
-            annotationSegment.Term.Should().Be(expectedTerm);
-            return new AndConstraint<AnnotationSegment>(annotationSegment);
+            Assert.NotNull(segment);
+            AnnotationSegment annotationSegment = Assert.IsType<AnnotationSegment>(segment);
+            Assert.Equal(expectedTerm, annotationSegment.Term);
+            return annotationSegment;
         }
 
-        public static AndConstraint<NavigationPropertySegment> ShouldBeNavigationPropertySegment(this ODataPathSegment segment, IEdmNavigationProperty navigationProperty)
+        public static NavigationPropertySegment ShouldBeNavigationPropertySegment(this ODataPathSegment segment, IEdmNavigationProperty navigationProperty)
         {
-            segment.Should().BeOfType<NavigationPropertySegment>();
-            NavigationPropertySegment navPropSegment = segment.As<NavigationPropertySegment>();
-            navPropSegment.NavigationProperty.Should().Be(navigationProperty);
-            return new AndConstraint<NavigationPropertySegment>(navPropSegment);
+            Assert.NotNull(segment);
+            NavigationPropertySegment navPropSegment = Assert.IsType<NavigationPropertySegment>(segment);
+            Assert.Same(navPropSegment.NavigationProperty, navigationProperty);
+            return navPropSegment;
         }
 
-        public static AndConstraint<ReferenceSegment> ShouldBeReferenceSegment(this ODataPathSegment segment, IEdmNavigationSource navigationSource)
+        public static ReferenceSegment ShouldBeReferenceSegment(this ODataPathSegment segment, IEdmNavigationSource navigationSource)
         {
-            segment.Should().BeOfType<ReferenceSegment>();
-            ReferenceSegment referenceSegment = segment.As<ReferenceSegment>();
-            referenceSegment.TargetEdmNavigationSource.Should().Be(navigationSource);
-            return new AndConstraint<ReferenceSegment>(referenceSegment);
+            Assert.NotNull(segment);
+            ReferenceSegment referenceSegment = Assert.IsType<ReferenceSegment>(segment);
+            Assert.Same(referenceSegment.TargetEdmNavigationSource, navigationSource);
+            return referenceSegment;
         }
 
-        public static AndConstraint<DynamicPathSegment> ShouldBeDynamicPathSegment(this ODataPathSegment segment, string identifier)
+        public static DynamicPathSegment ShouldBeDynamicPathSegment(this ODataPathSegment segment, string identifier)
         {
-            segment.Should().BeOfType<DynamicPathSegment>();
-            DynamicPathSegment openPropertySegment = segment.As<DynamicPathSegment>();
-            openPropertySegment.Identifier.Should().Be(identifier);
-            return new AndConstraint<DynamicPathSegment>(openPropertySegment);
+            Assert.NotNull(segment);
+            DynamicPathSegment openPropertySegment = Assert.IsType<DynamicPathSegment>(segment);
+            Assert.Equal(identifier, openPropertySegment.Identifier);
+            return openPropertySegment;
         }
 
-        public static AndConstraint<OperationImportSegment> ShouldBeOperationImportSegment(this ODataPathSegment segment, params IEdmOperationImport[] operationImports)
+        public static OperationImportSegment ShouldBeOperationImportSegment(this ODataPathSegment segment, params IEdmOperationImport[] operationImports)
         {
-            segment.Should().BeOfType<OperationImportSegment>();
-            OperationImportSegment operationImportSegment = segment.As<OperationImportSegment>();
-            operationImportSegment.OperationImports.Should().ContainExactly(operationImports);
-            return new AndConstraint<OperationImportSegment>(operationImportSegment);
+            Assert.NotNull(segment);
+            OperationImportSegment operationImportSegment = Assert.IsType<OperationImportSegment>(segment);
+            operationImportSegment.OperationImports.ContainExactly(operationImports);
+            return operationImportSegment;
         }
 
-        public static AndConstraint<OperationSegment> ShouldBeOperationSegment(this ODataPathSegment segment, params IEdmOperation[] operations)
+        public static OperationSegment ShouldBeOperationSegment(this ODataPathSegment segment, params IEdmOperation[] operations)
         {
-            segment.Should().BeOfType<OperationSegment>();
-            OperationSegment operationSegment = segment.As<OperationSegment>();
-            operationSegment.Operations.Should().ContainExactly(operations);
-            return new AndConstraint<OperationSegment>(operationSegment);
+            Assert.NotNull(segment);
+            OperationSegment operationSegment = Assert.IsType<OperationSegment>(segment);
+            operationSegment.Operations.ContainExactly(operations);
+            return operationSegment;
         }
 
-        public static AndConstraint<BatchReferenceSegment> ShouldBeBatchReferenceSegment(this ODataPathSegment segment, IEdmType resultingType)
+        public static BatchReferenceSegment ShouldBeBatchReferenceSegment(this ODataPathSegment segment, IEdmType resultingType)
         {
-            segment.Should().BeOfType<BatchReferenceSegment>();
-            BatchReferenceSegment batchReferenceSegment = segment.As<BatchReferenceSegment>();
-            batchReferenceSegment.EdmType.Should().Be(resultingType);
-            return new AndConstraint<BatchReferenceSegment>(batchReferenceSegment);
+            Assert.NotNull(segment);
+            BatchReferenceSegment batchReferenceSegment = Assert.IsType<BatchReferenceSegment>(segment);
+            Assert.Same(resultingType, batchReferenceSegment.EdmType);
+            return batchReferenceSegment;
         }
 
-        public static AndConstraint<EntitySetSegment> ShouldBeEntitySetSegment(this ODataPathSegment segment, IEdmEntitySet entitySet)
+        public static EntitySetSegment ShouldBeEntitySetSegment(this ODataPathSegment segment, IEdmEntitySet entitySet)
         {
-            segment.Should().BeOfType<EntitySetSegment>();
-            EntitySetSegment entitySetSegment = segment.As<EntitySetSegment>();
-            entitySetSegment.EntitySet.Should().BeSameAs(entitySet);
-            return new AndConstraint<EntitySetSegment>(entitySetSegment);
+            Assert.NotNull(segment);
+            EntitySetSegment entitySetSegment = Assert.IsType<EntitySetSegment>(segment);
+            Assert.Same(entitySet, entitySetSegment.EntitySet);
+            return entitySetSegment;
         }
 
-        public static AndConstraint<SingletonSegment> ShouldBeSingletonSegment(this ODataPathSegment segment, IEdmSingleton singleton)
+        public static SingletonSegment ShouldBeSingletonSegment(this ODataPathSegment segment, IEdmSingleton singleton)
         {
-            segment.Should().BeOfType<SingletonSegment>();
-            SingletonSegment singletonSegment = segment.As<SingletonSegment>();
-            singletonSegment.Singleton.Should().BeSameAs(singleton);
-            return new AndConstraint<SingletonSegment>(singletonSegment);
+            Assert.NotNull(segment);
+            SingletonSegment singletonSegment = Assert.IsType<SingletonSegment>(segment);
+            Assert.Same(singleton, singletonSegment.Singleton);
+            return singletonSegment;
         }
 
-        public static AndConstraint<KeySegment> ShouldBeKeySegment(this ODataPathSegment segment, params KeyValuePair<string, object>[] keys)
+        public static KeySegment ShouldBeKeySegment(this ODataPathSegment segment, params KeyValuePair<string, object>[] keys)
         {
-            segment.Should().BeOfType<KeySegment>();
-            KeySegment entitySetSegment = segment.As<KeySegment>();
-            entitySetSegment.Keys.Should().ContainExactly(keys);
-            return new AndConstraint<KeySegment>(entitySetSegment);
+            Assert.NotNull(segment);
+            KeySegment keySegment = Assert.IsType<KeySegment>(segment);
+            keySegment.Keys.ContainExactly(keys);
+            return keySegment;
         }
 
-        public static AndConstraint<KeySegment> ShouldBeSimpleKeySegment(this ODataPathSegment segment, object value)
+        public static KeySegment ShouldBeSimpleKeySegment(this ODataPathSegment segment, object value)
         {
-            segment.Should().BeOfType<KeySegment>();
-            KeySegment entitySetSegment = segment.As<KeySegment>();
-            entitySetSegment.Keys.Count().Should().Be(1);
-            entitySetSegment.Keys.Single().Value.Should().Be(value);
-            return new AndConstraint<KeySegment>(entitySetSegment);
+            Assert.NotNull(segment);
+            KeySegment keySegment = Assert.IsType<KeySegment>(segment);
+            var key = Assert.Single(keySegment.Keys);
+            Assert.Equal(value, key.Value);
+            return keySegment;
         }
 
-        public static AndConstraint<OperationSegment> ShouldHaveParameterCount(this OperationSegment segment, int count)
+        public static OperationSegment ShouldHaveParameterCount(this OperationSegment segment, int count)
         {
-            segment.Parameters.Count().Should().Be(count);
-            return new AndConstraint<OperationSegment>(segment);
+            Assert.NotNull(segment);
+            Assert.Equal(count, segment.Parameters.Count());
+            return segment;
         }
 
-        public static AndConstraint<OperationImportSegment> ShouldHaveParameterCount(this OperationImportSegment segment, int count)
+        public static OperationImportSegment ShouldHaveParameterCount(this OperationImportSegment segment, int count)
         {
-            segment.Parameters.Count().Should().Be(count);
-            return new AndConstraint<OperationImportSegment>(segment);
+            Assert.NotNull(segment);
+            Assert.NotNull(segment.Parameters);
+            Assert.Equal(count, segment.Parameters.Count());
+            return segment;
         }
 
-        public static AndConstraint<OperationSegment> ShouldHaveConstantParameter<TValue>(this OperationSegment segment, string name, TValue value)
+        public static OperationSegment ShouldHaveConstantParameter<TValue>(this OperationSegment segment, string name, TValue value)
         {
+            Assert.NotNull(segment);
             OperationSegmentParameter parameter = segment.Parameters.SingleOrDefault(p => p.Name == name);
-            parameter.Should().NotBeNull();
+            Assert.NotNull(parameter);
             parameter.ShouldBeConstantParameterWithValueType(name, value);
-            return new AndConstraint<OperationSegment>(segment);
+            return segment;
         }
 
-        public static AndConstraint<OperationImportSegment> ShouldHaveConstantParameter<TValue>(this OperationImportSegment segment, string name, TValue value)
+        public static OperationImportSegment ShouldHaveConstantParameter<TValue>(this OperationImportSegment segment, string name, TValue value)
         {
+            Assert.NotNull(segment);
             OperationSegmentParameter parameter = segment.Parameters.SingleOrDefault(p => p.Name == name);
-            parameter.Should().NotBeNull();
+            Assert.NotNull(parameter);
             parameter.ShouldBeConstantParameterWithValueType(name, value);
-            return new AndConstraint<OperationImportSegment>(segment);
+            return segment;
         }
 
-        public static AndConstraint<object> ShouldBeConstantParameterWithValueType<TValue>(this OperationSegmentParameter parameter, string name, TValue value)
+        public static object ShouldBeConstantParameterWithValueType<TValue>(this OperationSegmentParameter parameter, string name, TValue value)
         {
-            parameter.Name.Should().Be(name);
-            ConstantNode constantNode = parameter.Value.As<ConstantNode>();
+            Assert.Equal(name, parameter.Name);
+            ConstantNode constantNode = Assert.IsType<ConstantNode>(parameter.Value);
             if (value == null)
             {
-                constantNode.Value.Should().BeNull();
+                Assert.Null(constantNode.Value);
             }
             else
             {
@@ -219,82 +224,90 @@ namespace Microsoft.OData.Tests.UriParser
                 {
                     // for int value --> long TValue
                     TValue tmp = (TValue)Convert.ChangeType(constantNode.Value, typeof(TValue));
-                    tmp.Should().NotBeNull();
-                    tmp.ShouldBeEquivalentTo(value);
+                    Assert.NotNull(tmp);
+                    Assert.Equal(value, tmp);
+                }
+                else if(typeof(TValue) == typeof(UriTemplateExpression))
+                {
+                    UriTemplateExpression actual = Assert.IsType<UriTemplateExpression>(constantNode.Value);
+                    UriTemplateExpression expect = Assert.IsType<UriTemplateExpression>(value);
+                    Assert.Equal(expect.LiteralText, actual.LiteralText);
+                    Assert.Equal(expect.ExpectedType.FullName(), expect.ExpectedType.FullName());
                 }
                 else
                 {
-                    constantNode.Value.Should().BeAssignableTo<TValue>();
-                    constantNode.Value.As<TValue>().ShouldBeEquivalentTo(value);
+                    constantNode.Value.GetType().IsAssignableFrom(typeof(TValue));
+                    Assert.Equal(value, constantNode.Value);
                 }
             }
 
-            return new AndConstraint<object>(constantNode.Value);
+            return constantNode.Value;
         }
 
-        public static AndConstraint<T> ShouldHaveValueType<T>(this OperationSegmentParameter parameter, string name)
+        public static T ShouldHaveValueType<T>(this OperationSegmentParameter parameter, string name)
         {
-            parameter.Name.Should().Be(name);
-            parameter.Value.Should().BeAssignableTo<T>();
-            return new AndConstraint<T>((T)parameter.Value);
+            Assert.Equal(name, parameter.Name);
+            Assert.IsType<T>(parameter.Value);
+            return (T)parameter.Value;
         }
 
-        public static AndConstraint<T> ShouldBeConstantParameterWithValueType<T>(this OperationSegmentParameter parameter, string name)
+        public static T ShouldBeConstantParameterWithValueType<T>(this OperationSegmentParameter parameter, string name)
         {
-            parameter.Name.Should().Be(name);
-            object val = parameter.Value.As<ConstantNode>().Value;
-            val.Should().BeAssignableTo<T>();
-            return new AndConstraint<T>((T)val);
+            Assert.Equal(name, parameter.Name);
+            object val = Assert.IsType<ConstantNode>(parameter.Value).Value;
+            Assert.IsType<T>(val);
+            return (T)val;
         }
 
-        public static AndConstraint<OperationSegment> ShouldHaveSegmentOfParameterAliasNode(this OperationSegment segment, string name, string alias, IEdmTypeReference typeReference = null)
+        public static OperationSegment ShouldHaveSegmentOfParameterAliasNode(this OperationSegment segment, string name, string alias, IEdmTypeReference typeReference = null)
         {
+            Assert.NotNull(segment);
             OperationSegmentParameter parameter = segment.Parameters.SingleOrDefault(p => p.Name == name);
-            parameter.Should().NotBeNull();
+            Assert.NotNull(parameter);
             parameter.ShouldHaveParameterAliasNode(name, alias, typeReference);
-            return new AndConstraint<OperationSegment>(segment);
+            return segment;
         }
 
-        public static AndConstraint<ParameterAliasNode> ShouldHaveParameterAliasNode(this OperationSegmentParameter parameter, string name, string alias, IEdmTypeReference typeReference = null)
+        public static ParameterAliasNode ShouldHaveParameterAliasNode(this OperationSegmentParameter parameter, string name, string alias, IEdmTypeReference typeReference = null)
         {
-            parameter.Name.Should().Be(name);
-            var node = parameter.Value.As<ParameterAliasNode>();
-            node.Alias.Should().Be(alias);
+            Assert.Equal(name, parameter.Name);
+            var node = Assert.IsType<ParameterAliasNode>(parameter.Value);
+            Assert.Equal(alias, node.Alias);
             if (typeReference == null)
             {
-                node.TypeReference.Should().BeNull();
+                Assert.Null(node.TypeReference);
             }
             else
             {
-                node.TypeReference.FullName().Should().Be(typeReference.FullName());
+                Assert.Equal(node.TypeReference.FullName(), typeReference.FullName());
             }
 
-            return new AndConstraint<ParameterAliasNode>(node);
+            return node;
         }
 
-        public static AndConstraint<ParameterAliasNode> ShouldHaveParameterAliasNode(this NamedFunctionParameterNode parameter, string name, string alias)
+        public static ParameterAliasNode ShouldHaveParameterAliasNode(this NamedFunctionParameterNode parameter, string name, string alias)
         {
-            parameter.Name.Should().Be(name);
-            var token = parameter.Value.As<ParameterAliasNode>();
-            token.Alias.Should().Be(alias);
-            return new AndConstraint<ParameterAliasNode>(token);
+            Assert.Equal(name, parameter.Name);
+            var token = Assert.IsType<ParameterAliasNode>(parameter.Value);
+            Assert.Equal(alias, token.Alias);
+            return token;
         }
 
-        public static AndConstraint<ConvertNode> ShouldHaveConvertNode(this OperationSegmentParameter parameter,
+        public static ConvertNode ShouldHaveConvertNode(this OperationSegmentParameter parameter,
             string name, IEdmTypeReference typeReference = null)
         {
-            parameter.Name.Should().Be(name);
-            var node = parameter.Value.As<ConvertNode>();
+            Assert.Equal(name, parameter.Name);
+            var node = Assert.IsType<ConvertNode>(parameter.Value);
             if (typeReference == null)
             {
-                node.TypeReference.Should().BeNull();
+                Assert.Null(node.TypeReference);
             }
             else
             {
-                node.TypeReference.FullName().Should().Be(typeReference.FullName());
+                Assert.Equal(node.TypeReference.FullName(), typeReference.FullName());
             }
 
-            return new AndConstraint<ConvertNode>(node);
+            return node;
         }
     }
 }

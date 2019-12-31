@@ -13,6 +13,7 @@ namespace Microsoft.OData.JsonLight
     using System.IO;
 #if PORTABLELIB
     using System.Threading.Tasks;
+    using Microsoft.OData.Buffers;
 #endif
     using Microsoft.OData.Edm;
     using Microsoft.OData.Json;
@@ -23,6 +24,16 @@ namespace Microsoft.OData.JsonLight
     /// </summary>
     internal sealed class ODataJsonLightOutputContext : ODataOutputContext
     {
+        /// <summary>
+        /// An in-memory stream for writing stream properties to non-streaming json writer.
+        /// </summary>
+        internal MemoryStream BinaryValueStream = null;
+
+        /// <summary>
+        /// An in-memory StringWriter for writing string properties to non-streaming json writer.
+        /// </summary>
+        internal StringWriter StringWriter = null;
+
         /// <summary>
         /// The json metadata level (i.e., full, none, minimal) being written.
         /// </summary>
@@ -86,7 +97,7 @@ namespace Microsoft.OData.JsonLight
 
                 // COMPAT 2: JSON indentation - WCFDS indents only partially, it inserts newlines but doesn't actually insert spaces for indentation
                 // in here we allow the user to specify if true indentation should be used or if the limited functionality is enough.
-                this.jsonWriter = CreateJsonWriter(this.Container, this.textWriter, messageInfo.MediaType.HasIeee754CompatibleSetToTrue());
+                this.jsonWriter = CreateJsonWriter(this.Container, this.textWriter, messageInfo.MediaType.HasIeee754CompatibleSetToTrue(), messageWriterSettings);
             }
             catch (Exception e)
             {
@@ -121,7 +132,7 @@ namespace Microsoft.OData.JsonLight
             Debug.Assert(messageWriterSettings != null, "messageWriterSettings != null");
 
             this.textWriter = textWriter;
-            this.jsonWriter = CreateJsonWriter(messageInfo.Container, textWriter, true /*isIeee754Compatible*/);
+            this.jsonWriter = CreateJsonWriter(messageInfo.Container, textWriter, true /*isIeee754Compatible*/, messageWriterSettings);
             this.metadataLevel = new JsonMinimalMetadataLevel();
             this.propertyCacheHandler = new PropertyCacheHandler();
         }
@@ -174,6 +185,17 @@ namespace Microsoft.OData.JsonLight
         }
 
         /// <summary>
+        /// Returns whether to write control information without the odata prefix.
+        /// </summary>
+        internal bool OmitODataPrefix
+        {
+            get
+            {
+                return this.ODataSimplifiedOptions.GetOmitODataPrefix(this.MessageWriterSettings.Version ?? ODataVersion.V4);
+            }
+        }
+
+        /// <summary>
         /// Creates an <see cref="ODataWriter" /> to write a resource set.
         /// </summary>
         /// <returns>The created writer.</returns>
@@ -202,7 +224,6 @@ namespace Microsoft.OData.JsonLight
             return TaskUtils.GetTaskForSynchronousOperation(() => this.CreateODataResourceSetWriterImplementation(entitySet, resourceType, false, false));
         }
 #endif
-
 
         /// <summary>
         /// Creates an <see cref="ODataWriter" /> to write a delta resource set.
@@ -769,6 +790,12 @@ namespace Microsoft.OData.JsonLight
                     // The TextWriter.Flush (Which is in fact StreamWriter.Flush) will call the underlying Stream.Flush.
                     this.jsonWriter.Flush();
 
+                    JsonWriter writer = this.jsonWriter as JsonWriter;
+                    if (writer != null)
+                    {
+                        writer.Dispose();
+                    }
+
                     // In the async case the underlying stream is the async buffered stream, so we have to flush that explicitly.
                     if (this.asynchronousOutputStream != null)
                     {
@@ -779,28 +806,51 @@ namespace Microsoft.OData.JsonLight
                     // Dispose the message stream (note that we OWN this stream, so we always dispose it).
                     this.messageOutputStream.Dispose();
                 }
+
+                if (this.BinaryValueStream != null)
+                {
+                    this.BinaryValueStream.Flush();
+                    this.BinaryValueStream.Dispose();
+                }
+
+                if (this.StringWriter != null)
+                {
+                    this.StringWriter.Flush();
+                    this.StringWriter.Dispose();
+                }
             }
             finally
             {
                 this.messageOutputStream = null;
                 this.asynchronousOutputStream = null;
+                this.BinaryValueStream = null;
                 this.textWriter = null;
                 this.jsonWriter = null;
+                this.StringWriter = null;
             }
 
             base.Dispose(disposing);
         }
 
-        private static IJsonWriter CreateJsonWriter(IServiceProvider container, TextWriter textWriter, bool isIeee754Compatible)
+        private static IJsonWriter CreateJsonWriter(IServiceProvider container, TextWriter textWriter, bool isIeee754Compatible, ODataMessageWriterSettings writerSettings)
         {
+            IJsonWriter jsonWriter;
             if (container == null)
             {
-                return new JsonWriter(textWriter, isIeee754Compatible);
+                jsonWriter = new JsonWriter(textWriter, isIeee754Compatible);
+            }
+            else
+            {
+                IJsonWriterFactory jsonWriterFactory = container.GetRequiredService<IJsonWriterFactory>();
+                jsonWriter = jsonWriterFactory.CreateJsonWriter(textWriter, isIeee754Compatible);
+                Debug.Assert(jsonWriter != null, "jsonWriter != null");
             }
 
-            var jsonWriterFactory = container.GetRequiredService<IJsonWriterFactory>();
-            var jsonWriter = jsonWriterFactory.CreateJsonWriter(textWriter, isIeee754Compatible);
-            Debug.Assert(jsonWriter != null, "jsonWriter != null");
+            JsonWriter writer = jsonWriter as JsonWriter;
+            if (writer != null && writerSettings.ArrayPool != null)
+            {
+                writer.ArrayPool = writerSettings.ArrayPool;
+            }
 
             return jsonWriter;
         }

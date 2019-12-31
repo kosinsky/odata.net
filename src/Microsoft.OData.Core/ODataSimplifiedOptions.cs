@@ -13,6 +13,15 @@ namespace Microsoft.OData
     /// </summary>
     public sealed class ODataSimplifiedOptions
     {
+        // default setting for writing control information without a prefix
+        private bool enableWritingODataAnnotationWithoutPrefix;
+
+        // OData 4.0-specific setting for writing control information without a prefix
+        private bool omitODataPrefix40 = false;
+
+        // OData 4.01 and greater setting for writing control information without a prefix
+        private bool omitODataPrefix = true;
+
         /// <summary>
         /// Constructor of ODataSimplifiedOptions
         /// </summary>
@@ -33,17 +42,17 @@ namespace Microsoft.OData
             if (version == null || version < ODataVersion.V401)
             {
                 this.EnableReadingODataAnnotationWithoutPrefix = false;
-                this.EnableWritingODataAnnotationWithoutPrefix = false;
+                this.enableWritingODataAnnotationWithoutPrefix = this.omitODataPrefix40;
             }
             else
             {
                 this.EnableReadingODataAnnotationWithoutPrefix = true;
-                this.EnableWritingODataAnnotationWithoutPrefix = true;
+                this.enableWritingODataAnnotationWithoutPrefix = this.omitODataPrefix;
             }
         }
 
         /// <summary>
-        /// True if url parser support parsing path with key as segment, otherwise false. The defualt is true.
+        /// True if url parser support parsing path with key as segment, otherwise false. The default is true.
         /// </summary>
         public bool EnableParsingKeyAsSegmentUrl { get; set; }
 
@@ -71,11 +80,25 @@ namespace Microsoft.OData
         public bool EnableWritingKeyAsSegment { get; set; }
 
         /// <summary>
-        /// True if write reserved annotation name without prefix 'odata.', otherwise false.
+        /// True if control information should be written without the prefix 'odata.', otherwise false.
         /// The default value is false for OData 4.0, true for OData 4.01.
         /// The option is applied during serialization.
         /// </summary>
-        public bool EnableWritingODataAnnotationWithoutPrefix { get; set; }
+        [Obsolete("Deprecated. Use Get/SetOmitODataPrefix()")]
+        public bool EnableWritingODataAnnotationWithoutPrefix
+        {
+            get
+            {
+                return this.enableWritingODataAnnotationWithoutPrefix;
+            }
+
+            set
+            {
+                this.enableWritingODataAnnotationWithoutPrefix =
+                this.omitODataPrefix =
+                this.omitODataPrefix40 = value;
+            }
+        }
 
         /// <summary>
         /// Creates a shallow copy of this <see cref="ODataSimplifiedOptions"/>.
@@ -89,7 +112,72 @@ namespace Microsoft.OData
         }
 
         /// <summary>
-        /// Return the instatnce of ODataSimplifiedOptions from container if it container not null.
+        /// Get whether to write OData control information without a prefix
+        /// True if control information can be read without prefix 'odata.', otherwise false.
+        /// The default value is false for OData 4.0 and true for OData 4.01.
+        /// The option is applied during deserialization.
+        /// </summary>
+        /// <returns>Whether to omit the OData prefix for the specified version.</returns>
+        public bool GetOmitODataPrefix()
+        {
+            return this.enableWritingODataAnnotationWithoutPrefix;
+        }
+
+        /// <summary>
+        /// Version-specific behavior for writing OData control information without a prefix
+        /// True if control information can be read without prefix 'odata.', otherwise false.
+        /// The default value is false for OData 4.0 and true for OData 4.01.
+        /// The option is applied during deserialization.
+        /// </summary>
+        /// <param name="version">The version of the version-specific behavior being requested.</param>
+        /// <returns>Whether to omit the OData prefix for the specified version.</returns>
+        public bool GetOmitODataPrefix(ODataVersion version)
+        {
+            if (version >= ODataVersion.V401)
+            {
+                return this.omitODataPrefix;
+            }
+
+            return this.omitODataPrefix40;
+        }
+
+
+        /// <summary>
+        /// Whether to write OData control information without a prefix
+        /// True to read control information without the prefix 'odata.', otherwise false.
+        /// The default value is false for OData 4.0 and true for OData 4.01.
+        /// The option is applied during deserialization.
+        /// </summary>
+        /// <param name="enabled">True to omit writing the OData prefix, False to write the prefix.</param>
+        public void SetOmitODataPrefix(bool enabled)
+        {
+            this.enableWritingODataAnnotationWithoutPrefix =
+            this.omitODataPrefix =
+            this.omitODataPrefix40 = enabled;
+        }
+
+        /// <summary>
+        /// Version-specific behavior for writing OData control information without a prefix
+        /// True to read control information without the prefix 'odata.', otherwise false.
+        /// The default value is false for OData 4.0 and true for OData 4.01.
+        /// The option is applied during deserialization.
+        /// </summary>
+        /// <param name="enabled">True to omit writing the OData prefix, False to write the prefix.</param>
+        /// <param name="version">The version for which to specify the omit prefix behavior.</param>
+        public void SetOmitODataPrefix(bool enabled, ODataVersion version)
+        {
+            if (version == ODataVersion.V4)
+            {
+                this.omitODataPrefix40 = enabled;
+            }
+            else
+            {
+                this.omitODataPrefix = enabled;
+            }
+        }
+
+        /// <summary>
+        /// Return the instance of ODataSimplifiedOptions from container if it container not null.
         /// Otherwise return the static instance of ODataSimplifiedOptions.
         /// </summary>
         /// <param name="container">Container</param>
@@ -113,7 +201,9 @@ namespace Microsoft.OData
             this.EnableReadingKeyAsSegment = other.EnableReadingKeyAsSegment;
             this.EnableReadingODataAnnotationWithoutPrefix = other.EnableReadingODataAnnotationWithoutPrefix;
             this.EnableWritingKeyAsSegment = other.EnableWritingKeyAsSegment;
-            this.EnableWritingODataAnnotationWithoutPrefix = other.EnableWritingODataAnnotationWithoutPrefix;
+            this.enableWritingODataAnnotationWithoutPrefix = other.enableWritingODataAnnotationWithoutPrefix;
+            this.omitODataPrefix40 = other.omitODataPrefix40;
+            this.omitODataPrefix = other.omitODataPrefix;
         }
     }
 }

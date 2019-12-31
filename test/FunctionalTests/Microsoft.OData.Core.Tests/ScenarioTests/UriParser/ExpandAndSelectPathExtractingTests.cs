@@ -5,11 +5,9 @@
 //---------------------------------------------------------------------
 
 using System.Collections.Generic;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Xunit;
-using ODataErrorStrings = Microsoft.OData.Strings;
 
 namespace Microsoft.OData.Tests.ScenarioTests.UriParser
 {
@@ -26,6 +24,14 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             this.baseType.AddKeys(this.baseType.AddStructuralProperty("Id", EdmPrimitiveTypeKind.Int32));
             var baseNavigation1 = this.baseType.AddUnidirectionalNavigation(new EdmNavigationPropertyInfo { Name = "Navigation1", Target = this.baseType, TargetMultiplicity = EdmMultiplicity.ZeroOrOne });
             var baseNavigation2 = this.baseType.AddUnidirectionalNavigation(new EdmNavigationPropertyInfo { Name = "Navigation2", Target = this.baseType, TargetMultiplicity = EdmMultiplicity.ZeroOrOne });
+
+            var addressType = new EdmComplexType("FQ.NS", "Address");
+            addressType.AddStructuralProperty("City", EdmPrimitiveTypeKind.String);
+            addressType.AddStructuralProperty("Region", EdmPrimitiveTypeKind.String);
+            addressType.AddStructuralProperty("NearestAirports", new EdmCollectionTypeReference(new EdmCollectionType(new EdmComplexTypeReference(addressType, false))));
+            addressType.AddUnidirectionalNavigation(new EdmNavigationPropertyInfo { Name = "Residents", Target = this.baseType, TargetMultiplicity = EdmMultiplicity.Many });
+
+            this.baseType.AddStructuralProperty("Address", new EdmComplexTypeReference(addressType, false));
 
             this.derivedType = new EdmEntityType("FQ.NS", "Derived", this.baseType);
             this.derivedType.AddStructuralProperty("Derived", EdmPrimitiveTypeKind.Int32);
@@ -67,18 +73,16 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void DeepExpand()
         {
             const string expandClauseText = "Navigation1($expand=Navigation2($expand=Navigation1))";
-            const string expectedExpandClauseText = "Navigation1($expand=Navigation2($expand=Navigation1))";
             const string expectedSelectClause = "";
-            this.ParseAndExtract(expandClauseText, null, expectedExpandClauseText, expectedSelectClause);
+            this.ParseAndExtract(expandClauseText, null, expandClauseText, expectedSelectClause);
         }
 
         [Fact]
         public void MultiLevelExpand()
         {
             const string expandClauseText = "Navigation1,Navigation2($expand=Navigation1)";
-            const string expectedExpandClause = "Navigation1,Navigation2($expand=Navigation1)";
             const string expectedSelectClause = "";
-            this.ParseAndExtract(expandClauseText, expectedExpandClauseFromOM: expectedExpandClause, expectedSelectClauseFromOM: expectedSelectClause);
+            this.ParseAndExtract(expandClauseText, expectedExpandClauseFromOM: expandClauseText, expectedSelectClauseFromOM: expectedSelectClause);
         }
 
         [Fact]
@@ -112,8 +116,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             const string expandClauseText = "Navigation1($expand=FQ.NS.Derived/Navigation2)";
             const string expectedSelectClause = "";
-            const string expectedExpandClause = "Navigation1($expand=FQ.NS.Derived/Navigation2)";
-            this.ParseAndExtract(expandClauseText, null, expectedExpandClause, expectedSelectClause);
+            this.ParseAndExtract(expandClauseText, null, expandClauseText, expectedSelectClause);
         }
 
         [Fact]
@@ -161,25 +164,110 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void SelectNavigationPropertiesThatAreAlsoExpanded()
         {
             const string expandClauseText = "Navigation1($expand=Navigation1($select=Navigation2))";
-            const string expectedExpandClauseText = "Navigation1($expand=Navigation1($select=Navigation2))";
             const string expectedSelectClauseText = "";
-            this.ParseAndExtract(expandClauseText: expandClauseText, expectedExpandClauseFromOM: expectedExpandClauseText, expectedSelectClauseFromOM: expectedSelectClauseText);
+            this.ParseAndExtract(expandClauseText: expandClauseText, expectedExpandClauseFromOM: expandClauseText, expectedSelectClauseFromOM: expectedSelectClauseText);
         }
 
         [Fact]
         public void SelectPrimitiveAndNavigationPropertyThatIsAlsoExpanded()
         {
             const string selectClauseText = "Id,Navigation1";
-            const string expectedSelectText = "Id,Navigation1";
-            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: "Navigation1", expectedSelectClauseFromOM: expectedSelectText);
+            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: "Navigation1", expectedSelectClauseFromOM: selectClauseText);
         }
 
         [Fact]
-        public void SelectDuplicateProperty()
+        public void SelectDuplicatePropertySucceeds()
         {
-            const string selectClauseText = "Id,Id";
-            const string expectedSelectClauseText = "Id";
+            const string selectClauseText = "Address,Address";
+            const string expectedSelectClauseText = "Address";
             this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: expectedSelectClauseText, expectedExpandClauseFromOM: null);
+        }
+
+        [Fact]
+        public void MultipleSelectPathsSucceed()
+        {
+            const string selectClauseText = "Address/City,Address/Region";
+            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: selectClauseText, expectedExpandClauseFromOM: null);
+        }
+
+        [Fact]
+        public void SelectDuplicatePropertyWithOptionsFails()
+        {
+            const string selectClauseText = "Address($select=City),Address($select=Region)";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void DifferentPathsToSamePropertyFails()
+        {
+            const string selectClauseText = "Address($select=NearestAirports),Address/NearestAirports";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address/NearestAirports' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void DifferentPathsToSamePropertyWithOptionsFails()
+        {
+            const string selectClauseText = "Address($select=NearestAirports($top=2)),Address/NearestAirports";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address/NearestAirports' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void DifferentPathsToSamePropertyWithOptionsOnBothFails()
+        {
+            const string selectClauseText = "Address($select=NearestAirports($top=2)),Address/NearestAirports($skip=2)";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address/NearestAirports' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void DifferentPathsToSamePropertyWithSubselectsOnBothFails()
+        {
+            const string selectClauseText = "Address($select=NearestAirports($select=City)),Address/NearestAirports($select=Region)";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address/NearestAirports' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void SelectDuplicatePropertyWithOptionsFirstFails()
+        {
+            const string selectClauseText = "Address($select=City),Address";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void SelectDuplicatePropertyWithOptionsLastFails()
+        {
+            const string selectClauseText = "Address,Address($select=City)";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void SelectDuplicatePropertyWithSubselectAndOptionsFails()
+        {
+            const string selectClauseText = "Address/NearestAirports($select=City),Address/NearestAirports($top=2)";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address/NearestAirports' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void SelectDuplicatePropertyWithTopFails()
+        {
+            const string selectClauseText = "Address/NearestAirports($top=2),Address/NearestAirports";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'Address/NearestAirports' at one $select, please combine them together.");
+        }
+
+        [Fact]
+        public void DuplicateDeepSelectOptionsFails()
+        {
+            const string selectClauseText = "Address($select=NearestAirports($select=City),NearestAirports($select=Region))";
+            System.Action test = () => this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: null, expectedSelectClauseFromOM: null, expectedExpandClauseFromOM: null);
+            test.Throws<ODataException>("Found multiple select terms with same select path 'NearestAirports' at one $select, please combine them together.");
         }
 
         [Fact]
@@ -194,24 +282,24 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             const string expandClauseText = "Navigation1($select=*)";
             const string expectedSelectText = "";
-            const string expectedExpandText = "Navigation1($select=*)";
-            this.ParseAndExtract(expandClauseText: expandClauseText, expectedExpandClauseFromOM: expectedExpandText, expectedSelectClauseFromOM: expectedSelectText);
+            this.ParseAndExtract(expandClauseText: expandClauseText, expectedExpandClauseFromOM: expandClauseText, expectedSelectClauseFromOM: expectedSelectText);
         }
 
         [Fact]
         public void SelectAndExpandWithTypeSegments()
         {
-            const string selectClauseText = "FQ.NS.Derived/Navigation1";
-            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: selectClauseText);
+            const string navClauseText = "FQ.NS.Derived/Navigation1";
+            this.ParseAndExtract(selectClauseText: navClauseText, expandClauseText: navClauseText, expectedSelectClauseFromOM: navClauseText,  expectedExpandClauseFromOM: navClauseText);
+            this.ParseAndExtract(selectClauseText: navClauseText, expandClauseText: "", expectedSelectClauseFromOM: navClauseText);
+            this.ParseAndExtract(selectClauseText: "", expandClauseText: navClauseText, expectedExpandClauseFromOM: navClauseText);
         }
 
         [Fact]
         public void SelectAndExpandWithTypeSegments2()
         {
             const string expandClauseText = "FQ.NS.Derived/Navigation1($select=FQ.NS.Derived/Derived,FQ.NS.Derived/Navigation2)";
-            const string expectedExpandText = "FQ.NS.Derived/Navigation1($select=FQ.NS.Derived/Derived,FQ.NS.Derived/Navigation2)";
             const string expectedSelectText = "";
-            this.ParseAndExtract(expandClauseText, expectedExpandClauseFromOM: expectedExpandText, expectedSelectClauseFromOM: expectedSelectText);
+            this.ParseAndExtract(expandClauseText, expectedExpandClauseFromOM: expandClauseText, expectedSelectClauseFromOM: expectedSelectText);
         }
 
         [Fact]
@@ -244,9 +332,8 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void SelectPropertiesDefinedOnDerivedTypesWithoutRepeatingTypeSegments()
         {
             const string expandClauseText = "FQ.NS.Derived/DerivedNavigation($expand=DerivedNavigation($select=Derived))";
-            const string expectedExpandClause = "FQ.NS.Derived/DerivedNavigation($expand=DerivedNavigation($select=Derived))";
             const string expectedSelect = "";
-            this.ParseAndExtract(expandClauseText: expandClauseText, expectedExpandClauseFromOM: expectedExpandClause, expectedSelectClauseFromOM: expectedSelect);
+            this.ParseAndExtract(expandClauseText: expandClauseText, expectedExpandClauseFromOM: expandClauseText, expectedSelectClauseFromOM: expectedSelect);
         }
 
         [Fact]
@@ -263,8 +350,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
             const string selectClauseText = "FQ.NS.Derived/Navigation2";
             const string expandClauseText = "FQ.NS.Derived/Navigation1/$ref";
             const string expectedSelectClause = "FQ.NS.Derived/Navigation2,FQ.NS.Derived/Navigation1";
-            const string expectedExpandClause = "FQ.NS.Derived/Navigation1/$ref";
-            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: expandClauseText, expectedSelectClauseFromOM: expectedSelectClause, expectedExpandClauseFromOM: expectedExpandClause);
+            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: expandClauseText, expectedSelectClauseFromOM: expectedSelectClause, expectedExpandClauseFromOM: expandClauseText);
         }
 
         [Fact]
@@ -272,9 +358,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             const string selectClauseText = "FQ.NS.Derived/Navigation1,FQ.NS.Derived/Navigation2";
             const string expandClauseText = "FQ.NS.Derived/Navigation1/$ref";
-            const string expectedSelectClause = "FQ.NS.Derived/Navigation1,FQ.NS.Derived/Navigation2";
-            const string expectedExpandClause = "FQ.NS.Derived/Navigation1/$ref";
-            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: expandClauseText, expectedSelectClauseFromOM: expectedSelectClause, expectedExpandClauseFromOM: expectedExpandClause);
+            this.ParseAndExtract(selectClauseText: selectClauseText, expandClauseText: expandClauseText, expectedSelectClauseFromOM: selectClauseText, expectedExpandClauseFromOM: expandClauseText);
         }
 
         private void ParseAndExtract(string expandClauseText = null, string selectClauseText = null, string expectedExpandClauseFromOM = null, string expectedSelectClauseFromOM = null)
@@ -286,8 +370,8 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
                 // Verify that the extension method gets the same result as the path extractor.
                 string selectTextFromOM, expandTextFromOM;
                 expandClause.GetSelectExpandPaths(version, out selectTextFromOM, out expandTextFromOM);
-                selectTextFromOM.Should().Be(expectedSelectClauseFromOM ?? (selectClauseText ?? string.Empty));
-                expandTextFromOM.Should().Be(expectedExpandClauseFromOM ?? (expandClauseText ?? string.Empty));
+                Assert.Equal(expectedSelectClauseFromOM ?? selectClauseText ?? string.Empty, selectTextFromOM);
+                Assert.Equal(expectedExpandClauseFromOM ?? expandClauseText ?? string.Empty, expandTextFromOM);
             }
         }
     }

@@ -11,8 +11,8 @@ namespace Microsoft.OData
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
-    using Microsoft.OData.Evaluation;
     using System.Linq;
+    using Microsoft.OData.Evaluation;
     #endregion Namespaces
 
     /// <summary>
@@ -183,7 +183,11 @@ namespace Microsoft.OData
         /// </remarks>
         public IEnumerable<ODataProperty> Properties
         {
-            get { return this.MetadataBuilder.GetProperties(this.properties); }
+            get
+            {
+                return this.MetadataBuilder.GetProperties(this.properties);
+            }
+
             set
             {
                 VerifyProperties(value);

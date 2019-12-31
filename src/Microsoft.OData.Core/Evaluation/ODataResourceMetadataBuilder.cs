@@ -132,7 +132,7 @@ namespace Microsoft.OData.Evaluation
                     return false;
                 }
 
-                if(p.ODataValue is ODataResourceValue)
+                if (p.ODataValue is ODataResourceValue)
                 {
                     throw new ODataException(Strings.ODataResource_PropertyValueCannotBeODataResourceValue(p.Name));
                 }
@@ -172,6 +172,24 @@ namespace Microsoft.OData.Evaluation
         /// </summary>
         /// <param name="navigationPropertyName">The nested resource info we've already processed.</param>
         internal virtual void MarkNestedResourceInfoProcessed(string navigationPropertyName)
+        {
+        }
+
+        /// <summary>
+        /// Returns the next unprocessed stream property or null if there's no more stream properties to process.
+        /// </summary>
+        /// <returns>Returns the next unprocessed stream property or null if there's no more stream properties to process.</returns>
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "A method for consistency with the rest of the API.")]
+        internal virtual ODataProperty GetNextUnprocessedStreamProperty()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Marks the given stream property as processed.
+        /// </summary>
+        /// <param name="streamPropertyName">The stream property we've already processed.</param>
+        internal virtual void MarkStreamPropertyProcessed(string streamPropertyName)
         {
         }
 

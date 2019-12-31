@@ -195,21 +195,49 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
                         return new UnresolvedEntitySet(targetSegments[1], container, this.Location);
                     }
 
-                    IEdmStructuredType type = this.schema.FindType(targetSegments[0]) as IEdmStructuredType;
+                    IEdmSchemaType type = this.schema.FindType(targetSegments[0]);
                     if (type != null)
                     {
-                        IEdmProperty property = type.FindProperty(targetSegments[1]);
-                        if (property != null)
+                        IEdmStructuredType structuredType;
+                        IEdmEnumType enumType;
+                        if ((structuredType = type as IEdmStructuredType) != null)
                         {
-                            return property;
-                        }
+                            IEdmProperty property = structuredType.FindProperty(targetSegments[1]);
+                            if (property != null)
+                            {
+                                return property;
+                            }
 
-                        return new UnresolvedProperty(type, targetSegments[1], this.Location);
+                            return new UnresolvedProperty(structuredType, targetSegments[1], this.Location);
+                        }
+                        else if ((enumType = type as IEdmEnumType) != null)
+                        {
+                            foreach (IEdmEnumMember member in enumType.Members)
+                            {
+                                if (String.Equals(member.Name, targetSegments[1], StringComparison.OrdinalIgnoreCase))
+                                {
+                                    return member;
+                                }
+                            }
+
+                            return new UnresolvedEnumMember(targetSegments[1], enumType, this.Location);
+                        }
                     }
 
                     IEdmOperation operation = this.FindParameterizedOperation(targetSegments[0], this.Schema.FindOperations, this.CreateAmbiguousOperation);
                     if (operation != null)
                     {
+                        // $ReturnType
+                        if (targetSegments[1] == CsdlConstants.OperationReturnExternalTarget)
+                        {
+                            if (operation.ReturnType != null)
+                            {
+                                return operation.GetReturn();
+                            }
+
+                            return new UnresolvedReturn(operation, this.Location);
+                        }
+
                         IEdmOperationParameter parameter = operation.FindParameter(targetSegments[1]);
                         if (parameter != null)
                         {
@@ -224,7 +252,7 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
 
                 if (targetSegmentsCount == 3)
                 {
-                    // The only valid target with three segments is a function parameter.
+                    // The only valid target with three segments is a function parameter, or an operation return.
                     string containerName = targetSegments[0];
                     string operationName = targetSegments[1];
                     string parameterName = targetSegments[2];
@@ -235,6 +263,17 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
                         IEdmOperationImport operationImport = FindParameterizedOperationImport(operationName, container.FindOperationImportsExtended, this.CreateAmbiguousOperationImport);
                         if (operationImport != null)
                         {
+                            // $ReturnType
+                            if (parameterName == CsdlConstants.OperationReturnExternalTarget)
+                            {
+                                if (operationImport.Operation.ReturnType != null)
+                                {
+                                    return operationImport.Operation.GetReturn();
+                                }
+
+                                return new UnresolvedReturn(operationImport.Operation, this.Location);
+                            }
+
                             IEdmOperationParameter parameter = operationImport.Operation.FindParameter(parameterName);
                             if (parameter != null)
                             {
@@ -247,7 +286,14 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
 
                     string qualifiedOperationName = containerName + "/" + operationName;
                     UnresolvedOperation unresolvedOperation = new UnresolvedOperation(qualifiedOperationName, Edm.Strings.Bad_UnresolvedOperation(qualifiedOperationName), this.Location);
-                    return new UnresolvedParameter(unresolvedOperation, parameterName, this.Location);
+                    if (parameterName == CsdlConstants.OperationReturnExternalTarget)
+                    {
+                        return new UnresolvedReturn(unresolvedOperation, this.Location);
+                    }
+                    else
+                    {
+                        return new UnresolvedParameter(unresolvedOperation, parameterName, this.Location);
+                    }
                 }
 
                 return new BadElement(new EdmError[] { new EdmError(this.Location, EdmErrorCode.ImpossibleAnnotationsTarget, Edm.Strings.CsdlSemantics_ImpossibleAnnotationsTarget(target)) });

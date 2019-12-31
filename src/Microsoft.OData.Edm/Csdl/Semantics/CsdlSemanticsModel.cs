@@ -15,6 +15,7 @@ using System.Linq;
 using Microsoft.OData.Edm.Csdl.Parsing.Ast;
 using Microsoft.OData.Edm.Validation;
 using Microsoft.OData.Edm.Vocabularies;
+using Microsoft.OData.Edm.Vocabularies.V1;
 
 namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
 {
@@ -40,9 +41,10 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
         /// </summary>
         /// <param name="astModel">The raw CsdlModel.</param>
         /// <param name="annotationsManager">The IEdmDirectValueAnnotationsManager.</param>
-        /// <param name="referencedModels">The IEdmModels to be referenced. if any element or namespce is not supposed to be include, you should have removed it before passing to this constructor.</param>
-        public CsdlSemanticsModel(CsdlModel astModel, IEdmDirectValueAnnotationsManager annotationsManager, IEnumerable<IEdmModel> referencedModels)
-            : base(referencedModels, annotationsManager)
+        /// <param name="referencedModels">The IEdmModels to be referenced. if any element or namespace is not supposed to be include, you should have removed it before passing to this constructor.</param>
+        /// <param name="includeDefaultVocabularies">A value indicating enable/disable the built-in vocabulary supporting.</param>
+        public CsdlSemanticsModel(CsdlModel astModel, IEdmDirectValueAnnotationsManager annotationsManager, IEnumerable<IEdmModel> referencedModels, bool includeDefaultVocabularies = true)
+            : base(referencedModels, annotationsManager, includeDefaultVocabularies)
         {
             this.astModel = astModel;
             this.SetEdmReferences(astModel.CurrentModelReferences);
@@ -53,13 +55,14 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
         }
 
         /// <summary>
-        /// Constroctur
+        /// Constructor
         /// </summary>
         /// <param name="mainCsdlModel">The main raw CsdlModel.</param>
         /// <param name="annotationsManager">The IEdmDirectValueAnnotationsManager.</param>
         /// <param name="referencedCsdlModels">The referenced raw CsdlModels.</param>
-        public CsdlSemanticsModel(CsdlModel mainCsdlModel, IEdmDirectValueAnnotationsManager annotationsManager, IEnumerable<CsdlModel> referencedCsdlModels)
-            : base(Enumerable.Empty<IEdmModel>(), annotationsManager)
+        /// <param name="includeDefaultVocabularies">A value indicating enable/disable the built-in vocabulary supporting.</param>
+        public CsdlSemanticsModel(CsdlModel mainCsdlModel, IEdmDirectValueAnnotationsManager annotationsManager, IEnumerable<CsdlModel> referencedCsdlModels, bool includeDefaultVocabularies)
+            : base(Enumerable.Empty<IEdmModel>(), annotationsManager, includeDefaultVocabularies)
         {
             this.astModel = mainCsdlModel;
             this.SetEdmReferences(astModel.CurrentModelReferences);
@@ -67,7 +70,8 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
             // 1. build semantics for referenced models
             foreach (var tmp in referencedCsdlModels)
             {
-                this.AddReferencedModel(new CsdlSemanticsModel(tmp, this.DirectValueAnnotationsManager, this));
+                var refModel = new CsdlSemanticsModel(tmp, this.DirectValueAnnotationsManager, this, includeDefaultVocabularies);
+                this.AddReferencedModel(refModel);
             }
 
             // 2. build semantics for current model
@@ -88,8 +92,9 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
         /// <param name="referencedCsdlModel">The referenced raw CsdlModel.</param>
         /// <param name="annotationsManager">The IEdmDirectValueAnnotationsManager.</param>
         /// <param name="mainCsdlSemanticsModel">The CsdlSemanticsModel that will reference this new CsdlSemanticsModel. </param>
-        private CsdlSemanticsModel(CsdlModel referencedCsdlModel, IEdmDirectValueAnnotationsManager annotationsManager, CsdlSemanticsModel mainCsdlSemanticsModel)
-            : base(Enumerable.Empty<IEdmModel>(), annotationsManager)
+        /// <param name="includeDefaultVocabularies">A value indicating enable/disable the built-in vocabulary supporting.</param>
+        private CsdlSemanticsModel(CsdlModel referencedCsdlModel, IEdmDirectValueAnnotationsManager annotationsManager, CsdlSemanticsModel mainCsdlSemanticsModel, bool includeDefaultVocabularies)
+            : base(Enumerable.Empty<IEdmModel>(), annotationsManager, includeDefaultVocabularies)
         {
             this.mainEdmModel = mainCsdlSemanticsModel;
             Debug.Assert(referencedCsdlModel.ParentModelReferences.Any(), "referencedCsdlModel.ParentModelReferences.Any()");
@@ -328,25 +333,6 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
             }
 
             return ret;
-        }
-
-        public string ReplaceAlias(string name)
-        {
-            var mappings = this.GetNamespaceAliases();
-            var list = this.GetUsedNamespacesHavingAlias();
-
-            if (list != null && mappings != null && name.Contains("."))
-            {
-                var typeAlias = name.Split('.').First();
-                var ns = list.FirstOrDefault(n =>
-                {
-                    string alias;
-                    return mappings.TryGetValue(n, out alias) && alias == typeAlias;
-                });
-                return (ns != null) ? string.Format(CultureInfo.InvariantCulture, "{0}.{1}", ns, name.Substring(typeAlias.Length + 1)) : null;
-            }
-
-            return null;
         }
 
         internal void AddToReferencedModels(IEnumerable<IEdmModel> models)
@@ -604,12 +590,7 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
             {
                 foreach (CsdlAnnotations schemaOutOfLineAnnotations in schema.OutOfLineAnnotations)
                 {
-                    string target = schemaOutOfLineAnnotations.Target;
-                    string replaced = this.ReplaceAlias(target);
-                    if (replaced != null)
-                    {
-                        target = replaced;
-                    }
+                    string target = this.ReplaceAlias(schemaOutOfLineAnnotations.Target);
 
                     List<CsdlSemanticsAnnotations> annotations;
                     if (!this.outOfLineAnnotations.TryGetValue(target, out annotations))

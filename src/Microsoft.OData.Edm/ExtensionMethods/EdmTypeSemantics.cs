@@ -113,11 +113,11 @@ namespace Microsoft.OData.Edm
         public static bool IsStructured(this IEdmTypeReference type)
         {
             EdmUtil.CheckArgumentNull(type, "type");
-            switch (type.TypeKind())
+
+            EdmTypeKind kind = type.TypeKind();
+            if (kind == EdmTypeKind.Entity || kind == EdmTypeKind.Complex)
             {
-                case EdmTypeKind.Entity:
-                case EdmTypeKind.Complex:
-                    return true;
+                return true;
             }
 
             return false;
@@ -130,11 +130,9 @@ namespace Microsoft.OData.Edm
         /// <returns>This kind refers to a structured type.</returns>
         public static bool IsStructured(this EdmTypeKind typeKind)
         {
-            switch (typeKind)
+            if (typeKind == EdmTypeKind.Entity || typeKind == EdmTypeKind.Complex)
             {
-                case EdmTypeKind.Entity:
-                case EdmTypeKind.Complex:
-                    return true;
+                return true;
             }
 
             return false;
@@ -485,6 +483,34 @@ namespace Microsoft.OData.Edm
             }
 
             return primitiveType.PrimitiveKind == EdmPrimitiveTypeKind.String;
+        }
+
+        /// <summary>
+        /// Returns true if this definition refers to an untyped type.
+        /// </summary>
+        /// <param name="type">Type reference.</param>
+        /// <returns>This definition refers to a string type.</returns>
+        public static bool IsUntyped(this IEdmType type)
+        {
+            EdmUtil.CheckArgumentNull(type, "type");
+            return type.TypeKind == EdmTypeKind.Untyped;
+        }
+
+        /// <summary>
+        /// Returns true if this definition refers to a binary type.
+        /// </summary>
+        /// <param name="type">Type reference.</param>
+        /// <returns>This definition refers to a binary type.</returns>
+        public static bool IsBinary(this IEdmType type)
+        {
+            EdmUtil.CheckArgumentNull(type, "type");
+            IEdmPrimitiveType primitiveType = type as IEdmPrimitiveType;
+            if (primitiveType == null)
+            {
+                return false;
+            }
+
+            return primitiveType.PrimitiveKind == EdmPrimitiveTypeKind.Binary;
         }
 
         /// <summary>

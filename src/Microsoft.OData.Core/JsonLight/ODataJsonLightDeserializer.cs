@@ -84,7 +84,7 @@ namespace Microsoft.OData.JsonLight
             /// <summary>A metadata reference property was found.</summary>
             MetadataReferenceProperty,
 
-            /// <summary>A property representing a nested delta resoruce set was found.</summary>
+            /// <summary>A property representing a nested delta resource set was found.</summary>
             NestedDeltaResourceSet,
         }
 
@@ -254,7 +254,7 @@ namespace Microsoft.OData.JsonLight
                     contextUriAnnotationValue,
                     payloadKind,
                     this.MessageReaderSettings.ClientCustomTypeResolver,
-                    this.JsonLightInputContext.ReadingResponse,
+                    this.JsonLightInputContext.ReadingResponse || payloadKind == ODataPayloadKind.Delta,
                     this.JsonLightInputContext.MessageReaderSettings.ThrowIfTypeConflictsWithMetadata);
             }
 
@@ -466,6 +466,9 @@ namespace Microsoft.OData.JsonLight
 
             while (propertyParsingResult == PropertyParsingResult.CustomInstanceAnnotation && this.ShouldSkipCustomInstanceAnnotation(propertyName))
             {
+                // Read over the property name
+                this.JsonReader.Read();
+
                 // Skip over the instance annotation value and don't report it to the OM.
                 this.JsonReader.SkipValue();
                 propertyParsingResult = this.ParseProperty(
@@ -562,7 +565,7 @@ namespace Microsoft.OData.JsonLight
             Debug.Assert(simplifiedPropertyName.IndexOf('@') == 0, "simplifiedPropertyName must start with '@'.");
             Debug.Assert(simplifiedPropertyName.IndexOf('.') == -1, "simplifiedPropertyName must not be namespace-qualified.");
 
-            return this.JsonLightInputContext.ODataSimplifiedOptions.EnableReadingODataAnnotationWithoutPrefix &&
+            return this.JsonLightInputContext.OptionalODataPrefix &&
                    string.CompareOrdinal(simplifiedPropertyName, propertyName) == 0;
         }
 
@@ -573,7 +576,7 @@ namespace Microsoft.OData.JsonLight
         /// <returns>The complete OData annotation name.</returns>
         protected string CompleteSimplifiedODataAnnotation(string annotationName)
         {
-            if (this.JsonLightInputContext.ODataSimplifiedOptions.EnableReadingODataAnnotationWithoutPrefix &&
+            if (this.JsonLightInputContext.OptionalODataPrefix &&
                 annotationName.IndexOf('.') == -1)
             {
                 annotationName = JsonLightConstants.ODataAnnotationNamespacePrefix + annotationName;
@@ -737,7 +740,7 @@ namespace Microsoft.OData.JsonLight
                 {
                     annotationNameFromReader = this.CompleteSimplifiedODataAnnotation(annotationNameFromReader);
 
-                    // If this is a unknown odata annotation targeting a property, we skip over it. See remark on the method SkippedOverUnknownODataAnnotation() for detailed explaination.
+                    // If this is a unknown odata annotation targeting a property, we skip over it. See remark on the method SkippedOverUnknownODataAnnotation() for detailed explanation.
                     // Note that we don't skip over unknown odata annotations targeting another annotation. We don't allow annotations (except odata.type) targeting other annotations,
                     // so this.ProcessPropertyAnnotation() will test and fail for that case.
                     if (!ODataJsonLightReaderUtils.IsAnnotationProperty(propertyNameFromReader) && this.SkippedOverUnknownODataAnnotation(annotationNameFromReader, out annotationValue))
@@ -754,7 +757,7 @@ namespace Microsoft.OData.JsonLight
                     continue;
                 }
 
-                // If this is a unknown odata annotation, skip over it. See remark on the method SkippedOverUnknownODataAnnotation() for detailed explaination.
+                // If this is a unknown odata annotation, skip over it. See remark on the method SkippedOverUnknownODataAnnotation() for detailed explanation.
                 if (isInstanceAnnotation && this.SkippedOverUnknownODataAnnotation(propertyNameFromReader, out annotationValue))
                 {
                     // collect 'odata.<unknown>' annotation:
@@ -765,8 +768,9 @@ namespace Microsoft.OData.JsonLight
                 }
 
                 // We are encountering the property name for the first time.
-                // Read over the property name.
-                this.JsonReader.Read();
+                // Don't read over property name, as that would cause the buffering reader to read ahead in the StartObject
+                // state, which would break our ability to stream inline json. Instead, callers of ParseProperty will have to
+                // call this.JsonReader.Read() as appropriate to read past the property name.
                 parsedPropertyName = propertyNameFromReader;
 
                 if (!isInstanceAnnotation && ODataJsonLightUtils.IsMetadataReferenceProperty(propertyNameFromReader))

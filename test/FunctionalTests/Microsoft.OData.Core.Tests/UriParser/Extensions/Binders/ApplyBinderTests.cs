@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using Microsoft.OData.Tests.UriParser.Binders;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.UriParser.Aggregation;
@@ -38,7 +37,7 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
         {
             ApplyBinder binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
             Action bind = () => binder.BindApply(null);
-            bind.ShouldThrow<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>("tokens", bind);
         }
 
         [Fact]
@@ -49,23 +48,16 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            AggregateTransformationNode aggregate = Assert.IsType<AggregateTransformationNode>(Assert.Single(actual.Transformations));
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            AggregateTransformationNode aggregate = transformations[0] as AggregateTransformationNode;
+            Assert.Equal(TransformationNodeKind.Aggregate, aggregate.Kind);
+            Assert.NotNull(aggregate.AggregateExpressions);
 
-            aggregate.Should().NotBeNull();
-            aggregate.Kind.Should().Be(TransformationNodeKind.Aggregate);
-            aggregate.AggregateExpressions.Should().NotBeNull();
-            aggregate.AggregateExpressions.Should().HaveCount(1);
-
-            List<AggregateExpressionBase> statements = aggregate.AggregateExpressions.ToList();
-            AggregateExpression statement = statements[0] as AggregateExpression;
-            statement.Should().NotBeNull();
+            AggregateExpression statement = Assert.IsType<AggregateExpression>(Assert.Single(aggregate.AggregateExpressions));
             VerifyIsFakeSingleValueNode(statement.Expression);
-            statement.Method.Should().Be(AggregationMethod.Sum);
-            statement.Alias.Should().Be("TotalPrice");
+            Assert.Equal(AggregationMethod.Sum, statement.Method);
+            Assert.Equal("TotalPrice", statement.Alias);
         }
 
         [Fact]
@@ -76,22 +68,15 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            AggregateTransformationNode aggregate = Assert.IsType<AggregateTransformationNode>(Assert.Single(actual.Transformations));
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            AggregateTransformationNode aggregate = transformations[0] as AggregateTransformationNode;
+            Assert.Equal(TransformationNodeKind.Aggregate, aggregate.Kind);
+            Assert.NotNull(aggregate.Expressions);
+            AggregateExpression statement = Assert.Single(aggregate.Expressions);
 
-            aggregate.Should().NotBeNull();
-            aggregate.Kind.Should().Be(TransformationNodeKind.Aggregate);
-            aggregate.Expressions.Should().NotBeNull();
-            aggregate.Expressions.Should().HaveCount(1);
-
-            List<AggregateExpression> statements = aggregate.Expressions.ToList();
-            AggregateExpression statement = statements[0];
-
-            statement.Method.Should().Be(AggregationMethod.VirtualPropertyCount);
-            statement.Alias.Should().Be("TotalCount");
+            Assert.Equal(AggregationMethod.VirtualPropertyCount, statement.Method);
+            Assert.Equal("TotalCount", statement.Alias);
         }
 
         [Fact]
@@ -102,7 +87,8 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
 
             var binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             Action bind = () => binder.BindApply(tokens);
-            bind.ShouldThrow<ODataErrorException>().Where(e => e.Error.ErrorCode == ErrorCodes.PropertyNotFoundInType);
+            ODataErrorException exception = Assert.Throws<ODataErrorException>(bind);
+            Assert.Equal(ErrorCodes.PropertyNotFoundInType, exception.Error.ErrorCode);
         }
 
         [Fact]
@@ -113,7 +99,7 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             var metadataBiner = new MetadataBinder(_bindingState);
             var binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             Action bind = () => binder.BindApply(tokens);
-            bind.ShouldThrow<ODataErrorException>().Where(e => e.Error.ErrorCode == ErrorCodes.OpenPropertyNotFoundInType);
+            bind.Throws<ODataException>(ErrorStrings.ApplyBinder_GroupByPropertyNotPropertyAccessValue("Cxt"));
         }
 
         [Fact]
@@ -124,7 +110,7 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             var metadataBiner = new MetadataBinder(_bindingState);
             var binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             Action bind = () => binder.BindApply(tokens);
-            bind.ShouldThrow<ODataErrorException>().Where(e => e.Error.ErrorCode == ErrorCodes.OpenPropertyNotFoundInType);
+            bind.Throws<ODataException>(ErrorStrings.ApplyBinder_GroupByPropertyNotPropertyAccessValue("Cxt"));
         }
 
         [Fact]
@@ -135,24 +121,24 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(2);
+            Assert.NotNull(actual);
+            Assert.Equal(2, actual.Transformations.Count());
 
             List<TransformationNode> transformations = actual.Transformations.ToList();
-            FilterTransformationNode filter = transformations[1] as FilterTransformationNode;
+            Assert.NotNull(transformations[1]);
+            FilterTransformationNode filter = Assert.IsType<FilterTransformationNode>(transformations[1]);
 
-            filter.Should().NotBeNull();
-            filter.Kind.Should().Be(TransformationNodeKind.Filter);
+            Assert.Equal(TransformationNodeKind.Filter, filter.Kind);
 
             FilterClause filterClause = filter.FilterClause;
-            filterClause.Expression.Should().NotBeNull();
-            BinaryOperatorNode binaryOperation = filterClause.Expression as BinaryOperatorNode;
-            binaryOperation.Should().NotBeNull();
-            ConvertNode propertyConvertNode = binaryOperation.Left as ConvertNode;
-            propertyConvertNode.Should().NotBeNull();
-            SingleValueOpenPropertyAccessNode propertyAccess = propertyConvertNode.Source as SingleValueOpenPropertyAccessNode;
-            propertyAccess.Should().NotBeNull();
-            propertyAccess.Name.Should().Be("TotalPrice");
+            Assert.NotNull(filterClause.Expression);
+            BinaryOperatorNode binaryOperation = Assert.IsType<BinaryOperatorNode>(filterClause.Expression);
+
+            Assert.NotNull(binaryOperation.Left);
+            ConvertNode propertyConvertNode = Assert.IsType<ConvertNode>(binaryOperation.Left);
+            Assert.NotNull(propertyConvertNode.Source);
+            SingleValueOpenPropertyAccessNode propertyAccess = Assert.IsType< SingleValueOpenPropertyAccessNode>(propertyConvertNode.Source);
+            Assert.Equal("TotalPrice", propertyAccess.Name);
         }
 
         [Fact]
@@ -163,22 +149,19 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(Assert.Single(actual.Transformations));
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(2);
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.NotNull(groupBy.GroupingProperties);
+            Assert.Equal(2, groupBy.GroupingProperties.Count());
 
             List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
             VerifyIsFakeSingleValueNode(groupingProperties[0].Expression);
             VerifyIsFakeSingleValueNode(groupingProperties[1].Expression);
 
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Null(groupBy.ChildTransformations);
         }
 
         [Fact]
@@ -189,11 +172,9 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(FakeBindMethods.BindMethodReturnsPersonDogColorNavigation, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(Assert.Single(actual.Transformations));
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
             Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
             Assert.NotNull(groupBy.GroupingProperties);
             Assert.Null(groupBy.ChildTransformations);
@@ -223,27 +204,21 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyClause actual = binder.BindApply(tokens);
 
             Assert.NotNull(actual);
-            actual.Transformations.Should().HaveCount(1);
+            TransformationNode transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
+            GroupByPropertyNode addressNode = Assert.Single(groupBy.GroupingProperties);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal("MyAddress", addressNode.Name);
+            Assert.Null(addressNode.Expression);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode addressNode = groupingProperties[0];
-            addressNode.Name.Should().Be("MyAddress");
-            addressNode.Expression.Should().BeNull();
-            addressNode.ChildTransformations.Should().HaveCount(1);
-
-            GroupByPropertyNode cityNode = addressNode.ChildTransformations[0];
-            cityNode.Name.Should().Be("City");
-            cityNode.Expression.Should().NotBeNull();
-            cityNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode cityNode = Assert.Single(addressNode.ChildTransformations);
+            Assert.Equal("City", cityNode.Name);
+            Assert.NotNull(cityNode.Expression);
+            Assert.Empty(cityNode.ChildTransformations);
         }
 
         [Fact]
@@ -256,33 +231,26 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            TransformationNode transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.NotNull(groupBy.GroupingProperties);
+            Assert.Null(groupBy.ChildTransformations);
+            GroupByPropertyNode dogNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyDog", dogNode.Name);
+            Assert.Null(dogNode.Expression);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode dogNode = groupingProperties[0];
-            dogNode.Name.Should().Be("MyDog");
-            dogNode.Expression.Should().BeNull();
-            dogNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode ownerNode = Assert.Single(dogNode.ChildTransformations);
+            Assert.Equal("FastestOwner", ownerNode.Name);
+            Assert.Null(ownerNode.Expression);
 
-            GroupByPropertyNode ownerNode = dogNode.ChildTransformations[0];
-            ownerNode.Name.Should().Be("FastestOwner");
-            ownerNode.Expression.Should().BeNull();
-            ownerNode.ChildTransformations.Should().HaveCount(1);
-
-            GroupByPropertyNode nameNode = ownerNode.ChildTransformations[0];
-            nameNode.Name.Should().Be("FirstName");
-            nameNode.Expression.Should().NotBeNull();
-            nameNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode nameNode = Assert.Single(ownerNode.ChildTransformations);
+            Assert.Equal("FirstName", nameNode.Name);
+            Assert.NotNull(nameNode.Expression);
+            Assert.Empty(nameNode.ChildTransformations);
         }
 
         [Fact]
@@ -295,33 +263,27 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.NotNull(groupBy.GroupingProperties);
+            Assert.Null(groupBy.ChildTransformations);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode addressNode = groupingProperties[0];
-            addressNode.Name.Should().Be("MyAddress");
-            addressNode.Expression.Should().BeNull();
-            addressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode addressNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyAddress", addressNode.Name);
+            Assert.Null(addressNode.Expression);
 
-            GroupByPropertyNode nextHomeNode = addressNode.ChildTransformations[0];
-            nextHomeNode.Name.Should().Be("NextHome");
-            nextHomeNode.Expression.Should().BeNull();
-            nextHomeNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode nextHomeNode = Assert.Single(addressNode.ChildTransformations);
+            Assert.Equal("NextHome", nextHomeNode.Name);
+            Assert.Null(nextHomeNode.Expression);
 
-            GroupByPropertyNode cityNode = nextHomeNode.ChildTransformations[0];
-            cityNode.Name.Should().Be("City");
-            cityNode.Expression.Should().NotBeNull();
-            cityNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode cityNode = Assert.Single(nextHomeNode.ChildTransformations);
+            Assert.Equal("City", cityNode.Name);
+            Assert.NotNull(cityNode.Expression);
+            Assert.Empty(cityNode.ChildTransformations);
         }
 
         [Fact]
@@ -334,33 +296,27 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode paintingNode = groupingProperties[0];
-            paintingNode.Name.Should().Be("MyFavoritePainting");
-            paintingNode.Expression.Should().BeNull();
-            paintingNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode paintingNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyFavoritePainting", paintingNode.Name);
+            Assert.Null(paintingNode.Expression);
 
-            GroupByPropertyNode artistAddressNode = paintingNode.ChildTransformations[0];
-            artistAddressNode.Name.Should().Be("ArtistAddress");
-            artistAddressNode.Expression.Should().BeNull();
-            artistAddressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode artistAddressNode = Assert.Single(paintingNode.ChildTransformations);
+            Assert.Equal("ArtistAddress", artistAddressNode.Name);
+            Assert.Null(artistAddressNode.Expression);
 
-            GroupByPropertyNode cityNode = artistAddressNode.ChildTransformations[0];
-            cityNode.Name.Should().Be("City");
-            cityNode.Expression.Should().NotBeNull();
-            cityNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode cityNode = Assert.Single(artistAddressNode.ChildTransformations);
+            Assert.Equal("City", cityNode.Name);
+            Assert.NotNull(cityNode.Expression);
+            Assert.Empty(cityNode.ChildTransformations);
         }
 
         [Fact]
@@ -373,33 +329,27 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode addressNode = groupingProperties[0];
-            addressNode.Name.Should().Be("MyAddress");
-            addressNode.Expression.Should().BeNull();
-            addressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode addressNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyAddress", addressNode.Name);
+            Assert.Null(addressNode.Expression);
 
-            GroupByPropertyNode postBoxPaintingNode = addressNode.ChildTransformations[0];
-            postBoxPaintingNode.Name.Should().Be("PostBoxPainting");
-            postBoxPaintingNode.Expression.Should().BeNull();
-            postBoxPaintingNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode postBoxPaintingNode = Assert.Single(addressNode.ChildTransformations);
+            Assert.Equal("PostBoxPainting", postBoxPaintingNode.Name);
+            Assert.Null(postBoxPaintingNode.Expression);
 
-            GroupByPropertyNode artistNode = postBoxPaintingNode.ChildTransformations[0];
-            artistNode.Name.Should().Be("Artist");
-            artistNode.Expression.Should().NotBeNull();
-            artistNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode artistNode = Assert.Single(postBoxPaintingNode.ChildTransformations);
+            Assert.Equal("Artist", artistNode.Name);
+            Assert.NotNull(artistNode.Expression);
+            Assert.Empty(artistNode.ChildTransformations);
         }
 
         [Fact]
@@ -412,38 +362,31 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode dogNode = groupingProperties[0];
-            dogNode.Name.Should().Be("MyDog");
-            dogNode.Expression.Should().BeNull();
-            dogNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode dogNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyDog", dogNode.Name);
+            Assert.Null(dogNode.Expression);
 
-            GroupByPropertyNode lionNode = dogNode.ChildTransformations[0];
-            lionNode.Name.Should().Be("LionWhoAteMe");
-            lionNode.Expression.Should().BeNull();
-            lionNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode lionNode = Assert.Single(dogNode.ChildTransformations);
+            Assert.Equal("LionWhoAteMe", lionNode.Name);
+            Assert.Null(lionNode.Expression);
 
-            GroupByPropertyNode heartBeatNode = lionNode.ChildTransformations[0];
-            heartBeatNode.Name.Should().Be("LionHeartbeat");
-            heartBeatNode.Expression.Should().BeNull();
-            heartBeatNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode heartBeatNode = Assert.Single(lionNode.ChildTransformations);
+            Assert.Equal("LionHeartbeat", heartBeatNode.Name);
+            Assert.Null(heartBeatNode.Expression);
 
-            GroupByPropertyNode frequencyNode = heartBeatNode.ChildTransformations[0];
-            frequencyNode.Name.Should().Be("Frequency");
-            frequencyNode.Expression.Should().NotBeNull();
-            frequencyNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode frequencyNode = Assert.Single(heartBeatNode.ChildTransformations);
+            Assert.Equal("Frequency", frequencyNode.Name);
+            Assert.NotNull(frequencyNode.Expression);
+            Assert.Empty(frequencyNode.ChildTransformations);
         }
 
         [Fact]
@@ -456,38 +399,31 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode addressNode = groupingProperties[0];
-            addressNode.Name.Should().Be("MyAddress");
-            addressNode.Expression.Should().BeNull();
-            addressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode addressNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyAddress", addressNode.Name);
+            Assert.Null(addressNode.Expression);
 
-            GroupByPropertyNode nextHomeNode = addressNode.ChildTransformations[0];
-            nextHomeNode.Name.Should().Be("NextHome");
-            nextHomeNode.Expression.Should().BeNull();
-            nextHomeNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode nextHomeNode = Assert.Single(addressNode.ChildTransformations);
+            Assert.Equal("NextHome", nextHomeNode.Name);
+            Assert.Null(nextHomeNode.Expression);
 
-            GroupByPropertyNode postBoxPaintingNode = nextHomeNode.ChildTransformations[0];
-            postBoxPaintingNode.Name.Should().Be("PostBoxPainting");
-            postBoxPaintingNode.Expression.Should().BeNull();
-            postBoxPaintingNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode postBoxPaintingNode = Assert.Single(nextHomeNode.ChildTransformations);
+            Assert.Equal("PostBoxPainting", postBoxPaintingNode.Name);
+            Assert.Null(postBoxPaintingNode.Expression);
 
-            GroupByPropertyNode artistNode = postBoxPaintingNode.ChildTransformations[0];
-            artistNode.Name.Should().Be("Artist");
-            artistNode.Expression.Should().NotBeNull();
-            artistNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode artistNode = Assert.Single(postBoxPaintingNode.ChildTransformations);
+            Assert.Equal("Artist", artistNode.Name);
+            Assert.NotNull(artistNode.Expression);
+            Assert.Empty(artistNode.ChildTransformations);
         }
 
         [Fact]
@@ -500,43 +436,35 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode addressNode = groupingProperties[0];
-            addressNode.Name.Should().Be("MyAddress");
-            addressNode.Expression.Should().BeNull();
-            addressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode addressNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyAddress", addressNode.Name);
+            Assert.Null(addressNode.Expression);
 
-            GroupByPropertyNode postBoxPaintingNode = addressNode.ChildTransformations[0];
-            postBoxPaintingNode.Name.Should().Be("PostBoxPainting");
-            postBoxPaintingNode.Expression.Should().BeNull();
-            postBoxPaintingNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode postBoxPaintingNode = Assert.Single(addressNode.ChildTransformations);
+            Assert.Equal("PostBoxPainting", postBoxPaintingNode.Name);
+            Assert.Null(postBoxPaintingNode.Expression);
 
-            GroupByPropertyNode ownerNode = postBoxPaintingNode.ChildTransformations[0];
-            ownerNode.Name.Should().Be("Owner");
-            ownerNode.Expression.Should().BeNull();
-            ownerNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode ownerNode = Assert.Single(postBoxPaintingNode.ChildTransformations);
+            Assert.Equal("Owner", ownerNode.Name);
+            Assert.Null(ownerNode.Expression);
 
-            GroupByPropertyNode ownerAddressNode = ownerNode.ChildTransformations[0];
-            ownerAddressNode.Name.Should().Be("MyAddress");
-            ownerAddressNode.Expression.Should().BeNull();
-            ownerAddressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode ownerAddressNode = Assert.Single(ownerNode.ChildTransformations);
+            Assert.Equal("MyAddress", ownerAddressNode.Name);
+            Assert.Null(ownerAddressNode.Expression);
 
-            GroupByPropertyNode cityNode = ownerAddressNode.ChildTransformations[0];
-            cityNode.Name.Should().Be("City");
-            cityNode.Expression.Should().NotBeNull();
-            cityNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode cityNode = Assert.Single(ownerAddressNode.ChildTransformations);
+            Assert.Equal("City", cityNode.Name);
+            Assert.NotNull(cityNode.Expression);
+            Assert.Empty(cityNode.ChildTransformations);
         }
 
         [Fact]
@@ -549,43 +477,35 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
+            var transformation = Assert.Single(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(transformation);
 
-            groupBy.Should().NotBeNull();
-            groupBy.Kind.Should().Be(TransformationNodeKind.GroupBy);
-            groupBy.GroupingProperties.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
-            groupBy.ChildTransformations.Should().BeNull();
+            Assert.Equal(TransformationNodeKind.GroupBy, groupBy.Kind);
+            Assert.Null(groupBy.ChildTransformations);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            List<GroupByPropertyNode> groupingProperties = groupBy.GroupingProperties.ToList();
-            GroupByPropertyNode favoritePaintingNode = groupingProperties[0];
-            favoritePaintingNode.Name.Should().Be("MyFavoritePainting");
-            favoritePaintingNode.Expression.Should().BeNull();
-            favoritePaintingNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode favoritePaintingNode = Assert.Single(groupBy.GroupingProperties);
+            Assert.Equal("MyFavoritePainting", favoritePaintingNode.Name);
+            Assert.Null(favoritePaintingNode.Expression);
 
-            GroupByPropertyNode artistAddressNode = favoritePaintingNode.ChildTransformations[0];
-            artistAddressNode.Name.Should().Be("ArtistAddress");
-            artistAddressNode.Expression.Should().BeNull();
-            artistAddressNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode artistAddressNode = Assert.Single(favoritePaintingNode.ChildTransformations);
+            Assert.Equal("ArtistAddress", artistAddressNode.Name);
+            Assert.Null(artistAddressNode.Expression);
 
-            GroupByPropertyNode nextHomeNode = artistAddressNode.ChildTransformations[0];
-            nextHomeNode.Name.Should().Be("NextHome");
-            nextHomeNode.Expression.Should().BeNull();
-            nextHomeNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode nextHomeNode = Assert.Single(artistAddressNode.ChildTransformations);
+            Assert.Equal("NextHome", nextHomeNode.Name);
+            Assert.Null(nextHomeNode.Expression);
 
-            GroupByPropertyNode postBoxPaintingNode = nextHomeNode.ChildTransformations[0];
-            postBoxPaintingNode.Name.Should().Be("PostBoxPainting");
-            postBoxPaintingNode.Expression.Should().BeNull();
-            postBoxPaintingNode.ChildTransformations.Should().HaveCount(1);
+            GroupByPropertyNode postBoxPaintingNode = Assert.Single(nextHomeNode.ChildTransformations);
+            Assert.Equal("PostBoxPainting", postBoxPaintingNode.Name);
+            Assert.Null(postBoxPaintingNode.Expression);
 
-            GroupByPropertyNode artistNode = postBoxPaintingNode.ChildTransformations[0];
-            artistNode.Name.Should().Be("Artist");
-            artistNode.Expression.Should().NotBeNull();
-            artistNode.ChildTransformations.Should().BeEmpty();
+            GroupByPropertyNode artistNode = Assert.Single(postBoxPaintingNode.ChildTransformations);
+            Assert.Equal("Artist", artistNode.Name);
+            Assert.NotNull(artistNode.Expression);
+            Assert.Empty(artistNode.ChildTransformations);
         }
 
         [Fact]
@@ -596,14 +516,10 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(Assert.Single(actual.Transformations));
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode groupBy = transformations[0] as GroupByTransformationNode;
-
-            TransformationNode aggregate = groupBy.ChildTransformations;
-            aggregate.Should().NotBeNull();
+            Assert.NotNull(groupBy.ChildTransformations);
         }
 
         [Fact]
@@ -615,16 +531,13 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyClause actual = binder.BindApply(tokens);
             actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
 
-            List<TransformationNode> transformations = actual.Transformations.ToList();
-            FilterTransformationNode filter = transformations[0] as FilterTransformationNode;
+            FilterTransformationNode filter = Assert.IsType<FilterTransformationNode>(Assert.Single(actual.Transformations));
 
-            filter.Should().NotBeNull();
-            filter.Kind.Should().Be(TransformationNodeKind.Filter);
-            filter.FilterClause.Expression.Should().NotBeNull();
-            filter.FilterClause.Expression.Should().BeSameAs(_booleanPrimitiveNode);
+            Assert.Equal(TransformationNodeKind.Filter, filter.Kind);
+            Assert.NotNull(filter.FilterClause.Expression);
+            Assert.Same(_booleanPrimitiveNode, filter.FilterClause.Expression);
         }
 
         [Fact]
@@ -635,20 +548,14 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             var binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
             var actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            ComputeTransformationNode compute = Assert.IsType<ComputeTransformationNode>(Assert.Single(actual.Transformations));
 
-            var transformations = actual.Transformations.ToList();
-            var compute = transformations[0] as ComputeTransformationNode;
-
-            compute.Should().NotBeNull();
-            compute.Kind.Should().Be(TransformationNodeKind.Compute);
-            compute.Expressions.Should().HaveCount(1);
-
-            var statements = compute.Expressions.ToList();
-            var statement = statements[0];
+            Assert.Equal(TransformationNodeKind.Compute, compute.Kind);
+            Assert.NotNull(compute.Expressions);
+            ComputeExpression statement = Assert.Single(compute.Expressions);
             VerifyIsFakeSingleValueNode(statement.Expression);
-            statement.Alias.ShouldBeEquivalentTo("BigPrice");
+            Assert.Equal("BigPrice", statement.Alias);
         }
 
         [Fact]
@@ -662,20 +569,14 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             var actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(2);
+            Assert.NotNull(actual);
+            Assert.Equal(2, actual.Transformations.Count());
 
-            var compute = actual.Transformations.Last() as ComputeTransformationNode;
-
-            compute.Should().NotBeNull();
-            compute.Kind.Should().Be(TransformationNodeKind.Compute);
-            compute.Expressions.Should().HaveCount(1);
-
-            var statements = compute.Expressions.ToList();
-            var statement = statements[0];
-            statement.Alias.ShouldBeEquivalentTo("TotalLife2");
+            ComputeTransformationNode compute = Assert.IsType<ComputeTransformationNode>(actual.Transformations.Last());
+            Assert.Equal(TransformationNodeKind.Compute, compute.Kind);
+            ComputeExpression statement = Assert.Single(compute.Expressions);
+            Assert.Equal("TotalLife2", statement.Alias);
         }
-
 
         [Fact]
         public void BindApplyWithMultipleGroupBysShouldReturnApplyClause()
@@ -688,11 +589,10 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             var actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(2);
+            Assert.NotNull(actual);
+            Assert.Equal(2, actual.Transformations.Count());
 
-            var groupBy = actual.Transformations.Last() as GroupByTransformationNode;
-            groupBy.Should().NotBeNull();
+            Assert.IsType<GroupByTransformationNode>(actual.Transformations.Last());
         }
 
         [Fact]
@@ -708,18 +608,40 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(4);
+            Assert.NotNull(actual);
+            Assert.Equal(4, actual.Transformations.Count());
 
             List<TransformationNode> transformations = actual.Transformations.ToList();
-            GroupByTransformationNode firstGroupBy = transformations[0] as GroupByTransformationNode;
-            firstGroupBy.Should().NotBeNull();
-            TransformationNode firstAggregate = transformations[1] as AggregateTransformationNode;
-            firstAggregate.Should().NotBeNull();
-            TransformationNode scecondGroupBy = transformations[2] as GroupByTransformationNode;
-            scecondGroupBy.Should().NotBeNull();
-            AggregateTransformationNode scecondAggregate = transformations[3] as AggregateTransformationNode;
-            scecondAggregate.Should().NotBeNull();
+
+            Assert.NotNull(transformations[0]);
+            Assert.IsType<GroupByTransformationNode>(transformations[0]);
+
+            Assert.NotNull(transformations[1]);
+            Assert.IsType<AggregateTransformationNode>(transformations[1]);
+
+            Assert.NotNull(transformations[2]);
+            Assert.IsType<GroupByTransformationNode>(transformations[2]);
+
+            Assert.NotNull(transformations[3]);
+            Assert.IsType<AggregateTransformationNode>(transformations[3]);
+        }
+
+        [Fact]
+        public void BindApplyWithComputeShouldReturnApplyClause()
+        {
+            var tokens = _parser.ParseApply("compute(UnitPrice mul 5 as BigPrice)");
+
+            var binder = new ApplyBinder(FakeBindMethods.BindSingleComplexProperty, _bindingState);
+            var actual = binder.BindApply(tokens);
+
+            Assert.NotNull(actual);
+            ComputeTransformationNode compute = Assert.IsType<ComputeTransformationNode>(Assert.Single(actual.Transformations));
+
+            Assert.Equal(TransformationNodeKind.Compute, compute.Kind);
+            Assert.NotNull(compute.Expressions);
+            ComputeExpression statement = Assert.Single(compute.Expressions);
+            VerifyIsFakeSingleValueNode(statement.Expression);
+            Assert.Equal("BigPrice", statement.Alias);
         }
 
         [Fact]
@@ -735,19 +657,16 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            Assert.NotNull(actual.Transformations);
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(Assert.Single(actual.Transformations));
 
-            GroupByTransformationNode groupBy = actual.Transformations.First() as GroupByTransformationNode;
-            groupBy.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
+            Assert.NotNull(groupBy.GroupingProperties);
 
-            AggregateTransformationNode aggregate = groupBy.ChildTransformations as AggregateTransformationNode;
-            aggregate.Should().NotBeNull();
-            aggregate.AggregateExpressions.Should().HaveCount(1);
+            AggregateTransformationNode aggregate = Assert.IsType<AggregateTransformationNode>(groupBy.ChildTransformations);
+            Assert.NotNull(aggregate.AggregateExpressions);
 
-            EntitySetAggregateExpression entitySetAggregate = aggregate.AggregateExpressions.First() as EntitySetAggregateExpression;
-            entitySetAggregate.Should().NotBeNull();
+            Assert.IsType< EntitySetAggregateExpression>(Assert.Single(aggregate.AggregateExpressions));
         }
 
         [Fact]
@@ -763,15 +682,11 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
-
-            AggregateTransformationNode aggregate = actual.Transformations.First() as AggregateTransformationNode;
-            aggregate.Should().NotBeNull();
-            aggregate.AggregateExpressions.Should().HaveCount(1);
-
-            EntitySetAggregateExpression entitySetAggregate = aggregate.AggregateExpressions.First() as EntitySetAggregateExpression;
-            entitySetAggregate.Should().NotBeNull();
+            Assert.NotNull(actual);
+            Assert.NotNull(actual.Transformations);
+            AggregateTransformationNode aggregate = Assert.IsType<AggregateTransformationNode>(Assert.Single(actual.Transformations));
+            Assert.NotNull(aggregate.AggregateExpressions);
+            Assert.IsType<EntitySetAggregateExpression>(Assert.Single(aggregate.AggregateExpressions));
         }
 
         [Fact]
@@ -786,9 +701,7 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
 
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             Action bind = () => binder.BindApply(tokens);
-
-            bind.ShouldThrow<ODataException>().Where(e => e.Message == ErrorStrings.ApplyBinder_UnsupportedForEntitySetAggregation("MyDog", QueryNodeKind.SingleNavigationNode));
-            
+            bind.Throws<ODataException>(ErrorStrings.ApplyBinder_UnsupportedForEntitySetAggregation("MyDog", QueryNodeKind.SingleNavigationNode));
         }
 
         private readonly ODataUriParserConfiguration V4configuration = new ODataUriParserConfiguration(HardCodedTestModel.TestModel);
@@ -806,28 +719,22 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState, V4configuration, new ODataPathInfo(HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet()));
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(2);
+            Assert.NotNull(actual);
+            Assert.Equal(2, actual.Transformations.Count());
 
-            ExpandTransformationNode expand = actual.Transformations.First() as ExpandTransformationNode;
-            expand.Should().NotBeNull();
-            expand.ExpandClause.Should().NotBeNull();
-            expand.ExpandClause.SelectedItems.Should().HaveCount(1);
-            ExpandedNavigationSelectItem expandItem = expand.ExpandClause.SelectedItems.First() as ExpandedNavigationSelectItem;
-            expandItem.Should().NotBeNull();
-            expandItem.NavigationSource.Name.ShouldBeEquivalentTo("Paintings");
-            expandItem.FilterOption.Should().NotBeNull();
-            
-            GroupByTransformationNode groupBy = actual.Transformations.Last() as GroupByTransformationNode;
-            groupBy.Should().NotBeNull();
-            groupBy.GroupingProperties.Should().HaveCount(1);
+            ExpandTransformationNode expand = Assert.IsType<ExpandTransformationNode>(actual.Transformations.First());
 
-            AggregateTransformationNode aggregate = groupBy.ChildTransformations as AggregateTransformationNode;
-            aggregate.Should().NotBeNull();
-            aggregate.AggregateExpressions.Should().HaveCount(1);
+            Assert.NotNull(expand.ExpandClause);
+            ExpandedNavigationSelectItem expandItem = Assert.IsType<ExpandedNavigationSelectItem>(Assert.Single(expand.ExpandClause.SelectedItems));
 
-            EntitySetAggregateExpression entitySetAggregate = aggregate.AggregateExpressions.First() as EntitySetAggregateExpression;
-            entitySetAggregate.Should().NotBeNull();
+            Assert.Equal("Paintings", expandItem.NavigationSource.Name);
+            Assert.NotNull(expandItem.FilterOption);
+
+            GroupByTransformationNode groupBy = Assert.IsType<GroupByTransformationNode>(actual.Transformations.Last());
+            Assert.Single(groupBy.GroupingProperties);
+
+            AggregateTransformationNode aggregate = Assert.IsType<AggregateTransformationNode>(groupBy.ChildTransformations);
+            Assert.IsType<EntitySetAggregateExpression>(Assert.Single(aggregate.AggregateExpressions));
         }
 
         [Fact]
@@ -843,22 +750,18 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState, V4configuration, new ODataPathInfo(HardCodedTestModel.GetPersonType(), HardCodedTestModel.GetPeopleSet()));
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(1);
+            Assert.NotNull(actual);
+            ExpandTransformationNode expand = Assert.IsType<ExpandTransformationNode>(Assert.Single(actual.Transformations));
 
-            ExpandTransformationNode expand = actual.Transformations.First() as ExpandTransformationNode;
-            expand.Should().NotBeNull();
-            expand.ExpandClause.Should().NotBeNull();
-            expand.ExpandClause.SelectedItems.Should().HaveCount(1);
-            ExpandedNavigationSelectItem expandItem = expand.ExpandClause.SelectedItems.First() as ExpandedNavigationSelectItem;
-            expandItem.Should().NotBeNull();
-            expandItem.NavigationSource.Name.ShouldBeEquivalentTo("Paintings");
-            expandItem.SelectAndExpand.Should().NotBeNull();
-            expandItem.SelectAndExpand.SelectedItems.Should().HaveCount(1);
-            expandItem.FilterOption.Should().NotBeNull();
+            Assert.NotNull(expand.ExpandClause);
+            ExpandedNavigationSelectItem expandItem = Assert.IsType<ExpandedNavigationSelectItem>(Assert.Single(expand.ExpandClause.SelectedItems));
 
-            ExpandedNavigationSelectItem expandItem1 = expandItem.SelectAndExpand.SelectedItems.First() as ExpandedNavigationSelectItem;
-            expandItem1.FilterOption.Should().NotBeNull();
+            Assert.Equal("Paintings", expandItem.NavigationSource.Name);
+            Assert.NotNull(expandItem.SelectAndExpand);
+            Assert.NotNull(expandItem.FilterOption);
+
+            ExpandedNavigationSelectItem expandItem1 = Assert.IsType<ExpandedNavigationSelectItem>(Assert.Single(expandItem.SelectAndExpand.SelectedItems));
+            Assert.NotNull(expandItem1.FilterOption);
         }
 
         [Fact]
@@ -874,15 +777,12 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
             ApplyBinder binder = new ApplyBinder(metadataBiner.Bind, _bindingState);
             ApplyClause actual = binder.BindApply(tokens);
 
-            actual.Should().NotBeNull();
-            actual.Transformations.Should().HaveCount(2);
-            GroupByTransformationNode groupby = actual.Transformations.First() as GroupByTransformationNode;
-            groupby.Should().NotBeNull();
-            AggregateTransformationNode aggregate = actual.Transformations.Last() as AggregateTransformationNode;
-            aggregate.Should().NotBeNull();
-            aggregate.AggregateExpressions.Should().HaveCount(1);
-            aggregate.AggregateExpressions.Single().As<AggregateExpression>().Method.ShouldBeEquivalentTo(AggregationMethod.VirtualPropertyCount);
-
+            Assert.NotNull(actual);
+            Assert.Equal(2, actual.Transformations.Count());
+            Assert.IsType<GroupByTransformationNode>(actual.Transformations.First());
+            AggregateTransformationNode aggregate = Assert.IsType<AggregateTransformationNode>(actual.Transformations.Last());
+            AggregateExpression aggExp = Assert.IsType<AggregateExpression>(Assert.Single(aggregate.AggregateExpressions));
+            Assert.Equal(AggregationMethod.VirtualPropertyCount, aggExp.Method);
         }
 
         private static ConstantNode _booleanPrimitiveNode = new ConstantNode(true);
@@ -894,8 +794,8 @@ namespace Microsoft.OData.Tests.UriParser.Extensions.Binders
 
         public static void VerifyIsFakeSingleValueNode(QueryNode node)
         {
-            node.Should().NotBeNull();
-            node.Should().BeSameAs(FakeBindMethods.FakeSingleComplexProperty);
+            Assert.NotNull(node);
+            Assert.Same(FakeBindMethods.FakeSingleComplexProperty, node);
         }
     }
 }

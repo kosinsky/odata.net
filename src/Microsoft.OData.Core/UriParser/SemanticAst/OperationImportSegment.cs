@@ -102,7 +102,7 @@ namespace Microsoft.OData.UriParser
             : this()
         {
             // DEVNOTE: This ctor is only used in Select and Expand currently.
-            ExceptionUtils.CheckArgumentNotNull(operationImports, "operations");
+            ExceptionUtils.CheckArgumentNotNull(operationImports, "operationImports");
             this.operationImports = new ReadOnlyCollection<IEdmOperationImport>(operationImports.ToList());
 
             // check for empty after we copy locally, so that we don't do multiple enumeration of input
@@ -253,7 +253,7 @@ namespace Microsoft.OData.UriParser
                 return;
             }
 
-            // Void operations cannot specificy return entity set
+            // Void operations cannot specify return entity set
             if (this.computedReturnEdmType == null)
             {
                 throw new ODataException(ODataErrorStrings.OperationSegment_CannotReturnNull);
@@ -261,13 +261,13 @@ namespace Microsoft.OData.UriParser
 
             // Unwrap the return type if it's a collection
             var unwrappedCollectionType = this.computedReturnEdmType;
-            var collectoinType = this.computedReturnEdmType as IEdmCollectionType;
-            if (collectoinType != null)
+            var collectionType = this.computedReturnEdmType as IEdmCollectionType;
+            if (collectionType != null)
             {
-                unwrappedCollectionType = collectoinType.ElementType.Definition;
+                unwrappedCollectionType = collectionType.ElementType.Definition;
             }
 
-            // Ensure that the return type is in the same type hierarhcy as the entity set provided
+            // Ensure that the return type is in the same type hierarchy as the entity set provided
             if (!this.entitySet.EntityType().IsOrInheritsFrom(unwrappedCollectionType) && !unwrappedCollectionType.IsOrInheritsFrom(this.entitySet.EntityType()))
             {
                 throw new ODataException(ODataErrorStrings.OperationSegment_CannotReturnNull);

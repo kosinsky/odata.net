@@ -4,31 +4,45 @@
 // </copyright>
 //---------------------------------------------------------------------
 
-using System.Collections.Generic;
-using System.Linq;
-using ODataErrorStrings = Microsoft.OData.Strings;
-
 namespace Microsoft.OData.UriParser
 {
     /// <summary>
-    /// Translate a select tree into the right format to be used with an expand tree.
+    /// Translate a select tree into the right format.
     /// </summary>
-    internal sealed class SelectTreeNormalizer
+    internal static class SelectTreeNormalizer
     {
         /// <summary>
-        /// Normalize a SelectToken into something that can be used to trim an expand tree.
+        /// Normalize a <see cref="SelectToken"/>.
         /// </summary>
-        /// <param name="treeToNormalize">The select token to normalize</param>
+        /// <param name="selectToken">The select token to normalize</param>
         /// <returns>Normalized SelectToken</returns>
-        public static SelectToken NormalizeSelectTree(SelectToken treeToNormalize)
+        public static SelectToken NormalizeSelectTree(SelectToken selectToken)
         {
-            PathReverser pathReverser = new PathReverser();
-            List<PathSegmentToken> invertedPaths = (from property in treeToNormalize.Properties
-                                                    select property.Accept(pathReverser)).ToList();
+            // To normalize the select tree we need to:
+            // invert the path tree on each of its select term tokens
+            selectToken = NormalizeSelectPaths(selectToken);
 
-            // to normalize a select token we just need to invert its paths, so that
-            // we match the ordering on an ExpandToken.
-            return new SelectToken(invertedPaths);
+            return selectToken;
+        }
+
+        private static SelectToken NormalizeSelectPaths(SelectToken selectToken)
+        {
+            if (selectToken != null)
+            {
+                // iterate through each select term token, and reverse the tree in its path property
+                foreach (SelectTermToken term in selectToken.SelectTerms)
+                {
+                    term.PathToProperty = term.PathToProperty.Reverse();
+
+                    // we also need to call the select token normalizer for this level to reverse the select paths
+                    if (term.SelectOption != null)
+                    {
+                        term.SelectOption = NormalizeSelectPaths(term.SelectOption);
+                    }
+                }
+            }
+
+            return selectToken;
         }
     }
 }

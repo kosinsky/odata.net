@@ -97,8 +97,11 @@ namespace Microsoft.OData {
         internal const string ODataJsonLightDeltaWriter_InvalidTransitionToNestedResource = "ODataJsonLightDeltaWriter_InvalidTransitionToNestedResource";
         internal const string ODataJsonLightDeltaWriter_WriteStartExpandedResourceSetCalledInInvalidState = "ODataJsonLightDeltaWriter_WriteStartExpandedResourceSetCalledInInvalidState";
         internal const string ODataWriterCore_WriteEndCalledInInvalidState = "ODataWriterCore_WriteEndCalledInInvalidState";
+        internal const string ODataWriterCore_StreamNotDisposed = "ODataWriterCore_StreamNotDisposed";
         internal const string ODataWriterCore_DeltaResourceWithoutIdOrKeyProperties = "ODataWriterCore_DeltaResourceWithoutIdOrKeyProperties";
         internal const string ODataWriterCore_QueryCountInRequest = "ODataWriterCore_QueryCountInRequest";
+        internal const string ODataWriterCore_QueryNextLinkInRequest = "ODataWriterCore_QueryNextLinkInRequest";
+        internal const string ODataWriterCore_QueryDeltaLinkInRequest = "ODataWriterCore_QueryDeltaLinkInRequest";
         internal const string ODataWriterCore_CannotWriteDeltaWithResourceSetWriter = "ODataWriterCore_CannotWriteDeltaWithResourceSetWriter";
         internal const string ODataWriterCore_NestedContentNotAllowedIn40DeletedEntry = "ODataWriterCore_NestedContentNotAllowedIn40DeletedEntry";
         internal const string ODataWriterCore_CannotWriteTopLevelResourceSetWithResourceWriter = "ODataWriterCore_CannotWriteTopLevelResourceSetWithResourceWriter";
@@ -106,7 +109,6 @@ namespace Microsoft.OData {
         internal const string ODataWriterCore_SyncCallOnAsyncWriter = "ODataWriterCore_SyncCallOnAsyncWriter";
         internal const string ODataWriterCore_AsyncCallOnSyncWriter = "ODataWriterCore_AsyncCallOnSyncWriter";
         internal const string ODataWriterCore_EntityReferenceLinkWithoutNavigationLink = "ODataWriterCore_EntityReferenceLinkWithoutNavigationLink";
-        internal const string ODataWriterCore_EntityReferenceLinkInResponse = "ODataWriterCore_EntityReferenceLinkInResponse";
         internal const string ODataWriterCore_DeferredLinkInRequest = "ODataWriterCore_DeferredLinkInRequest";
         internal const string ODataWriterCore_MultipleItemsInNestedResourceInfoWithContent = "ODataWriterCore_MultipleItemsInNestedResourceInfoWithContent";
         internal const string ODataWriterCore_DeltaLinkNotSupportedOnExpandedResourceSet = "ODataWriterCore_DeltaLinkNotSupportedOnExpandedResourceSet";
@@ -118,6 +120,7 @@ namespace Microsoft.OData {
         internal const string PropertyAnnotationAfterTheProperty = "PropertyAnnotationAfterTheProperty";
         internal const string AtomValueUtils_CannotConvertValueToAtomPrimitive = "AtomValueUtils_CannotConvertValueToAtomPrimitive";
         internal const string ODataJsonWriter_UnsupportedValueType = "ODataJsonWriter_UnsupportedValueType";
+        internal const string ODataJsonWriter_UnsupportedValueInCollection = "ODataJsonWriter_UnsupportedValueInCollection";
         internal const string ODataException_GeneralError = "ODataException_GeneralError";
         internal const string ODataErrorException_GeneralError = "ODataErrorException_GeneralError";
         internal const string ODataUriParserException_GeneralError = "ODataUriParserException_GeneralError";
@@ -306,6 +309,7 @@ namespace Microsoft.OData {
         internal const string ReaderValidationUtils_NonMatchingPropertyNames = "ReaderValidationUtils_NonMatchingPropertyNames";
         internal const string ReaderValidationUtils_TypeInContextUriDoesNotMatchExpectedType = "ReaderValidationUtils_TypeInContextUriDoesNotMatchExpectedType";
         internal const string ReaderValidationUtils_ContextUriDoesNotReferTypeAssignableToExpectedType = "ReaderValidationUtils_ContextUriDoesNotReferTypeAssignableToExpectedType";
+        internal const string ReaderValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint = "ReaderValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint";
         internal const string ODataMessageReader_ReaderAlreadyUsed = "ODataMessageReader_ReaderAlreadyUsed";
         internal const string ODataMessageReader_ErrorPayloadInRequest = "ODataMessageReader_ErrorPayloadInRequest";
         internal const string ODataMessageReader_ServiceDocumentInRequest = "ODataMessageReader_ServiceDocumentInRequest";
@@ -333,7 +337,11 @@ namespace Microsoft.OData {
         internal const string ODataReaderCore_SyncCallOnAsyncReader = "ODataReaderCore_SyncCallOnAsyncReader";
         internal const string ODataReaderCore_AsyncCallOnSyncReader = "ODataReaderCore_AsyncCallOnSyncReader";
         internal const string ODataReaderCore_ReadOrReadAsyncCalledInInvalidState = "ODataReaderCore_ReadOrReadAsyncCalledInInvalidState";
+        internal const string ODataReaderCore_CreateReadStreamCalledInInvalidState = "ODataReaderCore_CreateReadStreamCalledInInvalidState";
+        internal const string ODataReaderCore_CreateTextReaderCalledInInvalidState = "ODataReaderCore_CreateTextReaderCalledInInvalidState";
+        internal const string ODataReaderCore_ReadCalledWithOpenStream = "ODataReaderCore_ReadCalledWithOpenStream";
         internal const string ODataReaderCore_NoReadCallsAllowed = "ODataReaderCore_NoReadCallsAllowed";
+        internal const string ODataWriterCore_PropertyValueAlreadyWritten = "ODataWriterCore_PropertyValueAlreadyWritten";
         internal const string ODataJsonReader_CannotReadResourcesOfResourceSet = "ODataJsonReader_CannotReadResourcesOfResourceSet";
         internal const string ODataJsonReaderUtils_CannotConvertInt32 = "ODataJsonReaderUtils_CannotConvertInt32";
         internal const string ODataJsonReaderUtils_CannotConvertDouble = "ODataJsonReaderUtils_CannotConvertDouble";
@@ -520,6 +528,7 @@ namespace Microsoft.OData {
         internal const string ODataJsonLightResourceDeserializer_DeltaRemovedAnnotationMustBeObject = "ODataJsonLightResourceDeserializer_DeltaRemovedAnnotationMustBeObject";
         internal const string ODataJsonLightResourceDeserializer_ResourceTypeAnnotationNotFirst = "ODataJsonLightResourceDeserializer_ResourceTypeAnnotationNotFirst";
         internal const string ODataJsonLightResourceDeserializer_ResourceInstanceAnnotationPrecededByProperty = "ODataJsonLightResourceDeserializer_ResourceInstanceAnnotationPrecededByProperty";
+        internal const string ODataJsonLightResourceDeserializer_UnexpectedDeletedEntryInResponsePayload = "ODataJsonLightResourceDeserializer_UnexpectedDeletedEntryInResponsePayload";
         internal const string ODataJsonLightResourceDeserializer_CannotReadResourceSetContentStart = "ODataJsonLightResourceDeserializer_CannotReadResourceSetContentStart";
         internal const string ODataJsonLightResourceDeserializer_ExpectedResourceSetPropertyNotFound = "ODataJsonLightResourceDeserializer_ExpectedResourceSetPropertyNotFound";
         internal const string ODataJsonLightResourceDeserializer_InvalidNodeTypeForItemsInResourceSet = "ODataJsonLightResourceDeserializer_InvalidNodeTypeForItemsInResourceSet";
@@ -642,10 +651,12 @@ namespace Microsoft.OData {
         internal const string UriQueryPathParser_RequestUriDoesNotHaveTheCorrectBaseUri = "UriQueryPathParser_RequestUriDoesNotHaveTheCorrectBaseUri";
         internal const string UriQueryPathParser_SyntaxError = "UriQueryPathParser_SyntaxError";
         internal const string UriQueryPathParser_TooManySegments = "UriQueryPathParser_TooManySegments";
+        internal const string UriQueryPathParser_InvalidEscapeUri = "UriQueryPathParser_InvalidEscapeUri";
         internal const string UriUtils_DateTimeOffsetInvalidFormat = "UriUtils_DateTimeOffsetInvalidFormat";
         internal const string SelectionItemBinder_NonNavigationPathToken = "SelectionItemBinder_NonNavigationPathToken";
         internal const string MetadataBinder_UnsupportedQueryTokenKind = "MetadataBinder_UnsupportedQueryTokenKind";
         internal const string MetadataBinder_PropertyNotDeclared = "MetadataBinder_PropertyNotDeclared";
+        internal const string MetadataBinder_InvalidIdentifierInQueryOption = "MetadataBinder_InvalidIdentifierInQueryOption";
         internal const string MetadataBinder_PropertyNotDeclaredOrNotKeyInKeyValue = "MetadataBinder_PropertyNotDeclaredOrNotKeyInKeyValue";
         internal const string MetadataBinder_QualifiedFunctionNameWithParametersNotDeclared = "MetadataBinder_QualifiedFunctionNameWithParametersNotDeclared";
         internal const string MetadataBinder_UnnamedKeyValueOnTypeWithMultipleKeyProperties = "MetadataBinder_UnnamedKeyValueOnTypeWithMultipleKeyProperties";
@@ -682,6 +693,7 @@ namespace Microsoft.OData {
         internal const string MetadataBinder_IllegalSegmentType = "MetadataBinder_IllegalSegmentType";
         internal const string MetadataBinder_QueryOptionNotApplicable = "MetadataBinder_QueryOptionNotApplicable";
         internal const string StringItemShouldBeQuoted = "StringItemShouldBeQuoted";
+        internal const string StreamItemInvalidPrimitiveKind = "StreamItemInvalidPrimitiveKind";
         internal const string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod = "ApplyBinder_AggregateExpressionIncompatibleTypeForMethod";
         internal const string ApplyBinder_UnsupportedAggregateMethod = "ApplyBinder_UnsupportedAggregateMethod";
         internal const string ApplyBinder_UnsupportedAggregateKind = "ApplyBinder_UnsupportedAggregateKind";
@@ -701,10 +713,11 @@ namespace Microsoft.OData {
         internal const string Binder_IsNotValidEnumConstant = "Binder_IsNotValidEnumConstant";
         internal const string BatchReferenceSegment_InvalidContentID = "BatchReferenceSegment_InvalidContentID";
         internal const string SelectExpandBinder_UnknownPropertyType = "SelectExpandBinder_UnknownPropertyType";
+        internal const string SelectExpandBinder_InvalidIdentifierAfterWildcard = "SelectExpandBinder_InvalidIdentifierAfterWildcard";
+        internal const string SelectExpandBinder_InvalidQueryOptionNestedSelection = "SelectExpandBinder_InvalidQueryOptionNestedSelection";
+        internal const string SelectExpandBinder_SystemTokenInSelect = "SelectExpandBinder_SystemTokenInSelect";
         internal const string SelectionItemBinder_NoExpandForSelectedProperty = "SelectionItemBinder_NoExpandForSelectedProperty";
         internal const string SelectExpandPathBinder_FollowNonTypeSegment = "SelectExpandPathBinder_FollowNonTypeSegment";
-        internal const string SelectPropertyVisitor_SystemTokenInSelect = "SelectPropertyVisitor_SystemTokenInSelect";
-        internal const string SelectPropertyVisitor_DisparateTypeSegmentsInSelectExpand = "SelectPropertyVisitor_DisparateTypeSegmentsInSelectExpand";
         internal const string SelectBinder_MultiLevelPathInSelect = "SelectBinder_MultiLevelPathInSelect";
         internal const string ExpandItemBinder_TraversingANonNormalizedTree = "ExpandItemBinder_TraversingANonNormalizedTree";
         internal const string ExpandItemBinder_CannotFindType = "ExpandItemBinder_CannotFindType";
@@ -726,9 +739,10 @@ namespace Microsoft.OData {
         internal const string Nodes_SingleValueFunctionCallNode_ItemTypeMustBePrimitiveOrComplexOrEnum = "Nodes_SingleValueFunctionCallNode_ItemTypeMustBePrimitiveOrComplexOrEnum";
         internal const string Nodes_InNode_CollectionItemTypeMustBeSameAsSingleItemType = "Nodes_InNode_CollectionItemTypeMustBeSameAsSingleItemType";
         internal const string ExpandTreeNormalizer_NonPathInPropertyChain = "ExpandTreeNormalizer_NonPathInPropertyChain";
+        internal const string SelectTreeNormalizer_MultipleSelecTermWithSamePathFound = "SelectTreeNormalizer_MultipleSelecTermWithSamePathFound";
         internal const string UriExpandParser_TermIsNotValidForStar = "UriExpandParser_TermIsNotValidForStar";
         internal const string UriExpandParser_TermIsNotValidForStarRef = "UriExpandParser_TermIsNotValidForStarRef";
-        internal const string UriExpandParser_ParentEntityIsNull = "UriExpandParser_ParentEntityIsNull";
+        internal const string UriExpandParser_ParentStructuredTypeIsNull = "UriExpandParser_ParentStructuredTypeIsNull";
         internal const string UriExpandParser_TermWithMultipleStarNotAllowed = "UriExpandParser_TermWithMultipleStarNotAllowed";
         internal const string UriSelectParser_TermIsNotValid = "UriSelectParser_TermIsNotValid";
         internal const string UriSelectParser_InvalidTopOption = "UriSelectParser_InvalidTopOption";
@@ -737,6 +751,7 @@ namespace Microsoft.OData {
         internal const string UriSelectParser_InvalidLevelsOption = "UriSelectParser_InvalidLevelsOption";
         internal const string UriSelectParser_SystemTokenInSelectExpand = "UriSelectParser_SystemTokenInSelectExpand";
         internal const string UriParser_MissingExpandOption = "UriParser_MissingExpandOption";
+        internal const string UriParser_MissingSelectOption = "UriParser_MissingSelectOption";
         internal const string UriParser_RelativeUriMustBeRelative = "UriParser_RelativeUriMustBeRelative";
         internal const string UriParser_NeedServiceRootForThisOverload = "UriParser_NeedServiceRootForThisOverload";
         internal const string UriParser_UriMustBeAbsolute = "UriParser_UriMustBeAbsolute";
@@ -806,6 +821,8 @@ namespace Microsoft.OData {
         internal const string RequestUriProcessor_BatchedActionOnEntityCreatedInSameChangeset = "RequestUriProcessor_BatchedActionOnEntityCreatedInSameChangeset";
         internal const string RequestUriProcessor_Forbidden = "RequestUriProcessor_Forbidden";
         internal const string RequestUriProcessor_OperationSegmentBoundToANonEntityType = "RequestUriProcessor_OperationSegmentBoundToANonEntityType";
+        internal const string RequestUriProcessor_NoBoundEscapeFunctionSupported = "RequestUriProcessor_NoBoundEscapeFunctionSupported";
+        internal const string RequestUriProcessor_EscapeFunctionMustHaveOneStringParameter = "RequestUriProcessor_EscapeFunctionMustHaveOneStringParameter";
         internal const string General_InternalError = "General_InternalError";
         internal const string ExceptionUtils_CheckIntegerNotNegative = "ExceptionUtils_CheckIntegerNotNegative";
         internal const string ExceptionUtils_CheckIntegerPositive = "ExceptionUtils_CheckIntegerPositive";
@@ -843,14 +860,21 @@ namespace Microsoft.OData {
         internal const string JsonReader_UnrecognizedEscapeSequence = "JsonReader_UnrecognizedEscapeSequence";
         internal const string JsonReader_UnexpectedEndOfString = "JsonReader_UnexpectedEndOfString";
         internal const string JsonReader_InvalidNumberFormat = "JsonReader_InvalidNumberFormat";
+        internal const string JsonReader_InvalidBinaryFormat = "JsonReader_InvalidBinaryFormat";
         internal const string JsonReader_MissingComma = "JsonReader_MissingComma";
         internal const string JsonReader_InvalidPropertyNameOrUnexpectedComma = "JsonReader_InvalidPropertyNameOrUnexpectedComma";
+        internal const string JsonReader_MaxBufferReached = "JsonReader_MaxBufferReached";
+        internal const string JsonReader_CannotAccessValueInStreamState = "JsonReader_CannotAccessValueInStreamState";
+        internal const string JsonReader_CannotCallReadInStreamState = "JsonReader_CannotCallReadInStreamState";
+        internal const string JsonReader_CannotCreateReadStream = "JsonReader_CannotCreateReadStream";
+        internal const string JsonReader_CannotCreateTextReader = "JsonReader_CannotCreateTextReader";
         internal const string JsonReaderExtensions_UnexpectedNodeDetected = "JsonReaderExtensions_UnexpectedNodeDetected";
         internal const string JsonReaderExtensions_UnexpectedNodeDetectedWithPropertyName = "JsonReaderExtensions_UnexpectedNodeDetectedWithPropertyName";
         internal const string JsonReaderExtensions_CannotReadPropertyValueAsString = "JsonReaderExtensions_CannotReadPropertyValueAsString";
         internal const string JsonReaderExtensions_CannotReadValueAsString = "JsonReaderExtensions_CannotReadValueAsString";
         internal const string JsonReaderExtensions_CannotReadValueAsDouble = "JsonReaderExtensions_CannotReadValueAsDouble";
         internal const string JsonReaderExtensions_UnexpectedInstanceAnnotationName = "JsonReaderExtensions_UnexpectedInstanceAnnotationName";
+        internal const string BufferUtils_InvalidBufferOrSize = "BufferUtils_InvalidBufferOrSize";
         internal const string ServiceProviderExtensions_NoServiceRegistered = "ServiceProviderExtensions_NoServiceRegistered";
 
         static TextRes loader = null;

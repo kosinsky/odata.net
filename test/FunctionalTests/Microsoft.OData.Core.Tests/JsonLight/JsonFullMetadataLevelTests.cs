@@ -5,7 +5,6 @@
 //---------------------------------------------------------------------
 
 using System;
-using FluentAssertions;
 using Microsoft.OData.Edm;
 using Microsoft.OData.Evaluation;
 using Microsoft.OData.JsonLight;
@@ -40,7 +39,7 @@ namespace Microsoft.OData.Tests.JsonLight
         [Fact]
         public void FullMetadataLevelShouldReturnFullMetadataTypeOracleWhenKnobIsSet()
         {
-            testSubject.GetTypeNameOracle().Should().BeOfType<JsonFullMetadataTypeNameOracle>();
+            Assert.IsType<JsonFullMetadataTypeNameOracle>(testSubject.GetTypeNameOracle());
         }
 
         [Fact]
@@ -57,15 +56,16 @@ namespace Microsoft.OData.Tests.JsonLight
                 SelectedPropertiesNode.EntireSubtree,
                 /*isResponse*/ true,
                 /*keyAsSegment*/ false,
-                /*requestUri*/ null);
+                /*requestUri*/ null,
+                /*settings*/null);
 
-            test.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.ODataOutputContext_MetadataDocumentUriMissing);
+            test.Throws<ODataException>(ODataErrorStrings.ODataOutputContext_MetadataDocumentUriMissing);
         }
 
         [Fact]
         public void FullMetadataLevelShouldReturnODataConventionalEntityMetadataBuilder()
         {
-            testSubject.CreateResourceMetadataBuilder(
+            var builder = testSubject.CreateResourceMetadataBuilder(
                 new ODataResource(),
                 new TestFeedAndEntryTypeContext(),
                 new ODataResourceSerializationInfo(),
@@ -73,7 +73,10 @@ namespace Microsoft.OData.Tests.JsonLight
                 SelectedPropertiesNode.EntireSubtree,
                 /*isResponse*/ true,
                 /*keyAsSegment*/ false,
-                /*requestUri*/ null).Should().BeAssignableTo<ODataConventionalResourceMetadataBuilder>();
+                /*requestUri*/ null,
+                /*settings*/ null);
+
+            Assert.True(typeof(ODataConventionalResourceMetadataBuilder).IsAssignableFrom(builder.GetType()));
         }
 
         [Fact]
@@ -82,7 +85,7 @@ namespace Microsoft.OData.Tests.JsonLight
             var entry = new ODataResource();
             var builder = new TestEntityMetadataBuilder(entry);
             testSubject.InjectMetadataBuilder(entry, builder);
-            entry.MetadataBuilder.Should().BeSameAs(builder);
+            Assert.Same(builder, entry.MetadataBuilder);
         }
 
         [Fact]
@@ -92,7 +95,7 @@ namespace Microsoft.OData.Tests.JsonLight
             var builder = new TestEntityMetadataBuilder(entry);
             entry.MediaResource = new ODataStreamReferenceValue();
             testSubject.InjectMetadataBuilder(entry, builder);
-            entry.MediaResource.GetMetadataBuilder().Should().BeSameAs(builder);
+            Assert.Same(builder, entry.MediaResource.GetMetadataBuilder());
         }
 
         [Fact]
@@ -108,8 +111,8 @@ namespace Microsoft.OData.Tests.JsonLight
                     new ODataProperty {Name = "Stream2", Value = stream2}
                 };
             testSubject.InjectMetadataBuilder(entry, builder);
-            stream1.GetMetadataBuilder().Should().BeSameAs(builder);
-            stream2.GetMetadataBuilder().Should().BeSameAs(builder);
+            Assert.Same(builder, stream1.GetMetadataBuilder());
+            Assert.Same(builder, stream2.GetMetadataBuilder());
         }
 
         [Fact]
@@ -124,8 +127,8 @@ namespace Microsoft.OData.Tests.JsonLight
             entry.AddAction(action2);
 
             testSubject.InjectMetadataBuilder(entry, builder);
-            action1.GetMetadataBuilder().Should().BeSameAs(builder);
-            action2.GetMetadataBuilder().Should().BeSameAs(builder);
+            Assert.Same(builder, action1.GetMetadataBuilder());
+            Assert.Same(builder, action2.GetMetadataBuilder());
         }
 
         [Fact]
@@ -140,8 +143,8 @@ namespace Microsoft.OData.Tests.JsonLight
             entry.AddFunction(function2);
 
             testSubject.InjectMetadataBuilder(entry, builder);
-            function1.GetMetadataBuilder().Should().BeSameAs(builder);
-            function2.GetMetadataBuilder().Should().BeSameAs(builder);
+            Assert.Same(builder, function1.GetMetadataBuilder());
+            Assert.Same(builder, function2.GetMetadataBuilder());
         }
     }
 }

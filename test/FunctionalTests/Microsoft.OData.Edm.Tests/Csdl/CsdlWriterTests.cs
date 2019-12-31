@@ -9,12 +9,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml;
-
 using Microsoft.OData.Edm.Csdl;
 using Microsoft.OData.Edm.Validation;
 using Microsoft.OData.Edm.Vocabularies;
 using Microsoft.OData.Edm.Vocabularies.V1;
-
 using Xunit;
 
 namespace Microsoft.OData.Edm.Tests.Csdl
@@ -616,6 +614,76 @@ namespace Microsoft.OData.Edm.Tests.Csdl
         #endregion
 
         [Fact]
+        public void ShouldWriteInLineReturnTypeAnnotation()
+        {
+            string expected =
+            "<?xml version=\"1.0\" encoding=\"utf-16\"?>" +
+            "<edmx:Edmx Version=\"4.0\" xmlns:edmx=\"http://docs.oasis-open.org/odata/ns/edmx\">" +
+              "<edmx:DataServices>" +
+                "<Schema Namespace=\"NS\" xmlns=\"http://docs.oasis-open.org/odata/ns/edm\">" +
+                  "<Function Name=\"TestFunction\">" +
+                    "<ReturnType Type=\"Edm.PrimitiveType\" Nullable=\"false\">" +
+                        "<Annotation Term=\"Org.OData.Validation.V1.DerivedTypeConstraint\">" +
+                          "<Collection>" +
+                            "<String>Edm.Int32</String>" +
+                            "<String>Edm.Boolean</String>" +
+                          "</Collection>" +
+                        "</Annotation>" +
+                    "</ReturnType>" +
+                  "</Function>" +
+                "</Schema>" +
+              "</edmx:DataServices>" +
+            "</edmx:Edmx>";
+
+            Assert.Equal(expected, WriteReturnTypeAnnotation(EdmVocabularyAnnotationSerializationLocation.Inline));
+        }
+
+        [Fact]
+        public void ShouldWriteOutofLineReturnTypeAnnotation()
+        {
+            string expected =
+            "<?xml version=\"1.0\" encoding=\"utf-16\"?>" +
+            "<edmx:Edmx Version=\"4.0\" xmlns:edmx=\"http://docs.oasis-open.org/odata/ns/edmx\">" +
+              "<edmx:DataServices>" +
+                "<Schema Namespace=\"NS\" xmlns=\"http://docs.oasis-open.org/odata/ns/edm\">" +
+                  "<Function Name=\"TestFunction\">" +
+                    "<ReturnType Type=\"Edm.PrimitiveType\" Nullable=\"false\" />" +
+                  "</Function>" +
+                  "<Annotations Target=\"NS.TestFunction()/$ReturnType\">" +
+                    "<Annotation Term=\"Org.OData.Validation.V1.DerivedTypeConstraint\">" +
+                      "<Collection>" +
+                        "<String>Edm.Int32</String>" +
+                        "<String>Edm.Boolean</String>" +
+                      "</Collection>" +
+                    "</Annotation>" +
+                  "</Annotations>" +
+                "</Schema>" +
+              "</edmx:DataServices>" +
+            "</edmx:Edmx>";
+
+            Assert.Equal(expected, WriteReturnTypeAnnotation(EdmVocabularyAnnotationSerializationLocation.OutOfLine));
+        }
+
+        private string WriteReturnTypeAnnotation(EdmVocabularyAnnotationSerializationLocation location)
+        {
+            var primitiveTypeRef = EdmCoreModel.Instance.GetPrimitiveType(false);
+            var model = new EdmModel();
+            var termType = model.FindTerm("Org.OData.Validation.V1.DerivedTypeConstraint");
+            Assert.NotNull(termType);
+
+            var function = new EdmFunction("NS", "TestFunction", primitiveTypeRef);
+            model.AddElement(function);
+
+            IEdmCollectionExpression collectionExpression = new EdmCollectionExpression(new EdmStringConstant("Edm.Int32"), new EdmStringConstant("Edm.Boolean"));
+            IEdmOperationReturn returnType = function.GetReturn();
+            EdmVocabularyAnnotation annotation = new EdmVocabularyAnnotation(returnType, termType, collectionExpression);
+            annotation.SetSerializationLocation(model, location);
+            model.SetVocabularyAnnotation(annotation);
+
+            return GetCsdl(model, CsdlTarget.OData);
+        }
+
+        [Fact]
         public void ShouldWriteEdmComplexTypeProperty()
         {
             string expected =
@@ -1091,6 +1159,61 @@ namespace Microsoft.OData.Edm.Tests.Csdl
             Assert.False(model.Validate(out errors));
             string csdlStr = GetCsdl(model, CsdlTarget.OData);
             Assert.Equal(expected, csdlStr);
+        }
+
+        [Fact]
+        public void CanWriteUrlEscapeFunction()
+        {
+            string expected =
+            "<?xml version=\"1.0\" encoding=\"utf-16\"?>" +
+            "<edmx:Edmx Version=\"4.0\" xmlns:edmx=\"http://docs.oasis-open.org/odata/ns/edmx\">" +
+              "<edmx:DataServices>" +
+                "<Schema Namespace=\"NS\" xmlns=\"http://docs.oasis-open.org/odata/ns/edm\">" +
+                  "<EntityType Name=\"Entity\">" +
+                    "<Key>" +
+                      "<PropertyRef Name=\"Id\" />" +
+                    "</Key>" +
+                    "<Property Name=\"Id\" Type=\"Edm.Int32\" Nullable=\"false\" />" +
+                  "</EntityType>" +
+                  "<Function Name=\"Function\" IsBound=\"true\">" +
+                    "<Parameter Name=\"entity\" Type=\"NS.Entity\" />" +
+                    "<Parameter Name=\"path\" Type=\"Edm.String\" />" +
+                    "<ReturnType Type=\"Edm.Int32\" />" +
+                    "<Annotation Term=\"Org.OData.Community.V1.UrlEscapeFunction\" Bool=\"true\" />" +
+                  "</Function>" +
+                "</Schema>" +
+              "</edmx:DataServices>" +
+            "</edmx:Edmx>";
+
+            EdmModel model = new EdmModel();
+            EdmEntityType entityType = new EdmEntityType("NS", "Entity");
+            entityType.AddKeys(entityType.AddStructuralProperty("Id", EdmCoreModel.Instance.GetInt32(false)));
+            EdmFunction function = new EdmFunction("NS", "Function", EdmCoreModel.Instance.GetInt32(true), true, null, false);
+            function.AddParameter("entity", new EdmEntityTypeReference(entityType, true));
+            function.AddParameter("path", EdmCoreModel.Instance.GetString(true));
+            model.AddElement(entityType);
+            model.AddElement(function);
+            model.SetUrlEscapeFunction(function);
+
+            IEnumerable<EdmError> errors;
+            Assert.True(model.Validate(out errors));
+            string csdlStr = GetCsdl(model, CsdlTarget.OData);
+            Assert.Equal(expected, csdlStr);
+        }
+
+        [Theory]
+        [InlineData("4.0")]
+        [InlineData("4.01")]
+        public void ValidateEdmxVersions(string odataVersion)
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?><edmx:Edmx Version=\"" + odataVersion + "\" xmlns:edmx=\"http://docs.oasis-open.org/odata/ns/edmx\"><edmx:DataServices /></edmx:Edmx>";
+
+            // Specify the model
+            EdmModel edmModel = new EdmModel(false);
+            edmModel.SetEdmVersion(odataVersion == "4.0" ? EdmConstants.EdmVersion4 : EdmConstants.EdmVersion401);
+
+            // Validate the CSDL for the specified version
+            Assert.Equal(GetCsdl(edmModel, CsdlTarget.OData), xml);
         }
 
         private string GetCsdl(IEdmModel model, CsdlTarget target)
