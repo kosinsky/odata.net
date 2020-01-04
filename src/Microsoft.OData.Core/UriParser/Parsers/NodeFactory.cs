@@ -60,7 +60,7 @@ namespace Microsoft.OData.UriParser
                 return new ResourceRangeVariable(ExpressionConstants.It, elementType as IEdmStructuredTypeReference, navigationSource);
             }
 
-            Debug.Assert(navigationSource == null, "if the type wasn't a structured type then there should be no navigation source");
+            //Debug.Assert(navigationSource == null, "if the type wasn't a structured type then there should be no navigation source");
             return new NonResourceRangeVariable(ExpressionConstants.It, elementType, null);
         }
 
