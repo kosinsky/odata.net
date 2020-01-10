@@ -13,6 +13,14 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriBuilder
     {
         #region test $filter
         [Fact]
+        public void BuildFilterEnum()
+        {
+            Uri queryUri = new Uri("http://gobbledygook/Pet2Set?$filter=Shape eq 'Rectangle'");
+            Uri actualUri = UriBuilder(queryUri, ODataUrlKeyDelimiter.Parentheses, settings);
+            Assert.Equal(queryUri, actualUri);
+        }
+
+        [Fact]
         public void BuildFilterLongValuesWithOptionalSuffix()
         {
             // filter is a binaryOperatorNode and its right is a int value
@@ -245,6 +253,14 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriBuilder
         }
 
         [Fact]
+        public void BuildFilterWithOpenPropertyInsideAnyAndOr()
+        {
+            Uri queryUri = new Uri("People?$filter=MyPaintings%2Fany(p%3Ap%2FOpenProperty) and (ID eq 1 or ID eq 2)", UriKind.Relative);
+            Uri actualUri = UriBuilder(queryUri, ODataUrlKeyDelimiter.Parentheses, settings);
+            Assert.Equal(new Uri("http://gobbledygook/People?$filter=MyPaintings%2Fany(p%3Ap%2FOpenProperty) and (ID eq 1 or ID eq 2)"), actualUri);
+        }
+
+        [Fact]
         public void BuildFilterWithControlCharactersShouldBeIgnored()
         {
             Uri queryUri = new Uri("People?$filter=length(Name) \neq 30", UriKind.Relative);
@@ -417,6 +433,14 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriBuilder
             Uri queryUri = new Uri("People?$filter=ID in (1,2,3)", UriKind.Relative);
             Uri actualUri = UriBuilder(queryUri, ODataUrlKeyDelimiter.Parentheses, settings);
             Assert.Equal(new Uri("http://gobbledygook/People?$filter=ID%20in%20(1%2C2%2C3)"), actualUri);
+        }
+
+        [Fact]
+        public void BuildFilterWithInOperatorUsingBracketedCollectionConstant()
+        {
+            Uri queryUri = new Uri("People?$filter=ID in [1,2,3]", UriKind.Relative);
+            Uri actualUri = UriBuilder(queryUri, ODataUrlKeyDelimiter.Parentheses, settings);
+            Assert.Equal(new Uri("http://gobbledygook/People?$filter=ID%20in%20[1%2C2%2C3]"), actualUri);
         }
 
         [Fact]

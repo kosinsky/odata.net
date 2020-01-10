@@ -1,5 +1,5 @@
 ﻿//---------------------------------------------------------------------
-// <copyright file="ExapndOptionFunctionalTests.cs" company="Microsoft">
+// <copyright file="ExpandOptionFunctionalTests.cs" company="Microsoft">
 //      Copyright (C) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 // </copyright>
 //---------------------------------------------------------------------
@@ -7,12 +7,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using Microsoft.OData.Tests.UriParser;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Xunit;
-using ODataErrorStrings = Microsoft.OData.Strings;
 
 namespace Microsoft.OData.Tests.ScenarioTests.UriParser
 {
@@ -85,15 +83,31 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         [Fact]
         public void SkipWithValidValue()
         {
+            // Arrange & Act
             var clause = this.Run("MyContainedDog($skip=21)", PersonType, PeopleSet);
-            clause.SkipOption.Should().Be(21);
+
+            // Assert
+            Assert.NotNull(clause.SkipOption);
+            Assert.Equal(21, clause.SkipOption);
         }
 
         [Fact]
         public void SkipWithInvalidValue()
         {
+            // Arrange & Act & Assert
             Action action = () => this.Run("MyContainedDog($skip=SKIP)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidSkipOption("SKIP"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidSkipOption("SKIP"));
+        }
+
+        [Fact]
+        public void SkipOnSelectWithValidValue()
+        {
+            // Arrange & Act
+            var clause = this.RunSelect("PreviousAddresses($skip=21)", PersonType, PeopleSet);
+
+            // Assert
+            Assert.NotNull(clause.SkipOption);
+            Assert.Equal(21, clause.SkipOption);
         }
         #endregion $skip
 
@@ -102,17 +116,42 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void TopWithValidValue()
         {
             var clause = this.Run("MyContainedDog($top=22)", PersonType, PeopleSet);
-            clause.TopOption.Should().Be(22);
+            Assert.Equal(22, clause.TopOption);
         }
 
         [Fact]
         public void TopWithInvalidValue()
         {
+            // Arrange & Act & Assert
             Action action = () => this.Run("MyContainedDog($top=TOP)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidTopOption("TOP"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidTopOption("TOP"));
 
+            // Arrange & Act & Assert
             action = () => this.Run("MyContainedDog($top=-1)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidTopOption("-1"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidTopOption("-1"));
+        }
+
+        [Fact]
+        public void TopOnSelectWithValidValue()
+        {
+            // Arrange & Act
+            var clause = this.RunSelect("PreviousAddresses($top=22)", PersonType, PeopleSet);
+
+            // Assert
+            Assert.NotNull(clause.TopOption);
+            Assert.Equal(22, clause.TopOption);
+        }
+
+        [Fact]
+        public void TopOnSelectWithInvalidValue()
+        {
+            // Arrange & Act & Assert
+            Action action = () => this.RunSelect("PreviousAddresses($top=TOP)", PersonType, PeopleSet);
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidTopOption("TOP"));
+
+            // Arrange & Act & Assert
+            action = () => this.RunSelect("PreviousAddresses($top=-1)", PersonType, PeopleSet);
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidTopOption("-1"));
         }
         #endregion $top
 
@@ -121,17 +160,17 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void CountWithValidValue()
         {
             var clause = this.Run("MyContainedDog($count=true)", PersonType, PeopleSet);
-            clause.CountOption.Should().BeTrue();
+            Assert.True(clause.CountOption);
         }
 
         [Fact]
         public void CountWithInvalidValue()
         {
             Action action = () => this.Run("MyContainedDog($count=COUNT)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidCountOption("COUNT"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidCountOption("COUNT"));
 
             action = () => this.Run("MyContainedDog($count=-2)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidCountOption("-2"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidCountOption("-2"));
         }
         #endregion $count
 
@@ -140,44 +179,44 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void LevelsWithValueMax()
         {
             var clause = this.Run("Fully.Qualified.Namespace.Manager/DirectReports($levels=max)", PersonType, PeopleSet);
-            clause.LevelsOption.IsMaxLevel.Should().BeTrue();
+            Assert.True(clause.LevelsOption.IsMaxLevel);
         }
 
         [Fact]
         public void LevelsWithPositiveValue()
         {
             var clause = this.Run("Fully.Qualified.Namespace.Manager/DirectReports($levels=6)", PersonType, PeopleSet);
-            clause.LevelsOption.IsMaxLevel.Should().BeFalse();
-            clause.LevelsOption.Level.Should().Be(6);
+            Assert.False(clause.LevelsOption.IsMaxLevel);
+            Assert.Equal(6, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsWithZeroValueShouldWork()
         {
             var clause = this.Run("Fully.Qualified.Namespace.Manager/DirectReports($levels=0)", PersonType, PeopleSet);
-            clause.LevelsOption.IsMaxLevel.Should().BeFalse();
-            clause.LevelsOption.Level.Should().Be(0);
+            Assert.False(clause.LevelsOption.IsMaxLevel);
+            Assert.Equal(0, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsWithNegativeValueShouldThrow()
         {
             Action action = () => this.Run("Fully.Qualified.Namespace.Manager/DirectReports($levels=-1)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidLevelsOption("-1"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidLevelsOption("-1"));
         }
 
         [Fact]
         public void LevelsWithInvalidValue()
         {
             Action action = () => this.Run("Fully.Qualified.Namespace.Manager/DirectReports($levels=LEVEL)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriSelectParser_InvalidLevelsOption("LEVEL"));
+            action.Throws<ODataException>(Strings.UriSelectParser_InvalidLevelsOption("LEVEL"));
         }
 
         [Fact]
         public void LevelsOnInvalidNavigationProperty()
         {
             Action action = () => this.Run("MyPaintings($levels=6)", PersonType, PeopleSet);
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpandItemBinder_LevelsNotAllowedOnIncompatibleRelatedType("MyPaintings", "Fully.Qualified.Namespace.Painting", "Fully.Qualified.Namespace.Person"));
+            action.Throws<ODataException>(Strings.ExpandItemBinder_LevelsNotAllowedOnIncompatibleRelatedType("MyPaintings", "Fully.Qualified.Namespace.Painting", "Fully.Qualified.Namespace.Person"));
         }
         #endregion $levels
 
@@ -186,42 +225,42 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void LevelsOnNavigationPropertyOfBaseType()
         {
             var clause = this.RunWithLocalModel("Nav21($levels=1)", T2Type, T2Set);
-            clause.LevelsOption.Level.Should().Be(1);
+            Assert.Equal(1, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsOnNavigationPropertyOfSameType()
         {
             var clause = this.RunWithLocalModel("Nav22($levels=2)", T2Type, T2Set);
-            clause.LevelsOption.Level.Should().Be(2);
+            Assert.Equal(2, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsOnNavigationPropertyOfDerivedType()
         {
             var clause = this.RunWithLocalModel("Nav23($levels=3)", T2Type, T2Set);
-            clause.LevelsOption.Level.Should().Be(3);
+            Assert.Equal(3, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsOnNavigationPropertyOfBaseTypeWithTypeCast()
         {
             var clause = this.RunWithLocalModel("NS.T3/Nav21($levels=4)", T2Type, T2Set);
-            clause.LevelsOption.Level.Should().Be(4);
+            Assert.Equal(4, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsOnNavigationPropertyOfSameTypeWithTypeCast()
         {
             var clause = this.RunWithLocalModel("NS.T3/Nav22($levels=5)", T2Type, T2Set);
-            clause.LevelsOption.Level.Should().Be(5);
+            Assert.Equal(5, clause.LevelsOption.Level);
         }
 
         [Fact]
         public void LevelsOnNavigationPropertyOfDerivedTypeWithTypeCast()
         {
             var clause = this.RunWithLocalModel("NS.T2/Nav23($levels=6)", T3Type, T3Set);
-            clause.LevelsOption.Level.Should().Be(6);
+            Assert.Equal(6, clause.LevelsOption.Level);
         }
         #endregion
 
@@ -255,19 +294,27 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         {
             Action action = () => this.Run("MyFriendsDogs($apply=Invalid Expression)", PersonType, PeopleSet);
             var exception = Assert.Throws<ODataException>(action);
-            Assert.Equal("'aggregate|filter|groupby|compute' expected at position 0 in 'Invalid Expression'.", exception.Message);
+            Assert.Equal("'aggregate|filter|groupby|compute|expand' expected at position 0 in 'Invalid Expression'.", exception.Message);
         }
         #endregion $apply
 
         #region helper methods
         private ExpandedNavigationSelectItem Run(string expandStr, IEdmStructuredType elementType, IEdmNavigationSource navigationSource)
         {
-            return new ODataQueryOptionParser(HardCodedTestModel.TestModel, elementType, navigationSource, new Dictionary<string, string> { { "$expand", expandStr } }).ParseSelectAndExpand().SelectedItems.First() as ExpandedNavigationSelectItem;
+            return new ODataQueryOptionParser(HardCodedTestModel.TestModel, elementType, navigationSource, new Dictionary<string, string> { { "$expand", expandStr } })
+                .ParseSelectAndExpand().SelectedItems.First() as ExpandedNavigationSelectItem;
+        }
+
+        private PathSelectItem RunSelect(string selectStr, IEdmStructuredType elementType, IEdmNavigationSource navigationSource)
+        {
+            return new ODataQueryOptionParser(HardCodedTestModel.TestModel, elementType, navigationSource, new Dictionary<string, string> { { "$select", selectStr } })
+                .ParseSelectAndExpand().SelectedItems.First() as PathSelectItem;
         }
 
         private ExpandedNavigationSelectItem RunWithLocalModel(string expandStr, IEdmStructuredType elementType, IEdmNavigationSource navigationSource)
         {
-            return new ODataQueryOptionParser(Model, elementType, navigationSource, new Dictionary<string, string> { { "$expand", expandStr } }).ParseSelectAndExpand().SelectedItems.First() as ExpandedNavigationSelectItem;
+            return new ODataQueryOptionParser(Model, elementType, navigationSource, new Dictionary<string, string> { { "$expand", expandStr } })
+                .ParseSelectAndExpand().SelectedItems.First() as ExpandedNavigationSelectItem;
         }
         #endregion helper methods
     }

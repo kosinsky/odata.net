@@ -156,7 +156,7 @@ namespace Microsoft.OData.JsonLight
             {
                 this.ODataAnnotationWriter.WriteInstanceAnnotationName(ODataAnnotationNames.ODataEditLink);
                 this.JsonWriter.WriteValue(this.UriToString(
-                    resource.HasNonComputedEditLink
+                    resource.HasNonComputedEditLink || !editLinkUriValue.IsAbsoluteUri
                     ? editLinkUriValue
                     : this.MetadataDocumentBaseUri.MakeRelativeUri(editLinkUriValue)));
                 resourceState.EditLinkWritten = true;
@@ -239,6 +239,7 @@ namespace Microsoft.OData.JsonLight
 
             ODataResourceBase resource = resourceState.Resource;
 
+            // write computed navigation properties
             var navigationLinkInfo = resource.MetadataBuilder.GetNextUnprocessedNavigationLink();
             while (navigationLinkInfo != null)
             {
@@ -247,6 +248,14 @@ namespace Microsoft.OData.JsonLight
 
                 this.WriteNavigationLinkMetadata(navigationLinkInfo.NestedResourceInfo, duplicatePropertyNameChecker);
                 navigationLinkInfo = resource.MetadataBuilder.GetNextUnprocessedNavigationLink();
+            }
+
+            // write computed stream properties
+            ODataProperty streamProperty = resource.MetadataBuilder.GetNextUnprocessedStreamProperty();
+            while (streamProperty != null)
+            {
+                this.WriteProperty(streamProperty, resourceState.ResourceType, /*isTopLevel*/ false, duplicatePropertyNameChecker, null /*metadataBuilder*/);
+                streamProperty = resource.MetadataBuilder.GetNextUnprocessedStreamProperty();
             }
 
             // write "odata.actions" metadata
@@ -309,7 +318,7 @@ namespace Microsoft.OData.JsonLight
         /// <param name="isAction">true when writing the resource's actions; false when writing the resource's functions.</param>
         internal void WriteOperations(IEnumerable<ODataOperation> operations, bool isAction)
         {
-            // We cannot compare two URI's directly because the 'Equals' method on the 'Uri' class compares two 'Uri' instances without regard to the
+            // We cannot compare two URIs directly because the 'Equals' method on the 'Uri' class compares two 'Uri' instances without regard to the
             // fragment part of the URI. (E.G: For 'http://someuri/index.htm#EC.action1' and http://someuri/index.htm#EC.action2', the 'Equals' method
             // will return true.
             IEnumerable<IGrouping<string, ODataOperation>> metadataGroups = operations.GroupBy(o =>

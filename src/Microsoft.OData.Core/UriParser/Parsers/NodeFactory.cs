@@ -29,7 +29,7 @@ namespace Microsoft.OData.UriParser
             if (elementType == null)
             {
                 // This case if for something like a void service operation
-                // This is pretty ugly; if pratice we shouldn't be creating a parameter node for this case I think
+                // This is pretty ugly; if practice we shouldn't be creating a parameter node for this case I think
                 return null;
             }
 
@@ -60,7 +60,7 @@ namespace Microsoft.OData.UriParser
                 return new ResourceRangeVariable(ExpressionConstants.It, elementType as IEdmStructuredTypeReference, navigationSource);
             }
 
-            Debug.Assert(navigationSource == null, "if the type wasn't a structured type then there should be no navigation source");
+            //Debug.Assert(navigationSource == null, "if the type wasn't a structured type then there should be no navigation source");
             return new NonResourceRangeVariable(ExpressionConstants.It, elementType, null);
         }
 

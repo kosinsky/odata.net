@@ -69,16 +69,6 @@ namespace Microsoft.OData
         }
 
         /// <summary>
-        /// Validates that an open property value is supported.
-        /// </summary>
-        /// <param name="propertyName">The name of the open property.</param>
-        /// <param name="value">The value of the open property.</param>
-        public virtual void ValidateOpenPropertyValue(string propertyName, object value)
-        {
-            ValidationUtils.ValidateOpenPropertyValue(propertyName, value);
-        }
-
-        /// <summary>
         /// Validates that a given primitive value is of the expected (primitive) type.
         /// </summary>
         /// <param name="value">The value to check.</param>
@@ -207,7 +197,9 @@ namespace Microsoft.OData
                 WriterValidationUtils.ValidateNullPropertyValue(expectedPropertyTypeReference, propertyName, model);
             }
 
-            if (isTopLevel && this.settings.LibraryCompatibility >= ODataLibraryCompatibility.Version7)
+            if (isTopLevel
+                && (this.settings.LibraryCompatibility >= ODataLibraryCompatibility.Version7
+                || this.settings.Version >= ODataVersion.V401))
             {
                 // From the spec:
                 // 11.2.3 Requesting Individual Properties
@@ -262,7 +254,7 @@ namespace Microsoft.OData
         }
 
         /// <summary>
-        /// Validates the input <see cref="IEdmStructuredType"/> meets the derived type constaints on the <see cref="IEdmNavigationSource"/>.
+        /// Validates the input <see cref="IEdmStructuredType"/> meets the derived type constraints on the <see cref="IEdmNavigationSource"/>.
         /// </summary>
         /// <param name="resourceType">The input resource type.</param>
         /// <param name="metadataType">The type from metadata.</param>

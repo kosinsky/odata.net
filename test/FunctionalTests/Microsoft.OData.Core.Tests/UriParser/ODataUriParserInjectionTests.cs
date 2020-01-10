@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
-using FluentAssertions;
 using Microsoft.OData.Edm;
 using Microsoft.OData.Edm.Csdl;
 using Microsoft.OData.Tests.UriParser.Binders;
@@ -264,9 +263,9 @@ namespace Microsoft.OData.Tests.UriParser
             var expandClause = uriParser.ParseSelectAndExpand();
             var items = expandClause.SelectedItems;
             items.First().ShouldBeSelectedItemOfType<ExpandedNavigationSelectItem>()
-                .And.PathToNavigationProperty.Single().ShouldBeNavigationPropertySegment(thumbnailsNavProp);
+                .PathToNavigationProperty.Single().ShouldBeNavigationPropertySegment(thumbnailsNavProp);
             items.Last().ShouldBeSelectedItemOfType<ExpandedNavigationSelectItem>()
-                .And.SelectAndExpand.SelectedItems.Single().ShouldBePathSelectionItem(new ODataPath(new PropertySegment(sizeProp)));
+                .SelectAndExpand.SelectedItems.Single().ShouldBePathSelectionItem(new ODataPath(new PropertySegment(sizeProp)));
         }
 
         [Fact]
@@ -464,7 +463,7 @@ namespace Microsoft.OData.Tests.UriParser
 
             var uriParser = ParseDynamicPathSegmentFunc_ReturnDynamicPathSegment_WithCollectionReturnType(fullUri, out odataPath);
             var filterClause = uriParser.ParseFilter();
-            var binaryNode = filterClause.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.Equal).And;
+            var binaryNode = filterClause.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.Equal);
             binaryNode.Left.ShouldBeSingleValuePropertyAccessQueryNode(folderType.FindProperty("childCount"));
             binaryNode.Right.ShouldBeConstantQueryNode(20);
         }
@@ -484,7 +483,7 @@ namespace Microsoft.OData.Tests.UriParser
             Uri fullUri = new Uri("https://serviceRoot/drive/recent?$count=true");
             ODataPath odataPath;
             var uriParser = ParseDynamicPathSegmentFunc_ReturnDynamicPathSegment_WithCollectionReturnType(fullUri, out odataPath);
-            uriParser.ParseCount().Should().BeTrue();
+            Assert.True(uriParser.ParseCount());
         }
 
         private ODataPath ParseDynamicPathSegmentFunc_ReturnDynamicPathSegment_WithCollectionReturnType(Uri fullUri, ODataUrlKeyDelimiter uriConventions = null)

@@ -63,7 +63,10 @@ namespace Microsoft.OData.Edm
         /// <summary>
         /// Gets the full name of this type.
         /// </summary>
-        public string FullName => CsdlConstants.TypeName_Entity;
+        public string FullName
+        {
+            get { return CsdlConstants.TypeName_Entity; }
+        }
 
         /// <summary>
         /// Gets the value indicating whether or not this type is a media entity.
@@ -112,7 +115,7 @@ namespace Microsoft.OData.Edm
 
         /// <summary>
         /// Gets the structural properties of the entity type that make up the entity key.
-        /// The Edm.EntityType is always without any declrared keys.
+        /// The Edm.EntityType is always without any declared keys.
         /// </summary>
         public IEnumerable<IEdmStructuralProperty> DeclaredKey
         {

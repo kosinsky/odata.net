@@ -155,7 +155,7 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "Cannot transition from state '{0}' to state '{1}'. The only valid action in state '{0}' is to write a nested resource."
+        /// A string like "Cannot transition from state '{0}' to state '{1}'. The only valid action in state '{0}' is to write a property or a nested resource."
         /// </summary>
         internal static string ODataWriterCore_InvalidTransitionFromResource(object p0, object p1) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_InvalidTransitionFromResource, p0, p1);
@@ -232,6 +232,15 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "ODataWriter.Write or ODataWriter.WriteEnd was called while streaming a value. Stream or TextWriter must be disposed before calling additional methods on ODataWriter."
+        /// </summary>
+        internal static string ODataWriterCore_StreamNotDisposed {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_StreamNotDisposed);
+            }
+        }
+
+        /// <summary>
         /// A string like "No Id or key properties were found. A resource in a delta response requires an ID or key properties be specified."
         /// </summary>
         internal static string ODataWriterCore_DeltaResourceWithoutIdOrKeyProperties {
@@ -250,7 +259,25 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "Cannot write a delta deleted resource, link, or deleted link using ODataResourceSetWriter. Please use an ODataDeltaResourceSetWriter."
+        /// A string like "The NextPageLink must be null for request payloads. Next page links are only supported in responses."
+        /// </summary>
+        internal static string ODataWriterCore_QueryNextLinkInRequest {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_QueryNextLinkInRequest);
+            }
+        }
+
+        /// <summary>
+        /// A string like "The DeltaLink must be null for request payloads. Delta links are only supported in responses."
+        /// </summary>
+        internal static string ODataWriterCore_QueryDeltaLinkInRequest {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_QueryDeltaLinkInRequest);
+            }
+        }
+
+        /// <summary>
+        /// A string like "Cannot write a deleted resource, link, deleted link, or nested delta resource set to a non-delta payload. Please use a delta resource set writer, or a request resource writer."
         /// </summary>
         internal static string ODataWriterCore_CannotWriteDeltaWithResourceSetWriter {
             get {
@@ -309,15 +336,6 @@ namespace Microsoft.OData {
         internal static string ODataWriterCore_EntityReferenceLinkWithoutNavigationLink {
             get {
                 return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_EntityReferenceLinkWithoutNavigationLink);
-            }
-        }
-
-        /// <summary>
-        /// A string like "An entity reference link was written into a response. The WriteEntityReferenceLink or WriteEntityReferenceLinkAsync methods can only be used when writing a request."
-        /// </summary>
-        internal static string ODataWriterCore_EntityReferenceLinkInResponse {
-            get {
-                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_EntityReferenceLinkInResponse);
             }
         }
 
@@ -404,6 +422,16 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string ODataJsonWriter_UnsupportedValueType(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonWriter_UnsupportedValueType, p0);
+        }
+
+        /// <summary>
+        /// A string like "Unable to serialize an object in a collection as it is not an ODataPrimitve or ODataResourceValue."
+        /// </summary>
+        internal static string ODataJsonWriter_UnsupportedValueInCollection
+        {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonWriter_UnsupportedValueInCollection);
+            }
         }
 
         /// <summary>
@@ -1881,6 +1909,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "The value type '{0}' is not allowed due to an Org.OData.Validation.V1.DerivedTypeConstraint annotation on {1} '{2}'."
+        /// </summary>
+        internal static string ReaderValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint(object p0, object p1, object p2) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ReaderValidationUtils_ValueTypeNotAllowedInDerivedTypeConstraint, p0, p1, p2);
+        }
+
+        /// <summary>
         /// A string like "The ODataMessageReader has already been used to read a message payload. An ODataMessageReader can only be used once to read a payload for a given message."
         /// </summary>
         internal static string ODataMessageReader_ReaderAlreadyUsed {
@@ -2106,10 +2141,44 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "CreateReadStream was called in an invalid state. CreateReadStream can only be called once in ReaderState.Stream."
+        /// </summary>
+        internal static string ODataReaderCore_CreateReadStreamCalledInInvalidState {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataReaderCore_CreateReadStreamCalledInInvalidState);
+            }
+        }
+
+        /// <summary>
+        /// A string like "CreateTextReader was called in an invalid state. CreateTextReader can only be called once in ReaderState.Stream."
+        /// </summary>
+        internal static string ODataReaderCore_CreateTextReaderCalledInInvalidState {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataReaderCore_CreateTextReaderCalledInInvalidState);
+            }
+        }
+
+        /// <summary>
+        /// A string like "Read called with an open stream or textreader. Please close any open streams or text readers before calling Read."
+        /// </summary>
+        internal static string ODataReaderCore_ReadCalledWithOpenStream {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataReaderCore_ReadCalledWithOpenStream);
+            }
+        }
+
+        /// <summary>
         /// A string like "Calling Read or ReadAsync on an ODataReader instance is not allowed in state '{0}'."
         /// </summary>
         internal static string ODataReaderCore_NoReadCallsAllowed(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataReaderCore_NoReadCallsAllowed, p0);
+        }
+
+        /// <summary>
+        /// A string like "Attempted to write a value for a property {0} whose value has already been written."
+        /// </summary>
+        internal static string ODataWriterCore_PropertyValueAlreadyWritten(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataWriterCore_PropertyValueAlreadyWritten, p0);
         }
 
         /// <summary>
@@ -2795,7 +2864,7 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "An stream property with name '{0}' could not be written to the request payload. Stream properties are only supported in responses."
+        /// A string like "The stream property {0} in a request payload cannot contain etag, editLink, or readLink values."
         /// </summary>
         internal static string WriterValidationUtils_StreamPropertyInRequest(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.WriterValidationUtils_StreamPropertyInRequest, p0);
@@ -3517,6 +3586,17 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "Encountered a deleted entity when reading a non-delta response payload. Deleted entities are only supported in request payloads and delta responses."
+        /// </summary>
+        internal static string ODataJsonLightResourceDeserializer_UnexpectedDeletedEntryInResponsePayload
+        {
+            get
+            {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightResourceDeserializer_UnexpectedDeletedEntryInResponsePayload);
+            }
+        }
+
+        /// <summary>
         /// A string like "A node of type '{0}' was read from the JSON reader when trying to read the start of the content of a resource set; however, a node of type 'StartArray' was expected."
         /// </summary>
         internal static string ODataJsonLightResourceDeserializer_CannotReadResourceSetContentStart(object p0) {
@@ -3566,12 +3646,10 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "A stream property was found in a JSON Light request payload. Stream properties are only supported in responses."
+        /// A string like "A stream property {0} was found in a JSON Light request payload. Stream properties are only supported in responses."
         /// </summary>
-        internal static string ODataJsonLightResourceDeserializer_StreamPropertyInRequest {
-            get {
-                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightResourceDeserializer_StreamPropertyInRequest);
-            }
+        internal static string ODataJsonLightResourceDeserializer_StreamPropertyInRequest(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.ODataJsonLightResourceDeserializer_StreamPropertyInRequest, p0);
         }
 
         /// <summary>
@@ -4403,6 +4481,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "The URI part '{0}' is not valid because there's no leading escape character."
+        /// </summary>
+        internal static string UriQueryPathParser_InvalidEscapeUri(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.UriQueryPathParser_InvalidEscapeUri, p0);
+        }
+
+        /// <summary>
         /// A string like "The DateTimeOffset text '{0}' should be in format 'yyyy-mm-ddThh:mm:ss('.'s+)?(zzzzzz)?' and each field value is within valid range."
         /// </summary>
         internal static string UriUtils_DateTimeOffsetInvalidFormat(object p0) {
@@ -4430,6 +4515,13 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string MetadataBinder_PropertyNotDeclared(object p0, object p1) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.MetadataBinder_PropertyNotDeclared, p0, p1);
+        }
+
+        /// <summary>
+        /// A string like "Can not resolve the segment identifier '{0}' in query option."
+        /// </summary>
+        internal static string MetadataBinder_InvalidIdentifierInQueryOption(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.MetadataBinder_InvalidIdentifierInQueryOption, p0);
         }
 
         /// <summary>
@@ -4711,6 +4803,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "Invalid PrimitiveTypeKind {0}. A Stream item must be of type binary or string, or none if unknown.""
+        /// </summary>
+        internal static string StreamItemInvalidPrimitiveKind(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.StreamItemInvalidPrimitiveKind, p0);
+        }
+
+        /// <summary>
         /// A string like "$apply/aggregate expression '{0}' operation does not support value type '{1}'."
         /// </summary>
         internal static string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod(object p0, object p1) {
@@ -4850,6 +4949,27 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "It's not allowed to append '{0}' after wildcard."
+        /// </summary>
+        internal static string SelectExpandBinder_InvalidIdentifierAfterWildcard(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectExpandBinder_InvalidIdentifierAfterWildcard, p0);
+        }
+
+        /// <summary>
+        /// A string like "It's not allowed to nest query options within '{0}' selection."
+        /// </summary>
+        internal static string SelectExpandBinder_InvalidQueryOptionNestedSelection(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectExpandBinder_InvalidQueryOptionNestedSelection, p0);
+        }
+
+        /// <summary>
+        /// A string like "Found a system token, '{0}', while parsing a select clause."
+        /// </summary>
+        internal static string SelectExpandBinder_SystemTokenInSelect(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectExpandBinder_SystemTokenInSelect, p0);
+        }
+
+        /// <summary>
         /// A string like "Only properties specified in $expand can be traversed in $select query options. Selected item was '{0}'."
         /// </summary>
         internal static string SelectionItemBinder_NoExpandForSelectedProperty(object p0) {
@@ -4861,22 +4981,6 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string SelectExpandPathBinder_FollowNonTypeSegment(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectExpandPathBinder_FollowNonTypeSegment, p0);
-        }
-
-        /// <summary>
-        /// A string like "Found a system token, '{0}', while parsing a select clause."
-        /// </summary>
-        internal static string SelectPropertyVisitor_SystemTokenInSelect(object p0) {
-            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectPropertyVisitor_SystemTokenInSelect, p0);
-        }
-
-        /// <summary>
-        /// A string like "Any selection that is expanded must have the same type qualifier on both selection and expansion."
-        /// </summary>
-        internal static string SelectPropertyVisitor_DisparateTypeSegmentsInSelectExpand {
-            get {
-                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectPropertyVisitor_DisparateTypeSegmentsInSelectExpand);
-            }
         }
 
         /// <summary>
@@ -5051,6 +5155,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "Found multiple select terms with same select path '{0}' at one $select, please combine them together."
+        /// </summary>
+        internal static string SelectTreeNormalizer_MultipleSelecTermWithSamePathFound(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.SelectTreeNormalizer_MultipleSelecTermWithSamePathFound, p0);
+        }
+
+        /// <summary>
         /// A string like "Term '{0}' is not valid in a $expand expression, as only $level option is allowed when the expanded navigation property is star."
         /// </summary>
         internal static string UriExpandParser_TermIsNotValidForStar(object p0) {
@@ -5065,10 +5176,10 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
-        /// A string like "Cannot get parent entity type for term '{0}' to auto populate all navigation properties."
+        /// A string like "Cannot get parent structured type for term '{0}' to auto populate all navigation properties."
         /// </summary>
-        internal static string UriExpandParser_ParentEntityIsNull(object p0) {
-            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.UriExpandParser_ParentEntityIsNull, p0);
+        internal static string UriExpandParser_ParentStructuredTypeIsNull(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.UriExpandParser_ParentStructuredTypeIsNull, p0);
         }
 
         /// <summary>
@@ -5125,6 +5236,13 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string UriParser_MissingExpandOption(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.UriParser_MissingExpandOption, p0);
+        }
+
+        /// <summary>
+        /// A string like "Missing select option on property '{0}'. If a parenthesis expression follows a selected property, then at least one query option must be provided."
+        /// </summary>
+        internal static string UriParser_MissingSelectOption(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.UriParser_MissingSelectOption, p0);
         }
 
         /// <summary>
@@ -5657,6 +5775,20 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "The request URI is not valid. The bound function binding to '{0}' does not support the escape function annotation."
+        /// </summary>
+        internal static string RequestUriProcessor_NoBoundEscapeFunctionSupported(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.RequestUriProcessor_NoBoundEscapeFunctionSupported, p0);
+        }
+
+        /// <summary>
+        /// A string like "The UrlEscape function '{0}' must have exactly one non-binding parameter of type 'Edm.String'."
+        /// </summary>
+        internal static string RequestUriProcessor_EscapeFunctionMustHaveOneStringParameter(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.RequestUriProcessor_EscapeFunctionMustHaveOneStringParameter, p0);
+        }
+
+        /// <summary>
         /// A string like "An internal error '{0}' occurred."
         /// </summary>
         internal static string General_InternalError(object p0) {
@@ -5938,6 +6070,13 @@ namespace Microsoft.OData {
         }
 
         /// <summary>
+        /// A string like "Invalid Binary value. The value '{0}' is not a valid Base64 encoded value."
+        /// </summary>
+        internal static string JsonReader_InvalidBinaryFormat(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_InvalidBinaryFormat, p0);
+        }
+
+        /// <summary>
         /// A string like "Invalid JSON. A comma character ',' was expected in scope '{0}'. Every two elements in an array and properties of an object must be separated by commas."
         /// </summary>
         internal static string JsonReader_MissingComma(object p0) {
@@ -5949,6 +6088,51 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string JsonReader_InvalidPropertyNameOrUnexpectedComma(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_InvalidPropertyNameOrUnexpectedComma, p0);
+        }
+
+        /// <summary>
+        /// A string like "Cannot increase the JSON reader buffer to hold the input JSON which has very long token."
+        /// </summary>
+        internal static string JsonReader_MaxBufferReached {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_MaxBufferReached);
+            }
+        }
+
+        /// <summary>
+        /// A string like "Cannot access the Value property while streaming a value. Please dispose the StreamReader or TextReader before continuing."
+        /// </summary>
+        internal static string JsonReader_CannotAccessValueInStreamState {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_CannotAccessValueInStreamState);
+            }
+        }
+
+        /// <summary>
+        /// A string like "Cannot call Read while streaming a value. Please dispose the StreamReader or TextReader before continuing."
+        /// </summary>
+        internal static string JsonReader_CannotCallReadInStreamState {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_CannotCallReadInStreamState);
+            }
+        }
+
+        /// <summary>
+        /// A string like "Cannot create a Stream in the current state. A Stream can only be created for reading a JSON string value when positioned on, and before accessing, the value."
+        /// </summary>
+        internal static string JsonReader_CannotCreateReadStream {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_CannotCreateReadStream);
+            }
+        }
+
+        /// <summary>
+        /// A string like "Cannot create a TextReader in the current state. A TextReader can only be created for reading a JSON string value when positioned on, and before accessing, the value."
+        /// </summary>
+        internal static string JsonReader_CannotCreateTextReader {
+            get {
+                return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReader_CannotCreateTextReader);
+            }
         }
 
         /// <summary>
@@ -5991,6 +6175,13 @@ namespace Microsoft.OData {
         /// </summary>
         internal static string JsonReaderExtensions_UnexpectedInstanceAnnotationName(object p0) {
             return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.JsonReaderExtensions_UnexpectedInstanceAnnotationName, p0);
+        }
+
+        /// <summary>
+        /// A string like "The buffer from pool cannot be null or less than the required minimal size '{0}'."
+        /// </summary>
+        internal static string BufferUtils_InvalidBufferOrSize(object p0) {
+            return Microsoft.OData.TextRes.GetString(Microsoft.OData.TextRes.BufferUtils_InvalidBufferOrSize, p0);
         }
 
         /// <summary>

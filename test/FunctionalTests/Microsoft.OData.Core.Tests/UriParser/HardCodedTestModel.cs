@@ -6,11 +6,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Microsoft.OData.Edm.Csdl;
@@ -357,6 +357,7 @@ namespace Microsoft.OData.Tests.UriParser
             FullyQualifiedNamespacePet2.AddKeys(FullyQualifiedNamespacePet2.AddStructuralProperty("ID", EdmPrimitiveTypeKind.Single, false));
             FullyQualifiedNamespacePet2.AddStructuralProperty("Color", EdmPrimitiveTypeKind.String);
             FullyQualifiedNamespacePet2.AddStructuralProperty("PetColorPattern", colorTypeReference);
+            FullyQualifiedNamespacePet2.AddStructuralProperty("Shape", new EdmEnumTypeReference(NonFlagShapeType, false));
             model.AddElement(FullyQualifiedNamespacePet2);
 
             FullyQualifiedNamespacePet3.AddKeys(FullyQualifiedNamespacePet3.AddStructuralProperty("ID", EdmPrimitiveTypeKind.Double, false));
@@ -783,7 +784,8 @@ namespace Microsoft.OData.Tests.UriParser
                 IEnumerable<EdmError> errors;
                 using (var writer = document.CreateWriter())
                 {
-                    CsdlWriter.TryWriteCsdl(model, writer, CsdlTarget.OData, out errors).Should().BeTrue();
+                    var result = CsdlWriter.TryWriteCsdl(model, writer, CsdlTarget.OData, out errors);
+                    Debug.Assert(result);
                 }
 
                 string doc = document.ToString();
@@ -1148,6 +1150,7 @@ namespace Microsoft.OData.Tests.UriParser
         <Property Name=""ID"" Type=""Edm.Single"" Nullable=""false"" />
         <Property Name=""Color"" Type=""Edm.String"" />
         <Property Name=""PetColorPattern"" Type=""Fully.Qualified.Namespace.ColorPattern"" Nullable=""false"" />
+        <Property Name=""Shape"" Type=""Fully.Qualified.Namespace.NonFlagShape"" Nullable=""false"" />
       </EntityType>
       <EntityType Name=""Pet3"">
         <Key>
@@ -1964,7 +1967,7 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetHasDogOverloadWithOneParameter()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.HasDog").Single(f => f.Parameters.Count() == 1).As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.HasDog").Single(f => f.Parameters.Count() == 1) as IEdmFunction;
         }
 
         public static IEdmOperationImport GetFunctionImportForEmployeeHasDogWithTwoParameters()
@@ -1979,7 +1982,7 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetHasDogOverloadForPeopleWithTwoParameters()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.HasDog").Single(f => f.Parameters.Count() == 2 && f.Parameters.First().Type.FullName() == "Fully.Qualified.Namespace.Person").As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.HasDog").Single(f => f.Parameters.Count() == 2 && f.Parameters.First().Type.FullName() == "Fully.Qualified.Namespace.Person") as IEdmFunction;
         }
 
         public static IEdmOperationImport GetHasDogOverloadImportForPeopleWithThreeParameters()
@@ -2049,7 +2052,7 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForAllHaveDogWithOneParameter()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.AllHaveDog").Single(f => f.Parameters.Count() == 1).As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.AllHaveDog").Single(f => f.Parameters.Count() == 1) as IEdmFunction;
         }
 
         public static IEdmOperationImport GetFunctionImportForAllHaveDogWithTwoParameters()
@@ -2059,7 +2062,7 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForAllHaveDogWithTwoParameters()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.AllHaveDog").Single(f => f.Parameters.Count() == 2).As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.AllHaveDog").Single(f => f.Parameters.Count() == 2) as IEdmFunction;
         }
 
         public static IEdmOperationImport GetFunctionImportForGetPeopleWhoHaveDogs()
@@ -2134,32 +2137,32 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForGetPriorAddresses()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetPriorAddresses").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetPriorAddresses").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForGetPriorNumbers()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetPriorNumbers").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetPriorNumbers").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForGetFavoriteColors()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetFavoriteColors").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetFavoriteColors").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForGetMyDog()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetMyDog").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetMyDog").Single() as IEdmFunction;
         }
 
         public static IEdmFunctionImport GetFunctionImportIsAddressGood()
         {
-            return TestModel.EntityContainer.FindOperationImports("IsAddressGood").Single().As<IEdmFunctionImport>();
+            return TestModel.EntityContainer.FindOperationImports("IsAddressGood").Single() as IEdmFunctionImport;
         }
 
         public static IEdmFunction GetFunctionForAllMyFriendsDogs()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.AllMyFriendsDogs").Single(f => f.Parameters.Count() == 1).As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.AllMyFriendsDogs").Single(f => f.Parameters.Count() == 1) as IEdmFunction;
         }
 
         public static IEdmOperationImport[] GetAllFunctionImportsForGetMostImportantPerson()
@@ -2180,27 +2183,27 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForCanMoveToAddresses()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.CanMoveToAddresses").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.CanMoveToAddresses").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForIsOlderThanByte()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanByte").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanByte").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForIsOlderThanSByte()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanSByte").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanSByte").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForIsOlderThanShort()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanShort").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanShort").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForIsOlderThanSingle()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanSingle").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.IsOlderThanSingle").Single() as IEdmFunction;
         }
 
         public static IEdmOperationImport GetFunctionImportForOwnsTheseDogs()
@@ -2210,7 +2213,7 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForOwnsTheseDogs()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.OwnsTheseDogs").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.OwnsTheseDogs").Single() as IEdmFunction;
         }
 
         public static IEdmOperationImport GetFunctionImportForFindMyOwner()
@@ -2220,7 +2223,7 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForFindMyOwner()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.FindMyOwner").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.FindMyOwner").Single() as IEdmFunction;
         }
 
         public static IEdmOperationImport GetFunctionImportForIsInTheUs()
@@ -2235,12 +2238,12 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetFunctionForGetMyPerson()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetMyPerson").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetMyPerson").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetFunctionForGetFullName()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetFullName").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetFullName").Single() as IEdmFunction;
         }
 
         public static IEdmStructuralProperty GetDogColorProp()
@@ -2355,12 +2358,12 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetColorAtPositionFunction()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetColorAtPosition").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetColorAtPosition").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetNearbyPriorAddressesFunction()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.GetNearbyPriorAddresses").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.GetNearbyPriorAddresses").Single() as IEdmFunction;
         }
 
         public static IEdmStructuralProperty GetAddressStreetProp()
@@ -2430,12 +2433,12 @@ namespace Microsoft.OData.Tests.UriParser
 
         public static IEdmFunction GetHasJobFunction()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.HasJob").Single().As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.HasJob").Single() as IEdmFunction;
         }
 
         public static IEdmFunction GetHasDogOneParameterOverload()
         {
-            return TestModel.FindOperations("Fully.Qualified.Namespace.HasDog").Single(f => f.Parameters.Count() == 1).As<IEdmFunction>();
+            return TestModel.FindOperations("Fully.Qualified.Namespace.HasDog").Single(f => f.Parameters.Count() == 1) as IEdmFunction;
         }
 
         public static IEdmFunction[] GetHasDogOverloads()

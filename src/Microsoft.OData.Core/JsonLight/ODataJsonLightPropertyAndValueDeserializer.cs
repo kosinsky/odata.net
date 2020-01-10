@@ -186,7 +186,7 @@ namespace Microsoft.OData.JsonLight
         }
 
         /// <summary>
-        /// Reads bulit-in "odata." or custom instance annotation's value.
+        /// Reads built-in "odata." or custom instance annotation's value.
         /// </summary>
         /// <param name="annotationName">The annotation name.</param>
         /// <param name="odataType">the odata.type value if exists.</param>
@@ -511,7 +511,7 @@ namespace Microsoft.OData.JsonLight
         /// <param name="resourceState">The state of the reader for resource to read.</param>
         /// <param name="collectionProperty">The collection of complex property for which to read the nested resource info. null for undeclared property.</param>
         /// <param name="nestedResourceType">The item type of the resource set, which should be provided when the collectionProperty is undeclared.</param>
-        /// <param name="propertyName">The propert name.</param>
+        /// <param name="propertyName">The property name.</param>
         /// <returns>The nested resource info for the expanded link read.</returns>
         /// <remarks>
         /// This method doesn't move the reader.
@@ -529,33 +529,7 @@ namespace Microsoft.OData.JsonLight
                 IsComplex = true
             };
 
-            ODataResourceSet expandedResourceSet = new ODataResourceSet();
-
-            foreach (var propertyAnnotation
-                     in resourceState.PropertyAndAnnotationCollector.GetODataPropertyAnnotations(nestedResourceInfo.Name))
-            {
-                switch (propertyAnnotation.Key)
-                {
-                    case ODataAnnotationNames.ODataNextLink:
-                        Debug.Assert(propertyAnnotation.Value is Uri && propertyAnnotation.Value != null, "The odata.nextLink annotation should have been parsed as a non-null Uri.");
-                        expandedResourceSet.NextPageLink = (Uri)propertyAnnotation.Value;
-                        break;
-
-                    case ODataAnnotationNames.ODataCount:
-                        Debug.Assert(propertyAnnotation.Value is long && propertyAnnotation.Value != null, "The odata.count annotation should have been parsed as a non-null long.");
-                        expandedResourceSet.Count = (long?)propertyAnnotation.Value;
-                        break;
-
-                    case ODataAnnotationNames.ODataType:
-                        expandedResourceSet.TypeName = (string)propertyAnnotation.Value;
-                        Debug.Assert(propertyAnnotation.Value is string && propertyAnnotation.Value != null, "The odata.type annotation should have been parsed as a non-null string.");
-                        break;
-
-                    default:
-                        throw new ODataException(ODataErrorStrings.ODataJsonLightResourceDeserializer_UnexpectedComplexCollectionPropertyAnnotation(nestedResourceInfo.Name, propertyAnnotation.Key));
-                }
-            }
-
+            ODataResourceSet expandedResourceSet = CreateCollectionResourceSet(resourceState, propertyName);
             return ODataJsonLightReaderNestedResourceInfo.CreateResourceSetReaderNestedResourceInfo(nestedResourceInfo, collectionProperty, nestedResourceType, expandedResourceSet);
         }
 
@@ -565,7 +539,7 @@ namespace Microsoft.OData.JsonLight
         /// <param name="resourceState">The state of the reader for resource to read.</param>
         /// <param name="complexProperty">The complex property for which to read the nested resource info. null for undeclared property.</param>
         /// <param name="nestedResourceType">The nested resource type which should be provided for undeclared property.</param>
-        /// <param name="propertyName">The propert name.</param>
+        /// <param name="propertyName">The property name.</param>
         /// <returns>The nested resource info for the complex property to read.</returns>
         /// <remarks>
         /// This method doesn't move the reader.
@@ -658,7 +632,7 @@ namespace Microsoft.OData.JsonLight
         /// <param name="resourceState">The state of the reader for resource to read.</param>
         /// <param name="navigationProperty">The navigation property for which to read the expanded link. null for undeclared property.</param>
         /// <param name="propertyType">The type of the collection.</param>
-        /// <param name="propertyName">The propert name.</param>
+        /// <param name="propertyName">The property name.</param>
         /// <param name="isDeltaResourceSet">The property being read represents a nested delta resource set.</param>
         /// <returns>The nested resource info for the expanded link read.</returns>
         /// <remarks>
@@ -709,6 +683,7 @@ namespace Microsoft.OData.JsonLight
                         Debug.Assert(propertyAnnotation.Value is long && propertyAnnotation.Value != null, "The odata.count annotation should have been parsed as a non-null long.");
                         expandedResourceSet.Count = (long?)propertyAnnotation.Value;
                         break;
+
                     case ODataAnnotationNames.ODataContext:
                         Debug.Assert(propertyAnnotation.Value is Uri && propertyAnnotation.Value != null, "The odata.context annotation should have been parsed as a non-null Uri.");
                         nestedResourceInfo.ContextUrl = (Uri)propertyAnnotation.Value;
@@ -726,6 +701,36 @@ namespace Microsoft.OData.JsonLight
             }
 
             return ODataJsonLightReaderNestedResourceInfo.CreateResourceSetReaderNestedResourceInfo(nestedResourceInfo, navigationProperty, propertyType, expandedResourceSet);
+        }
+
+        /// <summary>
+        /// Reads a nested stream collection as nested resource set info.
+        /// </summary>
+        /// <param name="resourceState">The state of the reader for resource to read.</param>
+        /// <param name="collectionProperty">The collection of stream property for which to read the nested resource info. null for undeclared property.</param>
+        /// <param name="propertyName">The property name.</param>
+        /// <param name="elementType">They primitive type of the collection element</param>
+        /// <returns>The nested resource info for the stream collection.</returns>
+        /// <remarks>
+        /// This method doesn't move the reader.
+        /// </remarks>
+        protected static ODataJsonLightReaderNestedResourceInfo ReadStreamCollectionNestedResourceInfo(IODataJsonLightReaderResourceState resourceState, IEdmStructuralProperty collectionProperty, string propertyName, IEdmType elementType)
+        {
+            Debug.Assert(resourceState != null, "resourceState != null");
+            Debug.Assert((propertyName != null) || (collectionProperty != null),
+                "The collection property and property name shouldn't both be null");
+
+            ODataNestedResourceInfo nestedResourceInfo = new ODataNestedResourceInfo()
+            {
+                Name = propertyName,
+                IsCollection = true,
+                IsComplex = false
+            };
+
+            ODataResourceSet expandedResourceSet = CreateCollectionResourceSet(resourceState, propertyName);
+
+            ODataJsonLightReaderNestedResourceInfo nestedInfo = ODataJsonLightReaderNestedResourceInfo.CreateResourceSetReaderNestedResourceInfo(nestedResourceInfo, collectionProperty, elementType, expandedResourceSet);
+            return nestedInfo;
         }
 
         /// <summary>
@@ -794,7 +799,7 @@ namespace Microsoft.OData.JsonLight
         /// </summary>
         /// <param name="resourceState">The state of the reader for resource to read.</param>
         /// <param name="navigationProperty">The navigation property for which to read the entity reference links. null for undeclared property.</param>
-        /// <param name="propertyName">The propert name.</param>
+        /// <param name="propertyName">The property name.</param>
         /// <param name="isExpanded">true if the navigation link is expanded.</param>
         /// <returns>The navigation link info for the entity reference links read.</returns>
         /// <remarks>
@@ -869,6 +874,15 @@ namespace Microsoft.OData.JsonLight
 
                 Debug.Assert(propertyAnnotation.Value is string && propertyAnnotation.Value != null, "The odata.type annotation should have been parsed as a non-null string.");
                 propertyTypeName = (string)propertyAnnotation.Value;
+            }
+
+            if (propertyTypeName != null)
+            {
+                var validator = propertyAndAnnotationCollector.GetDerivedTypeValidator(propertyName);
+                if (validator != null)
+                {
+                    validator.ValidateResourceType(propertyTypeName);
+                }
             }
 
             return propertyTypeName;
@@ -1042,6 +1056,44 @@ namespace Microsoft.OData.JsonLight
         }
 
         /// <summary>
+        /// Creates an instance of an ODataResourceSet that represents a nested collection
+        /// </summary>
+        /// <param name="resourceState">The current resource state</param>
+        /// <param name="propertyName">The name of the collection property being read</param>
+        /// <returns>An ODataResourceSet with properties set from any instance annotations</returns>
+        private static ODataResourceSet CreateCollectionResourceSet(IODataJsonLightReaderResourceState resourceState, string propertyName)
+        {
+            ODataResourceSet collectionResourceSet = new ODataResourceSet();
+
+            foreach (var propertyAnnotation
+                     in resourceState.PropertyAndAnnotationCollector.GetODataPropertyAnnotations(propertyName))
+            {
+                switch (propertyAnnotation.Key)
+                {
+                    case ODataAnnotationNames.ODataNextLink:
+                        Debug.Assert(propertyAnnotation.Value is Uri && propertyAnnotation.Value != null, "The odata.nextLink annotation should have been parsed as a non-null Uri.");
+                        collectionResourceSet.NextPageLink = (Uri)propertyAnnotation.Value;
+                        break;
+
+                    case ODataAnnotationNames.ODataCount:
+                        Debug.Assert(propertyAnnotation.Value is long && propertyAnnotation.Value != null, "The odata.count annotation should have been parsed as a non-null long.");
+                        collectionResourceSet.Count = (long?)propertyAnnotation.Value;
+                        break;
+
+                    case ODataAnnotationNames.ODataType:
+                        collectionResourceSet.TypeName = (string)propertyAnnotation.Value;
+                        Debug.Assert(propertyAnnotation.Value is string && propertyAnnotation.Value != null, "The odata.type annotation should have been parsed as a non-null string.");
+                        break;
+
+                    default:
+                        throw new ODataException(ODataErrorStrings.ODataJsonLightResourceDeserializer_UnexpectedComplexCollectionPropertyAnnotation(propertyName, propertyAnnotation.Key));
+                }
+            }
+
+            return collectionResourceSet;
+        }
+
+        /// <summary>
         /// Tries to read an annotation as OData type name annotation.
         /// </summary>
         /// <param name="payloadTypeName">The read value of the annotation (string).</param>
@@ -1148,6 +1200,12 @@ namespace Microsoft.OData.JsonLight
                             propertyAnnotationReaderForTopLevelProperty,
                             (propertyParsingResult, propertyName) =>
                             {
+                                if (this.JsonReader.NodeType == JsonNodeType.Property)
+                                {
+                                    // Read over property name
+                                    this.JsonReader.Read();
+                                }
+
                                 switch (propertyParsingResult)
                                 {
                                     case PropertyParsingResult.ODataInstanceAnnotation:
@@ -1470,22 +1528,16 @@ namespace Microsoft.OData.JsonLight
         }
 
         /// <summary>
-        /// Reads a resource value, <see cref="ODataResourceValue"/>.
+        /// Reads a resource value, <see cref="ODataResourceValue"/>
         /// </summary>
-        /// <param name="insideJsonObjectValue">true if the reader is positioned on the first property of the value which is a JSON Object 
+        /// <param name="insideJsonObjectValue">true if the reader is positioned on the first property of the value which is a JSON Object
         ///     (or the second property if the first one was odata.type).</param>
         /// <param name="insideResourceValue">true if we are reading a resource value and the reader is already positioned inside the resource value; otherwise false.</param>
         /// <param name="propertyName">The name of the property whose value is being read, if applicable (used for error reporting).</param>
         /// <param name="structuredTypeReference">The expected type reference of the value.</param>
         /// <param name="payloadTypeName">The type name read from the payload.</param>
-        /// <param name="serializationTypeNameAnnotation">The serialization type name for the collection value (possibly null).</param>
-        /// <param name="duplicatePropertyNamesChecker">The duplicate property names checker to use - this is always initialized as necessary, do not clear.</param>
+        /// <param name="propertyAndAnnotationCollector">The duplicate property names checker.</param>
         /// <returns>The value of the resource value.</returns>
-        /// <remarks>
-        /// Pre-Condition:  JsonNodeType.Property - the first property of the resource value object, or the second one if the first one was odata.type.
-        ///                 JsonNodeType.EndObject - the end object of the resource value object.
-        /// Post-Condition: almost anything - the node after the resource value (after the EndObject)
-        /// </remarks>
         private ODataResourceValue ReadResourceValue(
             bool insideJsonObjectValue,
             bool insideResourceValue,
@@ -1550,6 +1602,12 @@ namespace Microsoft.OData.JsonLight
                     this.ReadTypePropertyAnnotationValue,
                     (propertyParsingResult, propertyName) =>
                     {
+                        if (this.JsonReader.NodeType == JsonNodeType.Property)
+                        {
+                            // Read over property name
+                            this.JsonReader.Read();
+                        }
+
                         switch (propertyParsingResult)
                         {
                             case PropertyParsingResult.ODataInstanceAnnotation: // odata.*
@@ -1992,6 +2050,12 @@ namespace Microsoft.OData.JsonLight
                 propertyAnnotationReaderForTopLevelNull,
                 (propertyParsingResult, propertyName) =>
                 {
+                    if (this.JsonReader.NodeType == JsonNodeType.Property)
+                    {
+                        // Read over property name
+                        this.JsonReader.Read();
+                    }
+
                     switch (propertyParsingResult)
                     {
                         case PropertyParsingResult.ODataInstanceAnnotation:

@@ -34,6 +34,7 @@ namespace Microsoft.OData.Edm.Validation
                 ValidationRules.EntityTypeInvalidKeyNullablePart,
                 ValidationRules.EntityTypeEntityKeyMustBeScalar,
                 ValidationRules.EntityTypeInvalidKeyKeyDefinedInBaseClass,
+                ValidationRules.EntityTypeBoundEscapeFunctionMustBeUnique,
 ////                ValidationRules.EntityTypeKeyMissingOnEntityType,
                 ValidationRules.StructuredTypeInvalidMemberNameMatchesTypeName,
                 ValidationRules.StructuredTypePropertyNameAlreadyDefined,
@@ -107,6 +108,8 @@ namespace Microsoft.OData.Edm.Validation
                 ValidationRules.NavigationPropertyMappingMustPointToValidTargetForProperty,
                 ValidationRules.DirectValueAnnotationHasXmlSerializableName,
                 ValidationRules.FunctionMustHaveReturnType,
+                ValidationRules.FunctionWithUrlEscapeFunctionMustBeBound,
+                ValidationRules.FunctionWithUrlEscapeFunctionMustHaveOneStringParameter,
                 ValidationRules.EntitySetTypeCannotBeEdmEntityType,
                 ValidationRules.SingletonTypeCannotBeEdmEntityType,
                 ValidationRules.OperationReturnTypeCannotBeCollectionOfAbstractType,
@@ -159,7 +162,7 @@ namespace Microsoft.OData.Edm.Validation
         /// <returns>The set of rules to validate that the model conforms to the given version.</returns>
         public static ValidationRuleSet GetEdmModelRuleSet(Version version)
         {
-            if (version == EdmConstants.EdmVersion4)
+            if (version == EdmConstants.EdmVersion4 || version == EdmConstants.EdmVersion401)
             {
                 return V4RuleSet;
             }

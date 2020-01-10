@@ -64,7 +64,8 @@ namespace Microsoft.OData.UriParser
                     IEdmEnumType enumType = targetTypeReference.Definition as IEdmEnumType;
                     if (enumType.Members.Any(m => string.Compare(m.Name, memberName, StringComparison.Ordinal) == 0))
                     {
-                        return new ConstantNode(new ODataEnumValue(constantNode.Value.ToString(), targetTypeReference.Definition.ToString()), constantNode.Value.ToString(), targetTypeReference);
+                        string literalText = ODataUriUtils.ConvertToUriLiteral(constantNode.Value, default(ODataVersion));
+                        return new ConstantNode(new ODataEnumValue(constantNode.Value.ToString(), targetTypeReference.Definition.ToString()), literalText, targetTypeReference);
                     }
                     else
                     {
@@ -155,7 +156,7 @@ namespace Microsoft.OData.UriParser
         /// <summary>
         /// Retrieves the type reference associated to a segment.
         /// </summary>
-        /// <param name="segment">The node to retrive the type reference from.</param>
+        /// <param name="segment">The node to retrieve the type reference from.</param>
         /// <returns>The Type reference of the node (item type reference for collections).</returns>
         internal static IEdmTypeReference GetEdmTypeReference(this QueryNode segment)
         {

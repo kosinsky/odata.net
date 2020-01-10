@@ -16,6 +16,7 @@ namespace Microsoft.OData.JsonLight
     using System.Threading.Tasks;
 #endif
     using Microsoft.OData.Metadata;
+    using Microsoft.OData.Buffers;
     using Microsoft.OData.Edm;
     using Microsoft.OData.Json;
     // ReSharper disable RedundantUsingDirective
@@ -76,6 +77,16 @@ namespace Microsoft.OData.JsonLight
             {
                 this.textReader = textReader;
                 var innerReader = CreateJsonReader(this.Container, this.textReader, messageInfo.MediaType.HasIeee754CompatibleSetToTrue());
+                if (messageReaderSettings.ArrayPool != null)
+                {
+                    // make sure customer also can use reading setting if without DI.
+                    JsonReader jsonReader = innerReader as JsonReader;
+                    if (jsonReader != null && jsonReader.ArrayPool == null)
+                    {
+                        jsonReader.ArrayPool = messageReaderSettings.ArrayPool;
+                    }
+                }
+
                 if (messageInfo.MediaType.HasStreamingSetToTrue())
                 {
                     this.jsonReader = new BufferingJsonReader(
@@ -100,7 +111,7 @@ namespace Microsoft.OData.JsonLight
                 throw;
             }
 
-            // dont know how to get MetadataDocumentUri uri here, messageReaderSettings do not have one
+            // don't know how to get MetadataDocumentUri uri here, messageReaderSettings do not have one
             // Uri metadataDocumentUri = messageReaderSettings..MetadataDocumentUri == null ? null : messageReaderSettings.MetadataDocumentUri.BaseUri;
             // the uri here is used here to create the FullMetadataLevel can pass null in
             this.metadataLevel = JsonLightMetadataLevel.Create(messageInfo.MediaType, null, this.Model, this.ReadingResponse);
@@ -137,6 +148,23 @@ namespace Microsoft.OData.JsonLight
             get
             {
                 return this.stream;
+            }
+        }
+
+        /// <summary>
+        /// Returns whether to read odata control information without the odata prefix.
+        /// True for OData 4.01 and greater. Settable for OData 4.0
+        /// </summary>
+        internal bool OptionalODataPrefix
+        {
+            get
+            {
+                if (this.MessageReaderSettings.Version == ODataVersion.V4)
+                {
+                    return this.ODataSimplifiedOptions.EnableReadingODataAnnotationWithoutPrefix;
+                }
+
+                return true;
             }
         }
 
@@ -779,7 +807,7 @@ namespace Microsoft.OData.JsonLight
         /// <returns>The newly created <see cref="ODataReader"/>.</returns>
         private ODataReader CreateResourceReaderImplementation(IEdmNavigationSource navigationSource, IEdmStructuredType expectedBaseResourceType)
         {
-            return new ODataJsonLightReader(this, navigationSource, expectedBaseResourceType, false);
+            return new ODataJsonLightReader(this, navigationSource, expectedBaseResourceType, false, readingDelta:!this.ReadingResponse);
         }
 
         /// <summary>

@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using Microsoft.OData.Edm.Validation;
 using Xunit;
 
@@ -24,7 +23,8 @@ namespace Microsoft.OData.Edm.Tests.Validation
             var validationRules = new Dictionary<object, string>();
             var items = typeof(ValidationRules).GetFields().Where(f =>
                 f.Name != "NavigationPropertyEntityMustNotIndirectlyContainItself" &&
-                f.Name != "EntityTypeKeyMissingOnEntityType")
+                f.Name != "EntityTypeKeyMissingOnEntityType" &&
+                f.Name != "VocabularyAnnotationTargetAllowedApplyToElement")
                 .Select(f=> new KeyValuePair<object, string>(f.GetValue(null), f.Name));
             foreach (var item in items)
             {
@@ -45,8 +45,8 @@ namespace Microsoft.OData.Edm.Tests.Validation
                 }
             }
 
-            unFoundValidationRules.Should().HaveCount(0);
-            validationRules.ToList().Should().HaveCount(0);
+            Assert.Empty(unFoundValidationRules);
+            Assert.Empty(validationRules);
         }
     }
 }

@@ -5,7 +5,6 @@
 //---------------------------------------------------------------------
 
 using System;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Xunit;
 
@@ -33,8 +32,8 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchAndTest()
         {
             QueryToken token = searchParser.ParseSearch("A AND BC AND DEF");
-            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
-            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
+            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
+            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
             binaryToken11.Left.ShouldBeStringLiteralToken("A");
             binaryToken11.Right.ShouldBeStringLiteralToken("BC");
             binaryToken1.Right.ShouldBeStringLiteralToken("DEF");
@@ -44,8 +43,8 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchSpaceImpliesAndTest()
         {
             QueryToken token = searchParser.ParseSearch("A BC DEF");
-            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
-            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
+            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
+            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
             binaryToken11.Left.ShouldBeStringLiteralToken("A");
             binaryToken11.Right.ShouldBeStringLiteralToken("BC");
             binaryToken1.Right.ShouldBeStringLiteralToken("DEF");
@@ -55,7 +54,7 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchOrTest()
         {
             QueryToken token = searchParser.ParseSearch("foo OR bar");
-            var binaryToken = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.Or).And;
+            var binaryToken = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.Or);
             binaryToken.Left.ShouldBeStringLiteralToken("foo");
             binaryToken.Right.ShouldBeStringLiteralToken("bar");
         }
@@ -64,8 +63,8 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchParenthesesTest()
         {
             QueryToken token = searchParser.ParseSearch("(A  OR BC) AND DEF");
-            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
-            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.Or).And;
+            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
+            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.Or);
             binaryToken11.Left.ShouldBeStringLiteralToken("A");
             binaryToken11.Right.ShouldBeStringLiteralToken("BC");
             binaryToken1.Right.ShouldBeStringLiteralToken("DEF");
@@ -75,8 +74,8 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchSpaceInParenthesesImpliesAndTest()
         {
             QueryToken token = searchParser.ParseSearch("(A BC) DEF");
-            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
-            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
+            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
+            var binaryToken11 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
             binaryToken11.Left.ShouldBeStringLiteralToken("A");
             binaryToken11.Right.ShouldBeStringLiteralToken("BC");
             binaryToken1.Right.ShouldBeStringLiteralToken("DEF");
@@ -86,7 +85,7 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchNotTest()
         {
             QueryToken token = searchParser.ParseSearch("NOT foo");
-            var unaryToken = token.ShouldBeUnaryOperatorQueryToken(UnaryOperatorKind.Not).And;
+            var unaryToken = token.ShouldBeUnaryOperatorQueryToken(UnaryOperatorKind.Not);
             unaryToken.Operand.ShouldBeStringLiteralToken("foo");
         }
 
@@ -95,15 +94,15 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchCombinedTest()
         {
             QueryToken token = searchParser.ParseSearch("a AND bc OR def AND NOT (ghij AND klmno AND pqrstu)");
-            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.Or).And;
-            var binaryToken21 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
-            var binaryToken22 = binaryToken1.Right.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
+            var binaryToken1 = token.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.Or);
+            var binaryToken21 = binaryToken1.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
+            var binaryToken22 = binaryToken1.Right.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
             binaryToken21.Left.ShouldBeStringLiteralToken("a");
             binaryToken21.Right.ShouldBeStringLiteralToken("bc");
             binaryToken22.Left.ShouldBeStringLiteralToken("def");
-            var unaryToken222 = binaryToken22.Right.ShouldBeUnaryOperatorQueryToken(UnaryOperatorKind.Not).And;
-            var binaryToken222 = unaryToken222.Operand.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
-            var binaryToken2221 = binaryToken222.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And).And;
+            var unaryToken222 = binaryToken22.Right.ShouldBeUnaryOperatorQueryToken(UnaryOperatorKind.Not);
+            var binaryToken222 = unaryToken222.Operand.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
+            var binaryToken2221 = binaryToken222.Left.ShouldBeBinaryOperatorQueryToken(BinaryOperatorKind.And);
             binaryToken2221.Left.ShouldBeStringLiteralToken("ghij");
             binaryToken2221.Right.ShouldBeStringLiteralToken("klmno");
             binaryToken222.Right.ShouldBeStringLiteralToken("pqrstu");
@@ -113,28 +112,28 @@ namespace Microsoft.OData.Tests.UriParser.Parsers
         public void SearchUnMatchedParenthesisTest()
         {
             Action action = ()=>searchParser.ParseSearch("(A BC DEF");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_CloseParenOrOperatorExpected(9,"(A BC DEF"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_CloseParenOrOperatorExpected(9,"(A BC DEF"));
         }
 
         [Fact]
         public void SearchOperandMissingTest()
         {
             Action action = () => searchParser.ParseSearch("A AND");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_ExpressionExpected(5, "A AND"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_ExpressionExpected(5, "A AND"));
         }
 
         [Fact]
         public void SearchOperandMissingInParenthesisTest()
         {
             Action action = () => searchParser.ParseSearch("(A AND)");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_ExpressionExpected(6, "(A AND)"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_ExpressionExpected(6, "(A AND)"));
         }
 
         [Fact]
         public void SearchEmptyPhrase()
         {
             Action action = () => searchParser.ParseSearch("A \"\"");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionToken_IdentifierExpected(2));
+            action.Throws<ODataException>(Strings.ExpressionToken_IdentifierExpected(2));
         }
     }
 }

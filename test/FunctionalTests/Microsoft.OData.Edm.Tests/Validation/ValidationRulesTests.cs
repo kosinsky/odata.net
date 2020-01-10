@@ -8,8 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using FluentAssertions;
-using Microsoft.OData.Edm;
+using Microsoft.OData.Edm.Csdl;
 using Microsoft.OData.Edm.Validation;
 using Microsoft.OData.Edm.Vocabularies;
 using Xunit;
@@ -49,9 +48,112 @@ namespace Microsoft.OData.Edm.Tests.Validation
                 EdmErrorCode.UnboundFunctionOverloadHasIncorrectReturnType,
                 Strings.EdmModel_Validator_Semantic_UnboundFunctionOverloadHasIncorrectReturnType("GetStuff"));
         }
-        
+
+        [Fact]
+        public void UrlEscapeOnUnboundFunctionAreInvalid()
+        {
+            var edmFunction = new EdmFunction("n.s", "GetStuff", EdmCoreModel.Instance.GetString(true));
+            EdmModel model = new EdmModel();
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+            ValidateError(
+                ValidationRules.FunctionWithUrlEscapeFunctionMustBeBound,
+                model,
+                edmFunction,
+                EdmErrorCode.UrlEscapeFunctionMustBeBoundFunction,
+                Strings.EdmModel_Validator_Semantic_UrlEscapeFunctionMustBoundFunction("GetStuff"));
+        }
+
+        [Fact]
+        public void UrlEscapeOnFunctionWithNonStringParameterAreInvalid()
+        {
+            var edmFunction = new EdmFunction("n.s", "GetStuff", EdmCoreModel.Instance.GetString(true), true, null, false);
+            EdmModel model = new EdmModel();
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+            ValidateError(
+                ValidationRules.FunctionWithUrlEscapeFunctionMustHaveOneStringParameter,
+                model,
+                edmFunction,
+                EdmErrorCode.UrlEscapeFunctionMustHaveOnlyOneEdmStringParameter,
+                Strings.EdmModel_Validator_Semantic_UrlEscapeFunctionMustHaveOneStringParameter("GetStuff"));
+        }
+
+        [Fact]
+        public void EntityTypeComposableEscapeFunctionMoreThanOneAreInvalid()
+        {
+            EdmModel model = new EdmModel();
+            var entityType = new EdmEntityType("NS", "Entity");
+            entityType.AddKeys(entityType.AddStructuralProperty("ID", EdmPrimitiveTypeKind.Int32));
+            model.AddElement(entityType);
+            var entityRef = new EdmEntityTypeReference(entityType, false);
+            var edmFunction = new EdmFunction("NS", "GetStuff1", EdmCoreModel.Instance.GetString(true), true, null, true);
+            edmFunction.AddParameter("entity", entityRef);
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+
+            edmFunction = new EdmFunction("NS", "GetStuff2", EdmCoreModel.Instance.GetString(true), true, null, true);
+            edmFunction.AddParameter("entity", entityRef);
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+
+            ValidateError(
+                ValidationRules.EntityTypeBoundEscapeFunctionMustBeUnique,
+                model,
+                entityType,
+                EdmErrorCode.EntityComposableBoundEscapeFunctionMustBeLessOne,
+                Strings.EdmModel_Validator_Semantic_EntityComposableBoundEscapeFunctionMustBeLessOne("NS.Entity", "GetStuff1,GetStuff2"));
+        }
+
+        [Fact]
+        public void EntityTypeNoncomposableEscapeFunctionMoreThanOneAreInvalid()
+        {
+            EdmModel model = new EdmModel();
+            var entityType = new EdmEntityType("NS", "Entity");
+            entityType.AddKeys(entityType.AddStructuralProperty("ID", EdmPrimitiveTypeKind.Int32));
+            model.AddElement(entityType);
+            var entityRef = new EdmEntityTypeReference(entityType, false);
+            var edmFunction = new EdmFunction("NS", "GetStuff1", EdmCoreModel.Instance.GetString(true), true, null, false);
+            edmFunction.AddParameter("entity", entityRef);
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+
+            edmFunction = new EdmFunction("NS", "GetStuff2", EdmCoreModel.Instance.GetString(true), true, null, false);
+            edmFunction.AddParameter("entity", entityRef);
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+
+            ValidateError(
+                ValidationRules.EntityTypeBoundEscapeFunctionMustBeUnique,
+                model,
+                entityType,
+                EdmErrorCode.EntityNoncomposableBoundEscapeFunctionMustBeLessOne,
+                Strings.EdmModel_Validator_Semantic_EntityNoncomposableBoundEscapeFunctionMustBeLessOne("NS.Entity", "GetStuff1,GetStuff2"));
+        }
+
+        [Fact]
+        public void EntityTypeNonComposableAndComposableEscapeFunctionAreValid()
+        {
+            EdmModel model = new EdmModel();
+            var entityType = new EdmEntityType("NS", "Entity");
+            entityType.AddKeys(entityType.AddStructuralProperty("ID", EdmPrimitiveTypeKind.Int32));
+            model.AddElement(entityType);
+            var entityRef = new EdmEntityTypeReference(entityType, false);
+            var edmFunction = new EdmFunction("NS", "GetStuff1", EdmCoreModel.Instance.GetString(true), true, null, false);
+            edmFunction.AddParameter("entity", entityRef);
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+
+            edmFunction = new EdmFunction("NS", "GetStuff2", EdmCoreModel.Instance.GetString(true), true, null, true);
+            edmFunction.AddParameter("entity", entityRef);
+            model.AddElement(edmFunction);
+            model.SetUrlEscapeFunction(edmFunction);
+
+            ValidateNoError(ValidationRules.EntityTypeBoundEscapeFunctionMustBeUnique, model, entityType);
+        }
+
         #region EntityContainerDuplicateEntityContainerMemberName Tests
-        
+
         [Fact]
         public void EntitySetAndOperationImportWithSameNameShouldError()
         {
@@ -256,7 +358,7 @@ namespace Microsoft.OData.Edm.Tests.Validation
 
             ValidationRules.OperationImportEntitySetExpressionIsInvalid.Evaluate(context, edmFunctionImport);
             var errors = context.Errors.ToList();
-            errors.Should().HaveCount(0);
+            Assert.Empty(errors);
         }
 
         #endregion
@@ -403,12 +505,10 @@ namespace Microsoft.OData.Edm.Tests.Validation
             EdmFunction function = new EdmFunction("ns", "GetStuff", new EdmEntityTypeReference(testModelContainer.T2, false), true /*isBound*/, new EdmPathExpression("bindingEntity/ColNav"), false);
             function.AddParameter("bindingEntity", new EdmCollectionTypeReference(new EdmCollectionType(new EdmEntityTypeReference(testModelContainer.T3, false))));
 
-            ValidateErrorInList(
-                ValidationRules.OperationReturnTypeEntityTypeMustBeValid, 
-                testModelContainer.Model, 
-                function,
-                EdmErrorCode.OperationWithEntitySetPathResolvesToEntityTypeMismatchesCollectionEntityTypeReturnType,
-                Strings.EdmModel_Validator_Semantic_OperationWithEntitySetPathResolvesToEntityTypeMismatchesCollectionEntityTypeReturnType(function.Name));
+            ValidateNoError(
+                ValidationRules.OperationReturnTypeEntityTypeMustBeValid,
+                testModelContainer.Model,
+                function);
         }
 
         [Fact]
@@ -1298,12 +1398,33 @@ namespace Microsoft.OData.Edm.Tests.Validation
                 Strings.EdmModel_Validator_Semantic_DeclaringTypeOfNavigationSourceCannotHavePathProperty("NS.Entity", "singleton", "Me"));
         }
 
+        [Fact]
+        public void TargetOfAnAnnotationIsNotAllowedInAppliesToOfTheTermShouldError()
+        {
+            EdmModel model = new EdmModel();
+            var entityType = new EdmEntityType("NS", "Entity");
+            model.AddElement(entityType);
+
+            // <Term Name="ResourcePath" Type="Edm.String" AppliesTo="EntitySet Singleton ActionImport FunctionImport">
+            var term = model.FindTerm("Org.OData.Core.V1.ResourcePath");
+            var annotation = new EdmVocabularyAnnotation(entityType, term, new EdmStringConstant("4.0 4.01"));
+            annotation.SetSerializationLocation(model, EdmVocabularyAnnotationSerializationLocation.Inline);
+            model.SetVocabularyAnnotation(annotation);
+
+            ValidateError(
+                ValidationRules.VocabularyAnnotationTargetAllowedApplyToElement,
+                annotation,
+                EdmErrorCode.AnnotationApplyToNotAllowedAnnotatable,
+                Strings.EdmModel_Validator_Semantic_VocabularyAnnotationApplyToNotAllowedAnnotatable("NS.Entity",
+                "EntitySet Singleton ActionImport FunctionImport", "Org.OData.Core.V1.ResourcePath"));
+        }
+
         private static void ValidateNoError<T>(ValidationRule<T> validationRule, IEdmModel model, T item) where T : IEdmElement
         {
             ValidationContext context = new ValidationContext(model, (object o) => false);
             validationRule.Evaluate(context, item);
             var errors = context.Errors.ToList();
-            errors.Should().HaveCount(0);
+            Assert.Empty(errors);
         }
 
         private static void ValidateError<T>(ValidationRule<T> validationRule, IEdmModel model, T item, EdmErrorCode expectedErrorCode, string expectedError) where T : IEdmElement
@@ -1311,9 +1432,9 @@ namespace Microsoft.OData.Edm.Tests.Validation
             ValidationContext context = new ValidationContext(model, (object o) => false);
             validationRule.Evaluate(context, item);
             var errors = context.Errors.ToList();
-            errors.Should().HaveCount(1);
-            errors[0].ErrorCode.Should().Be(expectedErrorCode);
-            errors[0].ErrorMessage.Should().Be(expectedError);
+            var error = Assert.Single(errors);
+            Assert.Equal(expectedErrorCode, error.ErrorCode);
+            Assert.Equal(expectedError, error.ErrorMessage);
         }
 
         private static void ValidateExactErrorsInList<T>(ValidationRule<T> validationRule, IEdmModel model, T item, params Tuple<EdmErrorCode,string> [] expectedErrors) where T : IEdmElement
@@ -1323,12 +1444,12 @@ namespace Microsoft.OData.Edm.Tests.Validation
             int currentIndex = 0;
             foreach(var actualError in context.Errors)
             {
-                actualError.ErrorCode.Should().Be(expectedErrors[currentIndex].Item1);
-                actualError.ErrorMessage.Should().Be(expectedErrors[currentIndex].Item2);
+                Assert.Equal(expectedErrors[currentIndex].Item1, actualError.ErrorCode);
+                Assert.Equal(expectedErrors[currentIndex].Item2, actualError.ErrorMessage);
                 currentIndex++;
             }
 
-            context.Errors.ToList().Count.Should().Be(expectedErrors.Length);
+            Assert.Equal(expectedErrors.Length, context.Errors.ToList().Count);
         }
 
         private static void ValidateErrorInList<T>(ValidationRule<T> validationRule, IEdmModel model, T item, EdmErrorCode expectedErrorCode, string expectedError) where T : IEdmElement
@@ -1336,8 +1457,8 @@ namespace Microsoft.OData.Edm.Tests.Validation
             ValidationContext context = new ValidationContext(model, (object o) => false);
             validationRule.Evaluate(context, item);
             var error = context.Errors.SingleOrDefault(e=>e.ErrorCode == expectedErrorCode);
-            error.Should().NotBeNull();
-            error.ErrorMessage.Should().Be(expectedError);
+            Assert.NotNull(error);
+            Assert.Equal(expectedError, error.ErrorMessage);
         }
 
         private static void ValidateError<T>(ValidationRule<T> validationRule, T item, EdmErrorCode expectedErrorCode, string expectedError) where T:IEdmElement

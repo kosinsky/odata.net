@@ -24,8 +24,8 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
         private readonly Cache<CsdlSemanticsOperation, IEdmPathExpression> entitySetPathCache = new Cache<CsdlSemanticsOperation, IEdmPathExpression>();
         private static readonly Func<CsdlSemanticsOperation, IEdmPathExpression> ComputeEntitySetPathFunc = (me) => me.ComputeEntitySetPath();
 
-        private readonly Cache<CsdlSemanticsOperation, IEdmTypeReference> returnTypeCache = new Cache<CsdlSemanticsOperation, IEdmTypeReference>();
-        private static readonly Func<CsdlSemanticsOperation, IEdmTypeReference> ComputeReturnTypeFunc = (me) => me.ComputeReturnType();
+        private readonly Cache<CsdlSemanticsOperation, IEdmOperationReturn> returnCache = new Cache<CsdlSemanticsOperation, IEdmOperationReturn>();
+        private static readonly Func<CsdlSemanticsOperation, IEdmOperationReturn> ComputeReturnFunc = (me) => me.ComputeReturn();
 
         private readonly Cache<CsdlSemanticsOperation, IEnumerable<IEdmOperationParameter>> parametersCache = new Cache<CsdlSemanticsOperation, IEnumerable<IEdmOperationParameter>>();
         private static readonly Func<CsdlSemanticsOperation, IEnumerable<IEdmOperationParameter>> ComputeParametersFunc = (me) => me.ComputeParameters();
@@ -83,7 +83,20 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
 
         public IEdmTypeReference ReturnType
         {
-            get { return this.returnTypeCache.GetValue(this, ComputeReturnTypeFunc, null); }
+            get
+            {
+                if (this.operation.Return == null)
+                {
+                    return null;
+                }
+
+                return Return.Type;
+            }
+        }
+
+        public IEdmOperationReturn Return
+        {
+            get { return this.returnCache.GetValue(this, ComputeReturnFunc, null); }
         }
 
         public IEnumerable<IEdmOperationParameter> Parameters
@@ -113,9 +126,14 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
             return null;
         }
 
-        private IEdmTypeReference ComputeReturnType()
+        private IEdmOperationReturn ComputeReturn()
         {
-            return CsdlSemanticsModel.WrapTypeReference(this.Context, this.operation.ReturnType);
+            if (this.operation.Return == null)
+            {
+                return null;
+            }
+
+            return new CsdlSemanticsOperationReturn(this, this.operation.Return);
         }
 
         private IEnumerable<IEdmOperationParameter> ComputeParameters()
@@ -134,9 +152,9 @@ namespace Microsoft.OData.Edm.Csdl.CsdlSemantics
                 }
             }
 
-            // Handle the out-of-line optinal parameter annotation for parameters.
+            // Handle the out-of-line optional parameter annotation for parameters.
             // First, use the above built parameters to create the full target name, for example: NS.TestFunction(Edm.String, Edm.String, Edm.String)
-            // Then, go through each prameters by visiting the out-of-line optional parameter annotation.
+            // Then, go through each parameters by visiting the out-of-line optional parameter annotation.
             // If we find at least one of out-of-line optional parameter annotation, we replace it as an optional parameter.
             // Otherwise, re-use the built parameter.
             // Be noted: if a parameter has inline and out-of-line optional parameter, the out-of-line will win.

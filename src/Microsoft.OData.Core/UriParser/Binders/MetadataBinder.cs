@@ -6,6 +6,7 @@
 
 namespace Microsoft.OData.UriParser
 {
+    using System;
     #region Namespaces
 
     using System.Collections.Generic;
@@ -213,7 +214,7 @@ namespace Microsoft.OData.UriParser
         /// <summary>
         /// Bind parameter alias (figuring out its type by first parsing and binding its value expression).
         /// </summary>
-        /// <param name="functionParameterAliasToken">The alias syntatics token.</param>
+        /// <param name="functionParameterAliasToken">The alias syntactics token.</param>
         /// <returns>The semantics node for parameter alias.</returns>
         protected virtual SingleValueNode BindParameterAlias(FunctionParameterAliasToken functionParameterAliasToken)
         {
@@ -354,7 +355,19 @@ namespace Microsoft.OData.UriParser
         /// <returns>The bound In token.</returns>
         protected virtual QueryNode BindIn(InToken inToken)
         {
-            InBinder inBinder = new InBinder(this.Bind);
+            Func<QueryToken, QueryNode> InBinderMethod = (queryToken) =>
+             {
+                 ExceptionUtils.CheckArgumentNotNull(queryToken, "queryToken");
+
+                 if (queryToken.Kind == QueryTokenKind.Literal)
+                 {
+                     return LiteralBinder.BindInLiteral((LiteralToken)queryToken);
+                 }
+
+                 return this.Bind(queryToken);
+             };
+
+            InBinder inBinder = new InBinder(InBinderMethod);
             return inBinder.BindInOperator(inToken, this.BindingState);
         }
     }

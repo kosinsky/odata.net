@@ -130,8 +130,8 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\HttpUtils.cs">
       <Link>Microsoft\OData\Core\HttpUtils.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\IODataBatchOperationListener.cs">
-      <Link>Microsoft\OData\Core\IODataBatchOperationListener.cs</Link>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\IODataStreamListener.cs">
+      <Link>Microsoft\OData\Core\IODataStreamListener.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\IODataResourceTypeContext.cs">
       <Link>Microsoft\OData\Core\IODataResourceTypeContext.cs</Link>
@@ -319,6 +319,48 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\JsonLight\ODataJsonLightBatchWriter.cs">
       <Link>Microsoft\OData\Core\JsonLight\ODataJsonLightBatchWriter.cs</Link>
     </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\JsonLight\ODataJsonLightReaderNestedPropertyInfo.cs">
+      <Link>Microsoft\OData\Core\JsonLight\ODataJsonLightReaderNestedPropertyInfo.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\JsonLight\ODataJsonLightReaderNestedInfo.cs">
+      <Link>Microsoft\OData\Core\JsonLight\ODataJsonLightReaderNestedInfo.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\JsonLight\ODataJsonLightReaderNestedStreamInfo.cs">
+      <Link>Microsoft\OData\Core\JsonLight\ODataJsonLightReaderNestedStreamInfo.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Json\IJsonStreamReader.cs">
+      <Link>Microsoft\OData\Core\Json\IJsonStreamReader.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Json\IJsonStreamWriter.cs">
+      <Link>Microsoft\OData\Core\Json\IJsonStreamWriter.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Json\ODataJsonTextWriter.cs">
+      <Link>Microsoft\OData\Core\Json\ODataJsonTextWriter.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataTextStreamReader.cs">
+      <Link>Microsoft\OData\Core\ODataTextStreamReader.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataNotificationStream.cs">
+      <Link>Microsoft\OData\Core\ODataNotificationStream.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataNotificationReader.cs">
+      <Link>Microsoft\OData\Core\ODataNotificationReader.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataNotificationWriter.cs">
+      <Link>Microsoft\OData\Core\ODataNotificationWriter.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\IODataStreamReferenceInfo.cs">
+      <Link>Microsoft\OData\Core\IODataStreamReferenceInfo.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataStreamItem.cs">
+      <Link>Microsoft\OData\Core\ODataStreamItem.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataStreamPropertyInfo.cs">
+      <Link>Microsoft\OData\Core\ODataStreamPropertyInfo.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataPropertyInfo.cs">
+      <Link>Microsoft\OData\Core\ODataPropertyInfo.cs</Link>
+    </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\JsonLight\ODataJsonLightBatchPayloadItemPropertiesCache.cs">
       <Link>Microsoft\OData\Core\JsonLight\ODataJsonLightBatchPayloadItemPropertiesCache.cs</Link>
     </Compile>
@@ -499,8 +541,8 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchOperationMessage.cs">
       <Link>Microsoft\OData\Core\ODataBatchOperationMessage.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchOperationReadStream.cs">
-      <Link>Microsoft\OData\Core\ODataBatchOperationReadStream.cs</Link>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataReadStream.cs">
+      <Link>Microsoft\OData\Core\ODataReadStream.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchOperationRequestMessage.cs">
       <Link>Microsoft\OData\Core\ODataBatchOperationRequestMessage.cs</Link>
@@ -508,11 +550,11 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchOperationResponseMessage.cs">
       <Link>Microsoft\OData\Core\ODataBatchOperationResponseMessage.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchOperationStream.cs">
-      <Link>Microsoft\OData\Core\ODataBatchOperationStream.cs</Link>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataStream.cs">
+      <Link>Microsoft\OData\Core\ODataStream.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchOperationWriteStream.cs">
-      <Link>Microsoft\OData\Core\ODataBatchOperationWriteStream.cs</Link>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataWriteStream.cs">
+      <Link>Microsoft\OData\Core\ODataWriteStream.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchReader.cs">
       <Link>Microsoft\OData\Core\ODataBatchReader.cs</Link>
@@ -537,6 +579,12 @@
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBatchWriter.cs">
       <Link>Microsoft\OData\Core\ODataBatchWriter.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBinaryStreamWriter.cs">
+      <Link>Microsoft\OData\Core\ODataBinaryStreamWriter.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\ODataBinaryStreamReader.cs">
+      <Link>Microsoft\OData\Core\ODataBinaryStreamReader.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataCollectionReader.cs">
       <Link>Microsoft\OData\Core\ODataCollectionReader.cs</Link>
@@ -675,6 +723,9 @@
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataMessageExtensions.cs">
       <Link>Microsoft\OData\Core\ODataMessageExtensions.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\StreamExtensions.cs">
+      <Link>Microsoft\OData\Core\StreamExtensions.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\ODataMessageInfo.cs">
       <Link>Microsoft\OData\Core\ODataMessageInfo.cs</Link>
@@ -925,9 +976,6 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Binders\SearchBinder.cs">
       <Link>Microsoft\OData\Core\UriParser\Binders\SearchBinder.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Binders\SelectBinder.cs">
-      <Link>Microsoft\OData\Core\UriParser\Binders\SelectBinder.cs</Link>
-    </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Binders\SelectExpandBinder.cs">
       <Link>Microsoft\OData\Core\UriParser\Binders\SelectExpandBinder.cs</Link>
     </Compile>
@@ -939,9 +987,6 @@
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Binders\SelectExpandSemanticBinder.cs">
       <Link>Microsoft\OData\Core\UriParser\Binders\SelectExpandSemanticBinder.cs</Link>
-    </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Binders\SelectExpandSyntacticUnifier.cs">
-      <Link>Microsoft\OData\Core\UriParser\Binders\SelectExpandSyntacticUnifier.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Binders\SelectPathSegmentTokenBinder.cs">
       <Link>Microsoft\OData\Core\UriParser\Binders\SelectPathSegmentTokenBinder.cs</Link>
@@ -1003,8 +1048,8 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Parsers\ExpandDepthAndCountValidator.cs">
       <Link>Microsoft\OData\Core\UriParser\Parsers\ExpandDepthAndCountValidator.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Parsers\ExpandOptionParser.cs">
-      <Link>Microsoft\OData\Core\UriParser\Parsers\ExpandOptionParser.cs</Link>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Parsers\SelectExpandOptionParser.cs">
+      <Link>Microsoft\OData\Core\UriParser\Parsers\SelectExpandOptionParser.cs</Link>
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Parsers\FunctionCallParser.cs">
       <Link>Microsoft\OData\Core\UriParser\Parsers\FunctionCallParser.cs</Link>
@@ -1345,6 +1390,12 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\SyntacticAst\RangeVariableToken.cs">
       <Link>Microsoft\OData\Core\UriParser\SyntacticAst\RangeVariableToken.cs</Link>
     </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\SyntacticAst\SelectExpandTermToken.cs">
+      <Link>Microsoft\OData\Core\UriParser\SyntacticAst\SelectExpandTermToken.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\SyntacticAst\SelectTermToken.cs">
+      <Link>Microsoft\OData\Core\UriParser\SyntacticAst\SelectTermToken.cs</Link>
+    </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\SyntacticAst\SelectToken.cs">
       <Link>Microsoft\OData\Core\UriParser\SyntacticAst\SelectToken.cs</Link>
     </Compile>
@@ -1417,9 +1468,6 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Visitors\SelectItemTranslator.cs">
       <Link>Microsoft\OData\Core\UriParser\Visitors\SelectItemTranslator.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Visitors\SelectPropertyVisitor.cs">
-      <Link>Microsoft\OData\Core\UriParser\Visitors\SelectPropertyVisitor.cs</Link>
-    </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Visitors\SplitEndingSegmentOfTypeHandler.cs">
       <Link>Microsoft\OData\Core\UriParser\Visitors\SplitEndingSegmentOfTypeHandler.cs</Link>
     </Compile>
@@ -1472,7 +1520,7 @@
     </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Aggregation\ComputeTransformationNode.cs">
       <Link>Microsoft\OData\Core\UriParser\Aggregation\ComputeTransformationNode.cs</Link>
-    </Compile>    
+    </Compile>
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\Aggregation\ExpandTransformationNode.cs">
       <Link>Microsoft\OData\Core\UriParser\Aggregation\ExpandTransformationNode.cs</Link>
     </Compile>
@@ -1518,31 +1566,34 @@
     <Compile Include="$(ODataCrossTargettingSourcePath)\UriParser\SemanticAst\AggregatedCollectionPropertyNode.cs">
       <Link>Microsoft\OData\Core\UriParser\SemanticAst\AggregatedCollectionPropertyNode.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataCollectionValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataCollectionValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataCollectionValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataEnumValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataEnumValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataEnumValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataNullValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataNullValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataNullValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataPrimitiveValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataPrimitiveValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataPrimitiveValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataResourceValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataResourceValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataResourceValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataStreamReferenceValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataStreamReferenceValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataStreamReferenceValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataUntypedValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataBinaryStreamValue.cs">
+      <Link>Microsoft\OData\Core\Value\ODataBinaryStreamValue.cs</Link>
+    </Compile>
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataUntypedValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataUntypedValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataValue.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataValue.cs">
       <Link>Microsoft\OData\Core\Value\ODataValue.cs</Link>
     </Compile>
-    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataValueUtils.cs" >
+    <Compile Include="$(ODataCrossTargettingSourcePath)\Value\ODataValueUtils.cs">
       <Link>Microsoft\OData\Core\Value\ODataValueUtils.cs</Link>
     </Compile>
     <Compile Include="..\BindingPathHelper.cs">
@@ -1550,6 +1601,12 @@
     </Compile>
     <Compile Include="..\Buffers\BufferUtils.cs">
       <Link>Microsoft\OData\Core\Buffers\BufferUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\DerivedTypeValidator.cs">
+      <Link>Microsoft\OData\Core\DerivedTypeValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\Buffers\ICharArrayPool.cs">
+      <Link>Microsoft\OData\Core\Buffers\ICharArrayPool.cs</Link>
     </Compile>
     <Compile Include="..\UriParser\Binders\ErrorCodes.cs">
       <Link>Microsoft\OData\Core\UriParser\Binders\ErrorCodes.cs</Link>
@@ -1562,6 +1619,9 @@
     </Compile>
     <Compile Include="..\Evaluation\ODataConventionalEntityMetadataBuilder.cs">
       <Link>Microsoft\OData\Core\ODataConventionalEntityMetadataBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\Evaluation\ODataMetadataSelector.cs">
+      <Link>Microsoft\OData\Core\Evaluation\ODataMetadataSelector.cs</Link>
     </Compile>
     <Compile Include="..\IContainerProvider.cs">
       <Link>Microsoft\OData\Core\IContainerProvider.cs</Link>

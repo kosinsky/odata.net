@@ -79,6 +79,123 @@ namespace Microsoft.OData.Edm
         }
 
         /// <summary>
+        /// Gets the symbolic string of an annotated element.
+        /// In the next breaking change, it's better to add a property into <see cref="IEdmVocabularyAnnotatable"/>.
+        /// </summary>
+        /// <param name="annotatedElement">The annotatable element.</param>
+        /// <returns>null or a symbolic string.</returns>
+        public static string GetSymbolicString(this IEdmVocabularyAnnotatable annotatedElement)
+        {
+            IEdmSchemaElement schemaElement = annotatedElement as IEdmSchemaElement;
+            if (schemaElement != null)
+            {
+                // EntityType, ComplexType, EnumType, TypeDefinition
+                if (schemaElement.SchemaElementKind == EdmSchemaElementKind.TypeDefinition)
+                {
+                    IEdmType edmType = (IEdmType)schemaElement;
+                    switch (edmType.TypeKind)
+                    {
+                        case EdmTypeKind.Complex:
+                            return "ComplexType";
+                        case EdmTypeKind.Entity:
+                            return "EntityType";
+                        case EdmTypeKind.Enum:
+                            return "EnumType";
+                        case EdmTypeKind.TypeDefinition:
+                            return "TypeDefinition";
+                        default:
+                            return null;
+                    }
+                }
+                else
+                {
+                    // Action, Function, Term, EntityContainer
+                    return schemaElement.SchemaElementKind.ToString();
+                }
+            }
+
+            IEdmEntityContainerElement containerElement = annotatedElement as IEdmEntityContainerElement;
+            if (containerElement != null)
+            {
+                // ActionImport, FunctionImport, EntitySet, Singleton
+                return containerElement.ContainerElementKind.ToString();
+            }
+
+            IEdmProperty property = annotatedElement as IEdmProperty;
+            if (property != null)
+            {
+                // NavigationProperty, Property
+                switch (property.PropertyKind)
+                {
+                    case EdmPropertyKind.Navigation:
+                        return "NavigationProperty";
+                    case EdmPropertyKind.Structural:
+                        return "Property";
+                    default:
+                        return null;
+                }
+            }
+
+            IEdmExpression expression = annotatedElement as IEdmExpression;
+            if (expression != null)
+            {
+                switch (expression.ExpressionKind)
+                {
+                    case EdmExpressionKind.FunctionApplication:
+                        return "Apply";
+                    case EdmExpressionKind.IsType:
+                        return "IsOf";
+                    case EdmExpressionKind.Labeled:
+                        return "LabeledElement";
+                    case EdmExpressionKind.Cast:
+                    case EdmExpressionKind.Collection:
+                    case EdmExpressionKind.If:
+                    case EdmExpressionKind.Null:
+                    case EdmExpressionKind.Record:
+                        return expression.ExpressionKind.ToString();
+                    default:
+                        return null;
+                }
+            }
+
+            if (annotatedElement is IEdmOperationParameter)
+            {
+                return "Parameter";
+            }
+            else if (annotatedElement is IEdmOperationReturn)
+            {
+                return "ReturnType";
+            }
+            else if (annotatedElement is IEdmReference)
+            {
+                return "Reference";
+            }
+            else if (annotatedElement is IEdmInclude)
+            {
+                return "Include";
+            }
+            else if (annotatedElement is IEdmReferentialConstraint)
+            {
+                return "ReferentialConstraint";
+            }
+            else if (annotatedElement is IEdmEnumMember)
+            {
+                return "Member";
+            }
+            else if (annotatedElement is IEdmVocabularyAnnotation)
+            {
+                return "Annotation";
+            }
+            else if (annotatedElement is IEdmPropertyConstructor)
+            {
+                return "PropertyValue";
+            }
+
+            // It's not supported "Schema, UrlRef, OnDelete"
+            return null;
+        }
+
+        /// <summary>
         /// Sets the MIME type annotation of the <paramref name="annotatableOperation"/> to <paramref name="mimeType"/>.
         /// </summary>
         /// <param name="model">The <see cref="IEdmModel"/> containing the annotation.</param>
@@ -336,6 +453,8 @@ namespace Microsoft.OData.Edm
                     }
                     else
                     {
+                        IEdmOperationReturn operationReturn;
+                        IEdmEnumMember enumMember;
                         IEdmOperationParameter parameter = element as IEdmOperationParameter;
                         if (parameter != null)
                         {
@@ -345,16 +464,20 @@ namespace Microsoft.OData.Edm
                                 return parameterOwnerName + "/" + parameter.Name;
                             }
                         }
-                        else
+                        else if ((enumMember = element as IEdmEnumMember) != null)
                         {
-                            IEdmEnumMember enumMember = element as IEdmEnumMember;
-                            if (enumMember != null)
+                            string enumMemberOwnerName = FullyQualifiedName(enumMember.DeclaringType);
+                            if (enumMemberOwnerName != null)
                             {
-                                string enumMemberOwnerName = FullyQualifiedName(enumMember.DeclaringType);
-                                if (enumMemberOwnerName != null)
-                                {
-                                    return enumMemberOwnerName + "/" + enumMember.Name;
-                                }
+                                return enumMemberOwnerName + "/" + enumMember.Name;
+                            }
+                        }
+                        else if ((operationReturn = element as IEdmOperationReturn) != null)
+                        {
+                            string operationName = FullyQualifiedName(operationReturn.DeclaringOperation);
+                            if (operationName != null)
+                            {
+                                return operationName + "/" + CsdlConstants.OperationReturnExternalTarget;
                             }
                         }
                     }
@@ -457,7 +580,7 @@ namespace Microsoft.OData.Edm
         {
             CheckArgumentNull(dictionary, "dictionary");
             CheckArgumentNull(computeValue, "computeValue");
-            
+
             return dictionary.GetOrAdd(key, computeValue);
         }
 
@@ -537,7 +660,7 @@ namespace Microsoft.OData.Edm
             CheckArgumentNull(dictionary, "dictionary");
 
             TValue val;
-        
+
             lock (dictionary)
             {
                 dictionary.TryGetValue(key, out val);

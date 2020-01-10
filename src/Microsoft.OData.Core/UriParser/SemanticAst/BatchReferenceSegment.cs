@@ -30,7 +30,7 @@ namespace Microsoft.OData.UriParser
         private readonly IEdmEntitySetBase entitySet;
 
         /// <summary>
-        /// The contentId that this alias referrs to.
+        /// The contentId that this alias refers to.
         /// </summary>
         private readonly string contentId;
 
@@ -44,7 +44,7 @@ namespace Microsoft.OData.UriParser
         /// <exception cref="ODataException">Throws if the contentID is not in the right format.</exception>
         public BatchReferenceSegment(string contentId, IEdmType edmType, IEdmEntitySetBase entitySet)
         {
-            ExceptionUtils.CheckArgumentNotNull(edmType, "resultingType");
+            ExceptionUtils.CheckArgumentNotNull(edmType, "edmType");
             ExceptionUtils.CheckArgumentNotNull(contentId, "contentId");
             if (!ODataPathParser.ContentIdRegex.IsMatch(contentId))
             {
@@ -84,7 +84,7 @@ namespace Microsoft.OData.UriParser
         }
 
         /// <summary>
-        /// Gets the contentId this alias is referrring to
+        /// Gets the contentId this alias is referring to
         /// </summary>
         public string ContentId
         {

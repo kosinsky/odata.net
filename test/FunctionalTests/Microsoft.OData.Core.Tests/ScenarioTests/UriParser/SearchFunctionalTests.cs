@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using FluentAssertions;
 using Microsoft.OData.Tests.UriParser;
 using Microsoft.OData.UriParser;
 using Xunit;
@@ -33,7 +32,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void AndTest()
         {
             var result = this.RunSearchTest("mountain bike");
-            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And).And;
+            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And);
             node1.Left.ShouldBeSearchTermNode("mountain");
             node1.Right.ShouldBeSearchTermNode("bike");
         }
@@ -42,17 +41,17 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void ImplicitAndTest()
         {
             var result = this.RunSearchTest("mountain NOT bike");
-            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And).And;
+            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And);
             node1.Left.ShouldBeSearchTermNode("mountain");
-            node1.Right.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Not).And.Operand.ShouldBeSearchTermNode("bike");
+            node1.Right.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Not).Operand.ShouldBeSearchTermNode("bike");
         }
 
         [Fact]
         public void ErrorProneImplicitAndTest()
         {
             var result = this.RunSearchTest("mountain or bike");
-            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And).And;
-            var node2 = node1.Left.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And).And;
+            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And);
+            var node2 = node1.Left.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And);
             node2.Left.ShouldBeSearchTermNode("mountain");
             node2.Right.ShouldBeSearchTermNode("or");
             node1.Right.ShouldBeSearchTermNode("bike");
@@ -62,7 +61,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void OrTest()
         {
             var result = this.RunSearchTest("mountain OR bike");
-            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.Or).And;
+            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.Or);
             node1.Left.ShouldBeSearchTermNode("mountain");
             node1.Right.ShouldBeSearchTermNode("bike");
         }
@@ -71,7 +70,7 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void NotTest()
         {
             var result = this.RunSearchTest("NOT bike");
-            var node1 = result.Expression.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Not).And;
+            var node1 = result.Expression.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Not);
             node1.Operand.ShouldBeSearchTermNode("bike");
         }
 
@@ -79,10 +78,10 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void CombinationTest()
         {
             var result = this.RunSearchTest("NOT Tis AND (in OR \"my memory\") \"lock'd\"");
-            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And).And;
-            var node2 = node1.Left.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And).And;
-            node2.Left.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Not).And.Operand.ShouldBeSearchTermNode("Tis");
-            var node3 = node2.Right.ShouldBeBinaryOperatorNode(BinaryOperatorKind.Or).And;
+            var node1 = result.Expression.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And);
+            var node2 = node1.Left.ShouldBeBinaryOperatorNode(BinaryOperatorKind.And);
+            node2.Left.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Not).Operand.ShouldBeSearchTermNode("Tis");
+            var node3 = node2.Right.ShouldBeBinaryOperatorNode(BinaryOperatorKind.Or);
             node3.Left.ShouldBeSearchTermNode("in");
             node3.Right.ShouldBeSearchTermNode("my memory");
             node1.Right.ShouldBeSearchTermNode("lock'd");
@@ -92,34 +91,34 @@ namespace Microsoft.OData.Tests.ScenarioTests.UriParser
         public void ErrorTest()
         {
             Action action = () => this.RunSearchTest("NOT");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_ExpressionExpected(3, "NOT"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_ExpressionExpected(3, "NOT"));
             action = () => this.RunSearchTest("(");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_ExpressionExpected(1, "("));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_ExpressionExpected(1, "("));
             action = () => this.RunSearchTest("(something");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_CloseParenOrOperatorExpected(10, "(something"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_CloseParenOrOperatorExpected(10, "(something"));
             action = () => this.RunSearchTest("AND OR");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_ExpressionExpected(0, "AND OR"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_ExpressionExpected(0, "AND OR"));
             action = () => this.RunSearchTest("kit (");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_ExpressionExpected(5, "kit ("));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_ExpressionExpected(5, "kit ("));
             action = () => this.RunSearchTest("kit ( A");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.UriQueryExpressionParser_CloseParenOrOperatorExpected(7, "kit ( A"));
+            action.Throws<ODataException>(Strings.UriQueryExpressionParser_CloseParenOrOperatorExpected(7, "kit ( A"));
             action = () => this.RunSearchTest("kit )");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionLexer_SyntaxError(5, "kit )"));
+            action.Throws<ODataException>(Strings.ExpressionLexer_SyntaxError(5, "kit )"));
         }
 
         [Fact]
         public void LexerErrorTest()
         {
             Action action = () => this.RunSearchTest("\"");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionLexer_UnterminatedStringLiteral(1, "\""));
+            action.Throws<ODataException>(Strings.ExpressionLexer_UnterminatedStringLiteral(1, "\""));
             action = () => this.RunSearchTest("A \"");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionLexer_UnterminatedStringLiteral(3, "A \""));
+            action.Throws<ODataException>(Strings.ExpressionLexer_UnterminatedStringLiteral(3, "A \""));
             action = () => this.RunSearchTest("A \" BC");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionLexer_UnterminatedStringLiteral(6, "A \" BC"));
+            action.Throws<ODataException>(Strings.ExpressionLexer_UnterminatedStringLiteral(6, "A \" BC"));
             action = () => this.RunSearchTest("\\\"");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionLexer_InvalidCharacter("\\", 0, "\\\""));
+            action.Throws<ODataException>(Strings.ExpressionLexer_InvalidCharacter("\\", 0, "\\\""));
             action = () => this.RunSearchTest("\"\\t\"");
-            action.ShouldThrow<ODataException>().WithMessage(Strings.ExpressionLexer_InvalidEscapeSequence("t", 2, "\"\\t\""));
+            action.Throws<ODataException>(Strings.ExpressionLexer_InvalidEscapeSequence("t", 2, "\"\\t\""));
         }
 
         private SearchClause RunSearchTest(string search)

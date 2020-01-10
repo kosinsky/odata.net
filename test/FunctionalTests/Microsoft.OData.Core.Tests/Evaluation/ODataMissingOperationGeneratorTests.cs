@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
+using System.Reflection;
 using Microsoft.OData.Edm;
 using Microsoft.OData.Evaluation;
 using Microsoft.OData.JsonLight;
@@ -51,8 +51,8 @@ namespace Microsoft.OData.Tests.Evaluation
         public void NoOperationsShouldBeGeneratedIfModelHasNone()
         {
             AddMissingOperations(this.entry, this.entityType, SelectedPropertiesNode.EntireSubtree, this.model, type => new IEdmOperation[0], null, e => false);
-            entry.Actions.Should().BeEmpty();
-            entry.Functions.Should().BeEmpty();
+            Assert.Empty(entry.Actions);
+            Assert.Empty(entry.Functions);
         }
 
         [Fact]
@@ -61,22 +61,19 @@ namespace Microsoft.OData.Tests.Evaluation
             this.entry.AddAction(this.odataAction);
             this.entry.AddFunction(this.odataFunction);
             AddMissingOperations(this.entry, this.entityType, SelectedPropertiesNode.EntireSubtree, this.model, type => this.allOperations, null, e => false);
-            this.entry.Actions.ToList().Count.Should().Be(1);
-#if !NETCOREAPP1_0
-            this.entry.Actions.Single().ShouldHave().AllProperties().EqualTo(this.odataAction);
-#endif
-            this.entry.Functions.ToList().Count.Should().Be(1);
-#if !NETCOREAPP1_0
-            this.entry.Functions.Single().ShouldHave().AllProperties().EqualTo(this.odataFunction);
-#endif
+            var action = Assert.Single(this.entry.Actions);
+            Assert.Same(this.odataAction, action);
+
+            var function = Assert.Single(this.entry.Functions);
+            Assert.Same(this.odataFunction, function);
         }
 
         [Fact]
         public void NoOperationsShouldBeGeneratedIfNoneAreSelected()
         {
             AddMissingOperations(this.entry, this.entityType, SelectedPropertiesNode.Create(string.Empty), this.model, type => this.allOperations, null, e => false);
-            entry.Actions.Should().BeEmpty();
-            entry.Functions.Should().BeEmpty();
+            Assert.Empty(entry.Actions);
+            Assert.Empty(entry.Functions);
         }
 
         [Fact]
@@ -84,12 +81,10 @@ namespace Microsoft.OData.Tests.Evaluation
         {
             this.AddMissingOperationsForAll(SelectedPropertiesNode.Create(this.actionEdmMetadata.Name));
 
-            this.entry.Functions.Should().BeEmpty();
+            Assert.Empty(this.entry.Functions);
 
-            this.entry.Actions.Should().HaveCount(1);
-#if !NETCOREAPP1_0
-            this.entry.Actions.Single().ShouldHave().AllProperties().EqualTo(this.odataAction);
-#endif
+            var action = Assert.Single(this.entry.Actions);
+            Assert.Equal(this.odataAction, action, new AllPropertiesComparer<ODataAction>());
         }
 
         [Fact]
@@ -97,12 +92,10 @@ namespace Microsoft.OData.Tests.Evaluation
         {
             this.AddMissingOperationsForAll(SelectedPropertiesNode.Create(this.functionEdmMetadata.Name));
 
-            this.entry.Actions.Should().BeEmpty();
+            Assert.Empty(this.entry.Actions);
 
-            this.entry.Functions.Should().HaveCount(1);
-#if !NETCOREAPP1_0
-            this.entry.Functions.Single().ShouldHave().AllProperties().EqualTo(this.odataFunction);
-#endif
+            var function = Assert.Single(this.entry.Functions);
+            Assert.Equal(this.odataFunction, function, new AllPropertiesComparer<ODataFunction>());
         }
 
         [Fact]
@@ -110,8 +103,8 @@ namespace Microsoft.OData.Tests.Evaluation
         {
             AddMissingOperations(this.entry, this.entityType, SelectedPropertiesNode.Create(this.functionEdmMetadata.Name), this.model, type => this.allOperations, entry => new NoOpResourceMetadataBuilder(entry), e => true);
 
-            this.entry.Actions.Should().BeEmpty();
-            this.entry.Functions.Should().BeEmpty();
+            Assert.Empty(this.entry.Actions);
+            Assert.Empty(this.entry.Functions);
         }
 
         private void AddMissingOperationsForAll(SelectedPropertiesNode selectedProperties)
@@ -131,7 +124,7 @@ namespace Microsoft.OData.Tests.Evaluation
                 OperationsBoundToStructuredTypeMustBeContainerQualifiedFunc = typeIsOpen,
             };
 
-            var entryContext = ODataResourceMetadataContext.Create(entry, new TestFeedAndEntryTypeContext(), /*serializationInfo*/null, entityType, metadataContext, selectedProperties);
+            var entryContext = ODataResourceMetadataContext.Create(entry, new TestFeedAndEntryTypeContext(), /*serializationInfo*/null, entityType, metadataContext, selectedProperties, null);
             var generator = new ODataMissingOperationGenerator(entryContext, metadataContext);
             List<ODataAction> actions = generator.GetComputedActions().ToList();
             List<ODataFunction> functions = generator.GetComputedFunctions().ToList();
@@ -145,7 +138,7 @@ namespace Microsoft.OData.Tests.Evaluation
         public Func<IEdmModel> GetModelFunc { get; set; }
         public Func<Uri> GetMetadataDocumentUriFunc { get; set; }
         public Func<Uri> GetServiceBaseUriFunc { get; set; }
-        public Func<IEdmType, IEdmOperation[]> GetBindableOperationsForTypeFunc { get; set; }
+        public Func<IEdmType, IList<IEdmOperation>> GetBindableOperationsForTypeFunc { get; set; }
         public Func<ODataResourceBase, ODataResourceMetadataBuilder> GetEntityMetadataBuilderFunc { get; set; }
         public Func<IEdmStructuredType, bool> OperationsBoundToStructuredTypeMustBeContainerQualifiedFunc { get; set; }
 
@@ -188,7 +181,7 @@ namespace Microsoft.OData.Tests.Evaluation
             }
         }
 
-        public ODataResourceMetadataBuilder GetResourceMetadataBuilderForReader(IODataJsonLightReaderResourceState entryState, bool useKeyAsSegment)
+        public ODataResourceMetadataBuilder GetResourceMetadataBuilderForReader(IODataJsonLightReaderResourceState entryState, bool useKeyAsSegment, bool isDelta = false)
         {
             if (this.GetEntityMetadataBuilderFunc != null)
             {
@@ -198,7 +191,7 @@ namespace Microsoft.OData.Tests.Evaluation
             throw new NotImplementedException();
         }
 
-        public IEdmOperation[] GetBindableOperationsForType(IEdmType bindingType)
+        public IEnumerable<IEdmOperation> GetBindableOperationsForType(IEdmType bindingType)
         {
             if (this.GetBindableOperationsForTypeFunc != null)
             {
@@ -219,5 +212,29 @@ namespace Microsoft.OData.Tests.Evaluation
         }
 
         public ODataUri ODataUri { get; set; }
+    }
+
+    public class AllPropertiesComparer<T> : IEqualityComparer<T>
+    {
+        public bool Equals(T expected, T actual)
+        {
+            var props = typeof(T).GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            foreach (var prop in props)
+            {
+                var expectedValue = prop.GetValue(expected, null);
+                var actualValue = prop.GetValue(actual, null);
+                if (!expectedValue.Equals(actualValue))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public int GetHashCode(T parameterValue)
+        {
+            return Tuple.Create(parameterValue).GetHashCode();
+        }
     }
 }

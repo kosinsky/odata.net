@@ -10,10 +10,10 @@ namespace Microsoft.OData
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Globalization;
+    using System.Text;
     using System.Text.RegularExpressions;
     using Microsoft.OData.Edm;
     using Microsoft.OData.UriParser;
-    using System.Text;
 
     /// <summary>
     /// Build QueryNode to String Representation
@@ -67,13 +67,17 @@ namespace Microsoft.OData
             ExceptionUtils.CheckArgumentNotNull(node, "node");
 
             var left = this.TranslateNode(node.Left);
-            if (node.Left.Kind == QueryNodeKind.BinaryOperator && TranslateBinaryOperatorPriority(((BinaryOperatorNode)node.Left).OperatorKind) < TranslateBinaryOperatorPriority(node.OperatorKind))
+            if (node.Left.Kind == QueryNodeKind.BinaryOperator && TranslateBinaryOperatorPriority(((BinaryOperatorNode)node.Left).OperatorKind) < TranslateBinaryOperatorPriority(node.OperatorKind) ||
+                node.Left.Kind == QueryNodeKind.Convert && ((ConvertNode)node.Left).Source.Kind == QueryNodeKind.BinaryOperator &&
+                TranslateBinaryOperatorPriority(((BinaryOperatorNode)((ConvertNode)node.Left).Source).OperatorKind) < TranslateBinaryOperatorPriority(node.OperatorKind))
             {
                 left = String.Concat(ExpressionConstants.SymbolOpenParen, left, ExpressionConstants.SymbolClosedParen);
             }
 
             var right = this.TranslateNode(node.Right);
-            if (node.Right.Kind == QueryNodeKind.BinaryOperator && TranslateBinaryOperatorPriority(((BinaryOperatorNode)node.Right).OperatorKind) < TranslateBinaryOperatorPriority(node.OperatorKind))
+            if (node.Right.Kind == QueryNodeKind.BinaryOperator && TranslateBinaryOperatorPriority(((BinaryOperatorNode)node.Right).OperatorKind) < TranslateBinaryOperatorPriority(node.OperatorKind) ||
+                node.Right.Kind == QueryNodeKind.Convert && ((ConvertNode)node.Right).Source.Kind == QueryNodeKind.BinaryOperator &&
+                TranslateBinaryOperatorPriority(((BinaryOperatorNode)((ConvertNode)node.Right).Source).OperatorKind) < TranslateBinaryOperatorPriority(node.OperatorKind))
             {
                 right = String.Concat(ExpressionConstants.SymbolOpenParen, right, ExpressionConstants.SymbolClosedParen);
             }
@@ -526,9 +530,9 @@ namespace Microsoft.OData
                 }
 
                 sb.Append(this.TranslateNode(item.Expression));
-                sb.Append(ExpressionConstants.SymbolEscapedSpace); //  "%20"
+                sb.Append(ExpressionConstants.SymbolEscapedSpace); // "%20"
                 sb.Append(ExpressionConstants.KeywordAs);
-                sb.Append(ExpressionConstants.SymbolEscapedSpace); //  "%20"
+                sb.Append(ExpressionConstants.SymbolEscapedSpace); // "%20"
                 sb.Append(item.Alias);
             }
 
@@ -536,7 +540,7 @@ namespace Microsoft.OData
         }
 
         /// <summary>
-        /// Add dictinoary to url and each alias value will be URL encoded.
+        /// Add dictionary to url and each alias value will be URL encoded.
         /// </summary>
         /// <param name="dictionary">Dictionary</param>
         /// <returns>The url query string of dictionary's key value pairs (URL encoded)</returns>

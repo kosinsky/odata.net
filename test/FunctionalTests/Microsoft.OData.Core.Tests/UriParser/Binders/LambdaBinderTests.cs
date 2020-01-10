@@ -5,7 +5,6 @@
 //---------------------------------------------------------------------
 
 using System;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Xunit;
@@ -39,7 +38,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var allToken = this.CreateTestAllQueryToken();
 
             var result = binder.BindLambdaToken(allToken, state);
-            result.ShouldBeAllQueryNode().And.Source.ShouldBeEntitySetQueryNode(HardCodedTestModel.GetPeopleSet());
+            result.ShouldBeAllQueryNode().Source.ShouldBeEntitySetQueryNode(HardCodedTestModel.GetPeopleSet());
             result.Body.ShouldBeConstantQueryNode(true);
         }
 
@@ -53,7 +52,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var allToken = this.CreateTestAllQueryToken();
 
             var result = binder.BindLambdaToken(allToken, state);
-            result.ShouldBeAllQueryNode().And.Source.ShouldBeCollectionPropertyAccessQueryNode(HardCodedTestModel.GetDogNicknamesProperty());
+            result.ShouldBeAllQueryNode().Source.ShouldBeCollectionPropertyAccessQueryNode(HardCodedTestModel.GetDogNicknamesProperty());
             result.Body.ShouldBeBinaryOperatorNode(BinaryOperatorKind.LessThanOrEqual);
         }
 
@@ -65,7 +64,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var anyToken = this.CreateTestAnyQueryToken();
 
             var result = binder.BindLambdaToken(anyToken, state);
-            result.ShouldBeAnyQueryNode().And.Source.ShouldBeEntitySetQueryNode(HardCodedTestModel.GetPeopleSet());
+            result.ShouldBeAnyQueryNode().Source.ShouldBeEntitySetQueryNode(HardCodedTestModel.GetPeopleSet());
             result.Body.ShouldBeConstantQueryNode(true);
         }
 
@@ -80,7 +79,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var anyToken = new AnyToken(expression, null, parent);
 
             var result = binder.BindLambdaToken(anyToken, state);
-            result.ShouldBeAnyQueryNode().And.Source.ShouldBeEntitySetQueryNode(HardCodedTestModel.GetPeopleSet());
+            result.ShouldBeAnyQueryNode().Source.ShouldBeEntitySetQueryNode(HardCodedTestModel.GetPeopleSet());
             result.Body.ShouldBeUnaryOperatorNode(UnaryOperatorKind.Negate);
         }
 
@@ -93,8 +92,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var allToken = this.CreateTestAllQueryToken();
 
             Action bind = () => binder.BindLambdaToken(allToken, state);
-            bind.ShouldThrow<ODataException>().
-                WithMessage((Strings.MetadataBinder_LambdaParentMustBeCollection));
+            bind.Throws<ODataException>(Strings.MetadataBinder_LambdaParentMustBeCollection);
         }
 
         [Fact]
@@ -106,7 +104,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var allToken = this.CreateTestAllQueryToken();
 
             Action bind = () => binder.BindLambdaToken(allToken, state);
-            bind.ShouldNotThrow();
+            bind.DoesNotThrow();
         }
 
         [Fact]
@@ -118,8 +116,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var allToken = this.CreateTestAllQueryToken();
 
             Action bind = () => binder.BindLambdaToken(allToken, state);
-            bind.ShouldThrow<ODataException>().
-                WithMessage((Strings.MetadataBinder_AnyAllExpressionNotSingleValue));
+            bind.Throws<ODataException>(Strings.MetadataBinder_AnyAllExpressionNotSingleValue);
         }
 
         [Fact]
@@ -131,8 +128,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var allToken = this.CreateTestAnyQueryToken();
 
             Action bind = () => binder.BindLambdaToken(allToken, state);
-            bind.ShouldThrow<ODataException>().
-                WithMessage((Strings.MetadataBinder_AnyAllExpressionNotSingleValue));
+            bind.Throws<ODataException>(Strings.MetadataBinder_AnyAllExpressionNotSingleValue);
         }
 
         /// <summary>
@@ -142,7 +138,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         /// <returns></returns>
         private BindingState GetBindingStateForTest(IEdmEntityTypeReference typeReference, IEdmEntitySet type)
         {
-            type.Should().NotBeNull();
+            Assert.NotNull(type);
             CollectionResourceNode entityCollectionNode = new EntitySetNode(type);
             var implicitParameter = new ResourceRangeVariable(ExpressionConstants.It, typeReference, entityCollectionNode);
             var state = new BindingState(this.configuration) { ImplicitRangeVariable = implicitParameter };

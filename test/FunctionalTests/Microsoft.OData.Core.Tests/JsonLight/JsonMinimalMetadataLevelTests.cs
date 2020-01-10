@@ -5,7 +5,6 @@
 //---------------------------------------------------------------------
 
 using System;
-using FluentAssertions;
 using Microsoft.OData.Evaluation;
 using Microsoft.OData.JsonLight;
 using Xunit;
@@ -19,13 +18,13 @@ namespace Microsoft.OData.Tests.JsonLight
         [Fact]
         public void MinimalMetadataLevelShouldReturnMinimalMetadataTypeOracleWhenKnobIsSet()
         {
-            testSubject.GetTypeNameOracle().Should().BeOfType<JsonMinimalMetadataTypeNameOracle>();
+            Assert.IsType<JsonMinimalMetadataTypeNameOracle>(testSubject.GetTypeNameOracle());
         }
 
         [Fact]
         public void MinimalMetadataLevelShouldReturnNullForCreateEntityMetadataBuilder()
         {
-            testSubject.CreateResourceMetadataBuilder(
+            Assert.Null(testSubject.CreateResourceMetadataBuilder(
                 new ODataResource(),
                 /*typeContext*/ null,
                 /*serializationInfo*/ null,
@@ -33,7 +32,8 @@ namespace Microsoft.OData.Tests.JsonLight
                 SelectedPropertiesNode.EntireSubtree,
                 /*isResponse*/ true,
                 /*keyAsSegment*/ false,
-                /*requestUri*/ null).Should().BeNull();
+                /*requestUri*/ null,
+                 /*settings*/null));
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace Microsoft.OData.Tests.JsonLight
             var entry = new ODataResource();
             var builder = new TestEntityMetadataBuilder(entry);
             testSubject.InjectMetadataBuilder(entry, builder);
-            entry.MetadataBuilder.Should().BeOfType<NoOpResourceMetadataBuilder>();
+            Assert.IsType<NoOpResourceMetadataBuilder>(entry.MetadataBuilder);
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace Microsoft.OData.Tests.JsonLight
             var builder = new TestEntityMetadataBuilder(entry);
             entry.MediaResource = new ODataStreamReferenceValue();
             testSubject.InjectMetadataBuilder(entry, builder);
-            entry.MediaResource.GetMetadataBuilder().Should().BeNull();
+            Assert.Null(entry.MediaResource.GetMetadataBuilder());
         }
 
         [Fact]
@@ -68,8 +68,8 @@ namespace Microsoft.OData.Tests.JsonLight
                     new ODataProperty {Name = "Stream2", Value = stream2}
                 };
             testSubject.InjectMetadataBuilder(entry, builder);
-            stream1.GetMetadataBuilder().Should().BeNull();
-            stream2.GetMetadataBuilder().Should().BeNull();
+            Assert.Null(stream1.GetMetadataBuilder());
+            Assert.Null(stream2.GetMetadataBuilder());
         }
 
         [Fact]
@@ -84,8 +84,8 @@ namespace Microsoft.OData.Tests.JsonLight
             entry.AddAction(action2);
 
             testSubject.InjectMetadataBuilder(entry, builder);
-            action1.GetMetadataBuilder().Should().BeNull();
-            action2.GetMetadataBuilder().Should().BeNull();
+            Assert.Null(action1.GetMetadataBuilder());
+            Assert.Null(action2.GetMetadataBuilder());
         }
 
         [Fact]
@@ -100,8 +100,8 @@ namespace Microsoft.OData.Tests.JsonLight
             entry.AddFunction(function2);
 
             testSubject.InjectMetadataBuilder(entry, builder);
-            function1.GetMetadataBuilder().Should().BeNull();
-            function2.GetMetadataBuilder().Should().BeNull();
+            Assert.Null(function1.GetMetadataBuilder());
+            Assert.Null(function2.GetMetadataBuilder());
         }
     }
 }

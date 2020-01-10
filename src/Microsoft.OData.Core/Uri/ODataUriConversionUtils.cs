@@ -92,46 +92,6 @@ namespace Microsoft.OData
             return result;
         }
 
-        private static object ConvertFromResourceOrCollectionValue(string value, IEdmModel model, IEdmTypeReference typeReference)
-        {
-            ODataMessageReaderSettings settings = new ODataMessageReaderSettings();
-            settings.Validations &= ~ValidationKinds.ThrowOnUndeclaredPropertyForNonOpenType;
-
-            using (StringReader reader = new StringReader(value))
-            {
-                ODataMessageInfo messageInfo = new ODataMessageInfo
-                {
-                    MediaType = new ODataMediaType(MimeConstants.MimeApplicationType, MimeConstants.MimeJsonSubType),
-                    Model = model,
-                    IsResponse = false,
-                    IsAsync = false,
-                    MessageStream = null,
-                };
-
-                using (ODataJsonLightInputContext context = new ODataJsonLightInputContext(reader, messageInfo, settings))
-                {
-                    ODataJsonLightPropertyAndValueDeserializer deserializer = new ODataJsonLightPropertyAndValueDeserializer(context);
-
-                    // TODO: The way JSON array literals look in the URI is different that response payload with an array in it.
-                    // The fact that we have to manually setup the underlying reader shows this different in the protocol.
-                    // There is a discussion on if we should change this or not.
-                    deserializer.JsonReader.Read(); // Move to first thing
-                    object rawResult = deserializer.ReadNonEntityValue(
-                        null /*payloadTypeName*/,
-                        typeReference,
-                        null /*DuplicatePropertyNameChecker*/,
-                        null /*CollectionWithoutExpectedTypeValidator*/,
-                        true /*validateNullValue*/,
-                        false /*isTopLevelPropertyValue*/,
-                        false /*insideResourceValue*/,
-                        null /*propertyName*/);
-                    deserializer.ReadPayloadEnd(false);
-
-                    return rawResult;
-                }
-            }
-        }
-
         /// <summary>
         /// Verifies that the given <paramref name="primitiveValue"/> is or can be coerced to <paramref name="expectedTypeReference"/>, and coerces it if necessary.
         /// </summary>
@@ -206,7 +166,7 @@ namespace Microsoft.OData
             ExceptionUtils.CheckArgumentNotNull(resource, "resource");
             ExceptionUtils.CheckArgumentNotNull(model, "model");
 
-            return ConverToJsonLightLiteral(
+            return ConvertToJsonLightLiteral(
                 model,
                 context =>
             {
@@ -227,7 +187,7 @@ namespace Microsoft.OData
             ExceptionUtils.CheckArgumentNotNull(entries, "entries");
             ExceptionUtils.CheckArgumentNotNull(model, "model");
 
-            return ConverToJsonLightLiteral(
+            return ConvertToJsonLightLiteral(
                 model,
                 context =>
             {
@@ -256,7 +216,7 @@ namespace Microsoft.OData
             ExceptionUtils.CheckArgumentNotNull(link, "link");
             ExceptionUtils.CheckArgumentNotNull(model, "model");
 
-            return ConverToJsonLightLiteral(model, context => context.WriteEntityReferenceLink(link));
+            return ConvertToJsonLightLiteral(model, context => context.WriteEntityReferenceLink(link));
         }
 
         /// <summary>
@@ -270,7 +230,7 @@ namespace Microsoft.OData
             ExceptionUtils.CheckArgumentNotNull(links, "links");
             ExceptionUtils.CheckArgumentNotNull(model, "model");
 
-            return ConverToJsonLightLiteral(model, context => context.WriteEntityReferenceLinks(links));
+            return ConvertToJsonLightLiteral(model, context => context.WriteEntityReferenceLinks(links));
         }
 
         /// <summary>
@@ -481,10 +441,10 @@ namespace Microsoft.OData
                     case EdmPrimitiveTypeKind.Double:
                         return primitiveValue;
                     case EdmPrimitiveTypeKind.Decimal:
-                        // TODO: extract these convertion steps to an individual function
+                        // TODO: extract these conversion steps to an individual function
                         decimal doubleToDecimalR;
 
-                        // To keep the full presion of the current value, which if necessary is all 17 digits of precision supported by the Double type.
+                        // To keep the full precision of the current value, which if necessary is all 17 digits of precision supported by the Double type.
                         if (decimal.TryParse(((Double)primitiveValue).ToString("R", CultureInfo.InvariantCulture),
                             out doubleToDecimalR))
                         {
@@ -601,7 +561,7 @@ namespace Microsoft.OData
         /// <param name="model">EDM Model to use for validation and type lookups.</param>
         /// <param name="writeAction">Delegate to use to actually write the value.</param>
         /// <returns>The literal value string.</returns>
-        private static string ConverToJsonLightLiteral(IEdmModel model, Action<ODataOutputContext> writeAction)
+        private static string ConvertToJsonLightLiteral(IEdmModel model, Action<ODataOutputContext> writeAction)
         {
             using (MemoryStream stream = new MemoryStream())
             {
@@ -630,6 +590,46 @@ namespace Microsoft.OData
                     writeAction(jsonOutputContext);
                     stream.Position = 0;
                     return new StreamReader(stream).ReadToEnd();
+                }
+            }
+        }
+
+        private static object ConvertFromResourceOrCollectionValue(string value, IEdmModel model, IEdmTypeReference typeReference)
+        {
+            ODataMessageReaderSettings settings = new ODataMessageReaderSettings();
+            settings.Validations &= ~ValidationKinds.ThrowOnUndeclaredPropertyForNonOpenType;
+
+            using (StringReader reader = new StringReader(value))
+            {
+                ODataMessageInfo messageInfo = new ODataMessageInfo
+                {
+                    MediaType = new ODataMediaType(MimeConstants.MimeApplicationType, MimeConstants.MimeJsonSubType),
+                    Model = model,
+                    IsResponse = false,
+                    IsAsync = false,
+                    MessageStream = null,
+                };
+
+                using (ODataJsonLightInputContext context = new ODataJsonLightInputContext(reader, messageInfo, settings))
+                {
+                    ODataJsonLightPropertyAndValueDeserializer deserializer = new ODataJsonLightPropertyAndValueDeserializer(context);
+
+                    // TODO: The way JSON array literals look in the URI is different that response payload with an array in it.
+                    // The fact that we have to manually setup the underlying reader shows this different in the protocol.
+                    // There is a discussion on if we should change this or not.
+                    deserializer.JsonReader.Read(); // Move to first thing
+                    object rawResult = deserializer.ReadNonEntityValue(
+                        null /*payloadTypeName*/,
+                        typeReference,
+                        null /*DuplicatePropertyNameChecker*/,
+                        null /*CollectionWithoutExpectedTypeValidator*/,
+                        true /*validateNullValue*/,
+                        false /*isTopLevelPropertyValue*/,
+                        false /*insideResourceValue*/,
+                        null /*propertyName*/);
+                    deserializer.ReadPayloadEnd(false);
+
+                    return rawResult;
                 }
             }
         }

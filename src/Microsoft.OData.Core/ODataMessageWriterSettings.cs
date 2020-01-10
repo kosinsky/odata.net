@@ -4,10 +4,13 @@
 // </copyright>
 //---------------------------------------------------------------------
 
+using Microsoft.OData.Evaluation;
+
 namespace Microsoft.OData
 {
     #region Namespaces
     using System;
+    using Microsoft.OData.Buffers;
     using Microsoft.OData.UriParser;
     #endregion Namespaces
 
@@ -135,6 +138,11 @@ namespace Microsoft.OData
         public string JsonPCallback { get; set; }
 
         /// <summary>
+        /// Get/sets the character buffer pool.
+        /// </summary>
+        public ICharArrayPool ArrayPool { get; set; }
+
+        /// <summary>
         /// Quotas to use for limiting resource consumption when writing an OData message.
         /// </summary>
         public ODataMessageQuotas MessageQuotas
@@ -176,6 +184,11 @@ namespace Microsoft.OData
         /// Default valus is false, that means serialize null values.
         /// </remarks>
         public bool IgnoreNullValues { get; set; }
+
+        /// <summary>
+        /// Informs the metadata builder which properties, functions, actions, links to omit.
+        /// </summary>
+        public ODataMetadataSelector MetadataSelector { get; set; }
 
         /// <summary>
         /// Gets the validator corresponding to the validation settings.
@@ -414,12 +427,14 @@ namespace Microsoft.OData
             this.useFormat = other.useFormat;
             this.Version = other.Version;
             this.LibraryCompatibility = other.LibraryCompatibility;
+            this.MetadataSelector = other.MetadataSelector;
             this.IgnoreNullValues = other.IgnoreNullValues;
 
             this.validations = other.validations;
             this.ThrowIfTypeConflictsWithMetadata = other.ThrowIfTypeConflictsWithMetadata;
             this.ThrowOnDuplicatePropertyNames = other.ThrowOnDuplicatePropertyNames;
             this.ThrowOnUndeclaredPropertyForNonOpenType = other.ThrowOnUndeclaredPropertyForNonOpenType;
+            this.ArrayPool = other.ArrayPool;
         }
     }
 }

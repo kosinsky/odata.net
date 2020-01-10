@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using Microsoft.OData.UriParser;
 using Microsoft.OData.Edm;
 using Xunit;
@@ -40,9 +39,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var arguments = new List<QueryToken>() { new LiteralToken("grr"), new LiteralToken(1) };
             var token = new FunctionCallToken("substring", arguments);
             var result = functionCallBinder.BindFunctionCall(token);
-            result.ShouldBeSingleValueFunctionCallQueryNode("substring");
-            result.As<SingleValueFunctionCallNode>().Parameters.Count().Should().Be(2);
-            result.As<SingleValueFunctionCallNode>().TypeReference.Definition.ToString().Should().Contain("String");
+            var functionCallNode = result.ShouldBeSingleValueFunctionCallQueryNode("substring");
+            Assert.Equal(2, functionCallNode.Parameters.Count());
+            Assert.Equal("Edm.String", functionCallNode.TypeReference.Definition.FullTypeName());
         }
 
         [Theory]
@@ -62,8 +61,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             var token = new FunctionCallToken("iif", arguments);
             var result = functionCallBinder.BindFunctionCall(token);
-            result.ShouldBeSingleValueFunctionCallQueryNode("iif");
-            result.As<SingleValueFunctionCallNode>().Parameters.Count().Should().Be(3);
+            var functionCallNode = result.ShouldBeSingleValueFunctionCallQueryNode("iif");
+            Assert.Equal(3, functionCallNode.Parameters.Count());
         }
 
 
@@ -84,8 +83,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             var token = new FunctionCallToken("iif", arguments);
             var result = functionCallBinder.BindFunctionCall(token);
-            result.ShouldBeSingleValueFunctionCallQueryNode("iif");
-            result.As<SingleValueFunctionCallNode>().Parameters.Count().Should().Be(3);
+            var functionCallNode = result.ShouldBeSingleValueFunctionCallQueryNode("iif");
+            Assert.Equal(3, functionCallNode.Parameters.Count());
         }
 
         [Fact]
@@ -95,7 +94,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var arguments = new List<QueryToken>() { new LiteralToken("ignored") };
             var token = new FunctionCallToken("year", arguments);
             var result = functionCallBinder.BindFunctionCall(token);
-            result.ShouldBeSingleValueFunctionCallQueryNode("year").And.Parameters.Single().ShouldBeConstantQueryNode<object>(null).And.TypeReference.Should().BeNull();
+            Assert.Null(result.ShouldBeSingleValueFunctionCallQueryNode("year").Parameters.Single().ShouldBeConstantQueryNode<object>(null).TypeReference);
         }
 
         [Fact]
@@ -105,9 +104,10 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var arguments = new List<QueryToken>() { new LiteralToken("ignored"), new LiteralToken("ignored") };
             var token = new FunctionCallToken("substring", arguments);
             var result = functionCallBinder.BindFunctionCall(token);
-            result.ShouldBeSingleValueFunctionCallQueryNode("substring");
-            result.As<SingleValueFunctionCallNode>().Parameters.First().ShouldBeConstantQueryNode<object>(null).And.TypeReference.Should().BeNull();
-            result.As<SingleValueFunctionCallNode>().Parameters.Last().ShouldBeConstantQueryNode<object>(null).And.TypeReference.Should().BeNull();
+            var functionCallNode = result.ShouldBeSingleValueFunctionCallQueryNode("substring");
+            Assert.Equal(2, functionCallNode.Parameters.Count());
+            Assert.Null(functionCallNode.Parameters.First().ShouldBeConstantQueryNode<object>(null).TypeReference);
+            Assert.Null(functionCallNode.Parameters.Last().ShouldBeConstantQueryNode<object>(null).TypeReference);
         }
 
         [Fact]
@@ -120,7 +120,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             FunctionSignatureWithReturnType[] signatures = FunctionCallBinder.ExtractSignatures(
                 FunctionCallBinder.GetUriFunctionSignatures("day")); // to match the error message... blah
-            bindWithEmptyArguments.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            bindWithEmptyArguments.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     "day",
                     UriFunctionsHelper.BuildFunctionSignatureListDescription("day", signatures)));
         }
@@ -135,7 +135,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             FunctionSignatureWithReturnType[] signatures = FunctionCallBinder.ExtractSignatures(
                 FunctionCallBinder.GetUriFunctionSignatures("day")); // to match the error message... blah
-            bindWithEmptyArguments.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            bindWithEmptyArguments.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     "day",
                     UriFunctionsHelper.BuildFunctionSignatureListDescription("day", signatures)));
         }
@@ -148,7 +148,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             var arguments = new List<QueryToken>() { new LiteralToken("ignored"), new LiteralToken("ignored") };
             var token = new FunctionCallToken("day", arguments);
             Action bindWithTooManyNonTypedArgs = () => functionCallBinder.BindFunctionCall(token);
-            bindWithTooManyNonTypedArgs.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.FunctionCallBinder_CannotFindASuitableOverload("day", "2"));
+            bindWithTooManyNonTypedArgs.Throws<ODataException>(ODataErrorStrings.FunctionCallBinder_CannotFindASuitableOverload("day", "2"));
         }
 
         //TypePromoteArguments tests
@@ -175,7 +175,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                             new ConstantNode(3)
                                         };
             FunctionCallBinder.TypePromoteArguments(signature, nodes);
-            nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String).And.Source.ShouldBeConstantQueryNode<object>(null);
+            nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String).Source.ShouldBeConstantQueryNode<object>(null);
             nodes[1].ShouldBeConstantQueryNode(3);
 
             AssertSignatureTypesMatchArguments(signature, nodes);
@@ -191,8 +191,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                             new ConstantNode(null)
                                         };
             FunctionCallBinder.TypePromoteArguments(signature, nodes);
-            nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String).And.Source.ShouldBeConstantQueryNode<object>(null);
-            nodes[1].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.Int32).And.Source.ShouldBeConstantQueryNode<object>(null);
+            nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String).Source.ShouldBeConstantQueryNode<object>(null);
+            nodes[1].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.Int32).Source.ShouldBeConstantQueryNode<object>(null);
 
             AssertSignatureTypesMatchArguments(signature, nodes);
         }
@@ -208,7 +208,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                         };
             FunctionCallBinder.TypePromoteArguments(signature, nodes);
             nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String)
-                    .And.Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName);
+                    .Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName);
             nodes[1].ShouldBeConstantQueryNode(3);
 
             AssertSignatureTypesMatchArguments(signature, nodes);
@@ -225,9 +225,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                         };
             FunctionCallBinder.TypePromoteArguments(signature, nodes);
             nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String)
-                    .And.Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName);
+                    .Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName);
             nodes[1].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.Int32)
-                    .And.Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName + "1");
+                    .Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName + "1");
 
             AssertSignatureTypesMatchArguments(signature, nodes);
         }
@@ -243,9 +243,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                         };
             FunctionCallBinder.TypePromoteArguments(signature, nodes);
             nodes[0].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.String)
-                    .And.Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName);
+                    .Source.ShouldBeSingleValueOpenPropertyAccessQueryNode(OpenPropertyName);
             nodes[1].ShouldBeConvertQueryNode(EdmPrimitiveTypeKind.Int32)
-                    .And.Source.ShouldBeConstantQueryNode<object>(null);
+                    .Source.ShouldBeConstantQueryNode<object>(null);
 
             AssertSignatureTypesMatchArguments(signature, nodes);
         }
@@ -260,7 +260,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                             new ConstantNode("Hello"),
                                         };
             Action a = () => FunctionCallBinder.TypePromoteArguments(signature, nodes);
-            a.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CannotConvertToType("Edm.Int32", "Edm.String"));
+            a.Throws<ODataException>(Strings.MetadataBinder_CannotConvertToType("Edm.Int32", "Edm.String"));
         }
 
         [Fact]
@@ -273,7 +273,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                             new ConstantNode("Hello")
                                         };
             Action a = () => FunctionCallBinder.TypePromoteArguments(signature, nodes);
-            a.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CannotConvertToType("Edm.String", "Edm.Int32"));
+            a.Throws<ODataException>(Strings.MetadataBinder_CannotConvertToType("Edm.String", "Edm.Int32"));
         }
 
 
@@ -287,7 +287,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                                             new ConstantNode("Hello")
                                         };
             Action a = () => FunctionCallBinder.TypePromoteArguments(signature, nodes);
-            a.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CannotConvertToType("Edm.String", "Edm.Int32"));
+            a.Throws<ODataException>(Strings.MetadataBinder_CannotConvertToType("Edm.String", "Edm.Int32"));
         }
 
         [Fact]
@@ -318,8 +318,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                     new ConstantNode(new DateTimeOffset(2012, 11, 19, 1, 1, 1, 1, new TimeSpan(0, 1, 1, 0)))
                 };
             var result = FunctionCallBinder.ValidateArgumentsAreSingleValue("year", argumentNodes);
-            result.Length.Should().Be(1);
-            result[0].TypeReference.Definition.ToString().Should().Contain("DateTimeOffset");
+            Assert.Equal(1, result.Length);
+            Assert.Equal("Edm.DateTimeOffset", result[0].TypeReference.Definition.FullTypeName());
         }
 
         [Fact]
@@ -332,15 +332,14 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                 };
 
             Action bind = () => FunctionCallBinder.ValidateArgumentsAreSingleValue("year", argumentNodes);
-            bind.ShouldThrow<ODataException>().WithMessage(
-                Strings.MetadataBinder_FunctionArgumentNotSingleValue("year"));
+            bind.Throws<ODataException>(Strings.MetadataBinder_FunctionArgumentNotSingleValue("year"));
         }
 
         [Fact]
         public void EnsureArgumentsAreSingleValueNoArguments()
         {
             var result = FunctionCallBinder.ValidateArgumentsAreSingleValue("year", new List<QueryNode>());
-            result.Length.Should().Be(0);
+            Assert.Equal(0, result.Length);
         }
 
         //MatchArgumentsToSignature tests
@@ -362,7 +361,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                      new SingleValuePropertyAccessNode(new ConstantNode(null)/*parent*/, new EdmStructuralProperty(new EdmEntityType("MyNamespace", "MyEntityType"), "myPropertyName", argumentNodes[1].GetEdmTypeReference()))},
                 nameSignatures);
 
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_NoApplicableFunctionFound(
+            bind.Throws<ODataException>(Strings.MetadataBinder_NoApplicableFunctionFound(
                     "IndexOf",
                     UriFunctionsHelper.BuildFunctionSignatureListDescription("IndexOf", nameSignatures.Select(nameSig => nameSig.Value))));
         }
@@ -382,8 +381,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                 argumentNodes.Select(s => (SingleValueNode)s).ToArray(),
                 signatures);
 
-            result.Value.ReturnType.ToString().Should().Contain("Edm.Int32");
-            result.Value.ArgumentTypes[0].ToString().Should().Contain("Edm.DateTimeOffset");
+            Assert.Equal("Edm.Int32", result.Value.ReturnType.FullName());
+            Assert.Equal("Edm.DateTimeOffset", result.Value.ArgumentTypes[0].FullName());
         }
 
         [Fact]
@@ -401,7 +400,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                      new SingleValuePropertyAccessNode(new ConstantNode(null)/*parent*/, new EdmStructuralProperty(new EdmEntityType("MyNamespace", "MyEntityType"), "myPropertyName", argumentNodes[0].GetEdmTypeReference()))},
                 new List<KeyValuePair<string, FunctionSignatureWithReturnType>>());
 
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_NoApplicableFunctionFound(
+            bind.Throws<ODataException>(Strings.MetadataBinder_NoApplicableFunctionFound(
                     "year",
                     UriFunctionsHelper.BuildFunctionSignatureListDescription("year", new FunctionSignatureWithReturnType[0])));
         }
@@ -421,7 +420,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                      new SingleValuePropertyAccessNode(new ConstantNode(null)/*parent*/, new EdmStructuralProperty(new EdmEntityType("MyNamespace", "MyEntityType"), "myPropertyName", argumentNodes[0].GetEdmTypeReference()))},
                 this.GetHardCodedYearFunctionSignatureForTest());
 
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_NoApplicableFunctionFound(
+            bind.Throws<ODataException>(Strings.MetadataBinder_NoApplicableFunctionFound(
                     "year",
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(
                         "year",
@@ -439,10 +438,10 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                  FunctionCallBinder.GetUriFunctionSignatures("substring"));
 
             FunctionSignatureWithReturnType sig = result.Value;
-            sig.ReturnType.ShouldBeEquivalentTo(EdmCoreModel.Instance.GetString(true));
-            sig.ArgumentTypes.Count().Should().Be(2);
-            sig.ArgumentTypes.First().ShouldBeEquivalentTo(EdmCoreModel.Instance.GetString(true));
-            sig.ArgumentTypes.Last().ShouldBeEquivalentTo(EdmCoreModel.Instance.GetInt32(true));
+            Assert.True(sig.ReturnType.IsEquivalentTo(EdmCoreModel.Instance.GetString(true)));
+            Assert.Equal(2, sig.ArgumentTypes.Count());
+            Assert.True(sig.ArgumentTypes.First().IsEquivalentTo(EdmCoreModel.Instance.GetString(true)));
+            Assert.True(sig.ArgumentTypes.Last().IsEquivalentTo(EdmCoreModel.Instance.GetInt32(true)));
         }
 
         [Fact]
@@ -455,9 +454,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken functionToken = new FunctionCallToken("cast", args);
             QueryNode node = this.functionCallBinder.BindFunctionCall(functionToken);
-            node.ShouldBeSingleValueFunctionCallQueryNode("cast");
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(0).ShouldBeConstantQueryNode("stuff");
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
+            var functionCallNode = node.ShouldBeSingleValueFunctionCallQueryNode("cast");
+            functionCallNode.Parameters.ElementAt(0).ShouldBeConstantQueryNode("stuff");
+            functionCallNode.Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
         }
 
         [Fact]
@@ -469,9 +468,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken functionToken = new FunctionCallToken("cast", args);
             QueryNode node = this.functionCallBinder.BindFunctionCall(functionToken);
-            node.ShouldBeSingleValueFunctionCallQueryNode("cast");
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(0).ShouldBeResourceRangeVariableReferenceNode(ExpressionConstants.It);
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
+            var functionCallNode = node.ShouldBeSingleValueFunctionCallQueryNode("cast");
+            functionCallNode.Parameters.ElementAt(0).ShouldBeResourceRangeVariableReferenceNode(ExpressionConstants.It);
+            functionCallNode.Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
         }
 
         [Fact]
@@ -488,7 +487,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             Action createWithMoreThanTwoArgs = () => this.functionCallBinder.BindFunctionCall(functionWithMoreThanTwoArgs);
 
-            createWithMoreThanTwoArgs.ShouldThrow<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfExpressionWithWrongNumberOfOperands(3));
+            createWithMoreThanTwoArgs.Throws<ODataErrorException>(ODataErrorStrings.MetadataBinder_CastOrIsOfExpressionWithWrongNumberOfOperands(3));
         }
 
         [Fact]
@@ -500,7 +499,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken function = new FunctionCallToken("cast", args);
             Action createWithoutATypeArg = () => this.functionCallBinder.BindFunctionCall(function);
-            createWithoutATypeArg.ShouldThrow<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
+            createWithoutATypeArg.Throws<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
         }
 
         [Fact]
@@ -512,7 +511,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
 
             Action bind = () => this.functionCallBinder.BindFunctionCall(new FunctionCallToken("cast", args));
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
+            bind.Throws<ODataException>(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
         }
 
         [Fact]
@@ -525,7 +524,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
 
             Action bind = () => this.functionCallBinder.BindFunctionCall(new FunctionCallToken("cast", args));
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
+            bind.Throws<ODataException>(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
         }
 
         [Fact]
@@ -537,7 +536,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
 
             Action bind = () => this.functionCallBinder.BindFunctionCall(new FunctionCallToken("isof", args));
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
+            bind.Throws<ODataException>(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
         }
 
         [Fact]
@@ -550,7 +549,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
 
             Action bind = () => this.functionCallBinder.BindFunctionCall(new FunctionCallToken("isof", args));
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
+            bind.Throws<ODataException>(Strings.MetadataBinder_CastOrIsOfCollectionsNotSupported);
         }
 
         [Fact]
@@ -563,7 +562,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken function = new FunctionCallToken("cast", args);
             Action createWithOutOfOrderArgs = () => this.functionCallBinder.BindFunctionCall(function);
-            createWithOutOfOrderArgs.ShouldThrow<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
+            createWithOutOfOrderArgs.Throws<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
         }
 
         [Fact]
@@ -576,8 +575,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken function = new FunctionCallToken("cast", args);
             SingleResourceFunctionCallNode functionCallNode = this.functionCallBinder.BindFunctionCall(function) as SingleResourceFunctionCallNode;
-            functionCallNode.Should().NotBeNull();
-            functionCallNode.Parameters.Should().HaveCount(2);
+            Assert.NotNull(functionCallNode);
+            Assert.Equal(2, functionCallNode.Parameters.Count());
             functionCallNode.Parameters.ElementAt(0).ShouldBeSingleNavigationNode(HardCodedTestModel.GetPersonMyDogNavProp());
             functionCallNode.Parameters.ElementAt(1).ShouldBeConstantQueryNode("Fully.Qualified.Namespace.Dog");
         }
@@ -592,9 +591,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken functionToken = new FunctionCallToken("isof", args);
             QueryNode node = this.functionCallBinder.BindFunctionCall(functionToken);
-            node.ShouldBeSingleValueFunctionCallQueryNode("isof");
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(0).ShouldBeConstantQueryNode("stuff");
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
+            var functionCallNode = node.ShouldBeSingleValueFunctionCallQueryNode("isof");
+            functionCallNode.Parameters.ElementAt(0).ShouldBeConstantQueryNode("stuff");
+            functionCallNode.Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
         }
 
         [Fact]
@@ -606,9 +605,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken functionToken = new FunctionCallToken("isof", args);
             QueryNode node = this.functionCallBinder.BindFunctionCall(functionToken);
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(0).ShouldBeResourceRangeVariableReferenceNode(ExpressionConstants.It);
-            node.ShouldBeSingleValueFunctionCallQueryNode("isof");
-            node.As<SingleValueFunctionCallNode>().Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
+            var functionCallNode = node.ShouldBeSingleValueFunctionCallQueryNode("isof");
+            functionCallNode.Parameters.ElementAt(0).ShouldBeResourceRangeVariableReferenceNode(ExpressionConstants.It);
+            functionCallNode.Parameters.ElementAt(1).ShouldBeConstantQueryNode("Edm.String");
         }
 
         [Fact]
@@ -625,7 +624,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             Action createWithMoreThanTwoArgs = () => this.functionCallBinder.BindFunctionCall(functionWithMoreThanTwoArgs);
 
-            createWithMoreThanTwoArgs.ShouldThrow<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfExpressionWithWrongNumberOfOperands(3));
+            createWithMoreThanTwoArgs.Throws<ODataErrorException>(ODataErrorStrings.MetadataBinder_CastOrIsOfExpressionWithWrongNumberOfOperands(3));
         }
 
         [Fact]
@@ -637,7 +636,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken function = new FunctionCallToken("cast", args);
             Action createWithoutATypeArg = () => this.functionCallBinder.BindFunctionCall(function);
-            createWithoutATypeArg.ShouldThrow<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
+            createWithoutATypeArg.Throws<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
         }
 
         [Fact]
@@ -648,9 +647,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                 new LiteralToken("Edm.String"),
                 new LiteralToken("stuff")
             };
-            FunctionCallToken function = new FunctionCallToken("IsOf", args);
+            FunctionCallToken function = new FunctionCallToken("isof", args);
             Action createWithOutOfOrderArgs = () => this.functionCallBinder.BindFunctionCall(function);
-            createWithOutOfOrderArgs.ShouldThrow<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
+            createWithOutOfOrderArgs.Throws<ODataException>(ODataErrorStrings.MetadataBinder_CastOrIsOfFunctionWithoutATypeArgument);
         }
 
         [Fact]
@@ -667,7 +666,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             FunctionSignatureWithReturnType[] signatures = FunctionCallBinder.ExtractSignatures(
                 FunctionCallBinder.GetUriFunctionSignatures(function.Name));
-            createWithMoreThanOneArg.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithMoreThanOneArg.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     function.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(function.Name, signatures)));
         }
@@ -682,7 +681,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             FunctionCallToken function = new FunctionCallToken("geo.length", args);
             Action createWithNonSingleValueNode = () => this.functionCallBinder.BindFunctionCall(function);
-            createWithNonSingleValueNode.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_UnsupportedQueryTokenKind("CustomQueryOption"));
+            createWithNonSingleValueNode.Throws<ODataException>(ODataErrorStrings.MetadataBinder_UnsupportedQueryTokenKind("CustomQueryOption"));
         }
 
         [Fact]
@@ -697,7 +696,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             FunctionCallToken function = new FunctionCallToken("geo.length", args);
             Action createWithNonLineStringType = () => this.functionCallBinder.BindFunctionCall(function);
 
-            createWithNonLineStringType.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_PropertyNotDeclared("Fully.Qualified.Namespace.Person", "GeometryLinePolygon"));
+            createWithNonLineStringType.Throws<ODataErrorException>(ODataErrorStrings.MetadataBinder_PropertyNotDeclared("Fully.Qualified.Namespace.Person", "GeometryLinePolygon"));
         }
 
         [Fact]
@@ -710,7 +709,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             };
             FunctionCallToken function = new FunctionCallToken("geo.length", args);
             SingleValueFunctionCallNode node = this.functionCallBinder.BindFunctionCall(function) as SingleValueFunctionCallNode;
-            node.Parameters.Count().Should().Be(1);
+            Assert.Single(node.Parameters);
             node.Parameters.ElementAt(0).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeometryLineStringProp());
         }
 
@@ -739,13 +738,13 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             FunctionSignatureWithReturnType[] signatures;
             BuiltInUriFunctions.TryGetBuiltInFunction(functionWithOneArg.Name, out signatures);
 
-            createWithOneArg.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithOneArg.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     functionWithOneArg.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(functionWithOneArg.Name, signatures)));
 
             BuiltInUriFunctions.TryGetBuiltInFunction(functionWithMoreThanTwoArgs.Name, out signatures);
 
-            createWithMoreThanTwoArgs.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithMoreThanTwoArgs.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     functionWithMoreThanTwoArgs.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(functionWithMoreThanTwoArgs.Name, signatures)));
         }
@@ -791,19 +790,19 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             SingleValueFunctionCallNode geographyPointGeographyPolyFunction = this.functionCallBinder.BindFunctionCall(geographyPointGeographyPolyToken) as SingleValueFunctionCallNode;
             SingleValueFunctionCallNode geographyPolyGeographyPointFunction = this.functionCallBinder.BindFunctionCall(geographyPolyGeographyPointToken) as SingleValueFunctionCallNode;
 
-            geometryPointGeometryPolyFunction.Parameters.Count().Should().Be(2);
+            Assert.Equal(2, geometryPointGeometryPolyFunction.Parameters.Count());
             geometryPointGeometryPolyFunction.Parameters.ElementAt(0).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeometryPointProp());
             geometryPointGeometryPolyFunction.Parameters.ElementAt(1).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeometryPolygonProp());
 
-            geometryPolyGeometryPointFunction.Parameters.Count().Should().Be(2);
+            Assert.Equal(2, geometryPolyGeometryPointFunction.Parameters.Count());
             geometryPolyGeometryPointFunction.Parameters.ElementAt(0).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeometryPolygonProp());
             geometryPolyGeometryPointFunction.Parameters.ElementAt(1).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeometryPointProp());
 
-            geographyPointGeographyPolyFunction.Parameters.Count().Should().Be(2);
+            Assert.Equal(2, geographyPointGeographyPolyFunction.Parameters.Count());
             geographyPointGeographyPolyFunction.Parameters.ElementAt(0).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeographyPointProp());
             geographyPointGeographyPolyFunction.Parameters.ElementAt(1).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeographyPolygonProp());
 
-            geographyPolyGeographyPointFunction.Parameters.Count().Should().Be(2);
+            Assert.Equal(2, geographyPolyGeographyPointFunction.Parameters.Count());
             geographyPolyGeographyPointFunction.Parameters.ElementAt(0).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeographyPolygonProp());
             geographyPolyGeographyPointFunction.Parameters.ElementAt(1).ShouldBeSingleValuePropertyAccessQueryNode(HardCodedTestModel.GetPersonGeographyPointProp());
 
@@ -854,31 +853,31 @@ namespace Microsoft.OData.Tests.UriParser.Binders
             FunctionSignatureWithReturnType[] signatures;
             BuiltInUriFunctions.TryGetBuiltInFunction(geometryPointNonGeometryPolyToken.Name, out signatures);
 
-            createWithGeometryPointNonGeometryPoly.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithGeometryPointNonGeometryPoly.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     geometryPointNonGeometryPolyToken.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(geometryPointNonGeometryPolyToken.Name, signatures)));
 
             BuiltInUriFunctions.TryGetBuiltInFunction(geometryPolyNonGeometryPointToken.Name, out signatures);
 
-            createWithGeometryPolyNonGeometryPoint.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithGeometryPolyNonGeometryPoint.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     geometryPolyNonGeometryPointToken.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(geometryPolyNonGeometryPointToken.Name, signatures)));
 
             BuiltInUriFunctions.TryGetBuiltInFunction(geographyPointNonGeographyPolyToken.Name, out signatures);
 
-            createWithGeographyPointNonGeographyPoly.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithGeographyPointNonGeographyPoly.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     geographyPointNonGeographyPolyToken.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(geographyPointNonGeographyPolyToken.Name, signatures)));
 
             BuiltInUriFunctions.TryGetBuiltInFunction(geographyPolyNonGeographyPointToken.Name, out signatures);
 
-            createWithGeographyPolyNonGeographyPoint.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithGeographyPolyNonGeographyPoint.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     geographyPolyNonGeographyPointToken.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(geographyPolyNonGeographyPointToken.Name, signatures)));
 
             BuiltInUriFunctions.TryGetBuiltInFunction(garbageToken.Name, out signatures);
 
-            createWithGarbage.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
+            createWithGarbage.Throws<ODataException>(ODataErrorStrings.MetadataBinder_NoApplicableFunctionFound(
                     garbageToken.Name,
                     UriFunctionsHelper.BuildFunctionSignatureListDescription(garbageToken.Name, signatures)));
         }
@@ -1156,7 +1155,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void EndPathAsFunctionCallReturnsSingleValueFunctionCallNodeWhenThereAreNoOverloads()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.HasJob", out functionCallNode).Should().BeTrue();
+            Assert.True(RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.HasJob", out functionCallNode));
             functionCallNode.ShouldBeSingleValueFunctionCallQueryNode(HardCodedTestModel.GetHasJobFunction());
         }
 
@@ -1164,7 +1163,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void EndPathAsFunctionCallReturnsCorrectOverload()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.HasDog", out functionCallNode).Should().BeTrue();
+            Assert.True(RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.HasDog", out functionCallNode));
             functionCallNode.ShouldBeSingleValueFunctionCallQueryNode(HardCodedTestModel.GetHasDogOverloadWithOneParameter());
         }
 
@@ -1172,16 +1171,16 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void EndPathAsFunctionCallReturnsFalseIfNoFunctionExists()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("Gobbldygook", out functionCallNode).Should().BeFalse();
-            functionCallNode.Should().BeNull();
+            Assert.False(RunBindEndPathAsFunctionCall("Gobbldygook", out functionCallNode));
+            Assert.Null(functionCallNode);
         }
 
         [Fact]
         public void EndPathAsFuctionCallReturnsFalseForServiceOps()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("GetCoolPeople", out functionCallNode).Should().BeFalse();
-            functionCallNode.Should().BeNull();
+            Assert.False(RunBindEndPathAsFunctionCall("GetCoolPeople", out functionCallNode));
+            Assert.Null(functionCallNode);
         }
 
         [Fact]
@@ -1195,33 +1194,34 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void SingleEntityFunctionHasResultEntitySet()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.GetMyDog", out functionCallNode).Should().BeTrue();
-            functionCallNode.ShouldBeSingleResourceFunctionCallNode(HardCodedTestModel.GetFunctionForGetMyDog())
-                .And.NavigationSource.Should().Be(HardCodedTestModel.GetDogsSet());
+            Assert.True(RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.GetMyDog", out functionCallNode));
+            Assert.Same(HardCodedTestModel.GetDogsSet(), 
+                functionCallNode.ShouldBeSingleResourceFunctionCallNode(HardCodedTestModel.GetFunctionForGetMyDog()).NavigationSource);
         }
 
         [Fact]
         public void EntityCollectionFunctionHasResultEntitySet()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.AllMyFriendsDogs", out functionCallNode).Should().BeTrue();
-            functionCallNode.ShouldBeCollectionResourceFunctionCallNode(HardCodedTestModel.GetFunctionForAllMyFriendsDogs())
-                .And.NavigationSource.Should().Be(HardCodedTestModel.GetDogsSet());
+            Assert.True(RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.AllMyFriendsDogs", out functionCallNode));
+            Assert.Same(HardCodedTestModel.GetDogsSet(),
+                functionCallNode.ShouldBeCollectionResourceFunctionCallNode(HardCodedTestModel.GetFunctionForAllMyFriendsDogs()).NavigationSource);
         }
 
         [Fact]
         public void EntityCollectionFunctionDoesNotHaveResultEntitySetIfFunctionImportDidntSpecifyOne()
         {
             QueryNode functionCallNode;
-            RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.AllMyFriendsDogs_NoSet", out functionCallNode).Should().BeTrue();
-            functionCallNode.As<CollectionResourceFunctionCallNode>().NavigationSource.Should().BeNull();
+            Assert.True(RunBindEndPathAsFunctionCall("Fully.Qualified.Namespace.AllMyFriendsDogs_NoSet", out functionCallNode));
+            var collectFunctionCallNode = Assert.IsType<CollectionResourceFunctionCallNode>(functionCallNode);
+            Assert.Null(collectFunctionCallNode.NavigationSource);
         }
 
         [Fact]
         public void DottedIdentifierAsFunctionCallReturnsSingleValueFunctionCallNodeWhenThereAreNoOverloads()
         {
             QueryNode functionCallNode;
-            RunDottedIdentifierAsFunctionCall("Fully.Qualified.Namespace.HasJob", out functionCallNode).Should().BeTrue();
+            Assert.True(RunDottedIdentifierAsFunctionCall("Fully.Qualified.Namespace.HasJob", out functionCallNode));
             functionCallNode.ShouldBeSingleValueFunctionCallQueryNode(HardCodedTestModel.GetHasJobFunction());
         }
 
@@ -1229,7 +1229,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void DottedIdentifierAsFunctionCallReturnsCorrectOverload()
         {
             QueryNode functionCallNode;
-            RunDottedIdentifierAsFunctionCall("Fully.Qualified.Namespace.HasDog", out functionCallNode).Should().BeTrue();
+            Assert.True(RunDottedIdentifierAsFunctionCall("Fully.Qualified.Namespace.HasDog", out functionCallNode));
             functionCallNode.ShouldBeSingleValueFunctionCallQueryNode(HardCodedTestModel.GetHasDogOneParameterOverload());
         }
 
@@ -1237,8 +1237,8 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void DottedIdentifierAsFunctionCallReturnsFalseIfNoFunctionExists()
         {
             QueryNode functionCallNode;
-            RunDottedIdentifierAsFunctionCall("Gobbl.dygook", out functionCallNode).Should().BeFalse();
-            functionCallNode.Should().BeNull();
+            Assert.False(RunDottedIdentifierAsFunctionCall("Gobbl.dygook", out functionCallNode));
+            Assert.Null(functionCallNode);
         }
 
         [Fact]
@@ -1259,16 +1259,16 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         public void DottedIdentiferAsFunctionCallReturnsFalseForActions()
         {
             QueryNode functionCallNode;
-            RunDottedIdentifierAsFunctionCall("AlternateContext.Move", out functionCallNode).Should().BeFalse();
-            functionCallNode.Should().BeNull();
+            Assert.False(RunDottedIdentifierAsFunctionCall("AlternateContext.Move", out functionCallNode));
+            Assert.Null(functionCallNode);
         }
 
         [Fact]
         public void DottedIdentifierAsFunctionReturnsFalseForServiceOps()
         {
             QueryNode functionCallNode;
-            RunDottedIdentifierAsFunctionCall("AlternateContext.GetCoolPeople", out functionCallNode).Should().BeFalse();
-            functionCallNode.Should().BeNull();
+            Assert.False(RunDottedIdentifierAsFunctionCall("AlternateContext.GetCoolPeople", out functionCallNode));
+            Assert.Null(functionCallNode);
         }
 
         [Fact]
@@ -1276,7 +1276,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         {
             Action bind = () => FunctionCallBinder.GetUriFunctionSignatures("rarg");
 
-            bind.ShouldThrow<ODataException>().WithMessage(Strings.MetadataBinder_UnknownFunction("rarg"));
+            bind.Throws<ODataException>(Strings.MetadataBinder_UnknownFunction("rarg"));
         }
 
         [Fact]
@@ -1284,7 +1284,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         {
             FunctionCallToken functionCallToken = new FunctionCallToken("substring", null, new EndPathToken("Name", null));
             Action bindWithNonNullParent = () => this.functionCallBinder.BindFunctionCall(functionCallToken);
-            bindWithNonNullParent.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.FunctionCallBinder_UriFunctionMustHaveHaveNullParent("substring"));
+            bindWithNonNullParent.Throws<ODataException>(ODataErrorStrings.FunctionCallBinder_UriFunctionMustHaveHaveNullParent("substring"));
         }
 
         [Fact]
@@ -1295,7 +1295,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                 null,
                 new EndPathToken("Color", new InnerPathToken("MyDog", null, null)));
             Action bindWithNonEntityBindingType = () => this.functionCallBinder.BindFunctionCall(functionCallToken);
-            bindWithNonEntityBindingType.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.FunctionCallBinder_UriFunctionMustHaveHaveNullParent("ChangeOwner"));
+            bindWithNonEntityBindingType.Throws<ODataException>(ODataErrorStrings.FunctionCallBinder_UriFunctionMustHaveHaveNullParent("ChangeOwner"));
         }
 
         [Fact]
@@ -1316,7 +1316,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                 },
                 new EndPathToken("OpenProperty", new InnerPathToken("MyFavoritePainting", null, null)));
             Action bindOpenFunction = () => this.functionCallBinder.BindFunctionCall(functionCall);
-            bindOpenFunction.ShouldThrow<ODataException>().WithMessage(ODataErrorStrings.FunctionCallBinder_CallingFunctionOnOpenProperty("Fully.Qualified.Namespace.FindMyOwner"));
+            bindOpenFunction.Throws<ODataException>(ODataErrorStrings.FunctionCallBinder_CallingFunctionOnOpenProperty("Fully.Qualified.Namespace.FindMyOwner"));
         }
 
         [Fact]
@@ -1338,11 +1338,11 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
                 // Assert
                 FunctionSignatureWithReturnType[] existsBuiltInSignature;
-                BuiltInUriFunctions.TryGetBuiltInFunction(BUILT_IN_GEODISTANCE_FUNCTION_NAME, out existsBuiltInSignature).Should().BeTrue();
+                Assert.True(BuiltInUriFunctions.TryGetBuiltInFunction(BUILT_IN_GEODISTANCE_FUNCTION_NAME, out existsBuiltInSignature));
 
-                resultUriFunctionSignatures.Should().NotBeNull();
-                resultUriFunctionSignatures.Length.Should().Be(existsBuiltInSignature.Length + 1);
-                resultUriFunctionSignatures.All(x => x == customFunctionSignature || existsBuiltInSignature.Any(y => x == y)).Should().BeTrue();
+                Assert.NotNull(resultUriFunctionSignatures);
+                Assert.Equal(existsBuiltInSignature.Length + 1, resultUriFunctionSignatures.Length);
+                Assert.True(resultUriFunctionSignatures.All(x => x == customFunctionSignature || existsBuiltInSignature.Any(y => x == y)));
             }
             finally
             {
@@ -1361,11 +1361,11 @@ namespace Microsoft.OData.Tests.UriParser.Binders
 
             // Assert
             FunctionSignatureWithReturnType[] existsBuiltInSignature;
-            BuiltInUriFunctions.TryGetBuiltInFunction(BUILT_IN_FUNCTION_NAME, out existsBuiltInSignature).Should().BeTrue();
+            Assert.True(BuiltInUriFunctions.TryGetBuiltInFunction(BUILT_IN_FUNCTION_NAME, out existsBuiltInSignature));
 
-            resultUriFunctionSignatures.Should().NotBeNull();
-            resultUriFunctionSignatures.Length.Should().Be(existsBuiltInSignature.Length);
-            resultUriFunctionSignatures.All(x => existsBuiltInSignature.Any(y => x == y)).Should().BeTrue();
+            Assert.NotNull(resultUriFunctionSignatures);
+            Assert.Equal(existsBuiltInSignature.Length, resultUriFunctionSignatures.Length);
+            Assert.True(resultUriFunctionSignatures.All(x => existsBuiltInSignature.Any(y => x == y)));
         }
 
         [Fact]
@@ -1387,9 +1387,9 @@ namespace Microsoft.OData.Tests.UriParser.Binders
                     FunctionCallBinder.GetUriFunctionSignatures(CUSTOM_FUNCTION_NAME));
 
                 // Assert
-                resultUriFunctionSignatures.Should().NotBeNull();
-                resultUriFunctionSignatures.Length.Should().Be(1);
-                resultUriFunctionSignatures.All(x => x == customFunctionSignature).Should().BeTrue();
+                Assert.NotNull(resultUriFunctionSignatures);
+                Assert.Equal(1, resultUriFunctionSignatures.Length);
+                Assert.True(resultUriFunctionSignatures.All(x => x == customFunctionSignature));
             }
             finally
             {
@@ -1498,7 +1498,7 @@ namespace Microsoft.OData.Tests.UriParser.Binders
         {
             for (int i = 0; i < signature.ArgumentTypes.Length; ++i)
             {
-                signature.ArgumentTypes[i].Definition.Should().Be(MetadataBindingUtils.GetEdmType(nodes[i]));
+                Assert.Same(MetadataBindingUtils.GetEdmType(nodes[i]), signature.ArgumentTypes[i].Definition);
             }
         }
 

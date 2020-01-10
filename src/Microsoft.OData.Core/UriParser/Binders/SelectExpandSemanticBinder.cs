@@ -21,6 +21,7 @@ namespace Microsoft.OData.UriParser
         /// <param name="expandToken">the syntactically parsed expand token</param>
         /// <param name="selectToken">the syntactically parsed select token</param>
         /// <param name="configuration">The configuration to use for parsing.</param>
+        /// <param name="state">The state of binding.</param>
         /// <returns>A select expand clause bound to metadata.</returns>
         public static SelectExpandClause Bind(
             ODataPathInfo odataPathInfo,
@@ -29,13 +30,12 @@ namespace Microsoft.OData.UriParser
             ODataUriParserConfiguration configuration,
             BindingState state)
         {
-            ExpandToken unifiedSelectExpandToken = SelectExpandSyntacticUnifier.Combine(expandToken, selectToken);
-
-            ExpandTreeNormalizer expandTreeNormalizer = new ExpandTreeNormalizer();
-            ExpandToken normalizedSelectExpandToken = expandTreeNormalizer.NormalizeExpandTree(unifiedSelectExpandToken);
+            ExpandToken normalizedExpand = ExpandTreeNormalizer.NormalizeExpandTree(expandToken);
+            SelectToken normalizedSelect = SelectTreeNormalizer.NormalizeSelectTree(selectToken);
 
             SelectExpandBinder selectExpandBinder = new SelectExpandBinder(configuration, odataPathInfo, state);
-            SelectExpandClause clause = selectExpandBinder.Bind(normalizedSelectExpandToken);
+
+            SelectExpandClause clause = selectExpandBinder.Bind(normalizedExpand, normalizedSelect);
 
             SelectExpandClauseFinisher.AddExplicitNavPropLinksWhereNecessary(clause);
 

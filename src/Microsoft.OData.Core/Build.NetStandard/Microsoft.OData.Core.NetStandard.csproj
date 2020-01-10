@@ -83,11 +83,17 @@
     <Compile Include="..\Buffers\BufferUtils.cs">
       <Link>Buffers\BufferUtils.cs</Link>
     </Compile>
+    <Compile Include="..\Buffers\ICharArrayPool.cs">
+      <Link>Buffers\ICharArrayPool.cs</Link>
+    </Compile>
     <Compile Include="..\CollectionWithoutExpectedTypeValidator.cs">
       <Link>CollectionWithoutExpectedTypeValidator.cs</Link>
     </Compile>
     <Compile Include="..\ContainerBuilderExtensions.cs">
       <Link>ContainerBuilderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\DerivedTypeValidator.cs">
+      <Link>DerivedTypeValidator.cs</Link>
     </Compile>
     <Compile Include="..\DuplicatePropertyNameChecker.cs">
       <Link>DuplicatePropertyNameChecker.cs</Link>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="..\Evaluation\ODataMetadataContext.cs">
       <Link>Evaluation\ODataMetadataContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Evaluation\ODataMetadataSelector.cs">
+      <Link>Evaluation\ODataMetadataSelector.cs</Link>
     </Compile>
     <Compile Include="..\Evaluation\ODataMissingOperationGenerator.cs">
       <Link>Evaluation\ODataMissingOperationGenerator.cs</Link>
@@ -176,8 +185,8 @@
     <Compile Include="..\InternalErrorCodesCommon.cs">
       <Link>InternalErrorCodesCommon.cs</Link>
     </Compile>
-    <Compile Include="..\IODataBatchOperationListener.cs">
-      <Link>IODataBatchOperationListener.cs</Link>
+    <Compile Include="..\IODataStreamListener.cs">
+      <Link>IODataStreamListener.cs</Link>
     </Compile>
     <Compile Include="..\IODataOutputInStreamErrorListener.cs">
       <Link>IODataOutputInStreamErrorListener.cs</Link>
@@ -335,6 +344,15 @@
     <Compile Include="..\JsonLight\ODataJsonLightReaderNestedResourceInfo.cs">
       <Link>JsonLight\ODataJsonLightReaderNestedResourceInfo.cs</Link>
     </Compile>
+    <Compile Include="..\JsonLight\ODataJsonLightReaderNestedPropertyInfo.cs">
+      <Link>JsonLight\ODataJsonLightReaderNestedPropertyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\JsonLight\ODataJsonLightReaderNestedInfo.cs">
+      <Link>JsonLight\ODataJsonLightReaderNestedInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\JsonLight\ODataJsonLightReaderNestedStreamInfo.cs">
+      <Link>JsonLight\ODataJsonLightReaderNestedStreamInfo.cs</Link>
+    </Compile>
     <Compile Include="..\JsonLight\ODataJsonLightReaderUtils.cs">
       <Link>JsonLight\ODataJsonLightReaderUtils.cs</Link>
     </Compile>
@@ -385,6 +403,15 @@
     </Compile>
     <Compile Include="..\Json\IJsonReader.cs">
       <Link>Json\IJsonReader.cs</Link>
+    </Compile>
+    <Compile Include="..\Json\IJsonStreamReader.cs">
+      <Link>Json\IJsonStreamReader.cs</Link>
+    </Compile>
+    <Compile Include="..\Json\IJsonStreamWriter.cs">
+      <Link>Json\IJsonStreamWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\Json\ODataJsonTextWriter.cs">
+      <Link>Json\ODataJsonTextWriter.cs</Link>
     </Compile>
     <Compile Include="..\Json\IJsonReaderFactory.cs">
       <Link>Json\IJsonReaderFactory.cs</Link>
@@ -542,8 +569,8 @@
     <Compile Include="..\ODataBatchOperationMessage.cs">
       <Link>ODataBatchOperationMessage.cs</Link>
     </Compile>
-    <Compile Include="..\ODataBatchOperationReadStream.cs">
-      <Link>ODataBatchOperationReadStream.cs</Link>
+    <Compile Include="..\ODataReadStream.cs">
+      <Link>ODataReadStream.cs</Link>
     </Compile>
     <Compile Include="..\ODataBatchOperationRequestMessage.cs">
       <Link>ODataBatchOperationRequestMessage.cs</Link>
@@ -551,11 +578,11 @@
     <Compile Include="..\ODataBatchOperationResponseMessage.cs">
       <Link>ODataBatchOperationResponseMessage.cs</Link>
     </Compile>
-    <Compile Include="..\ODataBatchOperationStream.cs">
-      <Link>ODataBatchOperationStream.cs</Link>
+    <Compile Include="..\ODataStream.cs">
+      <Link>ODataStream.cs</Link>
     </Compile>
-    <Compile Include="..\ODataBatchOperationWriteStream.cs">
-      <Link>ODataBatchOperationWriteStream.cs</Link>
+    <Compile Include="..\ODataWriteStream.cs">
+      <Link>ODataWriteStream.cs</Link>
     </Compile>
     <Compile Include="..\ODataBatchPayloadUriConverter.cs">
       <Link>ODataBatchPayloadUriConverter.cs</Link>
@@ -583,6 +610,24 @@
     </Compile>
     <Compile Include="..\ODataBatchWriter.cs">
       <Link>ODataBatchWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataBinaryStreamReader.cs">
+      <Link>ODataBinaryStreamReader.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataBinaryStreamWriter.cs">
+      <Link>ODataBinaryStreamWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataTextStreamReader.cs">
+      <Link>ODataTextStreamReader.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataNotificationStream.cs">
+      <Link>ODataNotificationStream.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataNotificationReader.cs">
+      <Link>ODataNotificationReader.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataNotificationWriter.cs">
+      <Link>ODataNotificationWriter.cs</Link>
     </Compile>
     <Compile Include="..\ODataCollectionReader.cs">
       <Link>ODataCollectionReader.cs</Link>
@@ -803,6 +848,18 @@
     <Compile Include="..\ODataPreferenceHeader.cs">
       <Link>ODataPreferenceHeader.cs</Link>
     </Compile>
+    <Compile Include="..\IODataStreamReferenceInfo.cs">
+      <Link>IODataStreamReferenceInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataStreamItem.cs">
+      <Link>ODataStreamItem.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataPropertyInfo.cs">
+      <Link>ODataPropertyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ODataStreamPropertyInfo.cs">
+      <Link>ODataStreamPropertyInfo.cs</Link>
+    </Compile>
     <Compile Include="..\ODataProperty.cs">
       <Link>ODataProperty.cs</Link>
     </Compile>
@@ -994,7 +1051,7 @@
     </Compile>
     <Compile Include="..\UriParser\Aggregation\ExpandTransformationNode.cs">
       <Link>UriParser\Aggregation\ExpandTransformationNode.cs</Link>
-    </Compile>    
+    </Compile>
     <Compile Include="..\UriParser\Aggregation\FilterTransformationNode.cs">
       <Link>UriParser\Aggregation\FilterTransformationNode.cs</Link>
     </Compile>
@@ -1100,9 +1157,6 @@
     <Compile Include="..\UriParser\Binders\SearchBinder.cs">
       <Link>UriParser\Binders\SearchBinder.cs</Link>
     </Compile>
-    <Compile Include="..\UriParser\Binders\SelectBinder.cs">
-      <Link>UriParser\Binders\SelectBinder.cs</Link>
-    </Compile>
     <Compile Include="..\UriParser\Binders\SelectExpandBinder.cs">
       <Link>UriParser\Binders\SelectExpandBinder.cs</Link>
     </Compile>
@@ -1114,9 +1168,6 @@
     </Compile>
     <Compile Include="..\UriParser\Binders\SelectExpandSemanticBinder.cs">
       <Link>UriParser\Binders\SelectExpandSemanticBinder.cs</Link>
-    </Compile>
-    <Compile Include="..\UriParser\Binders\SelectExpandSyntacticUnifier.cs">
-      <Link>UriParser\Binders\SelectExpandSyntacticUnifier.cs</Link>
     </Compile>
     <Compile Include="..\UriParser\Binders\SelectPathSegmentTokenBinder.cs">
       <Link>UriParser\Binders\SelectPathSegmentTokenBinder.cs</Link>
@@ -1202,8 +1253,8 @@
     <Compile Include="..\UriParser\Parsers\ExpandDepthAndCountValidator.cs">
       <Link>UriParser\Parsers\ExpandDepthAndCountValidator.cs</Link>
     </Compile>
-    <Compile Include="..\UriParser\Parsers\ExpandOptionParser.cs">
-      <Link>UriParser\Parsers\ExpandOptionParser.cs</Link>
+    <Compile Include="..\UriParser\Parsers\SelectExpandOptionParser.cs">
+      <Link>UriParser\Parsers\SelectExpandOptionParser.cs</Link>
     </Compile>
     <Compile Include="..\UriParser\Parsers\FunctionCallParser.cs">
       <Link>UriParser\Parsers\FunctionCallParser.cs</Link>
@@ -1637,6 +1688,12 @@
     <Compile Include="..\UriParser\SyntacticAst\RangeVariableToken.cs">
       <Link>UriParser\SyntacticAst\RangeVariableToken.cs</Link>
     </Compile>
+    <Compile Include="..\UriParser\SyntacticAst\SelectExpandTermToken.cs">
+      <Link>UriParser\SyntacticAst\SelectExpandTermToken.cs</Link>
+    </Compile>
+    <Compile Include="..\UriParser\SyntacticAst\SelectTermToken.cs">
+      <Link>UriParser\SyntacticAst\SelectTermToken.cs</Link>
+    </Compile>
     <Compile Include="..\UriParser\SyntacticAst\SelectToken.cs">
       <Link>UriParser\SyntacticAst\SelectToken.cs</Link>
     </Compile>
@@ -1721,9 +1778,6 @@
     <Compile Include="..\UriParser\Visitors\SelectItemTranslator.cs">
       <Link>UriParser\Visitors\SelectItemTranslator.cs</Link>
     </Compile>
-    <Compile Include="..\UriParser\Visitors\SelectPropertyVisitor.cs">
-      <Link>UriParser\Visitors\SelectPropertyVisitor.cs</Link>
-    </Compile>
     <Compile Include="..\UriParser\Visitors\SplitEndingSegmentOfTypeHandler.cs">
       <Link>UriParser\Visitors\SplitEndingSegmentOfTypeHandler.cs</Link>
     </Compile>
@@ -1744,6 +1798,9 @@
     </Compile>
     <Compile Include="..\Value\ODataResourceValue.cs">
       <Link>Value\ODataResourceValue.cs</Link>
+    </Compile>
+    <Compile Include="..\Value\ODataBinaryStreamValue.cs">
+      <Link>Value\ODataBinaryStreamValue.cs</Link>
     </Compile>
     <Compile Include="..\Value\ODataStreamReferenceValue.cs">
       <Link>Value\ODataStreamReferenceValue.cs</Link>
