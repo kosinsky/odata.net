@@ -147,7 +147,7 @@ namespace Microsoft.OData.JsonLight
             ODataValue value = property.ODataValue;
 
             // If no validation is required, we don't need property serialization info and could try to write null property right away
-            if (!this.MessageWriterSettings.ThrowIfTypeConflictsWithMetadata && this.MessageWriterSettings.IgnoreNullValues)
+            if (!this.MessageWriterSettings.ThrowIfTypeConflictsWithMetadata && this.MessageWriterSettings.OmitNullValues )
             {
                 if (value is ODataNullValue || value == null)
                 {
@@ -445,7 +445,7 @@ namespace Microsoft.OData.JsonLight
                     throw new ODataException(Strings.ODataMessageWriter_CannotWriteTopLevelNull);
                 }
             }
-            else if (!this.MessageWriterSettings.IgnoreNullValues)
+            else if (!this.MessageWriterSettings.OmitNullValues )
             {
                 this.JsonWriter.WriteName(property.Name);
                 this.JsonLightValueSerializer.WriteNullValue();

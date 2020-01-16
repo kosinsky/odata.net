@@ -476,7 +476,7 @@ namespace Microsoft.OData.Tests.IntegrationTests.Writer.JsonLight
             using (MemoryStream stream = new MemoryStream())
             {
                 var message = new InMemoryMessage { Stream = stream };
-                var settings = new ODataMessageWriterSettings { Version = ODataVersion.V4, IgnoreNullValues = false };
+                var settings = new ODataMessageWriterSettings { Version = ODataVersion.V4 };
 
                 using (ODataMessageWriter messageWriter = new ODataMessageWriter((IODataRequestMessage)message, settings, withModel ? model : null))
                 {

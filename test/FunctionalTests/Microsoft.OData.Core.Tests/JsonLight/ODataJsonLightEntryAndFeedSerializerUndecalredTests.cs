@@ -53,7 +53,6 @@ namespace Microsoft.Test.OData.TDD.Tests.Writer.JsonLight
         private ODataMessageWriterSettings writerSettings = new ODataMessageWriterSettings
         {
             Validations = ~ValidationKinds.ThrowOnUndeclaredPropertyForNonOpenType,
-            IgnoreNullValues = false // OData spec compat default
         };
 
         #region non-open entity's property unknown name + known value type

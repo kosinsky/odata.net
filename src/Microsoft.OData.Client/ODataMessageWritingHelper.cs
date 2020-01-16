@@ -44,7 +44,6 @@ namespace Microsoft.OData.Client
                 // message is an internal implementation of IODataRequestMessage in ODataLib,
                 // we can do this here.
                 EnableMessageStreamDisposal = isBatchPartRequest,
-                IgnoreNullValues = false
             };
 
             // [#623] As client does not support DI currently, odata simplifiedoptions cannot be customize pre request.
