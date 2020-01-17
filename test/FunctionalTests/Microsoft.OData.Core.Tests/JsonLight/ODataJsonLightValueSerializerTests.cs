@@ -41,7 +41,7 @@ namespace Microsoft.OData.Tests.JsonLight
 
             var collectionValue = new ODataCollectionValue() { Items = new List<string>() };
 
-            Action test = () => serializer.WriteCollectionValue(collectionValue, null, null, false, false, false);
+            Action test = () => serializer.WriteCollectionValue(collectionValue, null, null, false, false, false, false);
 
             test.Throws<ODataException>(Strings.ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForCollectionValueInRequest);
         }
@@ -54,7 +54,7 @@ namespace Microsoft.OData.Tests.JsonLight
             var collectionValue = new ODataCollectionValue() { Items = new List<string>(), TypeName = "Collection(Edm.Int32)" };
 
             var stringCollectionTypeRef = EdmCoreModel.GetCollection(EdmCoreModel.Instance.GetString(true));
-            Action test = () => serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false);
+            Action test = () => serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false, false);
 
             test.Throws<ODataException>(Strings.ValidationUtils_IncompatibleType("Collection(Edm.Int32)", "Collection(Edm.String)"));
         }
@@ -67,7 +67,7 @@ namespace Microsoft.OData.Tests.JsonLight
             var collectionValue = new ODataCollectionValue() { Items = new List<string>(), TypeName = "Collection(Int32)" };
 
             var stringCollectionTypeRef = EdmCoreModel.GetCollection(EdmCoreModel.Instance.GetString(true));
-            Action test = () => serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false);
+            Action test = () => serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false, false);
 
             test.Throws<ODataException>(Strings.ValidationUtils_IncompatibleType("Collection(Edm.Int32)", "Collection(Edm.String)"));
         }
@@ -84,7 +84,7 @@ namespace Microsoft.OData.Tests.JsonLight
                 };
 
             var stringCollectionTypeRef = EdmCoreModel.GetCollection(EdmCoreModel.Instance.GetInt32(true));
-            serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false);
+            serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false, false);
         }
 
         [Fact]
@@ -99,7 +99,7 @@ namespace Microsoft.OData.Tests.JsonLight
             };
 
             var stringCollectionTypeRef = EdmCoreModel.GetCollection(EdmCoreModel.Instance.GetInt32(false));
-            Action test = () => serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false);
+            Action test = () => serializer.WriteCollectionValue(collectionValue, stringCollectionTypeRef, null, false, false, false, false);
 
             test.Throws<ODataException>(Strings.ValidationUtils_NonNullableCollectionElementsMustNotBeNull);
         }
@@ -139,7 +139,7 @@ namespace Microsoft.OData.Tests.JsonLight
 
             var resourceValue = new ODataResourceValue();
 
-            Action test = () => serializer.WriteResourceValue(resourceValue, null, false, null);
+            Action test = () => serializer.WriteResourceValue(resourceValue, null, false, false, null);
 
             test.Throws<ODataException>(Strings.ODataJsonLightPropertyAndValueSerializer_NoExpectedTypeOrTypeNameSpecifiedForResourceValueRequest);
         }
@@ -175,7 +175,7 @@ namespace Microsoft.OData.Tests.JsonLight
                 };
 
                 var entityTypeRef = new EdmEntityTypeReference(entityType, false);
-                serializer.WriteResourceValue(resourceValue, entityTypeRef, false, serializer.CreateDuplicatePropertyNameChecker());
+                serializer.WriteResourceValue(resourceValue, entityTypeRef, false, false, serializer.CreateDuplicatePropertyNameChecker());
             });
 
             Assert.Equal(@"{""Name"":""MyName"",""Location"":{""City"":""MyCity""}}", result);
@@ -210,7 +210,7 @@ namespace Microsoft.OData.Tests.JsonLight
                 };
 
                 var collectionTypeRef = new EdmCollectionTypeReference(new EdmCollectionType(new EdmComplexTypeReference(complexType, false)));
-                serializer.WriteCollectionValue(collectionValue, collectionTypeRef, null, false, false, false);
+                serializer.WriteCollectionValue(collectionValue, collectionTypeRef, null, false, false, false, false);
             });
 
             Assert.Equal(@"[{""City"":""MyCity1""},{""City"":""MyCity2""}]", result);
@@ -234,7 +234,7 @@ namespace Microsoft.OData.Tests.JsonLight
                 };
 
                 var complexTypeRef = new EdmComplexTypeReference(complexType, false);
-                serializer.WriteResourceValue(resourceValue, complexTypeRef, false, serializer.CreateDuplicatePropertyNameChecker());
+                serializer.WriteResourceValue(resourceValue, complexTypeRef, false, false, serializer.CreateDuplicatePropertyNameChecker());
             });
 
             Assert.Equal(@"{""@Is.ReadOnly"":true}", result);
@@ -266,7 +266,7 @@ namespace Microsoft.OData.Tests.JsonLight
                 };
 
                 var complexTypeRef = new EdmComplexTypeReference(complexType, false);
-                serializer.WriteResourceValue(resourceValue, complexTypeRef, false, serializer.CreateDuplicatePropertyNameChecker());
+                serializer.WriteResourceValue(resourceValue, complexTypeRef, false, false, serializer.CreateDuplicatePropertyNameChecker());
             });
 
             Assert.Equal(expect, result);

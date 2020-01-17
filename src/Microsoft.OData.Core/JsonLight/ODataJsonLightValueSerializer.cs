@@ -112,6 +112,7 @@ namespace Microsoft.OData.JsonLight
             ODataResourceValue resourceValue,
             IEdmTypeReference metadataTypeReference,
             bool isOpenPropertyType,
+            bool omitNullValues,
             IDuplicatePropertyNameChecker duplicatePropertyNamesChecker)
         {
             Debug.Assert(resourceValue != null, "resourceValue != null");
@@ -150,6 +151,7 @@ namespace Microsoft.OData.JsonLight
                 resourceValueTypeReference == null ? null : resourceValueTypeReference.StructuredDefinition(),
                 resourceValue.Properties,
                 true /* isComplexValue */,
+                omitNullValues,
                 duplicatePropertyNamesChecker,
                 null);
 
@@ -171,7 +173,7 @@ namespace Microsoft.OData.JsonLight
         /// <remarks>The current recursion depth is measured by the number of resource and collection values between
         /// this one and the top-level payload, not including this one.</remarks>
         [SuppressMessage("Microsoft.Naming", "CA2204:LiteralsShouldBeSpelledCorrectly", Justification = "Names are correct. String can't be localized after string freeze.")]
-        public virtual void WriteCollectionValue(ODataCollectionValue collectionValue, IEdmTypeReference metadataTypeReference, IEdmTypeReference valueTypeReference, bool isTopLevelProperty, bool isInUri, bool isOpenPropertyType)
+        public virtual void WriteCollectionValue(ODataCollectionValue collectionValue, IEdmTypeReference metadataTypeReference, IEdmTypeReference valueTypeReference, bool isTopLevelProperty, bool isInUri, bool isOpenPropertyType, bool omitNullValues)
         {
             Debug.Assert(collectionValue != null, "collectionValue != null");
             Debug.Assert(!isTopLevelProperty || !isInUri, "Cannot be a top level property and in a uri");
@@ -247,6 +249,7 @@ namespace Microsoft.OData.JsonLight
                             itemAsResourceValue,
                             expectedItemTypeReference,
                             false /*isOpenPropertyType*/,
+                            omitNullValues,
                             duplicatePropertyNamesChecker);
 
                         duplicatePropertyNamesChecker.Reset();

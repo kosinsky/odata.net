@@ -144,6 +144,7 @@ namespace Microsoft.OData.JsonLight
                         resourceValue,
                         expectedItemType,
                         false /*isOpenPropertyType*/,
+                        this.jsonLightOutputContext.ShouldOmitNullValues(),
                         this.DuplicatePropertyNameChecker);
                     this.jsonLightCollectionSerializer.AssertRecursionDepthIsZero();
                     this.DuplicatePropertyNameChecker.Reset();

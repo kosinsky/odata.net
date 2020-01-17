@@ -35,7 +35,7 @@ namespace Microsoft.OData.Tests.Json
             this.WriteNullVerifier();
         }
 
-        public override void WriteResourceValue(ODataResourceValue resourceValue, IEdmTypeReference metadataTypeReference, bool isOpenPropertyType, IDuplicatePropertyNameChecker duplicatePropertyNamesChecker)
+        public override void WriteResourceValue(ODataResourceValue resourceValue, IEdmTypeReference metadataTypeReference, bool isOpenPropertyType, bool omitNullValues, IDuplicatePropertyNameChecker duplicatePropertyNamesChecker)
         {
             Assert.NotNull(this.WriteResourceValueVerifier);
             this.WriteResourceValueVerifier(resourceValue, metadataTypeReference, isOpenPropertyType, duplicatePropertyNamesChecker);
@@ -52,7 +52,7 @@ namespace Microsoft.OData.Tests.Json
             this.WriteEnumVerifier(value, expectedTypeReference);
         }
 
-        public override void WriteCollectionValue(ODataCollectionValue collectionValue, IEdmTypeReference metadataTypeReference, IEdmTypeReference valueTypeReference, bool isTopLevelProperty, bool isInUri, bool isOpenPropertyType)
+        public override void WriteCollectionValue(ODataCollectionValue collectionValue, IEdmTypeReference metadataTypeReference, IEdmTypeReference valueTypeReference, bool isTopLevelProperty, bool isInUri, bool isOpenPropertyType, bool omitNullValues)
         {
             Assert.NotNull(this.WriteCollectionVerifier);
             this.WriteCollectionVerifier(collectionValue, metadataTypeReference, valueTypeReference, isTopLevelProperty, isInUri, isOpenPropertyType);

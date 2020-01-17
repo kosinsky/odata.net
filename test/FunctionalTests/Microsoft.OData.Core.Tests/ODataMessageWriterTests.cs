@@ -80,6 +80,15 @@ namespace Microsoft.OData.Tests
         }
 
         [Fact]
+        public void CreateMessageWriterShouldOmitNullValuesWhenOmitValuesIsSetToNullsOnPreferenceAppliedHeader()
+        {
+            IODataResponseMessage responseMessage = new InMemoryMessage();
+            responseMessage.PreferenceAppliedHeader().OmitValues = "nulls";
+            ODataMessageWriter writer = new ODataMessageWriter(responseMessage, new ODataMessageWriterSettings());
+            Assert.True(writer.Settings.OmitNullValues);
+        }
+
+        [Fact]
         public void WriteTopLevelUIntPropertyShouldWork()
         {
             var settings = new ODataMessageWriterSettings();

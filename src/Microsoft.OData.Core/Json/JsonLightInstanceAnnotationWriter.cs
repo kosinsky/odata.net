@@ -176,6 +176,7 @@ namespace Microsoft.OData
                 this.valueSerializer.WriteResourceValue(resourceValue,
                     expectedType,
                     treatLikeOpenProperty,
+                    false /* omitNullValues */,
                     this.valueSerializer.CreateDuplicatePropertyNameChecker());
                 return;
             }
@@ -192,7 +193,7 @@ namespace Microsoft.OData
                 }
 
                 this.WriteInstanceAnnotationName(propertyName, name);
-                this.valueSerializer.WriteCollectionValue(collectionValue, expectedType, typeFromCollectionValue, false /*isTopLevelProperty*/, false /*isInUri*/, treatLikeOpenProperty);
+                this.valueSerializer.WriteCollectionValue(collectionValue, expectedType, typeFromCollectionValue, false /*isTopLevelProperty*/, false /*isInUri*/, treatLikeOpenProperty, false /* omitNullValues */);
                 return;
             }
 
