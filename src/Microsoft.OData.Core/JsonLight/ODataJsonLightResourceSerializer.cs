@@ -254,7 +254,7 @@ namespace Microsoft.OData.JsonLight
             ODataProperty streamProperty = resource.MetadataBuilder.GetNextUnprocessedStreamProperty();
             while (streamProperty != null)
             {
-                this.WriteProperty(streamProperty, resourceState.ResourceType, /*isTopLevel*/ false, duplicatePropertyNameChecker, null /*metadataBuilder*/);
+                this.WriteProperty(streamProperty, resourceState.ResourceType, /*isTopLevel*/ false, false/*omitNullValues*/, duplicatePropertyNameChecker, null /*metadataBuilder*/);
                 streamProperty = resource.MetadataBuilder.GetNextUnprocessedStreamProperty();
             }
 

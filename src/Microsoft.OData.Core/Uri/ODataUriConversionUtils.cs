@@ -265,6 +265,7 @@ namespace Microsoft.OData
                         resourceValue, /* resourceValue */
                         null, /* metadataTypeReference */
                         true, /* isOpenPropertyType */
+                        false, /* omitNullValues */
                         serializer.CreateDuplicatePropertyNameChecker()));
             }
 
@@ -305,7 +306,8 @@ namespace Microsoft.OData
                         null /*valueTypeReference*/,
                         false /*isTopLevelProperty*/,
                         true /*isInUri*/,
-                        false /*isOpenPropertyType*/));
+                        false /*isOpenPropertyType*/,
+                        false /* omitNullValues */));
             }
 
             return builder.ToString();

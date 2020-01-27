@@ -84,6 +84,7 @@ namespace Microsoft.OData.JsonLight
                         property,
                         null /*owningType*/,
                         true /* isTopLevel */,
+                        false /*omitNullValues */,
                         this.CreateDuplicatePropertyNameChecker(),
                         null /* metadataBuilder */);
                     this.JsonLightValueSerializer.AssertRecursionDepthIsZero();
@@ -107,6 +108,7 @@ namespace Microsoft.OData.JsonLight
             IEdmStructuredType owningType,
             IEnumerable<ODataProperty> properties,
             bool isComplexValue,
+            bool omitNullValues,
             IDuplicatePropertyNameChecker duplicatePropertyNameChecker,
             ODataResourceMetadataBuilder metadataBuilder)
         {
@@ -121,6 +123,8 @@ namespace Microsoft.OData.JsonLight
                     property,
                     owningType,
                     false /* isTopLevel */,
+                    // Annotated properties won't be omitted even if it is null.
+                    omitNullValues && property.InstanceAnnotations.Count == 0,
                     duplicatePropertyNameChecker,
                     metadataBuilder);
             }
@@ -139,17 +143,17 @@ namespace Microsoft.OData.JsonLight
             ODataProperty property,
             IEdmStructuredType owningType,
             bool isTopLevel,
+            bool omitNullValues,
             IDuplicatePropertyNameChecker duplicatePropertyNameChecker,
             ODataResourceMetadataBuilder metadataBuilder)
         {
             this.WritePropertyInfo(property, owningType, isTopLevel, duplicatePropertyNameChecker, metadataBuilder);
 
             ODataValue value = property.ODataValue;
-
-            // If no validation is required, we don't need property serialization info and could try to write null property right away
-            if (!this.MessageWriterSettings.ThrowIfTypeConflictsWithMetadata && this.MessageWriterSettings.IgnoreNullValues)
+            bool isNullValue = (value == null || value is ODataNullValue);
+            if (isNullValue && omitNullValues)
             {
-                if (value is ODataNullValue || value == null)
+                if (!this.currentPropertyInfo.IsTopLevel)
                 {
                     return;
                 }
@@ -172,7 +176,7 @@ namespace Microsoft.OData.JsonLight
                 return;
             }
 
-            if (value is ODataNullValue || value == null)
+            if (isNullValue)
             {
                 this.WriteNullProperty(property);
                 return;
@@ -202,7 +206,7 @@ namespace Microsoft.OData.JsonLight
                     throw new ODataException(Strings.ODataMessageWriter_NotAllowedWriteTopLevelPropertyWithResourceValue(property.Name));
                 }
 
-                this.WriteResourceProperty(property, resourceValue, isOpenPropertyType);
+                this.WriteResourceProperty(property, resourceValue, isOpenPropertyType, omitNullValues);
                 return;
             }
 
@@ -217,7 +221,7 @@ namespace Microsoft.OData.JsonLight
                     }
                 }
 
-                this.WriteCollectionProperty(collectionValue, isOpenPropertyType);
+                this.WriteCollectionProperty(collectionValue, isOpenPropertyType, omitNullValues);
                 return;
             }
 
@@ -445,7 +449,7 @@ namespace Microsoft.OData.JsonLight
                     throw new ODataException(Strings.ODataMessageWriter_CannotWriteTopLevelNull);
                 }
             }
-            else if (!this.MessageWriterSettings.IgnoreNullValues)
+            else if (!this.MessageWriterSettings.OmitNullValues )
             {
                 this.JsonWriter.WriteName(property.Name);
                 this.JsonLightValueSerializer.WriteNullValue();
@@ -461,7 +465,8 @@ namespace Microsoft.OData.JsonLight
         private void WriteResourceProperty(
             ODataProperty property,
             ODataResourceValue resourceValue,
-            bool isOpenPropertyType)
+            bool isOpenPropertyType,
+            bool omitNullValues)
         {
             Debug.Assert(!this.currentPropertyInfo.IsTopLevel, "Resource property should not be top level");
             this.JsonWriter.WriteName(property.Name);
@@ -470,6 +475,7 @@ namespace Microsoft.OData.JsonLight
                 resourceValue,
                 this.currentPropertyInfo.MetadataType.TypeReference,
                 isOpenPropertyType,
+                omitNullValues,
                 this.CreateDuplicatePropertyNameChecker());
         }
 
@@ -526,7 +532,8 @@ namespace Microsoft.OData.JsonLight
         /// <param name="isOpenPropertyType">If the property is open.</param>
         private void WriteCollectionProperty(
             ODataCollectionValue collectionValue,
-            bool isOpenPropertyType)
+            bool isOpenPropertyType,
+            bool omitNullValues)
         {
             ResolveCollectionValueTypeName(collectionValue, isOpenPropertyType);
 
@@ -540,7 +547,8 @@ namespace Microsoft.OData.JsonLight
                 this.currentPropertyInfo.ValueType.TypeReference,
                 this.currentPropertyInfo.IsTopLevel,
                 false /*isInUri*/,
-                isOpenPropertyType);
+                isOpenPropertyType,
+                omitNullValues);
         }
 
         private void ResolveCollectionValueTypeName(ODataCollectionValue collectionValue, bool isOpenPropertyType)

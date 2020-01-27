@@ -77,7 +77,6 @@ namespace Microsoft.OData
             this.Validations = ValidationKinds.All;
             this.Validator = new WriterValidator(this);
             this.LibraryCompatibility = ODataLibraryCompatibility.Latest;
-            this.IgnoreNullValues = true;
         }
 
         /// <summary>
@@ -178,12 +177,12 @@ namespace Microsoft.OData
         public ODataVersion? Version { get; set; }
 
         /// <summary>
-        /// Don't serialize null values
+        /// Whether to omit null values when writing response.
         /// </summary>
         /// <remarks>
-        /// Default valus is false, that means serialize null values.
+        /// Default value is false, that means serialize null values.
         /// </remarks>
-        public bool IgnoreNullValues { get; set; }
+        public bool OmitNullValues  { get; set; }
 
         /// <summary>
         /// Informs the metadata builder which properties, functions, actions, links to omit.
@@ -428,7 +427,7 @@ namespace Microsoft.OData
             this.Version = other.Version;
             this.LibraryCompatibility = other.LibraryCompatibility;
             this.MetadataSelector = other.MetadataSelector;
-            this.IgnoreNullValues = other.IgnoreNullValues;
+            this.OmitNullValues  = other.OmitNullValues ;
 
             this.validations = other.validations;
             this.ThrowIfTypeConflictsWithMetadata = other.ThrowIfTypeConflictsWithMetadata;
