@@ -15,12 +15,6 @@
     <EnableLocalization>true</EnableLocalization>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <!-- SourceLink Options-->
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <TargetFrameworkProfile />
-    <!-- /SourceLink Options-->
   </PropertyGroup>
   <Import Project="..\Build.props" />
   <!-- References -->
@@ -744,13 +738,7 @@
         <Reference Include="System" />
         <Reference Include="System.XML" />
     </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.SourceLink.Vsts.Git" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
-    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <ItemGroup>
-        <PackageReference Include="Microsoft.SourceLink.Vsts.Git" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
-    </ItemGroup>
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
         <PropertyGroup>
             <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

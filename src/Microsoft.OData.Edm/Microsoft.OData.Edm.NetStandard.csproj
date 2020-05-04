@@ -21,12 +21,6 @@
     <!-- from Build.Props... but can't reference it at this level -->
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <StyleCopOverrideSettingsFile Condition="'$(StyleCopOverrideSettingsFile)' == ''">$(MSBuildThisFileDirectory)Microsoft.OData.Edm.StyleCop</StyleCopOverrideSettingsFile>
-    <!-- SourceLink Options-->
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <TargetFrameworkProfile />
-    <!-- /SourceLink Options-->
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,11 +46,6 @@
   </ItemGroup>
 
   <Import Project="..\Build.props" />
-
-  <ItemGroup>
-        <PackageReference Include="Microsoft.SourceLink.Vsts.Git" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
-  </ItemGroup>
-
   <ItemGroup>
     <TextStringResource Include="Microsoft.OData.Edm.txt">
       <ResFile>Microsoft.OData.Edm</ResFile>
