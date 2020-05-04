@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props" Condition="Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props')" />
   <PropertyGroup>
     <AssemblyName>Microsoft.TeamFoundation.OData.Client</AssemblyName>
     <OutputType>Library</OutputType>
@@ -40,32 +39,6 @@
       <Name>Microsoft.OData.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <FilesToLocalize Include="$(OutDir)\$(AssemblyName).dll">
-        <TranslationFile>$(MSBuildThisFileDirectory)..\..\tools\Localization\loc\lcl\{Lang}\Desktop\$(AssemblyName).dll.lcl</TranslationFile>
-        <LciCommentFile>$(MSBuildThisFileDirectory)..\..\tools\Localization\loc\lci\Desktop\$(AssemblyName).dll.lci</LciCommentFile>
-        <SettingsFile>  <!-- Optional: settings listed here  to specify extra settings files --> 
-            $(MSBuildThisFileDirectory)..\..\tools\Localization\loc\lss\default.lss  <!--uses an LSS for excluding Baml file from MCP sub-parsing--> 
-        </SettingsFile>         
-    </FilesToLocalize>
-  </ItemGroup>
-  <ItemGroup>
-    <FilesToSign Include="$(OutDir)$(AssemblyName).dll">
-        <Authenticode>Microsoft400</Authenticode>
-        <StrongName>StrongName</StrongName>
-    </FilesToSign>
-    <SignFilesDependsOn Include="GatherLocalizedOutputsForSigning"> 
-      <InProject>false</InProject> 
-    </SignFilesDependsOn>
-  </ItemGroup>
-  <Target Name="GatherLocalizedOutputsForSigning" Condition="'$(LocalizationEnabled)' == 'true'"> 
-    <ItemGroup> 
-      <FilesToSign Include="$(OutDir)\localize\**\$(AssemblyName).resources.dll"> 
-        <Authenticode>Microsoft400</Authenticode> 
-        <StrongName>StrongName</StrongName> 
-      </FilesToSign> 
-    </ItemGroup> 
-  </Target>   
   <!-- Generated files -->
   <ItemGroup>
     <TextStringResource Include="Microsoft.OData.Client.txt">
@@ -530,12 +503,4 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.props'))" />
-    <Error Condition="!Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets'))" />
-  </Target>
-  <Import Project="..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets" Condition="Exists('..\..\sln\packages\MicroBuild.Core.0.3.0\build\MicroBuild.Core.targets')" />
 </Project>
